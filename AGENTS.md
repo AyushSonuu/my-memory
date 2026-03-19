@@ -62,21 +62,139 @@ Everything you write must be **instantly recallable** during revision. This is t
 
 ```
 my-memory/
-├── tech/{topic}/         # Technical topics
-├── non-tech/{topic}/     # Non-technical topics  
-├── _maps/                # AUTO-MAINTAINED (crown jewel!)
-├── _revision/            # Spaced repetition
-├── _playlists/           # Video collections
-└── _templates/           # Follow these religiously
+├── README.md                              # 🏠 Portal + stats
+├── AGENTS.md                              # This file (your brain)
+├── .gitignore                             # Excludes OpenClaw workspace files
+│
+├── tech/                                  # All technical topics
+│   ├── README.md                          # 🗺️ Tech mega-map (auto-maintained)
+│   │
+│   ├── kafka/                             # Topic: directly under tech/
+│   │   ├── README.md                      # 🧠 Brain + 🎬 Teach
+│   │   ├── 01-why-kafka.md                # Numbered = teaching order
+│   │   ├── 02-architecture.md
+│   │   ├── 03-producers.md
+│   │   ├── vs.md                          # Comparisons
+│   │   ├── cheatsheet.md                  # One-pager
+│   │   ├── flashcards.md                  # 🃏 Self + children + related
+│   │   ├── _assets/                       # Screenshots, slide images
+│   │   │
+│   │   ├── internals/                     # Sub-topic (3+ lessons deep)
+│   │   │   ├── README.md                  # Same pattern repeats!
+│   │   │   ├── 01-log-segments.md
+│   │   │   ├── 02-replication.md
+│   │   │   └── flashcards.md
+│   │   │
+│   │   └── ecosystem/                     # Another sub-topic
+│   │       ├── README.md
+│   │       ├── 01-kafka-streams.md
+│   │       └── flashcards.md
+│   │
+│   ├── kubernetes/                        # Another topic
+│   ├── docker/
+│   ├── redis/
+│   └── system-design/
+│
+├── non-tech/                              # All non-technical topics
+│   ├── README.md                          # 🗺️ Non-tech mega-map
+│   ├── personal-finance/
+│   └── psychology/
+│
+├── _maps/                                 # 🗺️ AUTO-MAINTAINED (crown jewel!)
+│   ├── everything.md                      # God map — all topics + connections
+│   ├── tech.md                            # Tech knowledge graph
+│   ├── non-tech.md                        # Non-tech knowledge graph
+│   ├── weak-spots.md                      # All 🔴 — where to focus
+│   ├── connections.md                     # Cross-topic links (rolling last 30)
+│   └── learning-journey.md               # Gantt timeline
+│
+├── _revision/                             # Spaced repetition
+│   ├── tracker.json                       # Topic schedules
+│   └── due-today.md                       # What needs revision today
+│
+├── _playlists/                            # YouTube/video collections
+│
+└── _templates/                            # Blueprints — READ before creating!
+    ├── topic-readme.md
+    ├── lesson.md
+    ├── flashcards.md
+    ├── cheatsheet.md
+    └── vs.md
 ```
+
+### Key Structure Rules
+
+**1. Topics go DIRECTLY under `tech/` or `non-tech/`**
+- ✅ `tech/kafka/` `tech/docker/` `tech/redis/`
+- ❌ `tech/messaging/kafka/` — NO grouping folders. Topics at root.
+
+**2. Same pattern at EVERY level (fractal 🪆)**
+Any folder at any level follows this template:
+```
+{any-folder}/
+├── README.md          # 🧠 Brain + 🎬 Teach
+├── 01-xxx.md          # Numbered lessons (teaching order)
+├── 02-xxx.md
+├── flashcards.md      # 🃏 Self + children + related pulls
+├── vs.md              # (optional) comparisons
+├── cheatsheet.md      # (optional) one-pager
+├── _assets/           # (optional) images/screenshots
+└── sub-topic/         # (optional) goes deeper — same pattern
+```
+
+**3. Sub-folders inside topics ONLY when:**
+- An area needs **3+ dedicated lessons**
+- Example: Kafka has enough on internals for 3 files → make `kafka/internals/`
+
+**4. Max depth: 5 levels**
+```
+tech / kafka / internals / kraft / ... STOP
+  1      2        3         4      5 = max
+```
+> Zyada deep gaye toh khud bhool jaoge kaha rakha tha 😄
+
+**5. Every folder MUST have:**
+- `README.md` — mandatory (brain + teach)
+- `flashcards.md` — mandatory (revision is core)
+- Numbered lessons — at least one
+
+### README.md — Dual Purpose (Brain + Teach)
+
+Every topic README has TWO halves:
+
+**🧠 Brain Mode (top):**
+- Mermaid connection graph → how this topic links to others
+- Progress table → confidence per lesson (🟢🟡🔴)
+- Memory fragments → random "aha!" moments accumulated over time
+- Connected topics → links to related folders
+
+**🎬 Teach Mode (bottom):**
+- Numbered lesson flow table → open in order = teach anyone
+- Sources → where the knowledge came from
+- 30-second recall → quick revision paragraph
+
+### Flashcards — Multi-Level Pull System
+
+```
+tech/kafka/flashcards.md
+  ← pulls from: kafka's own lessons
+  ← pulls from: kafka/internals/, kafka/ecosystem/ (children)
+  ← pulls from: ../rabbitmq/, ../redis/ (related topics)
+
+tech/kafka/internals/flashcards.md
+  ← pulls from: internals lessons only (focused)
+```
+
+**Zoom levels for revision:**
+- `kafka/flashcards.md` → broad Kafka quiz
+- `kafka/internals/flashcards.md` → deep internals quiz
+- Multiple topics' cards get cross-pulled for comparison
 
 ### Every Topic Folder MUST Have
 - `README.md` — Brain (connections + memory) + Teach (lesson flow)
 - `flashcards.md` — Q&A pulling from self + related topics
 - Numbered lessons (01-xxx.md, 02-xxx.md...)
-- Optional: `vs.md`, `cheatsheet.md`, `_assets/`, sub-folders (when 3+ lessons deep)
-
-### Max depth: 5 levels. Same pattern repeats at every level.
+- Optional: `vs.md`, `cheatsheet.md`, `_assets/`, sub-folders
 
 ## 🔄 AUTO-SYNC SYSTEM (THE GLUE THAT HOLDS EVERYTHING TOGETHER)
 
