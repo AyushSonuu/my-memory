@@ -1,0 +1,11 @@
+# OpenClaw workspace files (auto-generated, not learning content)
+SOUL.md
+IDENTITY.md
+TOOLS.md
+USER.md
+HEARTBEAT.md
+BOOTSTRAP.md
+.openclaw/
+
+# OS
+.DS_Store
