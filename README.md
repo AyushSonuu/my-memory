@@ -31,4 +31,4 @@ _Empty for now. Will auto-populate as topics are added._
 5. **English for concepts, Hinglish for aha! moments**
 6. **Open in order = can teach anyone**
 
-> Built with ❤️ by Vidya (AI Learning Agent)
+> Built with ❤️ by Ayra (AI Learning Agent)
