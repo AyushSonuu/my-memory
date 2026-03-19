@@ -78,54 +78,77 @@ my-memory/
 
 ### Max depth: 5 levels. Same pattern repeats at every level.
 
-## 🔄 AUTO-SYNC SYSTEM (CRITICAL — THE GLUE THAT HOLDS EVERYTHING TOGETHER)
+## 🔄 AUTO-SYNC SYSTEM (THE GLUE THAT HOLDS EVERYTHING TOGETHER)
 
-Every time you create or edit ANY content, the ENTIRE vault must stay in sync. This is not optional.
+Every time you create or edit ANY content, the vault must stay in sync. But be SMART about it — sync in two tiers.
 
-### What to sync after EVERY create/edit:
+### ⚡ TIER 1: Always Sync (on EVERY edit)
+These are local/cheap — always do them:
 
-#### 1. `_maps/` — The Crown Jewel (auto-maintained knowledge graphs)
+| What | Action |
+|------|--------|
+| **Topic README** | Update brain (connections, progress table, memory fragments) + teach (lesson flow) + sources + 30-sec recall |
+| **Topic flashcards** | Add new Q&A + pull from children + pull from related topics |
+| **Parent flashcards** | If nested, update parent's flashcards too |
+| **`_revision/tracker.json`** | Add/update topic entry with dates + confidence |
+| **Parent folder README** | Update the immediate parent's topic table |
 
-| File | What It Does | How To Update |
-|------|-------------|---------------|
-| `everything.md` | God-level mermaid of ALL topics across tech + non-tech | Add/update node for topic, draw connections to related topics, color by confidence (🟢🟡🔴), update stats dashboard |
-| `tech.md` | Deep tech graph showing topics AND their sub-topics | Add topic node + sub-folder nodes, show internal structure, color by confidence |
-| `non-tech.md` | Same for non-tech | Same pattern |
-| `weak-spots.md` | All 🔴 areas with actionable suggestions | Scan all topics, list anything with 🔴 confidence, suggest next action for each |
-| `connections.md` | Cross-topic relationships + when discovered | Add new `From → To` connections with date + how you found them |
-| `learning-journey.md` | Gantt timeline of what was learned when | Add/update topic entry with start date, duration, section markers |
+### 🗺️ TIER 2: Batch Sync (after a session / when asked / periodically)
+These touch global files — do them at END of a learning session, not after every tiny edit:
 
-**Mermaid confidence colors:**
+| What | Action |
+|------|--------|
+| **`_maps/everything.md`** | Rebuild god-level graph — categories + topics + connections + confidence colors |
+| **`_maps/tech.md`** or **`non-tech.md`** | Rebuild category graph with topics + sub-topics |
+| **`_maps/weak-spots.md`** | Rescan all 🔴 areas + suggestions |
+| **`_maps/connections.md`** | Log new cross-topic connections (keep last 30 only) |
+| **`_maps/learning-journey.md`** | Update gantt timeline |
+| **`tech/README.md`** or **`non-tech/README.md`** | Update category overview map + table |
+| **Root `README.md`** | Update stats (topic count, lessons, flashcards, last updated) |
+| **`_revision/due-today.md`** | Regenerate from tracker.json |
+
+**Why two tiers?** Rewriting 8 global files on every small edit wastes tokens and slows you down. Topic-level files = always. Global views = batched.
+
+### 🚨 SCALING RULES (for when vault grows past ~25 topics)
+
+The `_maps/` will explode if you put everything in one graph. Follow these rules:
+
+**`_maps/everything.md` — Summary, NOT exhaustive:**
+- Show CATEGORIES + topic count + top 5 strongest connections
+- NOT every single topic as a node
+- Link to `tech/README.md` and `non-tech/README.md` for detail
+```markdown
+# At 50+ topics, everything.md looks like:
+Tech (28 topics) → Backend (12) | Frontend (6) | Infra (10)
+Non-Tech (8 topics) → Finance (4) | Psychology (4)
+Top connections: Kafka↔K8s, Docker↔K8s, Redis↔System Design
+```
+
+**`tech/README.md` — Topics only, NOT sub-topics:**
+- Show topic names + confidence + last updated
+- NOT internal sub-folder structure
+- Each topic's own README handles its internal depth
+
+**`connections.md` — Rolling log, NOT infinite:**
+- Keep only last 30 connections
+- Older connections live in topic READMEs (source of truth)
+
+**`learning-journey.md` — Current year only:**
+- Archive older years into `_maps/archive/journey-2026.md`
+
+**Mermaid confidence colors (always):**
 - 🟢 `fill:#4caf50,color:#fff` — Solid understanding
 - 🟡 `fill:#ff9800,color:#fff` — Learning / Okay
 - 🔴 `fill:#f44336,color:#fff` — Weak / Todo
 
-#### 2. Category READMEs — `tech/README.md` or `non-tech/README.md`
-- Update the mermaid mega-map with new/updated topic
-- Update the topics table with confidence + last updated date
+### Spaced Repetition
 
-#### 3. Root `README.md`
-- Update stats: topic count, lesson count, flashcard count, last updated date
-
-#### 4. Topic `README.md` — Brain + Teach (in the topic's own folder)
-- **Brain section:** Update connection graph (mermaid), progress table, memory fragments
-- **Teach section:** Update lesson flow table with new/updated lessons
-- **Sources:** Add source if new material was ingested
-- **Connected Topics:** Add links to related topics discovered
-- **30-Second Recall:** Update the quick recall paragraph
-
-#### 5. `flashcards.md` — Multi-level sync
-- **Topic flashcards:** Add new Q&A for new concepts learned
-- **Pull from children:** If topic has sub-folders, pull their best cards up
-- **Pull from related:** Add cross-topic comparison cards from related topics
-- **Parent flashcards:** If this topic lives inside a parent folder, update parent's flashcards too
-
-#### 6. `_revision/tracker.json` — Spaced Repetition
+Update `_revision/tracker.json`:
 ```json
 {
   "tech/kafka": {
     "firstLearned": "2026-03-20",
-    "lastRevised": "2026-03-20", 
+    "lastRevised": "2026-03-20",
     "nextRevision": "2026-03-23",
     "confidence": "yellow",
     "revisionCount": 0
@@ -134,26 +157,19 @@ Every time you create or edit ANY content, the ENTIRE vault must stay in sync. T
 ```
 Schedule: Day 1 → Day 3 → Day 7 → Day 14 → Day 30 → Day 90
 
-#### 7. `_revision/due-today.md`
-- Regenerate from tracker.json — list all topics where `nextRevision <= today`
-
-### The Sync Checklist (run mentally after EVERY edit)
+### Quick Sync Checklist
 ```
-☐ Topic README updated (brain + teach + sources + connections)
-☐ Topic flashcards updated (self + children + related pulls)
-☐ Parent flashcards updated (if topic is nested)
-☐ _maps/everything.md — god map updated
-☐ _maps/tech.md or non-tech.md — category map updated  
-☐ _maps/weak-spots.md — 🔴 list refreshed
-☐ _maps/connections.md — new connections logged
-☐ _maps/learning-journey.md — timeline updated
-☐ tech/README.md or non-tech/README.md — category overview updated
-☐ Root README.md — stats updated
-☐ _revision/tracker.json — topic entry added/updated
-☐ _revision/due-today.md — regenerated
-```
+EVERY edit:
+  ☐ Topic README updated
+  ☐ Topic flashcards updated  
+  ☐ Parent flashcards updated (if nested)
+  ☐ _revision/tracker.json updated
 
-**If you skip ANY of these, the vault drifts out of sync and becomes unreliable.**
+End of session / when asked:
+  ☐ _maps/* rebuilt
+  ☐ Category + Root READMEs updated
+  ☐ _revision/due-today.md regenerated
+```
 
 ## Git (EVERY time, after all syncs done)
 ```bash
