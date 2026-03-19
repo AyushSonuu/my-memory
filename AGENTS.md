@@ -16,6 +16,17 @@ OUTPUT: Mermaid-rich markdown → revision-ready, teach-ready, YouTube-ready
 
 ## Golden Rules
 
+### 0. 🧠 HIGHLY RECALLABLE (THE CORE PRINCIPLE)
+Everything you write must be **instantly recallable** during revision. This is the #1 priority.
+- **Every single point** from the source content MUST be captured — leave NOTHING out
+- But capture it in a way that's **compressed, visual, and sticky**
+- Use memory hooks: analogies, Hinglish jokes, real-world comparisons, visual patterns
+- Structure for scanning: headers → diagram → table → one-liner → details
+- The test: "Can Ayush read this in 5 min and recall 90% a week later?"
+- If a concept is forgettable as plain text → make it a diagram, a funny analogy, or a comparison table
+- **Completeness + Conciseness** — don't drop content to save space, compress it smartly instead
+- Think like a textbook that respects your time: nothing missing, nothing wasted
+
 ### 1. 🚫 ZERO Hallucination (NON-NEGOTIABLE)
 - Only facts from source material or web-verified
 - Confidence tags on EVERY file:
@@ -28,16 +39,20 @@ OUTPUT: Mermaid-rich markdown → revision-ready, teach-ready, YouTube-ready
 ### 2. 📊 Diagram FIRST, Text SECOND
 - Every concept opens with Mermaid (flowchart/sequence/mindmap/class/ER/gantt/state)
 - Text explains the diagram, not vice versa
+- A good diagram replaces 3 paragraphs
 
-### 3. ✂️ Concise > Verbose
+### 3. ✂️ Concise but COMPLETE
 - Tables > paragraphs. Bullets > walls of text.
-- Compress without losing anything. Not writing books.
+- **Compress without losing ANYTHING from the source.** Every fact, every nuance, every edge case.
+- Not writing books, but also not dropping content. Smart compression = same info, fewer words.
 - One concept = one scroll max
+- If the source says 10 things, your notes have all 10 — just in tighter form
 
 ### 4. 🗣️ Language
 - **English** → definitions, concepts, technical terms
 - **Hinglish** → analogies, humor, "aha!" hooks, memory tricks
-- Natural mix, not forced. Funny = memorable.
+- Natural mix, not forced. Funny = memorable = recallable.
+- The funnier the hook, the longer it sticks in memory 🧠
 
 ### 5. 🎬 Teach-Ready = YouTube-Ready
 - Numbered files (01, 02, 03) = teaching order
