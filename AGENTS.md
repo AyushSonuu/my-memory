@@ -78,45 +78,98 @@ my-memory/
 
 ### Max depth: 5 levels. Same pattern repeats at every level.
 
-## 🗺️ AUTO-MAINTAIN MAPS (CRITICAL — DO THIS EVERY TIME!)
+## 🔄 AUTO-SYNC SYSTEM (CRITICAL — THE GLUE THAT HOLDS EVERYTHING TOGETHER)
 
-After EVERY create/edit, update ALL of these:
+Every time you create or edit ANY content, the ENTIRE vault must stay in sync. This is not optional.
 
-| File | What |
-|------|------|
-| `_maps/everything.md` | God-level mermaid of ALL topics + confidence colors |
-| `_maps/tech.md` or `_maps/non-tech.md` | Category deep graph with sub-topics |
-| `_maps/weak-spots.md` | All 🔴 areas + suggestions |
-| `_maps/connections.md` | Cross-topic links + discovery dates |
-| `_maps/learning-journey.md` | Gantt timeline |
-| `tech/README.md` or `non-tech/README.md` | Category overview |
-| Root `README.md` | Stats update |
+### What to sync after EVERY create/edit:
+
+#### 1. `_maps/` — The Crown Jewel (auto-maintained knowledge graphs)
+
+| File | What It Does | How To Update |
+|------|-------------|---------------|
+| `everything.md` | God-level mermaid of ALL topics across tech + non-tech | Add/update node for topic, draw connections to related topics, color by confidence (🟢🟡🔴), update stats dashboard |
+| `tech.md` | Deep tech graph showing topics AND their sub-topics | Add topic node + sub-folder nodes, show internal structure, color by confidence |
+| `non-tech.md` | Same for non-tech | Same pattern |
+| `weak-spots.md` | All 🔴 areas with actionable suggestions | Scan all topics, list anything with 🔴 confidence, suggest next action for each |
+| `connections.md` | Cross-topic relationships + when discovered | Add new `From → To` connections with date + how you found them |
+| `learning-journey.md` | Gantt timeline of what was learned when | Add/update topic entry with start date, duration, section markers |
 
 **Mermaid confidence colors:**
-- 🟢 `fill:#4caf50,color:#fff` — Solid
-- 🟡 `fill:#ff9800,color:#fff` — Learning
-- 🔴 `fill:#f44336,color:#fff` — Weak/Todo
+- 🟢 `fill:#4caf50,color:#fff` — Solid understanding
+- 🟡 `fill:#ff9800,color:#fff` — Learning / Okay
+- 🔴 `fill:#f44336,color:#fff` — Weak / Todo
 
-## Spaced Repetition
+#### 2. Category READMEs — `tech/README.md` or `non-tech/README.md`
+- Update the mermaid mega-map with new/updated topic
+- Update the topics table with confidence + last updated date
 
-Update `_revision/tracker.json`:
+#### 3. Root `README.md`
+- Update stats: topic count, lesson count, flashcard count, last updated date
+
+#### 4. Topic `README.md` — Brain + Teach (in the topic's own folder)
+- **Brain section:** Update connection graph (mermaid), progress table, memory fragments
+- **Teach section:** Update lesson flow table with new/updated lessons
+- **Sources:** Add source if new material was ingested
+- **Connected Topics:** Add links to related topics discovered
+- **30-Second Recall:** Update the quick recall paragraph
+
+#### 5. `flashcards.md` — Multi-level sync
+- **Topic flashcards:** Add new Q&A for new concepts learned
+- **Pull from children:** If topic has sub-folders, pull their best cards up
+- **Pull from related:** Add cross-topic comparison cards from related topics
+- **Parent flashcards:** If this topic lives inside a parent folder, update parent's flashcards too
+
+#### 6. `_revision/tracker.json` — Spaced Repetition
 ```json
-{ "topic": { "firstLearned": "date", "lastRevised": "date", "nextRevision": "date", "confidence": "green|yellow|red", "revisionCount": 0 } }
+{
+  "tech/kafka": {
+    "firstLearned": "2026-03-20",
+    "lastRevised": "2026-03-20", 
+    "nextRevision": "2026-03-23",
+    "confidence": "yellow",
+    "revisionCount": 0
+  }
+}
 ```
-Schedule: Day 1 → 3 → 7 → 14 → 30 → 90
+Schedule: Day 1 → Day 3 → Day 7 → Day 14 → Day 30 → Day 90
 
-## Git (EVERY time)
-```bash
-git add -A && git commit -m "{emoji} {action}: {topic}" && git push origin main
+#### 7. `_revision/due-today.md`
+- Regenerate from tracker.json — list all topics where `nextRevision <= today`
+
+### The Sync Checklist (run mentally after EVERY edit)
 ```
-Emojis: 🆕 new | 📝 update | 🃏 flashcards | 🗺️ maps | 🔄 revision | 🔗 connections
+☐ Topic README updated (brain + teach + sources + connections)
+☐ Topic flashcards updated (self + children + related pulls)
+☐ Parent flashcards updated (if topic is nested)
+☐ _maps/everything.md — god map updated
+☐ _maps/tech.md or non-tech.md — category map updated  
+☐ _maps/weak-spots.md — 🔴 list refreshed
+☐ _maps/connections.md — new connections logged
+☐ _maps/learning-journey.md — timeline updated
+☐ tech/README.md or non-tech/README.md — category overview updated
+☐ Root README.md — stats updated
+☐ _revision/tracker.json — topic entry added/updated
+☐ _revision/due-today.md — regenerated
+```
+
+**If you skip ANY of these, the vault drifts out of sync and becomes unreliable.**
+
+## Git (EVERY time, after all syncs done)
+```bash
+git add -A && git commit -m "{emoji} {action}: {topic} — {brief}" && git push origin main
+```
+Emojis: 🆕 new topic | 📝 update existing | 🃏 flashcards | 🗺️ maps | 🔄 revision | 🔗 connections
 
 ## Templates
-Always follow `_templates/` blueprints. Read them before creating content.
+Always read and follow `_templates/` blueprints before creating content. They are the law.
 
 ## DON'T
-- ❌ Invent facts
-- ❌ Write long paragraphs when tables work
-- ❌ Skip diagrams  
-- ❌ Forget `_maps/` updates
+- ❌ Invent facts not in source material
+- ❌ Write paragraphs when tables work
+- ❌ Skip diagrams — EVER
+- ❌ Forget `_maps/` updates — THIS IS THE #1 MISTAKE
+- ❌ Drop content from source to save space — compress, don't drop
+- ❌ Leave flashcards without cross-topic pulls
+- ❌ Skip the sync checklist
 - ❌ Make boring content — boring = no revision = wasted effort
