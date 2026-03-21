@@ -62,24 +62,25 @@ A **layered composition of tools and technologies** forming a system architectur
 
 ## 🧠 Memory Layer = Memory Core + Memory Manager
 
-```
-┌─── Agent Stack ─────────────────────────┐
-│  ┌──────────────────────┐               │
-│  │  Infrastructure Layer │               │
-│  ├──────────────────────┤               │
-│  │  Application Layer    │               │
-│  ├──────────────────────┤               │
-│  │  Memory Layer         │──────┐        │
-│  └──────────────────────┘      │        │
-│                                ▼        │
-│         ┌────────────────────────┐      │
-│         │   Memory Core          │      │
-│         │   (DB tables, stores)  │      │
-│         ├────────────────────────┤      │
-│         │   Memory Manager       │      │
-│         │   (CRUD logic, flows)  │      │
-│         └────────────────────────┘      │
-└─────────────────────────────────────────┘
+```mermaid
+graph TD
+    subgraph STACK ["🏗️ Agent Stack"]
+        APP["📱 Application Layer"]
+        ML["🧠 Memory Layer"]
+        INFRA["⚙️ Infrastructure Layer"]
+    end
+
+    ML --> MC["🗄️ <b>Memory Core</b><br/><i>DB tables, vector stores</i><br/>Where data lives"]
+    ML --> MM["🎛️ <b>Memory Manager</b><br/><i>CRUD logic, control flows</i><br/>What becomes memory,<br/>how & when it's recalled"]
+
+    MC <-->|"read/write"| MM
+
+    style STACK fill:#f5f5f5,color:#333,stroke:#616161
+    style APP fill:#42a5f5,color:#fff,stroke:#1565c0
+    style ML fill:#ff9800,color:#fff,stroke:#e65100,stroke-width:3px
+    style INFRA fill:#78909c,color:#fff,stroke:#37474f
+    style MC fill:#4caf50,color:#fff,stroke:#388e3c
+    style MM fill:#e91e63,color:#fff,stroke:#880e4f
 ```
 
 > **Memory Core** = the actual DB tables (covered in L02)
@@ -211,12 +212,26 @@ The Memory Manager holds CRUD methods for EACH memory type stored in the DB.
 
 **Memory Engineering = intersection of 4 existing disciplines:**
 
-| Discipline | What it contributes |
-|-----------|-------------------|
-| 🗄️ **Database Engineering** | Persistent Storage, Typed Schemas, ACID Transactions, Multi-Store Architecture |
-| 🤖 **Agent Engineering** | Memory Lifecycle, Write-Back Loops, Memory Extraction, Autonomous Consolidation, Context-Aware Routing |
-| 🧪 **Machine Learning Engineering** | Embedding Models, Fine-Tuning (SLMs), Model Versioning, Reranking Pipelines, Continual Learning |
-| 🔍 **Information Retrieval** | Hybrid Search, Vector Indexes (HNSW, IVF), Relevance Ranking, Context Assembly, Query Optimization |
+```mermaid
+graph TD
+    ME["🧠 <b>Memory Engineering</b><br/><i>Stateful, learning-capable AI systems</i>"]
+
+    DB["🗄️ <b>Database Engineering</b><br/>Persistent Storage · ACID<br/>Typed Schemas · Multi-Store Arch"]
+    AE["🤖 <b>Agent Engineering</b><br/>Memory Lifecycle · Write-Back Loops<br/>Extraction · Consolidation · Routing"]
+    MLE["🧪 <b>ML Engineering</b><br/>Embeddings · Fine-Tuning SLMs<br/>Model Versioning · Reranking · Continual Learning"]
+    IR["🔍 <b>Information Retrieval</b><br/>Hybrid Search · Vector Indexes (HNSW, IVF)<br/>Relevance Ranking · Query Optimization"]
+
+    DB --> ME
+    AE --> ME
+    MLE --> ME
+    IR --> ME
+
+    style ME fill:#ff9800,color:#fff,stroke:#e65100,stroke-width:3px
+    style DB fill:#4caf50,color:#fff,stroke:#388e3c
+    style AE fill:#2196f3,color:#fff,stroke:#1565c0
+    style MLE fill:#9c27b0,color:#fff,stroke:#6a1b9a
+    style IR fill:#f44336,color:#fff,stroke:#c62828
+```
 
 > 💡 Nothing new here — just existing disciplines combined for a specific purpose: **stateful, learning-capable AI systems**.
 
@@ -226,37 +241,25 @@ The Memory Manager holds CRUD methods for EACH memory type stored in the DB.
 
 The continuous loop that makes an agent **learn over time**:
 
-```
-  ┌──────────────┐     ┌──────────────────────┐     ┌────────────────────┐
-  │ 1. AGGREGATE │     │ 2. REPRESENT &       │     │ 3. STORE           │
-  │ & INGEST     │────►│    ENRICH             │────►│                    │
-  │              │     │                      │     │  Oracle AI DB      │
-  │ Collect from │     │ Vector embeddings +  │     │  Short-term context│
-  │ multiple     │     │ metadata             │     │  Medium-term       │
-  │ sources      │     │ (timestamps, intent, │     │  Long-term behavior│
-  │ (Raw Data)   │     │  semantics, info)    │     │                    │
-  └──────────────┘     └──────────────────────┘     └────────┬───────────┘
-        ▲                                                     │
-        │                                                     ▼
-  ┌──────────────┐     ┌──────────────────────┐     ┌────────────────────┐
-  │SERIALIZATION │     │       LLM            │     │ 4. ORGANIZE        │
-  │& AUGMENTATION│◄────│  Inference,          │◄────│                    │
-  │              │     │  Processing &        │     │  Modelling,        │
-  │ Enrich output│     │  Reasoning           │     │  Indexing,         │
-  │ to be stored │     │                      │     │  Relationships     │
-  │ back in DB   │     │  Retrieved Memory    │     │  (temporal,        │
-  └──────────────┘     │  & Context → here    │     │   semantic,        │
-                       └──────────────────────┘     │   relational)      │
-                              ▲                     └────────┬───────────┘
-                              │                              │
-                       ┌──────┴───────────┐                  │
-                       │ 5. RETRIEVE      │◄─────────────────┘
-                       │                  │
-                       │ Text/Lexical     │
-                       │ Vector Similarity│
-                       │ Graph Traversal  │
-                       │ Hybrid           │
-                       └──────────────────┘
+```mermaid
+graph LR
+    ING["📥 <b>1. Ingest</b><br/>Collect from<br/>multiple sources"]
+    ENR["🔢 <b>2. Enrich</b><br/>Vector embeddings +<br/>metadata (intent,<br/>timestamps, semantics)"]
+    STO["🗄️ <b>3. Store</b><br/>Short-term ·<br/>Medium-term ·<br/>Long-term"]
+    ORG["🗂️ <b>4. Organize</b><br/>Indexing ·<br/>Relationship mapping<br/>(temporal, semantic,<br/>relational)"]
+    RET["🔍 <b>5. Retrieve</b><br/>Text/Lexical ·<br/>Vector Similarity ·<br/>Graph Traversal ·<br/>Hybrid"]
+    LLM["🤖 <b>LLM</b><br/>Inference &<br/>Reasoning"]
+    SER["✨ <b>Serialize &<br/>Augment</b><br/>Enrich LLM output<br/>for storage"]
+
+    ING --> ENR --> STO --> ORG --> RET --> LLM --> SER --> STO
+
+    style ING fill:#2196f3,color:#fff,stroke:#1565c0
+    style ENR fill:#00bcd4,color:#fff,stroke:#00838f
+    style STO fill:#4caf50,color:#fff,stroke:#388e3c,stroke-width:3px
+    style ORG fill:#8bc34a,color:#fff,stroke:#558b2f
+    style RET fill:#ff9800,color:#fff,stroke:#e65100
+    style LLM fill:#f44336,color:#fff,stroke:#c62828,stroke-width:3px
+    style SER fill:#9c27b0,color:#fff,stroke:#6a1b9a
 ```
 
 **Key insight:** LLM **output** can also become new memory → goes through Serialization → Augmentation → back into Storage → Organization → Retrieval → LLM again. **Continuous learning cycle!**
@@ -269,41 +272,32 @@ The continuous loop that makes an agent **learn over time**:
 
 The **evolution path** from basic to fully memory-aware:
 
-```
-  ┌──────────────────────────────────────────────────┐
-  │  Naive Memory Augmented Agent                     │
-  │  (only conversational memory / interaction history)│
-  └──────────────────┬───────────────────────────────┘
-                     ▼
-  ┌──────────────────────────────────────────────────┐
-  │  Add explicit memory type allocation              │
-  │  (conversational + workflow + toolbox + entity...) │
-  └──────────────────┬───────────────────────────────┘
-                     ▼
-  ╔══════════════════════════════════════════════════╗
-  ║  MEMORY AUGMENTED AGENT ✅                       ║
-  ║  Retrieves from multiple memory stores           ║
-  ╚══════════════════╤═══════════════════════════════╝
-                     │
-    4 steps to Memory Aware:
-                     │
-    ┌────────────────┼────────────────────────────┐
-    │  1. Memory Store Awareness via System Prompt │
-    ├────────────────┼────────────────────────────┤
-    │  2. Agent-triggered memory operations        │
-    │     (mem ops as tools — agent decides)        │
-    ├────────────────┼────────────────────────────┤
-    │  3. Memory lifecycle reasoning               │
-    │     (agent reasons THROUGH the lifecycle)     │
-    ├────────────────┼────────────────────────────┤
-    │  4. Context Window Segmentation              │
-    │     (partitions for specific memory types)    │
-    └────────────────┼────────────────────────────┘
-                     ▼
-  ╔══════════════════════════════════════════════════╗
-  ║  MEMORY AWARE AGENT 🧠                          ║
-  ║  Knows its memory, controls it, reasons with it  ║
-  ╚══════════════════════════════════════════════════╝
+```mermaid
+graph TD
+    NAIVE["🐟 <b>Naive</b><br/>Only conversational memory<br/>(interaction history)"]
+    AUG["✅ <b>Memory Augmented</b><br/>Multiple memory stores<br/>(conv + workflow + toolbox<br/>+ entity + KB + summary)"]
+    
+    NAIVE -->|"add explicit<br/>memory type allocation"| AUG
+
+    AUG -->|"4 steps"| S1["1️⃣ Memory Store Awareness<br/>via System Prompt"]
+    AUG -->|"4 steps"| S2["2️⃣ Agent-Triggered Ops<br/>Memory ops as tools"]
+    AUG -->|"4 steps"| S3["3️⃣ Lifecycle Reasoning<br/>Agent reasons THROUGH<br/>the memory lifecycle"]
+    AUG -->|"4 steps"| S4["4️⃣ Context Window Segmentation<br/>Partitions for specific<br/>memory types"]
+
+    S1 --> AWARE
+    S2 --> AWARE
+    S3 --> AWARE
+    S4 --> AWARE
+
+    AWARE["🧠 <b>Memory Aware Agent</b><br/>Knows its memory · Controls it<br/>Reasons with it"]
+
+    style NAIVE fill:#f44336,color:#fff,stroke:#c62828
+    style AUG fill:#ff9800,color:#fff,stroke:#e65100,stroke-width:2px
+    style AWARE fill:#4caf50,color:#fff,stroke:#388e3c,stroke-width:3px
+    style S1 fill:#e3f2fd,color:#333,stroke:#1565c0
+    style S2 fill:#e3f2fd,color:#333,stroke:#1565c0
+    style S3 fill:#e3f2fd,color:#333,stroke:#1565c0
+    style S4 fill:#e3f2fd,color:#333,stroke:#1565c0
 ```
 
 | Level | What it has | What it adds |
