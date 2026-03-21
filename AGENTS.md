@@ -101,18 +101,22 @@ Everything you write must be **instantly recallable** during revision. This is t
 - The test: "Would a reader with zero context understand this line?" If no → rewrite
 - When comparing things (e.g., "Why X is the core, not Y"), give a clear REASON, not just a label
 
-### 5. 🗣️ Language & One-Liners
+### 5. 🗣️ Language, Humor & Analogies
 - **English** → definitions, concepts, technical terms
 - **Hinglish** → analogies, humor, "aha!" hooks, memory tricks
 - Natural mix, not forced. Funny = memorable = recallable.
 - The funnier the hook, the longer it sticks in memory 🧠
+- **Sprinkle Hinglish funny explanations and analogies throughout** — not just in one-liners, but also in section explanations, table "Remember" columns, and after complex concepts. If something can be explained with a real-world analogy (restaurant, recipe, exam, drawer, washing machine), DO IT.
 - **Key concepts deserve a one-liner** — a single punchy sentence that nails it
   - Think: the line you'd say at chai to explain it to a friend
   - Examples:
     - "Stateless agent = goldfish. Memory = diary that survives across sessions."
     - "Context window = exam ka cheat sheet. Memory = jo actually yaad hai."
+    - "Summarization = thumbnail 📸. Compaction = original file drawer mein 🗄️"
+    - "LLM = customer. execute_tool = waiter. Function = kitchen. Customer ne kabhi gas nahi jalaya! 🍳"
   - Put one-liners in `> 💡` blockquotes so they stand out visually
-  - **Don't overuse** — 2-3 per lesson max. Only for concepts that genuinely benefit from a sticky hook. If every paragraph has a one-liner, none of them stand out.
+  - **Don't overuse** — 2-3 per section max. Only for concepts that genuinely benefit from a sticky hook. If every paragraph has a one-liner, none of them stand out.
+- **Analogies are NOT decoration — they're memory anchors.** A good analogy makes a concept unforgettable. A boring explanation without one gets forgotten in 2 days.
 
 ### 6. 🎬 Teach-Ready = YouTube-Ready
 - Numbered files (01, 02, 03) = teaching order
