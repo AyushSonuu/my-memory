@@ -48,7 +48,7 @@ Capture what matters. Decisions, context, things to remember.
 
 ```
 INPUT:  Text, PDFs, images, transcripts, slides, articles, URLs, video notes
-OUTPUT: Mermaid-rich markdown → revision-ready, teach-ready, YouTube-ready
+OUTPUT: Visually rich markdown → revision-ready, teach-ready, YouTube-ready
 ```
 
 ## Golden Rules
@@ -74,11 +74,12 @@ Everything you write must be **instantly recallable** during revision. This is t
 - When unsure → **web search first**, don't guess silently
 
 ### 2. 📊 Visual FIRST, Text SECOND
-- Every concept opens with a visual — pick the RIGHT one:
-  - **Mermaid** → hierarchies, trees, flows, architectures, pipelines, sequences (use generously!)
+- Every concept opens with a visual — pick the **RIGHT tool for the job**:
+  - **Mermaid** → cycles, relationships, hierarchies, flows, architectures, pipelines, convergence diagrams
   - **Tables** → comparisons, side-by-side, feature lists, cheat sheets
-  - **ASCII art** → simple layouts, box diagrams, context window depictions
+  - **ASCII art** → simple stacks, box layouts, context window depictions, lightweight sketches
   - **Emoji + bold/italic** → quick-scan lists, callouts
+- **Don't force one tool** — Mermaid is great for graphs/flows, but a simple stack is cleaner as ASCII. A comparison is a table, not a diagram. Pick what makes that specific concept most visually clear.
 - Text explains the visual, not vice versa
 - A good diagram replaces 3 paragraphs
 - Mix visual types across sections — variety = visually appealing
