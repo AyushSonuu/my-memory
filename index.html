@@ -9,10 +9,8 @@
     <style>
         :root {
             --bg: #0a0e17;
-            --bg-gradient: linear-gradient(135deg, #0a0e17 0%, #111827 50%, #0a0e17 100%);
             --surface: #151c2c;
             --surface-hover: #1a2340;
-            --surface-glow: rgba(255, 152, 0, 0.04);
             --border: #1e293b;
             --border-hover: #334155;
             --text: #f1f5f9;
@@ -27,7 +25,6 @@
             --purple: #a855f7;
             --purple-glow: rgba(168, 85, 247, 0.12);
             --red: #ef4444;
-            --shadow: 0 4px 24px rgba(0,0,0,0.3);
             --shadow-lg: 0 8px 40px rgba(0,0,0,0.4);
         }
 
@@ -45,10 +42,8 @@
         /* Animated background */
         .bg-glow {
             position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
             background: radial-gradient(circle at 30% 20%, rgba(245,158,11,0.03) 0%, transparent 50%),
                         radial-gradient(circle at 70% 80%, rgba(59,130,246,0.03) 0%, transparent 50%);
             pointer-events: none;
@@ -61,6 +56,11 @@
             50% { transform: translate(-2%, -1%); }
         }
 
+        @keyframes fadeInDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes fadeInUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+        @keyframes pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.05); } }
+
         .container {
             max-width: 960px;
             margin: 0 auto;
@@ -69,68 +69,87 @@
             z-index: 1;
         }
 
-        /* Header */
-        .header {
+        /* ===== HERO ===== */
+        .hero {
             text-align: center;
-            padding: 4rem 0 2.5rem;
+            padding: 3.5rem 0 1.5rem;
             animation: fadeInDown 0.6s ease-out;
         }
 
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .header .logo {
+        .hero .logo {
             font-size: 3.5rem;
             margin-bottom: 0.5rem;
             animation: pulse 3s ease-in-out infinite;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .header h1 {
-            font-size: 2.8rem;
+        .hero h1 {
+            font-size: 3rem;
             font-weight: 800;
-            margin-bottom: 0.4rem;
             letter-spacing: -0.03em;
             background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            margin-bottom: 0.75rem;
         }
 
-        .header .subtitle {
+        .hero .quote {
             color: var(--text-muted);
             font-size: 1.05rem;
-            font-weight: 400;
             font-style: italic;
-            opacity: 0.7;
-            max-width: 500px;
-            margin: 0 auto;
-            letter-spacing: 0.01em;
+            opacity: 0.75;
+            max-width: 520px;
+            margin: 0 auto 0.3rem;
         }
 
-        /* Stats */
-        .stats {
+        .hero .motto {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        /* ===== PROFILE STRIP ===== */
+        .profile {
             display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 1rem;
-            margin: 2.5rem 0;
+            gap: 0.5rem;
             flex-wrap: wrap;
+            margin: 1.75rem 0;
+            animation: fadeIn 0.6s ease-out 0.1s both;
+        }
+
+        .profile-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 0.35rem 0.85rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .profile-chip:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(245,158,11,0.05);
+        }
+
+        .profile-chip .chip-icon { font-size: 0.9rem; }
+
+        /* ===== STATS ===== */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+            margin: 2rem 0;
             animation: fadeInUp 0.6s ease-out 0.15s both;
         }
 
@@ -138,9 +157,8 @@
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 14px;
-            padding: 1.25rem 2rem;
+            padding: 1.1rem 0.75rem;
             text-align: center;
-            min-width: 120px;
             transition: all 0.25s ease;
         }
 
@@ -151,72 +169,69 @@
         }
 
         .stat-value {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 800;
             color: var(--accent);
             line-height: 1.1;
         }
 
         .stat-label {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--text-dim);
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            margin-top: 0.25rem;
+            margin-top: 0.2rem;
             font-weight: 600;
         }
 
-        /* Revision banner */
+        /* ===== REVISION BANNER ===== */
         .revision-banner {
             background: linear-gradient(135deg, rgba(245,158,11,0.08) 0%, rgba(245,158,11,0.03) 100%);
             border: 1px solid rgba(245,158,11,0.2);
             border-radius: 12px;
-            padding: 1rem 1.5rem;
+            padding: 0.85rem 1.25rem;
             margin-bottom: 2.5rem;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.6rem;
             animation: fadeIn 0.6s ease-out 0.3s both;
         }
 
-        .revision-banner .icon { font-size: 1.3rem; }
+        .revision-banner .icon { font-size: 1.1rem; }
         .revision-banner strong { color: var(--accent); }
 
-        /* Section */
-        .section {
-            margin: 3rem 0;
-            animation: fadeInUp 0.6s ease-out both;
-        }
-
-        .section:nth-child(4) { animation-delay: 0.4s; }
-        .section:nth-child(5) { animation-delay: 0.5s; }
-        .section:nth-child(6) { animation-delay: 0.6s; }
+        /* ===== SECTIONS ===== */
+        .section { margin: 2.5rem 0; animation: fadeInUp 0.6s ease-out both; }
+        .section:nth-child(5) { animation-delay: 0.35s; }
+        .section:nth-child(6) { animation-delay: 0.4s; }
+        .section:nth-child(7) { animation-delay: 0.45s; }
+        .section:nth-child(8) { animation-delay: 0.5s; }
+        .section:nth-child(9) { animation-delay: 0.55s; }
 
         .section-title {
-            font-size: 1.2rem;
+            font-size: 0.8rem;
             font-weight: 700;
-            margin-bottom: 1.25rem;
-            padding-bottom: 0.6rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
             border-bottom: 1px solid var(--border);
-            color: var(--text-muted);
+            color: var(--text-dim);
             text-transform: uppercase;
-            letter-spacing: 0.04em;
-            font-size: 0.85rem;
+            letter-spacing: 0.06em;
         }
 
-        /* Topic cards */
+        /* ===== TOPIC CARDS ===== */
         .topic-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.25rem;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 1.1rem;
         }
 
         .topic-card {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 1.75rem;
+            padding: 1.5rem;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
             color: var(--text);
@@ -228,9 +243,7 @@
         .topic-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 3px;
             background: linear-gradient(90deg, var(--accent), var(--blue));
             opacity: 0;
@@ -249,26 +262,21 @@
         .topic-card .card-header {
             display: flex;
             align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 0.75rem;
+            gap: 0.85rem;
+            margin-bottom: 0.6rem;
         }
 
-        .topic-card .emoji {
-            font-size: 2.5rem;
-            line-height: 1;
-            flex-shrink: 0;
-        }
-
+        .topic-card .emoji { font-size: 2.2rem; line-height: 1; flex-shrink: 0; }
         .topic-card .card-info { flex: 1; }
-        .topic-card .name { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.15rem; }
-        .topic-card .meta { color: var(--text-dim); font-size: 0.85rem; }
+        .topic-card .name { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.1rem; }
+        .topic-card .meta { color: var(--text-dim); font-size: 0.8rem; }
 
         .topic-card .progress-bar {
             height: 3px;
             background: var(--border);
             border-radius: 3px;
             overflow: hidden;
-            margin: 0.75rem 0;
+            margin: 0.65rem 0;
         }
 
         .topic-card .progress-fill {
@@ -277,13 +285,13 @@
             background: linear-gradient(90deg, var(--green), var(--accent));
         }
 
-        .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.75rem; }
+        .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.6rem; }
 
         .tag {
             display: inline-block;
-            padding: 0.2rem 0.6rem;
+            padding: 0.15rem 0.55rem;
             border-radius: 6px;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 600;
             letter-spacing: 0.02em;
         }
@@ -293,15 +301,15 @@
         .tag-python { background: var(--blue-glow); color: var(--blue); }
         .tag-ai { background: var(--purple-glow); color: var(--purple); }
 
-        /* Lessons */
-        .lessons { list-style: none; margin-top: 0.5rem; }
+        /* Lessons inside card */
+        .lessons { list-style: none; margin-top: 0.4rem; }
 
         .lessons li {
-            padding: 0.35rem 0;
-            font-size: 0.85rem;
+            padding: 0.25rem 0;
+            font-size: 0.8rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.45rem;
         }
 
         .lessons li a {
@@ -310,39 +318,39 @@
             transition: all 0.15s;
         }
 
-        .lessons li a:hover { color: var(--accent); padding-left: 4px; }
+        .lessons li a:hover { color: var(--accent); padding-left: 3px; }
 
         .lessons li .num {
             color: var(--text-dim);
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 700;
             background: rgba(255,255,255,0.05);
             border-radius: 4px;
-            padding: 0.1rem 0.4rem;
-            min-width: 1.6rem;
+            padding: 0.1rem 0.35rem;
+            min-width: 1.4rem;
             text-align: center;
         }
 
-        /* Quick links */
+        /* ===== PILLS / LINK GRID ===== */
         .link-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.6rem;
+            gap: 0.5rem;
         }
 
         .pill {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 10px;
-            padding: 0.55rem 1.1rem;
+            padding: 0.5rem 1rem;
             text-decoration: none;
             color: var(--text-muted);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 500;
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 0.35rem;
         }
 
         .pill:hover {
@@ -352,40 +360,41 @@
             transform: translateY(-1px);
         }
 
-        .pill .pill-icon { font-size: 1rem; }
+        .pill .pi { font-size: 0.9rem; }
 
-        /* Divider */
+        /* ===== DIVIDER ===== */
         .divider {
             height: 1px;
             background: linear-gradient(90deg, transparent, var(--border), transparent);
             margin: 2rem 0;
         }
 
-        /* Footer */
+        /* ===== FOOTER ===== */
         .footer {
             text-align: center;
             padding: 2.5rem 0 2rem;
             color: var(--text-dim);
             font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+            margin-top: 2rem;
         }
 
         .footer a { color: var(--accent); text-decoration: none; font-weight: 500; }
         .footer a:hover { text-decoration: underline; }
+        .footer .line { margin-bottom: 0.35rem; }
 
-        .footer .made-with {
-            margin-bottom: 0.4rem;
-        }
-
-        /* Responsive */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 640px) {
-            .header .logo { font-size: 2.5rem; }
-            .header h1 { font-size: 2rem; }
-            .stats { gap: 0.75rem; }
-            .stat { padding: 1rem 1.25rem; min-width: 90px; }
-            .stat-value { font-size: 1.6rem; }
+            .hero .logo { font-size: 2.5rem; }
+            .hero h1 { font-size: 2.1rem; }
+            .hero .quote { font-size: 0.9rem; }
+            .stats { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+            .stat { padding: 0.85rem 0.5rem; }
+            .stat-value { font-size: 1.5rem; }
             .container { padding: 1.25rem 1rem; }
             .topic-grid { grid-template-columns: 1fr; }
-            .topic-card .emoji { font-size: 2rem; }
+            .profile { gap: 0.4rem; }
+            .profile-chip { font-size: 0.72rem; padding: 0.3rem 0.65rem; }
         }
     </style>
 </head>
@@ -393,11 +402,28 @@
     <div class="bg-glow"></div>
     <div class="container">
 
-        <!-- Header -->
-        <div class="header">
+        <!-- Hero -->
+        <div class="hero">
             <div class="logo">🧠</div>
             <h1>My Memory</h1>
-            <p class="subtitle">"The best time to learn was yesterday. The second best time is now."</p>
+            <p class="quote">"Every expert was once a beginner who didn't quit."</p>
+            <p class="motto">Keep upskilling · Keep rolling · The eureka moment is one lesson away</p>
+        </div>
+
+        <!-- Profile -->
+        <div class="profile">
+            <a href="https://github.com/AyushSonuu" class="profile-chip" target="_blank">
+                <span class="chip-icon">👤</span> Ayush Sonu
+            </a>
+            <a href="https://github.com/AyushSonuu" class="profile-chip" target="_blank">
+                <span class="chip-icon">🐙</span> AyushSonuu
+            </a>
+            <a href="mailto:sonuayush55@gmail.com" class="profile-chip">
+                <span class="chip-icon">📧</span> sonuayush55@gmail.com
+            </a>
+            <a href="https://www.linkedin.com/in/ayush-sonu" class="profile-chip" target="_blank">
+                <span class="chip-icon">💼</span> LinkedIn
+            </a>
         </div>
 
         <!-- Stats -->
@@ -432,19 +458,19 @@
             <div class="topic-grid">
 
                 <!-- Agent Memory -->
-                <a href="tech/agent-memory/" class="topic-card">
+                <a href="viewer.html?path=tech/agent-memory/README.md" class="topic-card">
                     <div class="card-header">
                         <span class="emoji">🧠</span>
                         <div class="card-info">
                             <div class="name">Agent Memory</div>
-                            <div class="meta">DeepLearning.AI × Oracle</div>
+                            <div class="meta">DeepLearning.AI × Oracle · 7 lessons</div>
                         </div>
                     </div>
                     <div class="progress-bar"><div class="progress-fill" style="width:100%;"></div></div>
                     <div class="tags">
                         <span class="tag tag-done">7/7 ✅</span>
                         <span class="tag tag-ai">AI Agents</span>
-                        <span class="tag tag-learning">Revise by Mar 24</span>
+                        <span class="tag tag-learning">Revise Mar 24</span>
                     </div>
                     <ul class="lessons">
                         <li><span class="num">01</span><a href="viewer.html?path=tech/agent-memory/01-introduction.md">Introduction</a></li>
@@ -458,19 +484,19 @@
                 </a>
 
                 <!-- AsyncIO -->
-                <a href="tech/python/asyncio/" class="topic-card">
+                <a href="viewer.html?path=tech/python/asyncio/README.md" class="topic-card">
                     <div class="card-header">
                         <span class="emoji">⚡</span>
                         <div class="card-info">
                             <div class="name">AsyncIO</div>
-                            <div class="meta">Corey Schafer · Python</div>
+                            <div class="meta">Corey Schafer · Python · 1hr 42min</div>
                         </div>
                     </div>
                     <div class="progress-bar"><div class="progress-fill" style="width:100%;"></div></div>
                     <div class="tags">
                         <span class="tag tag-done">1/1 ✅</span>
                         <span class="tag tag-python">Python</span>
-                        <span class="tag tag-learning">Revise by Mar 24</span>
+                        <span class="tag tag-learning">Revise Mar 24</span>
                     </div>
                     <ul class="lessons">
                         <li><span class="num">01</span><a href="viewer.html?path=tech/python/asyncio/01-asyncio-complete-guide.md">Complete Guide</a></li>
@@ -482,47 +508,47 @@
 
         <div class="divider"></div>
 
-        <!-- Quick Links -->
+        <!-- Vault Navigation -->
         <div class="section">
-            <h2 class="section-title">🔗 Vault Navigation</h2>
+            <h2 class="section-title">🗺️ Vault Navigation</h2>
             <div class="link-grid">
-                <a href="viewer.html?path=_maps/everything.md" class="pill"><span class="pill-icon">🗺️</span> Everything Map</a>
-                <a href="viewer.html?path=_maps/tech.md" class="pill"><span class="pill-icon">🔧</span> Tech Graph</a>
-                <a href="viewer.html?path=_maps/connections.md" class="pill"><span class="pill-icon">🔗</span> Connections</a>
-                <a href="viewer.html?path=_maps/learning-journey.md" class="pill"><span class="pill-icon">📅</span> Timeline</a>
-                <a href="viewer.html?path=_maps/weak-spots.md" class="pill"><span class="pill-icon">🎯</span> Weak Spots</a>
-                <a href="viewer.html?path=_revision/due-today.md" class="pill"><span class="pill-icon">📋</span> Due Today</a>
+                <a href="viewer.html?path=_maps/everything.md" class="pill"><span class="pi">🗺️</span> Everything Map</a>
+                <a href="viewer.html?path=_maps/tech.md" class="pill"><span class="pi">🔧</span> Tech Graph</a>
+                <a href="viewer.html?path=_maps/connections.md" class="pill"><span class="pi">🔗</span> Connections</a>
+                <a href="viewer.html?path=_maps/learning-journey.md" class="pill"><span class="pi">📅</span> Timeline</a>
+                <a href="viewer.html?path=_maps/weak-spots.md" class="pill"><span class="pi">🎯</span> Weak Spots</a>
+                <a href="viewer.html?path=_revision/due-today.md" class="pill"><span class="pi">📋</span> Due Today</a>
             </div>
         </div>
 
-        <!-- Revision & Flashcards -->
+        <!-- Revision & Resources -->
         <div class="section">
             <h2 class="section-title">🃏 Revision & Resources</h2>
             <div class="link-grid">
-                <a href="viewer.html?path=tech/agent-memory/flashcards.md" class="pill"><span class="pill-icon">🧠</span> Agent Memory Cards</a>
-                <a href="viewer.html?path=tech/python/asyncio/flashcards.md" class="pill"><span class="pill-icon">⚡</span> AsyncIO Cards</a>
-                <a href="viewer.html?path=tech/agent-memory/cheatsheet.md" class="pill"><span class="pill-icon">📋</span> Agent Memory Cheatsheet</a>
-                <a href="viewer.html?path=tech/agent-memory/vs.md" class="pill"><span class="pill-icon">⚔️</span> RAG vs Agent Memory</a>
-                <a href="tech/python/asyncio/animations/index.html" class="pill"><span class="pill-icon">🎨</span> AsyncIO Animations</a>
+                <a href="viewer.html?path=tech/agent-memory/flashcards.md" class="pill"><span class="pi">🧠</span> Agent Memory Cards</a>
+                <a href="viewer.html?path=tech/python/asyncio/flashcards.md" class="pill"><span class="pi">⚡</span> AsyncIO Cards</a>
+                <a href="viewer.html?path=tech/agent-memory/cheatsheet.md" class="pill"><span class="pi">📋</span> Cheatsheet</a>
+                <a href="viewer.html?path=tech/agent-memory/vs.md" class="pill"><span class="pi">⚔️</span> RAG vs Agent Memory</a>
+                <a href="tech/python/asyncio/animations/index.html" class="pill"><span class="pi">🎨</span> AsyncIO Animations</a>
             </div>
         </div>
 
         <!-- External Sources -->
         <div class="section">
-            <h2 class="section-title">📖 Sources</h2>
+            <h2 class="section-title">📖 Course Sources</h2>
             <div class="link-grid">
-                <a href="https://www.deeplearning.ai/" class="pill" target="_blank"><span class="pill-icon">🎓</span> DeepLearning.AI</a>
-                <a href="https://www.youtube.com/watch?v=oAkLSJNr5zY" class="pill" target="_blank"><span class="pill-icon">📺</span> AsyncIO Video</a>
-                <a href="https://github.com/CoreyMSchafer/AsyncIO-Code-Examples" class="pill" target="_blank"><span class="pill-icon">💻</span> Code Repo</a>
-                <a href="https://github.com/oracle-devrel/oracle-ai-developer-hub" class="pill" target="_blank"><span class="pill-icon">🔗</span> Oracle AI Hub</a>
-                <a href="https://coreyms.com/asyncio/" class="pill" target="_blank"><span class="pill-icon">🎨</span> Animations Web</a>
+                <a href="https://www.deeplearning.ai/" class="pill" target="_blank"><span class="pi">🎓</span> DeepLearning.AI</a>
+                <a href="https://www.youtube.com/watch?v=oAkLSJNr5zY" class="pill" target="_blank"><span class="pi">📺</span> AsyncIO Video</a>
+                <a href="https://github.com/CoreyMSchafer/AsyncIO-Code-Examples" class="pill" target="_blank"><span class="pi">💻</span> Code Repo</a>
+                <a href="https://github.com/oracle-devrel/oracle-ai-developer-hub" class="pill" target="_blank"><span class="pi">🔗</span> Oracle AI Hub</a>
+                <a href="https://coreyms.com/asyncio/" class="pill" target="_blank"><span class="pi">🎨</span> Animations Web</a>
             </div>
         </div>
 
         <!-- Footer -->
         <div class="footer">
-            <div class="made-with">Built with ❤️ by <a href="https://github.com/AyushSonuu">Ayush Sonu</a> · Powered by <strong>Ayra</strong></div>
-            <a href="https://github.com/AyushSonuu/my-memory">⭐ Star on GitHub</a>
+            <div class="line">Built with ❤️ by <a href="https://github.com/AyushSonuu">Ayush Sonu</a> · Powered by <strong>Ayra</strong> (AI Learning Agent)</div>
+            <div class="line"><a href="https://github.com/AyushSonuu/my-memory">⭐ Star on GitHub</a> · <a href="mailto:sonuayush55@gmail.com">📧 Contact</a></div>
         </div>
 
     </div>
