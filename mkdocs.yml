@@ -142,7 +142,7 @@ nav:
 
   - 🐍 Python:
     - ⚡ AsyncIO:
-      - tech/python/asyncio/README.md
+      - Overview: tech/python/asyncio/README.md
       - 01 · Complete Guide: tech/python/asyncio/01-asyncio-complete-guide.md
       - 🃏 Flashcards: tech/python/asyncio/flashcards.md
       - 💻 Code Examples:
@@ -155,3 +155,8 @@ nav:
         - example_5.py: _generated/tech/python/asyncio/code/L1/example_5.md
         - example_6.py: _generated/tech/python/asyncio/code/L1/example_6.md
         - example_7.py: _generated/tech/python/asyncio/code/L1/example_7.md
+    # Future Python topics go here:
+    # - 🔧 Decorators:
+    #   - Overview: tech/python/decorators/README.md
+    # - 🔄 Generators:
+    #   - Overview: tech/python/generators/README.md
