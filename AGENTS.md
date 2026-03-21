@@ -172,6 +172,32 @@ my-memory/
     └── vs.md
 ```
 
+### The `code/` Folder Convention
+
+**Each topic can have a `code/` folder — managed by Ayush, referenced by Ayra.**
+
+```
+tech/agent-memory/
+├── code/                    # 💻 Ayush's code — HE manages this
+│   ├── L3/                  # Lesson 3 code
+│   │   ├── L3.ipynb         # Notebook (named after lesson)
+│   │   ├── helper.py        # Supporting scripts
+│   │   └── requirements.txt
+│   ├── L5/                  # Lesson 5 code (if any)
+│   │   └── L5.py
+│   └── ...                  # Not every lesson has code — only when Ayush practices
+├── 01-introduction.md
+├── 03-memory-manager.md
+└── ...
+```
+
+**Rules:**
+1. **`code/` is Ayush-managed** — he creates folders, writes code, names files. Ayra does NOT write/edit code here.
+2. **Naming:** `L{number}/` folder per lesson, files named `L{number}.ipynb` or `L{number}.py` (his choice)
+3. **Not every lesson has code** — only when Ayush actually practices. No placeholders needed.
+4. **Ayra references code when writing notes** — when creating/updating a lesson's notes, check `code/L{n}/` for that lesson's code. Incorporate relevant code snippets, patterns, or observations into the notes.
+5. **Code informs notes, not vice versa** — if the code shows something the transcript/slides don't cover, mention it. If code does something differently, note the difference.
+
 ### Key Structure Rules
 
 **1. Topics go DIRECTLY under `tech/` or `non-tech/`**
