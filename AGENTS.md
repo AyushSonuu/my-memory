@@ -95,6 +95,7 @@ Everything you write must be **instantly recallable** during revision. This is t
 - **Write like you're explaining to a smart friend, not writing a textbook**
 - Every description should make the reader UNDERSTAND, not just know the definition
 - If a phrase sounds vague or jargon-y on its own, add a plain-language clarification
+- **Define every important term when first introduced** — even a one-liner table with "what is it + example" is enough. Never assume a term is self-explanatory just because it was listed. If it has a name, explain what it means in plain words.
 - Avoid lazy shorthand like "not the bottleneck" — say WHY in simple terms
 - The test: "Would a reader with zero context understand this line?" If no → rewrite
 - When comparing things (e.g., "Why X is the core, not Y"), give a clear REASON, not just a label

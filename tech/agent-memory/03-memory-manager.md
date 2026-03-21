@@ -99,6 +99,22 @@ Together they create **memory-augmented agents** that can:
 
 The Memory Manager holds CRUD methods for EACH memory type stored in the DB.
 
+### 📖 What Each Memory Type Actually Is
+
+| Memory Type | One-Liner | What Gets Stored | Example |
+|---|---|---|---|
+| 💬 **Conversational** | Chat history per thread | `role`, `content`, `timestamp` per message | `[user] "Book the first one for 7pm"` |
+| 📚 **Knowledge Base** | Domain knowledge & facts | Documents, papers, reference material + vector embeddings | arXiv papers, product docs, wiki articles |
+| ⚙️ **Workflow** | "How did I do this before?" | Steps taken + outcome (success/fail) for a task | `Query → arXiv search → filter → summarize → ✅` |
+| 🔧 **Toolbox** | Available tools & capabilities | Tool name, description, parameters, signature | `search_arxiv(query, k=5) → "Search arXiv papers..."` |
+| 👤 **Entity** | People, places, systems mentioned | Name, type (PERSON/PLACE/SYSTEM), description | `Dr. Sarah Chen (PERSON): MIT, efficient attention` |
+| 📝 **Summary** | Compressed older conversations | Condensed context when chat history gets too long | 30 messages → 1 paragraph summary + summary_id |
+| 📋 **Tool Log** | Raw tool execution audit trail | Tool name, args, result, status, timestamp | `search_arxiv({query:"flash"}) → 5 results (success)` |
+
+> 💡 **Workflow vs Tool Log:** Workflow = "what strategy worked" (reusable patterns). Tool Log = "what exactly happened" (raw audit). Recipe vs kitchen CCTV! 🍳📹
+
+### CRUD Per Memory Type
+
 | Memory Type | Storage | Write Method | Read Method |
 |-------------|---------|-------------|-------------|
 | **Conversational** | SQL Table | `write_conv_mem()` | `read_conv_mem()` |
