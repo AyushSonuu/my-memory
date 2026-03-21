@@ -235,7 +235,7 @@ Memory exists in 3 system components. But one sees the **most traffic**:
 | Component | Has memory? | Why NOT the core? |
 |-----------|-------------|-------------------|
 | 🤖 **LLM** | ✅ Parametric (training data) | Frozen after training — **can't update** |
-| 🔢 **Embedding Model** | ✅ Semantic understanding | Draws context when generating embeddings, but not the bottleneck |
+| 🔢 **Embedding Model** | ✅ Learned semantic representations | Draws semantic & context info when generating embeddings, but not where data is stored/retrieved |
 | 🗄️ **Database** | ✅ All stored data | **✅ THE CORE — ALL data traffic: storage, retrieval, optimization** |
 
 > **Agent Memory Core** = the primary infrastructure seeing the most data traffic in your agentic system. That's the database.
