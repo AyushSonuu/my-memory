@@ -8,7 +8,7 @@
 
 | Topic | Lessons | Confidence | Last Updated |
 |-------|---------|------------|-------------|
-| [AsyncIO](asyncio/) | Pending | 🔴 Todo | — |
+| [⚡ AsyncIO](asyncio/) | 1/1 ✅ | 🟡 Learning | 2026-03-21 |
 
 ---
 

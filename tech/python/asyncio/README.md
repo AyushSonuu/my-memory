@@ -2,11 +2,42 @@
 
 ---
 
-## 📊 Progress
+## 🧠 Brain — How This Connects
+
+```mermaid
+graph LR
+    AIO(("⚡ AsyncIO"))
+    AIO -->|"built on"| PY["🐍 Python"]
+    AIO -->|"enables"| CONC["Concurrent IO"]
+    AIO -->|"uses"| EL["Event Loop"]
+    AIO -->|"works with"| HTTPX["httpx / aiohttp"]
+    AIO -->|"works with"| AIF["aiofiles"]
+    AIO -->|"can use"| THREADS["Threads"]
+    AIO -->|"can use"| PROCS["Processes"]
+    AIO -.->|"powers"| FAPI["FastAPI"]
+
+    style AIO fill:#ff9800,color:#fff,stroke:#e65100,stroke-width:3px
+    style CONC fill:#4caf50,color:#fff,stroke:#388e3c
+    style PY fill:#2196f3,color:#fff,stroke:#1565c0
+    style FAPI fill:#78909c,color:#fff
+```
+
+## 📊 Progress — 1/1 ✅ Complete!
 
 | # | Lesson | Status |
 |---|--------|--------|
-| 01 | AsyncIO Complete Guide | 🔴 Pending |
+| 01 | [AsyncIO Complete Guide](01-asyncio-complete-guide.md) | ✅ Done |
+
+**Overall confidence:** 🟡 Learning (just completed — first revision due 2026-03-24)
+
+## 🧩 Memory Fragments
+> - ⚡ **Async ≠ faster** — it means not sitting idle during IO waits. Subway vs McDonald's!
+> - 🔑 **create_task = concurrency.** Bare await coroutine = sequential. #1 mistake people make.
+> - ⛔ **Blocking sync code inside async kills everything.** time.sleep, requests.get = event loop blocked.
+> - 🧵 **No async library?** → `to_thread()` for IO-bound, `ProcessPoolExecutor` for CPU-bound.
+> - 🎯 **await ≠ "run this now"** — it means "don't move past here until done." Event loop decides execution order.
+> - 📋 **TaskGroup** for all-or-nothing. **gather(return_exceptions=True)** for continue-on-failure.
+> - 🚦 **Semaphores** prevent blasting 1000 requests at once. Be kind to servers.
 
 ---
 
@@ -14,9 +45,9 @@
 
 | # | Lesson | What You'll Get |
 |---|--------|-----------------|
-| 01 | [AsyncIO Complete Guide](01-asyncio-complete-guide.md) | Event loop, coroutines, tasks, gather, real-world patterns |
+| 01 | [AsyncIO Complete Guide](01-asyncio-complete-guide.md) | Event loop, coroutines, tasks, gather, TaskGroup, threads, processes, real-world example, profiling, semaphores |
 
-**Supporting:** [Flashcards](flashcards.md)
+**Supporting:** [Flashcards](flashcards.md) — 12 revision cards
 
 ---
 
@@ -28,7 +59,8 @@
 
 ## 🔗 Connected Topics
 > - **Python** (parent) — core language
-> - **Agent Memory** — async could be used in memory operations, tool execution
+> - **Agent Memory** — async for memory operations, tool execution, concurrent API calls
+> - **FastAPI** — web framework built on AsyncIO
 
 ## 30-Second Recall 🧠
-> _Pending — will be filled after lesson is complete._
+> AsyncIO = Python's concurrent IO library. Event loop manages tasks. `async def` creates coroutine functions, calling them creates coroutine objects (doesn't run them). `create_task()` schedules on event loop = concurrency. Bare `await` = sequential. Blocking sync code (time.sleep, requests) kills the event loop — use async alternatives or `to_thread()`/`ProcessPoolExecutor`. TaskGroup for all-or-nothing, gather for continue-on-failure. Semaphores limit concurrency. IO-bound → async/threads, CPU-bound → processes.
