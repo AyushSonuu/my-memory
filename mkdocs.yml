@@ -141,6 +141,7 @@ nav:
       - helper.py: _generated/tech/agent-memory/code/helper.md
 
   - 🐍 Python:
+    - tech/python/README.md
     - ⚡ AsyncIO:
       - Overview: tech/python/asyncio/README.md
       - 01 · Complete Guide: tech/python/asyncio/01-asyncio-complete-guide.md
