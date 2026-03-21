@@ -53,9 +53,21 @@ graph LR
 
 ## 📚 Source
 > 🎓 [AsyncIO Complete Guide with Animations](https://www.youtube.com/watch?v=oAkLSJNr5zY) — Corey Schafer (YouTube)
-> 🎨 [Animations](https://coreyms.com/asyncio/) — step through with right-arrow key
-> 💻 [Animations Repo](https://github.com/CoreyMSchafer/AsyncIO-Animations)
-> 💻 [Code Examples Repo](https://github.com/CoreyMSchafer/AsyncIO-Code-Examples)
+> 🎨 [Animations (interactive)](https://coreyms.com/asyncio/) — use right-arrow to step through each example
+> 💻 [Animations Repo](https://github.com/CoreyMSchafer/AsyncIO-Animations) — HTML files: example_1.html → example_7.html
+> 💻 [Code Examples Repo](https://github.com/CoreyMSchafer/AsyncIO-Code-Examples) — Python files saved locally in `code/L1/`
+
+### 🎨 Animation Index
+
+| Animation | Demonstrates | Link |
+|-----------|-------------|------|
+| example_1.html | Synchronous baseline (no event loop) | [View](https://coreyms.com/asyncio/example_1.html) |
+| example_2.html | Awaiting coroutines directly (no concurrency) | [View](https://coreyms.com/asyncio/example_2.html) |
+| example_3.html | `create_task` → real concurrency ✅ | [View](https://coreyms.com/asyncio/example_3.html) |
+| example_4.html | Await order ≠ execution order | [View](https://coreyms.com/asyncio/example_4.html) |
+| example_5.html | Blocking event loop with `time.sleep` ⛔ | [View](https://coreyms.com/asyncio/example_5.html) |
+| example_6.html | Threads + Processes with AsyncIO | [View](https://coreyms.com/asyncio/example_6.html) |
+| example_7.html | gather vs TaskGroup | [View](https://coreyms.com/asyncio/example_7.html) |
 
 ## 🔗 Connected Topics
 > - **Python** (parent) — core language
