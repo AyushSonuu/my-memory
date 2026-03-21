@@ -1,8 +1,5 @@
 # 02 · Why AI Agents Need Memory 🤔
 
-> ✅ Verified — directly from course transcript
-
----
 
 ## 🎯 One Line
 > An agent without memory is a genius with amnesia — brilliant per turn, useless over time.
