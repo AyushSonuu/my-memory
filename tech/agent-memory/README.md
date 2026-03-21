@@ -37,7 +37,7 @@ graph LR
 | 04 | [Semantic Tool Memory](04-semantic-tool-memory.md) | 🟡 Learning |
 | 05 | [Memory Operations](05-memory-operations.md) | 🟡 Learning |
 | 06 | [Memory Aware Agent](06-memory-aware-agent.md) | 🟡 Learning |
-| 07 | [Conclusion](07-conclusion.md) | 🔴 Todo |
+| 07 | [Conclusion](07-conclusion.md) | 🟡 Learning |
 
 ## 🧩 Memory Fragments
 > Random "aha!" moments picked up along the way:
