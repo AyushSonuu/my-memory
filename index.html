@@ -4,553 +4,294 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🧠 My Memory — Learning Vault</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="Knowledge that sticks. Structured notes, diagrams, flashcards — all revision-ready.">
+    <!-- Docsify Themes -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
     <style>
         :root {
-            --bg: #0a0e17;
-            --surface: #151c2c;
-            --surface-hover: #1a2340;
-            --border: #1e293b;
-            --border-hover: #334155;
-            --text: #f1f5f9;
-            --text-muted: #94a3b8;
-            --text-dim: #64748b;
-            --accent: #f59e0b;
-            --accent-glow: rgba(245, 158, 11, 0.15);
-            --green: #22c55e;
-            --green-glow: rgba(34, 197, 94, 0.12);
-            --blue: #3b82f6;
-            --blue-glow: rgba(59, 130, 246, 0.12);
-            --purple: #a855f7;
-            --purple-glow: rgba(168, 85, 247, 0.12);
-            --red: #ef4444;
-            --shadow-lg: 0 8px 40px rgba(0,0,0,0.4);
+            /* Override docsify theme */
+            --base-background-color: #0a0e17;
+            --sidebar-background: #111827;
+            --sidebar-border-color: #1e293b;
+            --sidebar-name-color: #f59e0b;
+            --sidebar-name-font-size: 1.4rem;
+            --sidebar-nav-link-color--active: #f59e0b;
+            --sidebar-nav-link-border-color--active: #f59e0b;
+            --sidebar-nav-link-color--hover: #f59e0b;
+            --heading-color: #f1f5f9;
+            --heading-h2-color: #f59e0b;
+            --base-color: #e2e8f0;
+            --base-font-size: 15px;
+            --theme-color: #f59e0b;
+            --link-color: #f59e0b;
+            --link-color--hover: #fbbf24;
+            --code-inline-background: #1e293b;
+            --code-inline-color: #f59e0b;
+            --code-block-background: #151c2c;
+            --blockquote-border-color: #f59e0b;
+            --blockquote-background: rgba(245, 158, 11, 0.05);
+            --table-head-background: #151c2c;
+            --table-row-even-background: rgba(255, 255, 255, 0.02);
+            --notice-tip-border-color: #22c55e;
+            --cover-background-color: #0a0e17;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* Custom overrides */
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            min-height: 100vh;
-            overflow-x: hidden;
+        .sidebar { 
+            padding-top: 1.5rem;
+            border-right: 1px solid #1e293b;
         }
 
-        /* Animated background */
-        .bg-glow {
-            position: fixed;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: radial-gradient(circle at 30% 20%, rgba(245,158,11,0.03) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(59,130,246,0.03) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-            animation: bgFloat 20s ease-in-out infinite;
+        .sidebar-nav li a {
+            font-size: 0.88rem;
+            padding: 0.3rem 0;
         }
 
-        @keyframes bgFloat {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(-2%, -1%); }
+        .sidebar-nav li.active > a {
+            border-right: 3px solid #f59e0b;
+            font-weight: 600;
         }
 
-        @keyframes fadeInDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
-        @keyframes fadeInUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
-        @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-        @keyframes pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.05); } }
-
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-            position: relative;
-            z-index: 1;
+        /* Cover page styling */
+        .cover-main {
+            color: #f1f5f9;
         }
 
-        /* ===== HERO ===== */
-        .hero {
-            text-align: center;
-            padding: 3.5rem 0 1.5rem;
-            animation: fadeInDown 0.6s ease-out;
-        }
-
-        .hero .logo {
-            font-size: 3.5rem;
-            margin-bottom: 0.5rem;
-            animation: pulse 3s ease-in-out infinite;
-        }
-
-        .hero h1 {
+        .cover-main h1 {
             font-size: 3rem;
             font-weight: 800;
-            letter-spacing: -0.03em;
-            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+            background: linear-gradient(135deg, #f1f5f9 0%, #f59e0b 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.75rem;
         }
 
-        .hero .quote {
-            color: var(--text-muted);
-            font-size: 1.05rem;
+        .cover-main blockquote p {
+            color: #94a3b8;
             font-style: italic;
-            opacity: 0.75;
-            max-width: 520px;
-            margin: 0 auto 0.3rem;
         }
 
-        .hero .motto {
-            color: var(--accent);
-            font-size: 0.85rem;
+        .cover-main .btn {
+            border-color: #f59e0b;
+            color: #f59e0b;
+            border-radius: 8px;
+            padding: 0.6rem 2rem;
             font-weight: 600;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            opacity: 0.8;
-        }
-
-        /* ===== PROFILE STRIP ===== */
-        .profile {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin: 1.75rem 0;
-            animation: fadeIn 0.6s ease-out 0.1s both;
-        }
-
-        .profile-chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 999px;
-            padding: 0.35rem 0.85rem;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-decoration: none;
             transition: all 0.2s;
         }
 
-        .profile-chip:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            background: rgba(245,158,11,0.05);
+        .cover-main .btn:hover {
+            background: #f59e0b;
+            color: #0a0e17;
         }
 
-        .profile-chip .chip-icon { font-size: 0.9rem; }
-
-        /* ===== STATS ===== */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0.75rem;
-            margin: 2rem 0;
-            animation: fadeInUp 0.6s ease-out 0.15s both;
+        /* Table styles */
+        .markdown-section table {
+            border-collapse: collapse;
+            width: 100%;
         }
 
-        .stat {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 1.1rem 0.75rem;
-            text-align: center;
-            transition: all 0.25s ease;
-        }
-
-        .stat:hover {
-            border-color: var(--accent);
-            box-shadow: 0 0 20px var(--accent-glow);
-            transform: translateY(-2px);
-        }
-
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--accent);
-            line-height: 1.1;
-        }
-
-        .stat-label {
-            font-size: 0.7rem;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-top: 0.2rem;
+        .markdown-section th {
+            background: #151c2c;
+            color: #f59e0b;
             font-weight: 600;
-        }
-
-        /* ===== REVISION BANNER ===== */
-        .revision-banner {
-            background: linear-gradient(135deg, rgba(245,158,11,0.08) 0%, rgba(245,158,11,0.03) 100%);
-            border: 1px solid rgba(245,158,11,0.2);
-            border-radius: 12px;
-            padding: 0.85rem 1.25rem;
-            margin-bottom: 2.5rem;
             font-size: 0.85rem;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            animation: fadeIn 0.6s ease-out 0.3s both;
+            text-align: left;
         }
 
-        .revision-banner .icon { font-size: 1.1rem; }
-        .revision-banner strong { color: var(--accent); }
-
-        /* ===== SECTIONS ===== */
-        .section { margin: 2.5rem 0; animation: fadeInUp 0.6s ease-out both; }
-        .section:nth-child(5) { animation-delay: 0.35s; }
-        .section:nth-child(6) { animation-delay: 0.4s; }
-        .section:nth-child(7) { animation-delay: 0.45s; }
-        .section:nth-child(8) { animation-delay: 0.5s; }
-        .section:nth-child(9) { animation-delay: 0.55s; }
-
-        .section-title {
-            font-size: 0.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--border);
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
+        .markdown-section td, .markdown-section th {
+            border: 1px solid #1e293b;
+            padding: 0.5rem 0.85rem;
         }
 
-        /* ===== TOPIC CARDS ===== */
-        .topic-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-            gap: 1.1rem;
+        /* Code blocks */
+        .markdown-section pre {
+            background: #151c2c;
+            border: 1px solid #1e293b;
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
         }
 
-        .topic-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 1.5rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            text-decoration: none;
-            color: var(--text);
-            display: block;
-            position: relative;
+        .markdown-section code {
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 0.85em;
+        }
+
+        /* Blockquotes */
+        .markdown-section blockquote {
+            border-left: 3px solid #f59e0b;
+            background: rgba(245, 158, 11, 0.05);
+            border-radius: 0 8px 8px 0;
+            padding: 0.75rem 1.25rem;
+            margin: 1rem 0;
+        }
+
+        /* Details / Flashcards */
+        .markdown-section details {
+            background: #151c2c;
+            border: 1px solid #1e293b;
+            border-radius: 10px;
+            margin: 0.75rem 0;
             overflow: hidden;
+            transition: border-color 0.2s;
         }
 
-        .topic-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent), var(--blue));
-            opacity: 0;
-            transition: opacity 0.3s;
+        .markdown-section details:hover {
+            border-color: #f59e0b;
         }
 
-        .topic-card:hover {
-            background: var(--surface-hover);
-            border-color: var(--border-hover);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .topic-card:hover::before { opacity: 1; }
-
-        .topic-card .card-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.85rem;
-            margin-bottom: 0.6rem;
-        }
-
-        .topic-card .emoji { font-size: 2.2rem; line-height: 1; flex-shrink: 0; }
-        .topic-card .card-info { flex: 1; }
-        .topic-card .name { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.1rem; }
-        .topic-card .meta { color: var(--text-dim); font-size: 0.8rem; }
-
-        .topic-card .progress-bar {
-            height: 3px;
-            background: var(--border);
-            border-radius: 3px;
-            overflow: hidden;
-            margin: 0.65rem 0;
-        }
-
-        .topic-card .progress-fill {
-            height: 100%;
-            border-radius: 3px;
-            background: linear-gradient(90deg, var(--green), var(--accent));
-        }
-
-        .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.6rem; }
-
-        .tag {
-            display: inline-block;
-            padding: 0.15rem 0.55rem;
-            border-radius: 6px;
-            font-size: 0.65rem;
+        .markdown-section details summary {
+            padding: 0.75rem 1.25rem;
+            cursor: pointer;
             font-weight: 600;
-            letter-spacing: 0.02em;
+            font-size: 0.95rem;
         }
 
-        .tag-done { background: var(--green-glow); color: var(--green); }
-        .tag-learning { background: var(--accent-glow); color: var(--accent); }
-        .tag-python { background: var(--blue-glow); color: var(--blue); }
-        .tag-ai { background: var(--purple-glow); color: var(--purple); }
-
-        /* Lessons inside card */
-        .lessons { list-style: none; margin-top: 0.4rem; }
-
-        .lessons li {
-            padding: 0.25rem 0;
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.45rem;
+        .markdown-section details > p,
+        .markdown-section details > table,
+        .markdown-section details > blockquote {
+            padding: 0 1.25rem;
         }
 
-        .lessons li a {
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: all 0.15s;
-        }
-
-        .lessons li a:hover { color: var(--accent); padding-left: 3px; }
-
-        .lessons li .num {
-            color: var(--text-dim);
-            font-size: 0.65rem;
-            font-weight: 700;
-            background: rgba(255,255,255,0.05);
-            border-radius: 4px;
-            padding: 0.1rem 0.35rem;
-            min-width: 1.4rem;
+        /* Mermaid diagrams */
+        .mermaid {
+            background: #151c2c;
+            border: 1px solid #1e293b;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
             text-align: center;
         }
 
-        /* ===== PILLS / LINK GRID ===== */
-        .link-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .pill {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            font-weight: 500;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-        }
-
-        .pill:hover {
-            color: var(--accent);
-            border-color: rgba(245,158,11,0.4);
-            background: rgba(245,158,11,0.05);
-            transform: translateY(-1px);
-        }
-
-        .pill .pi { font-size: 0.9rem; }
-
-        /* ===== DIVIDER ===== */
-        .divider {
+        /* Horizontal rules */
+        .markdown-section hr {
+            border: none;
             height: 1px;
-            background: linear-gradient(90deg, transparent, var(--border), transparent);
+            background: linear-gradient(90deg, transparent, #1e293b, transparent);
             margin: 2rem 0;
         }
 
-        /* ===== FOOTER ===== */
-        .footer {
-            text-align: center;
-            padding: 2.5rem 0 2rem;
-            color: var(--text-dim);
-            font-size: 0.8rem;
-            border-top: 1px solid var(--border);
-            margin-top: 2rem;
+        /* Heading anchors */
+        .markdown-section h2 {
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid #1e293b;
         }
 
-        .footer a { color: var(--accent); text-decoration: none; font-weight: 500; }
-        .footer a:hover { text-decoration: underline; }
-        .footer .line { margin-bottom: 0.35rem; }
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 640px) {
-            .hero .logo { font-size: 2.5rem; }
-            .hero h1 { font-size: 2.1rem; }
-            .hero .quote { font-size: 0.9rem; }
-            .stats { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
-            .stat { padding: 0.85rem 0.5rem; }
-            .stat-value { font-size: 1.5rem; }
-            .container { padding: 1.25rem 1rem; }
-            .topic-grid { grid-template-columns: 1fr; }
-            .profile { gap: 0.4rem; }
-            .profile-chip { font-size: 0.72rem; padding: 0.3rem 0.65rem; }
+        /* Search box */
+        .search input {
+            background: #151c2c !important;
+            border: 1px solid #1e293b !important;
+            color: #f1f5f9 !important;
+            border-radius: 8px !important;
         }
+
+        .search input::placeholder {
+            color: #64748b !important;
+        }
+
+        /* Navbar */
+        .app-nav {
+            right: 1.5rem;
+        }
+
+        .app-nav a {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .app-nav a:hover { color: #f59e0b; }
+
+        /* Loading */
+        #app { color: #64748b; text-align: center; padding: 4rem; }
     </style>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="bg-glow"></div>
-    <div class="container">
+    <div id="app">Loading...</div>
+    <script>
+        window.$docsify = {
+            name: '🧠 My Memory',
+            repo: 'https://github.com/AyushSonuu/my-memory',
+            loadSidebar: true,
+            subMaxLevel: 3,
+            auto2top: true,
+            coverpage: true,
+            search: {
+                placeholder: 'Search notes...',
+                noData: 'No results found',
+                depth: 3
+            },
+            copyCode: {
+                buttonText: 'Copy',
+                successText: 'Copied!'
+            },
+            pagination: {
+                previousText: '← Previous',
+                nextText: 'Next →',
+                crossChapter: true,
+            },
+            themeColor: '#f59e0b',
+            markdown: {
+                renderer: {
+                    code: function(code, lang) {
+                        if (lang === 'mermaid') {
+                            return '<div class="mermaid">' + code + '</div>';
+                        }
+                        return this.origin.code.apply(this, arguments);
+                    }
+                }
+            }
+        };
+    </script>
 
-        <!-- Hero -->
-        <div class="hero">
-            <div class="logo">🧠</div>
-            <h1>My Memory</h1>
-            <p class="quote">"Every expert was once a beginner who didn't quit."</p>
-            <p class="motto">Keep upskilling · Keep rolling · The eureka moment is one lesson away</p>
-        </div>
+    <!-- Docsify Core -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
 
-        <!-- Profile -->
-        <div class="profile">
-            <a href="https://github.com/AyushSonuu" class="profile-chip" target="_blank">
-                <span class="chip-icon">👤</span> Ayush Sonu
-            </a>
-            <a href="https://github.com/AyushSonuu" class="profile-chip" target="_blank">
-                <span class="chip-icon">🐙</span> AyushSonuu
-            </a>
-            <a href="mailto:sonuayush55@gmail.com" class="profile-chip">
-                <span class="chip-icon">📧</span> sonuayush55@gmail.com
-            </a>
-            <a href="https://www.linkedin.com/in/ayush-sonu" class="profile-chip" target="_blank">
-                <span class="chip-icon">💼</span> LinkedIn
-            </a>
-        </div>
+    <!-- Plugins -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
 
-        <!-- Stats -->
-        <div class="stats">
-            <div class="stat">
-                <div class="stat-value">2</div>
-                <div class="stat-label">Topics</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value">8</div>
-                <div class="stat-label">Lessons</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value">50+</div>
-                <div class="stat-label">Flashcards</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value">1</div>
-                <div class="stat-label">Day Old</div>
-            </div>
-        </div>
+    <!-- Mermaid -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: false,
+            theme: 'dark',
+            themeVariables: {
+                darkMode: true,
+                background: '#151c2c',
+                primaryColor: '#f59e0b',
+                primaryTextColor: '#f1f5f9',
+                lineColor: '#475569',
+                secondaryColor: '#1e293b',
+                tertiaryColor: '#0f172a'
+            }
+        });
 
-        <!-- Revision Banner -->
-        <div class="revision-banner">
-            <span class="icon">📅</span>
-            <span><strong>Next revision:</strong> 2026-03-24 — Agent Memory + AsyncIO (Day 3 spaced repetition)</span>
-        </div>
+        // Render mermaid after docsify loads content
+        const observer = new MutationObserver(() => {
+            document.querySelectorAll('.mermaid').forEach(async (el) => {
+                if (el.getAttribute('data-processed')) return;
+                el.setAttribute('data-processed', 'true');
+                const { svg } = await mermaid.render('mermaid-' + Math.random().toString(36).substr(2, 9), el.textContent);
+                el.innerHTML = svg;
+            });
+        });
+        observer.observe(document.getElementById('app'), { childList: true, subtree: true });
+    </script>
 
-        <!-- Topics -->
-        <div class="section">
-            <h2 class="section-title">📚 Topics</h2>
-            <div class="topic-grid">
-
-                <!-- Agent Memory -->
-                <a href="viewer.html?path=tech/agent-memory/README.md" class="topic-card">
-                    <div class="card-header">
-                        <span class="emoji">🧠</span>
-                        <div class="card-info">
-                            <div class="name">Agent Memory</div>
-                            <div class="meta">DeepLearning.AI × Oracle · 7 lessons</div>
-                        </div>
-                    </div>
-                    <div class="progress-bar"><div class="progress-fill" style="width:100%;"></div></div>
-                    <div class="tags">
-                        <span class="tag tag-done">7/7 ✅</span>
-                        <span class="tag tag-ai">AI Agents</span>
-                        <span class="tag tag-learning">Revise Mar 24</span>
-                    </div>
-                    <ul class="lessons">
-                        <li><span class="num">01</span><a href="viewer.html?path=tech/agent-memory/01-introduction.md">Introduction</a></li>
-                        <li><span class="num">02</span><a href="viewer.html?path=tech/agent-memory/02-why-agents-need-memory.md">Why Agents Need Memory</a></li>
-                        <li><span class="num">03</span><a href="viewer.html?path=tech/agent-memory/03-memory-manager.md">Memory Manager</a></li>
-                        <li><span class="num">04</span><a href="viewer.html?path=tech/agent-memory/04-semantic-tool-memory.md">Semantic Tool Memory</a></li>
-                        <li><span class="num">05</span><a href="viewer.html?path=tech/agent-memory/05-memory-operations.md">Memory Operations</a></li>
-                        <li><span class="num">06</span><a href="viewer.html?path=tech/agent-memory/06-memory-aware-agent.md">Memory Aware Agent</a></li>
-                        <li><span class="num">07</span><a href="viewer.html?path=tech/agent-memory/07-conclusion.md">Conclusion</a></li>
-                    </ul>
-                </a>
-
-                <!-- AsyncIO -->
-                <a href="viewer.html?path=tech/python/asyncio/README.md" class="topic-card">
-                    <div class="card-header">
-                        <span class="emoji">⚡</span>
-                        <div class="card-info">
-                            <div class="name">AsyncIO</div>
-                            <div class="meta">Corey Schafer · Python · 1hr 42min</div>
-                        </div>
-                    </div>
-                    <div class="progress-bar"><div class="progress-fill" style="width:100%;"></div></div>
-                    <div class="tags">
-                        <span class="tag tag-done">1/1 ✅</span>
-                        <span class="tag tag-python">Python</span>
-                        <span class="tag tag-learning">Revise Mar 24</span>
-                    </div>
-                    <ul class="lessons">
-                        <li><span class="num">01</span><a href="viewer.html?path=tech/python/asyncio/01-asyncio-complete-guide.md">Complete Guide</a></li>
-                    </ul>
-                </a>
-
-            </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- Vault Navigation -->
-        <div class="section">
-            <h2 class="section-title">🗺️ Vault Navigation</h2>
-            <div class="link-grid">
-                <a href="viewer.html?path=_maps/everything.md" class="pill"><span class="pi">🗺️</span> Everything Map</a>
-                <a href="viewer.html?path=_maps/tech.md" class="pill"><span class="pi">🔧</span> Tech Graph</a>
-                <a href="viewer.html?path=_maps/connections.md" class="pill"><span class="pi">🔗</span> Connections</a>
-                <a href="viewer.html?path=_maps/learning-journey.md" class="pill"><span class="pi">📅</span> Timeline</a>
-                <a href="viewer.html?path=_maps/weak-spots.md" class="pill"><span class="pi">🎯</span> Weak Spots</a>
-                <a href="viewer.html?path=_revision/due-today.md" class="pill"><span class="pi">📋</span> Due Today</a>
-            </div>
-        </div>
-
-        <!-- Revision & Resources -->
-        <div class="section">
-            <h2 class="section-title">🃏 Revision & Resources</h2>
-            <div class="link-grid">
-                <a href="viewer.html?path=tech/agent-memory/flashcards.md" class="pill"><span class="pi">🧠</span> Agent Memory Cards</a>
-                <a href="viewer.html?path=tech/python/asyncio/flashcards.md" class="pill"><span class="pi">⚡</span> AsyncIO Cards</a>
-                <a href="viewer.html?path=tech/agent-memory/cheatsheet.md" class="pill"><span class="pi">📋</span> Cheatsheet</a>
-                <a href="viewer.html?path=tech/agent-memory/vs.md" class="pill"><span class="pi">⚔️</span> RAG vs Agent Memory</a>
-                <a href="tech/python/asyncio/animations/index.html" class="pill"><span class="pi">🎨</span> AsyncIO Animations</a>
-            </div>
-        </div>
-
-        <!-- External Sources -->
-        <div class="section">
-            <h2 class="section-title">📖 Course Sources</h2>
-            <div class="link-grid">
-                <a href="https://www.deeplearning.ai/" class="pill" target="_blank"><span class="pi">🎓</span> DeepLearning.AI</a>
-                <a href="https://www.youtube.com/watch?v=oAkLSJNr5zY" class="pill" target="_blank"><span class="pi">📺</span> AsyncIO Video</a>
-                <a href="https://github.com/CoreyMSchafer/AsyncIO-Code-Examples" class="pill" target="_blank"><span class="pi">💻</span> Code Repo</a>
-                <a href="https://github.com/oracle-devrel/oracle-ai-developer-hub" class="pill" target="_blank"><span class="pi">🔗</span> Oracle AI Hub</a>
-                <a href="https://coreyms.com/asyncio/" class="pill" target="_blank"><span class="pi">🎨</span> Animations Web</a>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="footer">
-            <div class="line">Built with ❤️ by <a href="https://github.com/AyushSonuu">Ayush Sonu</a> · Powered by <strong>Ayra</strong> (AI Learning Agent)</div>
-            <div class="line"><a href="https://github.com/AyushSonuu/my-memory">⭐ Star on GitHub</a> · <a href="mailto:sonuayush55@gmail.com">📧 Contact</a></div>
-        </div>
-
-    </div>
+    <!-- Syntax Highlighting -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-sql.min.js"></script>
 </body>
 </html>
