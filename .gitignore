@@ -14,3 +14,6 @@ memory/
 
 # MkDocs build helper (symlinks)
 content/
+
+# Python venv
+.venv/

@@ -84,6 +84,11 @@ markdown_extensions:
 
 plugins:
   - search
+  - mkdocs-jupyter:
+      include: ["*.ipynb"]
+      execute: false
+      allow_errors: true
+      theme: dark
 
 extra:
   social:
@@ -124,7 +129,12 @@ nav:
       - 🃏 Flashcards: tech/agent-memory/flashcards.md
       - 📋 Cheatsheet: tech/agent-memory/cheatsheet.md
       - ⚔️ RAG vs Agent Memory: tech/agent-memory/vs.md
-    - 💻 Code Lab: tech/agent-memory/code/README.md
+    - 💻 Code Lab:
+      - Overview: tech/agent-memory/code/README.md
+      - L3 · Memory Manager: tech/agent-memory/code/L3/L3.ipynb
+      - L4 · Semantic Tool Memory: tech/agent-memory/code/L4/L4.ipynb
+      - L5 · Memory Operations: tech/agent-memory/code/L5/L5.ipynb
+      - L6 · Memory Aware Agent: tech/agent-memory/code/L6/L6.ipynb
 
   - 🐍 Python:
     - ⚡ AsyncIO:
