@@ -14,11 +14,11 @@ graph LR
     AM -->|"built with"| LC["LangChain"]
     AM -->|"stores in"| ODB["Oracle AI Database"]
     AM -->|"enables"| SA["Stateful Agents"]
-    AM -.->|"evolution"| PE["Prompt Engineering"]
-    AM -.->|"evolution"| CE["Context Engineering"]
+    AM -.->|"evolution of"| PE["Prompt Engineering"]
+    AM -.->|"evolution of"| CE["Context Engineering"]
     
-    style AM fill:#ff9800,color:#fff
-    style SA fill:#4caf50,color:#fff
+    style AM fill:#ff9800,color:#fff,stroke:#e65100,stroke-width:3px
+    style SA fill:#4caf50,color:#fff,stroke:#388e3c
     style PE fill:#90a4ae,color:#fff
     style CE fill:#90a4ae,color:#fff
     style LLM fill:#42a5f5,color:#fff
@@ -27,17 +27,19 @@ graph LR
     style ODB fill:#42a5f5,color:#fff
 ```
 
-## 📊 Progress
+## 📊 Progress — 7/7 ✅ Complete!
 
 | # | Lesson | Status |
 |---|--------|--------|
-| 01 | [Introduction](01-introduction.md) | 🟡 Learning |
-| 02 | [Why Agents Need Memory](02-why-agents-need-memory.md) | 🟡 Learning |
-| 03 | [Memory Manager](03-memory-manager.md) | 🟡 Learning |
-| 04 | [Semantic Tool Memory](04-semantic-tool-memory.md) | 🟡 Learning |
-| 05 | [Memory Operations](05-memory-operations.md) | 🟡 Learning |
-| 06 | [Memory Aware Agent](06-memory-aware-agent.md) | 🟡 Learning |
-| 07 | [Conclusion](07-conclusion.md) | 🟡 Learning |
+| 01 | [Introduction](01-introduction.md) | ✅ Done |
+| 02 | [Why Agents Need Memory](02-why-agents-need-memory.md) | ✅ Done |
+| 03 | [Memory Manager](03-memory-manager.md) | ✅ Done |
+| 04 | [Semantic Tool Memory](04-semantic-tool-memory.md) | ✅ Done |
+| 05 | [Memory Operations](05-memory-operations.md) | ✅ Done |
+| 06 | [Memory Aware Agent](06-memory-aware-agent.md) | ✅ Done |
+| 07 | [Conclusion](07-conclusion.md) | ✅ Done |
+
+**Overall confidence:** 🟡 Learning (just completed — first revision due 2026-03-24)
 
 ## 🧩 Memory Fragments
 > Random "aha!" moments picked up along the way:
@@ -74,22 +76,27 @@ graph LR
 | # | Lesson | What You'll Get |
 |---|--------|-----------------|
 | 01 | [Introduction](01-introduction.md) | Why memory matters — the goldfish problem |
-| 02 | [Why Agents Need Memory](02-why-agents-need-memory.md) | Failure modes + memory-first architecture |
-| 03 | [Memory Manager](03-memory-manager.md) | Build core store/retrieve system |
-| 04 | [Semantic Tool Memory](04-semantic-tool-memory.md) | Scale tool selection via semantic search |
-| 05 | [Memory Operations](05-memory-operations.md) | Extraction, consolidation, self-update |
-| 06 | [Memory Aware Agent](06-memory-aware-agent.md) | Full stateful agent, end-to-end |
-| 07 | [Conclusion](07-conclusion.md) | Wrap-up + quiz |
+| 02 | [Why Agents Need Memory](02-why-agents-need-memory.md) | 4 pillars, memory taxonomy, RAG → Agent Memory |
+| 03 | [Memory Manager](03-memory-manager.md) | Agent stack, CRUD per memory type, lifecycle, deterministic vs agent-triggered |
+| 04 | [Semantic Tool Memory](04-semantic-tool-memory.md) | Toolbox pattern, augmentation, search-and-store |
+| 05 | [Memory Operations](05-memory-operations.md) | Summarization, compaction, workflow memory, context monitor |
+| 06 | [Memory Aware Agent](06-memory-aware-agent.md) | Agent loop, harness, full implementation + live demo |
+| 07 | [Conclusion](07-conclusion.md) | 5 building blocks of Memory Engineering |
 
-**Supporting:** [Flashcards](flashcards.md) — revision cards across all lessons
+**Supporting:** [Flashcards](flashcards.md) — 40+ revision cards across all lessons
 
 ---
 
 ## 📚 Source
 > 🎓 [Agent Memory: Building Memory-Aware Agents](https://www.deeplearning.ai/) — DeepLearning.AI × Oracle
+> 🔗 [Oracle AI Developer Hub](https://github.com/oracle-devrel/oracle-ai-developer-hub) — extra resource
 
 ## 🔗 Connected Topics
-> _First topic in the vault! Connections will grow as more topics are added._
+> - **RAG** — same pipeline (chunk → embed → retrieve), but Agent Memory adds CRUD + write-back
+> - **Vector Databases** — OracleVS, COSINE distance, IVF indexes power all semantic search
+> - **LangChain** — orchestration framework, OracleVS integration, ArxivRetriever, text splitters
+> - **LLMs** — reasoning engine + extraction + summarization + augmentation
+> - **System Design** — memory as infrastructure, layered agent stack, context window management
 
 ## 30-Second Recall 🧠
-> AI agents are **stateless goldfish** — great in one session, blank slate next. Memory engineering treats memory as **infrastructure**: external, persistent, structured. Build a full memory-aware agent using vector DBs + LangChain — covering memory managers, extraction pipelines, contradiction handling, and write-back loops.
+> AI agents are **stateless goldfish** — brilliant per turn, blank slate next session. Memory engineering treats memory as **infrastructure**: external, persistent, structured. You build it in layers: **Memory Manager** (CRUD for 7 memory types) → **Toolbox Pattern** (semantic tool retrieval at scale) → **Context Engineering** (summarization + compaction) → **Agent Loop** (assemble → invoke → act cycle) → all wired into a **Memory Aware Agent** that loads prior context at startup, uses tools mid-execution, and persists everything for next time. The 5 building blocks: Memory Modeling, Semantic Retrieval, Extraction, Consolidation, Write-Back.
