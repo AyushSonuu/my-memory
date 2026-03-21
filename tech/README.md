@@ -5,13 +5,15 @@
 ```mermaid
 graph TB
     T((🔧 Tech))
-    T --- EMPTY["Add your first topic! 🚀"]
-    style EMPTY fill:#f5f5f5,stroke-dasharray: 5 5
+    T --- AM["🧠 Agent Memory"]
+    
+    style AM fill:#f44336,color:#fff
+    click AM "./agent-memory/"
 ```
 
 ## 📊 Topics
-| Topic | Confidence | Last Updated |
-|-------|-----------|-------------|
-| _Empty_ | — | — |
+| Topic | Confidence | Lessons | Last Updated |
+|-------|-----------|---------|-------------|
+| [🧠 Agent Memory](agent-memory/) | 🔴 In Progress (1/7) | 7 | 2026-03-21 |
 
-> Add a topic to `tech/` and this map comes alive ✨
+> First topic planted! The vault is growing 🌱
