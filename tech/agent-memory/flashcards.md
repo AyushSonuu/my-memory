@@ -69,28 +69,28 @@ All four combined → fully stateful agent 🤖
 
 | Pillar | Role |
 |--------|------|
-| 👁️ **Perception** | Inputs (text, images, sensors) |
-| 🧠 **Reasoning** | LLM thinks & plans |
-| 🔧 **Action** | Tools (APIs, code) |
-| 💾 **Memory** | Store, retrieve, apply |
+| 👁️ **Perception** | Inputs (text, audio, vision, structured data) |
+| 🔧 **Action** | Tools (functions, REST APIs, scripts, skills, MCPs) |
+| 🧠 **Reasoning** | LLM — thinks, plans, decides |
+| 💾 **Memory** | Store, retrieve, apply knowledge across interactions |
 
-Agent = autonomous + goal-bound + minimal human feedback.
+Agent = autonomous + goal & objective bound + little to no human feedback.
 </details>
 
 <details>
 <summary>❓ Stateless agent ka sabse bada problem kya hai? (Restaurant example)</summary>
 
-User asks for recs (turn 1-2), then says "book the first one" (turn 3) → stateless agent: **"Which one??"** 🐟
+Turn 1: user asks for recs → Turn 2: agent responds → Turn 3: user says "book the first one" → Turn 4: stateless agent **"I have no recollection, please specify"** 🐟
 
-Memory-augmented agent stores turns 1-2 in external DB → "first one" makes sense in turn 3. ✅
+Memory-augmented agent stores turns 1-2 in external DB → resolves "first one" at turn 4. ✅
 </details>
 
 <details>
 <summary>❓ Name the 5 types in the Memory Taxonomy</summary>
 
-**Short-term:** Semantic Cache (cached responses) · Working Memory (context window + scratchpad)
+**Short-term:** Semantic Cache (vector search + cached LLM responses) · Working Memory (LLM context window + session based)
 
-**Long-term:** Procedural (workflows, toolbox) · Semantic (entities, knowledge base) · Episodic (persona, summaries, conversations)
+**Long-term:** Procedural (workflow + toolbox) · Semantic (entity memory + knowledge base) · Episodic (persona, summaries, conversational memory)
 
 > Short-term = RAM, Long-term = Hard Disk 💾
 </details>

@@ -1,6 +1,6 @@
 # 02 · Why AI Agents Need Memory 🤔
 
-> ✅ Verified — directly from course transcript
+> ✅ Verified — directly from course transcript + lecture slides
 
 ---
 
@@ -13,19 +13,30 @@
 
 **4 pillars — miss one and it's not really an agent:**
 
-```mermaid
-graph TD
-    A["🤖 <b>AI AGENT</b><br/>Goal-bound · Autonomous<br/>Little to no human input"]
-    A --> P["👁️ <b>PERCEIVE</b><br/>Inputs — text, images, sensors"]
-    A --> R["🧠 <b>REASON</b><br/>LLM — think, plan, decide"]
-    A --> Act["🔧 <b>ACT</b><br/>Tools — APIs, code, execute"]
-    A --> M["💾 <b>REMEMBER</b><br/>Store · Retrieve · Apply"]
-
-    style A fill:#37474f,color:#fff,stroke:#263238,stroke-width:2px
-    style P fill:#2196f3,color:#fff,stroke:#1565c0
-    style R fill:#ff9800,color:#fff,stroke:#e65100
-    style Act fill:#9c27b0,color:#fff,stroke:#6a1b9a
-    style M fill:#4caf50,color:#fff,stroke:#388e3c,stroke-width:3px
+```
+         ┌──────────┬──────────┬──────────┬──────────┐
+         │ 👁️ Per-  │ 🔧 Act-  │ 🧠 Rea-  │ 💾 Mem-  │
+         │ ception  │  ion     │ soning   │  ory     │
+         └────┬─────┴────┬─────┴────┬─────┴────┬─────┘
+              │          │          │          │
+              ▼          ▼          ▼          ▼
+           Inputs     Tools       LLM      Store
+         (text,      (APIs,     (think,    Retrieve
+          audio,      code,      plan,      Apply
+          vision,     execute)   decide)    knowledge
+          struct.                           across
+          data)                             sessions
+              │          │          │          │
+              └──────────┴──────┬───┴──────────┘
+                                ▼
+                          🤖 AI AGENT
+                      ┌─────────────────┐
+                      │  Independently  │
+                      │  Little to no   │
+                      │    feedback     │
+                      │  Goal & Object- │
+                      │   ive bound     │
+                      └─────────────────┘
 ```
 
 > 💡 Perception, Reasoning, Action = body. **Memory = soul** — without it the agent forgets who it was 5 minutes ago.
@@ -34,80 +45,107 @@ graph TD
 
 ## 🐟 Stateless vs 🧠 Memory-Augmented
 
-**The Restaurant Problem:**
+**The Restaurant Problem (multi-turn interaction):**
 
-| Turn | User Says | 🐟 Stateless | 🧠 Memory-Augmented |
-|------|-----------|-------------|----------------------|
-| 1 | "Italian restaurants near me?" | Lists 3 options ✅ | Lists 3 options ✅ |
-| 2 | "Which one has outdoor seating?" | Answers ✅ | Answers ✅ |
-| 3 | "Book the first one for 7pm" | ❌ "Which one??" | ✅ Books restaurant #1 |
+| Turn | Who | 🐟 Stateless Agent | 🧠 Memory-Augmented Agent |
+|------|-----|-------------------|--------------------------|
+| **1** | 👤 User | "Recommend Italian restaurants near me" | Same |
+| **2** | 🤖 Agent | Lists 3 options ✅ | Lists 3 options ✅ → **stores in external DB** |
+| **3** | 👤 User | "Book the first one for 7pm" | Same |
+| **4** | 🤖 Agent | ❌ *"I have no recollection of what you're referring to. Please specify."* | ✅ Identifies restaurant #1 from memory, asks for date & time |
 
-> 🐟 Stateless = goldfish brain. Har turn fresh start.
-> 🧠 Memory = stores turns 1-2 in external DB → turn 3 mein "first one" samajh aata hai!
+> 🐟 Stateless = goldfish brain. Har turn fresh start. Turn 3 mein "first one" ka matlab samajh hi nahi aata!
+> 🧠 Memory = turns 1-2 external DB mein save → turn 3-4 mein reference kar ke kaam karta hai.
 
 ---
 
-## ❌ Stateless Pain vs ✅ Memory Gains
+## ❌ Stateless Agent
+
+A stateless agent CAN perceive inputs, reason over them, and produce outputs (powered by LLM) — **but does NOT retain or recall information beyond a single interaction.**
 
 ```
-  ❌ STATELESS                          ✅ MEMORY-AUGMENTED
-  ─────────────────────────────────     ─────────────────────────────────
-  Can't do long-horizon tasks           Long-running tasks across
-  (minutes → hours → days)              minutes, hours, even days
+  ❌ DISADVANTAGES OF A STATELESS AGENT
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ⏳ Cannot perform              ❗ No Context Awareness
+     Long-Horizon Tasks              Across Sessions
+     (mins → hours → days,           (leave & come back =
+      no memory of prev steps)        info completely lost)
 
-  No context across sessions            Sustained context — picks up
-  (every session = blank slate)         where it left off
-
-  No learning / adaptation              Learns from past interactions
-  (same mistakes, forever)              (adapts & improves)
-
-  High cost — stuff EVERYTHING          Efficient — retrieve only
-  into context every single turn        what's relevant per turn
-  (token bill goes brrr 💸)             (smart retrieval = $$ saved)
+  💡 No Learning or              💰 High Operational Cost
+     Adaptation Abilities             — Context Stuffing
+     (new info during convo           (stuff EVERYTHING into
+      not used in future)              context window every turn)
 ```
 
 > 💡 Stateless agent pe paisa lagana = leaky bucket mein paani dalna 🪣
 
 ---
 
+## ✅ Memory-Augmented Agent
+
+Same as stateless (perceive + reason + produce) **PLUS a database** for persistent storage & retrieval.
+
+```
+  ✅ ADVANTAGES OF MEMORY-AUGMENTED AGENTS
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ⏳ Supports                    ✅ Sustained Context
+     Long-Horizon Tasks              Awareness Across Sessions
+     (reference prev interaction     (continuous interaction
+      & context from past)            feels seamless to user)
+
+  📈 Improved Efficiency         🛡️ Greater Reliability
+     & Reduced Operational Cost      in Multi-Step Workflows
+     (only pass RELEVANT context     (reference prev steps +
+      from external store, not        prev context = more
+      everything every turn)          reliable outcomes)
+```
+
+> Jab memory hai, toh agent ko har baar "remind" nahi karna padta. Khud yaad rakhta hai! 🧠
+
+---
+
 ## 💬 Conversational Memory (Simplest Form)
 
-The entry-level memory — just save the chat history.
+Going from stateless → memory-augmented starts with storing **interaction history** in an external store. This is called **Conversational Memory** — the simplest form of memory.
 
 | Field | What's stored |
 |-------|--------------|
-| ⏰ Timestamp | When the exchange happened |
+| ⏰ Timestamp | When the interaction happened |
 | 👤 User msg | What the human said |
 | 🤖 Assistant msg | What the agent replied |
 
-**How it enters the LLM:**
+- Interactions = back & forth between user(s) and agent(s)/assistant(s)
+- **Time-ordered** retrieval — sequence of actions & interactions preserved
+- Also called **Episodic Memory** (because timestamp → time-based episodes)
+
+**How it enters the LLM context window:**
 
 ```
 ┌──────────────────────────────────────────────┐
-│  📋 System Prompt                            │
+│  📋 System Prompt + Instructions             │
 ├──────────────────────────────────────────────┤
 │  💬 Conversational Memory (time-ordered)     │
 │    [t1] User: ...  Assistant: ...            │
-│    [t2] User: ...  Assistant: ...            │
-│    [t3] User: ...  Assistant: ...            │
+│    [t2] User: ...  Assistant: ...            │  ← retrieved from
+│    [t3] User: ...  Assistant: ...            │    external store
 ├──────────────────────────────────────────────┤
 │  🎤 Current User Prompt                     │
 └──────────────────────────────────────────────┘
          ↓ all of this → LLM context window
 ```
 
-> Also called **Episodic Memory** — it's a time-ordered episode log of what happened.
-
 ---
 
 ## 🚫 Why Conversational Memory Isn't Enough
 
-| Limitation | Why it hurts |
-|-----------|--------------|
-| 📏 **Finite context window** | Window has a limit, but user relationships don't. Eventually old convos get evicted |
-| 👤 **No entity extraction** | People, places, preferences — not explicitly captured. "My wife's name is Priya" gets buried in chat |
-| 📦 **Missing non-chat info** | Workflow steps, tool outputs, outcomes — valuable but not in conversations |
-| 🔍 **Not queryable** | Need structured, searchable knowledge — not a raw chat log dump |
+We need to go **beyond** just storing chat logs. Here's why:
+
+| # | Limitation | Why it hurts |
+|---|-----------|--------------|
+| 1 | 📏 **Context windows are finite, user relationships are not** | We can capture MORE relationships by looking at conversations AND data associated with them |
+| 2 | 👤 **Entities not explicitly captured** | People, places, relationships to people — buried in chat, not extracted. "My wife Priya likes Thai food" = lost |
+| 3 | 📦 **Not all valuable info lives in conversations** | Workflow steps, tool outcomes, process results — useful for cross-session interaction but not in chat |
+| 4 | 🔍 **Agents need structured, queryable knowledge** | Chat logs = just interaction history. Agents need to search & query — not just scroll |
 
 > 💡 Conversational memory = diary. Useful, but you also need a **contacts list, a to-do app, and a knowledge base!**
 
@@ -115,53 +153,36 @@ The entry-level memory — just save the chat history.
 
 ## 🗺️ Memory Taxonomy (The Big Picture)
 
-```mermaid
-graph TD
-    ROOT["🧠 <b>Agent Memory</b>"]
-    ROOT --> ST["⚡ <b>Short-Term</b><br/><i>session only</i>"]
-    ROOT --> LT["💾 <b>Long-Term</b><br/><i>persists forever</i>"]
+This is the key diagram — all the forms of agent memory in one tree:
 
-    ST --> SC["🔍 <b>Semantic Cache</b><br/>Vector search +<br/>cached LLM responses"]
-    ST --> WM["📝 <b>Working Memory</b><br/>Context window +<br/>scratchpad"]
-
-    LT --> PROC["⚙️ <b>Procedural</b>"]
-    LT --> SEM["📚 <b>Semantic</b>"]
-    LT --> EPI["📖 <b>Episodic</b>"]
-
-    PROC --> WF["Workflow<br/>memory"]
-    PROC --> TB["Tool<br/>box"]
-    SEM --> ENT["Entity<br/>memory"]
-    SEM --> KB["Knowledge<br/>base"]
-    EPI --> PER["Persona"]
-    EPI --> SUM["Summaries"]
-    EPI --> CONV["Conv.<br/>memory"]
-
-    style ROOT fill:#37474f,color:#fff,stroke:#263238,stroke-width:2px
-    style ST fill:#ff9800,color:#fff,stroke:#e65100,stroke-width:2px
-    style LT fill:#4caf50,color:#fff,stroke:#388e3c,stroke-width:2px
-    style SC fill:#fff3e0,color:#333,stroke:#ff9800
-    style WM fill:#fff3e0,color:#333,stroke:#ff9800
-    style PROC fill:#e8f5e9,color:#333,stroke:#4caf50
-    style SEM fill:#e8f5e9,color:#333,stroke:#4caf50
-    style EPI fill:#e8f5e9,color:#333,stroke:#4caf50
-    style WF fill:#f1f8e9,color:#555,stroke:#aed581
-    style TB fill:#f1f8e9,color:#555,stroke:#aed581
-    style ENT fill:#f1f8e9,color:#555,stroke:#aed581
-    style KB fill:#f1f8e9,color:#555,stroke:#aed581
-    style PER fill:#f1f8e9,color:#555,stroke:#aed581
-    style SUM fill:#f1f8e9,color:#555,stroke:#aed581
-    style CONV fill:#f1f8e9,color:#555,stroke:#aed581
+```
+                           🧠 AGENT MEMORY
+                   ┌───────────┴───────────┐
+              ⚡ SHORT-TERM             💾 LONG-TERM
+              (session only)            (persists forever)
+             ┌─────┴─────┐          ┌───────┼───────┐
+             │            │          │       │       │
+       🔍 Semantic   📝 Working   ⚙️ Pro-  📚 Se-  📖 Epi-
+          Cache       Memory      cedural  mantic  sodic
+             │            │          │       │       │
+        ┌────┘       ┌────┘      ┌───┴──┐ ┌─┴──┐ ┌──┴───┐
+        │            │           │      │ │    │ │  │    │
+   Vector search  LLM Context  Work- Tool Entity KB Per- Sum- Conv.
+   + cached LLM   Window  +   flow  box  Memory    sona mari memo-
+   responses      Session                              es   ry
+   for similar    Based
+   queries
 ```
 
 **Cheat sheet:**
 
-| Type | Duration | Contains | Example |
-|------|----------|----------|---------|
-| 🔍 **Semantic Cache** | Short | Cached LLM responses for similar queries | "Weather in Delhi?" → reuse cached answer |
-| 📝 **Working Memory** | Short | Context window + scratchpad | Current chain-of-thought, intermediate results |
-| ⚙️ **Procedural** | Long | Workflow steps, tool configurations | "To deploy: step 1→2→3" |
-| 📚 **Semantic** | Long | Entities, domain knowledge | "Ayush works at SAP", "Kafka uses partitions" |
-| 📖 **Episodic** | Long | Persona, summaries, conversations | Past interactions, behavioral patterns |
+| Type | ⏱ | What it stores | Example |
+|------|---|---------------|---------|
+| 🔍 **Semantic Cache** | Short | Vector search + cached LLM responses for similar queries | "Weather in Delhi?" → reuse cached response |
+| 📝 **Working Memory** | Short | LLM context window + session-based memory (scratchpad) | Current chain-of-thought, intermediate results. **Lost after session.** |
+| ⚙️ **Procedural** | Long | **Workflow** memory (steps taken) + **Toolbox** (tool configs) | "To deploy: called API A → parsed response → triggered B" |
+| 📚 **Semantic** | Long | **Entity Memory** (people, places) + **Knowledge Base** (domain knowledge) | "Ayush works at SAP", "Kafka uses partitions" |
+| 📖 **Episodic** | Long | **Persona** + **Summaries** + **Conversational** memory | Past interactions, behavioral patterns, chat history |
 
 > 💡 Short-term = RAM (gone when you shut down). Long-term = hard disk (survives reboots). Bas yehi farak hai! 💾
 
@@ -169,84 +190,94 @@ graph TD
 
 ## 🏗️ What IS Agent Memory?
 
+> **Formal definition:** Agent memory is the system of **architectural components, control mechanisms, tools, and software harness** that enables an AI agent to persistently **store, organize, retrieve, and reuse information** across time, interactions, and execution contexts — ensuring **temporal and contextual continuity**, even across fragmented interactions.
+
 Not just a database. It's a **system** of parts working together:
 
-```mermaid
-graph TD
-    subgraph SYS ["🧠 Agent Memory System"]
-        EM["🔢 <b>Embedding Model</b><br/>vectorize text"]
-        DB["🗄️ <b>Database</b><br/>store / retrieve / optimize"]
-        LLM["🤖 <b>LLM</b><br/>extract / consolidate"]
-        CM["⚙️ <b>Control Mechanisms</b><br/>when to read / write"]
-        SW["🔧 <b>Software Harness</b><br/>glue code, APIs"]
-    end
-
-    EM <--> DB
-    DB <--> LLM
-    CM --> DB
-    CM --> LLM
-    SW --> EM
-    SW --> DB
-    SW --> LLM
-
-    OUT["→ Store, organize, retrieve,<br/>reuse info across time & sessions"]
-    SYS --> OUT
-
-    style SYS fill:#f5f5f5,color:#333,stroke:#616161,stroke-width:2px
-    style EM fill:#2196f3,color:#fff,stroke:#1565c0
-    style DB fill:#4caf50,color:#fff,stroke:#388e3c,stroke-width:3px
-    style LLM fill:#ff9800,color:#fff,stroke:#e65100
-    style CM fill:#9c27b0,color:#fff,stroke:#6a1b9a
-    style SW fill:#607d8b,color:#fff,stroke:#37474f
-    style OUT fill:none,color:#555,stroke:none
+```
+┌─────────────────────────────────────────────────┐
+│              🧠 AGENT MEMORY SYSTEM             │
+│                                                 │
+│  🔢 Embedding    🗄️ Database    🤖 LLM          │
+│   Model             ↕              ↕            │
+│      ↕          store/retrieve   extract/        │
+│   vectorize      optimize       consolidate     │
+│                                                 │
+│  ⚙️ Control Mechanisms  +  🔧 Software Harness  │
+│  (when to read/write)     (glue code, APIs)     │
+└─────────────────────────────────────────────────┘
+        → Store, organize, retrieve, reuse
+          info across time and sessions
+          = agent can ADAPT and LEARN
 ```
 
 ---
 
 ## 🔗 RAG → Agent Memory Connection
 
-**Same pipeline, different purpose:**
+**Same pipeline, upgraded purpose.** If you understand RAG, you already understand 80% of agent memory!
 
-```mermaid
-graph LR
-    subgraph RAG ["📖 <b>RAG</b> — read-only"]
-        direction LR
-        D1["📄 Docs"] --> C1["✂️ Chunk"] --> E1["🔢 Embed"] --> DB1["🗄️ DB"]
-        DB1 --> Q1["🔎 Query"] --> R1["📋 Retrieve"] --> RR1["⚖️ Rerank"] --> L1["🤖 LLM"]
-    end
+```
+  ┌─ RAG PIPELINE (read-only) ──────────────────────────────────────────┐
+  │                                                                     │
+  │  📄 Data     ✂️ Data        🔢 Embedding    📊 Embedding  🗄️ DB    │
+  │  Sources → Processing →  Generation   →  + Metadata → Storage    │
+  │             (chunking)    (vectorize)                              │
+  │                                                                     │
+  │  👤 User → 🔢 Vectorize → 🔎 Similarity → ⚖️ Rerank → 🤖 LLM    │
+  │  Query      query          Search                      (grounded)  │
+  └─────────────────────────────────────────────────────────────────────┘
 
-    subgraph AM ["🧠 <b>Agent Memory</b> — read + WRITE"]
-        direction LR
-        D2["🧠 Memory"] --> C2["✂️ Chunk"] --> E2["🔢 Embed"] --> DB2["🗄️ DB"]
-        DB2 --> Q2["🔎 Query"] --> R2["📋 Retrieve"] --> RR2["⚖️ Rerank"] --> L2["🤖 LLM"]
-        MM["📝 <b>Memory Manager</b><br/>CRUD ops"] <--> DB2
-        L2 -.->|"writes back"| MM
-    end
-
-    style RAG fill:#e3f2fd,color:#333,stroke:#1565c0,stroke-width:2px
-    style AM fill:#e8f5e9,color:#333,stroke:#388e3c,stroke-width:2px
-    style MM fill:#ff9800,color:#fff,stroke:#e65100,stroke-width:2px
-    style DB1 fill:#2196f3,color:#fff,stroke:#1565c0
-    style DB2 fill:#4caf50,color:#fff,stroke:#388e3c
+  ┌─ AGENT MEMORY (read + WRITE) ──────────────────────────────────────┐
+  │                                                                     │
+  │  Same ingestion pipeline as RAG, BUT...                            │
+  │                                                                     │
+  │  📄 Data Sources ──→ 🗄️ DATABASE                                   │
+  │  (text, audio,       ┌──────────────────────────────┐              │
+  │   vision, struct.)   │  Tables (not static docs!)   │              │
+  │                      │  ┌──────────┬──────────────┐ │              │
+  │  🤖 AI Agent         │  │ Session  │ Sem. Cache   │ │              │
+  │  ├─ 👁️ Perception    │  ├──────────┼──────────────┤ │              │
+  │  ├─ 🧠 Reasoning     │  │ Semantic │ Procedural   │ │              │
+  │  ├─ 🔧 Action        │  ├──────────┼──────────────┤ │              │
+  │  │  (Functions,      │  │ Episodic │    ...       │ │              │
+  │  │   REST APIs,      │  └──────────┴──────────────┘ │              │
+  │  │   Scripts,        │  Retrieval Engine │ Security  │              │
+  │  │   Skills, MCPs)   │  Filtered Queries │Multimodel│              │
+  │  │                   └──────────────────────────────┘              │
+  │  └─ 💾 Memory ←──→ 📝 MEMORY MANAGER (CRUD)                      │
+  │                      read / write / update / delete                │
+  │                      Agent accesses via 🔧 tools                   │
+  └────────────────────────────────────────────────────────────────────┘
 ```
 
-> **Key difference:** RAG = read-only library. Agent Memory = living notebook the agent reads AND writes to. Memory Manager = the librarian handling all CRUD. 📚✏️
+**Key differences:**
+
+| | 📖 RAG | 🧠 Agent Memory |
+|--|--------|-----------------|
+| **Data source** | Static knowledge base (docs) | **Live memory tables** (entities, workflows, convos) |
+| **Operations** | Read-only | **CRUD** (Create, Read, Update, Delete) |
+| **Abstraction** | Direct DB query | **Memory Manager** abstracts all operations |
+| **Agent access** | Via retrieval | Via **tools** connected to Memory Manager |
+| **Updates** | Manual re-ingestion | Agent **writes back** its own memories |
+
+> 💡 RAG = library (you can only read books). Agent Memory = living notebook (you read AND write AND cross out old stuff). Memory Manager = the librarian doing all the CRUD. 📚✏️
 
 ---
 
-## 🏛️ The Core = The Database
+## 🏛️ Agent Memory Core = The Database
 
-**What's the MOST important piece?**
+In an agentic system, memory exists in 3 places. But one sees the **most traffic**:
 
-| Component | Why NOT the core? |
-|-----------|-------------------|
-| 🤖 LLM | Parametric memory — can't update after training. Static. |
-| 🔢 Embedding Model | Converts text to vectors. Important but not the bottleneck. |
-| **🗄️ Database** | **✅ THE CORE. Sees ALL the data traffic — store, retrieve, optimize, scale.** |
+| Component | Has memory? | Why NOT the core? |
+|-----------|-------------|-------------------|
+| 🤖 **LLM** | ✅ Parametric memory (training data) | Frozen after training — **can't update** |
+| 🔢 **Embedding Model** | ✅ Semantic/context understanding | Draws meaning when generating embeddings, but **not the bottleneck** |
+| 🗄️ **Database** | ✅ All stored data | **✅ THE CORE — sees ALL the data traffic: storage, retrieval, optimization** |
 
-> 💡 LLM = the brain (thinks but forgets). Database = the diary (remembers everything). The diary is more important for memory! 📓
+> **Agent Memory Core** = the primary infrastructure that sees the most data traffic in your agentic system. It handles storage, retrieval, AND optimization. That's the database.
 
-**The database is the primary infrastructure of the entire agentic memory system.**
+> 💡 LLM = the brain (thinks but can't update its memories). Database = the diary (remembers everything, always updatable). Diary > Brain for memory! 📓
 
 ---
 
@@ -255,29 +286,49 @@ graph LR
 <details>
 <summary>❓ What are the 4 pillars of an AI agent?</summary>
 
-**Perception** (inputs) · **Reasoning** (LLM) · **Action** (tools) · **Memory** (store/retrieve/apply)
+**Perception** (inputs) · **Action** (tools) · **Reasoning** (LLM) · **Memory** (store/retrieve/apply)
 
-Remove any one → not a real agent. Memory is the one most agents are missing today.
+Agent operates: independently, little to no feedback, goal & objective bound.
+</details>
+
+<details>
+<summary>❓ In the restaurant scenario, why does the stateless agent fail at Turn 4?</summary>
+
+User asks "book the first one" in Turn 3, but the agent has **zero recollection** of Turns 1-2. No memory = no concept of "first one." It asks user to specify.
+
+Memory-augmented agent stores Turns 1-2 in external DB → resolves "first one" easily.
 </details>
 
 <details>
 <summary>❓ Why isn't conversational memory enough?</summary>
 
-4 reasons: finite context windows, no entity extraction, misses non-chat info (workflows, outcomes), and not queryable/structured.
+4 gaps:
+1. Context windows are finite, relationships aren't
+2. Entities (people, places) not explicitly extracted
+3. Non-chat info (workflow steps, outcomes) is missed
+4. Agents need structured, queryable knowledge — not raw chat dumps
 
-> Sirf chat history rakhna = sirf diary rakhna. Contacts, to-do, knowledge base bhi chahiye! 📋
+> Sirf diary se kaam nahi chalta — contacts, to-do, KB bhi chahiye! 📋
+</details>
+
+<details>
+<summary>❓ Name the 5 memory types in the taxonomy</summary>
+
+**Short-term:** Semantic Cache (vector search + cached responses) · Working Memory (LLM context window + session based)
+
+**Long-term:** Procedural (workflow + toolbox) · Semantic (entity memory + knowledge base) · Episodic (persona + summaries + conversational)
 </details>
 
 <details>
 <summary>❓ What's the difference between RAG and Agent Memory?</summary>
 
-Same pipeline! But RAG = **read-only** from a static knowledge base. Agent Memory = **read+write** to live tables via a Memory Manager. The agent can update its own memory.
+Same pipeline! But RAG = **read-only** from a static knowledge base. Agent Memory = **read + write (CRUD)** to live tables. Memory Manager abstracts the CRUD. Agent accesses it through tools.
 </details>
 
 <details>
-<summary>❓ Why is the database the core of agent memory, not the LLM?</summary>
+<summary>❓ Why is the DATABASE the agent memory core, not the LLM?</summary>
 
-LLM = parametric memory, frozen after training, can't update. Database handles ALL the data traffic — storage, retrieval, optimization. It's the primary infrastructure.
+LLM = parametric memory, frozen after training, can't update. Embedding model draws meaning but isn't the bottleneck. **Database sees ALL the data traffic** — storage, retrieval, optimization. It's the primary infrastructure.
 
 > LLM soochta hai, DB yaad rakhta hai. Yaad rakhne waala zyada important hai! 🧠
 </details>
