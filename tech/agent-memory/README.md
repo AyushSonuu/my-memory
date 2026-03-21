@@ -35,7 +35,7 @@ graph LR
 | 02 | [Why Agents Need Memory](02-why-agents-need-memory.md) | 🟡 Learning |
 | 03 | [Memory Manager](03-memory-manager.md) | 🟡 Learning |
 | 04 | [Semantic Tool Memory](04-semantic-tool-memory.md) | 🟡 Learning |
-| 05 | [Memory Operations](05-memory-operations.md) | 🔴 Todo |
+| 05 | [Memory Operations](05-memory-operations.md) | 🟡 Learning |
 | 06 | [Memory Aware Agent](06-memory-aware-agent.md) | 🔴 Todo |
 | 07 | [Conclusion](07-conclusion.md) | 🔴 Todo |
 
@@ -57,6 +57,9 @@ graph LR
 > - 🔧 **Toolbox Pattern:** Don't stuff 100 tools into context → store in vector DB, retrieve top-K via semantic search at runtime.
 > - ✨ **Memory Unit Augmentation:** LLM enhances tool descriptions → better separability in embedding space → higher recall.
 > - 🔄 **Search-and-store:** Tool results get persisted to KB memory — agent literally learns from searching.
+> - 📉 **Context Window Reduction** has 2 techniques: Summarization (lossy) and Compaction (lossless via DB offload).
+> - 🗄️ **Compaction > Summarization** when you might need details later — full content in DB, expand anytime.
+> - ⚙️ **Workflow Memory** = reusable step-by-step playbooks. Do it once, follow the recipe forever.
 
 ---
 

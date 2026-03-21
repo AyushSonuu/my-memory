@@ -295,4 +295,59 @@ A **meta-tool** — a tool that searches for other tools! Agent can call it mid-
 
 ---
 
+### ⚙️ Memory Operations (Lesson 5)
+
+<details>
+<summary>❓ Context Window Reduction ke 2 techniques kya hain?</summary>
+
+1. **Context Summarization** — LLM compresses content into shorter form. ⚠️ **Lossy** — some info gone forever (JPEG compression jaisa)
+2. **Context Compaction** — Full content → DB, only ID + description in context. ✅ **Lossless** — `expand_summary(id)` gets everything back (file to drawer jaisa)
+
+> Summarization = thumbnail 📸. Compaction = original in drawer 🗄️
+</details>
+
+<details>
+<summary>❓ Good summarization ke 3 goals?</summary>
+
+1. 🎯 **Retain highest-signal** — task-relevant facts, decisions, claims
+2. 🔗 **Preserve relationships** — who did what, why, results, caveats
+3. 🗑️ **Remove noise** — redundant, low-value, off-topic content
+
+Quality depends entirely on the summarization **prompt**!
+</details>
+
+<details>
+<summary>❓ Workflow Memory kya hai?</summary>
+
+Agent's ability to **persist and reuse multi-step task sequences**. Stored as JSON (workflow_name, user_request, ordered steps) + vector embedding for semantic search.
+
+**Without:** Figure out steps from scratch every time. **With:** Follow saved recipe!
+
+```
+"Get current weather" → Step 1: get_location → Step 2: weather_api → Step 3: pass lat/lon → Step 4: return response
+```
+
+> Pehli baar trial-error, doosri baar recipe follow 🍳
+</details>
+
+<details>
+<summary>❓ Double-summarization kaise prevent hota hai?</summary>
+
+After summarization: each original message gets **marked** with `summary_id` in DB. Next SQL query filters `WHERE summary_id IS NULL` → already-summarized messages skipped.
+</details>
+
+<details>
+<summary>❓ Context monitor ke 3 states?</summary>
+
+| State | Usage | Action |
+|---|---|---|
+| 🟢 `ok` | < 50% | Do nothing |
+| 🟡 `warning` | 50-80% | Heads up |
+| 🔴 `critical` | 80%+ | Trigger `summarize_and_store` |
+
+Agent can auto-trigger summarization via toolbox pattern!
+</details>
+
+---
+
 > 💡 *Bolke batao — padhke nahi, bolke yaad hota hai!* 🗣️
