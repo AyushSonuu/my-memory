@@ -83,7 +83,7 @@ graph LR
 | 06 | [Memory Aware Agent](06-memory-aware-agent.md) | Agent loop, harness, full implementation + live demo |
 | 07 | [Conclusion](07-conclusion.md) | 5 building blocks of Memory Engineering |
 
-**Supporting:** [Flashcards](flashcards.md) — 40+ revision cards across all lessons
+**Supporting:** [Flashcards](flashcards.md) — 40+ revision cards | [Cheatsheet](cheatsheet.md) — one-pager | [RAG vs Agent Memory](vs.md) — comparison
 
 ---
 
