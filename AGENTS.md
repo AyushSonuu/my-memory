@@ -73,10 +73,15 @@ Everything you write must be **instantly recallable** during revision. This is t
   - ⚠️ Interpretation (verify yourself)
 - When unsure → **web search first**, don't guess silently
 
-### 2. 📊 Diagram FIRST, Text SECOND
-- Every concept opens with Mermaid (flowchart/sequence/mindmap/class/ER/gantt/state)
-- Text explains the diagram, not vice versa
+### 2. 📊 Visual FIRST, Text SECOND
+- Every concept opens with a visual — pick the RIGHT one:
+  - **Mermaid** → hierarchies, trees, flows, architectures, pipelines, sequences (use generously!)
+  - **Tables** → comparisons, side-by-side, feature lists, cheat sheets
+  - **ASCII art** → simple layouts, box diagrams, context window depictions
+  - **Emoji + bold/italic** → quick-scan lists, callouts
+- Text explains the visual, not vice versa
 - A good diagram replaces 3 paragraphs
+- Mix visual types across sections — variety = visually appealing
 
 ### 3. ✂️ Concise but COMPLETE
 - Tables > paragraphs. Bullets > walls of text.
@@ -85,13 +90,21 @@ Everything you write must be **instantly recallable** during revision. This is t
 - One concept = one scroll max
 - If the source says 10 things, your notes have all 10 — just in tighter form
 
-### 4. 🗣️ Language
+### 4. 🗣️ User-Friendly Explanations
+- **Write like you're explaining to a smart friend, not writing a textbook**
+- Every description should make the reader UNDERSTAND, not just know the definition
+- If a phrase sounds vague or jargon-y on its own, add a plain-language clarification
+- Avoid lazy shorthand like "not the bottleneck" — say WHY in simple terms
+- The test: "Would a reader with zero context understand this line?" If no → rewrite
+- When comparing things (e.g., "Why X is the core, not Y"), give a clear REASON, not just a label
+
+### 5. 🗣️ Language
 - **English** → definitions, concepts, technical terms
 - **Hinglish** → analogies, humor, "aha!" hooks, memory tricks
 - Natural mix, not forced. Funny = memorable = recallable.
 - The funnier the hook, the longer it sticks in memory 🧠
 
-### 5. 🎬 Teach-Ready = YouTube-Ready
+### 6. 🎬 Teach-Ready = YouTube-Ready
 - Numbered files (01, 02, 03) = teaching order
 - Open folder in order = instant video script. Zero extra prep.
 
