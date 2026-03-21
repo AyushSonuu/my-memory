@@ -350,4 +350,63 @@ Agent can auto-trigger summarization via toolbox pattern!
 
 ---
 
+### 🤖 Memory Aware Agent (Lesson 6)
+
+<details>
+<summary>❓ Agent Loop ke 3 steps kya hain?</summary>
+
+1. **Assemble Context** — gather instructions, state, memory, tool outputs
+2. **Invoke LLM** — send context, LLM reasons & decides
+3. **Act** — respond to user, call tool, or ask for more input
+
+Cyclical: loops until stop condition (final answer, error, timeout, max iterations).
+
+> Washing machine 🔄 — keeps spinning until clothes are clean!
+</details>
+
+<details>
+<summary>❓ Agent Harness kya hai?</summary>
+
+The **full programmatic scaffolding** — everything before, during, AND after the agent loop. Memory reads, context assembly, tool execution, post-loop persistence.
+
+> Loop = engine. Harness = the entire car 🚗
+</details>
+
+<details>
+<summary>❓ Memory ops OUTSIDE vs INSIDE the loop?</summary>
+
+**Outside (before):** Read all memory types + write user query + check 80% context threshold
+**Outside (after):** Write workflow, entities, final answer
+
+**Inside:** Tool calls (search, expand_summary), tool log writes (context offloading)
+
+> Outside = deterministic (always). Inside = dynamic (when needed).
+</details>
+
+<details>
+<summary>❓ System prompt agent ko memory aware kaise banata hai?</summary>
+
+Tells the LLM 4 things:
+1. What **memory types** exist
+2. How **context window is partitioned** (markdown headings)
+3. **How to use** each memory section
+4. What **tools** are available for memory ops
+
+Without it = raw text. With it = labeled filing cabinet the LLM knows how to navigate 🗄️
+</details>
+
+<details>
+<summary>❓ Why markdown headings for context window partitioning?</summary>
+
+LLMs understand **hierarchical markdown from training data**. `## Conversation Memory`, `## Knowledge Base Memory` etc. = labeled sections the LLM can parse & reason about individually.
+</details>
+
+<details>
+<summary>❓ What's "context offloading" inside the loop?</summary>
+
+When a tool executes, its full result gets written to `tool_log` in the DB instead of staying in the context window. This frees up context space while preserving the audit trail. The LLM gets a compact summary of the tool result, not the entire raw output.
+</details>
+
+---
+
 > 💡 *Bolke batao — padhke nahi, bolke yaad hota hai!* 🗣️

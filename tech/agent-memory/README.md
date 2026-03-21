@@ -36,7 +36,7 @@ graph LR
 | 03 | [Memory Manager](03-memory-manager.md) | 🟡 Learning |
 | 04 | [Semantic Tool Memory](04-semantic-tool-memory.md) | 🟡 Learning |
 | 05 | [Memory Operations](05-memory-operations.md) | 🟡 Learning |
-| 06 | [Memory Aware Agent](06-memory-aware-agent.md) | 🔴 Todo |
+| 06 | [Memory Aware Agent](06-memory-aware-agent.md) | 🟡 Learning |
 | 07 | [Conclusion](07-conclusion.md) | 🔴 Todo |
 
 ## 🧩 Memory Fragments
@@ -60,6 +60,10 @@ graph LR
 > - 📉 **Context Window Reduction** has 2 techniques: Summarization (lossy) and Compaction (lossless via DB offload).
 > - 🗄️ **Compaction > Summarization** when you might need details later — full content in DB, expand anytime.
 > - ⚙️ **Workflow Memory** = reusable step-by-step playbooks. Do it once, follow the recipe forever.
+> - 🔄 **Agent Loop** = cyclical: Assemble Context → Invoke LLM → Act. Repeats until stop condition.
+> - 🏗️ **Agent Harness** = full scaffolding (before + during + after loop). Memory ops outside = deterministic. Inside = dynamic.
+> - 📋 **Markdown headings** partition the context window per memory type — LLMs understand hierarchical structure from training.
+> - 🧠 **System prompt** is what makes LLM memory-aware: tells it what memory exists, how context is partitioned, how to use each type.
 
 ---
 
