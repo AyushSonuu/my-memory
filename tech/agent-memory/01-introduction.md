@@ -37,6 +37,8 @@ graph LR
 
 **Key insight:** Memory is **infrastructure**, not a feature. External to the model, persistent, structured, queryable.
 
+> 💡 Prompt engineering = tota ratta. Context engineering = open-book exam. Memory engineering = jo actually yaad raha! 🎓
+
 ---
 
 ## 🗺️ Course Roadmap

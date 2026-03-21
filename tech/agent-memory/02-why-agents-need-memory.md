@@ -57,8 +57,6 @@ graph TD
 | 💰 **Operational cost** | Stuff EVERYTHING into context every turn 💸 | ✅ Retrieve only relevant context from external store |
 | 🛡️ **Multi-step reliability** | No reference to prev steps = fragile | ✅ Reference prev steps + context = reliable outcomes |
 
-> 💡 Stateless agent pe paisa lagana = leaky bucket mein paani dalna 🪣
-
 ---
 
 ## 💬 Conversational Memory (Simplest Form)
@@ -101,8 +99,6 @@ Going from stateless → memory-augmented starts with storing **interaction hist
 | 2 | 👤 **Entities not explicitly captured** | People, places, relationships — buried in chat, not extracted |
 | 3 | 📦 **Not all valuable info lives in conversations** | Workflow steps, tool outcomes — useful but not in chat |
 | 4 | 🔍 **Agents need structured, queryable knowledge** | Chat logs ≠ searchable knowledge — just raw dumps |
-
-> 💡 Conversational memory = diary. But you also need a **contacts list, a to-do app, and a knowledge base!**
 
 ---
 
