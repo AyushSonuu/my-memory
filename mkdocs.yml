@@ -1,5 +1,5 @@
 site_name: "🧠 My Memory"
-site_description: "Every expert was once a beginner who didn't quit."
+site_description: "Every expert was once a beginner who didn't quit. Structured learning notes with diagrams, flashcards, and spaced repetition."
 site_url: https://ayushsonuu.github.io/my-memory/
 site_author: Ayush Sonu
 repo_url: https://github.com/AyushSonuu/my-memory
@@ -32,18 +32,23 @@ theme:
     logo: material/brain
   features:
     - navigation.instant
+    - navigation.instant.progress
     - navigation.tracking
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.sections
     - navigation.expand
     - navigation.top
     - navigation.indexes
+    - navigation.footer
     - search.suggest
     - search.highlight
     - search.share
     - content.code.copy
+    - content.code.annotate
     - content.tabs.link
     - toc.follow
+    - header.autohide
 
 markdown_extensions:
   - pymdownx.superfences:
@@ -63,13 +68,19 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.critic
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - admonition
   - attr_list
   - md_in_html
   - tables
   - toc:
-      permalink: true
+      permalink: "#"
   - def_list
+  - footnotes
 
 plugins:
   - search
@@ -79,6 +90,9 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/AyushSonuu
       name: GitHub
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/ayush-sonu
+      name: LinkedIn
     - icon: fontawesome/solid/envelope
       link: mailto:sonuayush55@gmail.com
       name: Email
@@ -88,17 +102,17 @@ extra_css:
   - _assets/custom.css
 
 nav:
-  - Home:
+  - 🏠 Home:
     - Overview: README.md
-    - Everything Map: _maps/everything.md
-    - Tech Graph: _maps/tech.md
-    - Connections: _maps/connections.md
-    - Timeline: _maps/learning-journey.md
-    - Weak Spots: _maps/weak-spots.md
-    - Due Today: _revision/due-today.md
+    - 🗺️ Everything Map: _maps/everything.md
+    - 🔧 Tech Graph: _maps/tech.md
+    - 🔗 Connections: _maps/connections.md
+    - 📅 Timeline: _maps/learning-journey.md
+    - 🎯 Weak Spots: _maps/weak-spots.md
+    - 📋 Due Today: _revision/due-today.md
 
   - 🧠 Agent Memory:
-    - Overview: tech/agent-memory/README.md
+    - tech/agent-memory/README.md
     - 01 · Introduction: tech/agent-memory/01-introduction.md
     - 02 · Why Memory: tech/agent-memory/02-why-agents-need-memory.md
     - 03 · Memory Manager: tech/agent-memory/03-memory-manager.md
@@ -106,11 +120,13 @@ nav:
     - 05 · Memory Operations: tech/agent-memory/05-memory-operations.md
     - 06 · Memory Aware Agent: tech/agent-memory/06-memory-aware-agent.md
     - 07 · Conclusion: tech/agent-memory/07-conclusion.md
-    - 🃏 Flashcards: tech/agent-memory/flashcards.md
-    - 📋 Cheatsheet: tech/agent-memory/cheatsheet.md
-    - ⚔️ RAG vs Agent Memory: tech/agent-memory/vs.md
+    - Resources:
+      - 🃏 Flashcards: tech/agent-memory/flashcards.md
+      - 📋 Cheatsheet: tech/agent-memory/cheatsheet.md
+      - ⚔️ RAG vs Agent Memory: tech/agent-memory/vs.md
 
-  - ⚡ AsyncIO:
-    - Overview: tech/python/asyncio/README.md
-    - 01 · Complete Guide: tech/python/asyncio/01-asyncio-complete-guide.md
-    - 🃏 Flashcards: tech/python/asyncio/flashcards.md
+  - 🐍 Python:
+    - ⚡ AsyncIO:
+      - tech/python/asyncio/README.md
+      - 01 · Complete Guide: tech/python/asyncio/01-asyncio-complete-guide.md
+      - 🃏 Flashcards: tech/python/asyncio/flashcards.md

@@ -1,88 +1,157 @@
-/* Custom overrides for My Memory vault */
+/* ===== My Memory — Custom Theme (LangChain-inspired) ===== */
 
-/* Cover/landing feel on home page */
+/* Home page title */
 .md-content h1:first-of-type {
-    font-size: 2.4rem !important;
+    font-size: 2.2rem !important;
     font-weight: 800 !important;
     letter-spacing: -0.02em;
 }
 
-/* Mermaid diagrams */
+/* Mermaid containers */
 .mermaid {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--md-code-bg-color);
+    border: 1px solid var(--md-default-fg-color--lightest);
     border-radius: 12px;
     padding: 1.5rem;
     margin: 1rem 0;
 }
 
 /* Flashcard details blocks */
-details {
-    background: rgba(255, 255, 255, 0.03) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+.md-typeset details:not([class]) {
+    background: var(--md-code-bg-color) !important;
+    border: 1px solid var(--md-default-fg-color--lightest) !important;
     border-radius: 10px !important;
     margin: 0.6rem 0 !important;
-    transition: border-color 0.2s;
+    transition: border-color 0.25s ease;
+    overflow: hidden;
 }
 
-details:hover {
+.md-typeset details:not([class]):hover {
     border-color: var(--md-primary-fg-color) !important;
 }
 
-details summary {
+.md-typeset details:not([class])[open] {
+    border-color: var(--md-primary-fg-color) !important;
+}
+
+.md-typeset details:not([class]) summary {
     font-weight: 600;
     cursor: pointer;
-    padding: 0.65rem 1rem;
+    padding: 0.7rem 1.1rem;
+    font-size: 0.92rem;
 }
 
-details[open] {
-    border-color: var(--md-primary-fg-color) !important;
-}
-
-details > p, details > table, details > blockquote {
-    padding: 0 1rem;
-}
-
-/* Table styling */
+/* Tables */
 .md-typeset table:not([class]) th {
-    background-color: rgba(245, 158, 11, 0.08);
+    background-color: var(--md-code-bg-color);
     color: var(--md-primary-fg-color);
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: 0.83rem;
+    text-transform: none;
+    letter-spacing: 0;
 }
 
 .md-typeset table:not([class]) td {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
 }
 
-/* Blockquotes */
+.md-typeset table:not([class]) tr:hover td {
+    background: var(--md-code-bg-color);
+}
+
+/* Blockquotes — accent border */
 .md-typeset blockquote {
     border-left: 3px solid var(--md-primary-fg-color);
     background: rgba(245, 158, 11, 0.04);
     border-radius: 0 8px 8px 0;
+    padding: 0.6rem 1.1rem;
 }
 
 /* Code blocks */
 .md-typeset pre {
     border-radius: 10px;
+    border: 1px solid var(--md-default-fg-color--lightest);
 }
 
-/* ASCII art blocks */
 .md-typeset pre > code {
     font-size: 0.82rem;
-    line-height: 1.5;
+    line-height: 1.55;
 }
 
-/* Navigation tabs highlight */
+/* Inline code */
+.md-typeset code {
+    font-size: 0.84em;
+    border-radius: 4px;
+    padding: 0.1em 0.35em;
+}
+
+/* Navigation tabs — bolder active */
 .md-tabs__link--active {
-    font-weight: 600;
+    font-weight: 700 !important;
 }
 
-/* Footer social links */
+/* Sidebar active item */
+.md-nav__link--active {
+    font-weight: 600 !important;
+    color: var(--md-primary-fg-color) !important;
+}
+
+/* Footer social icons */
 .md-social__link {
-    transition: transform 0.2s;
+    transition: transform 0.2s, opacity 0.2s;
 }
 
 .md-social__link:hover {
     transform: translateY(-2px);
+    opacity: 0.8;
+}
+
+/* Horizontal rules */
+.md-typeset hr {
+    border: none;
+    height: 1px;
+    background: var(--md-default-fg-color--lightest);
+    margin: 2rem 0;
+}
+
+/* Heading permalink anchors */
+.md-typeset .headerlink {
+    opacity: 0;
+    transition: opacity 0.15s;
+    color: var(--md-primary-fg-color);
+}
+
+.md-typeset h2:hover .headerlink,
+.md-typeset h3:hover .headerlink {
+    opacity: 0.5;
+}
+
+/* Smooth content transitions */
+.md-content {
+    animation: fadeInContent 0.3s ease-out;
+}
+
+@keyframes fadeInContent {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header auto-hide shadow */
+.md-header--shadow {
+    box-shadow: 0 0 12px rgba(0,0,0,0.3);
+}
+
+/* Search highlight */
+.md-search-result mark {
+    background: rgba(245, 158, 11, 0.25);
+    color: inherit;
+    border-radius: 2px;
+    padding: 0 2px;
+}
+
+/* Mobile improvements */
+@media (max-width: 76.25em) {
+    .md-content h1:first-of-type {
+        font-size: 1.6rem !important;
+    }
 }
