@@ -1,6 +1,5 @@
 # 02 · Why AI Agents Need Memory 🤔
 
-> ✅ Direct from course transcript + lecture slides
 
 ---
 

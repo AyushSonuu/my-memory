@@ -66,11 +66,12 @@ Everything you write must be **instantly recallable** during revision. This is t
 
 ### 1. 🚫 ZERO Hallucination (NON-NEGOTIABLE)
 - Only facts from source material or web-verified
-- Confidence tags on EVERY file:
+- Use confidence tags **inline next to specific claims** when needed:
   - ✅ Direct from source
   - 🔍 Web-searched & verified  
   - 💡 Analogy (marked)
   - ⚠️ Interpretation (verify yourself)
+- **Do NOT add meta-commentary** at the top of files (no "Direct from course", "Placeholder", "Confidence: X", "Not started" etc.). Every line in a lesson must teach a concept — no filler, no status tags, no source attribution banners.
 - When unsure → **web search first**, don't guess silently
 
 ### 2. 📊 Visual FIRST, Text SECOND

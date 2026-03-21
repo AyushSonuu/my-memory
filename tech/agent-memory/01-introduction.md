@@ -1,6 +1,5 @@
 # 01 · Introduction 🎬
 
-> ✅ Direct from course
 
 ---
 

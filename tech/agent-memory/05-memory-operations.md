@@ -1,6 +1,5 @@
 # 05 · Memory Operations ⚙️
 
-> ✅ Direct from course transcript + lecture slides + code lab (L5.ipynb)
 
 ---
 

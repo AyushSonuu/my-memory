@@ -1,6 +1,5 @@
 # 04 · Semantic Tool Memory 🔧
 
-> ✅ Direct from course transcript + lecture slides + code lab (L4.ipynb)
 
 ---
 

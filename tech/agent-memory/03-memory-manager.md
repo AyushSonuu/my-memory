@@ -1,6 +1,5 @@
 # 03 · Constructing The Memory Manager 🏗️
 
-> ✅ Direct from course transcript + lecture slides + code lab (L3.ipynb)
 
 ---
 

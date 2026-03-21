@@ -1,10 +1,5 @@
 # {##} · {Title} {emoji}
 
-> 📚 Source: {source}
-> ✅ Verified — directly from source
-> 
-> Confidence tags: ✅ Direct from source | 🔍 Web-verified | 💡 Analogy | ⚠️ My interpretation
-
 ---
 
 ## 🎯 One Line
