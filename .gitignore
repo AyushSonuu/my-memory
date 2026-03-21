@@ -17,3 +17,6 @@ content/
 
 # Python venv
 .venv/
+
+# Auto-generated code wrappers (rebuilt by build_docs.py)
+content/_generated/

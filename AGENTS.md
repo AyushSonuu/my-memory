@@ -389,13 +389,14 @@ Emojis: 🆕 new topic | 📝 update existing | 🃏 flashcards | 🗺️ maps |
 
 ## Docs Site (after git push)
 The vault is published via **MkDocs Material** (LangChain-style docs).
-After adding/updating any lesson or topic:
+After adding/updating any lesson, code, or topic:
 1. Add new pages to the `nav:` section in `mkdocs.yml`
-2. Rebuild:
+2. Run the single build command:
 ```bash
-.venv/bin/mkdocs build && touch docs/.nojekyll
+.venv/bin/python build_docs.py
 ```
-3. Commit the regenerated `docs/` folder:
+This auto-generates markdown wrappers for ALL .py files (syntax highlighted, navigable), builds MkDocs, and adds .nojekyll.
+3. Commit:
 ```bash
 git add -A && git commit -m "🌐 rebuild docs" && git push origin main
 ```

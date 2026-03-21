@@ -135,10 +135,20 @@ nav:
       - L4 · Semantic Tool Memory: tech/agent-memory/code/L4/L4.ipynb
       - L5 · Memory Operations: tech/agent-memory/code/L5/L5.ipynb
       - L6 · Memory Aware Agent: tech/agent-memory/code/L6/L6.ipynb
+      - helper.py: _generated/tech/agent-memory/code/helper.md
 
   - 🐍 Python:
     - ⚡ AsyncIO:
       - tech/python/asyncio/README.md
       - 01 · Complete Guide: tech/python/asyncio/01-asyncio-complete-guide.md
       - 🃏 Flashcards: tech/python/asyncio/flashcards.md
-      - 💻 Code Examples: tech/python/asyncio/code/README.md
+      - 💻 Code Examples:
+        - Overview: tech/python/asyncio/code/README.md
+        - terms.py: _generated/tech/python/asyncio/code/L1/terms.md
+        - example_1.py: _generated/tech/python/asyncio/code/L1/example_1.md
+        - example_2.py: _generated/tech/python/asyncio/code/L1/example_2.md
+        - example_3.py: _generated/tech/python/asyncio/code/L1/example_3.md
+        - example_4.py: _generated/tech/python/asyncio/code/L1/example_4.md
+        - example_5.py: _generated/tech/python/asyncio/code/L1/example_5.md
+        - example_6.py: _generated/tech/python/asyncio/code/L1/example_6.md
+        - example_7.py: _generated/tech/python/asyncio/code/L1/example_7.md
