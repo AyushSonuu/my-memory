@@ -1,10 +1,9 @@
 # 🗺️ Non-Tech Knowledge Graph
 
-> Auto-maintained. Updated every time a topic is created or edited.
-> Currently empty — add your first topic to see the magic! ✨
+> Auto-maintained. Updated every time a non-tech topic is created or edited.
 
-```mermaid
-graph TB
-    EMPTY["Add your first non-tech topic! 🚀"]
-    style EMPTY fill:#f5f5f5,stroke-dasharray: 5 5
-```
+No non-tech topics yet. When you add one (personal finance, psychology, etc.), it'll show up here.
+
+---
+
+> 📂 Back to [Everything Map](everything.md)

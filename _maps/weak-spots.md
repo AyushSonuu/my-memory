@@ -1,11 +1,24 @@
 # 🔴 Where I'm Weak
 
-> Auto-maintained. Shows all topics with 🔴 confidence.
-> Currently empty — add your first topic to see the magic! ✨
+> Shows all topics/areas needing attention. Auto-maintained.
 
 ## Focus Areas
+
 | Topic | Weak Area | Suggestion | Priority |
 |-------|-----------|-----------|----------|
-| _Nothing yet_ | — | Start learning! | 🚀 |
+| 🧠 Agent Memory | Just learned (2026-03-21) — needs first revision | Revise flashcards on 2026-03-24 | 🟡 Medium |
 
-> 💡 This file auto-populates as you learn. Your weakest spots show up here so you know exactly where to focus next.
+## No 🔴 Red Topics!
+
+All topics are at least 🟡 Learning. Keep revising to turn them 🟢 Solid.
+
+### How to go from 🟡 → 🟢
+
+1. ✅ Complete first revision (2026-03-24)
+2. ✅ Pass flashcard self-quiz (80%+ recall)
+3. ✅ Teach it to someone (or record a YouTube video)
+4. ✅ Complete 3+ spaced repetition cycles
+
+---
+
+> 💡 This file updates automatically. Your weakest spots show up here so you know where to focus.
