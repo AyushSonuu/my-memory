@@ -533,17 +533,22 @@
     color: #475569 !important;
 }
 
-[data-md-color-scheme="default"] .md-header .md-header__button.md-logo .md-icon {
+[data-md-color-scheme="default"] .md-header .md-header__button.md-logo,
+[data-md-color-scheme="default"] .md-header .md-header__button.md-logo .md-icon,
+[data-md-color-scheme="default"] .md-header .md-logo svg {
     color: #1e293b !important;
-}
-
-[data-md-color-scheme="default"] .md-header .md-header__button.md-logo img,
-[data-md-color-scheme="default"] .md-header .md-header__button.md-logo svg {
-    filter: none !important;
+    fill: #1e293b !important;
 }
 
 [data-md-color-scheme="default"] .md-header .md-logo svg path {
     fill: #1e293b !important;
+}
+
+/* Sidebar logo too */
+[data-md-color-scheme="default"] .md-nav__button.md-logo svg,
+[data-md-color-scheme="default"] .md-nav__button.md-logo svg path {
+    fill: #1e293b !important;
+    color: #1e293b !important;
 }
 
 [data-md-color-scheme="default"] .md-tabs {
