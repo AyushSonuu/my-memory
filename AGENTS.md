@@ -393,7 +393,7 @@ After adding/updating any lesson or topic:
 1. Add new pages to the `nav:` section in `mkdocs.yml`
 2. Rebuild:
 ```bash
-.venv/bin/mkdocs build
+.venv/bin/mkdocs build && touch docs/.nojekyll
 ```
 3. Commit the regenerated `docs/` folder:
 ```bash
