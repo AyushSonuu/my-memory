@@ -314,6 +314,7 @@ These touch global files — do them at END of a learning session, not after eve
 | **`tech/README.md`** or **`non-tech/README.md`** | Update category overview map + table |
 | **Root `README.md`** | Update stats (topic count, lessons, flashcards, last updated) |
 | **`_revision/due-today.md`** | Regenerate from tracker.json |
+| **`index.html`** (root) | Update the GitHub Pages navigation hub — add new topic cards, update stats, update revision banner, add new quick links. This is the public-facing portal. |
 
 **Why two tiers?** Rewriting 8 global files on every small edit wastes tokens and slows you down. Topic-level files = always. Global views = batched.
 
