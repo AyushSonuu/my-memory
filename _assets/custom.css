@@ -1,0 +1,88 @@
+/* Custom overrides for My Memory vault */
+
+/* Cover/landing feel on home page */
+.md-content h1:first-of-type {
+    font-size: 2.4rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+}
+
+/* Mermaid diagrams */
+.mermaid {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+}
+
+/* Flashcard details blocks */
+details {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 10px !important;
+    margin: 0.6rem 0 !important;
+    transition: border-color 0.2s;
+}
+
+details:hover {
+    border-color: var(--md-primary-fg-color) !important;
+}
+
+details summary {
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.65rem 1rem;
+}
+
+details[open] {
+    border-color: var(--md-primary-fg-color) !important;
+}
+
+details > p, details > table, details > blockquote {
+    padding: 0 1rem;
+}
+
+/* Table styling */
+.md-typeset table:not([class]) th {
+    background-color: rgba(245, 158, 11, 0.08);
+    color: var(--md-primary-fg-color);
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.md-typeset table:not([class]) td {
+    font-size: 0.9rem;
+}
+
+/* Blockquotes */
+.md-typeset blockquote {
+    border-left: 3px solid var(--md-primary-fg-color);
+    background: rgba(245, 158, 11, 0.04);
+    border-radius: 0 8px 8px 0;
+}
+
+/* Code blocks */
+.md-typeset pre {
+    border-radius: 10px;
+}
+
+/* ASCII art blocks */
+.md-typeset pre > code {
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+/* Navigation tabs highlight */
+.md-tabs__link--active {
+    font-weight: 600;
+}
+
+/* Footer social links */
+.md-social__link {
+    transition: transform 0.2s;
+}
+
+.md-social__link:hover {
+    transform: translateY(-2px);
+}

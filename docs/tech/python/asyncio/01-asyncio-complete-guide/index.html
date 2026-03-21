@@ -1,0 +1,2727 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Every expert was once a beginner who didn't quit.">
+      
+      
+        <meta name="author" content="Ayush Sonu">
+      
+      
+        <link rel="canonical" href="https://ayushsonuu.github.io/my-memory/tech/python/asyncio/01-asyncio-complete-guide/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../flashcards/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>01 · Complete Guide - 🧠 My Memory</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../_assets/custom.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#01-asyncio-complete-guide-to-asynchronous-programming" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="🧠 My Memory" class="md-header__button md-logo" aria-label="🧠 My Memory" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.687 1.687 0 0 1-1.86-.55L14.44 18c-.89-.15-1.73-.53-2.44-1.1-.5.15-1 .23-1.5.23-.88 0-1.76-.27-2.5-.79-.53.16-1.07.23-1.62.22-.79.01-1.57-.15-2.3-.45a4.1 4.1 0 0 1-2.43-3.61c-.08-.72.04-1.45.35-2.11-.29-.75-.32-1.57-.07-2.33C2.3 7.11 3 6.32 3.87 5.82c.58-1.69 2.21-2.82 4-2.7 1.6-1.5 4.05-1.66 5.83-.37.42-.11.86-.17 1.3-.17 1.36-.03 2.65.57 3.5 1.64 2.04.53 3.5 2.35 3.58 4.47.05 1.11-.25 2.2-.86 3.13.07.36.11.72.11 1.09m-5-1.41c.57.07 1.02.5 1.02 1.07a1 1 0 0 1-1 1h-.63c-.32.9-.88 1.69-1.62 2.29.25.09.51.14.77.21 5.13-.07 4.53-3.2 4.53-3.25a2.59 2.59 0 0 0-2.69-2.49 1 1 0 0 1-1-1 1 1 0 0 1 1-1c1.23.03 2.41.49 3.33 1.3.05-.29.08-.59.08-.89-.06-1.24-.62-2.32-2.87-2.53-1.25-2.96-4.4-1.32-4.4-.4-.03.23.21.72.25.75a1 1 0 0 1 1 1c0 .55-.45 1-1 1-.53-.02-1.03-.22-1.43-.56-.48.31-1.03.5-1.6.56-.57.05-1.04-.35-1.07-.9a.97.97 0 0 1 .88-1.1c.16-.02.94-.14.94-.77 0-.66.25-1.29.68-1.79-.92-.25-1.91.08-2.91 1.29C6.75 5 6 5.25 5.45 7.2 4.5 7.67 4 8 3.78 9c1.08-.22 2.19-.13 3.22.25.5.19.78.75.59 1.29-.19.52-.77.78-1.29.59-.73-.32-1.55-.34-2.3-.06-.32.27-.32.83-.32 1.27 0 .74.37 1.43 1 1.83.53.27 1.12.41 1.71.4q-.225-.39-.39-.81a1.038 1.038 0 0 1 1.96-.68c.4 1.14 1.42 1.92 2.62 2.05 1.37-.07 2.59-.88 3.19-2.13.23-1.38 1.34-1.5 2.56-1.5m2 7.47-.62-1.3-.71.16 1 1.25zm-4.65-8.61a1 1 0 0 0-.91-1.03c-.71-.04-1.4.2-1.93.67-.57.58-.87 1.38-.84 2.19a1 1 0 0 0 1 1c.57 0 1-.45 1-1 0-.27.07-.54.23-.76.12-.1.27-.15.43-.15.55.03 1.02-.38 1.02-.92"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            🧠 My Memory
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              01 · Complete Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/AyushSonuu/my-memory" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AyushSonuu/my-memory
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../agent-memory/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  🧠 Agent Memory
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  ⚡ AsyncIO
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="🧠 My Memory" class="md-nav__button md-logo" aria-label="🧠 My Memory" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.687 1.687 0 0 1-1.86-.55L14.44 18c-.89-.15-1.73-.53-2.44-1.1-.5.15-1 .23-1.5.23-.88 0-1.76-.27-2.5-.79-.53.16-1.07.23-1.62.22-.79.01-1.57-.15-2.3-.45a4.1 4.1 0 0 1-2.43-3.61c-.08-.72.04-1.45.35-2.11-.29-.75-.32-1.57-.07-2.33C2.3 7.11 3 6.32 3.87 5.82c.58-1.69 2.21-2.82 4-2.7 1.6-1.5 4.05-1.66 5.83-.37.42-.11.86-.17 1.3-.17 1.36-.03 2.65.57 3.5 1.64 2.04.53 3.5 2.35 3.58 4.47.05 1.11-.25 2.2-.86 3.13.07.36.11.72.11 1.09m-5-1.41c.57.07 1.02.5 1.02 1.07a1 1 0 0 1-1 1h-.63c-.32.9-.88 1.69-1.62 2.29.25.09.51.14.77.21 5.13-.07 4.53-3.2 4.53-3.25a2.59 2.59 0 0 0-2.69-2.49 1 1 0 0 1-1-1 1 1 0 0 1 1-1c1.23.03 2.41.49 3.33 1.3.05-.29.08-.59.08-.89-.06-1.24-.62-2.32-2.87-2.53-1.25-2.96-4.4-1.32-4.4-.4-.03.23.21.72.25.75a1 1 0 0 1 1 1c0 .55-.45 1-1 1-.53-.02-1.03-.22-1.43-.56-.48.31-1.03.5-1.6.56-.57.05-1.04-.35-1.07-.9a.97.97 0 0 1 .88-1.1c.16-.02.94-.14.94-.77 0-.66.25-1.29.68-1.79-.92-.25-1.91.08-2.91 1.29C6.75 5 6 5.25 5.45 7.2 4.5 7.67 4 8 3.78 9c1.08-.22 2.19-.13 3.22.25.5.19.78.75.59 1.29-.19.52-.77.78-1.29.59-.73-.32-1.55-.34-2.3-.06-.32.27-.32.83-.32 1.27 0 .74.37 1.43 1 1.83.53.27 1.12.41 1.71.4q-.225-.39-.39-.81a1.038 1.038 0 0 1 1.96-.68c.4 1.14 1.42 1.92 2.62 2.05 1.37-.07 2.59-.88 3.19-2.13.23-1.38 1.34-1.5 2.56-1.5m2 7.47-.62-1.3-.71.16 1 1.25zm-4.65-8.61a1 1 0 0 0-.91-1.03c-.71-.04-1.4.2-1.93.67-.57.58-.87 1.38-.84 2.19a1 1 0 0 0 1 1c.57 0 1-.45 1-1 0-.27.07-.54.23-.76.12-.1.27-.15.43-.15.55.03 1.02-.38 1.02-.92"/></svg>
+
+    </a>
+    🧠 My Memory
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AyushSonuu/my-memory" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AyushSonuu/my-memory
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Home
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../_maps/everything/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Everything Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../_maps/tech/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tech Graph
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../_maps/connections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connections
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../_maps/learning-journey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Timeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../_maps/weak-spots/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weak Spots
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../_revision/due-today/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Due Today
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../agent-memory/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧠 Agent Memory
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🧠 Agent Memory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent-memory/01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent-memory/02-why-agents-need-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Why Memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent-memory/03-memory-manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Memory Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent-memory/04-semantic-tool-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Semantic Tool Memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent-memory/05-memory-operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Memory Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent-memory/06-memory-aware-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Memory Aware Agent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent-memory/07-conclusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · Conclusion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent-memory/flashcards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🃏 Flashcards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent-memory/cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📋 Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../agent-memory/vs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⚔️ RAG vs Agent Memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⚡ AsyncIO
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ⚡ AsyncIO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Complete Guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Complete Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#one-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 One Line
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-lesson-covers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 What This Lesson Covers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sync-vs-concurrent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🍔 Sync vs Concurrent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🍔 Sync vs Concurrent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-insight-async-faster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Insight: Async ≠ Faster
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminology-the-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔑 Terminology (The Foundation)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔑 Terminology (The Foundation)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#awaitables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Awaitables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-3-types-of-awaitables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The 3 Types of Awaitables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coroutines-what-youll-use-most" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coroutines (what you'll use most)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tasks-how-you-get-concurrency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tasks (how you get concurrency)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#futures-you-probably-wont-use-these" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Futures (you probably won't use these)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-1-synchronous-baseline-3-seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Example 1: Synchronous Baseline (3 seconds)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-2-first-async-attempt-still-3-seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Example 2: First Async Attempt — Still 3 seconds! ❌
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-3-real-concurrency-with-create_task-2-seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Example 3: Real Concurrency with create_task ✅ (2 seconds)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Example 3: Real Concurrency with create_task ✅ (2 seconds)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-the-event-loop-runs-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How the Event Loop Runs This
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-4-await-order-execution-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Example 4: Await Order ≠ Execution Order
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-5-blocking-the-event-loop-3-seconds-again" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Example 5: Blocking the Event Loop ⛔ (3 seconds again!)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-6-threads-processes-for-blocking-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Example 6: Threads &amp; Processes (for blocking code)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Example 6: Threads &amp; Processes (for blocking code)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#threads-asyncioto_thread" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Threads: asyncio.to_thread()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processes-processpoolexecutor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Processes: ProcessPoolExecutor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-7-gather-vs-taskgroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Example 7: gather vs TaskGroup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Example 7: gather vs TaskGroup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#three-ways-to-run-multiple-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three Ways to Run Multiple Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gather" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        gather
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taskgroup-preferred-for-all-or-nothing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TaskGroup (preferred for all-or-nothing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-which" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Use Which
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-world-example-image-download-processing-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌍 Real-World Example: Image Download + Processing Pipeline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🌍 Real-World Example: Image Download + Processing Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-sync-version-23-seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Sync Version (23 seconds)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profiling-with-scalene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Profiling with Scalene
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-async-version-5-seconds-47x-speedup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Async Version (5 seconds — 4.7x speedup!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-code-patterns-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Code Patterns Used
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limiting-concurrency-semaphores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚦 Limiting Concurrency: Semaphores
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision-guide-async-vs-threads-vs-processes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧭 Decision Guide: Async vs Threads vs Processes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Common Pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#async-compatible-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 Async-Compatible Ecosystem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔑 Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Quick Check
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flashcards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🃏 Flashcards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#one-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 One Line
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-lesson-covers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 What This Lesson Covers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sync-vs-concurrent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🍔 Sync vs Concurrent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🍔 Sync vs Concurrent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-insight-async-faster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Insight: Async ≠ Faster
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminology-the-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔑 Terminology (The Foundation)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔑 Terminology (The Foundation)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event Loop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#awaitables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Awaitables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-3-types-of-awaitables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The 3 Types of Awaitables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coroutines-what-youll-use-most" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coroutines (what you'll use most)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tasks-how-you-get-concurrency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tasks (how you get concurrency)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#futures-you-probably-wont-use-these" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Futures (you probably won't use these)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-1-synchronous-baseline-3-seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Example 1: Synchronous Baseline (3 seconds)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-2-first-async-attempt-still-3-seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Example 2: First Async Attempt — Still 3 seconds! ❌
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-3-real-concurrency-with-create_task-2-seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Example 3: Real Concurrency with create_task ✅ (2 seconds)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Example 3: Real Concurrency with create_task ✅ (2 seconds)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-the-event-loop-runs-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How the Event Loop Runs This
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-4-await-order-execution-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Example 4: Await Order ≠ Execution Order
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-5-blocking-the-event-loop-3-seconds-again" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Example 5: Blocking the Event Loop ⛔ (3 seconds again!)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-6-threads-processes-for-blocking-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Example 6: Threads &amp; Processes (for blocking code)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Example 6: Threads &amp; Processes (for blocking code)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#threads-asyncioto_thread" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Threads: asyncio.to_thread()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processes-processpoolexecutor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Processes: ProcessPoolExecutor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-7-gather-vs-taskgroup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Example 7: gather vs TaskGroup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Example 7: gather vs TaskGroup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#three-ways-to-run-multiple-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three Ways to Run Multiple Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gather" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        gather
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taskgroup-preferred-for-all-or-nothing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TaskGroup (preferred for all-or-nothing)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-which" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Use Which
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-world-example-image-download-processing-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌍 Real-World Example: Image Download + Processing Pipeline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🌍 Real-World Example: Image Download + Processing Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-sync-version-23-seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Sync Version (23 seconds)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profiling-with-scalene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Profiling with Scalene
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-async-version-5-seconds-47x-speedup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Async Version (5 seconds — 4.7x speedup!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-code-patterns-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Code Patterns Used
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limiting-concurrency-semaphores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚦 Limiting Concurrency: Semaphores
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision-guide-async-vs-threads-vs-processes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧭 Decision Guide: Async vs Threads vs Processes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Common Pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#async-compatible-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 Async-Compatible Ecosystem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔑 Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Quick Check
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="01-asyncio-complete-guide-to-asynchronous-programming">01 · AsyncIO — Complete Guide to Asynchronous Programming ⚡<a class="headerlink" href="#01-asyncio-complete-guide-to-asynchronous-programming" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="one-line">🎯 One Line<a class="headerlink" href="#one-line" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>AsyncIO lets your Python code <strong>do other useful work while waiting</strong> for IO — it's not about speed, it's about not sitting idle.</p>
+</blockquote>
+<hr />
+<h2 id="what-this-lesson-covers">📚 What This Lesson Covers<a class="headerlink" href="#what-this-lesson-covers" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Topic</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Sync vs Concurrent (Subway vs McDonald's)</td>
+<td>📖 Concept</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Key Terminology (Event Loop, Awaitables, Coroutines, Tasks, Futures)</td>
+<td>📖 Concept</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Examples 1-4: From sync to real concurrency (with animations)</td>
+<td>💻 Code</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Example 5: Blocking the event loop (the classic mistake)</td>
+<td>💻 Code</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Example 6: Threads &amp; Processes with AsyncIO</td>
+<td>💻 Code</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Example 7: gather vs TaskGroup</td>
+<td>💻 Code</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Real-world: Converting sync code → async (image pipeline)</td>
+<td>💻 Code</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Profiling, Semaphores, Common Pitfalls</td>
+<td>📖 Concept</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="sync-vs-concurrent">🍔 Sync vs Concurrent<a class="headerlink" href="#sync-vs-concurrent" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Synchronous (Subway 🥪)</th>
+<th>Concurrent (McDonald's 🍔)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>How</strong></td>
+<td>Make your entire sandwich start-to-finish, then next customer</td>
+<td>Take your order, move to next customer while food is being made</td>
+</tr>
+<tr>
+<td><strong>In code</strong></td>
+<td>One thing after another — line by line</td>
+<td>Start a task, do other work while waiting, come back when it's done</td>
+</tr>
+<tr>
+<td><strong>Python</strong></td>
+<td>Normal code (<code>def</code>, <code>time.sleep</code>)</td>
+<td>AsyncIO code (<code>async def</code>, <code>await asyncio.sleep</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="key-insight-async-faster">Key Insight: Async ≠ Faster<a class="headerlink" href="#key-insight-async-faster" title="Permanent link">&para;</a></h3>
+<p>Async doesn't make your code magically faster. It means <strong>you don't sit idle</strong> while waiting for IO (network requests, DB queries, file reads). You do other useful work during the wait.</p>
+<hr />
+<h2 id="terminology-the-foundation">🔑 Terminology (The Foundation)<a class="headerlink" href="#terminology-the-foundation" title="Permanent link">&para;</a></h2>
+<h3 id="event-loop">Event Loop<a class="headerlink" href="#event-loop" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>The <strong>engine</strong> that runs and manages all async functions. It's like a scheduler — keeps track of tasks, and when one is suspended (waiting for IO), it finds another task to start or resume.</p>
+</blockquote>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>  <span class="c1"># Starts event loop → runs tasks → closes loop when done</span>
+</span></code></pre></div>
+<blockquote>
+<p>Without the event loop running, none of your async code works. It's the conductor of the orchestra.</p>
+</blockquote>
+<h3 id="awaitables">Awaitables<a class="headerlink" href="#awaitables" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Objects that implement the special <code>__await__</code> method. You can only use the <code>await</code> keyword on awaitables, and only inside <code>async</code> functions.</p>
+</blockquote>
+<p><strong>Why can't you <code>await time.sleep()</code>?</strong> Because <code>time.sleep</code> is synchronous — it doesn't know how to yield control to the event loop and resume later. Use <code>asyncio.sleep()</code> instead.</p>
+<h3 id="the-3-types-of-awaitables">The 3 Types of Awaitables<a class="headerlink" href="#the-3-types-of-awaitables" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph TD
+    AW["⏳ &lt;b&gt;Awaitables&lt;/b&gt;&lt;br/&gt;&lt;i&gt;Objects you can await&lt;/i&gt;"]
+
+    AW --&gt; CO["🔄 &lt;b&gt;Coroutines&lt;/b&gt;&lt;br/&gt;Created by calling an async function&lt;br/&gt;Pausable functions that work&lt;br/&gt;with the event loop"]
+    AW --&gt; TA["📋 &lt;b&gt;Tasks&lt;/b&gt;&lt;br/&gt;Wrappers around coroutines&lt;br/&gt;Scheduled on event loop&lt;br/&gt;independently"]
+    AW --&gt; FU["🔮 &lt;b&gt;Futures&lt;/b&gt;&lt;br/&gt;Low-level promise of a&lt;br/&gt;future result&lt;br/&gt;&lt;i&gt;(rarely used directly)&lt;/i&gt;"]
+
+    style AW fill:#37474f,color:#fff,stroke:#263238,stroke-width:2px
+    style CO fill:#4caf50,color:#fff,stroke:#388e3c,stroke-width:2px
+    style TA fill:#2196f3,color:#fff,stroke:#1565c0,stroke-width:2px
+    style FU fill:#78909c,color:#fff,stroke:#37474f</code></pre>
+<h3 id="coroutines-what-youll-use-most">Coroutines (what you'll use most)<a class="headerlink" href="#coroutines-what-youll-use-most" title="Permanent link">&para;</a></h3>
+<p>Two related terms:</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>What it is</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Coroutine Function</strong></td>
+<td>The function definition with <code>async def</code></td>
+<td><code>async def fetch_data():</code></td>
+</tr>
+<tr>
+<td><strong>Coroutine Object</strong></td>
+<td>The awaitable returned when you <em>call</em> that function</td>
+<td><code>coro = fetch_data()</code> — doesn't run yet!</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Calling a coroutine function does NOT run it.</strong> It just creates a coroutine object. To actually run it, you must <code>await</code> it or wrap it in a task.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">coro</span> <span class="o">=</span> <span class="n">async_function</span><span class="p">(</span><span class="s2">&quot;Test&quot;</span><span class="p">)</span>   <span class="c1"># Creates coroutine object — NOTHING runs yet</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">coro</span>              <span class="c1"># NOW it runs</span>
+</span></code></pre></div>
+<h3 id="tasks-how-you-get-concurrency">Tasks (how you get concurrency)<a class="headerlink" href="#tasks-how-you-get-concurrency" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Tasks <strong>wrap coroutines and schedule them on the event loop</strong>. This is what allows multiple things to run concurrently.</p>
+</blockquote>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">fetch_data</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># Scheduled on event loop immediately</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">task</span>                         <span class="c1"># Wait for it to finish</span>
+</span></code></pre></div>
+<p><strong>Key difference from bare coroutines:</strong> When you <code>create_task</code>, the coroutine gets queued on the event loop right away. When you just call a coroutine function, nothing is scheduled until you <code>await</code> it.</p>
+<h3 id="futures-you-probably-wont-use-these">Futures (you probably won't use these)<a class="headerlink" href="#futures-you-probably-wont-use-these" title="Permanent link">&para;</a></h3>
+<p>Low-level objects representing eventual results. Like JavaScript Promises, but in Python you almost never touch them directly. Tasks use futures under the hood. States: <code>pending</code> → <code>finished</code> (with result or exception) or <code>cancelled</code>.</p>
+<hr />
+<h2 id="example-1-synchronous-baseline-3-seconds">💻 Example 1: Synchronous Baseline (3 seconds)<a class="headerlink" href="#example-1-synchronous-baseline-3-seconds" title="Permanent link">&para;</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># example_1.py — No async, just normal sequential code</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">fetch_data</span><span class="p">(</span><span class="n">param</span><span class="p">):</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Do something with </span><span class="si">{</span><span class="n">param</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>        <span class="c1"># Blocks for param seconds</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Result of </span><span class="si">{</span><span class="n">param</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">result1</span> <span class="o">=</span> <span class="n">fetch_data</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Waits 1 sec</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="n">result2</span> <span class="o">=</span> <span class="n">fetch_data</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Waits 2 sec</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="k">return</span> <span class="p">[</span><span class="n">result1</span><span class="p">,</span> <span class="n">result2</span><span class="p">]</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="c1"># Total: 3 seconds (1 + 2 sequentially)</span>
+</span></code></pre></div>
+<blockquote>
+<p>Nothing fancy — one after another. 3 seconds total because <code>fetch_data(2)</code> can't start until <code>fetch_data(1)</code> finishes.</p>
+</blockquote>
+<hr />
+<h2 id="example-2-first-async-attempt-still-3-seconds">💻 Example 2: First Async Attempt — Still 3 seconds! ❌<a class="headerlink" href="#example-2-first-async-attempt-still-3-seconds" title="Permanent link">&para;</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># example_2.py — Common mistake: awaiting coroutines directly</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">task1</span> <span class="o">=</span> <span class="n">fetch_data</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># Just creates coroutine object (NOT scheduled)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">task2</span> <span class="o">=</span> <span class="n">fetch_data</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>    <span class="c1"># Just creates coroutine object (NOT scheduled)</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">result1</span> <span class="o">=</span> <span class="k">await</span> <span class="n">task1</span>    <span class="c1"># Schedules AND runs to completion</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="n">result2</span> <span class="o">=</span> <span class="k">await</span> <span class="n">task2</span>    <span class="c1"># Only starts after task1 is fully done</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># Total: Still 3 seconds! No concurrency.</span>
+</span></code></pre></div>
+<p><strong>Why no speedup?</strong> Calling <code>fetch_data(1)</code> doesn't schedule anything — it just creates a coroutine object. When you <code>await</code> it, it's both scheduled AND run to completion before moving on. One task at a time = no concurrency.</p>
+<hr />
+<h2 id="example-3-real-concurrency-with-create_task-2-seconds">💻 Example 3: Real Concurrency with create_task ✅ (2 seconds)<a class="headerlink" href="#example-3-real-concurrency-with-create_task-2-seconds" title="Permanent link">&para;</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># example_3.py — The correct way</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">task1</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">fetch_data</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># Scheduled NOW</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">task2</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">fetch_data</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># Scheduled NOW</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">result1</span> <span class="o">=</span> <span class="k">await</span> <span class="n">task1</span>    <span class="c1"># Yield control → event loop runs both tasks</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="n">result2</span> <span class="o">=</span> <span class="k">await</span> <span class="n">task2</span>    <span class="c1"># task2 might already be done!</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># Total: 2 seconds (both ran concurrently!)</span>
+</span></code></pre></div>
+<p><strong>What changed:</strong> <code>asyncio.create_task()</code> schedules coroutines on the event loop immediately. When we <code>await task1</code>, we yield control to the event loop which can run BOTH tasks. Total time = longest task (2 sec), not sum (3 sec).</p>
+<h3 id="how-the-event-loop-runs-this">How the Event Loop Runs This<a class="headerlink" href="#how-the-event-loop-runs-this" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph TD
+    subgraph EL ["🔄 Event Loop"]
+        direction TB
+        T1["Task 1: fetch_data(1)"]
+        T2["Task 2: fetch_data(2)"]
+        MAIN["Main Coroutine"]
+    end
+
+    MAIN --&gt;|"create_task"| T1
+    MAIN --&gt;|"create_task"| T2
+    MAIN --&gt;|"await task1&lt;br/&gt;(suspends main)"| SUSPENDED["Main suspended"]
+
+    T1 --&gt;|"runs until await sleep(1)"| T1S["T1 suspended (1 sec timer)"]
+    T2 --&gt;|"event loop picks T2&lt;br/&gt;runs until await sleep(2)"| T2S["T2 suspended (2 sec timer)"]
+
+    T1S --&gt;|"1 sec done"| T1R["T1 resumes → returns"]
+    T1R --&gt;|"task1 complete →&lt;br/&gt;main wakes up"| MAIN2["Main resumes"]
+    MAIN2 --&gt;|"await task2&lt;br/&gt;(already running)"| T2R
+    T2S --&gt;|"2 sec done"| T2R["T2 resumes → returns"]
+    T2R --&gt; DONE["Both done! 2 sec total"]
+
+    style EL fill:#e3f2fd,color:#333,stroke:#1565c0
+    style DONE fill:#4caf50,color:#fff,stroke:#388e3c</code></pre>
+<hr />
+<h2 id="example-4-await-order-execution-order">💻 Example 4: Await Order ≠ Execution Order<a class="headerlink" href="#example-4-await-order-execution-order" title="Permanent link">&para;</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># example_4.py — Await task2 FIRST, then task1</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">task1</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">fetch_data</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># Scheduled</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="n">task2</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">fetch_data</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># Scheduled</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="n">result2</span> <span class="o">=</span> <span class="k">await</span> <span class="n">task2</span>    <span class="c1"># Wait for task2 to finish</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="n">result1</span> <span class="o">=</span> <span class="k">await</span> <span class="n">task1</span>    <span class="c1"># task1 already completed while we waited!</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># Total: Still 2 seconds</span>
+</span></code></pre></div>
+<p><strong>The takeaway:</strong> <code>await</code> doesn't control WHEN a task runs — it controls when you <strong>move forward</strong>. The event loop runs tasks based on its internal FIFO queue. Awaiting just means "don't move past this line until this thing is done."</p>
+<blockquote>
+<p>Task 1 still runs first (it was scheduled first). But we don't print "Task 1 complete" until after task2 finishes because that's where our await is.</p>
+</blockquote>
+<hr />
+<h2 id="example-5-blocking-the-event-loop-3-seconds-again">💻 Example 5: Blocking the Event Loop ⛔ (3 seconds again!)<a class="headerlink" href="#example-5-blocking-the-event-loop-3-seconds-again" title="Permanent link">&para;</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># example_5.py — THE classic mistake</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">fetch_data</span><span class="p">(</span><span class="n">param</span><span class="p">):</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Do something with </span><span class="si">{</span><span class="n">param</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>          <span class="c1"># ⛔ BLOCKS the event loop!</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Result of </span><span class="si">{</span><span class="n">param</span><span class="si">}</span><span class="s2">&quot;</span>
+</span></code></pre></div>
+<p><strong>Why is this bad?</strong> <code>time.sleep()</code> is synchronous — it doesn't yield control to the event loop. So even though we created tasks, the event loop is STUCK waiting for <code>time.sleep</code> to finish. No other task can run. Back to 3 seconds.</p>
+<p>This applies to ANY blocking synchronous code: <code>requests.get()</code>, synchronous file IO, CPU-heavy computation — anything that doesn't <code>await</code>.</p>
+<blockquote>
+<p><code>time.sleep</code> = road block on the highway. Nobody else can pass until it's done. <code>asyncio.sleep</code> = pulling into a rest stop, letting others drive past.</p>
+</blockquote>
+<hr />
+<h2 id="example-6-threads-processes-for-blocking-code">💻 Example 6: Threads &amp; Processes (for blocking code)<a class="headerlink" href="#example-6-threads-processes-for-blocking-code" title="Permanent link">&para;</a></h2>
+<p>When you MUST use blocking synchronous code (no async alternative exists):</p>
+<h3 id="threads-asyncioto_thread">Threads: <code>asyncio.to_thread()</code><a class="headerlink" href="#threads-asyncioto_thread" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Wraps sync function → makes it awaitable, runs in separate thread</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">task1</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">asyncio</span><span class="o">.</span><span class="n">to_thread</span><span class="p">(</span><span class="n">fetch_data</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">task2</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">asyncio</span><span class="o">.</span><span class="n">to_thread</span><span class="p">(</span><span class="n">fetch_data</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">result1</span> <span class="o">=</span> <span class="k">await</span> <span class="n">task1</span>  <span class="c1"># Event loop manages the threads</span>
+</span></code></pre></div>
+<p><strong>Note:</strong> Pass the function itself + args separately. Don't call it: <code>to_thread(fetch_data, 1)</code> not <code>to_thread(fetch_data(1))</code>.</p>
+<h3 id="processes-processpoolexecutor">Processes: <code>ProcessPoolExecutor</code><a class="headerlink" href="#processes-processpoolexecutor" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">concurrent.futures</span><span class="w"> </span><span class="kn">import</span> <span class="n">ProcessPoolExecutor</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_running_loop</span><span class="p">()</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">with</span> <span class="n">ProcessPoolExecutor</span><span class="p">()</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="n">task1</span> <span class="o">=</span> <span class="n">loop</span><span class="o">.</span><span class="n">run_in_executor</span><span class="p">(</span><span class="n">executor</span><span class="p">,</span> <span class="n">fetch_data</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="n">task2</span> <span class="o">=</span> <span class="n">loop</span><span class="o">.</span><span class="n">run_in_executor</span><span class="p">(</span><span class="n">executor</span><span class="p">,</span> <span class="n">fetch_data</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>    <span class="n">result1</span> <span class="o">=</span> <span class="k">await</span> <span class="n">task1</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    <span class="n">result2</span> <span class="o">=</span> <span class="k">await</span> <span class="n">task2</span>
+</span></code></pre></div>
+<p><strong>Important:</strong> Must use <code>if __name__ == "__main__":</code> guard — Python spawns new processes that re-run the script.</p>
+<hr />
+<h2 id="example-7-gather-vs-taskgroup">💻 Example 7: gather vs TaskGroup<a class="headerlink" href="#example-7-gather-vs-taskgroup" title="Permanent link">&para;</a></h2>
+<h3 id="three-ways-to-run-multiple-tasks">Three Ways to Run Multiple Tasks<a class="headerlink" href="#three-ways-to-run-multiple-tasks" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>How</th>
+<th>Error Handling</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Manual</strong></td>
+<td><code>create_task()</code> one by one, <code>await</code> each</td>
+<td>You handle errors yourself</td>
+</tr>
+<tr>
+<td><strong><code>asyncio.gather()</code></strong></td>
+<td>Pass list of coroutines/tasks, await all at once</td>
+<td><code>return_exceptions=True</code> → keeps running even if some fail</td>
+</tr>
+<tr>
+<td><strong><code>asyncio.TaskGroup()</code></strong></td>
+<td>Context manager, auto-awaits on exit</td>
+<td>All-or-nothing — one fails, all cancel</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gather">gather<a class="headerlink" href="#gather" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Pass coroutines directly</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">coroutines</span> <span class="o">=</span> <span class="p">[</span><span class="n">fetch_data</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">coroutines</span><span class="p">,</span> <span class="n">return_exceptions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1"># Or pass tasks</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span><span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">fetch_data</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">tasks</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Always use <code>return_exceptions=True</code></strong> — without it, one failure kills everything and orphans the rest.</p>
+<h3 id="taskgroup-preferred-for-all-or-nothing">TaskGroup (preferred for all-or-nothing)<a class="headerlink" href="#taskgroup-preferred-for-all-or-nothing" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">async</span> <span class="k">with</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">TaskGroup</span><span class="p">()</span> <span class="k">as</span> <span class="n">tg</span><span class="p">:</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="n">tg</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">fetch_data</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1"># All tasks auto-awaited when context manager exits</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">final</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="o">.</span><span class="n">result</span><span class="p">()</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">]</span>
+</span></code></pre></div>
+<p>No explicit <code>await</code> needed — the <code>async with</code> block handles it.</p>
+<h3 id="when-to-use-which">When to Use Which<a class="headerlink" href="#when-to-use-which" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All tasks must succeed or all fail together</td>
+<td><strong>TaskGroup</strong></td>
+</tr>
+<tr>
+<td>Some tasks might fail but others should continue</td>
+<td><strong>gather</strong> with <code>return_exceptions=True</code></td>
+</tr>
+<tr>
+<td>Never use</td>
+<td><strong>gather</strong> with default <code>return_exceptions=False</code> (orphans tasks on failure)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="real-world-example-image-download-processing-pipeline">🌍 Real-World Example: Image Download + Processing Pipeline<a class="headerlink" href="#real-world-example-image-download-processing-pipeline" title="Permanent link">&para;</a></h2>
+<h3 id="the-sync-version-23-seconds">The Sync Version (23 seconds)<a class="headerlink" href="#the-sync-version-23-seconds" title="Permanent link">&para;</a></h3>
+<p>Downloads 12 HD images → processes each with edge detection. Sequential: download one → process one → next.</p>
+<h3 id="profiling-with-scalene">Profiling with Scalene<a class="headerlink" href="#profiling-with-scalene" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>python<span class="w"> </span>-m<span class="w"> </span>scalene<span class="w"> </span>--html<span class="w"> </span>--outfile<span class="w"> </span>profile_report.html<span class="w"> </span>real_world_example_sync.py
+</span></code></pre></div>
+<p>Profiling revealed:
+- <strong><code>download_single_image</code></strong> → mostly system/IO time → <strong>IO-bound</strong> → use async/threads
+- <strong><code>process_single_image</code></strong> → mostly Python time → <strong>CPU-bound</strong> → use processes</p>
+<h3 id="the-async-version-5-seconds-47x-speedup">The Async Version (5 seconds — 4.7x speedup!)<a class="headerlink" href="#the-async-version-5-seconds-47x-speedup" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Sync</th>
+<th>Async v1 (threads)</th>
+<th>Async v2 (httpx + processes)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Downloads</td>
+<td>13 sec</td>
+<td>2 sec (threads)</td>
+<td>1.6 sec (httpx async)</td>
+</tr>
+<tr>
+<td>Processing</td>
+<td>10.5 sec</td>
+<td>10.6 sec (threads — no speedup!)</td>
+<td>3.3 sec (ProcessPoolExecutor)</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>23 sec</strong></td>
+<td><strong>~13 sec</strong></td>
+<td><strong>~5 sec</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="key-code-patterns-used">Key Code Patterns Used<a class="headerlink" href="#key-code-patterns-used" title="Permanent link">&para;</a></h3>
+<p><strong>Downloads — async with httpx:</strong>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">download_images</span><span class="p">(</span><span class="n">urls</span><span class="p">):</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>        <span class="k">async</span> <span class="k">with</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">TaskGroup</span><span class="p">()</span> <span class="k">as</span> <span class="n">tg</span><span class="p">:</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>            <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span><span class="n">tg</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">download_single_image</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>                     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">url</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>    <span class="k">return</span> <span class="p">[</span><span class="n">task</span><span class="o">.</span><span class="n">result</span><span class="p">()</span> <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tasks</span><span class="p">]</span>
+</span></code></pre></div></p>
+<p><strong>Processing — ProcessPoolExecutor:</strong>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">process_images</span><span class="p">(</span><span class="n">paths</span><span class="p">):</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    <span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_running_loop</span><span class="p">()</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    <span class="k">with</span> <span class="n">ProcessPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="n">CPU_WORKERS</span><span class="p">)</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>        <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span><span class="n">loop</span><span class="o">.</span><span class="n">run_in_executor</span><span class="p">(</span><span class="n">executor</span><span class="p">,</span> <span class="n">process_single_image</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> 
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>                 <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">]</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>        <span class="k">return</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">tasks</span><span class="p">,</span> <span class="n">return_exceptions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></code></pre></div></p>
+<p><strong>Async file writing + async iteration:</strong>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">async</span> <span class="k">with</span> <span class="n">aiofiles</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    <span class="k">async</span> <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">aiter_bytes</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">8192</span><span class="p">):</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>        <span class="k">await</span> <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+</span></code></pre></div></p>
+<hr />
+<h2 id="limiting-concurrency-semaphores">🚦 Limiting Concurrency: Semaphores<a class="headerlink" href="#limiting-concurrency-semaphores" title="Permanent link">&para;</a></h2>
+<p>Don't blast 1000 requests at once — use a semaphore to cap concurrent operations:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">DOWNLOAD_LIMIT</span> <span class="o">=</span> <span class="mi">4</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">semaphore</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Semaphore</span><span class="p">(</span><span class="n">DOWNLOAD_LIMIT</span><span class="p">)</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">download_single_image</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">semaphore</span><span class="p">):</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>    <span class="k">async</span> <span class="k">with</span> <span class="n">semaphore</span><span class="p">:</span>         <span class="c1"># Max 4 downloads at a time</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>        <span class="c1"># ... download logic</span>
+</span></code></pre></div>
+<p>For processes: <code>ProcessPoolExecutor(max_workers=os.cpu_count())</code></p>
+<hr />
+<h2 id="decision-guide-async-vs-threads-vs-processes">🧭 Decision Guide: Async vs Threads vs Processes<a class="headerlink" href="#decision-guide-async-vs-threads-vs-processes" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>graph TD
+    Q{"What type of work?"}
+    Q --&gt;|"IO-bound&lt;br/&gt;(network, DB, files)"| IO{"Async library&lt;br/&gt;available?"}
+    IO --&gt;|"Yes (httpx, aiofiles,&lt;br/&gt;asyncpg, etc.)"| ASYNC["⚡ Use &lt;b&gt;AsyncIO&lt;/b&gt;"]
+    IO --&gt;|"No (requests, etc.)"| THREADS["🧵 Use &lt;b&gt;Threads&lt;/b&gt;&lt;br/&gt;&lt;code&gt;asyncio.to_thread()&lt;/code&gt;"]
+    Q --&gt;|"CPU-bound&lt;br/&gt;(compute, process)"| PROC["⚙️ Use &lt;b&gt;Processes&lt;/b&gt;&lt;br/&gt;&lt;code&gt;ProcessPoolExecutor&lt;/code&gt;"]
+
+    style Q fill:#37474f,color:#fff,stroke:#263238
+    style ASYNC fill:#4caf50,color:#fff,stroke:#388e3c,stroke-width:3px
+    style THREADS fill:#ff9800,color:#fff,stroke:#e65100
+    style PROC fill:#2196f3,color:#fff,stroke:#1565c0</code></pre>
+<p><strong>Quick heuristics to identify IO vs CPU:</strong>
+- Words like <code>fetch</code>, <code>get</code>, <code>request</code>, <code>download</code>, <code>query</code> → probably IO-bound
+- Words like <code>compute</code>, <code>calculate</code>, <code>process</code>, <code>transform</code> → probably CPU-bound
+- Not sure? Profile with <strong>Scalene</strong></p>
+<hr />
+<h2 id="common-pitfalls">⚠️ Common Pitfalls<a class="headerlink" href="#common-pitfalls" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Mistake</th>
+<th>What happens</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Forgetting to <code>await</code> tasks</td>
+<td>Tasks get cancelled silently — no error, just doesn't run</td>
+<td>Always <code>await</code> or use TaskGroup</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Script ends before tasks finish</td>
+<td>Incomplete results, no error</td>
+<td>Make sure all tasks are awaited</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Using <code>time.sleep</code> / <code>requests.get</code> inside async</td>
+<td>Blocks entire event loop — no concurrency</td>
+<td>Use <code>asyncio.sleep</code> / <code>httpx</code> / <code>asyncio.to_thread()</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Blasting too many concurrent requests</td>
+<td>Overwhelms your machine + hammers servers</td>
+<td>Use <code>asyncio.Semaphore</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Debugging tip:</strong> <code>asyncio.run(main(), debug=True)</code> — catches many async mistakes. Development only!</p>
+<hr />
+<h2 id="async-compatible-ecosystem">📚 Async-Compatible Ecosystem<a class="headerlink" href="#async-compatible-ecosystem" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Libraries</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Web Frameworks</strong></td>
+<td>FastAPI, aiohttp</td>
+</tr>
+<tr>
+<td><strong>HTTP Clients</strong></td>
+<td>httpx, aiohttp</td>
+</tr>
+<tr>
+<td><strong>Database</strong></td>
+<td>SQLAlchemy (async), asyncpg (Postgres), aiomysql</td>
+</tr>
+<tr>
+<td><strong>File IO</strong></td>
+<td>aiofiles</td>
+</tr>
+<tr>
+<td><strong>Profiling</strong></td>
+<td>Scalene</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="key-takeaways">🔑 Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Takeaway</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Async ≠ faster</strong> — it means not sitting idle during IO waits</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Event loop</strong> = the engine. <code>asyncio.run()</code> starts it. Without it, nothing async works.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Calling an async function</strong> creates a coroutine object — it does NOT run it. <code>await</code> or <code>create_task</code> to actually run.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong><code>create_task()</code> = concurrency</strong>. Bare <code>await coroutine</code> = sequential. This is the #1 thing people get wrong.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong><code>await</code> = "don't move past here until done"</strong> — NOT "run this now". Event loop decides order.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Blocking sync code</strong> (time.sleep, requests) inside async = kills concurrency. Use async alternatives or <code>to_thread()</code>.</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>TaskGroup</strong> for all-or-nothing. <strong>gather(return_exceptions=True)</strong> for continue-on-failure.</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>IO-bound → AsyncIO/threads. CPU-bound → Processes.</strong> Profile if unsure.</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Semaphores</strong> limit concurrency — don't blast 1000 requests at once.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="quick-check">🧪 Quick Check<a class="headerlink" href="#quick-check" title="Permanent link">&para;</a></h2>
+<details>
+<summary>❓ Subway vs McDonald's — kya farak hai in code terms?</summary>
+
+**Subway (sync):** Make sandwich A completely → then start sandwich B. One at a time.
+**McDonald's (concurrent):** Take order A, start cooking → take order B, start cooking → serve whoever's ready first.
+
+AsyncIO = McDonald's model. Multiple tasks started, event loop serves whichever is ready.
+</details>
+
+<details>
+<summary>❓ Why does awaiting a coroutine directly NOT give concurrency?</summary>
+
+`await fetch_data(1)` does two things at once: schedules the coroutine AND runs it to completion. So nothing else can run until it's done. One task at a time = sequential.
+
+Fix: `asyncio.create_task()` schedules it immediately. Then `await` just means "don't move past until done" — but the event loop can run other scheduled tasks in the meantime.
+</details>
+
+<details>
+<summary>❓ time.sleep vs asyncio.sleep — kya difference hai?</summary>
+
+`time.sleep(2)` → Blocks the ENTIRE event loop for 2 seconds. No other task can run. Road block on the highway.
+
+`asyncio.sleep(2)` → Suspends ONLY the current coroutine, yields control to event loop. Other tasks run during the wait. Pulling into a rest stop.
+</details>
+
+<details>
+<summary>❓ When to use gather vs TaskGroup?</summary>
+
+**TaskGroup** → all-or-nothing. One fails = all cancel. Use when every task must succeed.
+
+**gather(return_exceptions=True)** → continue-on-failure. One fails, rest keep running. Results list contains successes and exceptions mixed. Use for crawling URLs where some might fail.
+
+**Never** use gather with default `return_exceptions=False` — orphans tasks on failure.
+</details>
+
+<details>
+<summary>❓ IO-bound vs CPU-bound — kaise pehchanein?</summary>
+
+**IO-bound:** Program waits for external stuff (network, DB, files). Keywords: fetch, get, request, download, query.
+
+**CPU-bound:** Program does heavy computation. Keywords: compute, calculate, process, transform.
+
+Not sure? Profile with **Scalene** — it shows Python time (CPU) vs system time (IO).
+</details>
+
+<details>
+<summary>❓ How to run blocking sync code without killing the event loop?</summary>
+
+Two options:
+1. **Threads:** `asyncio.to_thread(sync_function, arg1, arg2)` — for IO-bound sync code
+2. **Processes:** `loop.run_in_executor(ProcessPoolExecutor(), func, args)` — for CPU-bound sync code
+
+Both wrap the sync code in a future that the event loop can manage.
+</details>
+
+<hr />
+<blockquote>
+<p><strong>📂 Code:</strong> See <code>code/L1/</code> for all 7 examples + terms.py
+<strong>🎨 Animations:</strong> <a href="https://coreyms.com/asyncio/">coreyms.com/asyncio</a> (use right-arrow to step through)</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/AyushSonuu" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:sonuayush55@gmail.com" target="_blank" rel="noopener" title="Email" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4l208 156a48 48 0 0 0 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48zM0 196v188c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V196L313.6 344.8c-34.1 25.6-81.1 25.6-115.2 0z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tabs.link", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

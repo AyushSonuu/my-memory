@@ -1,0 +1,107 @@
+site_name: "🧠 My Memory"
+site_description: "Every expert was once a beginner who didn't quit."
+site_url: https://ayushsonuu.github.io/my-memory/
+site_author: Ayush Sonu
+repo_url: https://github.com/AyushSonuu/my-memory
+repo_name: AyushSonuu/my-memory
+edit_uri: ""
+
+docs_dir: content
+site_dir: docs
+
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: amber
+    accent: amber
+  font:
+    text: Inter
+    code: JetBrains Mono
+  icon:
+    repo: fontawesome/brands/github
+    logo: material/brain
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.tabs.link
+    - toc.follow
+
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - def_list
+
+plugins:
+  - search
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/AyushSonuu
+      name: GitHub
+    - icon: fontawesome/solid/envelope
+      link: mailto:sonuayush55@gmail.com
+      name: Email
+  generator: false
+
+extra_css:
+  - _assets/custom.css
+
+nav:
+  - Home:
+    - Overview: README.md
+    - Everything Map: _maps/everything.md
+    - Tech Graph: _maps/tech.md
+    - Connections: _maps/connections.md
+    - Timeline: _maps/learning-journey.md
+    - Weak Spots: _maps/weak-spots.md
+    - Due Today: _revision/due-today.md
+
+  - 🧠 Agent Memory:
+    - Overview: tech/agent-memory/README.md
+    - 01 · Introduction: tech/agent-memory/01-introduction.md
+    - 02 · Why Memory: tech/agent-memory/02-why-agents-need-memory.md
+    - 03 · Memory Manager: tech/agent-memory/03-memory-manager.md
+    - 04 · Semantic Tool Memory: tech/agent-memory/04-semantic-tool-memory.md
+    - 05 · Memory Operations: tech/agent-memory/05-memory-operations.md
+    - 06 · Memory Aware Agent: tech/agent-memory/06-memory-aware-agent.md
+    - 07 · Conclusion: tech/agent-memory/07-conclusion.md
+    - 🃏 Flashcards: tech/agent-memory/flashcards.md
+    - 📋 Cheatsheet: tech/agent-memory/cheatsheet.md
+    - ⚔️ RAG vs Agent Memory: tech/agent-memory/vs.md
+
+  - ⚡ AsyncIO:
+    - Overview: tech/python/asyncio/README.md
+    - 01 · Complete Guide: tech/python/asyncio/01-asyncio-complete-guide.md
+    - 🃏 Flashcards: tech/python/asyncio/flashcards.md

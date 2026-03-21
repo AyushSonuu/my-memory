@@ -1,0 +1,2631 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Every expert was once a beginner who didn't quit.">
+      
+      
+        <meta name="author" content="Ayush Sonu">
+      
+      
+        <link rel="canonical" href="https://ayushsonuu.github.io/my-memory/tech/agent-memory/03-memory-manager/">
+      
+      
+        <link rel="prev" href="../02-why-agents-need-memory/">
+      
+      
+        <link rel="next" href="../04-semantic-tool-memory/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>03 · Memory Manager - 🧠 My Memory</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../_assets/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#03-constructing-the-memory-manager" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="🧠 My Memory" class="md-header__button md-logo" aria-label="🧠 My Memory" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.687 1.687 0 0 1-1.86-.55L14.44 18c-.89-.15-1.73-.53-2.44-1.1-.5.15-1 .23-1.5.23-.88 0-1.76-.27-2.5-.79-.53.16-1.07.23-1.62.22-.79.01-1.57-.15-2.3-.45a4.1 4.1 0 0 1-2.43-3.61c-.08-.72.04-1.45.35-2.11-.29-.75-.32-1.57-.07-2.33C2.3 7.11 3 6.32 3.87 5.82c.58-1.69 2.21-2.82 4-2.7 1.6-1.5 4.05-1.66 5.83-.37.42-.11.86-.17 1.3-.17 1.36-.03 2.65.57 3.5 1.64 2.04.53 3.5 2.35 3.58 4.47.05 1.11-.25 2.2-.86 3.13.07.36.11.72.11 1.09m-5-1.41c.57.07 1.02.5 1.02 1.07a1 1 0 0 1-1 1h-.63c-.32.9-.88 1.69-1.62 2.29.25.09.51.14.77.21 5.13-.07 4.53-3.2 4.53-3.25a2.59 2.59 0 0 0-2.69-2.49 1 1 0 0 1-1-1 1 1 0 0 1 1-1c1.23.03 2.41.49 3.33 1.3.05-.29.08-.59.08-.89-.06-1.24-.62-2.32-2.87-2.53-1.25-2.96-4.4-1.32-4.4-.4-.03.23.21.72.25.75a1 1 0 0 1 1 1c0 .55-.45 1-1 1-.53-.02-1.03-.22-1.43-.56-.48.31-1.03.5-1.6.56-.57.05-1.04-.35-1.07-.9a.97.97 0 0 1 .88-1.1c.16-.02.94-.14.94-.77 0-.66.25-1.29.68-1.79-.92-.25-1.91.08-2.91 1.29C6.75 5 6 5.25 5.45 7.2 4.5 7.67 4 8 3.78 9c1.08-.22 2.19-.13 3.22.25.5.19.78.75.59 1.29-.19.52-.77.78-1.29.59-.73-.32-1.55-.34-2.3-.06-.32.27-.32.83-.32 1.27 0 .74.37 1.43 1 1.83.53.27 1.12.41 1.71.4q-.225-.39-.39-.81a1.038 1.038 0 0 1 1.96-.68c.4 1.14 1.42 1.92 2.62 2.05 1.37-.07 2.59-.88 3.19-2.13.23-1.38 1.34-1.5 2.56-1.5m2 7.47-.62-1.3-.71.16 1 1.25zm-4.65-8.61a1 1 0 0 0-.91-1.03c-.71-.04-1.4.2-1.93.67-.57.58-.87 1.38-.84 2.19a1 1 0 0 0 1 1c.57 0 1-.45 1-1 0-.27.07-.54.23-.76.12-.1.27-.15.43-.15.55.03 1.02-.38 1.02-.92"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            🧠 My Memory
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              03 · Memory Manager
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/AyushSonuu/my-memory" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AyushSonuu/my-memory
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  🧠 Agent Memory
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../python/asyncio/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  ⚡ AsyncIO
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="🧠 My Memory" class="md-nav__button md-logo" aria-label="🧠 My Memory" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.687 1.687 0 0 1-1.86-.55L14.44 18c-.89-.15-1.73-.53-2.44-1.1-.5.15-1 .23-1.5.23-.88 0-1.76-.27-2.5-.79-.53.16-1.07.23-1.62.22-.79.01-1.57-.15-2.3-.45a4.1 4.1 0 0 1-2.43-3.61c-.08-.72.04-1.45.35-2.11-.29-.75-.32-1.57-.07-2.33C2.3 7.11 3 6.32 3.87 5.82c.58-1.69 2.21-2.82 4-2.7 1.6-1.5 4.05-1.66 5.83-.37.42-.11.86-.17 1.3-.17 1.36-.03 2.65.57 3.5 1.64 2.04.53 3.5 2.35 3.58 4.47.05 1.11-.25 2.2-.86 3.13.07.36.11.72.11 1.09m-5-1.41c.57.07 1.02.5 1.02 1.07a1 1 0 0 1-1 1h-.63c-.32.9-.88 1.69-1.62 2.29.25.09.51.14.77.21 5.13-.07 4.53-3.2 4.53-3.25a2.59 2.59 0 0 0-2.69-2.49 1 1 0 0 1-1-1 1 1 0 0 1 1-1c1.23.03 2.41.49 3.33 1.3.05-.29.08-.59.08-.89-.06-1.24-.62-2.32-2.87-2.53-1.25-2.96-4.4-1.32-4.4-.4-.03.23.21.72.25.75a1 1 0 0 1 1 1c0 .55-.45 1-1 1-.53-.02-1.03-.22-1.43-.56-.48.31-1.03.5-1.6.56-.57.05-1.04-.35-1.07-.9a.97.97 0 0 1 .88-1.1c.16-.02.94-.14.94-.77 0-.66.25-1.29.68-1.79-.92-.25-1.91.08-2.91 1.29C6.75 5 6 5.25 5.45 7.2 4.5 7.67 4 8 3.78 9c1.08-.22 2.19-.13 3.22.25.5.19.78.75.59 1.29-.19.52-.77.78-1.29.59-.73-.32-1.55-.34-2.3-.06-.32.27-.32.83-.32 1.27 0 .74.37 1.43 1 1.83.53.27 1.12.41 1.71.4q-.225-.39-.39-.81a1.038 1.038 0 0 1 1.96-.68c.4 1.14 1.42 1.92 2.62 2.05 1.37-.07 2.59-.88 3.19-2.13.23-1.38 1.34-1.5 2.56-1.5m2 7.47-.62-1.3-.71.16 1 1.25zm-4.65-8.61a1 1 0 0 0-.91-1.03c-.71-.04-1.4.2-1.93.67-.57.58-.87 1.38-.84 2.19a1 1 0 0 0 1 1c.57 0 1-.45 1-1 0-.27.07-.54.23-.76.12-.1.27-.15.43-.15.55.03 1.02-.38 1.02-.92"/></svg>
+
+    </a>
+    🧠 My Memory
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AyushSonuu/my-memory" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AyushSonuu/my-memory
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Home
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../_maps/everything/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Everything Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../_maps/tech/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tech Graph
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../_maps/connections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connections
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../_maps/learning-journey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Timeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../_maps/weak-spots/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weak Spots
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../_revision/due-today/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Due Today
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧠 Agent Memory
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🧠 Agent Memory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-why-agents-need-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Why Memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Memory Manager
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Memory Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#one-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 One Line
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-lesson-covers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 What This Lesson Covers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-modern-agent-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏗️ The Modern Agent Stack
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ The Modern Agent Stack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compressed-view-3-layers-for-this-course" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compressed View (3 Layers for This Course)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memory-layer-memory-core-memory-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧠 Memory Layer = Memory Core + Memory Manager
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-memory-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚙️ Common Memory Operations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚙️ Common Memory Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-each-memory-type-actually-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 What Each Memory Type Actually Is
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crud-per-memory-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CRUD Per Memory Type
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deterministic-vs-agent-triggered-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Deterministic vs Agent-Triggered Operations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Deterministic vs Agent-Triggered Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-deterministic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Deterministic?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-agent-triggered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Agent-Triggered?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📐 Key Terms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📐 Key Terms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-memory-unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Memory Unit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-context-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Context Engineering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-memory-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Memory Engineering
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memory-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 Memory Lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memory-augmented-memory-aware-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Memory Augmented → Memory Aware Agent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-lab-building-it-all" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Code Lab: Building It All
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Code Lab: Building It All">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#part-1-setup-db-embedding-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1: Setup — DB + Embedding + Tables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-2-storemanager-vector-stores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: StoreManager — Vector Stores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-3-memorymanager-the-unified-crud-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: MemoryManager — The Unified CRUD Interface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-4-using-it-write-read-knowledge-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 4: Using It — Write &amp; Read Knowledge Base
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔑 Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Quick Check
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-semantic-tool-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Semantic Tool Memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-memory-operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Memory Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-memory-aware-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Memory Aware Agent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-conclusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · Conclusion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flashcards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🃏 Flashcards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📋 Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⚔️ RAG vs Agent Memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../python/asyncio/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⚡ AsyncIO
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ⚡ AsyncIO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/asyncio/01-asyncio-complete-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Complete Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/asyncio/flashcards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🃏 Flashcards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#one-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 One Line
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-lesson-covers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 What This Lesson Covers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-modern-agent-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏗️ The Modern Agent Stack
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ The Modern Agent Stack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compressed-view-3-layers-for-this-course" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compressed View (3 Layers for This Course)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memory-layer-memory-core-memory-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧠 Memory Layer = Memory Core + Memory Manager
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-memory-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚙️ Common Memory Operations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚙️ Common Memory Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-each-memory-type-actually-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 What Each Memory Type Actually Is
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crud-per-memory-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CRUD Per Memory Type
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deterministic-vs-agent-triggered-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Deterministic vs Agent-Triggered Operations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Deterministic vs Agent-Triggered Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-deterministic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Deterministic?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-agent-triggered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Agent-Triggered?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📐 Key Terms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📐 Key Terms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-memory-unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Memory Unit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-context-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Context Engineering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-memory-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Memory Engineering
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memory-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 Memory Lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memory-augmented-memory-aware-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Memory Augmented → Memory Aware Agent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-lab-building-it-all" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Code Lab: Building It All
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Code Lab: Building It All">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#part-1-setup-db-embedding-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1: Setup — DB + Embedding + Tables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-2-storemanager-vector-stores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: StoreManager — Vector Stores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-3-memorymanager-the-unified-crud-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: MemoryManager — The Unified CRUD Interface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-4-using-it-write-read-knowledge-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 4: Using It — Write &amp; Read Knowledge Base
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔑 Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Quick Check
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="03-constructing-the-memory-manager">03 · Constructing The Memory Manager 🏗️<a class="headerlink" href="#03-constructing-the-memory-manager" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="one-line">🎯 One Line<a class="headerlink" href="#one-line" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>The Memory Manager is the <strong>CRUD librarian</strong> sitting between your agent and the database — it decides what becomes memory, how it's structured, and when it's recalled.</p>
+</blockquote>
+<hr />
+<h2 id="what-this-lesson-covers">📚 What This Lesson Covers<a class="headerlink" href="#what-this-lesson-covers" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Topic</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Agent Stack &amp; where Memory Layer fits</td>
+<td>📖 Concept</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Memory Manager = abstraction on DB</td>
+<td>📖 Concept</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Memory Operations (CRUD per memory type)</td>
+<td>📖 Concept</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Deterministic vs Agent-Triggered ops</td>
+<td>📖 Concept</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Key Terms: Memory Unit, Context Eng, Memory Eng</td>
+<td>📖 Concept</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Memory Lifecycle (the continuous loop)</td>
+<td>📖 Concept</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Memory Augmented → Memory Aware Agent</td>
+<td>📖 Concept</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Code Lab: Build DB + StoreManager + MemoryManager</td>
+<td>💻 Hands-on</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="the-modern-agent-stack">🏗️ The Modern Agent Stack<a class="headerlink" href="#the-modern-agent-stack" title="Permanent link">&para;</a></h2>
+<p>A <strong>layered composition of tools and technologies</strong> forming a system architecture that enables an AI agent.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────────────────────────────┐
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│         Application Layer           │  ← UI, chat interfaces
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├─────────────────────────────────────┤
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│     Gateway and Connectivity        │
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>├─────────────────────────────────────┤
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│          Orchestration              │
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>├─────────────────────────────────────┤
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│           Reasoning                 │  ← LLM lives here
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>├─────────────────────────────────────┤
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│            Tooling                  │
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>├─────────────────────────────────────┤
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│      Data Layer → MEMORY LAYER      │  ← 🧠 WE FOCUS HERE
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>├─────────────────────────────────────┤
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│    Governance and Reliability       │
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>├─────────────────────────────────────┤
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>│         Infrastructure              │  ← DB, compute, cloud
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>└─────────────────────────────────────┘
+</span></code></pre></div>
+<blockquote>
+<p>💡 For an agentic perspective, swap "Data Layer" for <strong>Memory Layer</strong> — same position, different mindset. Data = passive storage. Memory = active, queryable, evolving knowledge.</p>
+</blockquote>
+<h3 id="compressed-view-3-layers-for-this-course">Compressed View (3 Layers for This Course)<a class="headerlink" href="#compressed-view-3-layers-for-this-course" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>What</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Application</strong></td>
+<td>UI, APIs, chat — what users see</td>
+</tr>
+<tr>
+<td><strong>Memory</strong></td>
+<td>Memory Core + Memory Manager — what agents <em>remember</em></td>
+</tr>
+<tr>
+<td><strong>Infrastructure</strong></td>
+<td>Database, compute, cloud — where memory physically lives</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="memory-layer-memory-core-memory-manager">🧠 Memory Layer = Memory Core + Memory Manager<a class="headerlink" href="#memory-layer-memory-core-memory-manager" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>graph TD
+    subgraph STACK ["🏗️ Agent Stack"]
+        APP["📱 Application Layer"]
+        ML["🧠 Memory Layer"]
+        INFRA["⚙️ Infrastructure Layer"]
+    end
+
+    ML --&gt; MC["🗄️ &lt;b&gt;Memory Core&lt;/b&gt;&lt;br/&gt;&lt;i&gt;DB tables, vector stores&lt;/i&gt;&lt;br/&gt;Where data lives"]
+    ML --&gt; MM["🎛️ &lt;b&gt;Memory Manager&lt;/b&gt;&lt;br/&gt;&lt;i&gt;CRUD logic, control flows&lt;/i&gt;&lt;br/&gt;What becomes memory,&lt;br/&gt;how &amp; when it's recalled"]
+
+    MC &lt;--&gt;|"read/write"| MM
+
+    style STACK fill:#f5f5f5,color:#333,stroke:#616161
+    style APP fill:#42a5f5,color:#fff,stroke:#1565c0
+    style ML fill:#ff9800,color:#fff,stroke:#e65100,stroke-width:3px
+    style INFRA fill:#78909c,color:#fff,stroke:#37474f
+    style MC fill:#4caf50,color:#fff,stroke:#388e3c
+    style MM fill:#e91e63,color:#fff,stroke:#880e4f</code></pre>
+<blockquote>
+<p><strong>Memory Core</strong> = the actual DB tables (covered in L02)
+<strong>Memory Manager</strong> = the <strong>control logic</strong> — what becomes memory, how it's structured, how it's updated, when it's recalled during execution</p>
+</blockquote>
+<p>Together they create <strong>memory-augmented agents</strong> that can:
+- Handle <strong>continuous tasks</strong> (multi-session)
+- Operate on <strong>long-horizon tasks</strong> (hours → days)
+- <strong>Adapt and learn</strong> from new information</p>
+<blockquote>
+<p>💡 Memory Core = almaari (cupboard). Memory Manager = the person who organizes &amp; retrieves stuff from it. Without the manager, you just have a pile of junk! 🗄️</p>
+</blockquote>
+<hr />
+<h2 id="common-memory-operations">⚙️ Common Memory Operations<a class="headerlink" href="#common-memory-operations" title="Permanent link">&para;</a></h2>
+<p>The Memory Manager holds CRUD methods for EACH memory type stored in the DB.</p>
+<h3 id="what-each-memory-type-actually-is">📖 What Each Memory Type Actually Is<a class="headerlink" href="#what-each-memory-type-actually-is" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Memory Type</th>
+<th>One-Liner</th>
+<th>What Gets Stored</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>💬 <strong>Conversational</strong></td>
+<td>Chat history per thread</td>
+<td><code>role</code>, <code>content</code>, <code>timestamp</code> per message</td>
+<td><code>[user] "Book the first one for 7pm"</code></td>
+</tr>
+<tr>
+<td>📚 <strong>Knowledge Base</strong></td>
+<td>Domain knowledge &amp; facts</td>
+<td>Documents, papers, reference material + vector embeddings</td>
+<td>arXiv papers, product docs, wiki articles</td>
+</tr>
+<tr>
+<td>⚙️ <strong>Workflow</strong></td>
+<td>"How did I do this before?"</td>
+<td>Steps taken + outcome (success/fail) for a task</td>
+<td><code>Query → arXiv search → filter → summarize → ✅</code></td>
+</tr>
+<tr>
+<td>🔧 <strong>Toolbox</strong></td>
+<td>Available tools &amp; capabilities</td>
+<td>Tool name, description, parameters, signature</td>
+<td><code>search_arxiv(query, k=5) → "Search arXiv papers..."</code></td>
+</tr>
+<tr>
+<td>👤 <strong>Entity</strong></td>
+<td>People, places, systems mentioned</td>
+<td>Name, type (PERSON/PLACE/SYSTEM), description</td>
+<td><code>Dr. Sarah Chen (PERSON): MIT, efficient attention</code></td>
+</tr>
+<tr>
+<td>📝 <strong>Summary</strong></td>
+<td>Compressed older conversations</td>
+<td>Condensed context when chat history gets too long</td>
+<td>30 messages → 1 paragraph summary + summary_id</td>
+</tr>
+<tr>
+<td>📋 <strong>Tool Log</strong></td>
+<td>Raw tool execution audit trail</td>
+<td>Tool name, args, result, status, timestamp</td>
+<td><code>search_arxiv({query:"flash"}) → 5 results (success)</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>Workflow vs Tool Log:</strong> Workflow = "what strategy worked" (reusable patterns). Tool Log = "what exactly happened" (raw audit). Recipe vs kitchen CCTV! 🍳📹</p>
+</blockquote>
+<h3 id="crud-per-memory-type">CRUD Per Memory Type<a class="headerlink" href="#crud-per-memory-type" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Memory Type</th>
+<th>Storage</th>
+<th>Write Method</th>
+<th>Read Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Conversational</strong></td>
+<td>SQL Table</td>
+<td><code>write_conv_mem()</code></td>
+<td><code>read_conv_mem()</code></td>
+</tr>
+<tr>
+<td><strong>Knowledge Base</strong></td>
+<td>Vector Store</td>
+<td><code>write_knowledge_base()</code></td>
+<td><code>read_knowledge_base()</code></td>
+</tr>
+<tr>
+<td><strong>Workflow</strong></td>
+<td>Vector Store</td>
+<td><code>write_workflow()</code></td>
+<td><code>read_workflow()</code></td>
+</tr>
+<tr>
+<td><strong>Toolbox</strong></td>
+<td>Vector Store</td>
+<td><code>write_toolbox()</code></td>
+<td><code>read_toolbox()</code></td>
+</tr>
+<tr>
+<td><strong>Entity</strong></td>
+<td>Vector Store</td>
+<td><code>write_entity()</code></td>
+<td><code>read_entity()</code></td>
+</tr>
+<tr>
+<td><strong>Summary</strong></td>
+<td>Vector Store</td>
+<td><code>write_summary()</code></td>
+<td><code>read_summary()</code></td>
+</tr>
+<tr>
+<td><strong>Persona</strong></td>
+<td>Vector Store</td>
+<td><code>write_persona()</code></td>
+<td><code>read_persona()</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why two storage types?</strong></p>
+<table>
+<thead>
+<tr>
+<th>Storage</th>
+<th>Used for</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SQL Table</strong></td>
+<td>Conversational, Tool Log</td>
+<td>Exact match by <code>thread_id</code>, chronological ordering — no semantic search needed</td>
+</tr>
+<tr>
+<td><strong>Vector Store</strong></td>
+<td>Everything else</td>
+<td><strong>Semantic similarity search</strong> — find relevant content by meaning, not exact keywords</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 SQL = "give me exact match on thread_id." Vector = "find me stuff <em>similar to</em> this query." Different tools for different jobs! 🔧</p>
+</blockquote>
+<hr />
+<h2 id="deterministic-vs-agent-triggered-operations">🎯 Deterministic vs Agent-Triggered Operations<a class="headerlink" href="#deterministic-vs-agent-triggered-operations" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>                   Memory Operations
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>                  ╱                  ╲
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>      ┌──────────────────┐   ┌──────────────────┐
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>      │   DETERMINISTIC  │   │  AGENT-TRIGGERED  │
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>      │                  │   │                   │
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>      │  Runs ALWAYS —   │   │  Agent DECIDES    │
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>      │  fixed schedule  │   │  when to invoke   │
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>      │  or predefined   │   │  based on real-   │
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>      │  conditions      │   │  time judgment    │
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>      └──────────────────┘   └──────────────────┘
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th style="text-align: center;">Deterministic</th>
+<th style="text-align: center;">Agent-Triggered</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>read_conversational_memory()</code></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><code>read_knowledge_base()</code></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><code>read_workflow()</code></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><code>read_entity()</code></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><code>write_conversational_memory()</code></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><code>write_workflow()</code></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td><code>read_summary_context()</code></td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>write_entity()</code></td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>search_tavily()</code></td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>expand_summary()</code></td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>summarize_and_store()</code></td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><code>read_toolbox()</code></td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+</tbody>
+</table>
+<h3 id="why-deterministic">Why Deterministic?<a class="headerlink" href="#why-deterministic" title="Permanent link">&para;</a></h3>
+<p><strong>For Retrieval (reads):</strong>
+1. <strong>Context bootstrapping is non-negotiable</strong> — agent needs prior context to stay consistent
+2. <strong>Chicken-and-egg problem</strong> — agent can't decide to look up what it doesn't know exists. You need memory to know which memory you need!
+3. <strong>Predictability</strong> — always loading memory = consistent, debuggable behavior</p>
+<p><strong>For Storage (writes):</strong>
+1. <strong>Reliability</strong> — don't want agent to "forget to save" important info
+2. <strong>Completeness</strong> — every interaction recorded, no gaps
+3. <strong>Reduced cognitive load</strong> — model focuses on task, not bookkeeping</p>
+<h3 id="why-agent-triggered">Why Agent-Triggered?<a class="headerlink" href="#why-agent-triggered" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Not everything deserves storage</strong> — agent distinguishes signal from noise</li>
+<li><strong>Cost &amp; latency control</strong> — deep retrieval, summarization cost tokens/time</li>
+<li><strong>Higher quality memory</strong> — decisions about <em>what to store</em> require semantic understanding</li>
+</ol>
+<blockquote>
+<p>💡 Deterministic = alarm clock ⏰ (goes off no matter what). Agent-triggered = "I should probably check..." 🤔 (judgment call)</p>
+</blockquote>
+<hr />
+<h2 id="key-terms">📐 Key Terms<a class="headerlink" href="#key-terms" title="Permanent link">&para;</a></h2>
+<h3 id="1-memory-unit">1. Memory Unit<a class="headerlink" href="#1-memory-unit" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>The <strong>smallest atomic piece</strong> of stored information, represented with a minimal set of attributes so it can be captured, retrieved, and updated by a memory-augmented agent.</p>
+</blockquote>
+<p><strong>Two examples:</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Conversational Memory Unit</th>
+<th>Workflow Memory Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Structure</strong></td>
+<td>JSON object</td>
+<td>DB row with vector</td>
+</tr>
+<tr>
+<td><strong>Key fields</strong></td>
+<td><code>content</code>, <code>role</code>, <code>timestamp</code></td>
+<td><code>content</code> (CLOB), <code>type</code> (VARCHAR2), <code>timestamp</code>, <code>vector</code> (float[])</td>
+</tr>
+<tr>
+<td><strong>Data types</strong></td>
+<td>String, string, datetime</td>
+<td>CLOB, VARCHAR2, TIMESTAMP, VECTOR</td>
+</tr>
+<tr>
+<td><strong>Example</strong></td>
+<td><code>{"content": "User prefers concise responses", "role": "user", "timestamp": "2026-01-18T10:15:00Z"}</code></td>
+<td><code>Tool call: db.query({collection: "contracts"}) → result: 12 records (success)</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-context-engineering">2. Context Engineering<a class="headerlink" href="#2-context-engineering" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>The practice of <strong>optimally selecting and shaping</strong> information placed into an LLM context window so it can perform a task reliably — while explicitly accounting for context window limits and model constraints.</p>
+</blockquote>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>┌─ Data Sources ──────┐     ┌─ Optimally Selected ─┐     ┌─ Context Window ───────────┐
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>│  🗄️ API             │     │                      │     │  System Instructions       │
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>│  ⚙️ MCP             │ ──► │  Filter &amp; curate     │ ──► │  Knowledge Base Docs       │
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│  🌐 Knowledge Graph │     │  what goes IN         │     │  Tools  Tools  Tools       │
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>│  📄 Documents       │     └──────────────────────┘     │  Entity Mem | Workflow Mem │
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>└─────────────────────┘                                   │  Conversational Memory     │
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>                                                          │  User Prompt               │
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>                                                          └────────────────────────────┘
+</span></code></pre></div>
+<p><strong>Goal:</strong> Maximize the <strong>signal-to-noise ratio</strong> of every token. Don't stuff everything — curate what matters.</p>
+<blockquote>
+<p>💡 Context window = exam paper. Context engineering = choosing which cheat sheets to bring. Sab mat laao, sirf relevant laao! 📝</p>
+</blockquote>
+<h3 id="3-memory-engineering">3. Memory Engineering<a class="headerlink" href="#3-memory-engineering" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>The <strong>engineering discipline</strong> focused on designing, building, and maintaining memory systems for AI agents. It encompasses storage, retrieval, classification, and lifecycle management of agent memory.</p>
+</blockquote>
+<p><strong>Memory Engineering = intersection of 4 existing disciplines:</strong></p>
+<pre class="mermaid"><code>graph TD
+    ME["🧠 &lt;b&gt;Memory Engineering&lt;/b&gt;&lt;br/&gt;&lt;i&gt;Stateful, learning-capable AI systems&lt;/i&gt;"]
+
+    DB["🗄️ &lt;b&gt;Database Engineering&lt;/b&gt;&lt;br/&gt;Persistent Storage · ACID&lt;br/&gt;Typed Schemas · Multi-Store Arch"]
+    AE["🤖 &lt;b&gt;Agent Engineering&lt;/b&gt;&lt;br/&gt;Memory Lifecycle · Write-Back Loops&lt;br/&gt;Extraction · Consolidation · Routing"]
+    MLE["🧪 &lt;b&gt;ML Engineering&lt;/b&gt;&lt;br/&gt;Embeddings · Fine-Tuning SLMs&lt;br/&gt;Model Versioning · Reranking · Continual Learning"]
+    IR["🔍 &lt;b&gt;Information Retrieval&lt;/b&gt;&lt;br/&gt;Hybrid Search · Vector Indexes (HNSW, IVF)&lt;br/&gt;Relevance Ranking · Query Optimization"]
+
+    DB --&gt; ME
+    AE --&gt; ME
+    MLE --&gt; ME
+    IR --&gt; ME
+
+    style ME fill:#ff9800,color:#fff,stroke:#e65100,stroke-width:3px
+    style DB fill:#4caf50,color:#fff,stroke:#388e3c
+    style AE fill:#2196f3,color:#fff,stroke:#1565c0
+    style MLE fill:#9c27b0,color:#fff,stroke:#6a1b9a
+    style IR fill:#f44336,color:#fff,stroke:#c62828</code></pre>
+<blockquote>
+<p>💡 Nothing new here — just existing disciplines combined for a specific purpose: <strong>stateful, learning-capable AI systems</strong>.</p>
+</blockquote>
+<hr />
+<h2 id="memory-lifecycle">🔄 Memory Lifecycle<a class="headerlink" href="#memory-lifecycle" title="Permanent link">&para;</a></h2>
+<p>The continuous loop that makes an agent <strong>learn over time</strong>:</p>
+<pre class="mermaid"><code>graph LR
+    ING["📥 &lt;b&gt;1. Ingest&lt;/b&gt;&lt;br/&gt;Collect from&lt;br/&gt;multiple sources"]
+    ENR["🔢 &lt;b&gt;2. Enrich&lt;/b&gt;&lt;br/&gt;Vector embeddings +&lt;br/&gt;metadata (intent,&lt;br/&gt;timestamps, semantics)"]
+    STO["🗄️ &lt;b&gt;3. Store&lt;/b&gt;&lt;br/&gt;Short-term ·&lt;br/&gt;Medium-term ·&lt;br/&gt;Long-term"]
+    ORG["🗂️ &lt;b&gt;4. Organize&lt;/b&gt;&lt;br/&gt;Indexing ·&lt;br/&gt;Relationship mapping&lt;br/&gt;(temporal, semantic,&lt;br/&gt;relational)"]
+    RET["🔍 &lt;b&gt;5. Retrieve&lt;/b&gt;&lt;br/&gt;Text/Lexical ·&lt;br/&gt;Vector Similarity ·&lt;br/&gt;Graph Traversal ·&lt;br/&gt;Hybrid"]
+    LLM["🤖 &lt;b&gt;LLM&lt;/b&gt;&lt;br/&gt;Inference &amp;&lt;br/&gt;Reasoning"]
+    SER["✨ &lt;b&gt;Serialize &amp;&lt;br/&gt;Augment&lt;/b&gt;&lt;br/&gt;Enrich LLM output&lt;br/&gt;for storage"]
+
+    ING --&gt; ENR --&gt; STO --&gt; ORG --&gt; RET --&gt; LLM --&gt; SER --&gt; STO
+
+    style ING fill:#2196f3,color:#fff,stroke:#1565c0
+    style ENR fill:#00bcd4,color:#fff,stroke:#00838f
+    style STO fill:#4caf50,color:#fff,stroke:#388e3c,stroke-width:3px
+    style ORG fill:#8bc34a,color:#fff,stroke:#558b2f
+    style RET fill:#ff9800,color:#fff,stroke:#e65100
+    style LLM fill:#f44336,color:#fff,stroke:#c62828,stroke-width:3px
+    style SER fill:#9c27b0,color:#fff,stroke:#6a1b9a</code></pre>
+<p><strong>Key insight:</strong> LLM <strong>output</strong> can also become new memory → goes through Serialization → Augmentation → back into Storage → Organization → Retrieval → LLM again. <strong>Continuous learning cycle!</strong></p>
+<blockquote>
+<p>💡 It's a circular conveyor belt 🔄 — data goes in, gets enriched, stored, organized, retrieved, processed by LLM, and LLM's output feeds BACK into the belt!</p>
+</blockquote>
+<hr />
+<h2 id="memory-augmented-memory-aware-agent">🚀 Memory Augmented → Memory Aware Agent<a class="headerlink" href="#memory-augmented-memory-aware-agent" title="Permanent link">&para;</a></h2>
+<p>The <strong>evolution path</strong> from basic to fully memory-aware:</p>
+<pre class="mermaid"><code>graph TD
+    NAIVE["🐟 &lt;b&gt;Naive&lt;/b&gt;&lt;br/&gt;Only conversational memory&lt;br/&gt;(interaction history)"]
+    AUG["✅ &lt;b&gt;Memory Augmented&lt;/b&gt;&lt;br/&gt;Multiple memory stores&lt;br/&gt;(conv + workflow + toolbox&lt;br/&gt;+ entity + KB + summary)"]
+
+    NAIVE --&gt;|"add explicit&lt;br/&gt;memory type allocation"| AUG
+
+    AUG --&gt;|"4 steps"| S1["1️⃣ Memory Store Awareness&lt;br/&gt;via System Prompt"]
+    AUG --&gt;|"4 steps"| S2["2️⃣ Agent-Triggered Ops&lt;br/&gt;Memory ops as tools"]
+    AUG --&gt;|"4 steps"| S3["3️⃣ Lifecycle Reasoning&lt;br/&gt;Agent reasons THROUGH&lt;br/&gt;the memory lifecycle"]
+    AUG --&gt;|"4 steps"| S4["4️⃣ Context Window Segmentation&lt;br/&gt;Partitions for specific&lt;br/&gt;memory types"]
+
+    S1 --&gt; AWARE
+    S2 --&gt; AWARE
+    S3 --&gt; AWARE
+    S4 --&gt; AWARE
+
+    AWARE["🧠 &lt;b&gt;Memory Aware Agent&lt;/b&gt;&lt;br/&gt;Knows its memory · Controls it&lt;br/&gt;Reasons with it"]
+
+    style NAIVE fill:#f44336,color:#fff,stroke:#c62828
+    style AUG fill:#ff9800,color:#fff,stroke:#e65100,stroke-width:2px
+    style AWARE fill:#4caf50,color:#fff,stroke:#388e3c,stroke-width:3px
+    style S1 fill:#e3f2fd,color:#333,stroke:#1565c0
+    style S2 fill:#e3f2fd,color:#333,stroke:#1565c0
+    style S3 fill:#e3f2fd,color:#333,stroke:#1565c0
+    style S4 fill:#e3f2fd,color:#333,stroke:#1565c0</code></pre>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>What it has</th>
+<th>What it adds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Naive</strong></td>
+<td>Only chat history</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Memory Augmented</strong></td>
+<td>Multiple memory stores</td>
+<td>Explicit type allocation (workflow, entity, KB, toolbox, etc.)</td>
+</tr>
+<tr>
+<td><strong>Memory Aware</strong></td>
+<td>All of above + self-aware</td>
+<td>1) System prompt awareness 2) Mem ops as tools 3) Lifecycle reasoning 4) Context window segmentation</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 Augmented = agent HAS memory. Aware = agent KNOWS it has memory and decides how to use it. Difference = awareness + autonomy! 🧠</p>
+</blockquote>
+<hr />
+<h2 id="code-lab-building-it-all">💻 Code Lab: Building It All<a class="headerlink" href="#code-lab-building-it-all" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>📂 See <code>code/L3/L3.ipynb</code> for the full implementation</p>
+</blockquote>
+<h3 id="part-1-setup-db-embedding-tables">Part 1: Setup — DB + Embedding + Tables<a class="headerlink" href="#part-1-setup-db-embedding-tables" title="Permanent link">&para;</a></h3>
+<p><strong>Step 1: Oracle AI Database 26ai</strong>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">database_connection</span> <span class="o">=</span> <span class="n">connect_to_oracle</span><span class="p">(</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">user</span><span class="o">=</span><span class="s2">&quot;VECTOR&quot;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&quot;VectorPwd_2025&quot;</span><span class="p">,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">dsn</span><span class="o">=</span><span class="s2">&quot;127.0.0.1:1521/FREEPDB1&quot;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">)</span>
+</span></code></pre></div></p>
+<p><strong>Step 2: Embedding Model</strong>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">langchain_huggingface</span><span class="w"> </span><span class="kn">import</span> <span class="n">HuggingFaceEmbeddings</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">embedding_model</span> <span class="o">=</span> <span class="n">HuggingFaceEmbeddings</span><span class="p">(</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;sentence-transformers/paraphrase-mpnet-base-v2&quot;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">)</span>
+</span></code></pre></div></p>
+<p><strong>Step 3: Define Table Names (7 memory types)</strong>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">CONVERSATIONAL_TABLE</span> <span class="o">=</span> <span class="s2">&quot;CONVERSATIONAL_MEMORY&quot;</span>  <span class="c1"># SQL</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">KNOWLEDGE_BASE_TABLE</span> <span class="o">=</span> <span class="s2">&quot;SEMANTIC_MEMORY&quot;</span>        <span class="c1"># Vector</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">WORKFLOW_TABLE</span>       <span class="o">=</span> <span class="s2">&quot;WORKFLOW_MEMORY&quot;</span>         <span class="c1"># Vector</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">TOOLBOX_TABLE</span>        <span class="o">=</span> <span class="s2">&quot;TOOLBOX_MEMORY&quot;</span>          <span class="c1"># Vector</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">ENTITY_TABLE</span>         <span class="o">=</span> <span class="s2">&quot;ENTITY_MEMORY&quot;</span>           <span class="c1"># Vector</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="n">SUMMARY_TABLE</span>        <span class="o">=</span> <span class="s2">&quot;SUMMARY_MEMORY&quot;</span>          <span class="c1"># Vector</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">TOOL_LOG_TABLE</span>       <span class="o">=</span> <span class="s2">&quot;TOOL_LOG_MEMORY&quot;</span>         <span class="c1"># SQL</span>
+</span></code></pre></div></p>
+<p><strong>Step 4: Create SQL Tables</strong> (Conversational + Tool Log)</p>
+<p>The conversational history table schema:</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>VARCHAR2 (GUID)</td>
+<td>Primary key</td>
+</tr>
+<tr>
+<td><code>thread_id</code></td>
+<td>VARCHAR2</td>
+<td>Group conversations</td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td>VARCHAR2</td>
+<td>user / assistant</td>
+</tr>
+<tr>
+<td><code>content</code></td>
+<td>CLOB</td>
+<td>Message text</td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td>TIMESTAMP</td>
+<td>When it happened</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td>CLOB</td>
+<td>Extra JSON data</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>TIMESTAMP</td>
+<td>Row creation time</td>
+</tr>
+<tr>
+<td><code>summary_id</code></td>
+<td>VARCHAR2</td>
+<td>Links to summary (for later)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Indexes created on:</strong> <code>thread_id</code> (fast lookup) + <code>timestamp</code> (chronological ordering)</p>
+<blockquote>
+<p>💡 <code>summary_id</code> is interesting — it's NULL by default, gets filled when messages are summarized. More on this in L05!</p>
+</blockquote>
+<h3 id="part-2-storemanager-vector-stores">Part 2: StoreManager — Vector Stores<a class="headerlink" href="#part-2-storemanager-vector-stores" title="Permanent link">&para;</a></h3>
+<p>The <code>StoreManager</code> class abstracts creation of ALL vector stores:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">store_manager</span> <span class="o">=</span> <span class="n">StoreManager</span><span class="p">(</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="n">client</span><span class="o">=</span><span class="n">database_connection</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">embedding_function</span><span class="o">=</span><span class="n">embedding_model</span><span class="p">,</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="n">table_names</span><span class="o">=</span><span class="p">{</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>        <span class="s1">&#39;knowledge_base&#39;</span><span class="p">:</span> <span class="n">KNOWLEDGE_BASE_TABLE</span><span class="p">,</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>        <span class="s1">&#39;workflow&#39;</span><span class="p">:</span> <span class="n">WORKFLOW_TABLE</span><span class="p">,</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>        <span class="s1">&#39;toolbox&#39;</span><span class="p">:</span> <span class="n">TOOLBOX_TABLE</span><span class="p">,</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>        <span class="s1">&#39;entity&#39;</span><span class="p">:</span> <span class="n">ENTITY_TABLE</span><span class="p">,</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>        <span class="s1">&#39;summary&#39;</span><span class="p">:</span> <span class="n">SUMMARY_TABLE</span><span class="p">,</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    <span class="p">},</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="n">distance_strategy</span><span class="o">=</span><span class="n">DistanceStrategy</span><span class="o">.</span><span class="n">COSINE</span><span class="p">,</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    <span class="n">conversational_table</span><span class="o">=</span><span class="n">CONVERSATION_HISTORY_TABLE</span><span class="p">,</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    <span class="n">tool_log_table</span><span class="o">=</span><span class="n">TOOL_LOG_HISTORY_TABLE</span><span class="p">,</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>What's inside:</strong> Uses <code>OracleVS</code> (LangChain Oracle integration) for each vector store. Distance strategy = <strong>COSINE</strong> (measures angle between vectors in high-dimensional space).</p>
+<p><strong>Gets instances via getters:</strong>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">knowledge_base_vs</span> <span class="o">=</span> <span class="n">store_manager</span><span class="o">.</span><span class="n">get_knowledge_base_store</span><span class="p">()</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">workflow_vs</span>       <span class="o">=</span> <span class="n">store_manager</span><span class="o">.</span><span class="n">get_workflow_store</span><span class="p">()</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># ... etc</span>
+</span></code></pre></div></p>
+<p><strong>Vector indexes</strong> created on all stores using <code>safe_create_index()</code> — <strong>IVF</strong> (Inverted File Index) strategy with 95% target accuracy. Indexes = fast retrieval without scanning all rows.</p>
+<blockquote>
+<p>💡 Without indexes, searching = reading every row in DB. With indexes = skip straight to relevant rows. Like a book index vs reading every page! 📖</p>
+</blockquote>
+<h3 id="part-3-memorymanager-the-unified-crud-interface">Part 3: MemoryManager — The Unified CRUD Interface<a class="headerlink" href="#part-3-memorymanager-the-unified-crud-interface" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">memory_manager</span> <span class="o">=</span> <span class="n">MemoryManager</span><span class="p">(</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="n">conn</span><span class="o">=</span><span class="n">database_connection</span><span class="p">,</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="n">conversation_table</span><span class="o">=</span><span class="n">CONVERSATION_HISTORY_TABLE</span><span class="p">,</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="n">knowledge_base_vs</span><span class="o">=</span><span class="n">knowledge_base_vs</span><span class="p">,</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="n">workflow_vs</span><span class="o">=</span><span class="n">workflow_vs</span><span class="p">,</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="n">toolbox_vs</span><span class="o">=</span><span class="n">toolbox_vs</span><span class="p">,</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="n">entity_vs</span><span class="o">=</span><span class="n">entity_vs</span><span class="p">,</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    <span class="n">summary_vs</span><span class="o">=</span><span class="n">summary_vs</span><span class="p">,</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    <span class="n">tool_log_table</span><span class="o">=</span><span class="n">TOOL_LOG_HISTORY_TABLE</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>One class → unified read/write for ALL 7 memory types.</strong> Agent doesn't care about SQL vs Vector — it just calls <code>memory_manager.write_knowledge_base()</code> or <code>memory_manager.read_entity()</code>.</p>
+<h3 id="part-4-using-it-write-read-knowledge-base">Part 4: Using It — Write &amp; Read Knowledge Base<a class="headerlink" href="#part-4-using-it-write-read-knowledge-base" title="Permanent link">&para;</a></h3>
+<p><strong>Write:</strong> Ingest arXiv papers from HuggingFace → extract title, abstract, subjects, submission_date → concatenate → <code>memory_manager.write_knowledge_base(text, metadata)</code></p>
+<p>What happens under the hood:
+1. Text → <strong>vector embedding</strong> created
+2. Embedding + metadata → stored in vector store table
+3. Now <strong>semantically searchable</strong>!</p>
+<p><strong>Read:</strong>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">results</span> <span class="o">=</span> <span class="n">memory_manager</span><span class="o">.</span><span class="n">read_knowledge_base</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="s2">&quot;space exploration&quot;</span><span class="p">)</span>
+</span></code></pre></div></p>
+<p>Returns: formatted string with memory type info + retrieved passages semantically similar to the query. Includes instructions for the LLM on <strong>how to use this memory</strong>.</p>
+<blockquote>
+<p>💡 This is what makes it "memory aware" — the returned data tells the LLM "this is Knowledge Base Memory, ground your responses in these passages." The agent KNOWS what kind of memory it's looking at!</p>
+</blockquote>
+<hr />
+<h2 id="key-takeaways">🔑 Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Takeaway</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Agent Stack</strong> = layered architecture. Memory Layer = Memory Core + Memory Manager</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Memory Manager</strong> = abstraction on DB with CRUD for each memory type</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>SQL</strong> for exact-match (conversations), <strong>Vector Store</strong> for semantic search (everything else)</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Deterministic</strong> ops = always run (reliable). <strong>Agent-triggered</strong> = judgment call (flexible)</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Memory Unit</strong> = smallest atomic info piece. <strong>Context Eng</strong> = curate what enters context window. <strong>Memory Eng</strong> = build &amp; maintain memory systems</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Memory Lifecycle</strong> = ingest → enrich → store → organize → retrieve → LLM → serialize → back to store (continuous loop!)</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Memory Aware &gt; Memory Augmented</strong> — aware agents KNOW their memory, control it via tools, reason through lifecycle, segment context window</td>
+</tr>
+<tr>
+<td>8</td>
+<td>In code: <code>StoreManager</code> creates stores, <code>MemoryManager</code> provides unified CRUD, both use Oracle AI DB + LangChain</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="quick-check">🧪 Quick Check<a class="headerlink" href="#quick-check" title="Permanent link">&para;</a></h2>
+<details>
+<summary>❓ What is a Memory Manager?</summary>
+
+An **abstraction on the database** with control logic that decides what becomes memory, how it's structured, how it's updated, and when it should be recalled during execution. Provides CRUD methods for each memory type.
+</details>
+
+<details>
+<summary>❓ Why does conversational memory use SQL tables instead of vector stores?</summary>
+
+Conversational memory needs **exact match** by `thread_id` and chronological ordering by `timestamp` — no semantic similarity needed. SQL is faster and simpler for this. Vector stores are for semantic search (find similar content by meaning).
+</details>
+
+<details>
+<summary>❓ Deterministic vs Agent-Triggered — which is better?</summary>
+
+Neither — they complement each other!
+- **Deterministic** = reliability (always load context, always save conversations — no gaps)
+- **Agent-triggered** = flexibility (summarize when needed, extract entities when relevant — less noise)
+
+> Auto-save ⏰ vs "let me think if I should save this" 🤔
+</details>
+
+<details>
+<summary>❓ What's the chicken-and-egg problem with agent-triggered retrieval?</summary>
+
+If the agent must DECIDE whether to check memory, it needs to know what's stored. But to know what's stored, it needs to check memory first! **You need memory to know which memory you need.** That's why deterministic retrieval at start of every turn makes sense.
+</details>
+
+<details>
+<summary>❓ What are the 4 steps from Memory Augmented → Memory Aware?</summary>
+
+1. **Memory store awareness** via system prompt (agent knows its stores exist)
+2. **Agent-triggered memory operations** (mem ops given as tools)
+3. **Memory lifecycle reasoning** (agent reasons through the cycle)
+4. **Context window segmentation** (partitions allocated for specific memory types)
+</details>
+
+<details>
+<summary>❓ What's the Memory Lifecycle loop?</summary>
+
+Raw Data → **Ingest** → **Enrich** (embeddings + metadata) → **Store** (short/medium/long term) → **Organize** (index, map relationships) → **Retrieve** (text/vector/graph/hybrid) → **LLM** (inference) → **Serialize & Augment** output → back to **Store** → loop!
+
+> Conveyor belt jo kabhi nahi rukta 🔄
+</details>
+
+<details>
+<summary>❓ What 4 disciplines make up Memory Engineering?</summary>
+
+1. **Database Engineering** — ACID, persistent storage, multi-store arch
+2. **Agent Engineering** — lifecycle, write-back loops, extraction
+3. **ML Engineering** — embeddings, fine-tuning, reranking, continual learning
+4. **Information Retrieval** — hybrid search, vector indexes, query optimization
+
+Nothing new — just an intersection! 🔀
+</details>
+
+<hr />
+<blockquote>
+<p><strong>← Prev:</strong> <a href="../02-why-agents-need-memory/">Why Agents Need Memory</a> | <strong>Next →</strong> <a href="../04-semantic-tool-memory/">Semantic Tool Memory</a></p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/AyushSonuu" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:sonuayush55@gmail.com" target="_blank" rel="noopener" title="Email" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4l208 156a48 48 0 0 0 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48zM0 196v188c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V196L313.6 344.8c-34.1 25.6-81.1 25.6-115.2 0z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tabs.link", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

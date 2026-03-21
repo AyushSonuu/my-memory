@@ -1,0 +1,2231 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Every expert was once a beginner who didn't quit.">
+      
+      
+        <meta name="author" content="Ayush Sonu">
+      
+      
+        <link rel="canonical" href="https://ayushsonuu.github.io/my-memory/tech/agent-memory/05-memory-operations/">
+      
+      
+        <link rel="prev" href="../04-semantic-tool-memory/">
+      
+      
+        <link rel="next" href="../06-memory-aware-agent/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>05 · Memory Operations - 🧠 My Memory</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../_assets/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#05-memory-operations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="🧠 My Memory" class="md-header__button md-logo" aria-label="🧠 My Memory" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.687 1.687 0 0 1-1.86-.55L14.44 18c-.89-.15-1.73-.53-2.44-1.1-.5.15-1 .23-1.5.23-.88 0-1.76-.27-2.5-.79-.53.16-1.07.23-1.62.22-.79.01-1.57-.15-2.3-.45a4.1 4.1 0 0 1-2.43-3.61c-.08-.72.04-1.45.35-2.11-.29-.75-.32-1.57-.07-2.33C2.3 7.11 3 6.32 3.87 5.82c.58-1.69 2.21-2.82 4-2.7 1.6-1.5 4.05-1.66 5.83-.37.42-.11.86-.17 1.3-.17 1.36-.03 2.65.57 3.5 1.64 2.04.53 3.5 2.35 3.58 4.47.05 1.11-.25 2.2-.86 3.13.07.36.11.72.11 1.09m-5-1.41c.57.07 1.02.5 1.02 1.07a1 1 0 0 1-1 1h-.63c-.32.9-.88 1.69-1.62 2.29.25.09.51.14.77.21 5.13-.07 4.53-3.2 4.53-3.25a2.59 2.59 0 0 0-2.69-2.49 1 1 0 0 1-1-1 1 1 0 0 1 1-1c1.23.03 2.41.49 3.33 1.3.05-.29.08-.59.08-.89-.06-1.24-.62-2.32-2.87-2.53-1.25-2.96-4.4-1.32-4.4-.4-.03.23.21.72.25.75a1 1 0 0 1 1 1c0 .55-.45 1-1 1-.53-.02-1.03-.22-1.43-.56-.48.31-1.03.5-1.6.56-.57.05-1.04-.35-1.07-.9a.97.97 0 0 1 .88-1.1c.16-.02.94-.14.94-.77 0-.66.25-1.29.68-1.79-.92-.25-1.91.08-2.91 1.29C6.75 5 6 5.25 5.45 7.2 4.5 7.67 4 8 3.78 9c1.08-.22 2.19-.13 3.22.25.5.19.78.75.59 1.29-.19.52-.77.78-1.29.59-.73-.32-1.55-.34-2.3-.06-.32.27-.32.83-.32 1.27 0 .74.37 1.43 1 1.83.53.27 1.12.41 1.71.4q-.225-.39-.39-.81a1.038 1.038 0 0 1 1.96-.68c.4 1.14 1.42 1.92 2.62 2.05 1.37-.07 2.59-.88 3.19-2.13.23-1.38 1.34-1.5 2.56-1.5m2 7.47-.62-1.3-.71.16 1 1.25zm-4.65-8.61a1 1 0 0 0-.91-1.03c-.71-.04-1.4.2-1.93.67-.57.58-.87 1.38-.84 2.19a1 1 0 0 0 1 1c.57 0 1-.45 1-1 0-.27.07-.54.23-.76.12-.1.27-.15.43-.15.55.03 1.02-.38 1.02-.92"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            🧠 My Memory
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              05 · Memory Operations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/AyushSonuu/my-memory" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AyushSonuu/my-memory
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  🧠 Agent Memory
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../python/asyncio/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  ⚡ AsyncIO
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="🧠 My Memory" class="md-nav__button md-logo" aria-label="🧠 My Memory" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.687 1.687 0 0 1-1.86-.55L14.44 18c-.89-.15-1.73-.53-2.44-1.1-.5.15-1 .23-1.5.23-.88 0-1.76-.27-2.5-.79-.53.16-1.07.23-1.62.22-.79.01-1.57-.15-2.3-.45a4.1 4.1 0 0 1-2.43-3.61c-.08-.72.04-1.45.35-2.11-.29-.75-.32-1.57-.07-2.33C2.3 7.11 3 6.32 3.87 5.82c.58-1.69 2.21-2.82 4-2.7 1.6-1.5 4.05-1.66 5.83-.37.42-.11.86-.17 1.3-.17 1.36-.03 2.65.57 3.5 1.64 2.04.53 3.5 2.35 3.58 4.47.05 1.11-.25 2.2-.86 3.13.07.36.11.72.11 1.09m-5-1.41c.57.07 1.02.5 1.02 1.07a1 1 0 0 1-1 1h-.63c-.32.9-.88 1.69-1.62 2.29.25.09.51.14.77.21 5.13-.07 4.53-3.2 4.53-3.25a2.59 2.59 0 0 0-2.69-2.49 1 1 0 0 1-1-1 1 1 0 0 1 1-1c1.23.03 2.41.49 3.33 1.3.05-.29.08-.59.08-.89-.06-1.24-.62-2.32-2.87-2.53-1.25-2.96-4.4-1.32-4.4-.4-.03.23.21.72.25.75a1 1 0 0 1 1 1c0 .55-.45 1-1 1-.53-.02-1.03-.22-1.43-.56-.48.31-1.03.5-1.6.56-.57.05-1.04-.35-1.07-.9a.97.97 0 0 1 .88-1.1c.16-.02.94-.14.94-.77 0-.66.25-1.29.68-1.79-.92-.25-1.91.08-2.91 1.29C6.75 5 6 5.25 5.45 7.2 4.5 7.67 4 8 3.78 9c1.08-.22 2.19-.13 3.22.25.5.19.78.75.59 1.29-.19.52-.77.78-1.29.59-.73-.32-1.55-.34-2.3-.06-.32.27-.32.83-.32 1.27 0 .74.37 1.43 1 1.83.53.27 1.12.41 1.71.4q-.225-.39-.39-.81a1.038 1.038 0 0 1 1.96-.68c.4 1.14 1.42 1.92 2.62 2.05 1.37-.07 2.59-.88 3.19-2.13.23-1.38 1.34-1.5 2.56-1.5m2 7.47-.62-1.3-.71.16 1 1.25zm-4.65-8.61a1 1 0 0 0-.91-1.03c-.71-.04-1.4.2-1.93.67-.57.58-.87 1.38-.84 2.19a1 1 0 0 0 1 1c.57 0 1-.45 1-1 0-.27.07-.54.23-.76.12-.1.27-.15.43-.15.55.03 1.02-.38 1.02-.92"/></svg>
+
+    </a>
+    🧠 My Memory
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AyushSonuu/my-memory" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AyushSonuu/my-memory
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Home
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../_maps/everything/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Everything Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../_maps/tech/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tech Graph
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../_maps/connections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connections
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../_maps/learning-journey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Timeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../_maps/weak-spots/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weak Spots
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../_revision/due-today/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Due Today
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧠 Agent Memory
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🧠 Agent Memory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-why-agents-need-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Why Memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-memory-manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Memory Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-semantic-tool-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Semantic Tool Memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Memory Operations
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Memory Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#one-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 One Line
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-lesson-covers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 What This Lesson Covers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context-engineering-recap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧠 Context Engineering (Recap)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context-window-reduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📉 Context Window Reduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technique-1-context-summarization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Technique 1: Context Summarization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📋 Technique 1: Context Summarization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-3-goals-of-good-summarization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The 3 Goals of Good Summarization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-catch-summarization-is-lossy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ The Catch: Summarization is LOSSY
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technique-2-context-compaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗄️ Technique 2: Context Compaction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🗄️ Technique 2: Context Compaction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-compaction-summarization-when-possible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Compaction &gt; Summarization (when possible)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚙️ Workflow Memory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚙️ Workflow Memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-problem-without-workflow-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem Without Workflow Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-workflow-memory-reusable-playbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With Workflow Memory: Reusable Playbook
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-gets-stored" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Gets Stored
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-workflow-memory-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Workflow Memory Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-lab-building-it-all" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Code Lab: Building It All
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Code Lab: Building It All">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#context-window-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context Window Monitor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summarization-pipeline-5-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summarization Pipeline (5 steps)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expand-summary-reverse-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expand Summary (reverse operation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools-registered-as-toolbox-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools Registered as Toolbox Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔑 Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Quick Check
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-memory-aware-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Memory Aware Agent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-conclusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · Conclusion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flashcards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🃏 Flashcards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📋 Cheatsheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⚔️ RAG vs Agent Memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../python/asyncio/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ⚡ AsyncIO
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ⚡ AsyncIO
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/asyncio/01-asyncio-complete-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Complete Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/asyncio/flashcards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🃏 Flashcards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#one-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 One Line
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-lesson-covers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 What This Lesson Covers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context-engineering-recap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧠 Context Engineering (Recap)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context-window-reduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📉 Context Window Reduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technique-1-context-summarization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Technique 1: Context Summarization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📋 Technique 1: Context Summarization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-3-goals-of-good-summarization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The 3 Goals of Good Summarization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-catch-summarization-is-lossy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ The Catch: Summarization is LOSSY
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technique-2-context-compaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗄️ Technique 2: Context Compaction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🗄️ Technique 2: Context Compaction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-compaction-summarization-when-possible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Compaction &gt; Summarization (when possible)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚙️ Workflow Memory
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚙️ Workflow Memory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-problem-without-workflow-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem Without Workflow Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-workflow-memory-reusable-playbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With Workflow Memory: Reusable Playbook
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-gets-stored" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Gets Stored
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-workflow-memory-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Workflow Memory Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-lab-building-it-all" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Code Lab: Building It All
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💻 Code Lab: Building It All">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#context-window-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context Window Monitor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summarization-pipeline-5-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summarization Pipeline (5 steps)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expand-summary-reverse-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expand Summary (reverse operation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools-registered-as-toolbox-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools Registered as Toolbox Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔑 Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Quick Check
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="05-memory-operations">05 · Memory Operations ⚙️<a class="headerlink" href="#05-memory-operations" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="one-line">🎯 One Line<a class="headerlink" href="#one-line" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>When your context window fills up, you have two weapons: <strong>Summarization</strong> (compress it) and <strong>Compaction</strong> (offload it to DB). Plus: Workflow Memory gives your agent a reusable playbook.</p>
+</blockquote>
+<hr />
+<h2 id="what-this-lesson-covers">📚 What This Lesson Covers<a class="headerlink" href="#what-this-lesson-covers" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Topic</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Context Engineering (recap + deeper)</td>
+<td>📖 Concept</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Context Window Reduction — two techniques</td>
+<td>📖 Concept</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Context Summarization (lossy compression)</td>
+<td>📖 Concept</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Context Compaction (offload to DB)</td>
+<td>📖 Concept</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Workflow Memory (reusable step sequences)</td>
+<td>📖 Concept</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Code Lab: summarize, compact, expand, monitor</td>
+<td>💻 Hands-on</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="context-engineering-recap">🧠 Context Engineering (Recap)<a class="headerlink" href="#context-engineering-recap" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>The practice of <strong>optimally selecting and shaping</strong> information placed into an LLM context window so it can perform a task reliably — while accounting for context window limits.</p>
+</blockquote>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─ Data Sources ──────┐     ┌─ Optimally Selected ─┐     ┌─ Context Window ───────────┐
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│  🗄️ Databases       │     │                      │     │  System Instructions       │
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│  🔌 APIs            │ ──► │  Filter &amp; curate     │ ──► │  Knowledge Base Docs       │
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│  ⚙️ MCP Servers     │     │  what goes IN         │     │  Tools  Tools  Tools       │
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│  🌐 Internet        │     └──────────────────────┘     │  Entity Mem | Workflow Mem │
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>└─────────────────────┘                                   │  Conversational Memory     │
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                                                          │  User Prompt               │
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>                                                          └────────────────────────────┘
+</span></code></pre></div>
+<p><strong>Goal:</strong> Maximize <strong>signal-to-noise ratio</strong> per token. Don't stuff everything — curate.</p>
+<blockquote>
+<p>💡 Exam mein sab kitaabein nahi le ja sakte — sirf relevant cheat sheets laao! 📝</p>
+</blockquote>
+<hr />
+<h2 id="context-window-reduction">📉 Context Window Reduction<a class="headerlink" href="#context-window-reduction" title="Permanent link">&para;</a></h2>
+<p><strong>Problem:</strong> More information exists than what fits in the context window. What do you do?</p>
+<blockquote>
+<p><strong>Context Window Reduction</strong> = the process of <strong>shrinking</strong> the amount of information placed in an LLM's context window, by summarizing, compressing, deduplicating, or filtering content, while <strong>preserving the signals needed</strong> for the current task.</p>
+</blockquote>
+<pre class="mermaid"><code>graph TD
+    CWR["📉 &lt;b&gt;Context Window Reduction&lt;/b&gt;&lt;br/&gt;&lt;i&gt;Shrink info while preserving signals&lt;/i&gt;"]
+
+    CWR --&gt; CS["📋 &lt;b&gt;Context Summarization&lt;/b&gt;&lt;br/&gt;LLM compresses content&lt;br/&gt;into shorter representation&lt;br/&gt;&lt;br/&gt;⚠️ Lossy — some info lost"]
+    CWR --&gt; CC["🗄️ &lt;b&gt;Context Compaction&lt;/b&gt;&lt;br/&gt;Offload full content to DB&lt;br/&gt;Keep only ID + description&lt;br/&gt;&lt;br/&gt;✅ Lossless — full content retrievable"]
+
+    style CWR fill:#37474f,color:#fff,stroke:#263238,stroke-width:2px
+    style CS fill:#ff9800,color:#fff,stroke:#e65100,stroke-width:2px
+    style CC fill:#4caf50,color:#fff,stroke:#388e3c,stroke-width:2px</code></pre>
+<hr />
+<h2 id="technique-1-context-summarization">📋 Technique 1: Context Summarization<a class="headerlink" href="#technique-1-context-summarization" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Pass the full context through an LLM → get a <strong>shorter representation</strong> that retains the highest-signal information → inject this summary into a <strong>clean context window</strong>.</p>
+</blockquote>
+<h3 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph LR
+    FULL["📄 &lt;b&gt;Full Context&lt;/b&gt;&lt;br/&gt;(large, verbose)"] --&gt;|"LLM summarizes"| LLM["🤖 &lt;b&gt;LLM&lt;/b&gt;"]
+    LLM --&gt; SUM["📝 &lt;b&gt;Summary&lt;/b&gt;&lt;br/&gt;(compact, high-signal)"]
+    SUM --&gt; CLEAN["🧹 &lt;b&gt;Clean Context Window&lt;/b&gt;&lt;br/&gt;Summary injected as&lt;br/&gt;starting point"]
+
+    style FULL fill:#ff9800,color:#fff,stroke:#e65100
+    style LLM fill:#2196f3,color:#fff,stroke:#1565c0
+    style SUM fill:#4caf50,color:#fff,stroke:#388e3c
+    style CLEAN fill:#e8f5e9,color:#333,stroke:#388e3c</code></pre>
+<h3 id="the-3-goals-of-good-summarization">The 3 Goals of Good Summarization<a class="headerlink" href="#the-3-goals-of-good-summarization" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Goal</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>🎯 <strong>Retain highest-signal info</strong></td>
+<td>Keep task-relevant facts, claims, decisions. Remove low-value chatter.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>🔗 <strong>Preserve meaning &amp; relationships</strong></td>
+<td>Who did what, why, results, caveats — don't lose the story's structure.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>🗑️ <strong>Remove redundancy &amp; noise</strong></td>
+<td>Low-value details, repetitive content, off-topic tangents — gone.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-catch-summarization-is-lossy">⚠️ The Catch: Summarization is LOSSY<a class="headerlink" href="#the-catch-summarization-is-lossy" title="Permanent link">&para;</a></h3>
+<p>Like compressing a JPEG — the image looks okay, but pixel-perfect detail is gone forever. You <strong>always lose some information</strong> in summarization.</p>
+<blockquote>
+<p>💡 Summary = photo ka thumbnail. Looks fine from far, but zoom in karo toh detail missing! 📸</p>
+</blockquote>
+<p><strong>Quality depends heavily on the prompt</strong> you use for summarization. Better prompt = less information loss.</p>
+<hr />
+<h2 id="technique-2-context-compaction">🗄️ Technique 2: Context Compaction<a class="headerlink" href="#technique-2-context-compaction" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Instead of compressing the content, <strong>move the full content to the database</strong> and keep only an <strong>ID + short description</strong> in the context window. The LLM can retrieve the full content on demand.</p>
+</blockquote>
+<h3 id="how-it-works_1">How It Works<a class="headerlink" href="#how-it-works_1" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph TD
+    FULL2["📄 &lt;b&gt;Full Content&lt;/b&gt;&lt;br/&gt;(taking up space)"]
+    FULL2 --&gt;|"① Store full content"| DB["🗄️ &lt;b&gt;Database&lt;/b&gt;&lt;br/&gt;Full content preserved"]
+    DB --&gt;|"② Return ID"| ID["🏷️ &lt;b&gt;Compact ID: 23235&lt;/b&gt;&lt;br/&gt;'Conversation on devices&lt;br/&gt;for mobile game apps'"]
+    ID --&gt;|"③ Stays in context"| CTX["📋 &lt;b&gt;Context Window&lt;/b&gt;&lt;br/&gt;Only ID + description&lt;br/&gt;(tiny footprint)"]
+    CTX -.-&gt;|"④ expand_summary(id)&lt;br/&gt;when LLM needs detail"| DB
+
+    style FULL2 fill:#ff9800,color:#fff,stroke:#e65100
+    style DB fill:#4caf50,color:#fff,stroke:#388e3c,stroke-width:3px
+    style ID fill:#e8f5e9,color:#333,stroke:#388e3c
+    style CTX fill:#e3f2fd,color:#333,stroke:#1565c0</code></pre>
+<h3 id="why-compaction-summarization-when-possible">Why Compaction &gt; Summarization (when possible)<a class="headerlink" href="#why-compaction-summarization-when-possible" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Summarization</th>
+<th>Compaction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data loss</strong></td>
+<td>⚠️ Lossy — always loses some info</td>
+<td>✅ Lossless — full content in DB</td>
+</tr>
+<tr>
+<td><strong>Context savings</strong></td>
+<td>Good</td>
+<td>Great (only ID + description kept)</td>
+</tr>
+<tr>
+<td><strong>Retrieve detail</strong></td>
+<td>❌ Can't get back what's lost</td>
+<td>✅ <code>expand_summary(id)</code> gets everything</td>
+</tr>
+<tr>
+<td><strong>Cost</strong></td>
+<td>LLM call needed for compression</td>
+<td>Just a DB write + read</td>
+</tr>
+<tr>
+<td><strong>Best for</strong></td>
+<td>When you need a quick overview</td>
+<td>When you might need full details later</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 Summarization = notes bana ke original phad do 📝. Compaction = original file ko drawer mein rakh do, Post-it note chipka do "Drawer 3 mein hai" 🗄️. Drawer se kab bhi nikal sakte ho!</p>
+</blockquote>
+<hr />
+<h2 id="workflow-memory">⚙️ Workflow Memory<a class="headerlink" href="#workflow-memory" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>The agent's ability to <strong>persist and reuse the state and structure of work</strong> over time, so multi-step tasks can be continued, resumed, audited, or repeated reliably.</p>
+</blockquote>
+<h3 id="the-problem-without-workflow-memory">The Problem Without Workflow Memory<a class="headerlink" href="#the-problem-without-workflow-memory" title="Permanent link">&para;</a></h3>
+<p>Every time a user asks "Get me the current weather", the LLM has to <strong>figure out the steps from scratch</strong> — which tool to call first, what params to pass, in what order. Wasteful!</p>
+<h3 id="with-workflow-memory-reusable-playbook">With Workflow Memory: Reusable Playbook<a class="headerlink" href="#with-workflow-memory-reusable-playbook" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph TD
+    REQ["👤 'Get me the&lt;br/&gt;current weather'"]
+    REQ --&gt;|"Semantic search&lt;br/&gt;on workflow memory"| WM["🗄️ Workflow Memory&lt;br/&gt;(finds matching workflow)"]
+    WM --&gt; STEPS
+
+    subgraph STEPS ["📋 Stored Workflow: get_current_weather"]
+        S1["Step 1: get_user_location()&lt;br/&gt;→ {lat: 51.76, lon: -0.24}"]
+        S2["Step 2: weather_api()&lt;br/&gt;→ provider: weather_app"]
+        S3["Step 3: weather_api(lat, lon)&lt;br/&gt;→ {temp: 7.2°C, cloudy}"]
+        S4["Step 4: Return response&lt;br/&gt;→ 'It's 7°C and cloudy'"]
+        S1 --&gt; S2 --&gt; S3 --&gt; S4
+    end
+
+    style REQ fill:#2196f3,color:#fff,stroke:#1565c0
+    style WM fill:#4caf50,color:#fff,stroke:#388e3c
+    style STEPS fill:#e8f5e9,color:#333,stroke:#388e3c</code></pre>
+<h3 id="what-gets-stored">What Gets Stored<a class="headerlink" href="#what-gets-stored" title="Permanent link">&para;</a></h3>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">workflow_memory</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">run_id</span><span class="w">        </span><span class="n">VARCHAR2</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">thread_id</span><span class="w">     </span><span class="n">VARCHAR2</span><span class="p">(</span><span class="mi">64</span><span class="p">),</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="n">created_at</span><span class="w">    </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">SYSTIMESTAMP</span><span class="p">,</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="n">workflow_doc</span><span class="w">  </span><span class="n">JSON</span><span class="p">,</span><span class="w">       </span><span class="c1">-- full workflow with steps</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="n">embedding</span><span class="w">     </span><span class="n">VECTOR</span><span class="w">      </span><span class="c1">-- for semantic search</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">);</span>
+</span></code></pre></div>
+<p><strong>Workflow JSON example:</strong>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;workflow_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;get_current_weather&quot;</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;user_request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Get me the current weather&quot;</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;steps&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;step&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Get current user location&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;tool&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;get_user_location&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OK&quot;</span><span class="p">},</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;step&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Use weather API&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;tool&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;weather_api&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OK&quot;</span><span class="p">},</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;step&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Pass lat/long&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;tool&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;weather_api&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;output&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;temp_c&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">7.2</span><span class="p">},</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OK&quot;</span><span class="p">},</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;step&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Return weather to user&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;assistant_response&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OK&quot;</span><span class="p">}</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="p">]</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<h3 id="why-workflow-memory-matters">Why Workflow Memory Matters<a class="headerlink" href="#why-workflow-memory-matters" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Benefit</th>
+<th>How</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>♻️ <strong>Reuse</strong></td>
+<td>Same steps work for any user's weather query — no re-figuring</td>
+</tr>
+<tr>
+<td>⚡ <strong>Efficiency</strong></td>
+<td>LLM doesn't burn tokens figuring out the plan each time</td>
+</tr>
+<tr>
+<td>🔍 <strong>Auditability</strong></td>
+<td>You can see exactly what steps were taken and what happened</td>
+</tr>
+<tr>
+<td>🔄 <strong>Resumability</strong></td>
+<td>If a workflow fails midway, it can be resumed from the failure point</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 First time = trial and error. Second time = "oh, I've done this before!" → follow saved recipe 🍳</p>
+</blockquote>
+<hr />
+<h2 id="code-lab-building-it-all">💻 Code Lab: Building It All<a class="headerlink" href="#code-lab-building-it-all" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>📂 See <code>code/L5/L5.ipynb</code> for the full implementation</p>
+</blockquote>
+<h3 id="context-window-monitor">Context Window Monitor<a class="headerlink" href="#context-window-monitor" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">calculate_context_usage</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-5&quot;</span><span class="p">):</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">estimated_tokens</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">context</span><span class="p">)</span> <span class="o">//</span> <span class="mi">4</span>   <span class="c1"># ~4 chars per token</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">max_tokens</span> <span class="o">=</span> <span class="mi">256000</span>                     <span class="c1"># model limit</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">percentage</span> <span class="o">=</span> <span class="p">(</span><span class="n">estimated_tokens</span> <span class="o">/</span> <span class="n">max_tokens</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;tokens&quot;</span><span class="p">:</span> <span class="n">estimated_tokens</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">:</span> <span class="n">max_tokens</span><span class="p">,</span> <span class="s2">&quot;percent&quot;</span><span class="p">:</span> <span class="n">percentage</span><span class="p">}</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">monitor_context_window</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-5&quot;</span><span class="p">):</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">calculate_context_usage</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="k">if</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;percent&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">:</span>   <span class="n">result</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ok&#39;</span>        <span class="c1"># 🟢</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="k">elif</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;percent&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">80</span><span class="p">:</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;warning&#39;</span>    <span class="c1"># 🟡</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="k">else</span><span class="p">:</span>                        <span class="n">result</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;critical&#39;</span>   <span class="c1"># 🔴</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="k">return</span> <span class="n">result</span>
+</span></code></pre></div>
+<p><strong>Three states:</strong> <code>ok</code> (&lt; 50%) → <code>warning</code> (50-80%) → <code>critical</code> (80%+, summarize NOW!)</p>
+<h3 id="summarization-pipeline-5-steps">Summarization Pipeline (5 steps)<a class="headerlink" href="#summarization-pipeline-5-steps" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>What happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>Read all <strong>unsummarized</strong> messages from a thread (SQL query, <code>summary_id IS NULL</code>)</td>
+</tr>
+<tr>
+<td>②</td>
+<td>Build a <strong>transcript</strong> from those messages</td>
+</tr>
+<tr>
+<td>③</td>
+<td>Send transcript to LLM → get structured <strong>summary</strong> (technical info, emotional context, entities, action items)</td>
+</tr>
+<tr>
+<td>④</td>
+<td>Store summary in <strong>summary memory</strong> (vector store) with a <code>summary_id</code></td>
+</tr>
+<tr>
+<td>⑤</td>
+<td><strong>Mark</strong> original messages with that <code>summary_id</code> → they won't be summarized again</td>
+</tr>
+</tbody>
+</table>
+<h3 id="expand-summary-reverse-operation">Expand Summary (reverse operation)<a class="headerlink" href="#expand-summary-reverse-operation" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">expand_summary</span><span class="p">(</span><span class="n">summary_id</span><span class="p">,</span> <span class="n">thread_id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">summary_text</span> <span class="o">=</span> <span class="n">memory_manager</span><span class="o">.</span><span class="n">read_summary_memory</span><span class="p">(</span><span class="n">summary_id</span><span class="p">)</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">original_conversations</span> <span class="o">=</span> <span class="n">memory_manager</span><span class="o">.</span><span class="n">read_conversations_by_summary_id</span><span class="p">(</span><span class="n">summary_id</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">summary_text</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">original_conversations</span><span class="si">}</span><span class="s2">&quot;</span>
+</span></code></pre></div>
+<p>Compacted content → <code>expand_summary(id)</code> → get FULL original 32 messages back. Lossless! ✅</p>
+<h3 id="tools-registered-as-toolbox-patterns">Tools Registered as Toolbox Patterns<a class="headerlink" href="#tools-registered-as-toolbox-patterns" title="Permanent link">&para;</a></h3>
+<p>Both <code>summarize_and_store</code> and <code>expand_summary</code> registered as agent tools → agent can <strong>autonomously</strong> trigger summarization at 80%+ usage and expand when it needs details.</p>
+<hr />
+<h2 id="key-takeaways">🔑 Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Takeaway</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Context Engineering</strong> = curate what goes INTO the context window. Signal-to-noise per token.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Context Window Reduction</strong> has 2 techniques: Summarization (lossy) and Compaction (lossless)</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Summarization</strong> = LLM compresses content → inject into clean window. ⚠️ Always loses some info. Prompt quality = summary quality.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Compaction</strong> = offload full content to DB, keep only ID + description. ✅ <code>expand_summary(id)</code> retrieves everything.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Workflow Memory</strong> = persist &amp; reuse multi-step task sequences. Agent follows the saved recipe instead of figuring it out from scratch.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Context monitor</strong> tracks usage: ok (&lt;50%) → warning (50-80%) → critical (80%+ → summarize!)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Summarized messages are <strong>marked</strong> with <code>summary_id</code> → never re-summarized</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="quick-check">🧪 Quick Check<a class="headerlink" href="#quick-check" title="Permanent link">&para;</a></h2>
+<details>
+<summary>❓ What is Context Window Reduction?</summary>
+
+The process of **shrinking** information in the context window while **preserving signals** needed for the task. Two techniques: **Summarization** (LLM compresses, lossy) and **Compaction** (offload to DB, lossless).
+</details>
+
+<details>
+<summary>❓ Summarization vs Compaction — kya farak hai?</summary>
+
+**Summarization** = LLM compresses content into shorter form. ⚠️ **Lossy** — some info permanently gone. Like JPEG compression.
+
+**Compaction** = Full content moved to DB, only ID + description in context. ✅ **Lossless** — `expand_summary(id)` gets everything back. Like moving files to an external drive.
+
+> Summarization = thumbnail 📸. Compaction = original file in drawer 🗄️
+</details>
+
+<details>
+<summary>❓ What are the 3 goals of good summarization?</summary>
+
+1. 🎯 **Retain highest-signal** task-relevant facts
+2. 🔗 **Preserve meaning & relationships** (who, what, why, results)
+3. 🗑️ **Remove redundancy & noise** (low-value, repetitive, off-topic)
+
+Quality depends on the summarization prompt!
+</details>
+
+<details>
+<summary>❓ What is Workflow Memory? Why is it useful?</summary>
+
+The agent's ability to **persist and reuse step sequences** for multi-step tasks. Stored as JSON with ordered steps + embeddings for semantic search.
+
+**Without:** LLM figures out steps from scratch every time (slow, wasteful).
+**With:** "I've done this before!" → follow saved playbook (fast, reliable).
+
+> Pehli baar trial-error, doosri baar recipe follow 🍳
+</details>
+
+<details>
+<summary>❓ How does the summarization pipeline prevent double-summarizing?</summary>
+
+After summarization, each original message gets **marked** with a `summary_id` in the DB. Next time, the SQL query filters `WHERE summary_id IS NULL` → only unsummarized messages are picked up. Already-summarized ones are skipped.
+</details>
+
+<details>
+<summary>❓ When does the agent trigger summarization?</summary>
+
+**Context monitor** tracks token usage:
+- `ok` (< 50%) → do nothing
+- `warning` (50-80%) → heads up
+- `critical` (80%+) → trigger `summarize_and_store` (registered as toolbox pattern, agent can call it autonomously)
+</details>
+
+<hr />
+<blockquote>
+<p><strong>← Prev:</strong> <a href="../04-semantic-tool-memory/">Semantic Tool Memory</a> | <strong>Next →</strong> <a href="../06-memory-aware-agent/">Memory Aware Agent</a></p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/AyushSonuu" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:sonuayush55@gmail.com" target="_blank" rel="noopener" title="Email" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4l208 156a48 48 0 0 0 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48zM0 196v188c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V196L313.6 344.8c-34.1 25.6-81.1 25.6-115.2 0z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tabs.link", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

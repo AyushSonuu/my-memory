@@ -11,3 +11,6 @@ memory/
 
 # OS
 .DS_Store
+
+# MkDocs build helper (symlinks)
+content/
