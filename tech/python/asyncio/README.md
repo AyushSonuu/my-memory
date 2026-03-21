@@ -21,7 +21,10 @@
 ---
 
 ## 📚 Source
-> 🎓 [AsyncIO Complete Guide with Animations](https://www.youtube.com/watch?v=oAkLSJNr5zY) — YouTube
+> 🎓 [AsyncIO Complete Guide with Animations](https://www.youtube.com/watch?v=oAkLSJNr5zY) — Corey Schafer (YouTube)
+> 🎨 [Animations](https://coreyms.com/asyncio/) — step through with right-arrow key
+> 💻 [Animations Repo](https://github.com/CoreyMSchafer/AsyncIO-Animations)
+> 💻 [Code Examples Repo](https://github.com/CoreyMSchafer/AsyncIO-Code-Examples)
 
 ## 🔗 Connected Topics
 > - **Python** (parent) — core language
