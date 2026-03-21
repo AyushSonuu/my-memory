@@ -190,27 +190,20 @@ my-memory/
 
 **Each topic can have a `code/` folder — managed by Ayush, referenced by Ayra.**
 
-```
-tech/agent-memory/
-├── code/                    # 💻 Ayush's code — HE manages this
-│   ├── L3/                  # Lesson 3 code
-│   │   ├── L3.ipynb         # Notebook (named after lesson)
-│   │   ├── helper.py        # Supporting scripts
-│   │   └── requirements.txt
-│   ├── L5/                  # Lesson 5 code (if any)
-│   │   └── L5.py
-│   └── ...                  # Not every lesson has code — only when Ayush practices
-├── 01-introduction.md
-├── 03-memory-manager.md
-└── ...
-```
+Ayush organizes code however he wants inside `code/`. There's no strict structure — he may use:
+- `code/L3/L3.ipynb` (lesson-based folders)
+- `code/example_1.py` (flat files)
+- `code/terms.py` (standalone scripts)
+- `code/some_folder/script.py` (custom grouping)
+- Any mix of `.py`, `.ipynb`, `.js`, or other files
 
 **Rules:**
 1. **`code/` is Ayush-managed** — he creates folders, writes code, names files. Ayra does NOT write/edit code here.
-2. **Naming:** `L{number}/` folder per lesson, files named `L{number}.ipynb` or `L{number}.py` (his choice)
-3. **Not every lesson has code** — only when Ayush actually practices. No placeholders needed.
-4. **Ayra references code when writing notes** — when creating/updating a lesson's notes, check `code/L{n}/` for that lesson's code. Incorporate relevant code snippets, patterns, or observations into the notes.
-5. **Code informs notes, not vice versa** — if the code shows something the transcript/slides don't cover, mention it. If code does something differently, note the difference.
+2. **No fixed naming convention** — Ayush names things however makes sense to him.
+3. **Not every topic has code** — only when Ayush actually practices.
+4. **Ayra references code when writing notes** — when creating/updating a lesson's notes, check `code/` for that topic. Incorporate relevant code snippets, patterns, or observations into the notes.
+5. **Code informs notes, not vice versa** — if the code shows something the transcript/slides don't cover, mention it.
+6. **For docs site:** all `.py` files inside `code/` are auto-rendered by `build_docs.py`. `.ipynb` files need manual entry in `mkdocs.yml` nav.
 
 ### Key Structure Rules
 
