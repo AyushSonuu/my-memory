@@ -472,12 +472,17 @@
 }
 
 /* ---------- Light Theme Overrides (LangChain-consistent) ---------- */
+/* ===== LIGHT MODE: Full override ===== */
 [data-md-color-scheme="default"] {
     --md-default-bg-color: #ffffff;
     --md-default-fg-color: #1e293b;
     --md-default-fg-color--light: #475569;
     --md-default-fg-color--lighter: #94a3b8;
     --md-default-fg-color--lightest: #e2e8f0;
+    --md-primary-fg-color: #ffffff;
+    --md-primary-fg-color--light: #f8fafc;
+    --md-primary-bg-color: #1e293b;
+    --md-primary-bg-color--light: #475569;
     --md-typeset-a-color: #00875a;
     --md-accent-fg-color: #00875a;
     --md-code-bg-color: #f1f5f9;
@@ -693,3 +698,53 @@
     .md-typeset h1 { font-size: 1.5rem !important; }
     .md-typeset h2 { font-size: 1.2rem !important; }
 }
+
+/* ---------- Code Syntax Highlighting (Dark Mode) ---------- */
+[data-md-color-scheme="slate"] .highlight .k,
+[data-md-color-scheme="slate"] .highlight .kn,
+[data-md-color-scheme="slate"] .highlight .kd { color: #c792ea !important; }  /* keywords: import, def, async, await */
+
+[data-md-color-scheme="slate"] .highlight .n { color: #e2e8f0 !important; }   /* names */
+[data-md-color-scheme="slate"] .highlight .nf { color: #82aaff !important; }  /* function names */
+[data-md-color-scheme="slate"] .highlight .nb { color: #ffcb6b !important; }  /* builtins: print, len */
+[data-md-color-scheme="slate"] .highlight .s,
+[data-md-color-scheme="slate"] .highlight .s1,
+[data-md-color-scheme="slate"] .highlight .s2,
+[data-md-color-scheme="slate"] .highlight .sa,
+[data-md-color-scheme="slate"] .highlight .sd { color: #c3e88d !important; }  /* strings */
+[data-md-color-scheme="slate"] .highlight .mi,
+[data-md-color-scheme="slate"] .highlight .mf { color: #f78c6c !important; }  /* numbers */
+[data-md-color-scheme="slate"] .highlight .o { color: #89ddff !important; }   /* operators */
+[data-md-color-scheme="slate"] .highlight .c,
+[data-md-color-scheme="slate"] .highlight .c1,
+[data-md-color-scheme="slate"] .highlight .cm { color: #546e7a !important; }  /* comments */
+[data-md-color-scheme="slate"] .highlight .bp { color: #ffcb6b !important; }  /* self */
+[data-md-color-scheme="slate"] .highlight .p { color: #89ddff !important; }   /* punctuation */
+[data-md-color-scheme="slate"] .highlight .nc { color: #ffcb6b !important; }  /* class names */
+[data-md-color-scheme="slate"] .highlight .nn { color: #82aaff !important; }  /* module names */
+[data-md-color-scheme="slate"] .highlight .ow { color: #c792ea !important; }  /* operator words: in, not, and */
+
+/* ---------- Code Syntax Highlighting (Light Mode) ---------- */
+[data-md-color-scheme="default"] .highlight .k,
+[data-md-color-scheme="default"] .highlight .kn,
+[data-md-color-scheme="default"] .highlight .kd { color: #7c3aed !important; }  /* keywords */
+
+[data-md-color-scheme="default"] .highlight .n { color: #1e293b !important; }
+[data-md-color-scheme="default"] .highlight .nf { color: #2563eb !important; }  /* function names */
+[data-md-color-scheme="default"] .highlight .nb { color: #b45309 !important; }  /* builtins */
+[data-md-color-scheme="default"] .highlight .s,
+[data-md-color-scheme="default"] .highlight .s1,
+[data-md-color-scheme="default"] .highlight .s2,
+[data-md-color-scheme="default"] .highlight .sa,
+[data-md-color-scheme="default"] .highlight .sd { color: #16a34a !important; }  /* strings */
+[data-md-color-scheme="default"] .highlight .mi,
+[data-md-color-scheme="default"] .highlight .mf { color: #dc2626 !important; }  /* numbers */
+[data-md-color-scheme="default"] .highlight .o { color: #475569 !important; }   /* operators */
+[data-md-color-scheme="default"] .highlight .c,
+[data-md-color-scheme="default"] .highlight .c1,
+[data-md-color-scheme="default"] .highlight .cm { color: #94a3b8 !important; }  /* comments */
+[data-md-color-scheme="default"] .highlight .bp { color: #b45309 !important; }  /* self */
+[data-md-color-scheme="default"] .highlight .p { color: #475569 !important; }   /* punctuation */
+[data-md-color-scheme="default"] .highlight .nc { color: #b45309 !important; }  /* class names */
+[data-md-color-scheme="default"] .highlight .nn { color: #2563eb !important; }  /* module names */
+[data-md-color-scheme="default"] .highlight .ow { color: #7c3aed !important; }  /* operator words */
