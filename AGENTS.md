@@ -106,14 +106,13 @@ Everything you write must be **instantly recallable** during revision. This is t
 - **Hinglish** → analogies, humor, "aha!" hooks, memory tricks
 - Natural mix, not forced. Funny = memorable = recallable.
 - The funnier the hook, the longer it sticks in memory 🧠
-- **EVERY major concept MUST have a one-liner** — a single punchy sentence that nails it
+- **Key concepts deserve a one-liner** — a single punchy sentence that nails it
   - Think: the line you'd say at chai to explain it to a friend
-  - Examples of good one-liners:
+  - Examples:
     - "Stateless agent = goldfish. Memory = diary that survives across sessions."
-    - "RAG bol raha hai 'mai padh sakta hoon' — Agent Memory bol raha hai 'mai yaad bhi rakh sakta hoon'" 
     - "Context window = exam ka cheat sheet. Memory = jo actually yaad hai."
   - Put one-liners in `> 💡` blockquotes so they stand out visually
-  - One-liners are NOT optional — they're the #1 revision tool
+  - **Don't overuse** — 2-3 per lesson max. Only for concepts that genuinely benefit from a sticky hook. If every paragraph has a one-liner, none of them stand out.
 
 ### 6. 🎬 Teach-Ready = YouTube-Ready
 - Numbered files (01, 02, 03) = teaching order
