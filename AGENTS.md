@@ -116,7 +116,7 @@ Everything you write must be **instantly recallable** during revision. This is t
     - "LLM = customer. execute_tool = waiter. Function = kitchen. Customer ne kabhi gas nahi jalaya! 🍳"
   - Put one-liners in `> 💡` blockquotes so they stand out visually
   - **Don't overuse** — 2-3 per section max. Only for concepts that genuinely benefit from a sticky hook. If every paragraph has a one-liner, none of them stand out.
-- **Analogies are NOT decoration — they're memory anchors.** A good analogy makes a concept unforgettable. A boring explanation without one gets forgotten in 2 days.
+- **Analogies are NOT decoration — they're memory anchors.** A good analogy makes a concept unforgettable. A boring explanation without one gets forgotten in 2 days. BUT: only where a concept genuinely needs one. If the concept is already simple and clear, don't force a joke. Flooding every paragraph with Hinglish kills the effect — scarcity = impact.
 
 ### 6. 🎬 Teach-Ready = YouTube-Ready
 - Numbered files (01, 02, 03) = teaching order
