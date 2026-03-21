@@ -34,7 +34,7 @@ graph LR
 | 01 | [Introduction](01-introduction.md) | 🟡 Learning |
 | 02 | [Why Agents Need Memory](02-why-agents-need-memory.md) | 🟡 Learning |
 | 03 | [Memory Manager](03-memory-manager.md) | 🟡 Learning |
-| 04 | [Semantic Tool Memory](04-semantic-tool-memory.md) | 🔴 Todo |
+| 04 | [Semantic Tool Memory](04-semantic-tool-memory.md) | 🟡 Learning |
 | 05 | [Memory Operations](05-memory-operations.md) | 🔴 Todo |
 | 06 | [Memory Aware Agent](06-memory-aware-agent.md) | 🔴 Todo |
 | 07 | [Conclusion](07-conclusion.md) | 🔴 Todo |
@@ -54,6 +54,9 @@ graph LR
 > - 🐔 **Chicken-and-egg problem:** Agent can't decide to check memory it doesn't know exists → deterministic retrieval at start.
 > - 🔄 **Memory Lifecycle is a continuous loop** — LLM output feeds BACK as new memory. The agent literally learns!
 > - 🧠 **Aware > Augmented:** Augmented = HAS memory. Aware = KNOWS it has memory + controls it via tools + reasons through lifecycle.
+> - 🔧 **Toolbox Pattern:** Don't stuff 100 tools into context → store in vector DB, retrieve top-K via semantic search at runtime.
+> - ✨ **Memory Unit Augmentation:** LLM enhances tool descriptions → better separability in embedding space → higher recall.
+> - 🔄 **Search-and-store:** Tool results get persisted to KB memory — agent literally learns from searching.
 
 ---
 

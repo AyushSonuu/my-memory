@@ -236,4 +236,63 @@ Key: LLM output feeds BACK as new memory → **continuous learning cycle** 🔄
 
 ---
 
+### 🔧 Semantic Tool Memory (Lesson 4)
+
+<details>
+<summary>❓ What is tool calling?</summary>
+
+LLM **doesn't execute code** — it outputs a structured JSON request (function name + args). The **system executes** it, returns the result. LLM = brain 🧠, system = hands 🤲.
+
+Flow: Tool Definitions + User Query → LLM → Structured Request → System Executes → Result → LLM → Final Response
+</details>
+
+<details>
+<summary>❓ 100+ tools context mein daalo toh kya hota hai?</summary>
+
+6 problems:
+1. 🌊 **Context Confusion** — LLM overwhelmed
+2. 📦 **Context Bloat** — tool defs eat tokens
+3. 📉 **Tool Selection Degradation** — wrong tool picked
+4. 💸 **High Token Cost**
+5. 🐌 **Latency Increase**
+6. 📉 **Performance Degradation**
+
+Providers recommend ~5-20 tools per call, not 100+!
+</details>
+
+<details>
+<summary>❓ Toolbox Pattern kaise kaam karta hai?</summary>
+
+1. **Register:** Tool (name + description + params) → embed → store in **vector DB**
+2. **Retrieve:** User query → embed → **top-K similarity search** on toolbox table
+3. **Use:** Only top-K relevant tools passed to LLM
+
+100 tools in DB, but LLM sees only the best 3-5. Phone book → smart search bar! 🔍
+</details>
+
+<details>
+<summary>❓ Memory Unit Augmentation — kya hai aur kyun zaroori?</summary>
+
+Send tool definition + source code → **LLM enhances** docstring (step-by-step, when to use, caveats) + generates **synthetic queries**.
+
+**Without:** `"Search the web"` → vague, tools overlap in embedding space.
+**With:** detailed description → better **separability** in vector space → right tool found more often!
+</details>
+
+<details>
+<summary>❓ What's the search-and-store pattern?</summary>
+
+`search_tavily` doesn't just return results — it **writes them to KB memory**. Next time agent needs similar info, it's already in memory without another API call.
+
+> Ek baar search, hamesha yaad! 🧠
+</details>
+
+<details>
+<summary>❓ What is `read_toolbox` and why is it special?</summary>
+
+A **meta-tool** — a tool that searches for other tools! Agent can call it mid-execution: "my current tools aren't enough, what else can I do?" → semantic search on toolbox → discovers new capabilities at runtime.
+</details>
+
+---
+
 > 💡 *Bolke batao — padhke nahi, bolke yaad hota hai!* 🗣️
