@@ -106,6 +106,9 @@ extra:
 extra_css:
   - _assets/custom.css
 
+extra_javascript:
+  - _assets/mermaid-zoom.js
+
 nav:
   - 🏠 Home:
     - Overview: README.md

@@ -193,12 +193,102 @@
 }
 
 /* ---------- Mermaid ---------- */
-.mermaid {
-    background: var(--md-code-bg-color);
+.mermaid-wrapper {
+    position: relative;
+    overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 12px;
-    padding: 1.5rem;
     margin: 1rem 0;
+    background: var(--md-code-bg-color);
+}
+
+.mermaid-wrapper .mermaid-controls {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    display: flex;
+    gap: 0.25rem;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.mermaid-wrapper:hover .mermaid-controls {
+    opacity: 1;
+}
+
+.mermaid-controls button {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #e2e8f0;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+    padding: 0;
+    line-height: 1;
+}
+
+.mermaid-controls button:hover {
+    background: rgba(0, 180, 216, 0.3);
+    border-color: rgba(0, 180, 216, 0.5);
+}
+
+.mermaid {
+    padding: 1.5rem;
+    text-align: center;
+    cursor: grab;
+    transform-origin: center center;
+    transition: transform 0.15s ease;
+    min-height: 80px;
+}
+
+.mermaid:active {
+    cursor: grabbing;
+}
+
+/* Expanded/fullscreen mode */
+.mermaid-expanded {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    background: var(--md-default-bg-color) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mermaid-expanded .mermaid-controls {
+    opacity: 1;
+    top: 1rem;
+    right: 1rem;
+}
+
+[data-md-color-scheme="default"] .mermaid-wrapper {
+    border-color: #e2e8f0;
+    background: #f8fafc;
+}
+
+[data-md-color-scheme="default"] .mermaid-controls button {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: #e2e8f0;
+    color: #475569;
+}
+
+[data-md-color-scheme="default"] .mermaid-controls button:hover {
+    background: rgba(0, 119, 182, 0.1);
+    border-color: #0077b6;
+    color: #0077b6;
 }
 
 /* Fix mermaid text visibility in both themes */
