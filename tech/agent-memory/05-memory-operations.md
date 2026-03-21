@@ -1,24 +1,18 @@
-# 05 · Memory Operations: Extraction, Consolidation & Self-Updating Memory ⚙️
+# 05 · Memory Operations ⚙️
 
-> 📚 Source: DeepLearning.AI × Oracle — "Agent Memory: Building Memory-Aware Agents" (Lesson 5)
-> 🔴 Placeholder — pending course completion
-> 
-> Confidence tags: ✅ Direct from source | 🔍 Web-verified | 💡 Analogy | ⚠️ My interpretation
+> ✅ Confidence: Placeholder — pending content
+> 🔴 Not started
 
 ---
 
 ## 🎯 One Line
-> _To be filled after watching Lesson 5 (23 min, code lab)_
+> _To be filled after covering Lesson 5 (code lab)_
 
 ---
 
 ## 🖼️ The Picture
 
-```mermaid
-graph TB
-    PLACEHOLDER["📝 Lesson 5 — Coming Soon"]
-    style PLACEHOLDER fill:#f5f5f5,stroke-dasharray: 5 5
-```
+> 📝 _Coming soon — will use the visual format that best fits the content_
 
 ---
 

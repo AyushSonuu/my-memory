@@ -1,62 +1,63 @@
 # 🃏 Agent Memory Flashcards
 
-> From: agent-memory/ + related: _(first topic — cross-pulls coming soon)_
+> From: `agent-memory/` + related: _(first topic — cross-pulls coming soon)_
 > Last updated: 2026-03-21
 
 ---
 
-### 📌 Core Agent Memory
+### 📌 Core Concepts
 
 <details>
-<summary>❓ Why do current AI agents fail at long-horizon tasks?</summary>
+<summary>❓ Why do agents fail at long-horizon tasks?</summary>
 
-They're **stateless** — everything lives in a single session's context window. When the session ends, all context is lost. Next session = blank slate.
+**Stateless** — context lives in one session only. Session ends → 💀 everything gone.
 
-🐟 Goldfish memory — great in the moment, forgets everything after!
+> 🐟 Goldfish memory — great in the moment, total amnesia after!
 </details>
 
 <details>
 <summary>❓ What is Memory Engineering?</summary>
 
-Treating long-term memory as **first-class infrastructure** — external to the model, persistent across sessions, and structured.
+Long-term memory as **first-class infrastructure** — external to the model, persistent, structured.
 
-Not just "save chat history." It's building a proper memory system: extraction, consolidation, contradiction handling, write-back loops.
+Not "save chat history" — it's extraction, consolidation, contradiction handling, write-back loops.
 </details>
 
 <details>
-<summary>❓ What's the evolution: Prompt Eng → Context Eng → Memory Eng?</summary>
+<summary>❓ Prompt Eng vs Context Eng vs Memory Eng?</summary>
 
-| Level | Focus | Analogy |
-|-------|-------|---------|
-| Prompt Eng | How to ASK the model | Teaching someone to ask good questions |
-| Context Eng | What to SHOW the model (RAG, tools) | Giving them a cheat sheet during the exam |
-| Memory Eng | What the model REMEMBERS across sessions | Making sure they actually learned last semester's material |
+| Level | What | Analogy |
+|-------|------|---------|
+| **Prompt** | How to *ask* | Asking good questions |
+| **Context** | What to *show* (RAG, tools) | Cheat sheet during exam |
+| **Memory** | What it *remembers* across sessions | Actually learned last semester |
 
-Each level adds more persistence and structure.
+Each level ↑ adds more persistence.
 </details>
 
 <details>
-<summary>❓ What 4 components make up a memory-aware agent (from this course)?</summary>
+<summary>❓ 4 pillars of a memory-aware agent?</summary>
 
-1. **Memory Manager** — core storage & retrieval system
-2. **Extraction Pipelines** — pull important info from conversations
-3. **Contradiction Handling + Self-Updating Memory** — resolve conflicts, keep memory fresh
-4. **Semantic Tool Memory** — scale tool selection using memory
+| # | Component | Job |
+|---|-----------|-----|
+| 1 | **Memory Manager** | Core store & retrieve |
+| 2 | **Extraction Pipelines** | Pull key info from convos |
+| 3 | **Contradiction Handling** | Resolve conflicts, keep fresh |
+| 4 | **Semantic Tool Memory** | Scale tool selection via search |
 
-All combined = fully stateful memory-aware agent 🤖
+All four combined → fully stateful agent 🤖
 </details>
 
 <details>
-<summary>❓ What tech stack does this course use?</summary>
+<summary>❓ Tech stack used?</summary>
 
 | Tool | Role |
 |------|------|
-| Oracle AI Database | Persistent memory storage (vector + relational) |
-| LangChain | Agent framework / orchestration |
-| LLM-powered pipelines | Memory extraction, consolidation, reasoning |
+| **Oracle AI DB** | Vector + relational storage |
+| **LangChain** | Agent orchestration |
+| **LLM pipelines** | Extraction, consolidation, reasoning |
 </details>
 
 ---
 
-> 💡 **Revision tip:** Cover the answer, try to explain OUT LOUD, then reveal.
-> Bolke batao — padhke nahi, bolke yaad hota hai! 🗣️
+> 💡 *Bolke batao — padhke nahi, bolke yaad hota hai!* 🗣️
