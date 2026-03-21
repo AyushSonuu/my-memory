@@ -6,32 +6,40 @@
 graph TB
     T(("🔧 Tech"))
     T --> AM["🧠 <b>Agent Memory</b>"]
+    T --> PY["🐍 <b>Python</b>"]
     
-    AM --> L1["01 · Introduction"]
-    AM --> L2["02 · Why Memory"]
-    AM --> L3["03 · Memory Manager"]
-    AM --> L4["04 · Semantic Tool Memory"]
-    AM --> L5["05 · Memory Operations"]
-    AM --> L6["06 · Memory Aware Agent"]
-    AM --> L7["07 · Conclusion"]
+    AM --> AML1["01 · Introduction"]
+    AM --> AML2["02 · Why Memory"]
+    AM --> AML3["03 · Memory Manager"]
+    AM --> AML4["04 · Semantic Tool Memory"]
+    AM --> AML5["05 · Memory Operations"]
+    AM --> AML6["06 · Memory Aware Agent"]
+    AM --> AML7["07 · Conclusion"]
+
+    PY --> AIO["⚡ <b>AsyncIO</b>"]
+    AIO --> AIOL1["01 · Complete Guide"]
 
     style T fill:#2196f3,color:#fff,stroke:#1565c0,stroke-width:2px
     style AM fill:#ff9800,color:#fff,stroke:#e65100,stroke-width:2px
-    style L1 fill:#4caf50,color:#fff,stroke:#388e3c
-    style L2 fill:#4caf50,color:#fff,stroke:#388e3c
-    style L3 fill:#4caf50,color:#fff,stroke:#388e3c
-    style L4 fill:#4caf50,color:#fff,stroke:#388e3c
-    style L5 fill:#4caf50,color:#fff,stroke:#388e3c
-    style L6 fill:#4caf50,color:#fff,stroke:#388e3c
-    style L7 fill:#4caf50,color:#fff,stroke:#388e3c
+    style PY fill:#2196f3,color:#fff,stroke:#1565c0
+    style AIO fill:#ff9800,color:#fff,stroke:#e65100,stroke-width:2px
+    style AML1 fill:#4caf50,color:#fff,stroke:#388e3c
+    style AML2 fill:#4caf50,color:#fff,stroke:#388e3c
+    style AML3 fill:#4caf50,color:#fff,stroke:#388e3c
+    style AML4 fill:#4caf50,color:#fff,stroke:#388e3c
+    style AML5 fill:#4caf50,color:#fff,stroke:#388e3c
+    style AML6 fill:#4caf50,color:#fff,stroke:#388e3c
+    style AML7 fill:#4caf50,color:#fff,stroke:#388e3c
+    style AIOL1 fill:#4caf50,color:#fff,stroke:#388e3c
 ```
 
 ## Topics Detail
 
 | Topic | Status | Lessons | Key Concepts |
 |-------|--------|---------|-------------|
-| 🧠 Agent Memory | 🟡 7/7 ✅ | 7 completed | Memory Manager, Toolbox Pattern, Summarization/Compaction, Agent Loop, Harness |
+| 🧠 Agent Memory | 🟡 7/7 ✅ | 7 | Memory Manager, Toolbox Pattern, Summarization/Compaction, Agent Loop, Harness |
+| ⚡ AsyncIO | 🟡 1/1 ✅ | 1 | Event Loop, Coroutines, Tasks, gather, TaskGroup, Threads, Processes, Semaphores |
 
 ---
 
-> Detailed topic view → [tech/agent-memory/README.md](../tech/agent-memory/README.md)
+> Detailed topic views → [Agent Memory](../tech/agent-memory/README.md) · [AsyncIO](../tech/python/asyncio/README.md)

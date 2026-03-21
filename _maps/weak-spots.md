@@ -7,6 +7,7 @@
 | Topic | Weak Area | Suggestion | Priority |
 |-------|-----------|-----------|----------|
 | 🧠 Agent Memory | Just learned (2026-03-21) — needs first revision | Revise flashcards on 2026-03-24 | 🟡 Medium |
+| ⚡ AsyncIO | Just learned (2026-03-21) — needs first revision | Revise flashcards on 2026-03-24 | 🟡 Medium |
 
 ## No 🔴 Red Topics!
 

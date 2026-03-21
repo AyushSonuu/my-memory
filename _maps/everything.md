@@ -6,8 +6,10 @@
 graph TB
     ROOT(("🧠 Everything"))
     
-    subgraph TECH ["🔧 Tech (1 topic)"]
+    subgraph TECH ["🔧 Tech (2 topics)"]
         AM["🧠 <b>Agent Memory</b><br/>7/7 ✅"]
+        PY["🐍 <b>Python</b>"]
+        PY --> AIO["⚡ <b>AsyncIO</b><br/>1/1 ✅"]
     end
 
     subgraph NT ["🌍 Non-Tech (0 topics)"]
@@ -21,6 +23,8 @@ graph TB
     style TECH fill:#e3f2fd,color:#333,stroke:#1565c0,stroke-width:2px
     style NT fill:#f5f5f5,color:#666,stroke:#bdbdbd,stroke-dasharray: 5 5
     style AM fill:#ff9800,color:#fff,stroke:#e65100
+    style PY fill:#2196f3,color:#fff,stroke:#1565c0
+    style AIO fill:#ff9800,color:#fff,stroke:#e65100
     style NTE fill:#f5f5f5,color:#999,stroke-dasharray: 5 5
 ```
 
@@ -29,14 +33,18 @@ graph TB
 | Status | Count | Topics |
 |--------|-------|--------|
 | 🟢 Solid | 0 | — |
-| 🟡 Learning | 1 | Agent Memory |
+| 🟡 Learning | 2 | Agent Memory, AsyncIO |
 | 🔴 Weak/Todo | 0 | — |
 
 ## Key Connections
 
-> Only 1 topic so far — connections will grow as more topics are added.
-> Potential connections when future topics are added:
-> - Agent Memory ↔ LangChain, Vector Databases, RAG, LLMs, System Design
+| Connection | How they relate |
+|-----------|----------------|
+| Agent Memory ↔ AsyncIO | Async for concurrent memory operations, tool execution, API calls |
+| Agent Memory → RAG | Same pipeline, agent memory adds CRUD + write-back |
+| Agent Memory → Vector DBs | OracleVS, COSINE, IVF indexes |
+| Agent Memory → LangChain | Orchestration framework |
+| AsyncIO → FastAPI | FastAPI is built on AsyncIO |
 
 ---
 
