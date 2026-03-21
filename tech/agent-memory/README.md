@@ -32,7 +32,7 @@ graph LR
 | # | Lesson | Status |
 |---|--------|--------|
 | 01 | [Introduction](01-introduction.md) | 🟡 Learning |
-| 02 | [Why Agents Need Memory](02-why-agents-need-memory.md) | 🔴 Todo |
+| 02 | [Why Agents Need Memory](02-why-agents-need-memory.md) | 🟡 Learning |
 | 03 | [Memory Manager](03-memory-manager.md) | 🔴 Todo |
 | 04 | [Semantic Tool Memory](04-semantic-tool-memory.md) | 🔴 Todo |
 | 05 | [Memory Operations](05-memory-operations.md) | 🔴 Todo |
@@ -45,6 +45,10 @@ graph LR
 > - 💡 **Evolution path:** Prompt Eng → Context Eng → Memory Eng. Each layer adds persistence.
 > - 🐟 Stateless agents do great in one convo, then forget *everything*. Memory engineering fixes this.
 > - 🏗️ Memory = **infrastructure**, not a feature — external to the model, persistent, structured.
+> - 🤖 **4 pillars of an agent:** Perception · Reasoning · Action · Memory — remove any one and it's not a real agent.
+> - 🗄️ **Database is the core** of agent memory — not the LLM (frozen), not the embedding model. DB sees all the data traffic.
+> - 🔗 **Agent Memory = RAG + CRUD.** Same pipeline, but the agent can WRITE back, not just read.
+> - 📖 Conversational memory alone = just a diary. You also need contacts, to-do lists, and a knowledge base.
 
 ---
 

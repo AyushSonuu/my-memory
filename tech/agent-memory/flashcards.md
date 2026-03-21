@@ -5,7 +5,7 @@
 
 ---
 
-### 📌 Core Concepts
+### 📌 Core Concepts (Lesson 1)
 
 <details>
 <summary>❓ Why do agents fail at long-horizon tasks?</summary>
@@ -56,6 +56,75 @@ All four combined → fully stateful agent 🤖
 | **Oracle AI DB** | Vector + relational storage |
 | **LangChain** | Agent orchestration |
 | **LLM pipelines** | Extraction, consolidation, reasoning |
+</details>
+
+---
+
+---
+
+### 🤔 Why Agents Need Memory (Lesson 2)
+
+<details>
+<summary>❓ What are the 4 pillars of an AI agent?</summary>
+
+| Pillar | Role |
+|--------|------|
+| 👁️ **Perception** | Inputs (text, images, sensors) |
+| 🧠 **Reasoning** | LLM thinks & plans |
+| 🔧 **Action** | Tools (APIs, code) |
+| 💾 **Memory** | Store, retrieve, apply |
+
+Agent = autonomous + goal-bound + minimal human feedback.
+</details>
+
+<details>
+<summary>❓ Stateless agent ka sabse bada problem kya hai? (Restaurant example)</summary>
+
+User asks for recs (turn 1-2), then says "book the first one" (turn 3) → stateless agent: **"Which one??"** 🐟
+
+Memory-augmented agent stores turns 1-2 in external DB → "first one" makes sense in turn 3. ✅
+</details>
+
+<details>
+<summary>❓ Name the 5 types in the Memory Taxonomy</summary>
+
+**Short-term:** Semantic Cache (cached responses) · Working Memory (context window + scratchpad)
+
+**Long-term:** Procedural (workflows, toolbox) · Semantic (entities, knowledge base) · Episodic (persona, summaries, conversations)
+
+> Short-term = RAM, Long-term = Hard Disk 💾
+</details>
+
+<details>
+<summary>❓ How does Agent Memory differ from RAG?</summary>
+
+Same pipeline (chunk → embed → DB → retrieve → rerank → LLM), BUT:
+- RAG = **read-only** from static knowledge base
+- Agent Memory = **read + write (CRUD)** to live tables
+- Memory Manager abstracts CRUD operations
+- Agent accesses Memory Manager through tools
+</details>
+
+<details>
+<summary>❓ Why is the DATABASE the core of agent memory (not the LLM)?</summary>
+
+- LLM = parametric memory, **frozen** after training, can't update
+- Embedding model = important but just converts text → vectors
+- **Database = ALL the data traffic** — storage, retrieval, optimization, scaling
+
+> LLM soochta hai, DB yaad rakhta hai. Primary infrastructure = the DB! 🗄️
+</details>
+
+<details>
+<summary>❓ Why isn't conversational memory enough?</summary>
+
+4 gaps:
+1. 📏 Context windows are finite, relationships aren't
+2. 👤 Entities (people, places) aren't explicitly captured
+3. 📦 Non-chat info (workflows, outcomes) is missed
+4. 🔍 Not structured or queryable — just raw chat logs
+
+> Sirf diary se kaam nahi chalta — contacts, to-do, KB bhi chahiye!
 </details>
 
 ---
