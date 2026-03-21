@@ -1,5 +1,8 @@
 # 01 · Introduction 🎬
 
+> ✅ Direct from course
+
+---
 
 ## 🎯 One Line
 > Stateless agents = goldfish. Memory engineering gives them a diary that survives across sessions.
