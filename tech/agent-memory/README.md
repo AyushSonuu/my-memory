@@ -33,7 +33,7 @@ graph LR
 |---|--------|--------|
 | 01 | [Introduction](01-introduction.md) | 🟡 Learning |
 | 02 | [Why Agents Need Memory](02-why-agents-need-memory.md) | 🟡 Learning |
-| 03 | [Memory Manager](03-memory-manager.md) | 🔴 Todo |
+| 03 | [Memory Manager](03-memory-manager.md) | 🟡 Learning |
 | 04 | [Semantic Tool Memory](04-semantic-tool-memory.md) | 🔴 Todo |
 | 05 | [Memory Operations](05-memory-operations.md) | 🔴 Todo |
 | 06 | [Memory Aware Agent](06-memory-aware-agent.md) | 🔴 Todo |
@@ -49,6 +49,11 @@ graph LR
 > - 🗄️ **Database is the core** of agent memory — not the LLM (frozen), not the embedding model. DB sees all the data traffic.
 > - 🔗 **Agent Memory = RAG + CRUD.** Same pipeline, but the agent can WRITE back, not just read.
 > - 📖 Conversational memory alone = just a diary. You also need contacts, to-do lists, and a knowledge base.
+> - 🏗️ **Memory Manager = abstraction on DB.** CRUD methods per memory type. SQL for exact-match, Vector for semantic search.
+> - ⏰ **Deterministic ops = alarm clock** (always run). Agent-triggered = judgment call. Both are needed!
+> - 🐔 **Chicken-and-egg problem:** Agent can't decide to check memory it doesn't know exists → deterministic retrieval at start.
+> - 🔄 **Memory Lifecycle is a continuous loop** — LLM output feeds BACK as new memory. The agent literally learns!
+> - 🧠 **Aware > Augmented:** Augmented = HAS memory. Aware = KNOWS it has memory + controls it via tools + reasons through lifecycle.
 
 ---
 
