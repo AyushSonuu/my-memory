@@ -387,6 +387,20 @@ git add -A && git commit -m "{emoji} {action}: {topic} — {brief}" && git push 
 ```
 Emojis: 🆕 new topic | 📝 update existing | 🃏 flashcards | 🗺️ maps | 🔄 revision | 🔗 connections
 
+## Docs Site (after git push)
+The vault is published via **MkDocs Material** (LangChain-style docs).
+After adding/updating any lesson or topic:
+1. Add new pages to the `nav:` section in `mkdocs.yml`
+2. Rebuild:
+```bash
+export PATH="/Users/I772464/Library/Python/3.9/bin:$PATH" && mkdocs build
+```
+3. Commit the regenerated `docs/` folder:
+```bash
+git add -A && git commit -m "🌐 rebuild docs" && git push origin main
+```
+GitHub Pages serves from `docs/` folder on main branch.
+
 ## Templates
 Always read and follow `_templates/` blueprints before creating content. They are the law.
 
