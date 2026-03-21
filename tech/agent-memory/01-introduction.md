@@ -20,12 +20,17 @@
 
 ## ⚡ The Evolution
 
-```
-🔤 Prompt Engineering     →  📋 Context Engineering    →  🧠 Memory Engineering
-"How to ASK the model"       "What to SHOW the model"      "What it REMEMBERS"
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Analogy: Ask good            Give the right textbook        Actually remember stuff
-questions                    during the exam                from last semester
+```mermaid
+graph LR
+    PE["🔤 <b>Prompt Engineering</b><br/><i>How to ASK the model</i><br/>Ask good questions"]
+    CE["📋 <b>Context Engineering</b><br/><i>What to SHOW the model</i><br/>Give the right textbook<br/>during the exam"]
+    ME["🧠 <b>Memory Engineering</b><br/><i>What it REMEMBERS</i><br/>Actually remember stuff<br/>from last semester"]
+
+    PE --> CE --> ME
+
+    style PE fill:#2196f3,color:#fff,stroke:#1565c0,stroke-width:2px
+    style CE fill:#ff9800,color:#fff,stroke:#e65100,stroke-width:2px
+    style ME fill:#4caf50,color:#fff,stroke:#388e3c,stroke-width:3px
 ```
 
 **Key insight:** Memory is **infrastructure**, not a feature. External to the model, persistent, structured, queryable.

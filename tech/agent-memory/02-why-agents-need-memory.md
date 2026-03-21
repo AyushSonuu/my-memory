@@ -1,5 +1,8 @@
 # 02 · Why AI Agents Need Memory 🤔
 
+> ✅ Verified — directly from course transcript
+
+---
 
 ## 🎯 One Line
 > An agent without memory is a genius with amnesia — brilliant per turn, useless over time.
@@ -10,22 +13,19 @@
 
 **4 pillars — miss one and it's not really an agent:**
 
-```
-          ┌─────────────────────────────┐
-          │        🤖 AI AGENT          │
-          │  Goal-bound · Autonomous    │
-          │  Little to no human input   │
-          └──────────┬──────────────────┘
-                     │
-     ┌───────────────┼───────────────┐
-     │               │               │
- 👁️ PERCEIVE    🧠 REASON       🔧 ACT
-  Inputs          LLM            Tools
-  (text, imgs,   (think,         (APIs,
-   sensors)       plan)           code)
-                     │
-                 💾 REMEMBER
-                  Store · Retrieve · Apply
+```mermaid
+graph TD
+    A["🤖 <b>AI AGENT</b><br/>Goal-bound · Autonomous<br/>Little to no human input"]
+    A --> P["👁️ <b>PERCEIVE</b><br/>Inputs — text, images, sensors"]
+    A --> R["🧠 <b>REASON</b><br/>LLM — think, plan, decide"]
+    A --> Act["🔧 <b>ACT</b><br/>Tools — APIs, code, execute"]
+    A --> M["💾 <b>REMEMBER</b><br/>Store · Retrieve · Apply"]
+
+    style A fill:#37474f,color:#fff,stroke:#263238,stroke-width:2px
+    style P fill:#2196f3,color:#fff,stroke:#1565c0
+    style R fill:#ff9800,color:#fff,stroke:#e65100
+    style Act fill:#9c27b0,color:#fff,stroke:#6a1b9a
+    style M fill:#4caf50,color:#fff,stroke:#388e3c,stroke-width:3px
 ```
 
 > 💡 Perception, Reasoning, Action = body. **Memory = soul** — without it the agent forgets who it was 5 minutes ago.
@@ -115,23 +115,42 @@ The entry-level memory — just save the chat history.
 
 ## 🗺️ Memory Taxonomy (The Big Picture)
 
-```
-                         🧠 AGENT MEMORY
-                 ┌──────────┴──────────┐
-            ⚡ SHORT-TERM           💾 LONG-TERM
-            (session only)          (persists forever)
-           ┌─────┴─────┐          ┌──────┼──────┐
-           │            │          │      │      │
-     🔍 Semantic   📝 Working   ⚙️ Pro-  📚 Se-  📖 Epi-
-        Cache       Memory      cedural  mantic  sodic
-           │            │          │      │      │
-      Vector search  Context    ┌──┴──┐ ┌┴────┐ ┌┴─────┐
-      + cached LLM   window +  Work-  Tool Entity  KB   Persona
-      responses      scratch-  flow   box  Memory       Summaries
-      for similar    pad       memory                   Conv.
-      queries        (lost on                           memory
-                     session
-                     end)
+```mermaid
+graph TD
+    ROOT["🧠 <b>Agent Memory</b>"]
+    ROOT --> ST["⚡ <b>Short-Term</b><br/><i>session only</i>"]
+    ROOT --> LT["💾 <b>Long-Term</b><br/><i>persists forever</i>"]
+
+    ST --> SC["🔍 <b>Semantic Cache</b><br/>Vector search +<br/>cached LLM responses"]
+    ST --> WM["📝 <b>Working Memory</b><br/>Context window +<br/>scratchpad"]
+
+    LT --> PROC["⚙️ <b>Procedural</b>"]
+    LT --> SEM["📚 <b>Semantic</b>"]
+    LT --> EPI["📖 <b>Episodic</b>"]
+
+    PROC --> WF["Workflow<br/>memory"]
+    PROC --> TB["Tool<br/>box"]
+    SEM --> ENT["Entity<br/>memory"]
+    SEM --> KB["Knowledge<br/>base"]
+    EPI --> PER["Persona"]
+    EPI --> SUM["Summaries"]
+    EPI --> CONV["Conv.<br/>memory"]
+
+    style ROOT fill:#37474f,color:#fff,stroke:#263238,stroke-width:2px
+    style ST fill:#ff9800,color:#fff,stroke:#e65100,stroke-width:2px
+    style LT fill:#4caf50,color:#fff,stroke:#388e3c,stroke-width:2px
+    style SC fill:#fff3e0,color:#333,stroke:#ff9800
+    style WM fill:#fff3e0,color:#333,stroke:#ff9800
+    style PROC fill:#e8f5e9,color:#333,stroke:#4caf50
+    style SEM fill:#e8f5e9,color:#333,stroke:#4caf50
+    style EPI fill:#e8f5e9,color:#333,stroke:#4caf50
+    style WF fill:#f1f8e9,color:#555,stroke:#aed581
+    style TB fill:#f1f8e9,color:#555,stroke:#aed581
+    style ENT fill:#f1f8e9,color:#555,stroke:#aed581
+    style KB fill:#f1f8e9,color:#555,stroke:#aed581
+    style PER fill:#f1f8e9,color:#555,stroke:#aed581
+    style SUM fill:#f1f8e9,color:#555,stroke:#aed581
+    style CONV fill:#f1f8e9,color:#555,stroke:#aed581
 ```
 
 **Cheat sheet:**
@@ -152,20 +171,34 @@ The entry-level memory — just save the chat history.
 
 Not just a database. It's a **system** of parts working together:
 
-```
-┌─────────────────────────────────────────────────┐
-│              🧠 AGENT MEMORY SYSTEM             │
-│                                                 │
-│  🔢 Embedding    🗄️ Database    🤖 LLM          │
-│   Model             ↕              ↕            │
-│      ↕          store/retrieve   extract/        │
-│   vectorize      optimize       consolidate     │
-│                                                 │
-│  ⚙️ Control Mechanisms  +  🔧 Software Harness  │
-│  (when to read/write)     (glue code, APIs)     │
-└─────────────────────────────────────────────────┘
-        → Store, organize, retrieve, reuse
-          info across time and sessions
+```mermaid
+graph TD
+    subgraph SYS ["🧠 Agent Memory System"]
+        EM["🔢 <b>Embedding Model</b><br/>vectorize text"]
+        DB["🗄️ <b>Database</b><br/>store / retrieve / optimize"]
+        LLM["🤖 <b>LLM</b><br/>extract / consolidate"]
+        CM["⚙️ <b>Control Mechanisms</b><br/>when to read / write"]
+        SW["🔧 <b>Software Harness</b><br/>glue code, APIs"]
+    end
+
+    EM <--> DB
+    DB <--> LLM
+    CM --> DB
+    CM --> LLM
+    SW --> EM
+    SW --> DB
+    SW --> LLM
+
+    OUT["→ Store, organize, retrieve,<br/>reuse info across time & sessions"]
+    SYS --> OUT
+
+    style SYS fill:#f5f5f5,color:#333,stroke:#616161,stroke-width:2px
+    style EM fill:#2196f3,color:#fff,stroke:#1565c0
+    style DB fill:#4caf50,color:#fff,stroke:#388e3c,stroke-width:3px
+    style LLM fill:#ff9800,color:#fff,stroke:#e65100
+    style CM fill:#9c27b0,color:#fff,stroke:#6a1b9a
+    style SW fill:#607d8b,color:#fff,stroke:#37474f
+    style OUT fill:none,color:#555,stroke:none
 ```
 
 ---
@@ -174,24 +207,27 @@ Not just a database. It's a **system** of parts working together:
 
 **Same pipeline, different purpose:**
 
-```
-RAG (static):     Docs → Chunk → Embed → DB → Query → Retrieve → Rerank → LLM
-                  ════                    ▲
-                  Fixed knowledge base    │  read-only
+```mermaid
+graph LR
+    subgraph RAG ["📖 <b>RAG</b> — read-only"]
+        direction LR
+        D1["📄 Docs"] --> C1["✂️ Chunk"] --> E1["🔢 Embed"] --> DB1["🗄️ DB"]
+        DB1 --> Q1["🔎 Query"] --> R1["📋 Retrieve"] --> RR1["⚖️ Rerank"] --> L1["🤖 LLM"]
+    end
 
-Agent Memory:     Memory → Chunk → Embed → DB → Query → Retrieve → Rerank → LLM
-                  ════                     ▲
-                  LIVE tables              │  read + WRITE (CRUD!)
-                  (entities, workflows,    │
-                   conversations, etc.)    │
-                                    ┌──────┴──────┐
-                                    │   Memory     │
-                                    │   Manager    │
-                                    │  (CRUD ops)  │
-                                    └──────┬──────┘
-                                           │
-                                     Agent accesses
-                                     via 🔧 tools
+    subgraph AM ["🧠 <b>Agent Memory</b> — read + WRITE"]
+        direction LR
+        D2["🧠 Memory"] --> C2["✂️ Chunk"] --> E2["🔢 Embed"] --> DB2["🗄️ DB"]
+        DB2 --> Q2["🔎 Query"] --> R2["📋 Retrieve"] --> RR2["⚖️ Rerank"] --> L2["🤖 LLM"]
+        MM["📝 <b>Memory Manager</b><br/>CRUD ops"] <--> DB2
+        L2 -.->|"writes back"| MM
+    end
+
+    style RAG fill:#e3f2fd,color:#333,stroke:#1565c0,stroke-width:2px
+    style AM fill:#e8f5e9,color:#333,stroke:#388e3c,stroke-width:2px
+    style MM fill:#ff9800,color:#fff,stroke:#e65100,stroke-width:2px
+    style DB1 fill:#2196f3,color:#fff,stroke:#1565c0
+    style DB2 fill:#4caf50,color:#fff,stroke:#388e3c
 ```
 
 > **Key difference:** RAG = read-only library. Agent Memory = living notebook the agent reads AND writes to. Memory Manager = the librarian handling all CRUD. 📚✏️
