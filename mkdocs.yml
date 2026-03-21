@@ -124,9 +124,11 @@ nav:
       - 🃏 Flashcards: tech/agent-memory/flashcards.md
       - 📋 Cheatsheet: tech/agent-memory/cheatsheet.md
       - ⚔️ RAG vs Agent Memory: tech/agent-memory/vs.md
+    - 💻 Code Lab: tech/agent-memory/code/README.md
 
   - 🐍 Python:
     - ⚡ AsyncIO:
       - tech/python/asyncio/README.md
       - 01 · Complete Guide: tech/python/asyncio/01-asyncio-complete-guide.md
       - 🃏 Flashcards: tech/python/asyncio/flashcards.md
+      - 💻 Code Examples: tech/python/asyncio/code/README.md
