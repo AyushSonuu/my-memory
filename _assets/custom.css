@@ -4,7 +4,7 @@
 :root {
     --md-primary-fg-color: #1a1a2e;
     --md-primary-bg-color: #ffffff;
-    --md-accent-fg-color: #00b4d8;
+    --md-accent-fg-color: #00a67e;
 }
 
 [data-md-color-scheme="slate"] {
@@ -12,8 +12,8 @@
     --md-default-fg-color--light: rgba(255, 255, 255, 0.7);
     --md-primary-fg-color: #0f1117;
     --md-primary-bg-color: #e2e8f0;
-    --md-accent-fg-color: #00b4d8;
-    --md-typeset-a-color: #00b4d8;
+    --md-accent-fg-color: #00a67e;
+    --md-typeset-a-color: #00a67e;
     --md-code-bg-color: #161b22;
     --md-code-fg-color: #e2e8f0;
     --md-footer-bg-color: #0a0d12;
@@ -134,7 +134,7 @@
 }
 
 .md-typeset table:not([class]) th {
-    background: rgba(0, 180, 216, 0.08) !important;
+    background: rgba(0, 166, 126, 0.08) !important;
     color: var(--md-accent-fg-color) !important;
     font-weight: 600;
     font-size: 0.82rem;
@@ -166,7 +166,7 @@
     font-size: 0.84em;
     border-radius: 4px;
     background: var(--md-code-bg-color);
-    color: #00b4d8;
+    color: #00a67e;
     padding: 0.1em 0.35em;
 }
 
@@ -186,7 +186,7 @@
 /* ---------- Blockquotes ---------- */
 .md-typeset blockquote {
     border-left: 3px solid var(--md-accent-fg-color);
-    background: rgba(0, 180, 216, 0.04);
+    background: rgba(0, 166, 126, 0.04);
     border-radius: 0 8px 8px 0;
     padding: 0.6rem 1.1rem;
     margin: 1rem 0;
@@ -235,8 +235,8 @@
 }
 
 .mermaid-controls button:hover {
-    background: rgba(0, 180, 216, 0.3);
-    border-color: rgba(0, 180, 216, 0.5);
+    background: rgba(0, 166, 126, 0.3);
+    border-color: rgba(0, 166, 126, 0.5);
 }
 
 .mermaid {
@@ -286,9 +286,9 @@
 }
 
 [data-md-color-scheme="default"] .mermaid-controls button:hover {
-    background: rgba(0, 119, 182, 0.1);
-    border-color: #0077b6;
-    color: #0077b6;
+    background: rgba(0, 135, 90, 0.1);
+    border-color: #00875a;
+    color: #00875a;
 }
 
 /* Fix mermaid text visibility in both themes */
@@ -296,9 +296,41 @@
 .mermaid .nodeLabel,
 .mermaid .edgeLabel,
 .mermaid .label,
-.mermaid span {
+.mermaid tspan,
+.mermaid span,
+.mermaid p,
+.mermaid .cluster-label {
     fill: currentColor !important;
     color: inherit !important;
+}
+
+/* Nodes with dark background need white text */
+.mermaid .node[style*="fill:#3"] .nodeLabel,
+.mermaid .node[style*="fill:#2"] .nodeLabel,
+.mermaid .node[style*="fill:#1"] .nodeLabel,
+.mermaid .node[style*="fill:#0"] .nodeLabel,
+.mermaid .node[style*="fill:#4"] .nodeLabel,
+.mermaid .node[style*="fill:#5"] .nodeLabel,
+.mermaid .node[style*="fill:#6"] .nodeLabel,
+.mermaid .node[style*="fill:#7"] .nodeLabel,
+.mermaid .node[style*="fill:#8"] .nodeLabel,
+.mermaid .node[style*="fill:#9"] .nodeLabel,
+.mermaid .node[style*="fill:#a"] .nodeLabel,
+.mermaid .node[style*="fill:#b"] .nodeLabel,
+.mermaid .node[style*="fill:#c"] .nodeLabel,
+.mermaid .node[style*="fill:#d"] .nodeLabel,
+.mermaid .node[style*="fill:#e"] .nodeLabel,
+.mermaid .node[style*="fill:#f"] .nodeLabel {
+    color: #fff !important;
+    fill: #fff !important;
+}
+
+/* Force white text on any node with inline color:white style */
+.mermaid [style*="color:#fff"],
+.mermaid [style*="color: #fff"],
+.mermaid [style*="color:white"] {
+    color: #fff !important;
+    fill: #fff !important;
 }
 
 [data-md-color-scheme="default"] .mermaid {
@@ -306,19 +338,31 @@
     border-color: #e2e8f0;
 }
 
+/* Light mode: default text should be dark */
 [data-md-color-scheme="default"] .mermaid text,
-[data-md-color-scheme="default"] .mermaid .nodeLabel,
 [data-md-color-scheme="default"] .mermaid .edgeLabel,
-[data-md-color-scheme="default"] .mermaid .label,
-[data-md-color-scheme="default"] .mermaid span {
+[data-md-color-scheme="default"] .mermaid .label {
     fill: #1e293b !important;
     color: #1e293b !important;
+}
+
+/* But nodes with dark fills still need white text in light mode too */
+[data-md-color-scheme="default"] .mermaid .nodeLabel {
+    /* Don't override — let inline styles from mermaid win */
 }
 
 [data-md-color-scheme="default"] .mermaid .node rect,
 [data-md-color-scheme="default"] .mermaid .node circle,
 [data-md-color-scheme="default"] .mermaid .node polygon {
     stroke: #94a3b8 !important;
+}
+
+[data-md-color-scheme="default"] .mermaid .edgePath .path {
+    stroke: #94a3b8 !important;
+}
+
+[data-md-color-scheme="default"] .mermaid marker {
+    fill: #94a3b8 !important;
 }
 
 /* ---------- Details / Flashcards ---------- */
@@ -332,7 +376,7 @@
 }
 
 .md-typeset details:not([class]):hover {
-    border-color: rgba(0, 180, 216, 0.3) !important;
+    border-color: rgba(0, 166, 126, 0.3) !important;
 }
 
 .md-typeset details:not([class])[open] {
@@ -368,7 +412,7 @@
 
 /* ---------- Search ---------- */
 .md-search-result mark {
-    background: rgba(0, 180, 216, 0.2);
+    background: rgba(0, 166, 126, 0.2);
     color: inherit;
     border-radius: 2px;
     padding: 0 2px;
@@ -410,8 +454,8 @@
     --md-default-fg-color--light: #475569;
     --md-default-fg-color--lighter: #94a3b8;
     --md-default-fg-color--lightest: #e2e8f0;
-    --md-typeset-a-color: #0077b6;
-    --md-accent-fg-color: #0077b6;
+    --md-typeset-a-color: #00875a;
+    --md-accent-fg-color: #00875a;
     --md-code-bg-color: #f1f5f9;
     --md-code-fg-color: #1e293b;
     --md-footer-bg-color: #f8fafc;
@@ -440,8 +484,8 @@
 }
 
 [data-md-color-scheme="default"] .md-tabs__link--active {
-    color: #0077b6 !important;
-    border-bottom-color: #0077b6 !important;
+    color: #00875a !important;
+    border-bottom-color: #00875a !important;
 }
 
 [data-md-color-scheme="default"] .md-sidebar {
@@ -455,7 +499,7 @@
 
 [data-md-color-scheme="default"] .md-nav__link:hover,
 [data-md-color-scheme="default"] .md-nav__link--active {
-    color: #0077b6 !important;
+    color: #00875a !important;
 }
 
 [data-md-color-scheme="default"] .md-nav__item--nested > .md-nav__link {
@@ -467,7 +511,7 @@
 }
 
 [data-md-color-scheme="default"] .md-typeset h2 {
-    color: #0077b6 !important;
+    color: #00875a !important;
     border-bottom-color: #e2e8f0 !important;
 }
 
@@ -476,8 +520,8 @@
 }
 
 [data-md-color-scheme="default"] .md-typeset table:not([class]) th {
-    background: rgba(0, 119, 182, 0.06) !important;
-    color: #0077b6 !important;
+    background: rgba(0, 135, 90, 0.06) !important;
+    color: #00875a !important;
     border-color: #e2e8f0 !important;
 }
 
@@ -491,7 +535,7 @@
 }
 
 [data-md-color-scheme="default"] .md-typeset code {
-    color: #0077b6;
+    color: #00875a;
     background: #f1f5f9;
 }
 
@@ -501,8 +545,8 @@
 }
 
 [data-md-color-scheme="default"] .md-typeset blockquote {
-    border-left-color: #0077b6;
-    background: rgba(0, 119, 182, 0.04);
+    border-left-color: #00875a;
+    background: rgba(0, 135, 90, 0.04);
     color: #475569;
 }
 
@@ -513,7 +557,7 @@
 
 [data-md-color-scheme="default"] .md-typeset details:not([class]):hover,
 [data-md-color-scheme="default"] .md-typeset details:not([class])[open] {
-    border-color: #0077b6 !important;
+    border-color: #00875a !important;
 }
 
 [data-md-color-scheme="default"] .md-typeset hr {
@@ -531,7 +575,7 @@
 }
 
 [data-md-color-scheme="default"] .md-typeset .headerlink {
-    color: #0077b6;
+    color: #00875a;
 }
 
 /* ---------- Mobile ---------- */
