@@ -1,18 +1,18 @@
 {
   "tech/agent-memory": {
     "firstLearned": "2026-03-21",
-    "lastRevised": "2026-03-21",
-    "nextRevision": "2026-03-24",
+    "lastRevised": "2026-03-24",
+    "nextRevision": "2026-03-28",
     "confidence": "yellow",
-    "revisionCount": 0,
+    "revisionCount": 1,
     "lessonsCompleted": 7
   },
   "tech/python/asyncio": {
     "firstLearned": "2026-03-21",
-    "lastRevised": "2026-03-21",
-    "nextRevision": "2026-03-24",
+    "lastRevised": "2026-03-24",
+    "nextRevision": "2026-03-28",
     "confidence": "yellow",
-    "revisionCount": 0,
+    "revisionCount": 1,
     "lessonsCompleted": 1
   },
   "tech/agentic-ai": {

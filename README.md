@@ -4,6 +4,20 @@
 
 ---
 
+## 📅 Upcoming Revisions
+
+| Date | Topic | Round | Flashcards |
+|------|-------|-------|-----------|
+| 🔔 **Mar 27** | 🧵 Threading | Round 1 — Day 3 | [→ cards](tech/python/threading/flashcards.md) |
+| 🔔 **Mar 27** | 🤖 Agentic AI | Round 1 — Day 3 | [→ cards](tech/agentic-ai/flashcards.md) |
+| 📅 **Mar 28** | 🧠 Agent Memory | Round 2 — Day 7 | [→ cards](tech/agent-memory/flashcards.md) |
+| 📅 **Mar 28** | ⚡ AsyncIO | Round 2 — Day 7 | [→ cards](tech/python/asyncio/flashcards.md) |
+| 📅 **Mar 31** | 🧵 Threading | Round 2 — Day 7 | [→ cards](tech/python/threading/flashcards.md) |
+| 📅 **Apr 4** | 🧠 Agent Memory | Round 3 — Day 14 | [→ cards](tech/agent-memory/flashcards.md) |
+| 📅 **Apr 4** | ⚡ AsyncIO | Round 3 — Day 14 | [→ cards](tech/python/asyncio/flashcards.md) |
+
+---
+
 ## 🗺️ The Map
 
 ```mermaid
