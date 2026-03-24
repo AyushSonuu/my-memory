@@ -22,5 +22,13 @@
     "confidence": "red",
     "revisionCount": 0,
     "lessonsCompleted": 0
+  },
+  "tech/python/threading": {
+    "firstLearned": "2026-03-24",
+    "lastRevised": "2026-03-24",
+    "nextRevision": "2026-03-27",
+    "confidence": "yellow",
+    "revisionCount": 0,
+    "lessonsCompleted": 1
   }
 }
