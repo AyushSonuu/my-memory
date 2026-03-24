@@ -156,8 +156,36 @@ nav:
         - example_5.py: _generated/tech/python/asyncio/code/L1/example_5.md
         - example_6.py: _generated/tech/python/asyncio/code/L1/example_6.md
         - example_7.py: _generated/tech/python/asyncio/code/L1/example_7.md
-    # Future Python topics go here:
-    # - 🔧 Decorators:
-    #   - Overview: tech/python/decorators/README.md
-    # - 🔄 Generators:
-    #   - Overview: tech/python/generators/README.md
+    - 🧵 Threading:
+      - Overview: tech/python/threading/README.md
+      - 01 · Complete Guide: tech/python/threading/01-threading-complete-guide.md
+      - 🃏 Flashcards: tech/python/threading/flashcards.md
+      - 💻 Code Examples:
+        - Overview: tech/python/threading/code/README.md
+        - 01_synchronous.py: _generated/tech/python/threading/code/L1/01_synchronous.md
+        - 02_basic_threads.py: _generated/tech/python/threading/code/L1/02_basic_threads.md
+        - 03_loop_threads.py: _generated/tech/python/threading/code/L1/03_loop_threads.md
+        - 04_thread_pool_submit.py: _generated/tech/python/threading/code/L1/04_thread_pool_submit.md
+        - 05_thread_pool_map.py: _generated/tech/python/threading/code/L1/05_thread_pool_map.md
+        - 06_download_images.py: _generated/tech/python/threading/code/L1/06_download_images.md
+
+  - 🤖 Agentic AI:
+    - tech/agentic-ai/README.md
+    - Module 1 · Intro:
+      - Overview: tech/agentic-ai/module-1-intro/README.md
+      - 01 · Welcome: tech/agentic-ai/module-1-intro/01-welcome.md
+      - 02 · What is Agentic AI: tech/agentic-ai/module-1-intro/02-what-is-agentic-ai.md
+      - 03 · Degrees of Autonomy: tech/agentic-ai/module-1-intro/03-degrees-of-autonomy.md
+      - 04 · Benefits: tech/agentic-ai/module-1-intro/04-benefits.md
+      - 05 · Applications: tech/agentic-ai/module-1-intro/05-applications.md
+      - 06 · Task Decomposition: tech/agentic-ai/module-1-intro/06-task-decomposition.md
+      - 07 · Evals: tech/agentic-ai/module-1-intro/07-evals.md
+      - 08 · Design Patterns: tech/agentic-ai/module-1-intro/08-design-patterns.md
+      - 🃏 Flashcards: tech/agentic-ai/module-1-intro/flashcards.md
+    - Module 2 · Reflection: tech/agentic-ai/module-2-reflection/README.md
+    - Module 3 · Tool Use: tech/agentic-ai/module-3-tool-use/README.md
+    - Module 4 · Practical Tips: tech/agentic-ai/module-4-practical-tips/README.md
+    - Module 5 · Autonomous Agents: tech/agentic-ai/module-5-autonomous-agents/README.md
+    - Resources:
+      - 🃏 Flashcards: tech/agentic-ai/flashcards.md
+      - 📋 Cheatsheet: tech/agentic-ai/cheatsheet.md

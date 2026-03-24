@@ -12,26 +12,30 @@ graph TB
     ROOT --> TECH["🔧 Tech"]
     ROOT --> NT["🌍 Non-Tech"]
     
+    TECH --> AG["🤖 Agentic AI — 0/5 🚧"]
     TECH --> AM["🧠 Agent Memory — 7/7 ✅"]
     TECH --> PY["🐍 Python"]
     PY --> AIO["⚡ AsyncIO — 1/1 ✅"]
+    PY --> THR["🧵 Threading — 1/1 ✅"]
 ```
 
 ## 📊 Stats
 
 | Metric | Count |
 |--------|-------|
-| **Topics** | 2 |
-| **Lessons** | 8 |
-| **Flashcards** | 50+ |
-| **Last updated** | 2026-03-21 |
+| **Topics** | 4 |
+| **Lessons** | 10 |
+| **Flashcards** | 60+ |
+| **Last updated** | 2026-03-24 |
 
 ## 📚 Topics
 
 | Topic | Category | Lessons | Confidence | Source |
 |-------|----------|---------|------------|--------|
+| [🤖 Agentic AI](tech/agentic-ai/README.md) | Tech | 0/5 modules | 🔴 Starting | DeepLearning.AI — Andrew Ng |
 | [🧠 Agent Memory](tech/agent-memory/README.md) | Tech | 7/7 ✅ | 🟡 Learning | DeepLearning.AI × Oracle |
 | [⚡ AsyncIO](tech/python/asyncio/README.md) | Tech / Python | 1/1 ✅ | 🟡 Learning | Corey Schafer |
+| [🧵 Threading](tech/python/threading/README.md) | Tech / Python | 1/1 ✅ | 🟡 Learning | Corey Schafer |
 
 ## 🏗️ How This Works
 

@@ -4,20 +4,30 @@
 
 ```mermaid
 graph LR
+    AG["🤖 Agentic AI"]
     AM["🧠 Agent Memory"]
     AIO["⚡ AsyncIO"]
+    THR["🧵 Threading"]
     
+    AG ---|"builds on"| AM
     AM ---|"async for concurrent<br/>memory ops"| AIO
-    AM -.-|"future"| RAG["📖 RAG"]
+    THR ---|"both do I/O<br/>concurrency"| AIO
+    AG -.-|"future"| RAG["📖 RAG"]
+    AM -.-|"future"| RAG
     AM -.-|"future"| VDB["🗄️ Vector DBs"]
     AM -.-|"future"| LC["🔗 LangChain"]
     AIO -.-|"future"| FAPI["🚀 FastAPI"]
+    THR -.-|"future"| MP["⚙️ Multiprocessing"]
 ```
 
 ## 🆕 Recently Discovered Connections
 
 | Date | Connection | How I Found It |
 |------|-----------|----------------|
+| 2026-03-24 | Agentic AI ↔ Agent Memory | Agent memory is a key capability for agentic systems (M1 overview) |
+| 2026-03-24 | Threading ↔ AsyncIO | Both solve I/O concurrency — threads use OS threads, asyncio uses event loop |
+| 2026-03-24 | Threading → Multiprocessing | Threading for I/O-bound, multiprocessing for CPU-bound (Corey Schafer) |
+| 2026-03-24 | Agentic AI → Parallelization | Agentic workflows use parallel execution (M1/04 Benefits) |
 | 2026-03-21 | Agent Memory ↔ AsyncIO | Async for concurrent memory ops, tool execution, API calls |
 | 2026-03-21 | Agent Memory → RAG | Same pipeline, agent memory adds CRUD (L02) |
 | 2026-03-21 | Agent Memory → Vector Databases | OracleVS, COSINE, IVF indexes (L03) |
