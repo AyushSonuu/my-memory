@@ -14,5 +14,13 @@
     "confidence": "yellow",
     "revisionCount": 0,
     "lessonsCompleted": 1
+  },
+  "tech/agentic-ai": {
+    "firstLearned": "2026-03-24",
+    "lastRevised": "2026-03-24",
+    "nextRevision": "2026-03-27",
+    "confidence": "red",
+    "revisionCount": 0,
+    "lessonsCompleted": 0
   }
 }

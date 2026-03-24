@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm -rf /Users/I772464/Library/CloudStorage/OneDrive-SAPSE/Desktop/memharness/docs)",
+      "Bash(npx create-docusaurus@latest docs classic --typescript)",
+      "WebFetch(domain:pypi.org)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(gh repo:*)",
+      "Bash(pyenv install:*)",
+      "Bash(export PATH=\"$HOME/.pyenv/versions/3.13.11/bin:$PATH\")",
+      "Bash(poetry install:*)",
+      "Bash(poetry env:*)",
+      "Bash(PATH=\"$HOME/.pyenv/versions/3.13.11/bin:/usr/bin:/bin\" poetry config virtualenvs.prefer-active-python true)",
+      "Bash(PATH=\"$HOME/.pyenv/versions/3.13.11/bin:/usr/bin:/bin\" poetry env use $HOME/.pyenv/versions/3.13.11/bin/python)",
+      "Bash($HOME/.pyenv/versions/3.13.11/bin/pip install:*)",
+      "Bash(env -i HOME=$HOME PATH=\"$HOME/.pyenv/versions/3.13.11/bin:/usr/bin:/bin\" poetry env use $HOME/.pyenv/versions/3.13.11/bin/python)",
+      "Bash(env -i HOME=$HOME PATH=\"$HOME/.pyenv/versions/3.13.11/bin:/usr/bin:/bin\" poetry install --all-extras)",
+      "Bash(/Users/I772464/Library/CloudStorage/OneDrive-SAPSE/Desktop/memharness/.venv/bin/python --version)",
+      "Bash(/Users/I772464/Library/CloudStorage/OneDrive-SAPSE/Desktop/memharness/.venv/bin/python -c \"import memharness; print\\(''memharness imported successfully''\\)\")"
+    ]
+  }
+}
