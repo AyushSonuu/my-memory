@@ -25,7 +25,7 @@ graph LR
 | # | Lesson | Confidence | Revised |
 |---|--------|-----------|---------|
 | 01 | [Welcome](01-welcome.md) | 🔴 | — |
-| 02 | [What is Agentic AI?](02-what-is-agentic-ai.md) | 🔴 | — |
+| 02 | [What is Agentic AI?](02-what-is-agentic-ai.md) | 🟡 | — |
 | 03 | [Degrees of Autonomy](03-degrees-of-autonomy.md) | 🔴 | — |
 | 04 | [Benefits of Agentic AI](04-benefits.md) | 🔴 | — |
 | 05 | [Agentic AI Applications](05-applications.md) | 🔴 | — |
@@ -38,6 +38,9 @@ graph LR
 > - Andrew Ng coined "agentic" → marketers hijacked it → hype >> reality, but real value IS growing fast
 > - #1 skill differentiator: disciplined dev process (evals + error analysis)
 > - Without agentic workflows, many projects would be *impossible*
+> - Non-agentic = writing essay with no backspace. Agentic = outline → research → draft → revise
+> - Course running example: **Research Agent** (plan → search → synthesize → draft → edit → report)
+> - Task decomposition = THE key skill that determines your ability to build agents
 
 ---
 
