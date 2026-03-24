@@ -27,7 +27,7 @@ graph LR
 | 01 | [Welcome](01-welcome.md) | 🔴 | — |
 | 02 | [What is Agentic AI?](02-what-is-agentic-ai.md) | 🟡 | — |
 | 03 | [Degrees of Autonomy](03-degrees-of-autonomy.md) | 🟡 | — |
-| 04 | [Benefits of Agentic AI](04-benefits.md) | 🔴 | — |
+| 04 | [Benefits of Agentic AI](04-benefits.md) | 🟡 | — |
 | 05 | [Agentic AI Applications](05-applications.md) | 🔴 | — |
 | 06 | [Task Decomposition](06-task-decomposition.md) | 🔴 | — |
 | 07 | [Evaluating Agentic AI](07-evals.md) | 🔴 | — |
