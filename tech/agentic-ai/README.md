@@ -26,38 +26,38 @@ graph LR
 
 ## 📊 Progress
 
-| # | Lesson | Topics | Confidence | Revised |
-|---|--------|--------|-----------|---------|
-| 01 | [Intro to Agentic Workflows](01-intro-to-agentic-workflows.md) | What is Agentic AI, Autonomy, Applications, Task Decomposition, Evals, Design Patterns | 🔴 | — |
-| 02 | [Reflection Design Pattern](02-reflection-design-pattern.md) | Self-critique, Direct vs Iterative, Chart/SQL generation, External Feedback | 🔴 | — |
-| 03 | [Tool Use](03-tool-use.md) | What are Tools, Creating Tools, Tool Syntax, Code Execution, MCP | 🔴 | — |
-| 04 | [Practical Tips for Building](04-practical-tips.md) | Evals, Error Analysis, Component-level Evals, Addressing Problems, Cost/Latency | 🔴 | — |
-| 05 | [Autonomous Agents](05-autonomous-agents.md) | Planning, LLM Plans, Code Execution, Multi-Agent, Communication Patterns | 🔴 | — |
-| — | [Flashcards](flashcards.md) | 🃏 Self-test across all modules | — | — |
-| — | [Cheatsheet](cheatsheet.md) | 📋 One-pager quick reference | — | — |
+| # | Module | Lessons | Confidence | Revised |
+|---|--------|---------|-----------|---------|
+| 01 | [Intro to Agentic Workflows](module-1-intro/) | 1/8 | 🔴 | — |
+| 02 | [Reflection Design Pattern](module-2-reflection/) | 0/5 | 🔴 | — |
+| 03 | [Tool Use](module-3-tool-use/) | 0/5 | 🔴 | — |
+| 04 | [Practical Tips](module-4-practical-tips/) | 0/7 | 🔴 | — |
+| 05 | [Autonomous Agents](module-5-autonomous-agents/) | 0/5 | 🔴 | — |
 
 ## 🧩 Memory Fragments
 
 > Things picked up over time. Random "aha!" moments, project learnings.
 > 
-> - _Add fragments as you learn..._
+> - Andrew Ng coined "agentic" → marketers hijacked it → hype skyrocketed
+> - #1 skill differentiator: disciplined dev process (evals + error analysis)
+> - Without agentic workflows, many of Andrew's projects would be *impossible*
 
 ---
 
-## 🎬 Teach Mode — Lesson Flow
+## 🎬 Teach Mode — Module Flow
 
 > Open these in order = you can teach anyone Agentic AI
 
-| # | Lesson | One-liner | Time |
-|---|--------|-----------|------|
-| 01 | [Intro to Agentic Workflows](01-intro-to-agentic-workflows.md) | What, why, and the 4 design patterns | ~45 min |
-| 02 | [Reflection Design Pattern](02-reflection-design-pattern.md) | AI that critiques its own work and iterates | ~40 min |
-| 03 | [Tool Use](03-tool-use.md) | Connecting LLMs to DBs, APIs, code execution, MCP | ~45 min |
-| 04 | [Practical Tips for Building](04-practical-tips.md) | Evals, error analysis, debugging, cost optimization | ~50 min |
-| 05 | [Autonomous Agents](05-autonomous-agents.md) | Planning + Multi-agent = full autonomy | ~45 min |
+| # | Module | What You'll Learn | Est. Time |
+|---|--------|-------------------|-----------|
+| 01 | [Intro to Agentic Workflows](module-1-intro/) | What, why, applications, task decomposition, evals, 4 design patterns | ~45 min |
+| 02 | [Reflection Design Pattern](module-2-reflection/) | Self-critique loops, chart/SQL generation, external feedback | ~40 min |
+| 03 | [Tool Use](module-3-tool-use/) | Creating tools, tool syntax, code execution, MCP | ~45 min |
+| 04 | [Practical Tips](module-4-practical-tips/) | Evals, error analysis, component evals, cost/latency optimization | ~50 min |
+| 05 | [Autonomous Agents](module-5-autonomous-agents/) | Planning, LLM plans, multi-agent, communication patterns | ~45 min |
 
 **Supporting:**
-- [Flashcards](flashcards.md) — self-test across all modules
+- [Flashcards](flashcards.md) — cross-module self-test
 - [Cheatsheet](cheatsheet.md) — one-page everything
 
 ---
@@ -74,4 +74,4 @@ graph LR
 
 ## 30-Second Recall 🧠
 
-> Agentic AI = LLMs that don't just respond, they **act**. Four design patterns: **Reflection** (self-critique loop), **Tool Use** (connect to external world), **Planning** (break tasks into steps), **Multi-Agent** (specialized agents collaborating). Key difference from chatbots: iterative, multi-step workflows with autonomy — not one-shot generation.
+> Agentic AI = LLMs that don't just respond, they **act**. Four design patterns: **Reflection** (self-critique loop), **Tool Use** (connect to external world), **Planning** (break tasks into steps), **Multi-Agent** (specialized agents collaborating). Key difference from chatbots: iterative, multi-step workflows with autonomy — not one-shot generation. The secret sauce? **Evals + Error Analysis** — that's what separates good builders from great ones.
