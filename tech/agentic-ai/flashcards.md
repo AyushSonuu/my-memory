@@ -37,7 +37,16 @@ LLMs · Multimodal Models · Specialized AI Models · APIs/Tools · Retrieval (D
 <details>
 <summary>❓ What's the #1 differentiator between good and great agent builders?</summary>
 
-**Disciplined dev process** — evals + error analysis. Not just building, but systematically measuring and improving.
+**Disciplined dev process** — evals + error analysis. Not just building, but systematically measuring and improving. Build first → examine outputs → discover issues → create eval → fix → repeat.
+</details>
+
+<details>
+<summary>❓ Rank the 4 design patterns from most to least developer control.</summary>
+
+1. 🪞 Reflection (highest — you control the loop)
+2. 🔧 Tool Use (you define the tools menu)
+3. 📋 Planning (LLM picks the steps — experimental)
+4. 👥 Multi-Agent (agents interact freely — hardest to control)
 </details>
 
 ---

@@ -128,6 +128,45 @@ Manually reading through the **intermediate outputs (traces)** of each step to f
 
 ---
 
+### 🎨 Design Patterns (Lesson 08)
+
+<details>
+<summary>❓ Name the 4 design patterns in order of decreasing developer control.</summary>
+
+1. 🪞 **Reflection** (highest control) — LLM critiques its own output, developer controls the loop
+2. 🔧 **Tool Use** — LLM calls functions from a developer-defined menu
+3. 📋 **Planning** — LLM decides the steps at runtime (experimental)
+4. 👥 **Multi-Agent** (lowest control) — multiple specialized LLM agents collaborate freely
+</details>
+
+<details>
+<summary>❓ What's the difference between self-reflection and a critique agent?</summary>
+
+**Self-reflection** = same LLM critiques its own output (one model, two prompts).  
+**Critique agent** = separate LLM prompted as "your role is to critique" — a preview of multi-agent!
+</details>
+
+<details>
+<summary>❓ How is the Planning pattern different from Task Decomposition?</summary>
+
+**Task Decomposition** = developer hardcodes the steps.  
+**Planning** = LLM decides the steps at runtime. More flexible but harder to control.
+</details>
+
+<details>
+<summary>❓ What is ChatDev and which pattern does it demonstrate?</summary>
+
+**ChatDev** = a framework where multiple AI agents (CEO, Programmer, Tester, Designer) collaborate as a virtual software company. It's the **Multi-Agent** pattern in action. Created by Chen Qian et al.
+</details>
+
+<details>
+<summary>❓ Do design patterns work in isolation?</summary>
+
+**No!** Real workflows often combine 2-3 patterns. Example: code generation uses Reflection (critique loop) + Tool Use (running code for error messages). They're building blocks you mix and match.
+</details>
+
+---
+
 ### 🔗 From: Agent Memory
 
 <details>

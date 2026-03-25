@@ -31,7 +31,7 @@ graph LR
 | 05 | [Agentic AI Applications](05-applications.md) | 🟡 | — |
 | 06 | [Task Decomposition](06-task-decomposition.md) | 🟡 | — |
 | 07 | [Evaluating Agentic AI](07-evals.md) | 🟡 | — |
-| 08 | [Agentic Design Patterns](08-design-patterns.md) | 🔴 | — |
+| 08 | [Agentic Design Patterns](08-design-patterns.md) | 🟡 | — |
 
 ## 🧩 Memory Fragments
 
@@ -63,4 +63,4 @@ graph LR
 > - 🎓 Course: [Agentic AI](https://learn.deeplearning.ai/courses/agentic-ai) — DeepLearning.AI, Andrew Ng
 
 ## 30-Second Recall 🧠
-> _Will be written after all lessons are filled._
+> Agentic AI = LLMs that **act**, not just respond. They run multi-step workflows with autonomy. Task decomposition breaks complex tasks into discrete steps — keep asking "Can an LLM or tool do this step?" Evals are the #1 predictor of building agents well: build first → examine → create eval → fix → repeat. Objective metrics (code-based) for black/white checks, LLM-as-Judge for subjective quality. Four design patterns: **Reflection** (self-critique loop, easiest), **Tool Use** (call external functions), **Planning** (LLM decides the steps — experimental), **Multi-Agent** (team of specialized agents — hardest to control). Control decreases as you go down. Real workflows combine patterns.
