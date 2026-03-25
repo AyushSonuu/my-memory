@@ -93,6 +93,41 @@ Each version **further decomposes** the weakest step.
 
 ---
 
+### 📏 Evals (Lesson 07)
+
+<details>
+<summary>❓ Why shouldn't you try to build all evals before building the workflow?</summary>
+
+Because problems are **very hard to predict** in advance. Build first → run on real inputs → examine outputs → discover issues → then create targeted evals. You'll always find unexpected failures (like competitor mentions) that you couldn't have anticipated.
+</details>
+
+<details>
+<summary>❓ What are the two types of eval metrics?</summary>
+
+| Type | When | How |
+|------|------|-----|
+| **📐 Objective (code-based)** | Clear right/wrong | Write code to check (e.g., does output contain competitor name?) |
+| **🧑‍⚖️ Subjective (LLM-as-Judge)** | Fuzzy quality | Prompt another LLM to score the output |
+
+⚠️ LLMs aren't great at 1-5 scale ratings — it's a rough starting point only.
+</details>
+
+<details>
+<summary>❓ End-to-end vs component-level evals — what's the difference?</summary>
+
+**End-to-end** = measures final output quality → tells you IF something is wrong.  
+**Component-level** = measures each step's output → tells you WHERE it's wrong.  
+You need both.
+</details>
+
+<details>
+<summary>❓ What is error analysis?</summary>
+
+Manually reading through the **intermediate outputs (traces)** of each step to find where the agent falls short. Like reading the agent's diary page by page to spot the weak link. Automated evals can't fully replace this detective work.
+</details>
+
+---
+
 ### 🔗 From: Agent Memory
 
 <details>

@@ -28,7 +28,7 @@ graph LR
 
 | # | Module | Lessons | Confidence | Revised |
 |---|--------|---------|-----------|---------|
-| 01 | [Intro to Agentic Workflows](module-1-intro/) | 6/8 | 🔴 | — |
+| 01 | [Intro to Agentic Workflows](module-1-intro/) | 7/8 | 🔴 | — |
 | 02 | [Reflection Design Pattern](module-2-reflection/) | 0/5 | 🔴 | — |
 | 03 | [Tool Use](module-3-tool-use/) | 0/5 | 🔴 | — |
 | 04 | [Practical Tips](module-4-practical-tips/) | 0/7 | 🔴 | — |

@@ -30,7 +30,7 @@ graph LR
 | 04 | [Benefits of Agentic AI](04-benefits.md) | 🟡 | — |
 | 05 | [Agentic AI Applications](05-applications.md) | 🟡 | — |
 | 06 | [Task Decomposition](06-task-decomposition.md) | 🟡 | — |
-| 07 | [Evaluating Agentic AI](07-evals.md) | 🔴 | — |
+| 07 | [Evaluating Agentic AI](07-evals.md) | 🟡 | — |
 | 08 | [Agentic Design Patterns](08-design-patterns.md) | 🔴 | — |
 
 ## 🧩 Memory Fragments
