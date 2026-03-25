@@ -1,28 +1,31 @@
 # 🔴 Where I'm Weak
 
 > Shows all topics/areas needing attention. Auto-maintained.
+> Last updated: 2026-03-25
 
 ## Focus Areas
 
 | Topic | Weak Area | Suggestion | Priority |
 |-------|-----------|-----------|----------|
-| 🤖 Agentic AI | Just started (2026-03-24) — 0/5 modules done | Continue Module 1 transcripts | 🔴 High |
-| 🧠 Agent Memory | Learned 2026-03-21 — revision **overdue** | Revise flashcards NOW | 🟡 Medium |
-| ⚡ AsyncIO | Learned 2026-03-21 — revision **overdue** | Revise flashcards NOW | 🟡 Medium |
-| 🧵 Threading | Just learned (2026-03-24) — first revision due 2026-03-27 | Revise in 3 days | 🟢 On track |
+| 🤖 Agentic AI | M1 done, M2-M5 untouched (22 lessons left) | Start Module 2 — Reflection | 🔴 High |
+| 🧠 Agent Memory | Learned 2026-03-21 — revision due Mar 28 | Revise flashcards on Day 7 | 🟡 Medium |
+| ⚡ AsyncIO | Learned 2026-03-21 — revision due Mar 28 | Revise flashcards on Day 7 | 🟡 Medium |
+| 🧵 Threading | Learned 2026-03-24 — revision due Mar 27 | Revise flashcards in 2 days | 🟢 On track |
 
 ## 🔴 Red Topics
 
 | Topic | Status | Next Step |
 |-------|--------|-----------|
-| 🤖 Agentic AI | 5/8 M1 videos done, 0/5 modules complete | Finish M1 transcripts → notes |
+| 🤖 Agentic AI | M1 complete (8/8), M2-M5 = 0 | Send Module 2 transcripts → build notes |
 
-## ⚠️ Overdue Revisions
+## 📅 Upcoming Revisions
 
-| Topic | Due Date | Days Overdue |
-|-------|----------|-------------|
-| 🧠 Agent Memory | 2026-03-24 | **Today!** |
-| ⚡ AsyncIO | 2026-03-24 | **Today!** |
+| Topic | Due Date | Days Until Due |
+|-------|----------|---------------|
+| 🧵 Threading | 2026-03-27 | 2 days |
+| 🤖 Agentic AI | 2026-03-27 | 2 days |
+| 🧠 Agent Memory | 2026-03-28 | 3 days |
+| ⚡ AsyncIO | 2026-03-28 | 3 days |
 
 ### How to go from 🟡 → 🟢
 

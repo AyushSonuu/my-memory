@@ -7,7 +7,7 @@ graph TB
     ROOT(("🧠 Everything"))
     
     subgraph TECH ["🔧 Tech — 4 topics"]
-        AG["🤖 Agentic AI — 0/5 modules 🚧"]
+        AG["🤖 Agentic AI — M1 ✅ M2-M5 🚧"]
         AM["🧠 Agent Memory — 7/7 ✅"]
         PY["🐍 Python"]
         PY --> AIO["⚡ AsyncIO — 1/1 ✅"]
@@ -30,13 +30,15 @@ graph TB
 |--------|-------|--------|
 | 🟢 Solid | 0 | — |
 | 🟡 Learning | 3 | Agent Memory, AsyncIO, Threading |
-| 🔴 Starting | 1 | Agentic AI |
+| 🔴 Starting | 1 | Agentic AI (M1 complete, M2-M5 pending) |
 
 ## Key Connections
 
 | Connection | How they relate |
 |-----------|----------------|
 | Agentic AI ↔ Agent Memory | Agent memory = one of the capabilities agentic systems need |
+| Agentic AI → Evals | Evals + error analysis = #1 predictor of building agents well |
+| Agentic AI → 4 Design Patterns | Reflection, Tool Use, Planning, Multi-Agent |
 | Threading ↔ AsyncIO | Both do I/O concurrency — threading uses OS threads, AsyncIO uses event loop |
 | Agent Memory ↔ AsyncIO | Async for concurrent memory operations, tool execution, API calls |
 | Agent Memory → RAG | Same pipeline, agent memory adds CRUD + write-back |

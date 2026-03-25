@@ -24,6 +24,11 @@ graph LR
 
 | Date | Connection | How I Found It |
 |------|-----------|----------------|
+| 2026-03-25 | Agentic AI → Evals & Error Analysis | Evals = #1 predictor of building agents well (M1/07) |
+| 2026-03-25 | Agentic AI → HuggingGPT (Planning) | LLM orchestrates multiple HF models: openpose, vit-gpt2, fastspeech (M1/08) |
+| 2026-03-25 | Agentic AI → Multi-Agent Debate | Du et al. 2023 — biographies, MMLU, chess all improve with multi-agent (M1/08) |
+| 2026-03-25 | Agentic AI → ChatDev | Virtual software company with CEO/Programmer/Tester/Designer agents (M1/08) |
+| 2026-03-25 | Reflection + Tool Use combine | Code generation example: self-critique loop + running code for error feedback (M1/08) |
 | 2026-03-24 | Agentic AI ↔ Agent Memory | Agent memory is a key capability for agentic systems (M1 overview) |
 | 2026-03-24 | Threading ↔ AsyncIO | Both solve I/O concurrency — threads use OS threads, asyncio uses event loop |
 | 2026-03-24 | Threading → Multiprocessing | Threading for I/O-bound, multiprocessing for CPU-bound (Corey Schafer) |
