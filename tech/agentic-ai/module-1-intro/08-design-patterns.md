@@ -94,12 +94,12 @@ LLM can call **functions** (tools) to interact with the outside world.
 
 **What tools are available?**
 
-| Tool Category | Examples |
+| Tool Category | Examples (from course slides) |
 |--------------|---------|
-| 🔍 Information Gathering | Web search, database queries, RAG |
-| 📊 Data & Math | Code execution, data analysis |
-| 📧 Productivity | Email, calendar, scheduling |
-| 🖼️ Media Processing | Image analysis, text-to-speech |
+| 🔍 Information Gathering | Web search, Wikipedia, database access |
+| 📊 Analysis & Math | Code execution, Wolfram Alpha, Bearly Code Interpreter |
+| 📧 Productivity | Email, calendar, messaging |
+| 🖼️ Images | Image generation, image captioning, OCR |
 
 The key: LLM **decides** which tool to call based on the task. Developer defines the menu of available tools.
 
@@ -112,17 +112,17 @@ Instead of the developer hardcoding the steps, the **LLM itself decides** what s
 ```mermaid
 graph TD
     USER["👤 'Generate an image of a girl<br/>reading a book in the same<br/>pose as this boy, then<br/>describe it in voice'"] --> LLM["🤖 LLM Plans:"]
-    LLM --> S1["1️⃣ Pose detection model<br/><i>(find boy's pose)</i>"]
-    S1 --> S2["2️⃣ Image generation<br/><i>(girl reading, same pose)</i>"]
-    S2 --> S3["3️⃣ Image-to-text<br/><i>(describe the new image)</i>"]
-    S3 --> S4["4️⃣ Text-to-speech<br/><i>(read description aloud)</i>"]
+    LLM --> S1["1️⃣ Pose detection<br/><i>(openpose model)</i>"]
+    S1 --> S2["2️⃣ Pose-to-Image<br/><i>(google/vit model)</i>"]
+    S2 --> S3["3️⃣ Image-to-text<br/><i>(vit-gpt2 model)</i>"]
+    S3 --> S4["4️⃣ Text-to-speech<br/><i>(fastspeech model)</i>"]
 
     style USER fill:#f44336,color:#fff
     style LLM fill:#ff9800,color:#fff
     style S4 fill:#4caf50,color:#fff
 ```
 
-*Example from the HuggingGPT paper*
+*Example from the [HuggingGPT paper](https://arxiv.org/abs/2303.17580) (Shen et al., 2023) — the LLM orchestrates multiple specialized Hugging Face models.*
 
 **Key difference from Task Decomposition:**
 - In Task Decomposition (Lesson 06): **you** (the developer) decide the steps
@@ -167,6 +167,14 @@ graph LR
 | 🎨 Designer | UI/UX design |
 
 These agents collaborate to **complete entire software development tasks** — like a virtual dev team.
+
+**Hard proof from research** — *"Improving Factuality and Reasoning through Multiagent Debate"* (Du et al., 2023):
+
+| Task | Single Agent | Multi-Agent | Improvement |
+|------|-------------|------------|-------------|
+| Biographies | 66.0% | **73.8%** | +7.8% |
+| MMLU | 63.9% | **71.1%** | +7.2% |
+| Chess moves | 29.3% | **45.2%** | +15.9% |
 
 > 💡 **Multi-Agent = hiring ek team. Tum manager ho — har agent ko role do, kaam karne do, aur hope karo sab milke kuch accha bana dein. Jaise real office mein hota hai! 🏢**
 

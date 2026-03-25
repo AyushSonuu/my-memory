@@ -133,6 +133,7 @@ graph TB
 | Aspect | Status |
 |--------|--------|
 | **What it does** | Agent uses web browser — reads pages, clicks, fills forms |
+| **Slide example** | **ChatGPT Agent Mode** (OpenAI) — shown as a real demo of visual computer use |
 | **Reliability** | ⚠️ Not reliable enough for mission-critical apps yet |
 | **Common failures** | Slow-loading pages confuse agent, complex pages can't be parsed |
 | **Future** | Exciting research area — many companies working on this |

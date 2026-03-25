@@ -59,6 +59,21 @@ Performance (% correct)
 
 > 💡 **Sabse bada takeaway: GPT-3.5 + agentic workflow > GPT-4 alone! Matlab purana model bhi agar sahi workflow mein daalo toh naye model ko peet deta hai. Workflow > Raw Model Power!** 🥊
 
+**Named agentic systems on the chart** (from the course slides):
+
+| System | Pattern(s) Used |
+|--------|----------------|
+| **Reflexion** | Reflection |
+| **LATS** (Language Agent Tree Search) | Planning + Reflection |
+| **LDB + Reflexion** | Reflection + Debugging |
+| **CodeT** | Tool Use (code testing) |
+| **ANPL** | Planning |
+| **MetaGPT** | Multi-Agent |
+| **AgentCoder** | Multi-Agent + Tool Use |
+| **Intervenor** | Reflection |
+
+All of these sit **above** the non-agentic baselines — proof that the design patterns (Reflection, Tool Use, Planning, Multi-Agent) genuinely move the needle.
+
 **Why?** Agentic techniques like reflection (write code → check it → fix bugs → retry) let even older models iterate to better solutions.
 
 ---
