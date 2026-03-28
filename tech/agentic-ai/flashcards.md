@@ -180,7 +180,30 @@ If you're stuck at a plateau, don't grind — escalate to the next tier!
 
 ### 🔧 Module 3 — Tool Use
 
-_Coming after Module 3 notes._
+<details>
+<summary>❓ What does "tool use" mean for LLMs?</summary>
+
+Giving the LLM access to **functions** it can **request to call** when it needs real-time data, external info, or computation. Tools = regular code functions (web search, DB query, calculator). LLM bina tools ke = insaan bina haathon ke! 🖐️
+</details>
+
+<details>
+<summary>❓ Does the LLM always call tools when they're available?</summary>
+
+**No!** LLM decides based on the query. "What time is it?" → calls get_current_time(). "Caffeine in green tea?" → answers directly. Smart delegation — only uses tools when it actually needs them.
+</details>
+
+<details>
+<summary>❓ Hard-coded tool calls vs LLM-chosen tool calls — what's the difference?</summary>
+
+**Hard-coded:** Developer pre-programs "always search web at step 2" — runs every time.
+**LLM-chosen:** Developer provides a tool menu, LLM decides at runtime which (if any) to call. More flexible, more intelligent.
+</details>
+
+<details>
+<summary>❓ In the calendar assistant, 3 tools available — how many used?</summary>
+
+**2 of 3.** check_calendar (find slots) → make_appointment (book 3 PM with Alice). Skipped delete_appointment — wasn't needed. LLM selects only what's relevant.
+</details>
 
 ---
 
