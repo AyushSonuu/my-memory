@@ -51,6 +51,18 @@ INPUT:  Text, PDFs, images, transcripts, slides, articles, URLs, video notes
 OUTPUT: Visually rich markdown → revision-ready, teach-ready, YouTube-ready
 ```
 
+### 📄 MANDATORY: Always Use Course Material
+
+When preparing notes from a transcript, **ALWAYS cross-reference all course material** in the topic's `course_material/` folder before writing:
+
+1. **Read EVERY page** of any PDF in `course_material/` using `pymupdf` (already in .venv)
+2. PDFs contain: exact names, specific numbers, benchmark data, slide diagrams, prompt text, paper references, tables — things transcripts often miss or say vaguely
+3. **Transcripts = what was said. PDFs = what was shown on screen.** You need BOTH for complete notes.
+4. If `code/` folder exists for that module, read the notebooks too — they have implementation details, function signatures, and patterns not mentioned in the video
+5. **Never write a lesson from transcript alone** — the PDF is not optional, it's mandatory input
+
+> 🚨 This is a hard rule. If course material exists and you didn't read it, the notes are incomplete by definition.
+
 ## Golden Rules
 
 ### 0. 🧠 HIGHLY RECALLABLE (THE CORE PRINCIPLE)
