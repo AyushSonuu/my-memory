@@ -11,7 +11,7 @@
 | 01 | [What Are Tools?](01-what-are-tools.md) | 🟡 | — |
 | 02 | [Creating a Tool](02-creating-a-tool.md) | 🟡 | — |
 | 03 | [Tool Syntax](03-tool-syntax.md) | 🟡 | — |
-| 04 | [Code Execution](04-code-execution.md) | 🔴 | — |
+| 04 | [Code Execution](04-code-execution.md) | 🟡 | — |
 | 05 | [MCP](05-mcp.md) | 🔴 | — |
 
 ---

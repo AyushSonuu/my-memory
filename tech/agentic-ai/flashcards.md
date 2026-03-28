@@ -223,6 +223,24 @@ The docstring IS the tool's description to the LLM — it reads it to decide whe
 Three things: (1) **name** from `def function_name`, (2) **description** from the docstring, (3) **parameters** from the function signature + docstring. The LLM sees this schema, not your actual code.
 </details>
 
+<details>
+<summary>❓ Why is code execution the ultimate meta-tool?</summary>
+
+Instead of building 50 individual tools (add, sqrt, log, sin...), give the LLM ONE tool: write and execute code. It solves **anything expressible in Python**. LLM writes `import math; math.sqrt(2)` — done. One tool to rule them all! 👑
+</details>
+
+<details>
+<summary>❓ What's the `<execute_python>` tag pattern for code execution?</summary>
+
+System prompt tells LLM: "wrap code in `<execute_python>` tags." Your code uses regex to extract: `re.search(r"<execute_python>([\s\S]*?)</execute_python>", output)` → `exec()` or sandbox → feed result back. Same pattern used in M2 visualization notebook!
+</details>
+
+<details>
+<summary>❓ Why use a sandbox for LLM code execution?</summary>
+
+Real risk: Andrew Ng's team had an agent run `rm *.py` — deleted Python files. Sandbox options: **Docker** (heavy, secure) or **E2B** (lightweight, purpose-built). `exec()` alone = zero protection. Bachche ko kitchen mein akela mat chhodo! 🔥
+</details>
+
 ---
 
 ### 🛠️ Module 4 — Practical Tips
