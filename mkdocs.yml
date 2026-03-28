@@ -37,7 +37,7 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.sections
-    - navigation.expand
+    # - navigation.expand  # disabled: sections now collapsible
     - navigation.top
     - navigation.indexes
     - navigation.footer
