@@ -241,6 +241,20 @@ System prompt tells LLM: "wrap code in `<execute_python>` tags." Your code uses 
 Real risk: Andrew Ng's team had an agent run `rm *.py` — deleted Python files. Sandbox options: **Docker** (heavy, secure) or **E2B** (lightweight, purpose-built). `exec()` alone = zero protection. Bachche ko kitchen mein akela mat chhodo! 🔥
 </details>
 
+<details>
+<summary>❓ What problem does MCP solve?</summary>
+
+**M×N → M+N.** Without MCP, every app builds its own wrappers (3 apps × 4 services = 12 wrappers). With MCP: 3 clients + 4 servers = 7 connections. Standard protocol — build once, share with everyone. MCP = USB port for LLMs! 🔌
+</details>
+
+<details>
+<summary>❓ MCP Client vs MCP Server — what's the difference?</summary>
+
+**Client** = app that CONSUMES tools/data (Cursor, Claude Desktop, your app).
+**Server** = service that PROVIDES tools/data (GitHub, Slack, PostgreSQL).
+Your app can be a client, a server, or both!
+</details>
+
 ---
 
 ### 🛠️ Module 4 — Practical Tips
