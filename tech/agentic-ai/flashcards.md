@@ -150,6 +150,32 @@ LLMs are poorly calibrated on scales — "3 vs 4" is vague. Binary is clear: tit
 **Prompt engineering becomes data-driven.** Tweak the reflection/generation prompt → re-run eval → see if % correct goes up. No more vibes-based "this feels better." Numbers decide! 📈
 </details>
 
+<details>
+<summary>❓ Why is reflection with external feedback more powerful than basic reflection?</summary>
+
+Basic reflection = LLM re-examines the **same info** it already had. External feedback gives it **genuinely new facts** (error messages, web search, word counts, pattern matches). Apni copy khud check karna vs answer key mil jaana! 🔑
+</details>
+
+<details>
+<summary>❓ Name three external feedback tools that boost reflection.</summary>
+
+1. **Code execution** — run code, feed back errors/output
+2. **Web search** — fact-check claims against real sources
+3. **Pattern matching** (regex) — detect competitor names, banned words, etc.
+
+Bonus: **Word count** — LLMs can't count words, but `len(text.split())` can!
+</details>
+
+<details>
+<summary>❓ What are the 3 performance tiers, from worst to best?</summary>
+
+1. ★ **Direct generation** — improves, then plateaus
+2. ● **With reflection** — bumps above the plateau
+3. ✦ **Reflection + external feedback** — highest trajectory, keeps climbing
+
+If you're stuck at a plateau, don't grind — escalate to the next tier!
+</details>
+
 ---
 
 ### 🔧 Module 3 — Tool Use
