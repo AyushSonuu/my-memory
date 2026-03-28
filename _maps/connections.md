@@ -24,6 +24,10 @@ graph LR
 
 | Date | Connection | How I Found It |
 |------|-----------|----------------|
+| 2026-03-28 | Reflection → External Feedback tools | Code execution, web search, regex, word count all act as external information sources (M2/05) |
+| 2026-03-28 | Evals → Binary Rubric > Pair Comparison | Position bias in LLM judges; binary 0/1 criteria far more reliable (M2/04) |
+| 2026-03-28 | Reflection → Multimodal | Critic LLM sees actual chart IMAGE, not just code — catches visual UX issues (M2/03) |
+| 2026-03-28 | SQL Agent → aisuite library | Unified multi-provider LLM client by Andrew Ng's team (M2 code) |
 | 2026-03-25 | Agentic AI → Evals & Error Analysis | Evals = #1 predictor of building agents well (M1/07) |
 | 2026-03-25 | Agentic AI → HuggingGPT (Planning) | LLM orchestrates multiple HF models: openpose, vit-gpt2, fastspeech (M1/08) |
 | 2026-03-25 | Agentic AI → Multi-Agent Debate | Du et al. 2023 — biographies, MMLU, chess all improve with multi-agent (M1/08) |

@@ -25,18 +25,18 @@ gantt
 
     section Agentic AI
     M1 · Intro (8/8 complete)   :done, m1, 2026-03-24, 2d
-    M1 first revision due       :m1rev, 2026-03-27, 1d
-    M2 · Reflection             :active, m2, 2026-03-26, 5d
-    M3 · Tool Use               :m3, 2026-03-31, 5d
-    M4 · Practical Tips         :m4, 2026-04-05, 5d
-    M5 · Autonomous Agents      :m5, 2026-04-10, 5d
+    M2 · Reflection (5/5 ✅)    :done, m2, 2026-03-26, 3d
+    M1 first revision due       :m1rev, 2026-03-30, 1d
+    M3 · Tool Use               :active, m3, 2026-03-29, 5d
+    M4 · Practical Tips         :m4, 2026-04-03, 5d
+    M5 · Autonomous Agents      :m5, 2026-04-08, 5d
 ```
 
 ## 📈 Monthly Stats
 
 | Month | Topics Started | Lessons Created | Flashcards Added |
 |-------|---------------|----------------|-----------------|
-| Mar 2026 | 4 (Agent Memory, AsyncIO, Threading, Agentic AI) | 17 | 75+ |
+| Mar 2026 | 4 (Agent Memory, AsyncIO, Threading, Agentic AI) | 20 | 90+ |
 
 ## 🏆 Milestones
 
@@ -50,6 +50,7 @@ gantt
 | 2026-03-24 | 🤖 Agentic AI course started! Andrew Ng, 5 modules |
 | 2026-03-25 | ✅ Agentic AI Module 1 COMPLETE! 8/8 lessons, 15+ flashcards |
 | 2026-03-25 | 📄 PDF cross-reference workflow established (pymupdf installed) |
+| 2026-03-28 | 🪞 Agentic AI Module 2 COMPLETE! 5/5 lessons, code labs, evals vs.md |
 
 ---
 

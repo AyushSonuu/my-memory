@@ -215,6 +215,58 @@ graph LR
 
 ---
 
+## 💻 Code Lab — SQL Agent Eval
+
+The course provides a **full working notebook** (`code/M2/examples/sql_agent/sql.ipynb`) that implements exactly this eval flow:
+
+```python
+# 1. Generate SQL (no reflection)
+def generate_sql(question, schema, model="openai:gpt-3.5-turbo"):
+    prompt = f"""You are a SQL assistant. Given the schema and 
+    the user's question, write a SQL query for SQLite.
+    Schema: {schema}  User question: {question}
+    Respond with the SQL only."""
+    response = client.chat.completions.create(model=model, ...)
+    return response.choices[0].message.content.strip()
+
+# 2. Reflect + Refine (LLM reviews SQL + its output)
+def evaluate_and_refine_sql(question, sql_query, df, schema, model="openai:gpt-4o"):
+    prompt = f"""You are a SQL reviewer and refiner.
+    User asked: {question}
+    Original SQL: {sql_query}
+    SQL Output: {df.to_markdown(index=False)}
+    
+    Step 1: Evaluate if SQL output answers the question.
+    Step 2: If improvable, provide refined SQL query.
+    Return JSON: {{"feedback": "...", "refined_sql": "..."}}"""
+    ...
+
+# 3. End-to-end pipeline
+def run_sql_workflow(db_path, question, model_generation, model_evaluation):
+    schema = get_schema(db_path)
+    sql = generate_sql(question, schema, model_generation)    # v1
+    df = execute_sql(sql, db_path)                            # run v1
+    feedback, refined = evaluate_and_refine_sql(...)          # reflect
+    df_refined = execute_sql(refined, db_path)                # run v2
+    return {"original": sql, "refined": refined, ...}
+
+# 4. Run it!
+results = run_sql_workflow("products.db",
+    "Which color of product has the highest total sales?",
+    model_generation="openai:gpt-4.1",
+    model_evaluation="openai:gpt-4.1")
+```
+
+**Key patterns from the code:**
+- Uses `aisuite` — unified client for multiple LLM providers
+- SQLite event-sourced `transactions` table (insert/restock/sale/price_update events)
+- Reflection LLM gets BOTH the SQL AND its output (external feedback!)
+- Returns structured JSON: `{"feedback": "...", "refined_sql": "..."}`
+
+> 📂 **Full code:** `code/M2/examples/sql_agent/sql.ipynb` + `utils.py`
+
+---
+
 ## ⚠️ Gotchas
 
 - ❌ **Never skip evals** — reflection adds latency. If it doesn't meaningfully improve output, drop it

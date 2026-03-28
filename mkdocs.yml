@@ -182,10 +182,24 @@ nav:
       - 07 · Evals: tech/agentic-ai/module-1-intro/07-evals.md
       - 08 · Design Patterns: tech/agentic-ai/module-1-intro/08-design-patterns.md
       - 🃏 Flashcards: tech/agentic-ai/module-1-intro/flashcards.md
-    - Module 2 · Reflection: tech/agentic-ai/module-2-reflection/README.md
+    - Module 2 · Reflection:
+      - Overview: tech/agentic-ai/module-2-reflection/README.md
+      - 01 · Reflection to Improve Outputs: tech/agentic-ai/module-2-reflection/01-reflection-to-improve-outputs.md
+      - 02 · Why Not Direct Generation: tech/agentic-ai/module-2-reflection/02-why-not-direct-generation.md
+      - 03 · Chart Generation Workflow: tech/agentic-ai/module-2-reflection/03-chart-generation-workflow.md
+      - 04 · Evaluating Reflection: tech/agentic-ai/module-2-reflection/04-evaluating-reflection.md
+      - 05 · External Feedback: tech/agentic-ai/module-2-reflection/05-external-feedback.md
+      - 🃏 Flashcards: tech/agentic-ai/module-2-reflection/flashcards.md
+      - 💻 Code Labs:
+        - SQL Agent: tech/agentic-ai/module-2-reflection/code/M2/examples/sql_agent/sql.ipynb
+        - Visualization Agent: tech/agentic-ai/module-2-reflection/code/M2/examples/visualization_agent/visualization.ipynb
+        - Ungraded Lab 1 · Chart Reflection: tech/agentic-ai/module-2-reflection/code/M2/ungraded_labs/M2_UGL_1/M2_UGL_1.ipynb
+        - Ungraded Lab 2 · SQL Reflection: tech/agentic-ai/module-2-reflection/code/M2/ungraded_labs/M2_UGL_2/M2_UGL_2.ipynb
+        - Graded Lab · Research Agent: tech/agentic-ai/module-2-reflection/code/M2/graded_labs/research-agent/GL-M2.ipynb
     - Module 3 · Tool Use: tech/agentic-ai/module-3-tool-use/README.md
     - Module 4 · Practical Tips: tech/agentic-ai/module-4-practical-tips/README.md
     - Module 5 · Autonomous Agents: tech/agentic-ai/module-5-autonomous-agents/README.md
     - Resources:
       - 🃏 Flashcards: tech/agentic-ai/flashcards.md
       - 📋 Cheatsheet: tech/agentic-ai/cheatsheet.md
+      - ⚔️ Evals & Error Analysis: tech/agentic-ai/vs.md

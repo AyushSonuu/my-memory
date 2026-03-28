@@ -29,7 +29,7 @@ graph LR
 | # | Module | Lessons | Confidence | Revised |
 |---|--------|---------|-----------|---------|
 | 01 | [Intro to Agentic Workflows](module-1-intro/) | 8/8 ✅ | 🟡 | — |
-| 02 | [Reflection Design Pattern](module-2-reflection/) | 3/5 | 🔴 | — |
+| 02 | [Reflection Design Pattern](module-2-reflection/) | 5/5 ✅ | 🟡 | — |
 | 03 | [Tool Use](module-3-tool-use/) | 0/5 | 🔴 | — |
 | 04 | [Practical Tips](module-4-practical-tips/) | 0/7 | 🔴 | — |
 | 05 | [Autonomous Agents](module-5-autonomous-agents/) | 0/5 | 🔴 | — |
@@ -41,6 +41,11 @@ graph LR
 > - Andrew Ng coined "agentic" → marketers hijacked it → hype skyrocketed
 > - #1 skill differentiator: disciplined dev process (evals + error analysis)
 > - Without agentic workflows, many of Andrew's projects would be *impossible*
+> - Reflection is surprisingly easy to implement — 2 prompts, 1 loop
+> - Different LLMs for generation vs critique = powerful combo
+> - External feedback (code errors, web search, regex) breaks the performance plateau
+> - LLM pair comparison is unreliable (position bias!) — use binary rubric instead
+> - 3 tiers: Direct generation < Reflection < Reflection + External Feedback
 
 ---
 
@@ -59,6 +64,7 @@ graph LR
 **Supporting:**
 - [Flashcards](flashcards.md) — cross-module self-test
 - [Cheatsheet](cheatsheet.md) — one-page everything
+- [Evals & Error Analysis Comparison](vs.md) — every eval technique compared
 
 ---
 
@@ -74,4 +80,4 @@ graph LR
 
 ## 30-Second Recall 🧠
 
-> Agentic AI = LLMs that don't just respond, they **act**. Four design patterns: **Reflection** (self-critique loop), **Tool Use** (connect to external world), **Planning** (break tasks into steps), **Multi-Agent** (specialized agents collaborating). Key difference from chatbots: iterative, multi-step workflows with autonomy — not one-shot generation. The secret sauce? **Evals + Error Analysis** — that's what separates good builders from great ones.
+> Agentic AI = LLMs that don't just respond, they **act**. Four design patterns: **Reflection** (self-critique loop → external feedback makes it 10x better), **Tool Use** (connect to external world), **Planning** (break tasks into steps), **Multi-Agent** (specialized agents collaborating). Reflection is the simplest pattern: generate v1 → critique → v2. Use different models for generation vs critique. Always **eval** with ground truth (objective) or binary rubrics (subjective) — NOT pair comparison (position bias!). The secret sauce? **Evals + Error Analysis** — that's what separates good builders from great ones.

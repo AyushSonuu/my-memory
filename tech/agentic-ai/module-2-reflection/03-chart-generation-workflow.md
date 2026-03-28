@@ -137,6 +137,54 @@ This example introduces something new — the critic LLM doesn't just read the c
 
 ---
 
+## 💻 Code Lab — Visualization Agent
+
+The course provides a **full working notebook** (`code/M2/examples/visualization_agent/visualization.ipynb`) implementing this exact flow:
+
+```python
+# Step 1: Generate chart code (v1)
+def generate_chart_code(instruction, model, out_path_v1):
+    prompt = f"""You are a data visualization expert.
+    Return code in <execute_python>...</execute_python> tags.
+    Create a visualization from DataFrame 'df' with columns:
+    date, time, cash_type, card, price, coffee_name, quarter, month, year
+    User instruction: {instruction}
+    Requirements: Use matplotlib only, assume df exists, 
+    add titles/labels/legends, save to {out_path_v1}"""
+    return get_response(model, prompt)
+
+# Step 2: Execute v1 code
+match = re.search(r"<execute_python>([\s\S]*?)</execute_python>", code_v1)
+exec(match.group(1).strip(), {"df": df, "plt": plt, "pd": pd})
+
+# Step 3: Multimodal reflection — LLM SEES the chart image
+def reflect_on_image_and_regenerate(chart_path, instruction, client, model, out_path_v2):
+    media_type, b64 = encode_image_b64(chart_path)  # image → base64
+    prompt = ("Critique how well the chart communicates the instruction. "
+              "Then return improved matplotlib code.")
+    # Sends image + text to multimodal LLM
+    return feedback, refined_code
+
+# Step 4: End-to-end pipeline — mix models!
+result = run_workflow(
+    dataset_path="coffee_sales.csv",
+    user_instructions="Create a chart showing year-over-year Q1 sales by drink type.",
+    generation_model="gpt-4.1-mini",    # fast model for draft
+    evaluation_model="o4-mini",         # reasoning model for critique
+    image_basename="drink_sales"
+)
+```
+
+**Key patterns from the code:**
+- Uses `<execute_python>` tags to extract code from LLM response
+- `encode_image_b64()` → converts chart to base64 for multimodal input
+- Supports BOTH OpenAI and Anthropic (Claude) via separate client handling
+- `run_workflow()` lets you **mix and match models** per step
+
+> 📂 **Full code:** `code/M2/examples/visualization_agent/visualization.ipynb` + `utils.py`
+
+---
+
 ## ⚠️ Gotchas
 
 - ❌ **Reflection impact varies by application** — some tasks get a BIG boost, some barely any. Andrew Ng is explicit: *"From various studies, reflection improves performance by a little bit on some, by a lot on some others, and maybe barely any at all on some other applications."*

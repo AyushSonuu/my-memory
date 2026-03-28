@@ -10,7 +10,7 @@ graph TB
     T --> PY["🐍 Python"]
     
     AG --> M1["Module 1 · Intro ✅"]
-    AG --> M2["Module 2 · Reflection 🚧"]
+    AG --> M2["Module 2 · Reflection ✅"]
     AG --> M3["Module 3 · Tool Use 🚧"]
     AG --> M4["Module 4 · Practical Tips 🚧"]
     AG --> M5["Module 5 · Autonomous Agents 🚧"]
@@ -37,7 +37,7 @@ graph TB
 
 | Topic | Status | Lessons | Key Concepts |
 |-------|--------|---------|-------------|
-| [🤖 Agentic AI](../tech/agentic-ai/README.md) | 🔴 M1 ✅, M2-M5 pending | 8/30 | Task Decomposition, Evals, 4 Design Patterns (Reflection, Tool Use, Planning, Multi-Agent) |
+| [🤖 Agentic AI](../tech/agentic-ai/README.md) | 🔴 M1-M2 ✅, M3-M5 pending | 13/30 | Task Decomposition, Evals, 4 Design Patterns, Reflection (basic + multimodal + external feedback), Eval types (objective, rubric, error analysis) |
 | [🧠 Agent Memory](../tech/agent-memory/README.md) | 🟡 7/7 ✅ | 7 | Memory Manager, Toolbox Pattern, Summarization/Compaction, Agent Loop, Harness |
 | [⚡ AsyncIO](../tech/python/asyncio/README.md) | 🟡 1/1 ✅ | 1 | Event Loop, Coroutines, Tasks, gather, TaskGroup, Threads, Processes, Semaphores |
 | [🧵 Threading](../tech/python/threading/README.md) | 🟡 1/1 ✅ | 1 | Manual Threads, ThreadPoolExecutor, submit vs map, I/O-bound vs CPU-bound |
