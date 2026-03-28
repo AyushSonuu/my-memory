@@ -205,6 +205,24 @@ Giving the LLM access to **functions** it can **request to call** when it needs 
 **2 of 3.** check_calendar (find slots) → make_appointment (book 3 PM with Alice). Skipped delete_appointment — wasn't needed. LLM selects only what's relevant.
 </details>
 
+<details>
+<summary>❓ What is aisuite and how does it handle tool creation?</summary>
+
+Open source library (co-created by Andrew Ng) — unified interface for multiple LLM providers. Pass `tools=[your_function]` → aisuite **auto-generates JSON schema** from function name + docstring + parameters. Also handles the execute-and-feed-back loop inside one `client.chat.completions.create()` call.
+</details>
+
+<details>
+<summary>❓ Why are docstrings critical for tool use?</summary>
+
+The docstring IS the tool's description to the LLM — it reads it to decide when/how to call the function. Bad docstring = bad tool decisions. Write it like a resume: clear, specific, with parameter format examples. Docstring = tool ka resume! 📄
+</details>
+
+<details>
+<summary>❓ What does aisuite extract from your function to build the JSON schema?</summary>
+
+Three things: (1) **name** from `def function_name`, (2) **description** from the docstring, (3) **parameters** from the function signature + docstring. The LLM sees this schema, not your actual code.
+</details>
+
 ---
 
 ### 🛠️ Module 4 — Practical Tips
