@@ -116,6 +116,7 @@ graph TD
 | **M1** | 07 — Evals | Intro to evals + error analysis | Objective (competitor name check), Subjective (1-5 scale), Error Analysis, End-to-End vs Component |
 | **M2** | 04 — Evaluating Reflection | Ground truth dataset, LLM-as-Judge pitfalls | Objective (SQL correctness), Rubric-based grading, Position bias warning |
 | **M2** | 05 — External Feedback | Tools that create eval-like feedback | Code execution (errors), Regex (pattern match), Web search (fact-check), Word count |
+| **M3** | 04 — Code Execution | Code errors as external feedback for reflection | Reflection + code execution = retry loop with error messages. Code execution IS the eval in real-time! |
 | **M4** | _TBD — Practical Tips_ | Advanced eval techniques, cost/latency optimization | _Coming soon_ |
 
 ---

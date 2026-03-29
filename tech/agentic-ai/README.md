@@ -46,6 +46,11 @@ graph LR
 > - External feedback (code errors, web search, regex) breaks the performance plateau
 > - LLM pair comparison is unreliable (position bias!) — use binary rubric instead
 > - 3 tiers: Direct generation < Reflection < Reflection + External Feedback
+> - Tools = functions LLM CHOOSES to call at runtime (not hard-coded)
+> - aisuite auto-generates JSON schema from docstring — docstring is the tool's resume
+> - Code execution = THE meta-tool. One tool to rule them all
+> - MCP turns M×N integrations into M+N — USB port for LLMs
+> - Andrew Ng's team had an agent run `rm *.py` — always sandbox!
 
 ---
 
@@ -80,4 +85,4 @@ graph LR
 
 ## 30-Second Recall 🧠
 
-> Agentic AI = LLMs that don't just respond, they **act**. Four design patterns: **Reflection** (self-critique loop → external feedback makes it 10x better), **Tool Use** (connect to external world), **Planning** (break tasks into steps), **Multi-Agent** (specialized agents collaborating). Reflection is the simplest pattern: generate v1 → critique → v2. Use different models for generation vs critique. Always **eval** with ground truth (objective) or binary rubrics (subjective) — NOT pair comparison (position bias!). The secret sauce? **Evals + Error Analysis** — that's what separates good builders from great ones.
+> Agentic AI = LLMs that don't just respond, they **act**. Four design patterns: **Reflection** (self-critique loop → external feedback breaks the plateau), **Tool Use** (LLM chooses functions at runtime — aisuite auto-schemas from docstrings, code execution is the meta-tool, MCP standardizes M×N→M+N), **Planning** (break tasks into steps), **Multi-Agent** (specialized agents collaborating). Always **eval** with ground truth (objective) or binary rubrics (subjective) — NOT pair comparison (position bias!). The secret sauce? **Evals + Error Analysis** — that's what separates good builders from great ones.

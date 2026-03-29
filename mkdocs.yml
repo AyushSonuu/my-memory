@@ -196,7 +196,18 @@ nav:
         - Ungraded Lab 1 · Chart Reflection: tech/agentic-ai/module-2-reflection/code/M2/ungraded_labs/M2_UGL_1/M2_UGL_1.ipynb
         - Ungraded Lab 2 · SQL Reflection: tech/agentic-ai/module-2-reflection/code/M2/ungraded_labs/M2_UGL_2/M2_UGL_2.ipynb
         - Graded Lab · Research Agent: tech/agentic-ai/module-2-reflection/code/M2/graded_labs/research-agent/GL-M2.ipynb
-    - Module 3 · Tool Use: tech/agentic-ai/module-3-tool-use/README.md
+    - Module 3 · Tool Use:
+      - Overview: tech/agentic-ai/module-3-tool-use/README.md
+      - 01 · What Are Tools: tech/agentic-ai/module-3-tool-use/01-what-are-tools.md
+      - 02 · Creating a Tool: tech/agentic-ai/module-3-tool-use/02-creating-a-tool.md
+      - 03 · Tool Syntax: tech/agentic-ai/module-3-tool-use/03-tool-syntax.md
+      - 04 · Code Execution: tech/agentic-ai/module-3-tool-use/04-code-execution.md
+      - 05 · MCP: tech/agentic-ai/module-3-tool-use/05-mcp.md
+      - 🃏 Flashcards: tech/agentic-ai/module-3-tool-use/flashcards.md
+      - 💻 Code Labs:
+        - Ungraded Lab 1 · Tool Functions: tech/agentic-ai/module-3-tool-use/code/M3/ungraded_labs/M3_UGL_1/M3_UGL_1.ipynb
+        - Ungraded Lab 2 · Email Assistant: tech/agentic-ai/module-3-tool-use/code/M3/ungraded_labs/M3_UGL_2/M3_UGL_2.ipynb
+        - Graded Lab · Research Agent: tech/agentic-ai/module-3-tool-use/code/M3/graded_labs/research_agent/GL-M3.ipynb
     - Module 4 · Practical Tips: tech/agentic-ai/module-4-practical-tips/README.md
     - Module 5 · Autonomous Agents: tech/agentic-ai/module-5-autonomous-agents/README.md
     - Resources:
