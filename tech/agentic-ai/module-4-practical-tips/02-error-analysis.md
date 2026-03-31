@@ -107,24 +107,70 @@ User Query
 └──────────────────┘
 ```
 
-**Trace example for "Recent black hole science":**
+### Looking at Traces — Black Hole Example
 
-| Step | Output Seen | Expert Verdict |
-|------|------------|----------------|
-| Search terms | "Black hole theories Einstein", "Event Horizon Telescope Radio", "New physics black holes" | ✅ Reasonable — similar to what a human would use |
-| Web search results | astrokidnews.com, spaceblog2000.com, spacefunnews.com | ❌ Too many blogs/popular press, not enough scientific papers |
-| 5 best sources | Astro Kid News, SpaceBot2000, Space Fun News... | ⚠️ Not great — but that's because the inputs were all bad. Can't blame this step for bad raw material. |
+The query: *"Write an essay on recent developments in black hole science"*
 
-> 💡 **Important: If a step's INPUT was already garbage, and it did the best it could with that garbage, don't blame that step. Blame the step that produced the garbage input! 🗑️**
+```
+┌───────────────────────────────────────────────────────────────────┐
+│  TRACE (full run)                                                 │
+│                                                                   │
+│  SPAN 1 — Search Terms Generated:                                 │
+│  ├── "Black hole theories Einstein"                               │
+│  ├── "Event horizon telescope radio"                              │
+│  ├── "New physics black holes"                                    │
+│  └── "Galaxies black holes origins"                               │
+│       → Expert verdict: ✅ Reasonable, similar to what I'd search │
+│                                                                   │
+│  SPAN 2 — Search Results Returned:                                │
+│  ├── "Elementary school student cracks 30-year black hole         │
+│  │    mystery" — https://astrokidnews.com                         │
+│  └── (other low-quality blog results...)                          │
+│       → Expert verdict: ❌ Too many blogs, not enough papers      │
+│                                                                   │
+│  SPAN 3 — Fetched Content:                                        │
+│  └── "Bob Lee, in his yard, saw a bright light in the sky..."     │
+│       from astrokidnews.com                                       │
+│       → Expert verdict: ❌ Not scientific content at all           │
+│                                                                   │
+│  SPAN 4 — 5 Best Sources Picked:                                  │
+│  ├── astrokidnews.com                                             │
+│  ├── spaceblog2000.com                                            │
+│  ├── spacefunnews.com                                             │
+│  └── astronautme.com                                              │
+│       → Expert verdict: ⚠️ Bad picks, BUT the input pool was     │
+│         all low-quality. Can't blame this step.                   │
+└───────────────────────────────────────────────────────────────────┘
+```
 
-**Spreadsheet counts (across many examples):**
+> 💡 **Agar input hi kachra tha, toh output bhi kachra aayega — step ki galti nahi hai. Upar wale step ko blame karo! 🗑️**
 
-| Component | Error Rate |
-|-----------|:----------:|
-| Search Terms | 5% |
-| Search Results | **45%** ← 🎯 FIX THIS |
-| Picking 5 Best Sources | 10% |
-| Essay Writing | — |
+---
+
+### The Error Analysis Spreadsheet
+
+This is the **exact spreadsheet Andrew builds on screen** — go through each failing example, mark which component had the issue, then count up:
+
+| Prompt | Search Terms | Search Results | Picking 5 Best Sources |
+|--------|:------------:|:--------------:|:----------------------:|
+| Recent developments in black hole science | | ❌ Too many blog posts, not enough papers | ❌ Website for elementary school students |
+| Renting vs buying a home in Seattle | | ❌ Missed well-known blog | |
+| Robotics for harvesting fruit | ❌ Terms too generic | | ❌ Only selected US-based companies |
+| Batteries for electric vehicles | | ❌ Missed magazine | |
+| ... | ... | ... | ... |
+| **Error Rate** | **5%** | **45%** 🎯 | **10%** |
+
+**How to read this:**
+- Each row = one query that produced a bad final essay
+- Each cell = whether THAT component did poorly for THAT query (blank = fine)
+- Bottom row = percentage of failing examples where that component was the problem
+- **45% of the time, search results were the issue** → that's where to focus
+
+**Critical reasoning about the "Picking 5 best sources" column:**
+- For the black hole query, it picked an elementary school website — looks bad
+- BUT the search results it received were ALL low-quality blogs. It did the best it could with garbage input
+- So even though 10% shows errors, some of those may actually be **upstream search result failures cascading down**
+- Always check: is this step truly at fault, or was it doomed by bad input?
 
 **Conclusion:** Web search engine is the bottleneck. Try a different search engine or tune search parameters.
 
