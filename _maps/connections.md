@@ -24,6 +24,11 @@ graph LR
 
 | Date | Connection | How I Found It |
 |------|-----------|----------------|
+| 2026-03-31 | M4 Evals → M2 Evals deepened | M2 introduced basic eval concepts (objective + rubric). M4 goes much deeper: 2×2 framework, error analysis, component evals (M4/01) |
+| 2026-03-31 | Error Analysis → Observability (traces/spans) | Terminology from computer observability literature adopted for agentic AI debugging (M4/02) |
+| 2026-03-31 | Component Evals → Information Retrieval (F1 score) | Using IR metrics (F1 score, gold standard matching) to evaluate individual agentic components like web search (M4/04) |
+| 2026-03-31 | Model Intelligence → Instruction Following | Larger frontier models (GPT-5) vastly outperform smaller ones (Llama 8B) at following complex multi-step instructions — PII redaction example (M4/05) |
+| 2026-03-31 | aisuite → Model Swapping | aisuite not just for tool creation — also makes it easy to swap models for A/B comparison during error analysis (M4/05) |
 | 2026-03-28 | Tool Use → Code Execution = meta-tool | One tool replaces 50 individual ones; LLM writes code to solve anything (M3/04) |
 | 2026-03-28 | MCP → M×N to M+N | Standard protocol eliminates duplicate wrappers across apps (M3/05) |
 | 2026-03-28 | aisuite → docstring = tool schema | Auto JSON schema from function name + docstring + params (M3/02-03) |

@@ -1,31 +1,36 @@
 # 🔴 Where I'm Weak
 
 > Shows all topics/areas needing attention. Auto-maintained.
-> Last updated: 2026-03-29
+> Last updated: 2026-03-31
 
 ## Focus Areas
 
 | Topic | Weak Area | Suggestion | Priority |
 |-------|-----------|-----------|----------|
-| 🤖 Agentic AI | M1-M3 done, M4-M5 untouched (12 lessons left) | Start Module 4 — Practical Tips (Andrew says "most important module!") | 🔴 High |
-| 🧵 Threading | Learned 2026-03-24 — revision overdue since Mar 27 | Revise flashcards ASAP (2 days overdue!) | 🟡 Medium |
-| 🧠 Agent Memory | Learned 2026-03-21 — revision overdue since Mar 28 | Revise flashcards ASAP (1 day overdue!) | 🟡 Medium |
-| ⚡ AsyncIO | Learned 2026-03-21 — revision overdue since Mar 28 | Revise flashcards ASAP (1 day overdue!) | 🟡 Medium |
+| 🤖 Agentic AI | M1-M4 done, M5 untouched (5 lessons left) | Start Module 5 — Autonomous Agents (Planning + Multi-Agent) | 🔴 High |
+| 🧠 Agent Memory | Learned 2026-03-21 — revision overdue since Mar 28 | Revise flashcards ASAP (3 days overdue!) | 🟡 Medium |
 
 ## 🔴 Red Topics
 
 | Topic | Status | Next Step |
 |-------|--------|-----------|
-| 🤖 Agentic AI | M1-M3 complete (18/30), M4-M5 = 0 | Send Module 4 transcripts → build notes |
+| 🤖 Agentic AI | M1-M4 complete (25/30), M5 = 0 | Send Module 5 transcripts → build notes |
+
+## ✅ Caught Up
+
+| Topic | Status | Next Revision |
+|-------|--------|---------------|
+| 🧵 Threading | Revised 2026-03-31 | 2026-04-07 |
+| ⚡ AsyncIO | Revised 2026-03-31 | 2026-04-14 |
 
 ## 📅 Overdue & Upcoming Revisions
 
 | Topic | Due Date | Status |
 |-------|----------|--------|
-| 🧵 Threading | 2026-03-27 | ⚠️ Overdue by 2 days |
-| 🧠 Agent Memory | 2026-03-28 | ⚠️ Overdue by 1 day |
-| ⚡ AsyncIO | 2026-03-28 | ⚠️ Overdue by 1 day |
-| 🤖 Agentic AI | 2026-03-31 | Due in 2 days |
+| 🧠 Agent Memory | 2026-03-28 | ⚠️ Overdue by 3 days |
+| 🤖 Agentic AI | 2026-03-31 | 📋 Due today |
+| 🧵 Threading | 2026-04-07 | Coming up |
+| ⚡ AsyncIO | 2026-04-14 | Coming up |
 
 ---
 

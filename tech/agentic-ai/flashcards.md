@@ -1,7 +1,7 @@
 # 🃏 Agentic AI Flashcards
 
 > From: agentic-ai/ + related: agent-memory/
-> Last updated: 2026-03-25
+> Last updated: 2026-03-31
 
 ---
 
@@ -259,7 +259,61 @@ Your app can be a client, a server, or both!
 
 ### 🛠️ Module 4 — Practical Tips
 
-_Coming after Module 4 notes._
+<details>
+<summary>❓ What's the 2×2 eval framework?</summary>
+
+Two axes: (1) **Code-based vs LLM-as-judge**, (2) **Per-example ground truth vs no ground truth**.
+
+| | Per-Example GT | No Per-Example GT |
+|---|---|---|
+| **Code** | Invoice date extraction | Marketing copy length |
+| **LLM Judge** | Research talking points | Chart rubric grading |
+</details>
+
+<details>
+<summary>❓ What's the error analysis process?</summary>
+
+1. Collect only failing examples
+2. Read traces (intermediate outputs of each step)
+3. Build a spreadsheet — mark errors per component per example
+4. Count error rates → fix the worst offender (if you have fix ideas)
+
+`Priority = Error Rate × Fixability`
+</details>
+
+<details>
+<summary>❓ Why should you NOT go by gut feeling?</summary>
+
+Andrew Ng: gut feeling "leads to months of work with very little progress." The spreadsheet gives you data. Invoice example: most teams would fix PDF parser (15% errors), but the real problem was LLM extraction (87%).
+</details>
+
+<details>
+<summary>❓ What's the difference between end-to-end and component-level evals?</summary>
+
+**End-to-end:** Test entire pipeline (expensive, noisy from other components' randomness).
+**Component-level:** Test one component in isolation (fast, clear signal). Use gold standard + F1 score. Always confirm improvements with E2E eval afterward.
+</details>
+
+<details>
+<summary>❓ What order should you try when fixing an LLM component?</summary>
+
+1. **Improve prompts** (explicit instructions, few-shot) — cheapest
+2. **Try a different model** — use evals to compare
+3. **Split the step** — decompose complex call into smaller ones
+4. **Fine-tune** — last resort, for mature apps at 90-95% needing 99%
+</details>
+
+<details>
+<summary>❓ Quality vs latency vs cost — what's the priority?</summary>
+
+**Quality first → Latency second → Cost third.** High-quality outputs are the hardest part. Optimize speed/cost only after the system works well.
+</details>
+
+<details>
+<summary>❓ What separates experienced from less experienced agentic AI teams?</summary>
+
+Time spent on **analysis**. Less experienced teams spend most time building. Experienced teams balance building + analyzing equally (error analysis, evals, trace reading). Building ↔ Analyzing is a constant back-and-forth cycle.
+</details>
 
 ---
 

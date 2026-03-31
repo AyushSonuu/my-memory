@@ -51,6 +51,18 @@ graph LR
 > - Code execution = THE meta-tool. One tool to rule them all
 > - MCP turns M×N integrations into M+N — USB port for LLMs
 > - Andrew Ng's team had an agent run `rm *.py` — always sandbox!
+> - 2×2 eval framework: code/LLM-judge × per-example/no ground truth — the mental model
+> - Error analysis spreadsheet: count errors per component, don't trust your gut!
+> - Invoice example: teams would fix PDF parser (15%), but real problem was LLM extraction (87%)
+> - Customer email: 75% query errors, 30% email errors, only 4% database — data always surprises
+> - Error percentages are NOT mutually exclusive — one example can have multiple failing components
+> - Priority = Error Rate × Fixability — high errors but no fix ideas? Skip for now
+> - Component evals = faster feedback loop. Gold standard + F1 score. Confirm with E2E eval
+> - LLM fix order: prompt → model swap → split step → fine-tune (last resort, expensive)
+> - Larger models >> smaller at instruction following (PII example: Llama 8B failed, GPT-5 nailed it)
+> - Read other people's prompts — Andrew downloads open-source packages to read their prompts!
+> - Quality > Latency > Cost — "having high costs from high usage is a good problem to have"
+> - Build ↔ Analyze cycle — less experienced teams over-index on building, skip analysis
 
 ---
 
@@ -85,4 +97,4 @@ graph LR
 
 ## 30-Second Recall 🧠
 
-> Agentic AI = LLMs that don't just respond, they **act**. Four design patterns: **Reflection** (self-critique loop → external feedback breaks the plateau), **Tool Use** (LLM chooses functions at runtime — aisuite auto-schemas from docstrings, code execution is the meta-tool, MCP standardizes M×N→M+N), **Planning** (break tasks into steps), **Multi-Agent** (specialized agents collaborating). Always **eval** with ground truth (objective) or binary rubrics (subjective) — NOT pair comparison (position bias!). The secret sauce? **Evals + Error Analysis** — that's what separates good builders from great ones.
+> Agentic AI = LLMs that don't just respond, they **act**. Four design patterns: **Reflection** (self-critique loop → external feedback breaks the plateau), **Tool Use** (LLM chooses functions at runtime — aisuite auto-schemas from docstrings, code execution is the meta-tool, MCP standardizes M×N→M+N), **Planning** (break tasks into steps), **Multi-Agent** (specialized agents collaborating). Build quick → look at outputs → build evals (2×2: code/LLM-judge × ground truth) → error analysis spreadsheet (traces + spans, count per component, prioritize by error rate × fixability) → component-level evals (gold standard + F1) → fix (non-LLM: tune/replace; LLM: prompt→model→split→fine-tune) → optimize latency then cost. The secret sauce? **Build ↔ Analyze cycle** — that's what separates good builders from great ones.

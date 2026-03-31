@@ -19,17 +19,21 @@
 |-------|------|-----------|
 | 🤖 Agentic AI | First revision (Day 3) | [→ cards](../tech/agentic-ai/flashcards.md) |
 
+## 📝 New Content Created Today
+
+| Topic | Lessons | Details |
+|-------|---------|---------|
+| 🤖 Agentic AI M4 | 7/7 complete! | Evals, Error Analysis (×2), Component Evals, Addressing Problems, Latency/Cost, Dev Process Summary |
+
 ## Upcoming
 
 | Date | Topic | Type |
 |------|-------|------|
-| **2026-04-04** | 🧠 Agent Memory | Third revision (Day 14) |
-| **2026-04-07** | 🤖 Agentic AI | Second revision (Day 7) |
 | **2026-04-07** | 🧵 Threading | Second revision (Day 7) |
 | **2026-04-14** | ⚡ AsyncIO | Third revision (Day 14) |
 
 > 💡 Use flashcards for revision:
-> - [Agentic AI flashcards](../tech/agentic-ai/flashcards.md) · [Module 1](../tech/agentic-ai/module-1-intro/flashcards.md) · [Module 2](../tech/agentic-ai/module-2-reflection/flashcards.md) · [Module 3](../tech/agentic-ai/module-3-tool-use/flashcards.md)
+> - [Agentic AI flashcards](../tech/agentic-ai/flashcards.md) · [Module 1](../tech/agentic-ai/module-1-intro/flashcards.md) · [Module 2](../tech/agentic-ai/module-2-reflection/flashcards.md) · [Module 3](../tech/agentic-ai/module-3-tool-use/flashcards.md) · [Module 4](../tech/agentic-ai/module-4-practical-tips/flashcards.md)
 > - [Agent Memory flashcards](../tech/agent-memory/flashcards.md)
 > - [AsyncIO flashcards](../tech/python/asyncio/flashcards.md)
 > - [Threading flashcards](../tech/python/threading/flashcards.md)
