@@ -71,35 +71,41 @@ Select **10-100 invoices where the due date was wrong**, then check each compone
 
 ### The Workflow
 
+**3 Steps** (from course slides):
+1. Extract key information
+2. Find relevant customer records
+3. Draft response for human review
+
 ```
-┌─────────────────────────┐
-│  Customer Email          │
-│                          │
-│  From: Susan Jones       │
-│  Subject: Wrong item     │
-│                          │
-│  "I ordered a blue       │
-│   KitchenPro blender     │
-│   (Order #8847) but      │
-│   received a red toaster │
-│   instead."              │
-└────────────┬────────────┘
-             ▼
-┌─────────────────────────┐
-│  Step 1: LLM writes     │
-│  database query          │──────▶  Orders DB
-│  (extract order details) │◀──────  (query results)
-└────────────┬────────────┘
-             ▼
-┌─────────────────────────┐
-│  Step 2: LLM drafts     │
-│  response email          │
-│  (for human review)      │
-└────────────┬────────────┘
-             ▼
-┌─────────────────────────┐
-│  Human reviews & sends   │
-└─────────────────────────┘
+┌─────────────────────────────┐
+│  Customer Email              │
+│                              │
+│  From: Susan Jones           │
+│  Subject: Wrong item shipped │
+│                              │
+│  "I ordered a blue KitchenPro│
+│   blender (Order #8847) but  │
+│   received a red toaster     │
+│   instead. I need the blender│
+│   for my daughter's birthday │
+│   party this weekend.        │
+│   Can you help? — Susan"     │
+└──────────────┬──────────────┘
+               ▼
+┌──────────────────────────────┐
+│  LLM: Verify order details   │
+│  (writes database query)     │──────▶  Orders DB
+│                              │◀──────  (query results)
+└──────────────┬──────────────┘
+               ▼
+┌──────────────────────────────┐
+│  LLM: Draft response,       │
+│  request review              │
+└──────────────┬──────────────┘
+               ▼
+┌──────────────────────────────┐
+│  Human reviews & sends       │
+└──────────────────────────────┘
 ```
 
 **Three possible failure points:**
