@@ -3,7 +3,7 @@
 ---
 
 ## 🎯 One Line
-> Error analysis = **look at what broke at each step (traces), count where failures cluster, fix the worst offender first** — because gut feeling ki jagah data se decide karo kahan focus karein! 📊
+> Error analysis = **look at what broke at each step (traces), count where failures cluster, then fix the worst offender first** — data-driven prioritization, not gut feeling.
 
 ---
 
@@ -32,12 +32,12 @@ graph LR
 
 ## 🧱 Key Concepts
 
-| Term | Kya hai | Real-world analogy |
-|------|---------|-------------------|
-| **Trace** | The full set of intermediate outputs from ALL steps of one agent run | Doctor ki full case file — har test ka result |
-| **Span** | Output of a **single step** in the trace | Ek blood test ka result (part of the full file) |
-| **Error Analysis** | Systematically counting which step failed, across many examples | School mein har subject ke marks gino — pata chalega kahan fail ho rahe ho |
-| **Error Mode** | A category of failure that repeats across examples (e.g., "misses key points") | Exam mein baar baar calculation mistakes → Math weak hai |
+| Term | What It Is | Analogy |
+|------|-----------|---------|
+| **Trace** | The full set of intermediate outputs from ALL steps of one agent run | A patient's complete medical case file — every test result |
+| **Span** | Output of a **single step** in the trace | One blood test result (part of the full file) |
+| **Error Analysis** | Systematically counting which step failed, across many examples | Checking subject-wise marks to find which subject you're failing |
+| **Error Mode** | A category of failure that repeats across examples (e.g., "misses key points") | Getting calculation wrong in every exam → math is weak |
 
 > 💡 **Trace = crime scene investigation. Har step ka output = clue. Tum detective ho. 🕵️**
 
