@@ -31,7 +31,7 @@ graph LR
 | 01 | [Intro to Agentic Workflows](module-1-intro/) | 8/8 ✅ | 🟡 | — |
 | 02 | [Reflection Design Pattern](module-2-reflection/) | 5/5 ✅ | 🟡 | — |
 | 03 | [Tool Use](module-3-tool-use/) | 5/5 ✅ | 🟡 | — |
-| 04 | [Practical Tips](module-4-practical-tips/) | 2/7 | 🔴 | — |
+| 04 | [Practical Tips](module-4-practical-tips/) | 3/7 | 🔴 | — |
 | 05 | [Autonomous Agents](module-5-autonomous-agents/) | 0/5 | 🔴 | — |
 
 ## 🧩 Memory Fragments
