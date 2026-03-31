@@ -13,7 +13,7 @@
 | 03 | [More Error Analysis Examples](03-more-error-analysis.md) | 🟡 | 2026-03-31 |
 | 04 | [Component-Level Evals](04-component-level-evals.md) | 🟡 | 2026-03-31 |
 | 05 | [How to Address Problems](05-addressing-problems.md) | 🟡 | 2026-03-31 |
-| 06 | [Latency & Cost Optimization](06-latency-cost.md) | 🔴 | — |
+| 06 | [Latency & Cost Optimization](06-latency-cost.md) | 🟡 | 2026-03-31 |
 | 07 | [Development Process Summary](07-dev-process-summary.md) | 🔴 | — |
 
 ---
