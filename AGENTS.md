@@ -322,8 +322,9 @@ These touch global files — do them at END of a learning session, not after eve
 | **`index.html`** (root) | **REMOVED** — now using MkDocs Material. |
 | **`docs/` folder** | Auto-generated. Run `.venv/bin/python build_docs.py` to rebuild. Deploy via GitHub Pages (Settings → Pages → Source: main, folder: /docs). |
 | **`mkdocs.yml`** | Update `nav:` section when adding new topics/lessons. |
+| **Docs rebuild** | Update `mkdocs.yml` nav (if new pages) → run `.venv/bin/python build_docs.py` → commit & push. See [Docs Site](#docs-site-after-git-push) for nav patterns. |
 
-**Why two tiers?** Rewriting 8 global files on every small edit wastes tokens and slows you down. Topic-level files = always. Global views = batched.
+**Why two tiers?** Rewriting 8 global files on every small edit wastes tokens and slows you down. Topic-level files = always. Global views + docs rebuild = batched.
 
 ### 🚨 SCALING RULES (for when vault grows past ~25 topics)
 
@@ -375,16 +376,18 @@ Schedule: Day 1 → Day 3 → Day 7 → Day 14 → Day 30 → Day 90
 
 ### Quick Sync Checklist
 ```
-EVERY edit:
+EVERY edit (Tier 1):
   ☐ Topic README updated
   ☐ Topic flashcards updated  
   ☐ Parent flashcards updated (if nested)
   ☐ _revision/tracker.json updated
 
-End of session / when asked:
+End of session / when asked (Tier 2):
   ☐ _maps/* rebuilt
   ☐ Category + Root READMEs updated
   ☐ _revision/due-today.md regenerated
+  ☐ mkdocs.yml nav updated (if new pages added)
+  ☐ Docs rebuilt (.venv/bin/python build_docs.py) & pushed
 ```
 
 ## Git (EVERY time, after all syncs done)
@@ -393,9 +396,9 @@ git add -A && git commit -m "{emoji} {action}: {topic} — {brief}" && git push 
 ```
 Emojis: 🆕 new topic | 📝 update existing | 🃏 flashcards | 🗺️ maps | 🔄 revision | 🔗 connections
 
-## Docs Site (after git push)
+## Docs Site (part of Tier 2 — rebuild at end of session)
 The vault is published via **MkDocs Material** (LangChain-style docs).
-After adding/updating any lesson, code, or topic:
+After adding/updating any lesson, code, or topic (batched with Tier 2 sync):
 
 ### Step 1: Update `mkdocs.yml` nav
 Add new pages manually to the `nav:` section. Follow these patterns:
