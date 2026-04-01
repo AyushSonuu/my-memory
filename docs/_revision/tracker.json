@@ -9,10 +9,10 @@
   },
   "tech/python/asyncio": {
     "firstLearned": "2026-03-21",
-    "lastRevised": "2026-03-24",
-    "nextRevision": "2026-03-28",
+    "lastRevised": "2026-03-31",
+    "nextRevision": "2026-04-14",
     "confidence": "yellow",
-    "revisionCount": 1,
+    "revisionCount": 2,
     "lessonsCompleted": 1
   },
   "tech/agentic-ai": {
@@ -21,14 +21,14 @@
     "nextRevision": "2026-03-31",
     "confidence": "red",
     "revisionCount": 0,
-    "lessonsCompleted": 18
+    "lessonsCompleted": 25
   },
   "tech/python/threading": {
     "firstLearned": "2026-03-24",
-    "lastRevised": "2026-03-24",
-    "nextRevision": "2026-03-27",
+    "lastRevised": "2026-03-31",
+    "nextRevision": "2026-04-07",
     "confidence": "yellow",
-    "revisionCount": 0,
+    "revisionCount": 1,
     "lessonsCompleted": 1
   }
 }
