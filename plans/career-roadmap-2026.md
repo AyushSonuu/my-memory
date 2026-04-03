@@ -7,7 +7,7 @@
 
 ## Context
 
-- Working at SAP (joined ~Oct 2025, 6 months in)
+- Working at SAP (joined ~Nov 2025, 6 months in)
 - 2.5 years building GenAI + Agentic AI systems
 - Strong in: LLMs, RAG, Agentic AI, Evals, Python
 - Gaps to fill: DSA, System Design (LLD+HLD), Core AI theory (ML/DL/NLP), Public Speaking
