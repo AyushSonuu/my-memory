@@ -118,6 +118,9 @@ nav:
     - 📅 Timeline: _maps/learning-journey.md
     - 🎯 Weak Spots: _maps/weak-spots.md
     - 📋 Due Today: _revision/due-today.md
+    - 📋 Plans:
+      - plans/README.md
+      - 🗺️ Career Roadmap 2026-27: plans/career-roadmap-2026.md
 
   - 🧠 Agent Memory:
     - tech/agent-memory/README.md
@@ -168,10 +171,6 @@ nav:
         - 04_thread_pool_submit.py: _generated/tech/python/threading/code/L1/04_thread_pool_submit.md
         - 05_thread_pool_map.py: _generated/tech/python/threading/code/L1/05_thread_pool_map.md
         - 06_download_images.py: _generated/tech/python/threading/code/L1/06_download_images.md
-
-  - 📋 Plans:
-    - plans/README.md
-    - 🗺️ Career Roadmap 2026-27: plans/career-roadmap-2026.md
 
   - 🤖 Agentic AI:
     - tech/agentic-ai/README.md
