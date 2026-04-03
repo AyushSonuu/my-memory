@@ -108,6 +108,7 @@ extra_css:
 
 extra_javascript:
   - _assets/mermaid-zoom.js
+  - _assets/interactive-checkboxes.js
 
 nav:
   - 🏠 Home:
@@ -119,8 +120,13 @@ nav:
     - 🎯 Weak Spots: _maps/weak-spots.md
     - 📋 Due Today: _revision/due-today.md
     - 📋 Plans:
-      - plans/README.md
-      - 🗺️ Career Roadmap 2026-27: plans/career-roadmap-2026.md
+      - 🎯 Roadmap: plans/roadmap.md
+      - 🔢 DSA Tracker: plans/dsa-tracker.md
+      - 🏗️ LLD Tracker: plans/lld-tracker.md
+      - 📖 HLD Tracker: plans/hld-tracker.md
+      - 🤖 AI Courses: plans/ai-courses-tracker.md
+      - 🎤 Speaking: plans/speaking-tracker.md
+      - 📅 Weekly Reviews: plans/weekly-reviews.md
 
   - 🧠 Agent Memory:
     - tech/agent-memory/README.md
