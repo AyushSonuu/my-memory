@@ -169,6 +169,10 @@ nav:
         - 05_thread_pool_map.py: _generated/tech/python/threading/code/L1/05_thread_pool_map.md
         - 06_download_images.py: _generated/tech/python/threading/code/L1/06_download_images.md
 
+  - 📋 Plans:
+    - plans/README.md
+    - 🗺️ Career Roadmap 2026-27: plans/career-roadmap-2026.md
+
   - 🤖 Agentic AI:
     - tech/agentic-ai/README.md
     - Module 1 · Intro:
