@@ -1,69 +1,87 @@
 # 🤖 AI Courses Tracker
 
 > **Platform:** DeepLearning.AI
-> **Goal:** 3 mandatory courses + PyTorch cert if time permits
+> **Goal:** 3 mandatory courses + PyTorch cert (if time)
 
 ---
 
-## 📊 Progress
-
-<div id="ai-track">
-
-### Mandatory (P0)
-
-- [ ] **RAG Course** — Retrieval Augmented Generation
-    - [ ] Started
-    - [ ] All videos watched
-    - [ ] Notes in vault (`tech/rag/`)
-    - [ ] Flashcards written
-    - [ ] Certificate earned
-
-- [ ] **Generative AI with LLMs** (with AWS, ~1 month)
-    - [ ] Week 1: LLM lifecycle, transformer architecture
-    - [ ] Week 2: Fine-tuning, PEFT, LoRA
-    - [ ] Week 3: RLHF, scaling laws
-    - [ ] Week 4: Deployment, optimization
-    - [ ] Notes in vault (`tech/genai-with-llms/`)
-    - [ ] Flashcards written
-    - [ ] Certificate earned
-
-- [ ] **NLP Specialization** (4 courses, ~4 months)
-    - [ ] Course 1: Classification & Vector Spaces
-    - [ ] Course 2: Probabilistic Models
-    - [ ] Course 3: Sequence Models
-    - [ ] Course 4: Attention Models (T5, BERT, Transformers)
-    - [ ] Notes in vault (`tech/nlp/`)
-    - [ ] All flashcards written
-    - [ ] Certificate earned
-
-### Stretch (P1 — if time permits)
-
-- [ ] **PyTorch for Deep Learning Professional Certificate**
-    - [ ] Started
-    - [ ] Completed
-    - [ ] Certificate earned
-
-- [ ] Fine-tuning short courses (various)
-    - [ ] Identified which courses to take
-    - [ ] Completed at least 2
-
-</div>
+## 📊 Progress: `0 / 3 mandatory` · `0 / 4 total`
 
 ---
 
 ## 📅 Timeline
 
-| Course | Start | Target Complete |
-|--------|-------|----------------|
-| RAG Course | Apr 2026 | Apr 2026 |
-| GenAI with LLMs | May 2026 | May 2026 |
-| NLP Spec Course 1 | Jun 2026 | Jul 2026 |
-| NLP Spec Course 2 | Jul 2026 | Aug 2026 |
-| NLP Spec Course 3 | Aug 2026 | Sep 2026 |
-| NLP Spec Course 4 | Sep 2026 | Oct 2026 |
-| PyTorch Cert | Nov 2026 | Jan 2027 |
+| Course | Start | Target | Duration | Status |
+|--------|-------|--------|----------|--------|
+| RAG Course | Apr 2026 | Apr 2026 | ~2 weeks | 🔴 |
+| GenAI with LLMs | May 2026 | Jun 2026 | ~1 month | 🔴 |
+| NLP Specialization | Jun 2026 | Oct 2026 | ~4 months | 🔴 |
+| PyTorch Professional Cert | Nov 2026 | Jan 2027 | ~3 months | ⏳ Stretch |
+
+---
+
+## 📚 Course Details
+
+### 1. Retrieval Augmented Generation (P0)
+
+| Milestone | Status |
+|-----------|--------|
+| Started | ☐ |
+| All videos watched | ☐ |
+| Notes in vault (`tech/rag/`) | ☐ |
+| Flashcards written | ☐ |
+| Certificate earned | ☐ |
+
+### 2. Generative AI with LLMs — with AWS (P0)
+
+| Week | Topics | Status |
+|------|--------|--------|
+| Week 1 | LLM lifecycle · Transformer architecture | ☐ |
+| Week 2 | Fine-tuning · PEFT · LoRA | ☐ |
+| Week 3 | RLHF · Scaling laws | ☐ |
+| Week 4 | Deployment · Optimization | ☐ |
+
+| Milestone | Status |
+|-----------|--------|
+| Notes in vault (`tech/genai-with-llms/`) | ☐ |
+| Flashcards written | ☐ |
+| Certificate earned | ☐ |
+
+### 3. NLP Specialization — 4 Courses (P0)
+
+| # | Course | Key Topics | Status |
+|---|--------|-----------|--------|
+| 1 | Classification & Vector Spaces | Logistic Regression · Naive Bayes · Word Vectors | ☐ |
+| 2 | Probabilistic Models | HMMs · Autocorrect · POS Tagging · Word Embeddings | ☐ |
+| 3 | Sequence Models | RNNs · LSTMs · GRUs · Siamese Networks | ☐ |
+| 4 | Attention Models | Transformer · T5 · BERT · Hugging Face | ☐ |
+
+| Milestone | Status |
+|-----------|--------|
+| Notes in vault (`tech/nlp/`) | ☐ |
+| All flashcards written | ☐ |
+| Certificate earned | ☐ |
+
+### 4. PyTorch Professional Certificate (Stretch)
+
+| Milestone | Status |
+|-----------|--------|
+| Started | ☐ |
+| Completed | ☐ |
+| Certificate earned | ☐ |
+
+---
+
+## 🏆 Boss Fights
+
+| Month | Boss Challenge | Cleared? |
+|-------|--------------|----------|
+| Apr | Explain RAG pipeline end-to-end (retriever → generator → answer) in 2 min | ☐ |
+| Jun | Explain the full LLM lifecycle: pre-train → fine-tune → RLHF → deploy | ☐ |
+| Aug | Implement a basic transformer attention mechanism from scratch (pseudocode) | ☐ |
+| Oct | Explain BERT vs GPT vs T5 architectures, when to use each | ☐ |
 
 ---
 
 !!! warning "RULE"
-    AI courses are WEEKEND work. Don't let them eat into weekday DSA time. 2-3 hrs Saturday + 2 hrs Sunday = enough.
+    AI courses are WEEKEND work only. 2-3 hrs Saturday + 2 hrs Sunday. Don't let them eat into weekday DSA time.

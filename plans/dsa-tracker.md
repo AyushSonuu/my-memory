@@ -5,245 +5,79 @@
 
 ---
 
-## 🔥 Current Streak: 0 days
-
-## 📊 Monthly Progress
-
-<div id="dsa-monthly">
-
-### April 2026 — Arrays, Strings, HashMap (Target: 30 problems)
-
-- [ ] Two Sum
-- [ ] Best Time to Buy and Sell Stock
-- [ ] Contains Duplicate
-- [ ] Maximum Subarray (Kadane's)
-- [ ] Product of Array Except Self
-- [ ] 3Sum
-- [ ] Container With Most Water
-- [ ] Longest Substring Without Repeating Characters
-- [ ] Valid Anagram
-- [ ] Group Anagrams
-- [ ] Longest Consecutive Sequence
-- [ ] Top K Frequent Elements
-- [ ] Valid Palindrome
-- [ ] Encode and Decode Strings
-- [ ] Minimum Window Substring
-- [ ] Sliding Window Maximum
-- [ ] Trapping Rain Water
-- [ ] Two Sum II (Sorted Array)
-- [ ] Merge Sorted Array
-- [ ] Move Zeroes
-- [ ] Remove Duplicates from Sorted Array
-- [ ] Rotate Array
-- [ ] Find Missing Number
-- [ ] Majority Element
-- [ ] Maximum Product Subarray
-- [ ] Find Minimum in Rotated Sorted Array
-- [ ] Search in Rotated Sorted Array
-- [ ] Next Permutation
-- [ ] Set Matrix Zeroes
-- [ ] Spiral Matrix
-
-### May 2026 — Linked Lists, Stacks, Queues (Target: 30 problems)
-
-- [ ] Reverse Linked List
-- [ ] Merge Two Sorted Lists
-- [ ] Linked List Cycle
-- [ ] Remove Nth Node From End
-- [ ] Reorder List
-- [ ] Add Two Numbers
-- [ ] Copy List with Random Pointer
-- [ ] Find the Duplicate Number
-- [ ] LRU Cache
-- [ ] Merge K Sorted Lists
-- [ ] Valid Parentheses
-- [ ] Min Stack
-- [ ] Daily Temperatures
-- [ ] Car Fleet
-- [ ] Largest Rectangle in Histogram
-- [ ] Evaluate Reverse Polish Notation
-- [ ] Generate Parentheses
-- [ ] Implement Queue using Stacks
-- [ ] Implement Stack using Queues
-- [ ] Next Greater Element I
-- [ ] Next Greater Element II
-- [ ] Simplify Path
-- [ ] Decode String
-- [ ] Asteroid Collision
-- [ ] Online Stock Span
-- [ ] Maximum Frequency Stack
-- [ ] Flatten Nested List Iterator
-- [ ] Basic Calculator
-- [ ] Palindrome Linked List
-- [ ] Intersection of Two Linked Lists
-
-### June 2026 — Trees, Binary Search (Target: 30 problems)
-
-- [ ] Invert Binary Tree
-- [ ] Maximum Depth of Binary Tree
-- [ ] Same Tree
-- [ ] Subtree of Another Tree
-- [ ] Binary Tree Level Order Traversal
-- [ ] Validate BST
-- [ ] Kth Smallest Element in BST
-- [ ] Lowest Common Ancestor of BST
-- [ ] Construct Binary Tree from Preorder and Inorder
-- [ ] Binary Tree Maximum Path Sum
-- [ ] Serialize and Deserialize Binary Tree
-- [ ] Binary Search
-- [ ] Search a 2D Matrix
-- [ ] Koko Eating Bananas
-- [ ] Median of Two Sorted Arrays
-- [ ] Time Based Key-Value Store
-- [ ] Diameter of Binary Tree
-- [ ] Balanced Binary Tree
-- [ ] Count Good Nodes in Binary Tree
-- [ ] Binary Tree Right Side View
-- [ ] Word Search II (Trie)
-- [ ] Implement Trie
-- [ ] Design Add and Search Words
-- [ ] Find Median from Data Stream
-- [ ] Merge Intervals
-- [ ] Insert Interval
-- [ ] Non-overlapping Intervals
-- [ ] Meeting Rooms
-- [ ] Meeting Rooms II
-- [ ] Minimum Interval to Include Each Query
-
-### July 2026 — Graphs, BFS/DFS, Backtracking (Target: 30 problems)
-
-- [ ] Number of Islands
-- [ ] Clone Graph
-- [ ] Course Schedule
-- [ ] Course Schedule II
-- [ ] Pacific Atlantic Water Flow
-- [ ] Graph Valid Tree
-- [ ] Number of Connected Components
-- [ ] Surrounded Regions
-- [ ] Rotting Oranges
-- [ ] Redundant Connection
-- [ ] Word Ladder
-- [ ] Alien Dictionary
-- [ ] Cheapest Flights Within K Stops
-- [ ] Network Delay Time
-- [ ] Min Cost to Connect All Points
-- [ ] Swim in Rising Water
-- [ ] Subsets
-- [ ] Combination Sum
-- [ ] Combination Sum II
-- [ ] Permutations
-- [ ] Word Search
-- [ ] Palindrome Partitioning
-- [ ] Letter Combinations of Phone Number
-- [ ] N-Queens
-- [ ] Subsets II
-- [ ] Target Sum
-- [ ] Partition Equal Subset Sum
-- [ ] Detect Cycle in Directed Graph
-- [ ] Topological Sort
-- [ ] Dijkstra's Algorithm
-
-### August 2026 — Dynamic Programming (Target: 30 problems)
-
-- [ ] Climbing Stairs
-- [ ] House Robber
-- [ ] House Robber II
-- [ ] Longest Palindromic Substring
-- [ ] Palindromic Substrings
-- [ ] Decode Ways
-- [ ] Coin Change
-- [ ] Maximum Product Subarray
-- [ ] Word Break
-- [ ] Longest Increasing Subsequence
-- [ ] Unique Paths
-- [ ] Longest Common Subsequence
-- [ ] 0/1 Knapsack
-- [ ] Unbounded Knapsack
-- [ ] Edit Distance
-- [ ] Distinct Subsequences
-- [ ] Interleaving String
-- [ ] Longest Increasing Path in Matrix
-- [ ] Burst Balloons
-- [ ] Regular Expression Matching
-- [ ] Minimum Path Sum
-- [ ] Triangle
-- [ ] Best Time to Buy and Sell Stock with Cooldown
-- [ ] Partition Equal Subset Sum
-- [ ] Matrix Chain Multiplication
-- [ ] Egg Drop Problem
-- [ ] Rod Cutting
-- [ ] Fibonacci (Tabulation vs Memoization)
-- [ ] Jump Game
-- [ ] Jump Game II
-
-### September 2026 — Greedy, Advanced Topics (Target: 30 problems)
-
-- [ ] Maximum Subarray (Greedy)
-- [ ] Jump Game (Greedy)
-- [ ] Gas Station
-- [ ] Hand of Straights
-- [ ] Merge Triplets to Form Target
-- [ ] Partition Labels
-- [ ] Valid Parenthesis String
-- [ ] Task Scheduler
-- [ ] Activity Selection
-- [ ] Fractional Knapsack
-- [ ] Job Sequencing
-- [ ] Minimum Platforms
-- [ ] Huffman Coding
-- [ ] Bit Manipulation basics (10 problems)
-- [ ] Single Number
-- [ ] Number of 1 Bits
-- [ ] Counting Bits
-- [ ] Reverse Bits
-- [ ] Missing Number
-- [ ] Sum of Two Integers
-- [ ] Segment Tree (basics)
-- [ ] Binary Indexed Tree (Fenwick)
-- [ ] Trie advanced problems
-- [ ] Monotonic Stack problems (5)
-- [ ] Sliding Window advanced (5)
-- [ ] Two Pointer advanced (5)
-- [ ] String matching (KMP/Rabin-Karp)
-- [ ] Union Find (Disjoint Set)
-- [ ] Minimum Spanning Tree (Prim/Kruskal)
-- [ ] Floyd-Warshall / Bellman-Ford
-
-### October-December 2026 — Mock Interviews + Hard Problems
-
-- [ ] Mock interview 1 (2 mediums, 45 min)
-- [ ] Mock interview 2
-- [ ] Mock interview 3
-- [ ] Mock interview 4
-- [ ] Mock interview 5
-- [ ] 10 Hard problems from LeetCode
-- [ ] Codeforces/LeetCode contest participation (5 contests)
-- [ ] System Design interview mock (LLD)
-- [ ] System Design interview mock (HLD)
-- [ ] Full mock interview (DSA + System Design + Behavioral)
-
-</div>
+## 🔥 Streak: `0 days` · Problems Solved: `0 / 200`
 
 ---
 
-## 📈 Topic Confidence
+## 📅 Monthly Roadmap
 
-| Topic | Problems | Confidence | Notes |
-|-------|----------|-----------|-------|
-| Arrays | 0 | 🔴 | — |
-| Strings | 0 | 🔴 | — |
-| HashMap/Set | 0 | 🔴 | — |
-| Linked Lists | 0 | 🔴 | — |
-| Stacks/Queues | 0 | 🔴 | — |
-| Trees/BST | 0 | 🔴 | — |
-| Binary Search | 0 | 🔴 | — |
-| Graphs | 0 | 🔴 | — |
-| DP | 0 | 🔴 | — |
-| Backtracking | 0 | 🔴 | — |
-| Greedy | 0 | 🔴 | — |
-| Tries | 0 | 🔴 | — |
-| Bit Manipulation | 0 | 🔴 | — |
-| Advanced (Segment Tree, etc.) | 0 | 🔴 | — |
+### ⚡ Q2 — Foundation Sprint
+
+| Month | Topics | Target | Solved | Status |
+|-------|--------|--------|--------|--------|
+| **Apr** | Arrays · Strings · HashMap · Two Pointers · Sliding Window | 30 | 0 | 🔴 |
+| **May** | Linked Lists · Stacks · Queues · Monotonic Stack | 30 | 0 | 🔴 |
+| **Jun** | Trees · BST · Binary Search · Intervals · Trie | 30 | 0 | 🔴 |
+
+### 🔥 Q3 — Deep Build
+
+| Month | Topics | Target | Solved | Status |
+|-------|--------|--------|--------|--------|
+| **Jul** | Graphs · BFS/DFS · Topological Sort · Backtracking | 30 | 0 | 🔴 |
+| **Aug** | Dynamic Programming · Knapsack · LIS · LCS · MCM | 30 | 0 | 🔴 |
+| **Sep** | Greedy · Bit Manipulation · Segment Tree · Union Find | 30 | 0 | 🔴 |
+
+### 🎯 Q4 — Interview Ready
+
+| Month | Topics | Target | Solved | Status |
+|-------|--------|--------|--------|--------|
+| **Oct** | Hard Problems · Mixed Topics · Contests | 20 | 0 | 🔴 |
+| **Nov** | Mock Interviews · Timed Practice | — | 0 | 🔴 |
+| **Dec** | Speed Drills · Edge Cases · Final Push | — | 0 | 🔴 |
+
+---
+
+## 🧠 Topic Mastery
+
+| Topic | Key Patterns | Confidence | Problems |
+|-------|-------------|-----------|----------|
+| **Arrays** | Kadane's, Prefix Sum, Dutch Flag | 🔴 | 0 |
+| **Strings** | Sliding Window, Two Pointer, Hashing | 🔴 | 0 |
+| **HashMap / Set** | Frequency Count, Anagram, Group By | 🔴 | 0 |
+| **Two Pointers** | Sorted arrays, 3Sum, Container | 🔴 | 0 |
+| **Sliding Window** | Fixed/Variable window, Minimum Window | 🔴 | 0 |
+| **Linked Lists** | Reverse, Cycle, Merge, Fast-Slow | 🔴 | 0 |
+| **Stacks** | Monotonic, Next Greater, Valid Parens | 🔴 | 0 |
+| **Queues** | BFS, Deque, Priority Queue | 🔴 | 0 |
+| **Trees / BST** | DFS, BFS, Inorder, LCA, Validate | 🔴 | 0 |
+| **Binary Search** | Sorted arrays, Search space, Bounds | 🔴 | 0 |
+| **Tries** | Prefix search, Word dictionary | 🔴 | 0 |
+| **Intervals** | Merge, Insert, Overlap, Sweep Line | 🔴 | 0 |
+| **Graphs** | BFS, DFS, Cycle detection, Components | 🔴 | 0 |
+| **Topological Sort** | Course Schedule, Alien Dictionary | 🔴 | 0 |
+| **Shortest Path** | Dijkstra, Bellman-Ford, Floyd-Warshall | 🔴 | 0 |
+| **Backtracking** | Subsets, Permutations, N-Queens | 🔴 | 0 |
+| **DP — 1D** | Climbing Stairs, House Robber, Decode | 🔴 | 0 |
+| **DP — 2D** | LCS, Edit Distance, Unique Paths | 🔴 | 0 |
+| **DP — Knapsack** | 0/1, Unbounded, Subset Sum | 🔴 | 0 |
+| **Greedy** | Activity Selection, Gas Station, Jump | 🔴 | 0 |
+| **Bit Manipulation** | XOR tricks, Single Number, Counting | 🔴 | 0 |
+| **Union Find** | Connected Components, MST | 🔴 | 0 |
+| **Segment Tree** | Range queries, Lazy propagation | 🔴 | 0 |
+
+---
+
+## 🏆 Boss Fights (Monthly Skill Check)
+
+| Month | Boss Challenge | Cleared? |
+|-------|--------------|----------|
+| Apr | Solve any easy Array/String in < 15 min | ☐ |
+| May | Reverse a linked list + implement Min Stack from memory | ☐ |
+| Jun | Solve a medium Tree/BST problem with no hints | ☐ |
+| Jul | BFS/DFS any graph + solve a backtracking problem | ☐ |
+| Aug | Solve a medium DP in 30 min | ☐ |
+| Sep | Solve 2 random mediums back-to-back in 50 min | ☐ |
+| Oct | Full mock: 2 mediums in 45 min (pass) | ☐ |
 
 ---
 
