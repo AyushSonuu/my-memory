@@ -8,6 +8,7 @@ graph TB
     T --> AG["🤖 Agentic AI"]
     T --> AM["🧠 Agent Memory"]
     T --> PY["🐍 Python"]
+    T --> SD["🏗️ System Design"]
     
     AG --> M1["Module 1 · Intro ✅"]
     AG --> M2["Module 2 · Reflection ✅"]
@@ -20,8 +21,12 @@ graph TB
     PY --> AIO["⚡ AsyncIO ✅"]
     PY --> THR["🧵 Threading ✅"]
 
+    SD --> LLD["📐 LLD (0/40) 🔴"]
+    SD --> HLD["📊 HLD (planned)"]
+
     AG -.->|"builds on"| AM
     THR -.->|"vs"| AIO
+    LLD -.->|"design patterns<br/>apply to"| AG
 ```
 
 ## Topics Detail
