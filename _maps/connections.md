@@ -18,12 +18,20 @@ graph LR
     AM -.-|"future"| LC["🔗 LangChain"]
     AIO -.-|"future"| FAPI["🚀 FastAPI"]
     THR -.-|"future"| MP["⚙️ Multiprocessing"]
+    AG ---|"M5: planning<br/>builds on"| TU["🔧 Tool Use (M3)"]
+    AG ---|"code as plan"| CE["💻 Code Exec (M3)"]
+    AG ---|"manager reflects"| REF["🪞 Reflection (M2)"]
 ```
 
 ## 🆕 Recently Discovered Connections
 
 | Date | Connection | How I Found It |
 |------|-----------|----------------|
+| 2026-04-03 | Planning → Tool Use (builds on) | Planning adds a multi-step plan LAYER on top of tool use — same tools, but LLM decides the sequence (M5/01) |
+| 2026-04-03 | Planning → Code Execution (code as plan) | Code > JSON > Text for plan format. LLM writes Python as its plan — thousands of functions vs handful of custom tools. Wang et al. 2024 confirms (M5/03) |
+| 2026-04-03 | Multi-Agent → Planning | Manager agent uses planning to coordinate workers. Same mechanism but tools (green) replaced with agents (purple) (M5/04) |
+| 2026-04-03 | Multi-Agent → Reflection | Manager agent can reflect on final output before delivering — reflection pattern inside multi-agent workflows (M5/04) |
+| 2026-04-03 | Multi-Agent → Org Design | Communication patterns (linear, hierarchical, all-to-all) mirror human org charts — same design problem (M5/05) |
 | 2026-03-31 | M4 Evals → M2 Evals deepened | M2 introduced basic eval concepts (objective + rubric). M4 goes much deeper: 2×2 framework, error analysis, component evals (M4/01) |
 | 2026-03-31 | Error Analysis → Observability (traces/spans) | Terminology from computer observability literature adopted for agentic AI debugging (M4/02) |
 | 2026-03-31 | Component Evals → Information Retrieval (F1 score) | Using IR metrics (F1 score, gold standard matching) to evaluate individual agentic components like web search (M4/04) |

@@ -220,7 +220,14 @@ nav:
       - 🃏 Flashcards: tech/agentic-ai/module-4-practical-tips/flashcards.md
       - 💻 Code Lab:
         - Ungraded Lab 1 · Evals: tech/agentic-ai/module-4-practical-tips/code/M4_UGL_1.ipynb
-    - Module 5 · Autonomous Agents: tech/agentic-ai/module-5-autonomous-agents/README.md
+    - Module 5 · Autonomous Agents:
+      - Overview: tech/agentic-ai/module-5-autonomous-agents/README.md
+      - 01 · Planning Workflows: tech/agentic-ai/module-5-autonomous-agents/01-planning-workflows.md
+      - 02 · Creating & Executing LLM Plans: tech/agentic-ai/module-5-autonomous-agents/02-llm-plans.md
+      - 03 · Planning with Code Execution: tech/agentic-ai/module-5-autonomous-agents/03-planning-code-execution.md
+      - 04 · Multi-Agentic Workflows: tech/agentic-ai/module-5-autonomous-agents/04-multi-agent.md
+      - 05 · Communication Patterns: tech/agentic-ai/module-5-autonomous-agents/05-communication-patterns.md
+      - 🃏 Flashcards: tech/agentic-ai/module-5-autonomous-agents/flashcards.md
     - Resources:
       - 🃏 Flashcards: tech/agentic-ai/flashcards.md
       - 📋 Cheatsheet: tech/agentic-ai/cheatsheet.md

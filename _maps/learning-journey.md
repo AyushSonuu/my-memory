@@ -28,7 +28,7 @@ gantt
     M2 · Reflection (5/5 ✅)    :done, m2, 2026-03-26, 3d
     M3 · Tool Use (5/5 ✅)      :done, m3, 2026-03-28, 1d
     M4 · Practical Tips (7/7 ✅) :done, m4, 2026-03-31, 1d
-    M5 · Autonomous Agents      :active, m5, 2026-04-01, 5d
+    M5 · Autonomous Agents (5/5 ✅) :done, m5, 2026-04-03, 1d
 ```
 
 ## 📈 Monthly Stats
@@ -36,6 +36,7 @@ gantt
 | Month | Topics Started | Lessons Created | Flashcards Added |
 |-------|---------------|----------------|-----------------|
 | Mar 2026 | 4 (Agent Memory, AsyncIO, Threading, Agentic AI) | 25 | 120+ |
+| Apr 2026 | 0 (continued Agentic AI M5) | 5 | 20+ |
 
 ## 🏆 Milestones
 
@@ -54,6 +55,9 @@ gantt
 | 2026-03-31 | 🛠️ Agentic AI Module 4 COMPLETE! 7/7 lessons (evals, error analysis, component evals, latency/cost) |
 | 2026-03-31 | 🔄 Threading + AsyncIO revised (caught up on overdue revisions) |
 | 2026-03-31 | 📊 25 lessons total — 83% of Agentic AI course done! |
+| 2026-04-03 | 🏆 Agentic AI Module 5 COMPLETE! 5/5 lessons (planning, JSON/code plans, multi-agent, communication patterns) |
+| 2026-04-03 | 🎓 AGENTIC AI COURSE COMPLETE! 30/30 lessons across all 5 modules! |
+| 2026-04-03 | 📊 30 lessons total · 140+ flashcards · 4 topics covered |
 
 ---
 

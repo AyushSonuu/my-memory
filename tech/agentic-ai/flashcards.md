@@ -1,7 +1,7 @@
 # 🃏 Agentic AI Flashcards
 
 > From: agentic-ai/ + related: agent-memory/
-> Last updated: 2026-03-31
+> Last updated: 2026-04-03
 
 ---
 
@@ -319,7 +319,44 @@ Time spent on **analysis**. Less experienced teams spend most time building. Exp
 
 ### 🧠 Module 5 — Planning & Multi-Agent
 
-_Coming after Module 5 notes._
+<details>
+<summary>❓ What is the planning design pattern?</summary>
+
+Don't hard-code tool sequences — give the LLM tools + "return a step-by-step plan." LLM writes its own plan, then executes step by step, chaining outputs. Same tools, different queries → different plans automatically.
+</details>
+
+<details>
+<summary>❓ Rank plan formats by reliability.</summary>
+
+**Code > JSON > XML > Markdown > Plain text.** Code is the most precise (just execute it). JSON is the most popular structured format — `json.loads()` and loop. Research (Wang et al. 2024) confirms: Code > JSON > Text across multiple models.
+</details>
+
+<details>
+<summary>❓ Why is code execution better than custom tools for data analysis?</summary>
+
+Custom tools = **brittle treadmill** (24+ steps for "which month had highest hot chocolate sales", plus new tools for every new query type). Code execution = LLM writes Python + pandas → thousands of functions it already knows → any query, no new tools needed. Tools = limited menu. Code = entire kitchen! 🍳
+</details>
+
+<details>
+<summary>❓ How do you build an individual agent?</summary>
+
+Agent = **LLM prompted with a role + given specific tools**. Researcher = LLM + "You are a research agent..." + web_search. Designer = LLM + image_generation. Writer = LLM + no extra tools (text gen is native). Different prompts + different tools = different agents.
+</details>
+
+<details>
+<summary>❓ What are the two most common multi-agent communication patterns?</summary>
+
+1. **Linear** — A → B → C (relay race, sequential)
+2. **Hierarchical** — Manager coordinates team (hub-and-spoke)
+
+These two cover most production use cases. Deeper hierarchies and all-to-all exist but are harder to control.
+</details>
+
+<details>
+<summary>❓ In the manager-coordinated pattern, is the manager an agent too?</summary>
+
+**Yes!** It's the 4th agent. The manager plans, delegates to workers (researcher, designer, writer), collects results, and can reflect/improve output. Same as planning with tools, but green boxes (tools) replaced with purple boxes (agents).
+</details>
 
 ---
 

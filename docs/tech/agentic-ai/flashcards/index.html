@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://ayushsonuu.github.io/my-memory/tech/agentic-ai/flashcards/">
       
       
-        <link rel="prev" href="../module-5-autonomous-agents/">
+        <link rel="prev" href="../module-5-autonomous-agents/flashcards/">
       
       
         <link rel="next" href="../cheatsheet/">
@@ -3894,9 +3894,42 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../module-5-autonomous-agents/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../module-5-autonomous-agents/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -3910,7 +3943,199 @@
   
   
 
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Module 5 · Autonomous Agents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-5-autonomous-agents/01-planning-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Planning Workflows
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-5-autonomous-agents/02-llm-plans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Creating & Executing LLM Plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-5-autonomous-agents/03-planning-code-execution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Planning with Code Execution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-5-autonomous-agents/04-multi-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Multi-Agentic Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-5-autonomous-agents/05-communication-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Communication Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-5-autonomous-agents/flashcards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🃏 Flashcards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -4300,7 +4525,7 @@
 <h1 id="agentic-ai-flashcards">🃏 Agentic AI Flashcards<a class="headerlink" href="#agentic-ai-flashcards" title="Permanent link">#</a></h1>
 <blockquote>
 <p>From: agentic-ai/ + related: agent-memory/
-Last updated: 2026-03-31</p>
+Last updated: 2026-04-03</p>
 </blockquote>
 <hr />
 <h3 id="core-agentic-ai">📌 Core Agentic AI<a class="headerlink" href="#core-agentic-ai" title="Permanent link">#</a></h3>
@@ -4608,7 +4833,45 @@ Time spent on **analysis**. Less experienced teams spend most time building. Exp
 
 <hr />
 <h3 id="module-5-planning-multi-agent">🧠 Module 5 — Planning &amp; Multi-Agent<a class="headerlink" href="#module-5-planning-multi-agent" title="Permanent link">#</a></h3>
-<p><em>Coming after Module 5 notes.</em></p>
+<details>
+<summary>❓ What is the planning design pattern?</summary>
+
+Don't hard-code tool sequences — give the LLM tools + "return a step-by-step plan." LLM writes its own plan, then executes step by step, chaining outputs. Same tools, different queries → different plans automatically.
+</details>
+
+<details>
+<summary>❓ Rank plan formats by reliability.</summary>
+
+**Code > JSON > XML > Markdown > Plain text.** Code is the most precise (just execute it). JSON is the most popular structured format — `json.loads()` and loop. Research (Wang et al. 2024) confirms: Code > JSON > Text across multiple models.
+</details>
+
+<details>
+<summary>❓ Why is code execution better than custom tools for data analysis?</summary>
+
+Custom tools = **brittle treadmill** (24+ steps for "which month had highest hot chocolate sales", plus new tools for every new query type). Code execution = LLM writes Python + pandas → thousands of functions it already knows → any query, no new tools needed. Tools = limited menu. Code = entire kitchen! 🍳
+</details>
+
+<details>
+<summary>❓ How do you build an individual agent?</summary>
+
+Agent = **LLM prompted with a role + given specific tools**. Researcher = LLM + "You are a research agent..." + web_search. Designer = LLM + image_generation. Writer = LLM + no extra tools (text gen is native). Different prompts + different tools = different agents.
+</details>
+
+<details>
+<summary>❓ What are the two most common multi-agent communication patterns?</summary>
+
+1. **Linear** — A → B → C (relay race, sequential)
+2. **Hierarchical** — Manager coordinates team (hub-and-spoke)
+
+These two cover most production use cases. Deeper hierarchies and all-to-all exist but are harder to control.
+</details>
+
+<details>
+<summary>❓ In the manager-coordinated pattern, is the manager an agent too?</summary>
+
+**Yes!** It's the 4th agent. The manager plans, delegates to workers (researcher, designer, writer), collects results, and can reflect/improve output. Same as planning with tools, but green boxes (tools) replaced with purple boxes (agents).
+</details>
+
 <hr />
 <h3 id="from-agent-memory">🔗 From: Agent Memory<a class="headerlink" href="#from-agent-memory" title="Permanent link">#</a></h3>
 <details>
@@ -4667,7 +4930,7 @@ Bolke batao — padhke nahi, bolke yaad hota hai! 🗣️</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../module-5-autonomous-agents/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Module 5 · Autonomous Agents">
+          <a href="../module-5-autonomous-agents/flashcards/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 🃏 Flashcards">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -4677,7 +4940,7 @@ Bolke batao — padhke nahi, bolke yaad hota hai! 🗣️</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Module 5 · Autonomous Agents
+                🃏 Flashcards
               </div>
             </div>
           </a>

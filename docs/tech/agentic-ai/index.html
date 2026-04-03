@@ -3894,9 +3894,42 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="module-5-autonomous-agents/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="module-5-autonomous-agents/" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
@@ -3910,7 +3943,199 @@
   
   
 
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Module 5 · Autonomous Agents
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="module-5-autonomous-agents/01-planning-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Planning Workflows
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="module-5-autonomous-agents/02-llm-plans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Creating & Executing LLM Plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="module-5-autonomous-agents/03-planning-code-execution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Planning with Code Execution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="module-5-autonomous-agents/04-multi-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Multi-Agentic Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="module-5-autonomous-agents/05-communication-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Communication Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="module-5-autonomous-agents/flashcards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🃏 Flashcards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -4213,8 +4438,8 @@
 <tr>
 <td>05</td>
 <td><a href="module-5-autonomous-agents/">Autonomous Agents</a></td>
-<td>0/5</td>
-<td>🔴</td>
+<td>5/5 ✅</td>
+<td>🟡</td>
 <td>—</td>
 </tr>
 </tbody>
@@ -4250,6 +4475,15 @@
 <li>Read other people's prompts — Andrew downloads open-source packages to read their prompts!</li>
 <li>Quality &gt; Latency &gt; Cost — "having high costs from high usage is a good problem to have"</li>
 <li>Build ↔ Analyze cycle — less experienced teams over-index on building, skip analysis</li>
+<li>Planning agent = don't hard-code tool sequences, let LLM write its own plan</li>
+<li>JSON plan format: step number + description + tool + args = parseable by code</li>
+<li>Code as plan &gt; JSON plan &gt; text plan (Wang et al. 2024) — code is most unambiguous</li>
+<li>Tool-based data analysis = brittle treadmill of new tools. Code execution = just write pandas</li>
+<li>Multi-agent = same LLM, different prompts + tools. Value is in decomposition, not multiple AIs</li>
+<li>Agent = LLM prompted with role + given tools (researcher = LLM + web_search)</li>
+<li>Manager agent = 4th agent that plans + delegates + reflects. Planning with agents instead of tools</li>
+<li>Two most common patterns: Linear (relay) + Hierarchical (manager + team)</li>
+<li>All-to-all communication = experimental, chaotic, hard to predict — re-run if output isn't good</li>
 </ul>
 </blockquote>
 <hr />
@@ -4318,7 +4552,7 @@
 </blockquote>
 <h2 id="30-second-recall">30-Second Recall 🧠<a class="headerlink" href="#30-second-recall" title="Permanent link">#</a></h2>
 <blockquote>
-<p>Agentic AI = LLMs that don't just respond, they <strong>act</strong>. Four design patterns: <strong>Reflection</strong> (self-critique loop → external feedback breaks the plateau), <strong>Tool Use</strong> (LLM chooses functions at runtime — aisuite auto-schemas from docstrings, code execution is the meta-tool, MCP standardizes M×N→M+N), <strong>Planning</strong> (break tasks into steps), <strong>Multi-Agent</strong> (specialized agents collaborating). Build quick → look at outputs → build evals (2×2: code/LLM-judge × ground truth) → error analysis spreadsheet (traces + spans, count per component, prioritize by error rate × fixability) → component-level evals (gold standard + F1) → fix (non-LLM: tune/replace; LLM: prompt→model→split→fine-tune) → optimize latency then cost. The secret sauce? <strong>Build ↔ Analyze cycle</strong> — that's what separates good builders from great ones.</p>
+<p>Agentic AI = LLMs that don't just respond, they <strong>act</strong>. Four design patterns: <strong>Reflection</strong> (self-critique loop → external feedback breaks the plateau), <strong>Tool Use</strong> (LLM chooses functions at runtime — aisuite auto-schemas from docstrings, code execution is the meta-tool, MCP standardizes M×N→M+N), <strong>Planning</strong> (LLM writes its own step-by-step plan in JSON/code → executes one step at a time; code &gt; JSON &gt; text for plan format; code execution = thousands of built-in functions vs handful of custom tools), <strong>Multi-Agent</strong> (specialized agents collaborating — each agent = prompted LLM + role-specific tools; two main patterns: Linear relay + Hierarchical manager; deeper hierarchies and all-to-all exist but are harder to control). Build quick → look at outputs → build evals (2×2: code/LLM-judge × ground truth) → error analysis spreadsheet (traces + spans, count per component, prioritize by error rate × fixability) → component-level evals (gold standard + F1) → fix (non-LLM: tune/replace; LLM: prompt→model→split→fine-tune) → optimize latency then cost. The secret sauce? <strong>Build ↔ Analyze cycle</strong> — that's what separates good builders from great ones.</p>
 </blockquote>
 
 

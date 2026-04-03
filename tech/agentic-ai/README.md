@@ -32,7 +32,7 @@ graph LR
 | 02 | [Reflection Design Pattern](module-2-reflection/) | 5/5 ✅ | 🟡 | — |
 | 03 | [Tool Use](module-3-tool-use/) | 5/5 ✅ | 🟡 | — |
 | 04 | [Practical Tips](module-4-practical-tips/) | 7/7 ✅ | 🟡 | — |
-| 05 | [Autonomous Agents](module-5-autonomous-agents/) | 0/5 | 🔴 | — |
+| 05 | [Autonomous Agents](module-5-autonomous-agents/) | 5/5 ✅ | 🟡 | — |
 
 ## 🧩 Memory Fragments
 
@@ -63,6 +63,15 @@ graph LR
 > - Read other people's prompts — Andrew downloads open-source packages to read their prompts!
 > - Quality > Latency > Cost — "having high costs from high usage is a good problem to have"
 > - Build ↔ Analyze cycle — less experienced teams over-index on building, skip analysis
+> - Planning agent = don't hard-code tool sequences, let LLM write its own plan
+> - JSON plan format: step number + description + tool + args = parseable by code
+> - Code as plan > JSON plan > text plan (Wang et al. 2024) — code is most unambiguous
+> - Tool-based data analysis = brittle treadmill of new tools. Code execution = just write pandas
+> - Multi-agent = same LLM, different prompts + tools. Value is in decomposition, not multiple AIs
+> - Agent = LLM prompted with role + given tools (researcher = LLM + web_search)
+> - Manager agent = 4th agent that plans + delegates + reflects. Planning with agents instead of tools
+> - Two most common patterns: Linear (relay) + Hierarchical (manager + team)
+> - All-to-all communication = experimental, chaotic, hard to predict — re-run if output isn't good
 
 ---
 
@@ -97,4 +106,4 @@ graph LR
 
 ## 30-Second Recall 🧠
 
-> Agentic AI = LLMs that don't just respond, they **act**. Four design patterns: **Reflection** (self-critique loop → external feedback breaks the plateau), **Tool Use** (LLM chooses functions at runtime — aisuite auto-schemas from docstrings, code execution is the meta-tool, MCP standardizes M×N→M+N), **Planning** (break tasks into steps), **Multi-Agent** (specialized agents collaborating). Build quick → look at outputs → build evals (2×2: code/LLM-judge × ground truth) → error analysis spreadsheet (traces + spans, count per component, prioritize by error rate × fixability) → component-level evals (gold standard + F1) → fix (non-LLM: tune/replace; LLM: prompt→model→split→fine-tune) → optimize latency then cost. The secret sauce? **Build ↔ Analyze cycle** — that's what separates good builders from great ones.
+> Agentic AI = LLMs that don't just respond, they **act**. Four design patterns: **Reflection** (self-critique loop → external feedback breaks the plateau), **Tool Use** (LLM chooses functions at runtime — aisuite auto-schemas from docstrings, code execution is the meta-tool, MCP standardizes M×N→M+N), **Planning** (LLM writes its own step-by-step plan in JSON/code → executes one step at a time; code > JSON > text for plan format; code execution = thousands of built-in functions vs handful of custom tools), **Multi-Agent** (specialized agents collaborating — each agent = prompted LLM + role-specific tools; two main patterns: Linear relay + Hierarchical manager; deeper hierarchies and all-to-all exist but are harder to control). Build quick → look at outputs → build evals (2×2: code/LLM-judge × ground truth) → error analysis spreadsheet (traces + spans, count per component, prioritize by error rate × fixability) → component-level evals (gold standard + F1) → fix (non-LLM: tune/replace; LLM: prompt→model→split→fine-tune) → optimize latency then cost. The secret sauce? **Build ↔ Analyze cycle** — that's what separates good builders from great ones.
