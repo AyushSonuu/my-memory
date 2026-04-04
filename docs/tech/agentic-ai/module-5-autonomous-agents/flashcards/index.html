@@ -6044,236 +6044,200 @@ Last updated: 2026-04-03</p>
 </blockquote>
 <hr />
 <h3 id="planning">📌 Planning<a class="headerlink" href="#planning" title="Permanent link">#</a></h3>
-<div class="flashcard-deck">
-<details class="flashcard">
-<summary>What is the planning design pattern?</summary>
-<p>Instead of hard-coding "call tool A → B → C", you give the LLM a set of tools + a prompt: "return a step-by-step plan." The LLM generates its own plan, then executes it one step at a time, chaining each step's output as context to the next.</p>
-<p>Hard-coded agent = train 🚂 (one track). Planning agent = taxi 🚕 (bolo kahaan, rasta khud nikalega)!</p>
+<details>
+<summary>❓ What is the planning design pattern?</summary>
+
+Instead of hard-coding "call tool A → B → C", you give the LLM a set of tools + a prompt: "return a step-by-step plan." The LLM generates its own plan, then executes it one step at a time, chaining each step's output as context to the next.
+
+Hard-coded agent = train 🚂 (one track). Planning agent = taxi 🚕 (bolo kahaan, rasta khud nikalega)!
 </details>
-<details class="flashcard">
-<summary>How does step chaining work in planning?</summary>
-<p>Step 1 text → LLM → executes → output. That output + Step 2 text → LLM → executes → output. That output + Step 3 text → LLM → and so on. Each step gets the <strong>cumulative context</strong> of all previous steps.</p>
+
+<details>
+<summary>❓ How does step chaining work in planning?</summary>
+
+Step 1 text → LLM → executes → output. That output + Step 2 text → LLM → executes → output. That output + Step 3 text → LLM → and so on. Each step gets the **cumulative context** of all previous steps.
 </details>
-<details class="flashcard">
-<summary>In the sunglasses example, the agent has 6 tools. How many does it use per query?</summary>
-<p><strong>Only 3!</strong> And different queries use different subsets:
+
+<details>
+<summary>❓ In the sunglasses example, the agent has 6 tools. How many does it use per query?</summary>
+
+**Only 3!** And different queries use different subsets:
 - "Round under $100?" → get_item_descriptions → check_inventory → get_item_price
-- "Return gold frame" → check_past_transactions → get_item_descriptions → process_item_return</p>
-<p>Same tools, completely different plans — that's the power of planning.</p>
+- "Return gold frame" → check_past_transactions → get_item_descriptions → process_item_return
+
+Same tools, completely different plans — that's the power of planning.
 </details>
-<details class="flashcard">
-<summary>What's the biggest challenge with planning?</summary>
-<p><strong>Control and predictability.</strong> You don't know what plan the LLM will generate at runtime. This makes the system harder to debug. That's why planning works great in agentic coding but is still growing in other domains.</p>
+
+<details>
+<summary>❓ What's the biggest challenge with planning?</summary>
+
+**Control and predictability.** You don't know what plan the LLM will generate at runtime. This makes the system harder to debug. That's why planning works great in agentic coding but is still growing in other domains.
 </details>
+
 <hr />
-</div>
 <h3 id="plan-formats">📌 Plan Formats<a class="headerlink" href="#plan-formats" title="Permanent link">#</a></h3>
-<div class="flashcard-deck">
-<details class="flashcard">
-<summary>Why format plans as JSON instead of plain text?</summary>
-<p>Code can't reliably parse plain text plans — "Find round sunglasses" doesn't tell code which tool or what args. JSON gives structured keys: <code>{"step": 1, "tool": "get_item_descriptions", "args": {"query": "round"}}</code> — just <code>json.loads()</code> and loop.</p>
+<details>
+<summary>❓ Why format plans as JSON instead of plain text?</summary>
+
+Code can't reliably parse plain text plans — "Find round sunglasses" doesn't tell code which tool or what args. JSON gives structured keys: `{"step": 1, "tool": "get_item_descriptions", "args": {"query": "round"}}` — just `json.loads()` and loop.
 </details>
-<details class="flashcard">
-<summary>What 4 fields should each step in a JSON plan have?</summary>
-<ol>
-<li><strong>step</strong> — number (ordering)</li>
-<li><strong>description</strong> — what this step does</li>
-<li><strong>tool</strong> — which tool to call</li>
-<li><strong>args</strong> — arguments to pass</li>
-</ol>
-<p>These give your code everything it needs to execute programmatically.</p>
+
+<details>
+<summary>❓ What 4 fields should each step in a JSON plan have?</summary>
+
+1. **step** — number (ordering)
+2. **description** — what this step does
+3. **tool** — which tool to call
+4. **args** — arguments to pass
+
+These give your code everything it needs to execute programmatically.
 </details>
-<details class="flashcard">
-<summary>Rank the plan formats by reliability.</summary>
-<table>
-<thead>
-<tr>
-<th>Rank</th>
-<th>Format</th>
-<th>Why</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>🥇</td>
-<td><strong>Code</strong></td>
-<td>Most precise — just execute it</td>
-</tr>
-<tr>
-<td>🥈</td>
-<td><strong>JSON</strong></td>
-<td>Standard parsers, clear keys</td>
-</tr>
-<tr>
-<td>🥉</td>
-<td><strong>XML</strong></td>
-<td>Good tags, slightly more verbose</td>
-</tr>
-<tr>
-<td>4th</td>
-<td><strong>Markdown</strong></td>
-<td>Needs custom parsing</td>
-</tr>
-<tr>
-<td>5th</td>
-<td><strong>Plain text</strong></td>
-<td>Regex/heuristics — least reliable</td>
-</tr>
-</tbody>
-</table>
-<p>Research (Wang et al. 2024): Code &gt; JSON &gt; Text across multiple models.</p>
+
+<details>
+<summary>❓ Rank the plan formats by reliability.</summary>
+
+| Rank | Format | Why |
+|------|--------|-----|
+| 🥇 | **Code** | Most precise — just execute it |
+| 🥈 | **JSON** | Standard parsers, clear keys |
+| 🥉 | **XML** | Good tags, slightly more verbose |
+| 4th | **Markdown** | Needs custom parsing |
+| 5th | **Plain text** | Regex/heuristics — least reliable |
+
+Research (Wang et al. 2024): Code > JSON > Text across multiple models.
 </details>
+
 <hr />
-</div>
 <h3 id="planning-with-code">📌 Planning with Code<a class="headerlink" href="#planning-with-code" title="Permanent link">#</a></h3>
-<div class="flashcard-deck">
-<details class="flashcard">
-<summary>Why is tool-based planning bad for data analysis?</summary>
-<p>Three problems: <strong>Brittle</strong> (query doesn't fit your limited tools), <strong>Inefficient</strong> ("which month had highest hot chocolate sales" = 24+ steps with filter_rows × 12 months), <strong>Edge case treadmill</strong> (every new query type = create a new tool, forever).</p>
+<details>
+<summary>❓ Why is tool-based planning bad for data analysis?</summary>
+
+Three problems: **Brittle** (query doesn't fit your limited tools), **Inefficient** ("which month had highest hot chocolate sales" = 24+ steps with filter_rows × 12 months), **Edge case treadmill** (every new query type = create a new tool, forever).
 </details>
-<details class="flashcard">
-<summary>How does "planning with code" solve the tool treadmill?</summary>
-<p>Prompt LLM: "Write Python code to solve this." Python + pandas = <strong>thousands</strong> of built-in functions the LLM already knows from training data. The code IS the plan — each step expressed as executable code. No new tools needed for new query types.</p>
-<p>Tools = limited menu card. Code = poore kitchen ka access! 🍳</p>
+
+<details>
+<summary>❓ How does "planning with code" solve the tool treadmill?</summary>
+
+Prompt LLM: "Write Python code to solve this." Python + pandas = **thousands** of built-in functions the LLM already knows from training data. The code IS the plan — each step expressed as executable code. No new tools needed for new query types.
+
+Tools = limited menu card. Code = poore kitchen ka access! 🍳
 </details>
-<details class="flashcard">
-<summary>What's the security caveat with code execution?</summary>
-<p>LLM-generated code could be buggy or malicious — run it in a <strong>sandbox</strong> (Docker, VM, E2B). Many devs skip the sandbox (not best practice). Same concern as Module 3's code execution lesson.</p>
+
+<details>
+<summary>❓ What's the security caveat with code execution?</summary>
+
+LLM-generated code could be buggy or malicious — run it in a **sandbox** (Docker, VM, E2B). Many devs skip the sandbox (not best practice). Same concern as Module 3's code execution lesson.
 </details>
-<details class="flashcard">
-<summary>When should you use tools vs code vs both?</summary>
-<table>
-<thead>
-<tr>
-<th>Scenario</th>
-<th>Use</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Data analysis, computation</td>
-<td>💻 Code execution</td>
-</tr>
-<tr>
-<td>Proprietary APIs, internal systems</td>
-<td>🔧 Custom tools</td>
-</tr>
-<tr>
-<td>Complex app with both</td>
-<td>🔀 Both!</td>
-</tr>
-</tbody>
-</table>
+
+<details>
+<summary>❓ When should you use tools vs code vs both?</summary>
+
+| Scenario | Use |
+|----------|-----|
+| Data analysis, computation | 💻 Code execution |
+| Proprietary APIs, internal systems | 🔧 Custom tools |
+| Complex app with both | 🔀 Both! |
 </details>
+
 <hr />
-</div>
 <h3 id="multi-agent">📌 Multi-Agent<a class="headerlink" href="#multi-agent" title="Permanent link">#</a></h3>
-<div class="flashcard-deck">
-<details class="flashcard">
-<summary>Why use multiple agents instead of one?</summary>
-<p>Same reason you hire a <strong>team</strong> instead of one person: complex tasks decompose naturally into roles. Each agent gets a focused prompt + relevant tools. Easier to design, build, test, and <strong>reuse</strong>.</p>
-<p>Also: like multiple processes on one CPU — decomposition makes the problem manageable.</p>
+<details>
+<summary>❓ Why use multiple agents instead of one?</summary>
+
+Same reason you hire a **team** instead of one person: complex tasks decompose naturally into roles. Each agent gets a focused prompt + relevant tools. Easier to design, build, test, and **reuse**.
+
+Also: like multiple processes on one CPU — decomposition makes the problem manageable.
 </details>
-<details class="flashcard">
-<summary>How do you BUILD an individual agent?</summary>
-<p>Agent = <strong>LLM prompted with a role</strong> + given <strong>specific tools</strong>. Example:
+
+<details>
+<summary>❓ How do you BUILD an individual agent?</summary>
+
+Agent = **LLM prompted with a role** + given **specific tools**. Example:
 - Researcher = LLM + "You are a research agent..." + web_search tool
 - Designer = LLM + "You are a graphic designer..." + image_generation + code_execution
-- Writer = LLM + "You are a writer..." + no extra tools (text gen is native)</p>
+- Writer = LLM + "You are a writer..." + no extra tools (text gen is native)
 </details>
-<details class="flashcard">
-<summary>What's the difference between planning with tools vs planning with agents?</summary>
-<p>Same mechanism, different building blocks:
-- Tools: LLM sees <code>[get_price, check_inventory]</code> → plans which function to call
-- Agents: LLM sees <code>[researcher, designer, writer]</code> → plans which agent to delegate to</p>
-<p>Green boxes (tools) → Purple boxes (agents). The planning logic is identical.</p>
+
+<details>
+<summary>❓ What's the difference between planning with tools vs planning with agents?</summary>
+
+Same mechanism, different building blocks:
+- Tools: LLM sees `[get_price, check_inventory]` → plans which function to call
+- Agents: LLM sees `[researcher, designer, writer]` → plans which agent to delegate to
+
+Green boxes (tools) → Purple boxes (agents). The planning logic is identical.
 </details>
-<details class="flashcard">
-<summary>In the manager-coordinated pattern, how many agents are there?</summary>
-<p><strong>Four!</strong> The manager is the 4th agent — it plans, delegates to the 3 workers (researcher, designer, writer), collects results, and can reflect/improve the output. The manager is not just an orchestrator — it's an LLM-based agent too.</p>
+
+<details>
+<summary>❓ In the manager-coordinated pattern, how many agents are there?</summary>
+
+**Four!** The manager is the 4th agent — it plans, delegates to the 3 workers (researcher, designer, writer), collects results, and can reflect/improve the output. The manager is not just an orchestrator — it's an LLM-based agent too.
 </details>
+
 <hr />
-</div>
 <h3 id="communication-patterns">📌 Communication Patterns<a class="headerlink" href="#communication-patterns" title="Permanent link">#</a></h3>
-<div class="flashcard-deck">
-<details class="flashcard">
-<summary>What are the two most common communication patterns?</summary>
-<ol>
-<li><strong>Linear</strong> — A → B → C (relay race, sequential)</li>
-<li><strong>Hierarchical</strong> — Manager coordinates team (hub-and-spoke)</li>
-</ol>
-<p>These two cover the vast majority of real-world multi-agent systems today.</p>
+<details>
+<summary>❓ What are the two most common communication patterns?</summary>
+
+1. **Linear** — A → B → C (relay race, sequential)
+2. **Hierarchical** — Manager coordinates team (hub-and-spoke)
+
+These two cover the vast majority of real-world multi-agent systems today.
 </details>
-<details class="flashcard">
-<summary>What's a deeper hierarchy look like?</summary>
-<p>Manager → Researcher, Designer, Writer. But:
+
+<details>
+<summary>❓ What's a deeper hierarchy look like?</summary>
+
+Manager → Researcher, Designer, Writer. But:
 - Researcher → Web Researcher + Fact Checker
 - Writer → Style Writer + Citation Checker
-- Designer works solo</p>
-<p>Some agents have their own sub-agents — like departments in a company.</p>
+- Designer works solo
+
+Some agents have their own sub-agents — like departments in a company.
 </details>
-<details class="flashcard">
-<summary>How does the all-to-all pattern work?</summary>
-<p>Every agent knows about all others. Any agent can message any other at any time. Messages get added to the receiver's context. They collaborate until everyone declares "done."</p>
-<p>Results: <strong>hard to predict.</strong> Like a WhatsApp group — sometimes brilliant, sometimes pure chaos 😂</p>
+
+<details>
+<summary>❓ How does the all-to-all pattern work?</summary>
+
+Every agent knows about all others. Any agent can message any other at any time. Messages get added to the receiver's context. They collaborate until everyone declares "done."
+
+Results: **hard to predict.** Like a WhatsApp group — sometimes brilliant, sometimes pure chaos 😂
 </details>
-<details class="flashcard">
-<summary>Rank the 4 communication patterns by control level.</summary>
-<table>
-<thead>
-<tr>
-<th>Pattern</th>
-<th>Control</th>
-<th>Usage</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Linear</td>
-<td>🟢 Highest</td>
-<td>⭐ Most common</td>
-</tr>
-<tr>
-<td>Hierarchical</td>
-<td>🟢 High</td>
-<td>⭐ Most common</td>
-</tr>
-<tr>
-<td>Deeper Hierarchy</td>
-<td>🟡 Moderate</td>
-<td>Less common</td>
-</tr>
-<tr>
-<td>All-to-All</td>
-<td>🔴 Lowest</td>
-<td>Experimental</td>
-</tr>
-</tbody>
-</table>
-<p>More control = more predictable. Less control = more flexible but chaotic.</p>
+
+<details>
+<summary>❓ Rank the 4 communication patterns by control level.</summary>
+
+| Pattern | Control | Usage |
+|---------|---------|-------|
+| Linear | 🟢 Highest | ⭐ Most common |
+| Hierarchical | 🟢 High | ⭐ Most common |
+| Deeper Hierarchy | 🟡 Moderate | Less common |
+| All-to-All | 🔴 Lowest | Experimental |
+
+More control = more predictable. Less control = more flexible but chaotic.
 </details>
+
 <hr />
-</div>
 <h3 id="from-module-3-tool-use">🔗 From: Module 3 — Tool Use<a class="headerlink" href="#from-module-3-tool-use" title="Permanent link">#</a></h3>
-<div class="flashcard-deck">
-<details class="flashcard">
-<summary>Planning with tools vs Tool Use module — what's the connection?</summary>
-<p>Module 3 = LLM <strong>chooses</strong> which tool to call at runtime (single-step decisions). Module 5 Planning = LLM writes a <strong>multi-step plan</strong> with tool sequences. Planning builds ON TOP of tool use — it's tool use with a plan layer.</p>
+<details>
+<summary>❓ Planning with tools vs Tool Use module — what's the connection?</summary>
+
+Module 3 = LLM **chooses** which tool to call at runtime (single-step decisions). Module 5 Planning = LLM writes a **multi-step plan** with tool sequences. Planning builds ON TOP of tool use — it's tool use with a plan layer.
 </details>
+
 <hr />
-</div>
 <h3 id="from-module-2-reflection">🔗 From: Module 2 — Reflection<a class="headerlink" href="#from-module-2-reflection" title="Permanent link">#</a></h3>
-<div class="flashcard-deck">
-<details class="flashcard">
-<summary>Where does reflection appear in multi-agent systems?</summary>
-<p>The <strong>manager agent</strong> can reflect on the final output! After the writer delivers the draft, the manager does a review/improvement step before producing the final result. Reflection is a design pattern that works inside multi-agent workflows too.</p>
+<details>
+<summary>❓ Where does reflection appear in multi-agent systems?</summary>
+
+The **manager agent** can reflect on the final output! After the writer delivers the draft, the manager does a review/improvement step before producing the final result. Reflection is a design pattern that works inside multi-agent workflows too.
 </details>
+
 <hr />
 <blockquote>
 <p>💡 <strong>Revision tip:</strong> Cover the answer, try to explain OUT LOUD, then reveal.
 Bolke batao — padhke nahi, bolke yaad hota hai! 🗣️</p>
 </blockquote>
-</div>
 
 
 

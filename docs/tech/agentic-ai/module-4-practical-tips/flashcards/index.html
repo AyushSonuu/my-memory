@@ -6022,214 +6022,201 @@ Last updated: 2026-03-31</p>
 </blockquote>
 <hr />
 <h3 id="evals">📊 Evals<a class="headerlink" href="#evals" title="Permanent link">#</a></h3>
-<div class="flashcard-deck">
-<details class="flashcard">
-<summary>What is an eval?</summary>
-<p>An <strong>automated test for your AI system</strong> — feed it known inputs, check outputs against expected results, track whether changes make things better or worse. Like unit tests, but for AI quality.</p>
+<details>
+<summary>❓ What is an eval?</summary>
+
+An **automated test for your AI system** — feed it known inputs, check outputs against expected results, track whether changes make things better or worse. Like unit tests, but for AI quality.
 </details>
-<details class="flashcard">
-<summary>What's the 2×2 eval framework?</summary>
-<p>Two axes:
-- <strong>How you evaluate:</strong> Code-based (objective) vs LLM-as-a-judge (subjective)
-- <strong>Ground truth:</strong> Per-example ground truth vs no per-example ground truth</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Per-Example GT</th>
-<th>No Per-Example GT</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Code</strong></td>
-<td>Invoice date extraction</td>
-<td>Marketing copy length</td>
-</tr>
-<tr>
-<td><strong>LLM Judge</strong></td>
-<td>Research talking points</td>
-<td>Chart rubric grading</td>
-</tr>
-</tbody>
-</table>
+
+<details>
+<summary>❓ What's the 2×2 eval framework?</summary>
+
+Two axes:
+- **How you evaluate:** Code-based (objective) vs LLM-as-a-judge (subjective)
+- **Ground truth:** Per-example ground truth vs no per-example ground truth
+
+| | Per-Example GT | No Per-Example GT |
+|---|---|---|
+| **Code** | Invoice date extraction | Marketing copy length |
+| **LLM Judge** | Research talking points | Chart rubric grading |
 </details>
-<details class="flashcard">
-<summary>When do you use LLM-as-a-judge instead of code-based eval?</summary>
-<p>When the output is <strong>open-ended or creative</strong> — there's no single "right answer" to match with code. Essays, explanations, charts — things where a rubric or judgment is needed, not pattern matching.</p>
+
+<details>
+<summary>❓ When do you use LLM-as-a-judge instead of code-based eval?</summary>
+
+When the output is **open-ended or creative** — there's no single "right answer" to match with code. Essays, explanations, charts — things where a rubric or judgment is needed, not pattern matching.
 </details>
-<details class="flashcard">
-<summary>How many examples do you need to start an eval?</summary>
-<p><strong>10-20 is fine to start.</strong> Don't get paralyzed thinking you need hundreds. Start small, grow the eval set as you discover edge cases. Andrew says many teams waste weeks overthinking this.</p>
+
+<details>
+<summary>❓ How many examples do you need to start an eval?</summary>
+
+**10-20 is fine to start.** Don't get paralyzed thinking you need hundreds. Start small, grow the eval set as you discover edge cases. Andrew says many teams waste weeks overthinking this.
 </details>
-<details class="flashcard">
-<summary>What are "end-to-end evals"?</summary>
-<p>Evals that test the <strong>entire pipeline</strong> — from user input (one end) to final output (the other end). They measure overall system performance, not individual components.</p>
+
+<details>
+<summary>❓ What are "end-to-end evals"?</summary>
+
+Evals that test the **entire pipeline** — from user input (one end) to final output (the other end). They measure overall system performance, not individual components.
 </details>
+
 <hr />
-</div>
 <h3 id="error-analysis">🔍 Error Analysis<a class="headerlink" href="#error-analysis" title="Permanent link">#</a></h3>
-<div class="flashcard-deck">
-<details class="flashcard">
-<summary>What's the difference between a "trace" and a "span"?</summary>
-<ul>
-<li><strong>Trace</strong> = full set of intermediate outputs from ALL steps of one agent run (the complete picture)</li>
-<li><strong>Span</strong> = output of a SINGLE step within that trace (one piece)</li>
-</ul>
-<p>Terms come from the computer observability literature.</p>
+<details>
+<summary>❓ What's the difference between a "trace" and a "span"?</summary>
+
+- **Trace** = full set of intermediate outputs from ALL steps of one agent run (the complete picture)
+- **Span** = output of a SINGLE step within that trace (one piece)
+
+Terms come from the computer observability literature.
 </details>
-<details class="flashcard">
-<summary>What's the error analysis process?</summary>
-<ol>
-<li>Collect only <strong>failing examples</strong> (skip the good ones)</li>
-<li>Read traces — look at each step's intermediate output</li>
-<li>Ask: "Would a human expert do significantly better given the same input?"</li>
-<li>Build a <strong>spreadsheet</strong> — mark errors per component per example</li>
-<li>Count up error rates → fix the component with the highest rate (if you have ideas to fix it)</li>
-</ol>
+
+<details>
+<summary>❓ What's the error analysis process?</summary>
+
+1. Collect only **failing examples** (skip the good ones)
+2. Read traces — look at each step's intermediate output
+3. Ask: "Would a human expert do significantly better given the same input?"
+4. Build a **spreadsheet** — mark errors per component per example
+5. Count up error rates → fix the component with the highest rate (if you have ideas to fix it)
 </details>
-<details class="flashcard">
-<summary>Why should you NOT go by gut feeling when deciding what to fix?</summary>
-<p>Andrew Ng says gut feeling "leads to months of work with very little progress." You might pick the wrong component and optimize it for weeks without improving overall performance. The spreadsheet approach gives you data-driven prioritization.</p>
+
+<details>
+<summary>❓ Why should you NOT go by gut feeling when deciding what to fix?</summary>
+
+Andrew Ng says gut feeling "leads to months of work with very little progress." You might pick the wrong component and optimize it for weeks without improving overall performance. The spreadsheet approach gives you data-driven prioritization.
 </details>
-<details class="flashcard">
-<summary>If a step's output is bad because its INPUT was garbage, who do you blame?</summary>
-<p>Blame the <strong>upstream step</strong> that produced the garbage input. If "Pick 5 Best Sources" selected bad articles, but the web search results were ALL low-quality blogs — fix the web search, not the source picker.</p>
+
+<details>
+<summary>❓ If a step's output is bad because its INPUT was garbage, who do you blame?</summary>
+
+Blame the **upstream step** that produced the garbage input. If "Pick 5 Best Sources" selected bad articles, but the web search results were ALL low-quality blogs — fix the web search, not the source picker.
 </details>
-<details class="flashcard">
-<summary>Can error percentages add up to more than 100%?</summary>
-<p><strong>Yes!</strong> Errors are NOT mutually exclusive. A single failing example can have multiple broken components. Invoice 20 had both PDF-to-text errors AND LLM extraction errors. Count each component's failures independently.</p>
+
+<details>
+<summary>❓ Can error percentages add up to more than 100%?</summary>
+
+**Yes!** Errors are NOT mutually exclusive. A single failing example can have multiple broken components. Invoice 20 had both PDF-to-text errors AND LLM extraction errors. Count each component's failures independently.
 </details>
-<details class="flashcard">
-<summary>In the invoice example, what was the surprising finding?</summary>
-<p>PDF-to-text had only <strong>15%</strong> errors, but LLM data extraction had <strong>87%</strong>. Most teams would instinctively fix the PDF parser first — but the real problem was the LLM picking the wrong date.</p>
+
+<details>
+<summary>❓ In the invoice example, what was the surprising finding?</summary>
+
+PDF-to-text had only **15%** errors, but LLM data extraction had **87%**. Most teams would instinctively fix the PDF parser first — but the real problem was the LLM picking the wrong date.
 </details>
-<details class="flashcard">
-<summary>In the customer email example, what were the error rates?</summary>
-<table>
-<thead>
-<tr>
-<th>Component</th>
-<th>Error Rate</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>LLM-drafted query</td>
-<td><strong>75%</strong> ← fix this first</td>
-</tr>
-<tr>
-<td>Orders database</td>
-<td>4%</td>
-</tr>
-<tr>
-<td>LLM-drafted email</td>
-<td>30%</td>
-</tr>
-</tbody>
-</table>
+
+<details>
+<summary>❓ In the customer email example, what were the error rates?</summary>
+
+| Component | Error Rate |
+|---|---|
+| LLM-drafted query | **75%** ← fix this first |
+| Orders database | 4% |
+| LLM-drafted email | 30% |
 </details>
-<details class="flashcard">
-<summary>What's the prioritization formula?</summary>
-<p><code>Priority = Error Rate × Fixability</code>. High error rate + actionable fix ideas = work on it now. High error rate + no fix ideas = skip for now, return later.</p>
+
+<details>
+<summary>❓ What's the prioritization formula?</summary>
+
+`Priority = Error Rate × Fixability`. High error rate + actionable fix ideas = work on it now. High error rate + no fix ideas = skip for now, return later.
 </details>
+
 <hr />
-</div>
 <h3 id="component-level-evals">🔬 Component-Level Evals<a class="headerlink" href="#component-level-evals" title="Permanent link">#</a></h3>
-<div class="flashcard-deck">
-<details class="flashcard">
-<summary>Why not just use end-to-end evals for everything?</summary>
-<p>Two problems: (1) <strong>Expensive</strong> — every small tweak requires re-running the entire pipeline, (2) <strong>Noisy</strong> — randomness from other components can mask small improvements in the one you're tuning.</p>
+<details>
+<summary>❓ Why not just use end-to-end evals for everything?</summary>
+
+Two problems: (1) **Expensive** — every small tweak requires re-running the entire pipeline, (2) **Noisy** — randomness from other components can mask small improvements in the one you're tuning.
 </details>
-<details class="flashcard">
-<summary>How do you build a component-level eval for web search?</summary>
-<ol>
-<li>Create a list of <strong>gold standard web resources</strong> for each query</li>
-<li>Write code to measure overlap (e.g., <strong>F1 score</strong> from information retrieval)</li>
-<li>Track as you vary hyperparameters: search engine, number of results, date range</li>
-<li>Confirm with an end-to-end eval before declaring victory</li>
-</ol>
+
+<details>
+<summary>❓ How do you build a component-level eval for web search?</summary>
+
+1. Create a list of **gold standard web resources** for each query
+2. Write code to measure overlap (e.g., **F1 score** from information retrieval)
+3. Track as you vary hyperparameters: search engine, number of results, date range
+4. Confirm with an end-to-end eval before declaring victory
 </details>
+
 <hr />
-</div>
 <h3 id="addressing-problems">🔧 Addressing Problems<a class="headerlink" href="#addressing-problems" title="Permanent link">#</a></h3>
-<div class="flashcard-deck">
-<details class="flashcard">
-<summary>What are the two strategies for improving non-LLM components?</summary>
-<ol>
-<li><strong>Tune hyperparameters</strong> — web search (results count, date range), RAG (similarity threshold, chunk size), ML models (detection threshold)</li>
-<li><strong>Replace the component</strong> — try a different search engine, RAG provider, etc.</li>
-</ol>
+<details>
+<summary>❓ What are the two strategies for improving non-LLM components?</summary>
+
+1. **Tune hyperparameters** — web search (results count, date range), RAG (similarity threshold, chunk size), ML models (detection threshold)
+2. **Replace the component** — try a different search engine, RAG provider, etc.
 </details>
-<details class="flashcard">
-<summary>What's the order of strategies for improving LLM components?</summary>
-<ol>
-<li><strong>Improve prompts</strong> (explicit instructions, few-shot examples) — try first, cheapest</li>
-<li><strong>Try a different model</strong> — use evals to compare</li>
-<li><strong>Split the step</strong> — decompose into smaller sequential calls</li>
-<li><strong>Fine-tune</strong> — last resort, expensive in developer time, for mature applications at 90-95% needing to reach 99%</li>
-</ol>
+
+<details>
+<summary>❓ What's the order of strategies for improving LLM components?</summary>
+
+1. **Improve prompts** (explicit instructions, few-shot examples) — try first, cheapest
+2. **Try a different model** — use evals to compare
+3. **Split the step** — decompose into smaller sequential calls
+4. **Fine-tune** — last resort, expensive in developer time, for mature applications at 90-95% needing to reach 99%
 </details>
-<details class="flashcard">
-<summary>Llama 3.1 8B vs GPT-5 on PII redaction — what happened?</summary>
-<p>Llama 8B: didn't follow format (extra list), missed the name, didn't fully redact address. GPT-5: followed formatting exactly, found all PII, correctly redacted everything. <strong>Larger frontier models are much better at following complex instructions.</strong></p>
+
+<details>
+<summary>❓ Llama 3.1 8B vs GPT-5 on PII redaction — what happened?</summary>
+
+Llama 8B: didn't follow format (extra list), missed the name, didn't fully redact address. GPT-5: followed formatting exactly, found all PII, correctly redacted everything. **Larger frontier models are much better at following complex instructions.**
 </details>
-<details class="flashcard">
-<summary>How do you develop intuition for model intelligence?</summary>
-<ul>
-<li>Play with new models often (both proprietary and open-weight)</li>
-<li>Keep a personal eval set for calibration</li>
-<li><strong>Read other people's prompts</strong> — published online, open-source packages, friends at companies</li>
-<li>Try different models in your workflows via aisuite</li>
-</ul>
+
+<details>
+<summary>❓ How do you develop intuition for model intelligence?</summary>
+
+- Play with new models often (both proprietary and open-weight)
+- Keep a personal eval set for calibration
+- **Read other people's prompts** — published online, open-source packages, friends at companies
+- Try different models in your workflows via aisuite
 </details>
+
 <hr />
-</div>
 <h3 id="latency-cost">⚡💰 Latency &amp; Cost<a class="headerlink" href="#latency-cost" title="Permanent link">#</a></h3>
-<div class="flashcard-deck">
-<details class="flashcard">
-<summary>What's the priority order: quality, latency, or cost?</summary>
-<p><strong>Quality first → Latency second → Cost third.</strong> Getting high-quality outputs is the hardest part. Optimize speed and cost only after the system works well. Having high costs from high usage is "a good problem to have."</p>
+<details>
+<summary>❓ What's the priority order: quality, latency, or cost?</summary>
+
+**Quality first → Latency second → Cost third.** Getting high-quality outputs is the hardest part. Optimize speed and cost only after the system works well. Having high costs from high usage is "a good problem to have."
 </details>
-<details class="flashcard">
-<summary>Three strategies for reducing latency?</summary>
-<ol>
-<li><strong>Parallelism</strong> — run independent steps simultaneously (e.g., fetch 5 web pages at once)</li>
-<li><strong>Smaller/faster model</strong> — if the step doesn't need frontier intelligence</li>
-<li><strong>Faster LLM provider</strong> — some providers have specialized hardware for the same model</li>
-</ol>
+
+<details>
+<summary>❓ Three strategies for reducing latency?</summary>
+
+1. **Parallelism** — run independent steps simultaneously (e.g., fetch 5 web pages at once)
+2. **Smaller/faster model** — if the step doesn't need frontier intelligence
+3. **Faster LLM provider** — some providers have specialized hardware for the same model
 </details>
-<details class="flashcard">
-<summary>What are the three cost types in agentic workflows?</summary>
-<ol>
-<li><strong>LLM steps</strong> — pay per token (input + output)</li>
-<li><strong>API-calling tools</strong> — pay per API call</li>
-<li><strong>Compute steps</strong> — based on server capacity/cost</li>
-</ol>
+
+<details>
+<summary>❓ What are the three cost types in agentic workflows?</summary>
+
+1. **LLM steps** — pay per token (input + output)
+2. **API-calling tools** — pay per API call
+3. **Compute steps** — based on server capacity/cost
 </details>
+
 <hr />
-</div>
 <h3 id="development-process">🔄 Development Process<a class="headerlink" href="#development-process" title="Permanent link">#</a></h3>
-<div class="flashcard-deck">
-<details class="flashcard">
-<summary>What are the two major activities in building agentic AI?</summary>
-<p><strong>Building</strong> (writing code, improving the system) and <strong>Analyzing</strong> (error analysis, building evals, reading traces). Less experienced teams over-index on building; the best teams balance both equally.</p>
+<details>
+<summary>❓ What are the two major activities in building agentic AI?</summary>
+
+**Building** (writing code, improving the system) and **Analyzing** (error analysis, building evals, reading traces). Less experienced teams over-index on building; the best teams balance both equally.
 </details>
-<details class="flashcard">
-<summary>What's the maturity progression for analysis?</summary>
-<ol>
-<li>Manual output examination + reading traces</li>
-<li>Small end-to-end evals (10-20 examples)</li>
-<li>Systematic error analysis (spreadsheet counting)</li>
-<li>Component-level evals for targeted improvement</li>
-</ol>
-<p>Each level builds on the previous one.</p>
+
+<details>
+<summary>❓ What's the maturity progression for analysis?</summary>
+
+1. Manual output examination + reading traces
+2. Small end-to-end evals (10-20 examples)
+3. Systematic error analysis (spreadsheet counting)
+4. Component-level evals for targeted improvement
+
+Each level builds on the previous one.
 </details>
+
 <hr />
 <blockquote>
 <p>💡 <strong>Revision tip:</strong> Cover the answer, explain out loud, then reveal.</p>
 </blockquote>
-</div>
 
 
 
