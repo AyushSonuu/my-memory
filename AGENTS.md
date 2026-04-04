@@ -176,6 +176,17 @@ my-memory/
 │   ├── personal-finance/
 │   └── psychology/
 │
+├── plans/                                 # 📋 Action plans & trackers (NOT notes!)
+│   ├── README.md                          # Index of all active plans
+│   ├── roadmap.md                         # Master roadmap 2026-27
+│   ├── career-roadmap-2026.md             # Career-focused roadmap
+│   ├── ai-courses-tracker.md              # 🤖 AI courses: RAG, GenAI, NLP (day-by-day)
+│   ├── dsa-tracker.md                     # DSA problem tracking
+│   ├── lld-tracker.md                     # Low-level design patterns
+│   ├── hld-tracker.md                     # High-level design patterns
+│   ├── speaking-tracker.md                # Public speaking goals
+│   └── weekly-reviews.md                  # Weekly review log
+│
 ├── _maps/                                 # 🗺️ AUTO-MAINTAINED (crown jewel!)
 │   ├── everything.md                      # God map — all topics + connections
 │   ├── tech.md                            # Tech knowledge graph
