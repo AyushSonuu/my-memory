@@ -43,41 +43,44 @@ Here's what frustrated me when I was learning: most tutorials are either **too b
 
 ### 🌍 THE BIG PICTURE — WHAT ARE WE ACTUALLY BUILDING? (1:45 - 4:15)
 
-> *[Screen share — show stack diagram, point to each layer as you explain]*
+> *[Screen share — show stack diagram on the docs site, point to each layer as you explain]*
 
-"Alright, let me show you something. This is the LangChain ecosystem, and it has **three layers**. Each one builds on the one below it:
+"Alright, let me show you something. This is the LangChain ecosystem, and it has **three layers**. But here's the key — they don't just sit next to each other. They're **stacked**. Each one is built on top of the one below:
 
 ```
 ┌──────────────────────────────────────────────────┐
-│  🧠 DEEP AGENTS (Level 3)                        │
-│  Planning · Subagents · File Systems · Sandboxes  │
-│  → This is how Claude Code works                  │
+│  🧠 DEEP AGENTS — The Agent Harness              │
+│  Batteries-included: Planning · Subagents ·       │
+│  File Systems · Sandboxes · Context Compression   │
+│  → Built on LangChain                             │
 ├──────────────────────────────────────────────────┤
-│  🔷 LANGGRAPH (Level 2)                          │
-│  State · Persistence · Streaming · Human Approval │
-│  → This is the control center                     │
+│  🦜 LANGCHAIN — The Agent Framework              │
+│  Integrations · Abstractions · Models · Tools ·   │
+│  Memory · Agents · Multi-Agent                    │
+│  → Built on LangGraph                             │
 ├──────────────────────────────────────────────────┤
-│  🦜 LANGCHAIN (Level 1)                          │
-│  Models · Tools · Memory · Agents                 │
-│  → This is where everything starts                │
+│  🔷 LANGGRAPH — The Runtime                      │
+│  Low-level orchestration engine                   │
+│  State · Persistence · Streaming · Durable Exec   │
+│  → The foundation everything runs on              │
 └──────────────────────────────────────────────────┘
 ```
 
-Now let me break this down, because understanding these three layers is the key to understanding *everything* we're going to build.
+Let me break this down.
 
 > *[Point to bottom layer]*
 
-**Layer one — LangChain.** This is the foundation. Imagine you want to talk to an AI model — OpenAI, Anthropic, Google, a local open-source model — doesn't matter. LangChain gives you **one standard interface** for all of them. Same code, swap the model. But it's not just about talking to models. You can give your agent **tools** — let it search the web, query databases, call APIs. You can manage **conversation memory**. You can get **structured outputs** — actual JSON and Python objects, not just plain text. And you can build a fully functional agent in under **ten lines of code**. That's LangChain.
+**At the bottom — LangGraph. This is the runtime.** Think of it as the engine of a car. It's the low-level orchestration engine that handles all the hard infrastructure problems — how do you manage state across steps? How do you persist an agent's progress so it survives a crash? How do you stream real-time output? How do you let a human pause, review, and resume an agent? LangGraph solves all of this. You don't build agents *in* LangGraph — you build the *runtime machinery* that makes agents reliable.
 
 > *[Point to middle layer]*
 
-**Layer two — LangGraph.** Now here's where it gets interesting. What happens when your agent crashes halfway through a task? What if you want to **pause** an agent, let a human review its work, and then **resume**? What if you need real-time **streaming** of what the agent is thinking? LangGraph handles all of this. It's the orchestration layer — it doesn't build the agent, it **controls how the agent runs**. Think of it this way: LangChain is the engine. LangGraph is the driver.
+**On top of that — LangChain. This is the agent framework.** If LangGraph is the engine, LangChain is the car — it gives you the steering wheel, the dashboard, and the seats. LangChain is where you actually *build* agents. It gives you a **standard interface** to talk to any LLM — OpenAI, Anthropic, Google, open-source — same code, swap the provider. It gives you **tools**, **memory**, **structured outputs**, **middleware**, and a prebuilt agent architecture. Under the hood, LangChain agents run on LangGraph's runtime — that's how they get persistence, streaming, and durable execution for free. You can build a fully functional agent in under **ten lines of code**.
 
 > *[Point to top layer]*
 
-**Layer three — Deep Agents.** This is the frontier. You know how Claude Code can look at your entire project, come up with a **plan**, break it into subtasks, spawn **separate agents** for each task, execute code in a **sandbox**, and piece everything back together? That's what Deep Agents lets you build. It comes batteries-included — planning tools, file system access, subagent management, context compression. This is the most powerful layer, and by the end of this series, you'll know how to build agents at this level.
+**At the top — Deep Agents. This is the agent harness.** If LangChain is the car, Deep Agents is a **self-driving car**. You just set the destination. You know how Claude Code can look at your entire project, come up with a plan, break it into subtasks, spawn separate agents for each task, execute code in a sandbox, and piece everything back together? That's what Deep Agents lets you build. It comes batteries-included — a planning tool, file system access, subagent spawning, context compression. It's built on LangChain, which is built on LangGraph. The full stack.
 
-Now — you absolutely do **not** need to learn all three at once. We're going **one layer at a time**, starting from the foundation."
+The important thing: **you don't need to learn all three at once.** We're going layer by layer, starting from the runtime."
 
 ---
 
@@ -89,34 +92,36 @@ Now — you absolutely do **not** need to learn all three at once. We're going *
 
 > *[Show Playlist 1]*
 
-**Playlist One: LangChain — twenty-eight episodes.**
+**Playlist One: LangGraph — twenty-two episodes. The Runtime.**
 
-This is the foundation, and honestly? Even just this playlist alone will make you dangerous. You'll learn:
-- How to connect to **any** language model with a standard interface — no vendor lock-in
-- How to arm your agent with **tools** — web search, APIs, custom functions, anything you want
-- **Messages and memory** — how conversations actually work under the hood
-- **Structured outputs** — making LLMs return clean JSON, Pydantic objects, not just text blobs
-- **Middleware and guardrails** — because you need to keep your agents safe and controlled
-- The **Model Context Protocol** — the newest standard for connecting agents to external tools
-- **Multi-agent systems** — multiple agents working together with handoffs, routing, and specialization
-- And finally — **testing, monitoring, and deployment**. Because building something cool means nothing if you can't ship it.
+This is where we start — the engine underneath everything. You'll learn:
+- The **Graph API** — design workflows as nodes and edges
+- **State management** — how agents track what's happening
+- **Persistence** — save agent state, resume after crashes
+- **Streaming** — real-time token-by-token output
+- **Human-in-the-loop** — pause, get human approval, then continue
+- **Durable execution and time travel** — yes, you can literally rewind your agent to a previous state and branch from there
+- And we'll build **two real projects** — a RAG Agent and a SQL Agent, from scratch
 
 > *[Show Playlist 2]*
 
-**Playlist Two: LangGraph — twenty-two episodes.**
+**Playlist Two: LangChain — twenty-eight episodes. The Agent Framework.**
 
-This is where you learn to **control** your agents:
-- The **Graph API** — design your agent's workflow as nodes and edges
-- **Persistence** — save agent state, resume after crashes
-- **Human-in-the-loop** — pause execution, get human approval, then continue
-- **Streaming, subgraphs, durable execution, time travel** — yes, you can literally rewind your agent to a previous state and branch from there
-- And we'll build **two real projects** — a RAG Agent and a SQL Agent, completely from scratch
+This is built on top of LangGraph and this is where you actually build agents. You'll learn:
+- How to connect to **any** language model with a standard interface — no vendor lock-in
+- How to arm your agent with **tools** — web search, APIs, custom functions
+- **Messages and memory** — how conversations work under the hood
+- **Structured outputs** — making LLMs return clean JSON, not just text blobs
+- **Middleware and guardrails** — keeping your agents safe and controlled
+- The **Model Context Protocol** — the newest standard for connecting agents to external tools
+- **Multi-agent systems** — handoffs, routing, subagents, and specialization
+- **Testing, monitoring, and deployment** — because building it means nothing if you can't ship it
 
 > *[Show Playlist 3]*
 
-**Playlist Three: Deep Agents — eighteen episodes.**
+**Playlist Three: Deep Agents — eighteen episodes. The Agent Harness.**
 
-This is the cutting edge:
+This is built on LangChain and this is the cutting edge:
 - Agents that **plan their own approach** before executing
 - **Subagent delegation** — your agent spawns specialized child agents for parallel work
 - **File system backends** and **sandboxed code execution** — safe, isolated environments
