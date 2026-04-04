@@ -7,8 +7,11 @@
 
 ### 📌 Core Multiprocessing
 
-<details>
-<summary>❓ When should you use multiprocessing over threading?</summary>
+<div class="flashcard-deck" markdown>
+
+
+<details class="flashcard" markdown>
+<summary>When should you use multiprocessing over threading?</summary>
 
 | Task Type | Use |
 |-----------|-----|
@@ -20,8 +23,9 @@ Multiprocessing bypasses the GIL → true parallel execution on multiple CPU cor
 > CPU heavy = multiprocessing. Waiting heavy = threading. Andha andha mat karo — benchmark karo! 📊
 </details>
 
-<details>
-<summary>❓ What is the GIL and how does multiprocessing bypass it?</summary>
+
+<details class="flashcard" markdown>
+<summary>What is the GIL and how does multiprocessing bypass it?</summary>
 
 **GIL (Global Interpreter Lock)** = one lock per Python interpreter → only one thread runs Python bytecode at a time.
 
@@ -31,8 +35,9 @@ Multiprocessing bypasses the GIL → true parallel execution on multiple CPU cor
 Multiprocessing = multiple kitchens with multiple chefs. Threading = one kitchen, one chef, fast switching. 👨‍🍳
 </details>
 
-<details>
-<summary>❓ What does "picklable" mean and why do multiprocessing arguments need to be picklable?</summary>
+
+<details class="flashcard" markdown>
+<summary>What does "picklable" mean and why do multiprocessing arguments need to be picklable?</summary>
 
 **Pickling** = serializing Python objects into bytes (so they can be reconstructed). Multiprocessing requires it because processes have **separate memory** — arguments must be serialized to pass between processes via IPC.
 
@@ -42,8 +47,9 @@ Multiprocessing = multiple kitchens with multiple chefs. Threading = one kitchen
 > Pickle = Python ka courier service. Pack karo → bhejo → unpack karo. Jo pack nahi ho sakta, wo nahi jaata! 📦
 </details>
 
-<details>
-<summary>❓ Why can't you `.join()` inside the process creation loop?</summary>
+
+<details class="flashcard" markdown>
+<summary>Why can't you `.join()` inside the process creation loop?</summary>
 
 `.join()` blocks until that process finishes. Inside loop: create P1 → start P1 → **wait for P1** → create P2... = sequential!
 
@@ -60,16 +66,18 @@ for p in processes:            # join AFTER all started
 ```
 </details>
 
-<details>
-<summary>❓ What happens if you DON'T call `.join()` on your processes?</summary>
+
+<details class="flashcard" markdown>
+<summary>What happens if you DON'T call `.join()` on your processes?</summary>
 
 Main script continues immediately while processes are still running. Timing/output at the end of the script executes before processes finish — you'll see "Finished in 0 seconds" because processes take time to spin up and main thread just runs past them.
 
 With `ProcessPoolExecutor` context manager: auto-joins when `with` block exits ✅
 </details>
 
-<details>
-<summary>❓ What's the difference between `submit()` and `map()` in ProcessPoolExecutor?</summary>
+
+<details class="flashcard" markdown>
+<summary>What's the difference between `submit()` and `map()` in ProcessPoolExecutor?</summary>
 
 | | `submit(fn, arg)` + `as_completed()` | `map(fn, iterable)` |
 |--|--------------------------------------|---------------------|
@@ -81,8 +89,9 @@ With `ProcessPoolExecutor` context manager: auto-joins when `with` block exits �
 > `as_completed` = race finish line. `map` = roll number order. 🏁📋
 </details>
 
-<details>
-<summary>❓ What is a Future object?</summary>
+
+<details class="flashcard" markdown>
+<summary>What is a Future object?</summary>
 
 A `Future` is returned by `executor.submit()`. It **encapsulates the execution** of a function scheduled on a process. You can:
 - `.result()` → get return value (blocks until done)
@@ -92,8 +101,9 @@ A `Future` is returned by `executor.submit()`. It **encapsulates the execution**
 It's like a delivery tracking number — submit karo, track karo, result lo. 📬
 </details>
 
-<details>
-<summary>❓ What is the `if __name__ == '__main__':` guard and why is it important for multiprocessing?</summary>
+
+<details class="flashcard" markdown>
+<summary>What is the `if __name__ == '__main__':` guard and why is it important for multiprocessing?</summary>
 
 On Windows and macOS (spawn start method), new processes **import the script** to get the function. Without the guard, each spawned process re-runs the main code → infinite process spawning!
 
@@ -106,12 +116,19 @@ if __name__ == '__main__':
 Always use this guard in scripts using multiprocessing! In Jupyter notebooks / modules it's usually not needed.
 </details>
 
+
 ---
+
+
+</div>
 
 ### 🔗 From: Threading (Cross-Topic)
 
-<details>
-<summary>❓ Threading vs Multiprocessing — full comparison</summary>
+<div class="flashcard-deck" markdown>
+
+
+<details class="flashcard" markdown>
+<summary>Threading vs Multiprocessing — full comparison</summary>
 
 | | 🧵 Threading | ⚙️ Multiprocessing |
 |--|--------------|---------------------|
@@ -126,8 +143,9 @@ Always use this guard in scripts using multiprocessing! In Jupyter notebooks / m
 Real-world: 15 image downloads → Threading won (I/O-bound). 15 image filters → Multiprocessing 3× faster.
 </details>
 
-<details>
-<summary>❓ Can you switch between ThreadPoolExecutor and ProcessPoolExecutor easily?</summary>
+
+<details class="flashcard" markdown>
+<summary>Can you switch between ThreadPoolExecutor and ProcessPoolExecutor easily?</summary>
 
 **Yes! That's the beauty of `concurrent.futures`:**
 
@@ -142,12 +160,19 @@ with concurrent.futures.ThreadPoolExecutor() as executor:
 Same API: `submit()`, `map()`, `as_completed()` — all identical. Perfect for A/B benchmarking.
 </details>
 
+
 ---
+
+
+</div>
 
 ### 🔗 From: AsyncIO (Cross-Topic)
 
-<details>
-<summary>❓ Threading vs Multiprocessing vs AsyncIO — when to use each?</summary>
+<div class="flashcard-deck" markdown>
+
+
+<details class="flashcard" markdown>
+<summary>Threading vs Multiprocessing vs AsyncIO — when to use each?</summary>
 
 | | 🧵 Threading | ⚙️ Multiprocessing | ⚡ AsyncIO |
 |--|--------------|---------------------|------------|
@@ -160,7 +185,11 @@ Same API: `submit()`, `map()`, `as_completed()` — all identical. Perfect for A
 Quick rule: **CPU heavy → multiprocessing. Few I/O calls → threading. Thousands of connections → asyncio.**
 </details>
 
+
 ---
 
 > 💡 **Revision tip:** Cover the answer, try to explain OUT LOUD, then reveal.
 > Bolke batao — padhke nahi, bolke yaad hota hai! 🗣️
+
+
+</div>
