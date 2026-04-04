@@ -17,9 +17,11 @@
 
 "Have you ever wondered how ChatGPT searches the web to answer your questions? Or how coding agents like Cursor and Claude Code can read an entire codebase and write production-ready code? Or how companies are building AI assistants that remember your preferences across sessions?
 
-The technology behind all of this is the **LangChain ecosystem**.
+What if I told you — **you can build all of this yourself?**
 
-And in this series, I'm going to teach you the **entire thing** — from absolute zero to building production-ready AI agents. No shortcuts. No fluff. Just clear concepts, real code, and deep understanding."
+The tools to do it are open source, well-documented, and incredibly powerful. They're called **LangChain**, **LangGraph**, and **Deep Agents** — and in this series, I'm going to walk you through the **entire ecosystem**, from absolute zero to building production-ready AI agents.
+
+No shortcuts. No fluff. Just clear concepts, real code, and deep understanding. Let's build some agents."
 
 ---
 
