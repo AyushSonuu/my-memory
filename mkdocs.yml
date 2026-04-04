@@ -277,14 +277,7 @@ nav:
     - Resources:
       - 🃏 Flashcards: tech/rag/flashcards.md
 
-  - 🦜 LangChain:
-    - tech/langchain/README.md
-    - 🃏 Flashcards: tech/langchain/flashcards.md
-
-  - 🔷 LangGraph:
-    - tech/langgraph/README.md
-    - 🃏 Flashcards: tech/langgraph/flashcards.md
-
-  - 🧠 Deep Agents:
-    - tech/deepagents/README.md
-    - 🃏 Flashcards: tech/deepagents/flashcards.md
+  - 🎬 Playlists:
+    - 🦜 LangChain: https://ayushsonuu.github.io/langchain-ecosystem-tutorials/langchain/
+    - 🔷 LangGraph: https://ayushsonuu.github.io/langchain-ecosystem-tutorials/langgraph/
+    - 🧠 Deep Agents: https://ayushsonuu.github.io/langchain-ecosystem-tutorials/deepagents/
