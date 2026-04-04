@@ -16,6 +16,34 @@
 </details>
 
 <details>
+<summary>❓ What do Retrieval, Augmented, and Generation each mean?</summary>
+
+- **Retrieval** = collecting relevant info from a knowledge base
+- **Augmented** = enhancing the prompt by adding retrieved info
+- **Generation** = LLM reasons over augmented prompt → generates answer
+
+> Naam hi recipe hai! Dhundo → daalo → jawab do 🍳
+</details>
+
+<details>
+<summary>❓ What are the 3 components of a RAG system?</summary>
+
+| Component | Role |
+|-----------|------|
+| **Knowledge Base** | Trusted, relevant, possibly private information |
+| **Retriever** | Searches KB, finds most relevant docs for query |
+| **LLM** | Receives augmented prompt → generates response |
+</details>
+
+<details>
+<summary>❓ What is the "key insight" of RAG in the simplest terms?</summary>
+
+**Just put it in the prompt!** Modify the prompt before sending to the LLM — add relevant info from your knowledge base so it has what it needs.
+
+> RAG = open-book exam. Cheat sheet legally de do! 📋😂
+</details>
+
+<details>
 <summary>❓ Why do LLMs need RAG? What 3 types of info are they missing?</summary>
 
 LLMs only know their training data. They're missing:

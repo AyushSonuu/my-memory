@@ -259,6 +259,7 @@ nav:
       - Overview: tech/rag/module-1-rag-overview/README.md
       - 00 · Conversation with Andrew Ng: tech/rag/module-1-rag-overview/00-conversation-andrew-ng.md
       - 01 · Module Introduction: tech/rag/module-1-rag-overview/01-module-introduction.md
+      - 02 · Introduction to RAG: tech/rag/module-1-rag-overview/02-introduction-to-rag.md
       - 03 · Applications of RAG: tech/rag/module-1-rag-overview/03-applications-of-rag.md
       - 🃏 Flashcards: tech/rag/module-1-rag-overview/flashcards.md
     - Module 2 · IR & Search:

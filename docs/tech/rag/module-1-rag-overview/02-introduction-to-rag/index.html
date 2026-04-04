@@ -12,31 +12,31 @@
         <meta name="author" content="Ayush Sonu">
       
       
-        <link rel="canonical" href="https://ayushsonuu.github.io/my-memory/_generated/tech/python/asyncio/code/L1/example_7/">
+        <link rel="canonical" href="https://ayushsonuu.github.io/my-memory/tech/rag/module-1-rag-overview/02-introduction-to-rag/">
       
       
-        <link rel="prev" href="../example_6/">
+        <link rel="prev" href="../01-module-introduction/">
       
       
-        <link rel="next" href="../../../../../../../tech/python/threading/">
+        <link rel="next" href="../03-applications-of-rag/">
       
       
         
       
       
-      <link rel="icon" href="../../../../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>example_7.py - 🧠 My Memory</title>
+        <title>02 · Introduction to RAG - 🧠 My Memory</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,9 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../../../_assets/custom.css">
+      <link rel="stylesheet" href="../../../../_assets/custom.css">
     
-    <script>__md_scope=new URL("../../../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#example-7" class="md-skip">
+        <a href="#02-introduction-to-rag" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../../../../.." title="🧠 My Memory" class="md-header__button md-logo" aria-label="🧠 My Memory" data-md-component="logo">
+    <a href="../../../.." title="🧠 My Memory" class="md-header__button md-logo" aria-label="🧠 My Memory" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.687 1.687 0 0 1-1.86-.55L14.44 18c-.89-.15-1.73-.53-2.44-1.1-.5.15-1 .23-1.5.23-.88 0-1.76-.27-2.5-.79-.53.16-1.07.23-1.62.22-.79.01-1.57-.15-2.3-.45a4.1 4.1 0 0 1-2.43-3.61c-.08-.72.04-1.45.35-2.11-.29-.75-.32-1.57-.07-2.33C2.3 7.11 3 6.32 3.87 5.82c.58-1.69 2.21-2.82 4-2.7 1.6-1.5 4.05-1.66 5.83-.37.42-.11.86-.17 1.3-.17 1.36-.03 2.65.57 3.5 1.64 2.04.53 3.5 2.35 3.58 4.47.05 1.11-.25 2.2-.86 3.13.07.36.11.72.11 1.09m-5-1.41c.57.07 1.02.5 1.02 1.07a1 1 0 0 1-1 1h-.63c-.32.9-.88 1.69-1.62 2.29.25.09.51.14.77.21 5.13-.07 4.53-3.2 4.53-3.25a2.59 2.59 0 0 0-2.69-2.49 1 1 0 0 1-1-1 1 1 0 0 1 1-1c1.23.03 2.41.49 3.33 1.3.05-.29.08-.59.08-.89-.06-1.24-.62-2.32-2.87-2.53-1.25-2.96-4.4-1.32-4.4-.4-.03.23.21.72.25.75a1 1 0 0 1 1 1c0 .55-.45 1-1 1-.53-.02-1.03-.22-1.43-.56-.48.31-1.03.5-1.6.56-.57.05-1.04-.35-1.07-.9a.97.97 0 0 1 .88-1.1c.16-.02.94-.14.94-.77 0-.66.25-1.29.68-1.79-.92-.25-1.91.08-2.91 1.29C6.75 5 6 5.25 5.45 7.2 4.5 7.67 4 8 3.78 9c1.08-.22 2.19-.13 3.22.25.5.19.78.75.59 1.29-.19.52-.77.78-1.29.59-.73-.32-1.55-.34-2.3-.06-.32.27-.32.83-.32 1.27 0 .74.37 1.43 1 1.83.53.27 1.12.41 1.71.4q-.225-.39-.39-.81a1.038 1.038 0 0 1 1.96-.68c.4 1.14 1.42 1.92 2.62 2.05 1.37-.07 2.59-.88 3.19-2.13.23-1.38 1.34-1.5 2.56-1.5m2 7.47-.62-1.3-.71.16 1 1.25zm-4.65-8.61a1 1 0 0 0-.91-1.03c-.71-.04-1.4.2-1.93.67-.57.58-.87 1.38-.84 2.19a1 1 0 0 0 1 1c.57 0 1-.45 1-1 0-.27.07-.54.23-.76.12-.1.27-.15.43-.15.55.03 1.02-.38 1.02-.92"/></svg>
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              example_7.py
+              02 · Introduction to RAG
             
           </span>
         </div>
@@ -232,7 +232,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../../.." class="md-tabs__link">
+        <a href="../../../.." class="md-tabs__link">
           
   
   
@@ -254,7 +254,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../../../tech/agent-memory/" class="md-tabs__link">
+        <a href="../../../agent-memory/" class="md-tabs__link">
           
   
   
@@ -272,13 +272,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../../../../../../tech/python/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../python/" class="md-tabs__link">
           
   
   
@@ -300,7 +298,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../../../tech/agentic-ai/" class="md-tabs__link">
+        <a href="../../../agentic-ai/" class="md-tabs__link">
           
   
   
@@ -318,11 +316,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../../../../../tech/rag/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -364,7 +364,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../../../.." title="🧠 My Memory" class="md-nav__button md-logo" aria-label="🧠 My Memory" data-md-component="logo">
+    <a href="../../../.." title="🧠 My Memory" class="md-nav__button md-logo" aria-label="🧠 My Memory" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.687 1.687 0 0 1-1.86-.55L14.44 18c-.89-.15-1.73-.53-2.44-1.1-.5.15-1 .23-1.5.23-.88 0-1.76-.27-2.5-.79-.53.16-1.07.23-1.62.22-.79.01-1.57-.15-2.3-.45a4.1 4.1 0 0 1-2.43-3.61c-.08-.72.04-1.45.35-2.11-.29-.75-.32-1.57-.07-2.33C2.3 7.11 3 6.32 3.87 5.82c.58-1.69 2.21-2.82 4-2.7 1.6-1.5 4.05-1.66 5.83-.37.42-.11.86-.17 1.3-.17 1.36-.03 2.65.57 3.5 1.64 2.04.53 3.5 2.35 3.58 4.47.05 1.11-.25 2.2-.86 3.13.07.36.11.72.11 1.09m-5-1.41c.57.07 1.02.5 1.02 1.07a1 1 0 0 1-1 1h-.63c-.32.9-.88 1.69-1.62 2.29.25.09.51.14.77.21 5.13-.07 4.53-3.2 4.53-3.25a2.59 2.59 0 0 0-2.69-2.49 1 1 0 0 1-1-1 1 1 0 0 1 1-1c1.23.03 2.41.49 3.33 1.3.05-.29.08-.59.08-.89-.06-1.24-.62-2.32-2.87-2.53-1.25-2.96-4.4-1.32-4.4-.4-.03.23.21.72.25.75a1 1 0 0 1 1 1c0 .55-.45 1-1 1-.53-.02-1.03-.22-1.43-.56-.48.31-1.03.5-1.6.56-.57.05-1.04-.35-1.07-.9a.97.97 0 0 1 .88-1.1c.16-.02.94-.14.94-.77 0-.66.25-1.29.68-1.79-.92-.25-1.91.08-2.91 1.29C6.75 5 6 5.25 5.45 7.2 4.5 7.67 4 8 3.78 9c1.08-.22 2.19-.13 3.22.25.5.19.78.75.59 1.29-.19.52-.77.78-1.29.59-.73-.32-1.55-.34-2.3-.06-.32.27-.32.83-.32 1.27 0 .74.37 1.43 1 1.83.53.27 1.12.41 1.71.4q-.225-.39-.39-.81a1.038 1.038 0 0 1 1.96-.68c.4 1.14 1.42 1.92 2.62 2.05 1.37-.07 2.59-.88 3.19-2.13.23-1.38 1.34-1.5 2.56-1.5m2 7.47-.62-1.3-.71.16 1 1.25zm-4.65-8.61a1 1 0 0 0-.91-1.03c-.71-.04-1.4.2-1.93.67-.57.58-.87 1.38-.84 2.19a1 1 0 0 0 1 1c.57 0 1-.45 1-1 0-.27.07-.54.23-.76.12-.1.27-.15.43-.15.55.03 1.02-.38 1.02-.92"/></svg>
@@ -429,7 +429,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../.." class="md-nav__link ">
+            <a href="../../../.." class="md-nav__link ">
               
   
   
@@ -473,7 +473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../_maps/everything/" class="md-nav__link">
+      <a href="../../../../_maps/everything/" class="md-nav__link">
         
   
   
@@ -501,7 +501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../_maps/tech/" class="md-nav__link">
+      <a href="../../../../_maps/tech/" class="md-nav__link">
         
   
   
@@ -529,7 +529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../_maps/connections/" class="md-nav__link">
+      <a href="../../../../_maps/connections/" class="md-nav__link">
         
   
   
@@ -557,7 +557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../_maps/learning-journey/" class="md-nav__link">
+      <a href="../../../../_maps/learning-journey/" class="md-nav__link">
         
   
   
@@ -585,7 +585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../_maps/weak-spots/" class="md-nav__link">
+      <a href="../../../../_maps/weak-spots/" class="md-nav__link">
         
   
   
@@ -613,7 +613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../_revision/due-today/" class="md-nav__link">
+      <a href="../../../../_revision/due-today/" class="md-nav__link">
         
   
   
@@ -707,7 +707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../plans/roadmap/" class="md-nav__link">
+      <a href="../../../../plans/roadmap/" class="md-nav__link">
         
   
   
@@ -735,7 +735,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../plans/dsa-tracker/" class="md-nav__link">
+      <a href="../../../../plans/dsa-tracker/" class="md-nav__link">
         
   
   
@@ -763,7 +763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../plans/lld-tracker/" class="md-nav__link">
+      <a href="../../../../plans/lld-tracker/" class="md-nav__link">
         
   
   
@@ -791,7 +791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../plans/hld-tracker/" class="md-nav__link">
+      <a href="../../../../plans/hld-tracker/" class="md-nav__link">
         
   
   
@@ -819,7 +819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../plans/ai-courses-tracker/" class="md-nav__link">
+      <a href="../../../../plans/ai-courses-tracker/" class="md-nav__link">
         
   
   
@@ -847,7 +847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../plans/speaking-tracker/" class="md-nav__link">
+      <a href="../../../../plans/speaking-tracker/" class="md-nav__link">
         
   
   
@@ -875,7 +875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../plans/weekly-reviews/" class="md-nav__link">
+      <a href="../../../../plans/weekly-reviews/" class="md-nav__link">
         
   
   
@@ -957,7 +957,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../tech/agent-memory/" class="md-nav__link ">
+            <a href="../../../agent-memory/" class="md-nav__link ">
               
   
   
@@ -1001,7 +1001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agent-memory/01-introduction/" class="md-nav__link">
+      <a href="../../../agent-memory/01-introduction/" class="md-nav__link">
         
   
   
@@ -1029,7 +1029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agent-memory/02-why-agents-need-memory/" class="md-nav__link">
+      <a href="../../../agent-memory/02-why-agents-need-memory/" class="md-nav__link">
         
   
   
@@ -1057,7 +1057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agent-memory/03-memory-manager/" class="md-nav__link">
+      <a href="../../../agent-memory/03-memory-manager/" class="md-nav__link">
         
   
   
@@ -1085,7 +1085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agent-memory/04-semantic-tool-memory/" class="md-nav__link">
+      <a href="../../../agent-memory/04-semantic-tool-memory/" class="md-nav__link">
         
   
   
@@ -1113,7 +1113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agent-memory/05-memory-operations/" class="md-nav__link">
+      <a href="../../../agent-memory/05-memory-operations/" class="md-nav__link">
         
   
   
@@ -1141,7 +1141,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agent-memory/06-memory-aware-agent/" class="md-nav__link">
+      <a href="../../../agent-memory/06-memory-aware-agent/" class="md-nav__link">
         
   
   
@@ -1169,7 +1169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agent-memory/07-conclusion/" class="md-nav__link">
+      <a href="../../../agent-memory/07-conclusion/" class="md-nav__link">
         
   
   
@@ -1255,7 +1255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agent-memory/flashcards/" class="md-nav__link">
+      <a href="../../../agent-memory/flashcards/" class="md-nav__link">
         
   
   
@@ -1283,7 +1283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agent-memory/cheatsheet/" class="md-nav__link">
+      <a href="../../../agent-memory/cheatsheet/" class="md-nav__link">
         
   
   
@@ -1311,7 +1311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agent-memory/vs/" class="md-nav__link">
+      <a href="../../../agent-memory/vs/" class="md-nav__link">
         
   
   
@@ -1378,7 +1378,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../tech/agent-memory/code/" class="md-nav__link ">
+            <a href="../../../agent-memory/code/" class="md-nav__link ">
               
   
   
@@ -1422,7 +1422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agent-memory/code/L3/L3/" class="md-nav__link">
+      <a href="../../../agent-memory/code/L3/L3/" class="md-nav__link">
         
   
   
@@ -1450,7 +1450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agent-memory/code/L4/L4/" class="md-nav__link">
+      <a href="../../../agent-memory/code/L4/L4/" class="md-nav__link">
         
   
   
@@ -1478,7 +1478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agent-memory/code/L5/L5/" class="md-nav__link">
+      <a href="../../../agent-memory/code/L5/L5/" class="md-nav__link">
         
   
   
@@ -1506,7 +1506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agent-memory/code/L6/L6/" class="md-nav__link">
+      <a href="../../../agent-memory/code/L6/L6/" class="md-nav__link">
         
   
   
@@ -1534,7 +1534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../agent-memory/code/helper/" class="md-nav__link">
+      <a href="../../../../_generated/tech/agent-memory/code/helper/" class="md-nav__link">
         
   
   
@@ -1574,8 +1574,6 @@
       
   
   
-    
-  
   
   
     
@@ -1595,21 +1593,18 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../tech/python/" class="md-nav__link ">
+            <a href="../../../python/" class="md-nav__link ">
               
   
   
@@ -1627,13 +1622,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1650,8 +1645,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1674,15 +1667,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../tech/python/asyncio/" class="md-nav__link ">
+            <a href="../../../python/asyncio/" class="md-nav__link ">
               
   
   
@@ -1706,7 +1699,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1726,7 +1719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/python/asyncio/01-asyncio-complete-guide/" class="md-nav__link">
+      <a href="../../../python/asyncio/01-asyncio-complete-guide/" class="md-nav__link">
         
   
   
@@ -1754,7 +1747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/python/asyncio/flashcards/" class="md-nav__link">
+      <a href="../../../python/asyncio/flashcards/" class="md-nav__link">
         
   
   
@@ -1779,8 +1772,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1813,15 +1804,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../tech/python/asyncio/code/" class="md-nav__link ">
+            <a href="../../../python/asyncio/code/" class="md-nav__link ">
               
   
   
@@ -1845,7 +1836,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1865,7 +1856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../terms/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/asyncio/code/L1/terms/" class="md-nav__link">
         
   
   
@@ -1893,7 +1884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../example_1/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/asyncio/code/L1/example_1/" class="md-nav__link">
         
   
   
@@ -1921,7 +1912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../example_2/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/asyncio/code/L1/example_2/" class="md-nav__link">
         
   
   
@@ -1949,7 +1940,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../example_3/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/asyncio/code/L1/example_3/" class="md-nav__link">
         
   
   
@@ -1977,7 +1968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../example_4/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/asyncio/code/L1/example_4/" class="md-nav__link">
         
   
   
@@ -2005,7 +1996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../example_5/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/asyncio/code/L1/example_5/" class="md-nav__link">
         
   
   
@@ -2033,7 +2024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../example_6/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/asyncio/code/L1/example_6/" class="md-nav__link">
         
   
   
@@ -2058,19 +2049,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../_generated/tech/python/asyncio/code/L1/example_7/" class="md-nav__link">
         
   
   
@@ -2086,7 +2068,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -2142,7 +2123,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../tech/python/threading/" class="md-nav__link ">
+            <a href="../../../python/threading/" class="md-nav__link ">
               
   
   
@@ -2186,7 +2167,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/python/threading/01-threading-complete-guide/" class="md-nav__link">
+      <a href="../../../python/threading/01-threading-complete-guide/" class="md-nav__link">
         
   
   
@@ -2214,7 +2195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/python/threading/flashcards/" class="md-nav__link">
+      <a href="../../../python/threading/flashcards/" class="md-nav__link">
         
   
   
@@ -2275,7 +2256,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../tech/python/threading/code/" class="md-nav__link ">
+            <a href="../../../python/threading/code/" class="md-nav__link ">
               
   
   
@@ -2319,7 +2300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../threading/code/L1/01_synchronous/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/threading/code/L1/01_synchronous/" class="md-nav__link">
         
   
   
@@ -2347,7 +2328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../threading/code/L1/02_basic_threads/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/threading/code/L1/02_basic_threads/" class="md-nav__link">
         
   
   
@@ -2375,7 +2356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../threading/code/L1/03_loop_threads/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/threading/code/L1/03_loop_threads/" class="md-nav__link">
         
   
   
@@ -2403,7 +2384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../threading/code/L1/04_thread_pool_submit/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/threading/code/L1/04_thread_pool_submit/" class="md-nav__link">
         
   
   
@@ -2431,7 +2412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../threading/code/L1/05_thread_pool_map/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/threading/code/L1/05_thread_pool_map/" class="md-nav__link">
         
   
   
@@ -2459,7 +2440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../threading/code/L1/06_download_images/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/threading/code/L1/06_download_images/" class="md-nav__link">
         
   
   
@@ -2530,7 +2511,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../tech/python/multiprocessing/" class="md-nav__link ">
+            <a href="../../../python/multiprocessing/" class="md-nav__link ">
               
   
   
@@ -2574,7 +2555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/python/multiprocessing/01-multiprocessing-complete-guide/" class="md-nav__link">
+      <a href="../../../python/multiprocessing/01-multiprocessing-complete-guide/" class="md-nav__link">
         
   
   
@@ -2602,7 +2583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/python/multiprocessing/flashcards/" class="md-nav__link">
+      <a href="../../../python/multiprocessing/flashcards/" class="md-nav__link">
         
   
   
@@ -2663,7 +2644,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../tech/python/multiprocessing/code/" class="md-nav__link ">
+            <a href="../../../python/multiprocessing/code/" class="md-nav__link ">
               
   
   
@@ -2707,7 +2688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../multiprocessing/code/L1/01_synchronous/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/multiprocessing/code/L1/01_synchronous/" class="md-nav__link">
         
   
   
@@ -2735,7 +2716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../multiprocessing/code/L1/02_basic_processes/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/multiprocessing/code/L1/02_basic_processes/" class="md-nav__link">
         
   
   
@@ -2763,7 +2744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../multiprocessing/code/L1/03_loop_processes/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/multiprocessing/code/L1/03_loop_processes/" class="md-nav__link">
         
   
   
@@ -2791,7 +2772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../multiprocessing/code/L1/04_pool_submit/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/multiprocessing/code/L1/04_pool_submit/" class="md-nav__link">
         
   
   
@@ -2819,7 +2800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../multiprocessing/code/L1/05_pool_map/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/multiprocessing/code/L1/05_pool_map/" class="md-nav__link">
         
   
   
@@ -2847,7 +2828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../multiprocessing/code/L1/06_process_images/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/multiprocessing/code/L1/06_process_images/" class="md-nav__link">
         
   
   
@@ -2931,7 +2912,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../tech/agentic-ai/" class="md-nav__link ">
+            <a href="../../../agentic-ai/" class="md-nav__link ">
               
   
   
@@ -3014,7 +2995,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../tech/agentic-ai/module-1-intro/" class="md-nav__link ">
+            <a href="../../../agentic-ai/module-1-intro/" class="md-nav__link ">
               
   
   
@@ -3058,7 +3039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-1-intro/01-welcome/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-1-intro/01-welcome/" class="md-nav__link">
         
   
   
@@ -3086,7 +3067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-1-intro/02-what-is-agentic-ai/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-1-intro/02-what-is-agentic-ai/" class="md-nav__link">
         
   
   
@@ -3114,7 +3095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-1-intro/03-degrees-of-autonomy/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-1-intro/03-degrees-of-autonomy/" class="md-nav__link">
         
   
   
@@ -3142,7 +3123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-1-intro/04-benefits/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-1-intro/04-benefits/" class="md-nav__link">
         
   
   
@@ -3170,7 +3151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-1-intro/05-applications/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-1-intro/05-applications/" class="md-nav__link">
         
   
   
@@ -3198,7 +3179,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-1-intro/06-task-decomposition/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-1-intro/06-task-decomposition/" class="md-nav__link">
         
   
   
@@ -3226,7 +3207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-1-intro/07-evals/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-1-intro/07-evals/" class="md-nav__link">
         
   
   
@@ -3254,7 +3235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-1-intro/08-design-patterns/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-1-intro/08-design-patterns/" class="md-nav__link">
         
   
   
@@ -3282,7 +3263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-1-intro/flashcards/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-1-intro/flashcards/" class="md-nav__link">
         
   
   
@@ -3353,7 +3334,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../tech/agentic-ai/module-2-reflection/" class="md-nav__link ">
+            <a href="../../../agentic-ai/module-2-reflection/" class="md-nav__link ">
               
   
   
@@ -3397,7 +3378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-2-reflection/01-reflection-to-improve-outputs/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-2-reflection/01-reflection-to-improve-outputs/" class="md-nav__link">
         
   
   
@@ -3425,7 +3406,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-2-reflection/02-why-not-direct-generation/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-2-reflection/02-why-not-direct-generation/" class="md-nav__link">
         
   
   
@@ -3453,7 +3434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-2-reflection/03-chart-generation-workflow/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-2-reflection/03-chart-generation-workflow/" class="md-nav__link">
         
   
   
@@ -3481,7 +3462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-2-reflection/04-evaluating-reflection/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-2-reflection/04-evaluating-reflection/" class="md-nav__link">
         
   
   
@@ -3509,7 +3490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-2-reflection/05-external-feedback/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-2-reflection/05-external-feedback/" class="md-nav__link">
         
   
   
@@ -3537,7 +3518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-2-reflection/flashcards/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-2-reflection/flashcards/" class="md-nav__link">
         
   
   
@@ -3627,7 +3608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-2-reflection/code/M2/examples/sql_agent/sql/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-2-reflection/code/M2/examples/sql_agent/sql/" class="md-nav__link">
         
   
   
@@ -3655,7 +3636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-2-reflection/code/M2/examples/visualization_agent/visualization/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-2-reflection/code/M2/examples/visualization_agent/visualization/" class="md-nav__link">
         
   
   
@@ -3683,7 +3664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-2-reflection/code/M2/ungraded_labs/M2_UGL_1/M2_UGL_1/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-2-reflection/code/M2/ungraded_labs/M2_UGL_1/M2_UGL_1/" class="md-nav__link">
         
   
   
@@ -3711,7 +3692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-2-reflection/code/M2/ungraded_labs/M2_UGL_2/M2_UGL_2/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-2-reflection/code/M2/ungraded_labs/M2_UGL_2/M2_UGL_2/" class="md-nav__link">
         
   
   
@@ -3739,7 +3720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-2-reflection/code/M2/graded_labs/research-agent/GL-M2/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-2-reflection/code/M2/graded_labs/research-agent/GL-M2/" class="md-nav__link">
         
   
   
@@ -3818,7 +3799,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../tech/agentic-ai/module-3-tool-use/" class="md-nav__link ">
+            <a href="../../../agentic-ai/module-3-tool-use/" class="md-nav__link ">
               
   
   
@@ -3862,7 +3843,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-3-tool-use/01-what-are-tools/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-3-tool-use/01-what-are-tools/" class="md-nav__link">
         
   
   
@@ -3890,7 +3871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-3-tool-use/02-creating-a-tool/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-3-tool-use/02-creating-a-tool/" class="md-nav__link">
         
   
   
@@ -3918,7 +3899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-3-tool-use/03-tool-syntax/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-3-tool-use/03-tool-syntax/" class="md-nav__link">
         
   
   
@@ -3946,7 +3927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-3-tool-use/04-code-execution/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-3-tool-use/04-code-execution/" class="md-nav__link">
         
   
   
@@ -3974,7 +3955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-3-tool-use/05-mcp/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-3-tool-use/05-mcp/" class="md-nav__link">
         
   
   
@@ -4002,7 +3983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-3-tool-use/flashcards/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-3-tool-use/flashcards/" class="md-nav__link">
         
   
   
@@ -4088,7 +4069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-3-tool-use/code/M3/ungraded_labs/M3_UGL_1/M3_UGL_1/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-3-tool-use/code/M3/ungraded_labs/M3_UGL_1/M3_UGL_1/" class="md-nav__link">
         
   
   
@@ -4116,7 +4097,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-3-tool-use/code/M3/ungraded_labs/M3_UGL_2/M3_UGL_2/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-3-tool-use/code/M3/ungraded_labs/M3_UGL_2/M3_UGL_2/" class="md-nav__link">
         
   
   
@@ -4144,7 +4125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-3-tool-use/code/M3/graded_labs/research_agent/GL-M3/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-3-tool-use/code/M3/graded_labs/research_agent/GL-M3/" class="md-nav__link">
         
   
   
@@ -4227,7 +4208,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../tech/agentic-ai/module-4-practical-tips/" class="md-nav__link ">
+            <a href="../../../agentic-ai/module-4-practical-tips/" class="md-nav__link ">
               
   
   
@@ -4271,7 +4252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-4-practical-tips/01-evaluations/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-4-practical-tips/01-evaluations/" class="md-nav__link">
         
   
   
@@ -4299,7 +4280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-4-practical-tips/02-error-analysis/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-4-practical-tips/02-error-analysis/" class="md-nav__link">
         
   
   
@@ -4327,7 +4308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-4-practical-tips/03-more-error-analysis/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-4-practical-tips/03-more-error-analysis/" class="md-nav__link">
         
   
   
@@ -4355,7 +4336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-4-practical-tips/04-component-level-evals/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-4-practical-tips/04-component-level-evals/" class="md-nav__link">
         
   
   
@@ -4383,7 +4364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-4-practical-tips/05-addressing-problems/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-4-practical-tips/05-addressing-problems/" class="md-nav__link">
         
   
   
@@ -4411,7 +4392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-4-practical-tips/06-latency-cost/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-4-practical-tips/06-latency-cost/" class="md-nav__link">
         
   
   
@@ -4439,7 +4420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-4-practical-tips/07-dev-process-summary/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-4-practical-tips/07-dev-process-summary/" class="md-nav__link">
         
   
   
@@ -4467,7 +4448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-4-practical-tips/flashcards/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-4-practical-tips/flashcards/" class="md-nav__link">
         
   
   
@@ -4549,7 +4530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-4-practical-tips/code/M4_UGL_1/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-4-practical-tips/code/M4_UGL_1/" class="md-nav__link">
         
   
   
@@ -4626,7 +4607,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../tech/agentic-ai/module-5-autonomous-agents/" class="md-nav__link ">
+            <a href="../../../agentic-ai/module-5-autonomous-agents/" class="md-nav__link ">
               
   
   
@@ -4670,7 +4651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-5-autonomous-agents/01-planning-workflows/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-5-autonomous-agents/01-planning-workflows/" class="md-nav__link">
         
   
   
@@ -4698,7 +4679,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-5-autonomous-agents/02-llm-plans/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-5-autonomous-agents/02-llm-plans/" class="md-nav__link">
         
   
   
@@ -4726,7 +4707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-5-autonomous-agents/03-planning-code-execution/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-5-autonomous-agents/03-planning-code-execution/" class="md-nav__link">
         
   
   
@@ -4754,7 +4735,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-5-autonomous-agents/04-multi-agent/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-5-autonomous-agents/04-multi-agent/" class="md-nav__link">
         
   
   
@@ -4782,7 +4763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-5-autonomous-agents/05-communication-patterns/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-5-autonomous-agents/05-communication-patterns/" class="md-nav__link">
         
   
   
@@ -4810,7 +4791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/module-5-autonomous-agents/flashcards/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-5-autonomous-agents/flashcards/" class="md-nav__link">
         
   
   
@@ -4904,7 +4885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/flashcards/" class="md-nav__link">
+      <a href="../../../agentic-ai/flashcards/" class="md-nav__link">
         
   
   
@@ -4932,7 +4913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/cheatsheet/" class="md-nav__link">
+      <a href="../../../agentic-ai/cheatsheet/" class="md-nav__link">
         
   
   
@@ -4960,7 +4941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/agentic-ai/vs/" class="md-nav__link">
+      <a href="../../../agentic-ai/vs/" class="md-nav__link">
         
   
   
@@ -5000,6 +4981,8 @@
       
   
   
+    
+  
   
   
     
@@ -5025,18 +5008,21 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../tech/rag/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -5054,13 +5040,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -5077,6 +5063,8 @@
                 
   
   
+    
+  
   
   
     
@@ -5103,15 +5091,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../tech/rag/module-1-rag-overview/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -5135,7 +5123,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -5155,7 +5143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/rag/module-1-rag-overview/00-conversation-andrew-ng/" class="md-nav__link">
+      <a href="../00-conversation-andrew-ng/" class="md-nav__link">
         
   
   
@@ -5183,7 +5171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/rag/module-1-rag-overview/01-module-introduction/" class="md-nav__link">
+      <a href="../01-module-introduction/" class="md-nav__link">
         
   
   
@@ -5208,10 +5196,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../../../../../tech/rag/module-1-rag-overview/02-introduction-to-rag/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Introduction to RAG
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -5227,6 +5242,114 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#one-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 One Line
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-two-phases-of-answering-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🖼️ The Two Phases of Answering Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-3-hotel-questions-why-llms-need-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧱 The 3 Hotel Questions — Why LLMs Need RAG
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-rag-works-the-core-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚡ How RAG Works — The Core Mechanism
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-three-rag-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧱 The Three RAG Components
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-llms-dont-know-why-rag-is-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚫 What LLMs Don't Know (Why RAG is Needed)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-key-insight-just-put-it-in-the-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 The Key Insight — "Just Put It In The Prompt"
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Quick Check
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -5239,7 +5362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/rag/module-1-rag-overview/03-applications-of-rag/" class="md-nav__link">
+      <a href="../03-applications-of-rag/" class="md-nav__link">
         
   
   
@@ -5267,7 +5390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/rag/module-1-rag-overview/flashcards/" class="md-nav__link">
+      <a href="../flashcards/" class="md-nav__link">
         
   
   
@@ -5326,7 +5449,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../tech/rag/module-2-ir-search-foundations/" class="md-nav__link ">
+            <a href="../../module-2-ir-search-foundations/" class="md-nav__link ">
               
   
   
@@ -5370,7 +5493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/rag/module-2-ir-search-foundations/flashcards/" class="md-nav__link">
+      <a href="../../module-2-ir-search-foundations/flashcards/" class="md-nav__link">
         
   
   
@@ -5429,7 +5552,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../tech/rag/module-3-ir-vector-databases/" class="md-nav__link ">
+            <a href="../../module-3-ir-vector-databases/" class="md-nav__link ">
               
   
   
@@ -5473,7 +5596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/rag/module-3-ir-vector-databases/flashcards/" class="md-nav__link">
+      <a href="../../module-3-ir-vector-databases/flashcards/" class="md-nav__link">
         
   
   
@@ -5532,7 +5655,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../tech/rag/module-4-llms-text-generation/" class="md-nav__link ">
+            <a href="../../module-4-llms-text-generation/" class="md-nav__link ">
               
   
   
@@ -5576,7 +5699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/rag/module-4-llms-text-generation/flashcards/" class="md-nav__link">
+      <a href="../../module-4-llms-text-generation/flashcards/" class="md-nav__link">
         
   
   
@@ -5635,7 +5758,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../tech/rag/module-5-rag-production/" class="md-nav__link ">
+            <a href="../../module-5-rag-production/" class="md-nav__link ">
               
   
   
@@ -5679,7 +5802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/rag/module-5-rag-production/flashcards/" class="md-nav__link">
+      <a href="../../module-5-rag-production/flashcards/" class="md-nav__link">
         
   
   
@@ -5769,7 +5892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../tech/rag/flashcards/" class="md-nav__link">
+      <a href="../../flashcards/" class="md-nav__link">
         
   
   
@@ -5825,6 +5948,102 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#one-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 One Line
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-two-phases-of-answering-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🖼️ The Two Phases of Answering Questions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-3-hotel-questions-why-llms-need-rag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧱 The 3 Hotel Questions — Why LLMs Need RAG
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-rag-works-the-core-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚡ How RAG Works — The Core Mechanism
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-three-rag-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧱 The Three RAG Components
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-llms-dont-know-why-rag-is-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚫 What LLMs Don't Know (Why RAG is Needed)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-key-insight-just-put-it-in-the-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 The Key Insight — "Just Put It In The Prompt"
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Quick Check
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5840,55 +6059,210 @@
 
 
 
-<h1 id="example-7">📄 Example 7<a class="headerlink" href="#example-7" title="Permanent link">#</a></h1>
-<p><strong>File:</strong> <code>tech/python/asyncio/code/L1/example_7.py</code></p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">fetch_data</span><span class="p">(</span><span class="n">param</span><span class="p">):</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Result of </span><span class="si">{</span><span class="n">param</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="c1"># Create Tasks Manually</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">task1</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">fetch_data</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="n">task2</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">fetch_data</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="n">result1</span> <span class="o">=</span> <span class="k">await</span> <span class="n">task1</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="n">result2</span> <span class="o">=</span> <span class="k">await</span> <span class="n">task2</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Task 1 and 2 awaited results: </span><span class="si">{</span><span class="p">[</span><span class="n">result1</span><span class="p">,</span><span class="w"> </span><span class="n">result2</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    <span class="c1"># Gather Coroutines</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    <span class="n">coroutines</span> <span class="o">=</span> <span class="p">[</span><span class="n">fetch_data</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">coroutines</span><span class="p">,</span> <span class="n">return_exceptions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Coroutine Results: </span><span class="si">{</span><span class="n">results</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    <span class="c1"># Gather Tasks</span>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>    <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span><span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">fetch_data</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>    <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">tasks</span><span class="p">)</span>
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Task Results: </span><span class="si">{</span><span class="n">results</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>    <span class="c1"># Task Group</span>
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>    <span class="k">async</span> <span class="k">with</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">TaskGroup</span><span class="p">()</span> <span class="k">as</span> <span class="n">tg</span><span class="p">:</span>
-</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>        <span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="n">tg</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">fetch_data</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
-</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>        <span class="c1"># All tasks are awaited when the context manager exits.</span>
-</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Task Group Results: </span><span class="si">{</span><span class="p">[</span><span class="n">result</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">results</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>
-</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>    <span class="k">return</span> <span class="s2">&quot;Main Coroutine Done&quot;</span>
-</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>
-</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>
-</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
-</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>
-</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="n">results</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
-</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>
-</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="n">t2</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
-</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Finished in </span><span class="si">{</span><span class="n">t2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t1</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+<h1 id="02-introduction-to-rag">02 · Introduction to RAG 🔍<a class="headerlink" href="#02-introduction-to-rag" title="Permanent link">#</a></h1>
+<hr />
+<h2 id="one-line">🎯 One Line<a class="headerlink" href="#one-line" title="Permanent link">#</a></h2>
+<blockquote>
+<p>RAG = before the LLM generates, a <strong>retriever</strong> fetches relevant info from a knowledge base and stuffs it into the prompt. Retrieve first, generate second — that's it.</p>
+</blockquote>
+<hr />
+<h2 id="the-two-phases-of-answering-questions">🖼️ The Two Phases of Answering Questions<a class="headerlink" href="#the-two-phases-of-answering-questions" title="Permanent link">#</a></h2>
+<pre class="mermaid"><code>graph LR
+    Q["❓ Question"] --&gt; R{"Need more&lt;br/&gt;info?"}
+    R --&gt;|"No — I know this"| G["💬 Respond&lt;br/&gt;from knowledge"]
+    R --&gt;|"Yes"| COLLECT["🔍 Collect&lt;br/&gt;information"]
+    COLLECT --&gt; G2["💬 Reason + Respond&lt;br/&gt;with new info"]
+
+    style Q fill:#ff9800,color:#fff
+    style COLLECT fill:#2196f3,color:#fff
+    style G fill:#4caf50,color:#fff
+    style G2 fill:#4caf50,color:#fff</code></pre>
+<blockquote>
+<p>Both humans AND LLMs follow this pattern — sometimes you already know the answer, sometimes you need to look it up first.</p>
+</blockquote>
+<hr />
+<h2 id="the-3-hotel-questions-why-llms-need-rag">🧱 The 3 Hotel Questions — Why LLMs Need RAG<a class="headerlink" href="#the-3-hotel-questions-why-llms-need-rag" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Information Needed</th>
+<th>You / LLM Can Answer?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Why are hotels expensive on weekends?"</td>
+<td>General knowledge</td>
+<td>✅ Already know this</td>
+</tr>
+<tr>
+<td>"Why are Vancouver hotels expensive <strong>this</strong> weekend?"</td>
+<td>Recent event (Taylor Swift concert)</td>
+<td>❌ Need to search first</td>
+</tr>
+<tr>
+<td>"Why doesn't Vancouver have more hotel capacity downtown?"</td>
+<td>Deep specialized research (urban planning, history)</td>
+<td>❌ Need lots of specialized info</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>Question 1 = exam ka known topic. Question 2 = yesterday ka current affairs. Question 3 = PhD thesis. LLM bhi same — general knowledge hai, but specific/recent/deep info chahiye toh retrieval chahiye! 📚</strong></p>
+</blockquote>
+<hr />
+<h2 id="how-rag-works-the-core-mechanism">⚡ How RAG Works — The Core Mechanism<a class="headerlink" href="#how-rag-works-the-core-mechanism" title="Permanent link">#</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌──────────────────────────────────────────────────────────┐
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│                    RAG in 3 Steps                          │
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│                                                           │
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│  Step 1: USER PROMPT                                      │
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│  &quot;Why are hotels in Vancouver expensive this weekend?&quot;    │
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│                        │                                  │
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│                        ▼                                  │
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│  Step 2: RETRIEVAL                                        │
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│  🔍 Retriever ──▶ Knowledge Base                          │
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│              ◀── &quot;Taylor Swift concert Dec 6-8, 2024&quot;    │
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│                        │                                  │
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│                        ▼                                  │
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│  Step 3: AUGMENTED PROMPT → LLM                           │
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│  📝 Original question + retrieved info ──▶ 🧠 LLM        │
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>│                                               │           │
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>│                                               ▼           │
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>│                                    ✅ Accurate Response   │
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>└──────────────────────────────────────────────────────────┘
 </span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>What It Means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Retrieval</strong></td>
+<td>Collecting relevant information before generating a response</td>
+</tr>
+<tr>
+<td><strong>Augmented</strong></td>
+<td>The prompt is enhanced/improved with retrieved info</td>
+</tr>
+<tr>
+<td><strong>Generation</strong></td>
+<td>LLM reasons over augmented prompt and generates the answer</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>RAG ka naam hi batata hai kya karna hai: Retrieval (dhundo) → Augmented (prompt mein daalo) → Generation (jawab do). Name hi recipe hai! 🍳</strong></p>
+</blockquote>
+<hr />
+<h2 id="the-three-rag-components">🧱 The Three RAG Components<a class="headerlink" href="#the-three-rag-components" title="Permanent link">#</a></h2>
+<pre class="mermaid"><code>graph TB
+    USER["👤 User Prompt"] --&gt; RET["🔍 Retriever"]
+    RET --&gt;|"searches"| KB["📚 Knowledge Base&lt;br/&gt;(trusted, relevant,&lt;br/&gt;possibly private info)"]
+    KB --&gt;|"returns relevant docs"| RET
+    RET --&gt;|"augmented prompt"| LLM["🧠 LLM"]
+    LLM --&gt; RESP["✅ Response"]
+
+    style RET fill:#2196f3,color:#fff
+    style KB fill:#9c27b0,color:#fff
+    style LLM fill:#4caf50,color:#fff</code></pre>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Knowledge Base</strong></td>
+<td>Collection of trusted, relevant, possibly private information</td>
+</tr>
+<tr>
+<td><strong>Retriever</strong></td>
+<td>Finds the most relevant info from the KB for a given query</td>
+</tr>
+<tr>
+<td><strong>LLM</strong></td>
+<td>Receives augmented prompt (question + retrieved info) → generates response</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="what-llms-dont-know-why-rag-is-needed">🚫 What LLMs Don't Know (Why RAG is Needed)<a class="headerlink" href="#what-llms-dont-know-why-rag-is-needed" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Gap</th>
+<th>Example</th>
+<th>Why It's Missing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Private data</strong></td>
+<td>Company databases, internal docs</td>
+<td>Never published online</td>
+</tr>
+<tr>
+<td><strong>Hard-to-access info</strong></td>
+<td>Niche/obscure knowledge</td>
+<td>Hidden or not widely available</td>
+</tr>
+<tr>
+<td><strong>Real-time data</strong></td>
+<td>Today's news, live events</td>
+<td>Published after training cutoff</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>LLMs are trained on massive internet data — but they're not experts on everything. Just like you, they give <strong>much better responses when they have access to better information</strong>.</p>
+</blockquote>
+<hr />
+<h2 id="the-key-insight-just-put-it-in-the-prompt">💡 The Key Insight — "Just Put It In The Prompt"<a class="headerlink" href="#the-key-insight-just-put-it-in-the-prompt" title="Permanent link">#</a></h2>
+<blockquote>
+<p>The entire core idea of RAG:</p>
+<p><strong>Modify the prompt before sending it to the LLM</strong> — add information that helps the LLM respond accurately.</p>
+<p>That's literally it. Retrieve relevant info → stuff it into the prompt → let the LLM do its thing.</p>
+<p>💡 <strong>RAG is basically cheating on an exam — legally. LLM ko cheat sheet de do prompt mein! Open-book exam hai, use it! 📋😂</strong></p>
+</blockquote>
+<hr />
+<h2 id="quick-check">🧪 Quick Check<a class="headerlink" href="#quick-check" title="Permanent link">#</a></h2>
+<details>
+<summary>❓ What do Retrieval, Augmented, and Generation each mean in "RAG"?</summary>
+
+- **Retrieval** = collecting relevant information from a knowledge base
+- **Augmented** = enhancing the prompt by adding the retrieved information
+- **Generation** = LLM reasons over the augmented prompt and generates the response
+
+The name IS the recipe!
+</details>
+
+<details>
+<summary>❓ What are the 3 main components of a RAG system?</summary>
+
+1. **Knowledge Base** — collection of trusted/private/relevant information
+2. **Retriever** — searches the KB, finds most relevant docs for the query
+3. **LLM** — receives augmented prompt (question + retrieved docs), generates answer
+</details>
+
+<details>
+<summary>❓ What are 3 types of information that LLMs typically don't have access to?</summary>
+
+1. **Private data** — company databases, internal docs (never published)
+2. **Hard-to-access info** — niche, obscure, not widely available online
+3. **Real-time data** — events after training cutoff, news published every minute
+
+RAG fills all three gaps by retrieving from a knowledge base at query time.
+</details>
+
 <hr />
 <blockquote>
-<p><a href="/tech/python/asyncio/code/L1/example_7.py">⬇️ Download raw file</a></p>
+<p><strong>Next →</strong> <a href="../03-applications-of-rag/">Applications of RAG</a></p>
 </blockquote>
 
 
@@ -5927,7 +6301,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../example_6/" class="md-footer__link md-footer__link--prev" aria-label="Previous: example_6.py">
+          <a href="../01-module-introduction/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 01 · Module Introduction">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -5937,20 +6311,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                example_6.py
+                01 · Module Introduction
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../../../../../../tech/python/threading/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview">
+          <a href="../03-applications-of-rag/" class="md-footer__link md-footer__link--next" aria-label="Next: 03 · Applications of RAG">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Overview
+                03 · Applications of RAG
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -6013,12 +6387,12 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow", "header.autohide"], "search": "../../../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow", "header.autohide"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../../../../../../../_assets/mermaid-zoom.js"></script>
+        <script src="../../../../_assets/mermaid-zoom.js"></script>
       
     
   </body>
