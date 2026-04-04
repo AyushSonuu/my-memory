@@ -277,6 +277,6 @@ nav:
     - Resources:
       - 🃏 Flashcards: tech/rag/flashcards.md
 
-  - 🔷 LangGraph:
-    - tech/langgraph/README.md
-    - 🃏 Flashcards: tech/langgraph/flashcards.md
+  - 🦜 LangChain:
+    - tech/langchain/README.md
+    - 🃏 Flashcards: tech/langchain/flashcards.md

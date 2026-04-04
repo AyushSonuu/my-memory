@@ -1,6 +1,6 @@
-# 🃏 LangGraph Flashcards
+# 🃏 LangChain Flashcards
 
-> From: langgraph/ + related: agentic-ai/, agent-memory/
+> From: langchain/ + related: agentic-ai/, agent-memory/, rag/
 > Last updated: —
 
 ---
