@@ -390,7 +390,8 @@
 }
 
 /* ---------- Details / Flashcards ---------- */
-.md-typeset details:not([class]) {
+/* Default details styling (non-flashcard) */
+.md-typeset details:not([class]):not(.flashcard) {
     background: var(--md-code-bg-color) !important;
     border: 1px solid rgba(255, 255, 255, 0.06) !important;
     border-radius: 10px !important;
@@ -399,19 +400,249 @@
     overflow: hidden;
 }
 
-.md-typeset details:not([class]):hover {
+.md-typeset details:not([class]):not(.flashcard):hover {
     border-color: rgba(0, 166, 126, 0.3) !important;
 }
 
-.md-typeset details:not([class])[open] {
+.md-typeset details:not([class]):not(.flashcard)[open] {
     border-color: var(--md-accent-fg-color) !important;
 }
 
-.md-typeset details:not([class]) summary {
+.md-typeset details:not([class]):not(.flashcard) summary {
     font-weight: 600;
     cursor: pointer;
     padding: 0.65rem 1.1rem;
     font-size: 0.92rem;
+}
+
+/* ========== FLIP CARD FLASHCARDS ========== */
+.flashcard-deck {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.2rem;
+    margin: 1.5rem 0;
+    padding: 0;
+}
+
+.flashcard {
+    perspective: 1000px;
+    height: 220px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 14px;
+    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.flashcard-front {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border: 2px solid rgba(0, 166, 126, 0.3);
+    color: #e2e8f0;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.flashcard-front::before {
+    content: "❓";
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+}
+
+.flashcard-front::after {
+    content: "tap to flip";
+    font-size: 0.7rem;
+    color: rgba(226, 232, 240, 0.35);
+    position: absolute;
+    bottom: 0.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.flashcard-front p {
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+    color: #e2e8f0;
+}
+
+.flashcard-back {
+    background: linear-gradient(135deg, #0a2e1f 0%, #0f3d2b 100%);
+    border: 2px solid rgba(0, 166, 126, 0.5);
+    color: #e2e8f0;
+    transform: rotateY(180deg);
+    box-shadow: 0 4px 20px rgba(0, 166, 126, 0.15);
+    font-size: 0.85rem;
+    line-height: 1.55;
+    text-align: left;
+}
+
+.flashcard-back::after {
+    content: "tap to flip back";
+    font-size: 0.7rem;
+    color: rgba(226, 232, 240, 0.3);
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.flashcard-back p,
+.flashcard-back li,
+.flashcard-back td,
+.flashcard-back th {
+    color: #e2e8f0 !important;
+    font-size: 0.85rem;
+    margin: 0.2rem 0;
+}
+
+.flashcard-back strong {
+    color: #00e896 !important;
+}
+
+.flashcard-back table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.4rem 0;
+    font-size: 0.8rem;
+}
+
+.flashcard-back th {
+    background: rgba(0, 166, 126, 0.15) !important;
+    padding: 0.3rem 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 166, 126, 0.3);
+    font-weight: 600;
+}
+
+.flashcard-back td {
+    padding: 0.25rem 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.flashcard-back blockquote {
+    border-left: 2px solid #00e896;
+    padding-left: 0.6rem;
+    margin: 0.5rem 0;
+    font-style: italic;
+    color: #a7f3d0 !important;
+}
+
+.flashcard-back blockquote p {
+    color: #a7f3d0 !important;
+}
+
+/* Card hover effect */
+.flashcard:hover .flashcard-inner {
+    box-shadow: 0 8px 30px rgba(0, 166, 126, 0.2);
+}
+
+.flashcard:hover .flashcard-front {
+    border-color: rgba(0, 166, 126, 0.6);
+}
+
+/* Card number badge */
+.flashcard-front .card-num {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.8rem;
+    font-size: 0.7rem;
+    color: rgba(0, 166, 126, 0.6);
+    font-weight: 700;
+}
+
+/* ===== Light mode flashcard overrides ===== */
+[data-md-color-scheme="default"] .flashcard-front {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-color: rgba(0, 135, 90, 0.3);
+    color: #1e293b;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+[data-md-color-scheme="default"] .flashcard-front p {
+    color: #1e293b;
+}
+
+[data-md-color-scheme="default"] .flashcard-front::after {
+    color: rgba(30, 41, 59, 0.3);
+}
+
+[data-md-color-scheme="default"] .flashcard-front .card-num {
+    color: rgba(0, 135, 90, 0.5);
+}
+
+[data-md-color-scheme="default"] .flashcard-back {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border-color: rgba(0, 135, 90, 0.4);
+    color: #1e293b;
+    box-shadow: 0 4px 20px rgba(0, 135, 90, 0.1);
+}
+
+[data-md-color-scheme="default"] .flashcard-back p,
+[data-md-color-scheme="default"] .flashcard-back li,
+[data-md-color-scheme="default"] .flashcard-back td,
+[data-md-color-scheme="default"] .flashcard-back th {
+    color: #1e293b !important;
+}
+
+[data-md-color-scheme="default"] .flashcard-back strong {
+    color: #047857 !important;
+}
+
+[data-md-color-scheme="default"] .flashcard-back th {
+    background: rgba(0, 135, 90, 0.1) !important;
+    border-color: rgba(0, 135, 90, 0.2);
+}
+
+[data-md-color-scheme="default"] .flashcard-back td {
+    border-color: rgba(0, 135, 90, 0.1);
+}
+
+[data-md-color-scheme="default"] .flashcard-back blockquote {
+    border-left-color: #047857;
+}
+
+[data-md-color-scheme="default"] .flashcard-back blockquote p {
+    color: #065f46 !important;
+}
+
+/* Mobile: single column */
+@media (max-width: 600px) {
+    .flashcard-deck {
+        grid-template-columns: 1fr;
+    }
+    .flashcard {
+        height: 200px;
+    }
 }
 
 /* ---------- Horizontal Rules ---------- */
