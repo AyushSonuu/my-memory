@@ -24,7 +24,7 @@ graph LR
 | # | Lesson | Confidence | Revised |
 |---|--------|-----------|---------|
 | 00 | [A Conversation with Andrew Ng](00-conversation-andrew-ng.md) | 🟢 | — |
-| 01 | [Module 1 Introduction](01-module-introduction.md) | 🔴 | — |
+| 01 | [Module 1 Introduction](01-module-introduction.md) | 🟢 | — |
 | 02 | [Introduction to RAG](02-introduction-to-rag.md) | 🔴 | — |
 | 03 | [Applications of RAG](03-applications-of-rag.md) | 🔴 | — |
 | 04 | [RAG Architecture Overview](04-rag-architecture-overview.md) | 🔴 | — |
