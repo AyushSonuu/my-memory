@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://ayushsonuu.github.io/my-memory/tech/rag/module-1-rag-overview/flashcards/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../00-conversation-andrew-ng/">
       
       
         <link rel="next" href="../../module-2-ir-search-foundations/">
@@ -5076,6 +5076,8 @@
       
         
       
+        
+      
     
     
     
@@ -5132,6 +5134,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-conversation-andrew-ng/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00 · Conversation with Andrew Ng
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -5143,6 +5173,24 @@
       
         
       
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🃏 Flashcards
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -5160,6 +5208,36 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-rag-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Core RAG Concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5703,6 +5781,25 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-rag-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Core RAG Concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5718,16 +5815,67 @@
 
 
 
-<h1 id="rag-overview-flashcards">🃏 Rag Overview Flashcards<a class="headerlink" href="#rag-overview-flashcards" title="Permanent link">#</a></h1>
+<h1 id="rag-overview-flashcards">🃏 RAG Overview Flashcards<a class="headerlink" href="#rag-overview-flashcards" title="Permanent link">#</a></h1>
 <blockquote>
 <p>From: module-1-rag-overview/
-Last updated: —</p>
+Last updated: 2026-04-04</p>
 </blockquote>
 <hr />
-<blockquote>
-<p><em>Flashcards will be generated as lessons are completed.</em>
-<em>Come back after watching videos and creating notes!</em></p>
-</blockquote>
+<h3 id="core-rag-concepts">📌 Core RAG Concepts<a class="headerlink" href="#core-rag-concepts" title="Permanent link">#</a></h3>
+<details>
+<summary>❓ What is RAG in one sentence?</summary>
+
+**Retrieval Augmented Generation** = retrieve relevant information from a knowledge base and inject it into the LLM's prompt so it can generate accurate, grounded answers using data it wasn't trained on.
+
+> LLM ko Google de do — pehle dhundo, phir jawab do! 🔍
+</details>
+
+<details>
+<summary>❓ Why do LLMs need RAG? What 3 types of info are they missing?</summary>
+
+LLMs only know their training data. They're missing:
+
+| Type | Example |
+|------|---------|
+| **Private data** | Company policies, internal docs, confidential databases |
+| **Real-time data** | Today's news, current events, live prices |
+| **Specialized data** | Niche domain knowledge not widely available online |
+
+RAG gives them access to all of this at query time.
+</details>
+
+<details>
+<summary>❓ What's the difference between Traditional RAG and Agentic RAG?</summary>
+
+| | Traditional RAG | Agentic RAG |
+|--|----------------|-------------|
+| **Who decides retrieval?** | Human engineer (hardcoded) | AI agent (dynamic) |
+| **Strategy** | Fixed: query → retrieve → generate | Flexible: retrieve → evaluate → maybe retry |
+| **Error handling** | Fails silently | Routes back, tries different approach |
+
+> Traditional = GPS fixed route. Agentic = GPS that recalculates on traffic! 🛣️
+</details>
+
+<details>
+<summary>❓ Why can't you just put ALL documents in the LLM prompt instead of using RAG?</summary>
+
+Two problems:
+1. **Context window limit** — LLMs have max token capacity
+2. **Computational cost** — longer prompts = more computation (model scans every token before generating each new one)
+
+RAG retrieves only the **most relevant** pieces → efficient + focused.
+</details>
+
+<details>
+<summary>❓ Name 5 ways RAG is getting better over time</summary>
+
+1. 📉 **Lower hallucination rates** — newer models stay grounded in context
+2. 🧠 **Reasoning models** — tackle complex questions over retrieved data
+3. 📏 **Larger context windows** — less chunking pressure
+4. 📄 **Better doc extraction** — PDFs, slides, images → usable text
+5. 🤖 **Agentic RAG** — AI decides what/when/how to retrieve
+</details>
+
 <hr />
 <blockquote>
 <p>💡 <strong>Revision tip:</strong> Cover the answer, try to explain OUT LOUD, then reveal.
@@ -5770,7 +5918,7 @@ Bolke batao — padhke nahi, bolke yaad hota hai! 🗣️</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview">
+          <a href="../00-conversation-andrew-ng/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 00 · Conversation with Andrew Ng">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -5780,7 +5928,7 @@ Bolke batao — padhke nahi, bolke yaad hota hai! 🗣️</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Overview
+                00 · Conversation with Andrew Ng
               </div>
             </div>
           </a>

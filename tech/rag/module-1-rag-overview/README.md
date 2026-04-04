@@ -23,7 +23,7 @@ graph LR
 
 | # | Lesson | Confidence | Revised |
 |---|--------|-----------|---------|
-| 00 | [A Conversation with Andrew Ng](00-conversation-andrew-ng.md) | 🔴 | — |
+| 00 | [A Conversation with Andrew Ng](00-conversation-andrew-ng.md) | 🟢 | — |
 | 01 | [Module 1 Introduction](01-module-introduction.md) | 🔴 | — |
 | 02 | [Introduction to RAG](02-introduction-to-rag.md) | 🔴 | — |
 | 03 | [Applications of RAG](03-applications-of-rag.md) | 🔴 | — |
@@ -37,7 +37,10 @@ graph LR
 **Overall confidence:** 🔴 Not started
 
 ## 🧩 Memory Fragments
-> - _Add fragments as you learn..._
+> - 🔍 RAG = pair search systems + LLM reasoning. Most commonly built LLM app type.
+> - 🤖 Agentic RAG = AI agent decides what to retrieve, when, and whether to try again.
+> - 📉 Hallucination rates trending down as newer models get better at staying grounded.
+> - 📏 Larger context windows = less chunking pressure, but still need RAG for cost/efficiency.
 
 ---
 

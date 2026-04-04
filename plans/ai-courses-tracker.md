@@ -46,7 +46,7 @@
 
 | # | Date | Day | Lesson | Video | Notes | Status |
 |---|------|-----|--------|:-----:|:-----:|:------:|
-| 1 | Apr 4 (Sat) 🔥 | 1 | A Conversation with Andrew Ng | ☐ | ☐ | ⬜ |
+| 1 | Apr 4 (Sat) 🔥 | 1 | A Conversation with Andrew Ng | ✅ | ✅ | ✅ |
 | 2 | Apr 4 (Sat) 🔥 | 1 | Module 1 Introduction | ☐ | ☐ | ⬜ |
 | 3 | Apr 5 (Sun) 🔥 | 2 | Introduction to RAG | ☐ | ☐ | ⬜ |
 | 4 | Apr 5 (Sun) 🔥 | 2 | Applications of RAG | ☐ | ☐ | ⬜ |

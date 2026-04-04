@@ -257,6 +257,7 @@ nav:
     - tech/rag/README.md
     - Module 1 · RAG Overview:
       - Overview: tech/rag/module-1-rag-overview/README.md
+      - 00 · Conversation with Andrew Ng: tech/rag/module-1-rag-overview/00-conversation-andrew-ng.md
       - 🃏 Flashcards: tech/rag/module-1-rag-overview/flashcards.md
     - Module 2 · IR & Search:
       - Overview: tech/rag/module-2-ir-search-foundations/README.md
