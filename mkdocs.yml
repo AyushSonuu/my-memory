@@ -180,6 +180,14 @@ nav:
       - Overview: tech/python/multiprocessing/README.md
       - 01 · Complete Guide: tech/python/multiprocessing/01-multiprocessing-complete-guide.md
       - 🃏 Flashcards: tech/python/multiprocessing/flashcards.md
+      - 💻 Code Examples:
+        - Overview: tech/python/multiprocessing/code/README.md
+        - 01_synchronous.py: _generated/tech/python/multiprocessing/code/L1/01_synchronous.md
+        - 02_basic_processes.py: _generated/tech/python/multiprocessing/code/L1/02_basic_processes.md
+        - 03_loop_processes.py: _generated/tech/python/multiprocessing/code/L1/03_loop_processes.md
+        - 04_pool_submit.py: _generated/tech/python/multiprocessing/code/L1/04_pool_submit.md
+        - 05_pool_map.py: _generated/tech/python/multiprocessing/code/L1/05_pool_map.md
+        - 06_process_images.py: _generated/tech/python/multiprocessing/code/L1/06_process_images.md
 
   - 🤖 Agentic AI:
     - tech/agentic-ai/README.md
