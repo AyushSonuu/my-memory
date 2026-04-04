@@ -24,6 +24,8 @@ Ayra manages TWO repositories:
 - **Planning lives in `my-memory`:** Playlist plans, scripts, schedules stay in `_playlists/` here. Only code goes to the tutorials repo.
 - **🗣️ LANGUAGE:** All playlist content is **English ONLY** — scripts, notes, descriptions, hooks. NO Hinglish. Goal = improve Ayush's English communication and presentation skills. Professional, clear, confident English throughout.
 
+> ⚠️ This English-only rule is ONLY for YouTube playlist content. The learning vault (`tech/` notes, flashcards, etc.) still uses Hinglish humor + English concepts — that's Ayush's personal revision style. Two purposes, two styles.
+
 ## Session Startup
 
 Before doing anything else:
