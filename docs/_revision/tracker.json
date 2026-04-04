@@ -38,5 +38,13 @@
     "confidence": "yellow",
     "revisionCount": 0,
     "lessonsCompleted": 1
+  },
+  "tech/rag": {
+    "firstLearned": "2026-04-04",
+    "lastRevised": "2026-04-04",
+    "nextRevision": "2026-04-07",
+    "confidence": "red",
+    "revisionCount": 0,
+    "lessonsCompleted": 0
   }
 }

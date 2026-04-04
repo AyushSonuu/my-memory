@@ -252,3 +252,23 @@ nav:
       - 🃏 Flashcards: tech/agentic-ai/flashcards.md
       - 📋 Cheatsheet: tech/agentic-ai/cheatsheet.md
       - ⚔️ Evals & Error Analysis: tech/agentic-ai/vs.md
+
+  - 🔍 RAG:
+    - tech/rag/README.md
+    - Module 1 · RAG Overview:
+      - Overview: tech/rag/module-1-rag-overview/README.md
+      - 🃏 Flashcards: tech/rag/module-1-rag-overview/flashcards.md
+    - Module 2 · IR & Search:
+      - Overview: tech/rag/module-2-ir-search-foundations/README.md
+      - 🃏 Flashcards: tech/rag/module-2-ir-search-foundations/flashcards.md
+    - Module 3 · Vector Databases:
+      - Overview: tech/rag/module-3-ir-vector-databases/README.md
+      - 🃏 Flashcards: tech/rag/module-3-ir-vector-databases/flashcards.md
+    - Module 4 · LLMs & Generation:
+      - Overview: tech/rag/module-4-llms-text-generation/README.md
+      - 🃏 Flashcards: tech/rag/module-4-llms-text-generation/flashcards.md
+    - Module 5 · Production:
+      - Overview: tech/rag/module-5-rag-production/README.md
+      - 🃏 Flashcards: tech/rag/module-5-rag-production/flashcards.md
+    - Resources:
+      - 🃏 Flashcards: tech/rag/flashcards.md
