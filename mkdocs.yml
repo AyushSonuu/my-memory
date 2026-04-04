@@ -280,3 +280,11 @@ nav:
   - 🦜 LangChain:
     - tech/langchain/README.md
     - 🃏 Flashcards: tech/langchain/flashcards.md
+
+  - 🔷 LangGraph:
+    - tech/langgraph/README.md
+    - 🃏 Flashcards: tech/langgraph/flashcards.md
+
+  - 🧠 Deep Agents:
+    - tech/deepagents/README.md
+    - 🃏 Flashcards: tech/deepagents/flashcards.md
