@@ -30,5 +30,13 @@
     "confidence": "yellow",
     "revisionCount": 1,
     "lessonsCompleted": 1
+  },
+  "tech/python/multiprocessing": {
+    "firstLearned": "2026-04-04",
+    "lastRevised": "2026-04-04",
+    "nextRevision": "2026-04-07",
+    "confidence": "yellow",
+    "revisionCount": 0,
+    "lessonsCompleted": 1
   }
 }

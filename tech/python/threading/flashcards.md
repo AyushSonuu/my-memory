@@ -80,6 +80,24 @@ In neither case does the exception raise during thread execution itself.
 
 ---
 
+### 🔗 From: Multiprocessing (Cross-Topic)
+
+<details>
+<summary>❓ Threading vs Multiprocessing — when to pick each?</summary>
+
+| | 🧵 Threading | ⚙️ Multiprocessing |
+|--|--------------|---------------------|
+| **True parallel** | ❌ (GIL limits) | ✅ (separate processes) |
+| **Best for** | I/O-bound | CPU-bound |
+| **Memory** | Shared | Separate (isolated) |
+| **Args requirement** | Any Python object | Must be picklable |
+| **Switch** | Change `Process` ↔ `Thread` Pool | ← same API! |
+
+Real-world: image downloads (I/O) → threading won. Image filters (CPU) → multiprocessing 3× faster.
+</details>
+
+---
+
 ### 🔗 From: AsyncIO (Cross-Topic)
 
 <details>

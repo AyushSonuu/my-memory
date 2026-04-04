@@ -176,6 +176,10 @@ nav:
         - 04_thread_pool_submit.py: _generated/tech/python/threading/code/L1/04_thread_pool_submit.md
         - 05_thread_pool_map.py: _generated/tech/python/threading/code/L1/05_thread_pool_map.md
         - 06_download_images.py: _generated/tech/python/threading/code/L1/06_download_images.md
+    - ⚙️ Multiprocessing:
+      - Overview: tech/python/multiprocessing/README.md
+      - 01 · Complete Guide: tech/python/multiprocessing/01-multiprocessing-complete-guide.md
+      - 🃏 Flashcards: tech/python/multiprocessing/flashcards.md
 
   - 🤖 Agentic AI:
     - tech/agentic-ai/README.md

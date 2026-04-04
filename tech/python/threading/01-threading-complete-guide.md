@@ -266,4 +266,4 @@ The main script continues executing while threads are still running. Your timing
 
 ---
 
-> **Related →** [AsyncIO](../asyncio/01-asyncio-complete-guide.md) · Multiprocessing (coming next!)
+> **Related →** [AsyncIO](../asyncio/01-asyncio-complete-guide.md) · [Multiprocessing](../multiprocessing/01-multiprocessing-complete-guide.md)
