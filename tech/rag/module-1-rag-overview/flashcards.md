@@ -61,6 +61,37 @@ RAG retrieves only the **most relevant** pieces → efficient + focused.
 5. 🤖 **Agentic RAG** — AI decides what/when/how to retrieve
 </details>
 
+### 📌 RAG Applications
+
+<details>
+<summary>❓ Name the 5 major RAG application categories</summary>
+
+| # | Application | Knowledge Base |
+|---|-------------|---------------|
+| 1 | **Code Generation** | Your own codebase (classes, functions, style) |
+| 2 | **Company Chatbots** | Products, policies, FAQs, guidelines |
+| 3 | **Healthcare / Legal** | Case files, medical journals, private records |
+| 4 | **AI Web Search** | The entire internet |
+| 5 | **Personal Assistants** | Texts, emails, contacts, calendar, documents |
+
+</details>
+
+<details>
+<summary>❓ Why might RAG be the ONLY viable option for legal/medical LLM applications?</summary>
+
+1. **Precision imperative** — wrong answers = real consequences (liability, patient harm)
+2. **Private data** — case files, patient records can't be in LLM training data
+3. **Recent data** — latest medical journals, new case law not in training data
+
+RAG is the only way to give LLMs access to this information while keeping it private and current.
+</details>
+
+<details>
+<summary>❓ How does an AI web search (ChatGPT/Perplexity) relate to RAG?</summary>
+
+It IS a RAG system — the **entire internet** is the knowledge base. Traditional search = retriever only (returns URLs). AI search = retriever + LLM summarizer. Same RAG pattern applied at internet scale.
+</details>
+
 ---
 
 > 💡 **Revision tip:** Cover the answer, try to explain OUT LOUD, then reveal.

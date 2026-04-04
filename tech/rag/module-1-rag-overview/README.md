@@ -26,7 +26,7 @@ graph LR
 | 00 | [A Conversation with Andrew Ng](00-conversation-andrew-ng.md) | 🟢 | — |
 | 01 | [Module 1 Introduction](01-module-introduction.md) | 🟢 | — |
 | 02 | [Introduction to RAG](02-introduction-to-rag.md) | 🔴 | — |
-| 03 | [Applications of RAG](03-applications-of-rag.md) | 🔴 | — |
+| 03 | [Applications of RAG](03-applications-of-rag.md) | 🟢 | — |
 | 04 | [RAG Architecture Overview](04-rag-architecture-overview.md) | 🔴 | — |
 | 05 | [Introduction to LLMs](05-introduction-to-llms.md) | 🔴 | — |
 | 06 | [A Brief Python Refresher](06-python-refresher.md) | 🔴 | — |
@@ -41,6 +41,10 @@ graph LR
 > - 🤖 Agentic RAG = AI agent decides what to retrieve, when, and whether to try again.
 > - 📉 Hallucination rates trending down as newer models get better at staying grounded.
 > - 📏 Larger context windows = less chunking pressure, but still need RAG for cost/efficiency.
+> - 💻 Code RAG = your codebase as KB. LLM can't code for your project without seeing your code.
+> - ⚕️ Legal/Medical RAG = may be ONLY viable option. Precision + private data = RAG mandatory.
+> - 🌐 AI web search (ChatGPT/Gemini) = RAG with the entire internet as knowledge base.
+> - 👤 Small personal KB (texts, emails) > large generic KB — dense context beats raw size.
 
 ---
 

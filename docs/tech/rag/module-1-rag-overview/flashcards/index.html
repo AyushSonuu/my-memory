@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://ayushsonuu.github.io/my-memory/tech/rag/module-1-rag-overview/flashcards/">
       
       
-        <link rel="prev" href="../01-module-introduction/">
+        <link rel="prev" href="../03-applications-of-rag/">
       
       
         <link rel="next" href="../../module-2-ir-search-foundations/">
@@ -5080,6 +5080,8 @@
       
         
       
+        
+      
     
     
     
@@ -5192,6 +5194,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-applications-of-rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Applications of RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -5259,6 +5289,17 @@
     <span class="md-ellipsis">
       
         📌 Core RAG Concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rag-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 RAG Applications
       
     </span>
   </a>
@@ -5828,6 +5869,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#rag-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 RAG Applications
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5906,6 +5958,36 @@ RAG retrieves only the **most relevant** pieces → efficient + focused.
 5. 🤖 **Agentic RAG** — AI decides what/when/how to retrieve
 </details>
 
+<h3 id="rag-applications">📌 RAG Applications<a class="headerlink" href="#rag-applications" title="Permanent link">#</a></h3>
+<details>
+<summary>❓ Name the 5 major RAG application categories</summary>
+
+| # | Application | Knowledge Base |
+|---|-------------|---------------|
+| 1 | **Code Generation** | Your own codebase (classes, functions, style) |
+| 2 | **Company Chatbots** | Products, policies, FAQs, guidelines |
+| 3 | **Healthcare / Legal** | Case files, medical journals, private records |
+| 4 | **AI Web Search** | The entire internet |
+| 5 | **Personal Assistants** | Texts, emails, contacts, calendar, documents |
+
+</details>
+
+<details>
+<summary>❓ Why might RAG be the ONLY viable option for legal/medical LLM applications?</summary>
+
+1. **Precision imperative** — wrong answers = real consequences (liability, patient harm)
+2. **Private data** — case files, patient records can't be in LLM training data
+3. **Recent data** — latest medical journals, new case law not in training data
+
+RAG is the only way to give LLMs access to this information while keeping it private and current.
+</details>
+
+<details>
+<summary>❓ How does an AI web search (ChatGPT/Perplexity) relate to RAG?</summary>
+
+It IS a RAG system — the **entire internet** is the knowledge base. Traditional search = retriever only (returns URLs). AI search = retriever + LLM summarizer. Same RAG pattern applied at internet scale.
+</details>
+
 <hr />
 <blockquote>
 <p>💡 <strong>Revision tip:</strong> Cover the answer, try to explain OUT LOUD, then reveal.
@@ -5948,7 +6030,7 @@ Bolke batao — padhke nahi, bolke yaad hota hai! 🗣️</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../01-module-introduction/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 01 · Module Introduction">
+          <a href="../03-applications-of-rag/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 03 · Applications of RAG">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -5958,7 +6040,7 @@ Bolke batao — padhke nahi, bolke yaad hota hai! 🗣️</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                01 · Module Introduction
+                03 · Applications of RAG
               </div>
             </div>
           </a>
