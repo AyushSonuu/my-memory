@@ -7,9 +7,11 @@
 ## 📅 Upcoming Revisions
 
 | Date | Topic | Round | Flashcards |
-|------|-------|-------|-----------|
-| ⚠️ **Mar 28** | 🧠 Agent Memory | Round 2 — Day 7 (overdue!) | [→ cards](tech/agent-memory/flashcards.md) |
-| 📅 **Apr 7** | 🧵 Threading | Round 2 — Day 7 | [→ cards](tech/python/threading/flashcards.md) |
+|------|-------|-------|------------|
+| 🔴 **Mar 28** | 🧠 Agent Memory | Round 2 — Day 7 (overdue!) | [→ cards](tech/agent-memory/flashcards.md) |
+| 🟡 **Apr 06** | 🤖 Agentic AI | Round 1 — Day 3 | [→ cards](tech/agentic-ai/flashcards.md) |
+| 🟡 **Apr 07** | 🧵 Threading | Round 2 — Day 7 | [→ cards](tech/python/threading/flashcards.md) |
+| 🟡 **Apr 07** | ⚙️ Multiprocessing | Round 1 — Day 3 | [→ cards](tech/python/multiprocessing/flashcards.md) |
 | 📅 **Apr 14** | ⚡ AsyncIO | Round 3 — Day 14 | [→ cards](tech/python/asyncio/flashcards.md) |
 
 ---
@@ -33,10 +35,10 @@ graph TB
 
 | Metric | Count |
 |--------|-------|
-| **Topics** | 4 |
-| **Lessons** | 25 |
+| **Topics** | 6 |
+| **Lessons** | 40 |
 | **Flashcards** | 120+ |
-| **Last updated** | 2026-03-31 |
+| **Last updated** | 2026-04-04 |
 
 ## 📚 Topics
 
