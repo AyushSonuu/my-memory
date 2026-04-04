@@ -7,7 +7,7 @@
 
 ### 📌 Core Multiprocessing
 
-<details>
+<details markdown="1">
 <summary>❓ When should you use multiprocessing over threading?</summary>
 
 | Task Type | Use |
@@ -20,7 +20,7 @@ Multiprocessing bypasses the GIL → true parallel execution on multiple CPU cor
 > CPU heavy = multiprocessing. Waiting heavy = threading. Andha andha mat karo — benchmark karo! 📊
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ What is the GIL and how does multiprocessing bypass it?</summary>
 
 **GIL (Global Interpreter Lock)** = one lock per Python interpreter → only one thread runs Python bytecode at a time.
@@ -31,7 +31,7 @@ Multiprocessing bypasses the GIL → true parallel execution on multiple CPU cor
 Multiprocessing = multiple kitchens with multiple chefs. Threading = one kitchen, one chef, fast switching. 👨‍🍳
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ What does "picklable" mean and why do multiprocessing arguments need to be picklable?</summary>
 
 **Pickling** = serializing Python objects into bytes (so they can be reconstructed). Multiprocessing requires it because processes have **separate memory** — arguments must be serialized to pass between processes via IPC.
@@ -42,7 +42,7 @@ Multiprocessing = multiple kitchens with multiple chefs. Threading = one kitchen
 > Pickle = Python ka courier service. Pack karo → bhejo → unpack karo. Jo pack nahi ho sakta, wo nahi jaata! 📦
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ Why can't you `.join()` inside the process creation loop?</summary>
 
 `.join()` blocks until that process finishes. Inside loop: create P1 → start P1 → **wait for P1** → create P2... = sequential!
@@ -60,7 +60,7 @@ for p in processes:            # join AFTER all started
 ```
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ What happens if you DON'T call `.join()` on your processes?</summary>
 
 Main script continues immediately while processes are still running. Timing/output at the end of the script executes before processes finish — you'll see "Finished in 0 seconds" because processes take time to spin up and main thread just runs past them.
@@ -68,7 +68,7 @@ Main script continues immediately while processes are still running. Timing/outp
 With `ProcessPoolExecutor` context manager: auto-joins when `with` block exits ✅
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ What's the difference between `submit()` and `map()` in ProcessPoolExecutor?</summary>
 
 | | `submit(fn, arg)` + `as_completed()` | `map(fn, iterable)` |
@@ -81,7 +81,7 @@ With `ProcessPoolExecutor` context manager: auto-joins when `with` block exits �
 > `as_completed` = race finish line. `map` = roll number order. 🏁📋
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ What is a Future object?</summary>
 
 A `Future` is returned by `executor.submit()`. It **encapsulates the execution** of a function scheduled on a process. You can:
@@ -92,7 +92,7 @@ A `Future` is returned by `executor.submit()`. It **encapsulates the execution**
 It's like a delivery tracking number — submit karo, track karo, result lo. 📬
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ What is the `if __name__ == '__main__':` guard and why is it important for multiprocessing?</summary>
 
 On Windows and macOS (spawn start method), new processes **import the script** to get the function. Without the guard, each spawned process re-runs the main code → infinite process spawning!
@@ -110,7 +110,7 @@ Always use this guard in scripts using multiprocessing! In Jupyter notebooks / m
 
 ### 🔗 From: Threading (Cross-Topic)
 
-<details>
+<details markdown="1">
 <summary>❓ Threading vs Multiprocessing — full comparison</summary>
 
 | | 🧵 Threading | ⚙️ Multiprocessing |
@@ -126,7 +126,7 @@ Always use this guard in scripts using multiprocessing! In Jupyter notebooks / m
 Real-world: 15 image downloads → Threading won (I/O-bound). 15 image filters → Multiprocessing 3× faster.
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ Can you switch between ThreadPoolExecutor and ProcessPoolExecutor easily?</summary>
 
 **Yes! That's the beauty of `concurrent.futures`:**
@@ -146,7 +146,7 @@ Same API: `submit()`, `map()`, `as_completed()` — all identical. Perfect for A
 
 ### 🔗 From: AsyncIO (Cross-Topic)
 
-<details>
+<details markdown="1">
 <summary>❓ Threading vs Multiprocessing vs AsyncIO — when to use each?</summary>
 
 | | 🧵 Threading | ⚙️ Multiprocessing | ⚡ AsyncIO |

@@ -6002,164 +6002,172 @@ Last updated: 2026-03-25</p>
 <h3 id="core-concepts">📌 Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">#</a></h3>
 <details>
 <summary>❓ What is "agentic AI" in one line?</summary>
-
-AI systems that don't just respond — they **act**: plan, execute, reflect, and iterate over multi-step workflows with varying degrees of autonomy.
+<p>AI systems that don't just respond — they <strong>act</strong>: plan, execute, reflect, and iterate over multi-step workflows with varying degrees of autonomy.</p>
 </details>
-
 <details>
 <summary>❓ What's the difference between non-agentic and agentic AI?</summary>
-
-**Non-agentic** = one-shot generation (write essay with no backspace).  
-**Agentic** = multi-step iterative workflow (outline → research → draft → revise). Like how a human actually works.
+<p><strong>Non-agentic</strong> = one-shot generation (write essay with no backspace).<br />
+<strong>Agentic</strong> = multi-step iterative workflow (outline → research → draft → revise). Like how a human actually works.</p>
 </details>
-
 <details>
 <summary>❓ Name the 4 agentic design patterns.</summary>
-
-1. **Reflection** — self-critique loops
-2. **Tool Use** — connect to APIs, databases, code execution
-3. **Planning** — break tasks into steps
-4. **Multi-Agent** — specialized agents collaborating
+<ol>
+<li><strong>Reflection</strong> — self-critique loops</li>
+<li><strong>Tool Use</strong> — connect to APIs, databases, code execution</li>
+<li><strong>Planning</strong> — break tasks into steps</li>
+<li><strong>Multi-Agent</strong> — specialized agents collaborating</li>
+</ol>
 </details>
-
 <details>
 <summary>❓ What are the 3 factors that make an agentic task harder?</summary>
-
-1. **Steps not known ahead of time** (must plan dynamically)
-2. **No standard procedures** (solve as you go)
-3. **Multimodal input** (vision, audio, not just text)
+<ol>
+<li><strong>Steps not known ahead of time</strong> (must plan dynamically)</li>
+<li><strong>No standard procedures</strong> (solve as you go)</li>
+<li><strong>Multimodal input</strong> (vision, audio, not just text)</li>
+</ol>
 </details>
-
 <details>
 <summary>❓ What are the 5 degrees of autonomy?</summary>
-
-Fully manual → Assistive → Semi-autonomous → Supervised autonomous → Fully autonomous.  
-Most production systems today are **semi-autonomous** (human-in-the-loop).
+<p>Fully manual → Assistive → Semi-autonomous → Supervised autonomous → Fully autonomous.<br />
+Most production systems today are <strong>semi-autonomous</strong> (human-in-the-loop).</p>
 </details>
-
 <hr />
 <h3 id="task-decomposition-lesson-06">✂️ Task Decomposition (Lesson 06)<a class="headerlink" href="#task-decomposition-lesson-06" title="Permanent link">#</a></h3>
 <details>
 <summary>❓ What's the ONE question to ask for every step in task decomposition?</summary>
-
-**"Can this step be done by an LLM, a short piece of code, a function call, or a tool?"**
-
-If yes → wire it in. If no → ask how a human would do it → decompose further.
+<p><strong>"Can this step be done by an LLM, a short piece of code, a function call, or a tool?"</strong></p>
+<p>If yes → wire it in. If no → ask how a human would do it → decompose further.</p>
 </details>
-
 <details>
 <summary>❓ In the research agent example, why did V2 (3 steps) fail?</summary>
-
-The essay was **disjointed** — the beginning, middle, and end didn't feel consistent. The "write essay" step was too big. Fix: decompose into **draft → critique → revise** (3 sub-steps instead of 1).
+<p>The essay was <strong>disjointed</strong> — the beginning, middle, and end didn't feel consistent. The "write essay" step was too big. Fix: decompose into <strong>draft → critique → revise</strong> (3 sub-steps instead of 1).</p>
 </details>
-
 <details>
 <summary>❓ What are the 6 building blocks for agentic workflows?</summary>
-
-| Block | Purpose |
-|-------|---------|
-| 🧠 LLMs | Text gen, extraction, decisions |
-| 🧠 Multimodal Models | Process images, audio, video |
-| 🤖 Specialized AI Models | PDF→text, TTS, image analysis |
-| 🔧 APIs / Tools | Web search, email, calendar |
-| 🗄️ Retrieval | Database queries, RAG |
-| 💻 Code Execution | LLM writes & runs code |
+<table>
+<thead>
+<tr>
+<th>Block</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🧠 LLMs</td>
+<td>Text gen, extraction, decisions</td>
+</tr>
+<tr>
+<td>🧠 Multimodal Models</td>
+<td>Process images, audio, video</td>
+</tr>
+<tr>
+<td>🤖 Specialized AI Models</td>
+<td>PDF→text, TTS, image analysis</td>
+</tr>
+<tr>
+<td>🔧 APIs / Tools</td>
+<td>Web search, email, calendar</td>
+</tr>
+<tr>
+<td>🗄️ Retrieval</td>
+<td>Database queries, RAG</td>
+</tr>
+<tr>
+<td>💻 Code Execution</td>
+<td>LLM writes &amp; runs code</td>
+</tr>
+</tbody>
+</table>
 </details>
-
 <details>
 <summary>❓ Is task decomposition a one-time activity?</summary>
-
-**No!** It's an iterative loop: build → test → find weak step → decompose further → test again. You rarely get it right the first time. Andrew Ng himself iterates multiple times.
+<p><strong>No!</strong> It's an iterative loop: build → test → find weak step → decompose further → test again. You rarely get it right the first time. Andrew Ng himself iterates multiple times.</p>
 </details>
-
 <details>
 <summary>❓ How did the research agent decomposition evolve?</summary>
-
-- **V1** (1 step): Direct generation → shallow output
-- **V2** (3 steps): Outline → search → write → better but disjointed  
-- **V3** (5 steps): Outline → search → draft → critique → revise → deeper & coherent
-
-Each version **further decomposes** the weakest step.
+<ul>
+<li><strong>V1</strong> (1 step): Direct generation → shallow output</li>
+<li><strong>V2</strong> (3 steps): Outline → search → write → better but disjointed  </li>
+<li><strong>V3</strong> (5 steps): Outline → search → draft → critique → revise → deeper &amp; coherent</li>
+</ul>
+<p>Each version <strong>further decomposes</strong> the weakest step.</p>
 </details>
-
 <hr />
 <h3 id="evals-lesson-07">📏 Evals (Lesson 07)<a class="headerlink" href="#evals-lesson-07" title="Permanent link">#</a></h3>
 <details>
 <summary>❓ Why shouldn't you try to build all evals before building the workflow?</summary>
-
-Because problems are **very hard to predict** in advance. Build first → run on real inputs → examine outputs → discover issues → then create targeted evals. You'll always find unexpected failures (like competitor mentions) that you couldn't have anticipated.
+<p>Because problems are <strong>very hard to predict</strong> in advance. Build first → run on real inputs → examine outputs → discover issues → then create targeted evals. You'll always find unexpected failures (like competitor mentions) that you couldn't have anticipated.</p>
 </details>
-
 <details>
 <summary>❓ What are the two types of eval metrics?</summary>
-
-| Type | When | How |
-|------|------|-----|
-| **📐 Objective (code-based)** | Clear right/wrong | Write code to check (e.g., does output contain competitor name?) |
-| **🧑‍⚖️ Subjective (LLM-as-Judge)** | Fuzzy quality | Prompt another LLM to score the output |
-
-⚠️ LLMs aren't great at 1-5 scale ratings — it's a rough starting point only.
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>When</th>
+<th>How</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>📐 Objective (code-based)</strong></td>
+<td>Clear right/wrong</td>
+<td>Write code to check (e.g., does output contain competitor name?)</td>
+</tr>
+<tr>
+<td><strong>🧑‍⚖️ Subjective (LLM-as-Judge)</strong></td>
+<td>Fuzzy quality</td>
+<td>Prompt another LLM to score the output</td>
+</tr>
+</tbody>
+</table>
+<p>⚠️ LLMs aren't great at 1-5 scale ratings — it's a rough starting point only.</p>
 </details>
-
 <details>
 <summary>❓ End-to-end vs component-level evals — what's the difference?</summary>
-
-**End-to-end** = measures final output quality → tells you IF something is wrong.  
-**Component-level** = measures each step's output → tells you WHERE it's wrong.  
-You need both.
+<p><strong>End-to-end</strong> = measures final output quality → tells you IF something is wrong.<br />
+<strong>Component-level</strong> = measures each step's output → tells you WHERE it's wrong.<br />
+You need both.</p>
 </details>
-
 <details>
 <summary>❓ What is error analysis?</summary>
-
-Manually reading through the **intermediate outputs (traces)** of each step to find where the agent falls short. Like reading the agent's diary page by page to spot the weak link. Automated evals can't fully replace this detective work.
+<p>Manually reading through the <strong>intermediate outputs (traces)</strong> of each step to find where the agent falls short. Like reading the agent's diary page by page to spot the weak link. Automated evals can't fully replace this detective work.</p>
 </details>
-
 <hr />
 <h3 id="design-patterns-lesson-08">🎨 Design Patterns (Lesson 08)<a class="headerlink" href="#design-patterns-lesson-08" title="Permanent link">#</a></h3>
 <details>
 <summary>❓ Name the 4 design patterns in order of decreasing developer control.</summary>
-
-1. 🪞 **Reflection** (highest control) — LLM critiques its own output, developer controls the loop
-2. 🔧 **Tool Use** — LLM calls functions from a developer-defined menu
-3. 📋 **Planning** — LLM decides the steps at runtime (experimental)
-4. 👥 **Multi-Agent** (lowest control) — multiple specialized LLM agents collaborate freely
+<ol>
+<li>🪞 <strong>Reflection</strong> (highest control) — LLM critiques its own output, developer controls the loop</li>
+<li>🔧 <strong>Tool Use</strong> — LLM calls functions from a developer-defined menu</li>
+<li>📋 <strong>Planning</strong> — LLM decides the steps at runtime (experimental)</li>
+<li>👥 <strong>Multi-Agent</strong> (lowest control) — multiple specialized LLM agents collaborate freely</li>
+</ol>
 </details>
-
 <details>
 <summary>❓ What's the difference between self-reflection and a critique agent?</summary>
-
-**Self-reflection** = same LLM critiques its own output (one model, two prompts).  
-**Critique agent** = separate LLM prompted as "your role is to critique" — a preview of multi-agent!
+<p><strong>Self-reflection</strong> = same LLM critiques its own output (one model, two prompts).<br />
+<strong>Critique agent</strong> = separate LLM prompted as "your role is to critique" — a preview of multi-agent!</p>
 </details>
-
 <details>
 <summary>❓ How is the Planning pattern different from Task Decomposition?</summary>
-
-**Task Decomposition** = developer hardcodes the steps.  
-**Planning** = LLM decides the steps at runtime. More flexible but harder to control.
+<p><strong>Task Decomposition</strong> = developer hardcodes the steps.<br />
+<strong>Planning</strong> = LLM decides the steps at runtime. More flexible but harder to control.</p>
 </details>
-
 <details>
 <summary>❓ What is ChatDev and which pattern does it demonstrate?</summary>
-
-**ChatDev** = a framework where multiple AI agents (CEO, Programmer, Tester, Designer) collaborate as a virtual software company. It's the **Multi-Agent** pattern in action. Created by Chen Qian et al.
+<p><strong>ChatDev</strong> = a framework where multiple AI agents (CEO, Programmer, Tester, Designer) collaborate as a virtual software company. It's the <strong>Multi-Agent</strong> pattern in action. Created by Chen Qian et al.</p>
 </details>
-
 <details>
 <summary>❓ Do design patterns work in isolation?</summary>
-
-**No!** Real workflows often combine 2-3 patterns. Example: code generation uses Reflection (critique loop) + Tool Use (running code for error messages). They're building blocks you mix and match.
+<p><strong>No!</strong> Real workflows often combine 2-3 patterns. Example: code generation uses Reflection (critique loop) + Tool Use (running code for error messages). They're building blocks you mix and match.</p>
 </details>
-
 <hr />
 <h3 id="from-agent-memory">🔗 From: Agent Memory<a class="headerlink" href="#from-agent-memory" title="Permanent link">#</a></h3>
 <details>
 <summary>❓ How does Agent Memory relate to Agentic AI?</summary>
-
-Agent Memory provides the **persistence layer** for agentic workflows. Without it, agents are goldfish — they forget everything between calls. Memory enables multi-session context, learning from past interactions, and personalization. The 5 building blocks (Modeling, Retrieval, Extraction, Consolidation, Write-Back) power the "remember and learn" part of agents.
+<p>Agent Memory provides the <strong>persistence layer</strong> for agentic workflows. Without it, agents are goldfish — they forget everything between calls. Memory enables multi-session context, learning from past interactions, and personalization. The 5 building blocks (Modeling, Retrieval, Extraction, Consolidation, Write-Back) power the "remember and learn" part of agents.</p>
 </details>
-
 <hr />
 <blockquote>
 <p>💡 <strong>Revision tip:</strong> Cover the answer, try to explain OUT LOUD, then reveal.

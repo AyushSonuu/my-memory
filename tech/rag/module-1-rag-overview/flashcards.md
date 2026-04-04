@@ -7,7 +7,7 @@
 
 ### 📌 Core RAG Concepts
 
-<details>
+<details markdown="1">
 <summary>❓ What is RAG in one sentence?</summary>
 
 **Retrieval Augmented Generation** = retrieve relevant information from a knowledge base and inject it into the LLM's prompt so it can generate accurate, grounded answers using data it wasn't trained on.
@@ -15,7 +15,7 @@
 > LLM ko Google de do — pehle dhundo, phir jawab do! 🔍
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ What do Retrieval, Augmented, and Generation each mean?</summary>
 
 - **Retrieval** = collecting relevant info from a knowledge base
@@ -25,7 +25,7 @@
 > Naam hi recipe hai! Dhundo → daalo → jawab do 🍳
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ What are the 3 components of a RAG system?</summary>
 
 | Component | Role |
@@ -35,7 +35,7 @@
 | **LLM** | Receives augmented prompt → generates response |
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ What is the "key insight" of RAG in the simplest terms?</summary>
 
 **Just put it in the prompt!** Modify the prompt before sending to the LLM — add relevant info from your knowledge base so it has what it needs.
@@ -43,7 +43,7 @@
 > RAG = open-book exam. Cheat sheet legally de do! 📋😂
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ Why do LLMs need RAG? What 3 types of info are they missing?</summary>
 
 LLMs only know their training data. They're missing:
@@ -57,7 +57,7 @@ LLMs only know their training data. They're missing:
 RAG gives them access to all of this at query time.
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ What's the difference between Traditional RAG and Agentic RAG?</summary>
 
 | | Traditional RAG | Agentic RAG |
@@ -69,7 +69,7 @@ RAG gives them access to all of this at query time.
 > Traditional = GPS fixed route. Agentic = GPS that recalculates on traffic! 🛣️
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ Why can't you just put ALL documents in the LLM prompt instead of using RAG?</summary>
 
 Two problems:
@@ -79,7 +79,7 @@ Two problems:
 RAG retrieves only the **most relevant** pieces → efficient + focused.
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ Name 5 ways RAG is getting better over time</summary>
 
 1. 📉 **Lower hallucination rates** — newer models stay grounded in context
@@ -91,7 +91,7 @@ RAG retrieves only the **most relevant** pieces → efficient + focused.
 
 ### 📌 RAG Applications
 
-<details>
+<details markdown="1">
 <summary>❓ Name the 5 major RAG application categories</summary>
 
 | # | Application | Knowledge Base |
@@ -104,7 +104,7 @@ RAG retrieves only the **most relevant** pieces → efficient + focused.
 
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ Why might RAG be the ONLY viable option for legal/medical LLM applications?</summary>
 
 1. **Precision imperative** — wrong answers = real consequences (liability, patient harm)
@@ -114,7 +114,7 @@ RAG retrieves only the **most relevant** pieces → efficient + focused.
 RAG is the only way to give LLMs access to this information while keeping it private and current.
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ How does an AI web search (ChatGPT/Perplexity) relate to RAG?</summary>
 
 It IS a RAG system — the **entire internet** is the knowledge base. Traditional search = retriever only (returns URLs). AI search = retriever + LLM summarizer. Same RAG pattern applied at internet scale.

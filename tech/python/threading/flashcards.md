@@ -7,7 +7,7 @@
 
 ### 📌 Core Threading
 
-<details>
+<details markdown="1">
 <summary>❓ What's the difference between concurrency and parallelism?</summary>
 
 **Concurrency** (threading) = one CPU, tasks overlap during I/O waits. Like one person switching between tasks.
@@ -16,7 +16,7 @@
 > Concurrency = ek chef, multiple burners. Parallelism = multiple chefs! 👨‍🍳
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ When should you use threading vs multiprocessing?</summary>
 
 | Task Type | Use |
@@ -27,13 +27,13 @@
 ⚠️ Threading on CPU-bound tasks can be **slower** due to thread overhead + GIL.
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ What's the GIL and why does it matter for threading?</summary>
 
 **GIL (Global Interpreter Lock)** = Python only lets one thread execute bytecode at a time. This means threads can't truly run Python code in parallel. They can only overlap during I/O waits (when the GIL is released). For CPU-bound work, use multiprocessing to bypass the GIL.
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ Why must you NOT put parentheses on the target function?</summary>
 
 `Thread(target=do_something)` ✅ — passes the function object (thread will call it)
@@ -42,13 +42,13 @@
 Same trap as `button.onClick = handler` vs `handler()` in JS!
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ Why can't you `.join()` inside the thread creation loop?</summary>
 
 `.join()` blocks until that thread finishes. Inside the loop: start thread 1 → wait for it to finish → start thread 2 → wait... = **sequential execution**. You must start ALL threads first, then join ALL of them in a second loop.
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ What does ThreadPoolExecutor give you over manual threads?</summary>
 
 - Cleaner code (fewer lines)
@@ -58,7 +58,7 @@ Same trap as `button.onClick = handler` vs `handler()` in JS!
 - Easy to switch to `ProcessPoolExecutor` for multiprocessing
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ submit + as_completed vs map — when to use which?</summary>
 
 | | `submit()` + `as_completed()` | `map()` |
@@ -70,7 +70,7 @@ Same trap as `button.onClick = handler` vs `handler()` in JS!
 > `as_completed` = race (pehle aaya, pehle result). `map` = roll number order! 🏁
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ What happens to exceptions in ThreadPoolExecutor?</summary>
 
 With `submit()`: exception raised when you call `.result()` on the Future.
@@ -82,7 +82,7 @@ In neither case does the exception raise during thread execution itself.
 
 ### 🔗 From: Multiprocessing (Cross-Topic)
 
-<details>
+<details markdown="1">
 <summary>❓ Threading vs Multiprocessing — when to pick each?</summary>
 
 | | 🧵 Threading | ⚙️ Multiprocessing |
@@ -100,7 +100,7 @@ Real-world: image downloads (I/O) → threading won. Image filters (CPU) → mul
 
 ### 🔗 From: AsyncIO (Cross-Topic)
 
-<details>
+<details markdown="1">
 <summary>❓ Threading vs AsyncIO — both do I/O concurrency. When to pick which?</summary>
 
 | | Threading | AsyncIO |
@@ -114,7 +114,7 @@ Real-world: image downloads (I/O) → threading won. Image filters (CPU) → mul
 > Threading = plug-and-play with existing sync code. AsyncIO = better performance but needs async ecosystem.
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ Can you mix threading and asyncio?</summary>
 
 Yes! AsyncIO's `asyncio.to_thread()` runs sync functions in a thread pool. Useful when you have blocking sync code (like `requests.get`) inside an async application. Best of both worlds.

@@ -7,20 +7,20 @@
 
 ### 📌 Core {Topic}
 
-<details>
+<details markdown="1">
 <summary>❓ {Question about core concept}</summary>
 
 {Concise answer}
 {Hinglish hook if applicable}
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ {Question about key mechanism}</summary>
 
 {Answer with mini table or diagram if helpful}
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ {Tricky/gotcha question}</summary>
 
 {Answer that highlights the common mistake}
@@ -30,7 +30,7 @@
 
 ### 🔗 From: {Related Topic}
 
-<details>
+<details markdown="1">
 <summary>❓ {Cross-topic comparison question}</summary>
 
 | Feature | {A} | {B} |
@@ -44,7 +44,7 @@
 
 ### 🔗 From: {Another Related Topic}
 
-<details>
+<details markdown="1">
 <summary>❓ {How do these connect?}</summary>
 
 {Answer linking both topics together}

@@ -7,7 +7,7 @@
 
 ### 📌 Planning
 
-<details>
+<details markdown="1">
 <summary>❓ What is the planning design pattern?</summary>
 
 Instead of hard-coding "call tool A → B → C", you give the LLM a set of tools + a prompt: "return a step-by-step plan." The LLM generates its own plan, then executes it one step at a time, chaining each step's output as context to the next.
@@ -15,13 +15,13 @@ Instead of hard-coding "call tool A → B → C", you give the LLM a set of tool
 Hard-coded agent = train 🚂 (one track). Planning agent = taxi 🚕 (bolo kahaan, rasta khud nikalega)!
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ How does step chaining work in planning?</summary>
 
 Step 1 text → LLM → executes → output. That output + Step 2 text → LLM → executes → output. That output + Step 3 text → LLM → and so on. Each step gets the **cumulative context** of all previous steps.
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ In the sunglasses example, the agent has 6 tools. How many does it use per query?</summary>
 
 **Only 3!** And different queries use different subsets:
@@ -31,7 +31,7 @@ Step 1 text → LLM → executes → output. That output + Step 2 text → LLM �
 Same tools, completely different plans — that's the power of planning.
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ What's the biggest challenge with planning?</summary>
 
 **Control and predictability.** You don't know what plan the LLM will generate at runtime. This makes the system harder to debug. That's why planning works great in agentic coding but is still growing in other domains.
@@ -41,13 +41,13 @@ Same tools, completely different plans — that's the power of planning.
 
 ### 📌 Plan Formats
 
-<details>
+<details markdown="1">
 <summary>❓ Why format plans as JSON instead of plain text?</summary>
 
 Code can't reliably parse plain text plans — "Find round sunglasses" doesn't tell code which tool or what args. JSON gives structured keys: `{"step": 1, "tool": "get_item_descriptions", "args": {"query": "round"}}` — just `json.loads()` and loop.
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ What 4 fields should each step in a JSON plan have?</summary>
 
 1. **step** — number (ordering)
@@ -58,7 +58,7 @@ Code can't reliably parse plain text plans — "Find round sunglasses" doesn't t
 These give your code everything it needs to execute programmatically.
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ Rank the plan formats by reliability.</summary>
 
 | Rank | Format | Why |
@@ -76,13 +76,13 @@ Research (Wang et al. 2024): Code > JSON > Text across multiple models.
 
 ### 📌 Planning with Code
 
-<details>
+<details markdown="1">
 <summary>❓ Why is tool-based planning bad for data analysis?</summary>
 
 Three problems: **Brittle** (query doesn't fit your limited tools), **Inefficient** ("which month had highest hot chocolate sales" = 24+ steps with filter_rows × 12 months), **Edge case treadmill** (every new query type = create a new tool, forever).
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ How does "planning with code" solve the tool treadmill?</summary>
 
 Prompt LLM: "Write Python code to solve this." Python + pandas = **thousands** of built-in functions the LLM already knows from training data. The code IS the plan — each step expressed as executable code. No new tools needed for new query types.
@@ -90,13 +90,13 @@ Prompt LLM: "Write Python code to solve this." Python + pandas = **thousands** o
 Tools = limited menu card. Code = poore kitchen ka access! 🍳
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ What's the security caveat with code execution?</summary>
 
 LLM-generated code could be buggy or malicious — run it in a **sandbox** (Docker, VM, E2B). Many devs skip the sandbox (not best practice). Same concern as Module 3's code execution lesson.
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ When should you use tools vs code vs both?</summary>
 
 | Scenario | Use |
@@ -110,7 +110,7 @@ LLM-generated code could be buggy or malicious — run it in a **sandbox** (Dock
 
 ### 📌 Multi-Agent
 
-<details>
+<details markdown="1">
 <summary>❓ Why use multiple agents instead of one?</summary>
 
 Same reason you hire a **team** instead of one person: complex tasks decompose naturally into roles. Each agent gets a focused prompt + relevant tools. Easier to design, build, test, and **reuse**.
@@ -118,7 +118,7 @@ Same reason you hire a **team** instead of one person: complex tasks decompose n
 Also: like multiple processes on one CPU — decomposition makes the problem manageable.
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ How do you BUILD an individual agent?</summary>
 
 Agent = **LLM prompted with a role** + given **specific tools**. Example:
@@ -127,7 +127,7 @@ Agent = **LLM prompted with a role** + given **specific tools**. Example:
 - Writer = LLM + "You are a writer..." + no extra tools (text gen is native)
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ What's the difference between planning with tools vs planning with agents?</summary>
 
 Same mechanism, different building blocks:
@@ -137,7 +137,7 @@ Same mechanism, different building blocks:
 Green boxes (tools) → Purple boxes (agents). The planning logic is identical.
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ In the manager-coordinated pattern, how many agents are there?</summary>
 
 **Four!** The manager is the 4th agent — it plans, delegates to the 3 workers (researcher, designer, writer), collects results, and can reflect/improve the output. The manager is not just an orchestrator — it's an LLM-based agent too.
@@ -147,7 +147,7 @@ Green boxes (tools) → Purple boxes (agents). The planning logic is identical.
 
 ### 📌 Communication Patterns
 
-<details>
+<details markdown="1">
 <summary>❓ What are the two most common communication patterns?</summary>
 
 1. **Linear** — A → B → C (relay race, sequential)
@@ -156,7 +156,7 @@ Green boxes (tools) → Purple boxes (agents). The planning logic is identical.
 These two cover the vast majority of real-world multi-agent systems today.
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ What's a deeper hierarchy look like?</summary>
 
 Manager → Researcher, Designer, Writer. But:
@@ -167,7 +167,7 @@ Manager → Researcher, Designer, Writer. But:
 Some agents have their own sub-agents — like departments in a company.
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ How does the all-to-all pattern work?</summary>
 
 Every agent knows about all others. Any agent can message any other at any time. Messages get added to the receiver's context. They collaborate until everyone declares "done."
@@ -175,7 +175,7 @@ Every agent knows about all others. Any agent can message any other at any time.
 Results: **hard to predict.** Like a WhatsApp group — sometimes brilliant, sometimes pure chaos 😂
 </details>
 
-<details>
+<details markdown="1">
 <summary>❓ Rank the 4 communication patterns by control level.</summary>
 
 | Pattern | Control | Usage |
@@ -192,7 +192,7 @@ More control = more predictable. Less control = more flexible but chaotic.
 
 ### 🔗 From: Module 3 — Tool Use
 
-<details>
+<details markdown="1">
 <summary>❓ Planning with tools vs Tool Use module — what's the connection?</summary>
 
 Module 3 = LLM **chooses** which tool to call at runtime (single-step decisions). Module 5 Planning = LLM writes a **multi-step plan** with tool sequences. Planning builds ON TOP of tool use — it's tool use with a plan layer.
@@ -202,7 +202,7 @@ Module 3 = LLM **chooses** which tool to call at runtime (single-step decisions)
 
 ### 🔗 From: Module 2 — Reflection
 
-<details>
+<details markdown="1">
 <summary>❓ Where does reflection appear in multi-agent systems?</summary>
 
 The **manager agent** can reflect on the final output! After the writer delivers the draft, the manager does a review/improvement step before producing the final result. Reflection is a design pattern that works inside multi-agent workflows too.

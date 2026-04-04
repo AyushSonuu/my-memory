@@ -5936,116 +5936,183 @@ Last updated: 2026-04-04</p>
 <h3 id="core-rag-concepts">📌 Core RAG Concepts<a class="headerlink" href="#core-rag-concepts" title="Permanent link">#</a></h3>
 <details>
 <summary>❓ What is RAG in one sentence?</summary>
-
-**Retrieval Augmented Generation** = retrieve relevant information from a knowledge base and inject it into the LLM's prompt so it can generate accurate, grounded answers using data it wasn't trained on.
-
-> LLM ko Google de do — pehle dhundo, phir jawab do! 🔍
+<p><strong>Retrieval Augmented Generation</strong> = retrieve relevant information from a knowledge base and inject it into the LLM's prompt so it can generate accurate, grounded answers using data it wasn't trained on.</p>
+<blockquote>
+<p>LLM ko Google de do — pehle dhundo, phir jawab do! 🔍</p>
+</blockquote>
 </details>
-
 <details>
 <summary>❓ What do Retrieval, Augmented, and Generation each mean?</summary>
-
-- **Retrieval** = collecting relevant info from a knowledge base
-- **Augmented** = enhancing the prompt by adding retrieved info
-- **Generation** = LLM reasons over augmented prompt → generates answer
-
-> Naam hi recipe hai! Dhundo → daalo → jawab do 🍳
+<ul>
+<li><strong>Retrieval</strong> = collecting relevant info from a knowledge base</li>
+<li><strong>Augmented</strong> = enhancing the prompt by adding retrieved info</li>
+<li><strong>Generation</strong> = LLM reasons over augmented prompt → generates answer</li>
+</ul>
+<blockquote>
+<p>Naam hi recipe hai! Dhundo → daalo → jawab do 🍳</p>
+</blockquote>
 </details>
-
 <details>
 <summary>❓ What are the 3 components of a RAG system?</summary>
-
-| Component | Role |
-|-----------|------|
-| **Knowledge Base** | Trusted, relevant, possibly private information |
-| **Retriever** | Searches KB, finds most relevant docs for query |
-| **LLM** | Receives augmented prompt → generates response |
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Knowledge Base</strong></td>
+<td>Trusted, relevant, possibly private information</td>
+</tr>
+<tr>
+<td><strong>Retriever</strong></td>
+<td>Searches KB, finds most relevant docs for query</td>
+</tr>
+<tr>
+<td><strong>LLM</strong></td>
+<td>Receives augmented prompt → generates response</td>
+</tr>
+</tbody>
+</table>
 </details>
-
 <details>
 <summary>❓ What is the "key insight" of RAG in the simplest terms?</summary>
-
-**Just put it in the prompt!** Modify the prompt before sending to the LLM — add relevant info from your knowledge base so it has what it needs.
-
-> RAG = open-book exam. Cheat sheet legally de do! 📋😂
+<p><strong>Just put it in the prompt!</strong> Modify the prompt before sending to the LLM — add relevant info from your knowledge base so it has what it needs.</p>
+<blockquote>
+<p>RAG = open-book exam. Cheat sheet legally de do! 📋😂</p>
+</blockquote>
 </details>
-
 <details>
 <summary>❓ Why do LLMs need RAG? What 3 types of info are they missing?</summary>
-
-LLMs only know their training data. They're missing:
-
-| Type | Example |
-|------|---------|
-| **Private data** | Company policies, internal docs, confidential databases |
-| **Real-time data** | Today's news, current events, live prices |
-| **Specialized data** | Niche domain knowledge not widely available online |
-
-RAG gives them access to all of this at query time.
+<p>LLMs only know their training data. They're missing:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Private data</strong></td>
+<td>Company policies, internal docs, confidential databases</td>
+</tr>
+<tr>
+<td><strong>Real-time data</strong></td>
+<td>Today's news, current events, live prices</td>
+</tr>
+<tr>
+<td><strong>Specialized data</strong></td>
+<td>Niche domain knowledge not widely available online</td>
+</tr>
+</tbody>
+</table>
+<p>RAG gives them access to all of this at query time.</p>
 </details>
-
 <details>
 <summary>❓ What's the difference between Traditional RAG and Agentic RAG?</summary>
-
-| | Traditional RAG | Agentic RAG |
-|--|----------------|-------------|
-| **Who decides retrieval?** | Human engineer (hardcoded) | AI agent (dynamic) |
-| **Strategy** | Fixed: query → retrieve → generate | Flexible: retrieve → evaluate → maybe retry |
-| **Error handling** | Fails silently | Routes back, tries different approach |
-
-> Traditional = GPS fixed route. Agentic = GPS that recalculates on traffic! 🛣️
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Traditional RAG</th>
+<th>Agentic RAG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Who decides retrieval?</strong></td>
+<td>Human engineer (hardcoded)</td>
+<td>AI agent (dynamic)</td>
+</tr>
+<tr>
+<td><strong>Strategy</strong></td>
+<td>Fixed: query → retrieve → generate</td>
+<td>Flexible: retrieve → evaluate → maybe retry</td>
+</tr>
+<tr>
+<td><strong>Error handling</strong></td>
+<td>Fails silently</td>
+<td>Routes back, tries different approach</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Traditional = GPS fixed route. Agentic = GPS that recalculates on traffic! 🛣️</p>
+</blockquote>
 </details>
-
 <details>
 <summary>❓ Why can't you just put ALL documents in the LLM prompt instead of using RAG?</summary>
-
-Two problems:
-1. **Context window limit** — LLMs have max token capacity
-2. **Computational cost** — longer prompts = more computation (model scans every token before generating each new one)
-
-RAG retrieves only the **most relevant** pieces → efficient + focused.
+<p>Two problems:
+1. <strong>Context window limit</strong> — LLMs have max token capacity
+2. <strong>Computational cost</strong> — longer prompts = more computation (model scans every token before generating each new one)</p>
+<p>RAG retrieves only the <strong>most relevant</strong> pieces → efficient + focused.</p>
 </details>
-
 <details>
 <summary>❓ Name 5 ways RAG is getting better over time</summary>
-
-1. 📉 **Lower hallucination rates** — newer models stay grounded in context
-2. 🧠 **Reasoning models** — tackle complex questions over retrieved data
-3. 📏 **Larger context windows** — less chunking pressure
-4. 📄 **Better doc extraction** — PDFs, slides, images → usable text
-5. 🤖 **Agentic RAG** — AI decides what/when/how to retrieve
+<ol>
+<li>📉 <strong>Lower hallucination rates</strong> — newer models stay grounded in context</li>
+<li>🧠 <strong>Reasoning models</strong> — tackle complex questions over retrieved data</li>
+<li>📏 <strong>Larger context windows</strong> — less chunking pressure</li>
+<li>📄 <strong>Better doc extraction</strong> — PDFs, slides, images → usable text</li>
+<li>🤖 <strong>Agentic RAG</strong> — AI decides what/when/how to retrieve</li>
+</ol>
 </details>
-
 <h3 id="rag-applications">📌 RAG Applications<a class="headerlink" href="#rag-applications" title="Permanent link">#</a></h3>
 <details>
 <summary>❓ Name the 5 major RAG application categories</summary>
-
-| # | Application | Knowledge Base |
-|---|-------------|---------------|
-| 1 | **Code Generation** | Your own codebase (classes, functions, style) |
-| 2 | **Company Chatbots** | Products, policies, FAQs, guidelines |
-| 3 | **Healthcare / Legal** | Case files, medical journals, private records |
-| 4 | **AI Web Search** | The entire internet |
-| 5 | **Personal Assistants** | Texts, emails, contacts, calendar, documents |
-
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Application</th>
+<th>Knowledge Base</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Code Generation</strong></td>
+<td>Your own codebase (classes, functions, style)</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Company Chatbots</strong></td>
+<td>Products, policies, FAQs, guidelines</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Healthcare / Legal</strong></td>
+<td>Case files, medical journals, private records</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>AI Web Search</strong></td>
+<td>The entire internet</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Personal Assistants</strong></td>
+<td>Texts, emails, contacts, calendar, documents</td>
+</tr>
+</tbody>
+</table>
 </details>
-
 <details>
 <summary>❓ Why might RAG be the ONLY viable option for legal/medical LLM applications?</summary>
-
-1. **Precision imperative** — wrong answers = real consequences (liability, patient harm)
-2. **Private data** — case files, patient records can't be in LLM training data
-3. **Recent data** — latest medical journals, new case law not in training data
-
-RAG is the only way to give LLMs access to this information while keeping it private and current.
+<ol>
+<li><strong>Precision imperative</strong> — wrong answers = real consequences (liability, patient harm)</li>
+<li><strong>Private data</strong> — case files, patient records can't be in LLM training data</li>
+<li><strong>Recent data</strong> — latest medical journals, new case law not in training data</li>
+</ol>
+<p>RAG is the only way to give LLMs access to this information while keeping it private and current.</p>
 </details>
-
 <details>
 <summary>❓ How does an AI web search (ChatGPT/Perplexity) relate to RAG?</summary>
-
-It IS a RAG system — the **entire internet** is the knowledge base. Traditional search = retriever only (returns URLs). AI search = retriever + LLM summarizer. Same RAG pattern applied at internet scale.
+<p>It IS a RAG system — the <strong>entire internet</strong> is the knowledge base. Traditional search = retriever only (returns URLs). AI search = retriever + LLM summarizer. Same RAG pattern applied at internet scale.</p>
 </details>
-
 <hr />
 <blockquote>
 <p>💡 <strong>Revision tip:</strong> Cover the answer, try to explain OUT LOUD, then reveal.

@@ -6024,392 +6024,494 @@ Last updated: 2026-03-21</p>
 <h3 id="core-concepts-lesson-1">📌 Core Concepts (Lesson 1)<a class="headerlink" href="#core-concepts-lesson-1" title="Permanent link">#</a></h3>
 <details>
 <summary>❓ Why do agents fail at long-horizon tasks?</summary>
-
-**Stateless** — context lives in one session only. Session ends → 💀 everything gone.
-
-> 🐟 Goldfish memory — great in the moment, total amnesia after!
+<p><strong>Stateless</strong> — context lives in one session only. Session ends → 💀 everything gone.</p>
+<blockquote>
+<p>🐟 Goldfish memory — great in the moment, total amnesia after!</p>
+</blockquote>
 </details>
-
 <details>
 <summary>❓ What is Memory Engineering?</summary>
-
-Long-term memory as **first-class infrastructure** — external to the model, persistent, structured.
-
-Not "save chat history" — it's extraction, consolidation, contradiction handling, write-back loops.
+<p>Long-term memory as <strong>first-class infrastructure</strong> — external to the model, persistent, structured.</p>
+<p>Not "save chat history" — it's extraction, consolidation, contradiction handling, write-back loops.</p>
 </details>
-
 <details>
 <summary>❓ Prompt Eng vs Context Eng vs Memory Eng?</summary>
-
-| Level | What | Analogy |
-|-------|------|---------|
-| **Prompt** | How to *ask* | Asking good questions |
-| **Context** | What to *show* (RAG, tools) | Cheat sheet during exam |
-| **Memory** | What it *remembers* across sessions | Actually learned last semester |
-
-Each level ↑ adds more persistence.
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>What</th>
+<th>Analogy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Prompt</strong></td>
+<td>How to <em>ask</em></td>
+<td>Asking good questions</td>
+</tr>
+<tr>
+<td><strong>Context</strong></td>
+<td>What to <em>show</em> (RAG, tools)</td>
+<td>Cheat sheet during exam</td>
+</tr>
+<tr>
+<td><strong>Memory</strong></td>
+<td>What it <em>remembers</em> across sessions</td>
+<td>Actually learned last semester</td>
+</tr>
+</tbody>
+</table>
+<p>Each level ↑ adds more persistence.</p>
 </details>
-
 <details>
 <summary>❓ 4 pillars of a memory-aware agent?</summary>
-
-| # | Component | Job |
-|---|-----------|-----|
-| 1 | **Memory Manager** | Core store & retrieve |
-| 2 | **Extraction Pipelines** | Pull key info from convos |
-| 3 | **Contradiction Handling** | Resolve conflicts, keep fresh |
-| 4 | **Semantic Tool Memory** | Scale tool selection via search |
-
-All four combined → fully stateful agent 🤖
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Component</th>
+<th>Job</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Memory Manager</strong></td>
+<td>Core store &amp; retrieve</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Extraction Pipelines</strong></td>
+<td>Pull key info from convos</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Contradiction Handling</strong></td>
+<td>Resolve conflicts, keep fresh</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Semantic Tool Memory</strong></td>
+<td>Scale tool selection via search</td>
+</tr>
+</tbody>
+</table>
+<p>All four combined → fully stateful agent 🤖</p>
 </details>
-
 <details>
 <summary>❓ Tech stack used?</summary>
-
-| Tool | Role |
-|------|------|
-| **Oracle AI DB** | Vector + relational storage |
-| **LangChain** | Agent orchestration |
-| **LLM pipelines** | Extraction, consolidation, reasoning |
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Oracle AI DB</strong></td>
+<td>Vector + relational storage</td>
+</tr>
+<tr>
+<td><strong>LangChain</strong></td>
+<td>Agent orchestration</td>
+</tr>
+<tr>
+<td><strong>LLM pipelines</strong></td>
+<td>Extraction, consolidation, reasoning</td>
+</tr>
+</tbody>
+</table>
 </details>
-
 <hr />
 <hr />
 <h3 id="why-agents-need-memory-lesson-2">🤔 Why Agents Need Memory (Lesson 2)<a class="headerlink" href="#why-agents-need-memory-lesson-2" title="Permanent link">#</a></h3>
 <details>
 <summary>❓ What are the 4 pillars of an AI agent?</summary>
-
-| Pillar | Role |
-|--------|------|
-| 👁️ **Perception** | Inputs (text, audio, vision, structured data) |
-| 🔧 **Action** | Tools (functions, REST APIs, scripts, skills, MCPs) |
-| 🧠 **Reasoning** | LLM — thinks, plans, decides |
-| 💾 **Memory** | Store, retrieve, apply knowledge across interactions |
-
-Agent = autonomous + goal & objective bound + little to no human feedback.
+<table>
+<thead>
+<tr>
+<th>Pillar</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>👁️ <strong>Perception</strong></td>
+<td>Inputs (text, audio, vision, structured data)</td>
+</tr>
+<tr>
+<td>🔧 <strong>Action</strong></td>
+<td>Tools (functions, REST APIs, scripts, skills, MCPs)</td>
+</tr>
+<tr>
+<td>🧠 <strong>Reasoning</strong></td>
+<td>LLM — thinks, plans, decides</td>
+</tr>
+<tr>
+<td>💾 <strong>Memory</strong></td>
+<td>Store, retrieve, apply knowledge across interactions</td>
+</tr>
+</tbody>
+</table>
+<p>Agent = autonomous + goal &amp; objective bound + little to no human feedback.</p>
 </details>
-
 <details>
 <summary>❓ Stateless agent ka sabse bada problem kya hai? (Restaurant example)</summary>
-
-Turn 1: user asks for recs → Turn 2: agent responds → Turn 3: user says "book the first one" → Turn 4: stateless agent **"I have no recollection, please specify"** 🐟
-
-Memory-augmented agent stores turns 1-2 in external DB → resolves "first one" at turn 4. ✅
+<p>Turn 1: user asks for recs → Turn 2: agent responds → Turn 3: user says "book the first one" → Turn 4: stateless agent <strong>"I have no recollection, please specify"</strong> 🐟</p>
+<p>Memory-augmented agent stores turns 1-2 in external DB → resolves "first one" at turn 4. ✅</p>
 </details>
-
 <details>
 <summary>❓ Name the 5 types in the Memory Taxonomy</summary>
-
-**Short-term:** Semantic Cache (vector search + cached LLM responses) · Working Memory (LLM context window + session based)
-
-**Long-term:** Procedural (workflow + toolbox) · Semantic (entity memory + knowledge base) · Episodic (persona, summaries, conversational memory)
-
-> Short-term = RAM, Long-term = Hard Disk 💾
+<p><strong>Short-term:</strong> Semantic Cache (vector search + cached LLM responses) · Working Memory (LLM context window + session based)</p>
+<p><strong>Long-term:</strong> Procedural (workflow + toolbox) · Semantic (entity memory + knowledge base) · Episodic (persona, summaries, conversational memory)</p>
+<blockquote>
+<p>Short-term = RAM, Long-term = Hard Disk 💾</p>
+</blockquote>
 </details>
-
 <details>
 <summary>❓ How does Agent Memory differ from RAG?</summary>
-
-Same pipeline (chunk → embed → DB → retrieve → rerank → LLM), BUT:
-- RAG = **read-only** from static knowledge base
-- Agent Memory = **read + write (CRUD)** to live tables
+<p>Same pipeline (chunk → embed → DB → retrieve → rerank → LLM), BUT:
+- RAG = <strong>read-only</strong> from static knowledge base
+- Agent Memory = <strong>read + write (CRUD)</strong> to live tables
 - Memory Manager abstracts CRUD operations
-- Agent accesses Memory Manager through tools
+- Agent accesses Memory Manager through tools</p>
 </details>
-
 <details>
 <summary>❓ Why is the DATABASE the core of agent memory (not the LLM)?</summary>
-
-- LLM = parametric memory, **frozen** after training, can't update
-- Embedding model = important but just converts text → vectors
-- **Database = ALL the data traffic** — storage, retrieval, optimization, scaling
-
-> LLM soochta hai, DB yaad rakhta hai. Primary infrastructure = the DB! 🗄️
+<ul>
+<li>LLM = parametric memory, <strong>frozen</strong> after training, can't update</li>
+<li>Embedding model = important but just converts text → vectors</li>
+<li><strong>Database = ALL the data traffic</strong> — storage, retrieval, optimization, scaling</li>
+</ul>
+<blockquote>
+<p>LLM soochta hai, DB yaad rakhta hai. Primary infrastructure = the DB! 🗄️</p>
+</blockquote>
 </details>
-
 <details>
 <summary>❓ Why isn't conversational memory enough?</summary>
-
-4 gaps:
+<p>4 gaps:
 1. 📏 Context windows are finite, relationships aren't
 2. 👤 Entities (people, places) aren't explicitly captured
 3. 📦 Non-chat info (workflows, outcomes) is missed
-4. 🔍 Not structured or queryable — just raw chat logs
-
-> Sirf diary se kaam nahi chalta — contacts, to-do, KB bhi chahiye!
+4. 🔍 Not structured or queryable — just raw chat logs</p>
+<blockquote>
+<p>Sirf diary se kaam nahi chalta — contacts, to-do, KB bhi chahiye!</p>
+</blockquote>
 </details>
-
 <hr />
 <h3 id="constructing-the-memory-manager-lesson-3">🏗️ Constructing The Memory Manager (Lesson 3)<a class="headerlink" href="#constructing-the-memory-manager-lesson-3" title="Permanent link">#</a></h3>
 <details>
 <summary>❓ What is the Agent Stack?</summary>
-
-A **layered composition of tools and technologies** forming a system architecture for AI agents.
-
-For this course, compressed to 3 layers: **Application** (UI) → **Memory** (Memory Core + Memory Manager) → **Infrastructure** (DB, compute).
-
-The Data Layer becomes the **Memory Layer** when thinking from an agentic perspective.
+<p>A <strong>layered composition of tools and technologies</strong> forming a system architecture for AI agents.</p>
+<p>For this course, compressed to 3 layers: <strong>Application</strong> (UI) → <strong>Memory</strong> (Memory Core + Memory Manager) → <strong>Infrastructure</strong> (DB, compute).</p>
+<p>The Data Layer becomes the <strong>Memory Layer</strong> when thinking from an agentic perspective.</p>
 </details>
-
 <details>
 <summary>❓ Memory Core vs Memory Manager — kya farak hai?</summary>
-
-| | Memory Core | Memory Manager |
-|--|---|---|
-| **What** | Actual DB tables & vector stores | Control logic & CRUD methods |
-| **Analogy** | Almaari (cupboard) 🗄️ | The person who organizes & retrieves from it |
-| **Job** | Store data | Decide WHAT becomes memory, HOW it's structured, WHEN it's recalled |
-
-Together they create memory-augmented agents.
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Memory Core</th>
+<th>Memory Manager</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>What</strong></td>
+<td>Actual DB tables &amp; vector stores</td>
+<td>Control logic &amp; CRUD methods</td>
+</tr>
+<tr>
+<td><strong>Analogy</strong></td>
+<td>Almaari (cupboard) 🗄️</td>
+<td>The person who organizes &amp; retrieves from it</td>
+</tr>
+<tr>
+<td><strong>Job</strong></td>
+<td>Store data</td>
+<td>Decide WHAT becomes memory, HOW it's structured, WHEN it's recalled</td>
+</tr>
+</tbody>
+</table>
+<p>Together they create memory-augmented agents.</p>
 </details>
-
 <details>
 <summary>❓ Why do conversational memories use SQL tables while KB uses vector stores?</summary>
-
-**Conversational** → exact match by `thread_id` + chronological `timestamp` ordering. No semantic search needed → **SQL is faster and simpler**.
-
-**Knowledge Base** → needs to find content *similar in meaning* to a query → requires **vector embeddings + cosine similarity search** → **Vector Store**.
-
-> Different problems, different tools! 🔧
+<p><strong>Conversational</strong> → exact match by <code>thread_id</code> + chronological <code>timestamp</code> ordering. No semantic search needed → <strong>SQL is faster and simpler</strong>.</p>
+<p><strong>Knowledge Base</strong> → needs to find content <em>similar in meaning</em> to a query → requires <strong>vector embeddings + cosine similarity search</strong> → <strong>Vector Store</strong>.</p>
+<blockquote>
+<p>Different problems, different tools! 🔧</p>
+</blockquote>
 </details>
-
 <details>
 <summary>❓ Deterministic vs Agent-Triggered memory operations?</summary>
-
-**Deterministic** = runs ALWAYS (alarm clock ⏰). Auto-save conversations, auto-load context every turn. Reliable, predictable, no gaps.
-
-**Agent-Triggered** = agent DECIDES when (judgment call 🤔). Summarize, extract entities, deep retrieval. Higher signal, less noise.
-
-Chicken-and-egg problem: agent can't decide to check memory it doesn't know exists → that's why deterministic retrieval at start of every turn!
+<p><strong>Deterministic</strong> = runs ALWAYS (alarm clock ⏰). Auto-save conversations, auto-load context every turn. Reliable, predictable, no gaps.</p>
+<p><strong>Agent-Triggered</strong> = agent DECIDES when (judgment call 🤔). Summarize, extract entities, deep retrieval. Higher signal, less noise.</p>
+<p>Chicken-and-egg problem: agent can't decide to check memory it doesn't know exists → that's why deterministic retrieval at start of every turn!</p>
 </details>
-
 <details>
 <summary>❓ Define: Memory Unit</summary>
-
-**Smallest atomic piece** of stored information with minimal attributes for capture, retrieval, and update.
-
-Examples:
-- **Conversational Unit** → `{content, role, timestamp}`
-- **Workflow Unit** → `{content (CLOB), type (VARCHAR2), timestamp, vector (float[])}`
+<p><strong>Smallest atomic piece</strong> of stored information with minimal attributes for capture, retrieval, and update.</p>
+<p>Examples:
+- <strong>Conversational Unit</strong> → <code>{content, role, timestamp}</code>
+- <strong>Workflow Unit</strong> → <code>{content (CLOB), type (VARCHAR2), timestamp, vector (float[])}</code></p>
 </details>
-
 <details>
 <summary>❓ Context Engineering vs Memory Engineering?</summary>
-
-| | Context Engineering | Memory Engineering |
-|--|---|---|
-| **Goal** | Optimize what goes INTO context window | Design & maintain memory SYSTEMS |
-| **Focus** | Signal-to-noise per token | Full lifecycle (store → retrieve → learn) |
-| **Scope** | One LLM call | Entire agent lifespan |
-| **Analogy** | Choose which cheat sheets for THIS exam | Build the entire library system |
-
-Memory Eng = intersection of DB Eng + Agent Eng + ML Eng + Info Retrieval.
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Context Engineering</th>
+<th>Memory Engineering</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Goal</strong></td>
+<td>Optimize what goes INTO context window</td>
+<td>Design &amp; maintain memory SYSTEMS</td>
+</tr>
+<tr>
+<td><strong>Focus</strong></td>
+<td>Signal-to-noise per token</td>
+<td>Full lifecycle (store → retrieve → learn)</td>
+</tr>
+<tr>
+<td><strong>Scope</strong></td>
+<td>One LLM call</td>
+<td>Entire agent lifespan</td>
+</tr>
+<tr>
+<td><strong>Analogy</strong></td>
+<td>Choose which cheat sheets for THIS exam</td>
+<td>Build the entire library system</td>
+</tr>
+</tbody>
+</table>
+<p>Memory Eng = intersection of DB Eng + Agent Eng + ML Eng + Info Retrieval.</p>
 </details>
-
 <details>
 <summary>❓ What are the steps in the Memory Lifecycle?</summary>
-
-1. **Ingest** (collect from sources)
-2. **Enrich** (embeddings + metadata)
-3. **Store** (short/medium/long-term)
-4. **Organize** (indexing, relationship mapping)
-5. **Retrieve** (text/vector/graph/hybrid)
-6. → **LLM** processes it
-7. **Serialize & Augment** output → back to Store → loop!
-
-Key: LLM output feeds BACK as new memory → **continuous learning cycle** 🔄
+<ol>
+<li><strong>Ingest</strong> (collect from sources)</li>
+<li><strong>Enrich</strong> (embeddings + metadata)</li>
+<li><strong>Store</strong> (short/medium/long-term)</li>
+<li><strong>Organize</strong> (indexing, relationship mapping)</li>
+<li><strong>Retrieve</strong> (text/vector/graph/hybrid)</li>
+<li>→ <strong>LLM</strong> processes it</li>
+<li><strong>Serialize &amp; Augment</strong> output → back to Store → loop!</li>
+</ol>
+<p>Key: LLM output feeds BACK as new memory → <strong>continuous learning cycle</strong> 🔄</p>
 </details>
-
 <details>
 <summary>❓ 4 steps: Memory Augmented → Memory Aware Agent</summary>
-
-1. **System prompt awareness** — agent knows its memory stores exist
-2. **Agent-triggered memory ops** — CRUD operations given as tools
-3. **Memory lifecycle reasoning** — agent reasons THROUGH the lifecycle
-4. **Context window segmentation** — partitions allocated per memory type
-
-> Augmented = HAS memory. Aware = KNOWS it has memory + controls it! 🧠
+<ol>
+<li><strong>System prompt awareness</strong> — agent knows its memory stores exist</li>
+<li><strong>Agent-triggered memory ops</strong> — CRUD operations given as tools</li>
+<li><strong>Memory lifecycle reasoning</strong> — agent reasons THROUGH the lifecycle</li>
+<li><strong>Context window segmentation</strong> — partitions allocated per memory type</li>
+</ol>
+<blockquote>
+<p>Augmented = HAS memory. Aware = KNOWS it has memory + controls it! 🧠</p>
+</blockquote>
 </details>
-
 <details>
 <summary>❓ What tech was used in the L3 code lab?</summary>
-
-| Component | Tool |
-|-----------|------|
-| Database | **Oracle AI Database 26ai** |
-| Embedding | `sentence-transformers/paraphrase-mpnet-base-v2` (HuggingFace) |
-| Vector Store | **OracleVS** (LangChain integration) |
-| Distance | **COSINE** strategy |
-| Index type | **IVF** (Inverted File) — 95% target accuracy |
-| Abstraction | `StoreManager` (creates stores) + `MemoryManager` (unified CRUD) |
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Tool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Database</td>
+<td><strong>Oracle AI Database 26ai</strong></td>
+</tr>
+<tr>
+<td>Embedding</td>
+<td><code>sentence-transformers/paraphrase-mpnet-base-v2</code> (HuggingFace)</td>
+</tr>
+<tr>
+<td>Vector Store</td>
+<td><strong>OracleVS</strong> (LangChain integration)</td>
+</tr>
+<tr>
+<td>Distance</td>
+<td><strong>COSINE</strong> strategy</td>
+</tr>
+<tr>
+<td>Index type</td>
+<td><strong>IVF</strong> (Inverted File) — 95% target accuracy</td>
+</tr>
+<tr>
+<td>Abstraction</td>
+<td><code>StoreManager</code> (creates stores) + <code>MemoryManager</code> (unified CRUD)</td>
+</tr>
+</tbody>
+</table>
 </details>
-
 <hr />
 <h3 id="semantic-tool-memory-lesson-4">🔧 Semantic Tool Memory (Lesson 4)<a class="headerlink" href="#semantic-tool-memory-lesson-4" title="Permanent link">#</a></h3>
 <details>
 <summary>❓ What is tool calling?</summary>
-
-LLM **doesn't execute code** — it outputs a structured JSON request (function name + args). The **system executes** it, returns the result. LLM = brain 🧠, system = hands 🤲.
-
-Flow: Tool Definitions + User Query → LLM → Structured Request → System Executes → Result → LLM → Final Response
+<p>LLM <strong>doesn't execute code</strong> — it outputs a structured JSON request (function name + args). The <strong>system executes</strong> it, returns the result. LLM = brain 🧠, system = hands 🤲.</p>
+<p>Flow: Tool Definitions + User Query → LLM → Structured Request → System Executes → Result → LLM → Final Response</p>
 </details>
-
 <details>
 <summary>❓ 100+ tools context mein daalo toh kya hota hai?</summary>
-
-6 problems:
-1. 🌊 **Context Confusion** — LLM overwhelmed
-2. 📦 **Context Bloat** — tool defs eat tokens
-3. 📉 **Tool Selection Degradation** — wrong tool picked
-4. 💸 **High Token Cost**
-5. 🐌 **Latency Increase**
-6. 📉 **Performance Degradation**
-
-Providers recommend ~5-20 tools per call, not 100+!
+<p>6 problems:
+1. 🌊 <strong>Context Confusion</strong> — LLM overwhelmed
+2. 📦 <strong>Context Bloat</strong> — tool defs eat tokens
+3. 📉 <strong>Tool Selection Degradation</strong> — wrong tool picked
+4. 💸 <strong>High Token Cost</strong>
+5. 🐌 <strong>Latency Increase</strong>
+6. 📉 <strong>Performance Degradation</strong></p>
+<p>Providers recommend ~5-20 tools per call, not 100+!</p>
 </details>
-
 <details>
 <summary>❓ Toolbox Pattern kaise kaam karta hai?</summary>
-
-1. **Register:** Tool (name + description + params) → embed → store in **vector DB**
-2. **Retrieve:** User query → embed → **top-K similarity search** on toolbox table
-3. **Use:** Only top-K relevant tools passed to LLM
-
-100 tools in DB, but LLM sees only the best 3-5. Phone book → smart search bar! 🔍
+<ol>
+<li><strong>Register:</strong> Tool (name + description + params) → embed → store in <strong>vector DB</strong></li>
+<li><strong>Retrieve:</strong> User query → embed → <strong>top-K similarity search</strong> on toolbox table</li>
+<li><strong>Use:</strong> Only top-K relevant tools passed to LLM</li>
+</ol>
+<p>100 tools in DB, but LLM sees only the best 3-5. Phone book → smart search bar! 🔍</p>
 </details>
-
 <details>
 <summary>❓ Memory Unit Augmentation — kya hai aur kyun zaroori?</summary>
-
-Send tool definition + source code → **LLM enhances** docstring (step-by-step, when to use, caveats) + generates **synthetic queries**.
-
-**Without:** `"Search the web"` → vague, tools overlap in embedding space.
-**With:** detailed description → better **separability** in vector space → right tool found more often!
+<p>Send tool definition + source code → <strong>LLM enhances</strong> docstring (step-by-step, when to use, caveats) + generates <strong>synthetic queries</strong>.</p>
+<p><strong>Without:</strong> <code>"Search the web"</code> → vague, tools overlap in embedding space.
+<strong>With:</strong> detailed description → better <strong>separability</strong> in vector space → right tool found more often!</p>
 </details>
-
 <details>
 <summary>❓ What's the search-and-store pattern?</summary>
-
-`search_tavily` doesn't just return results — it **writes them to KB memory**. Next time agent needs similar info, it's already in memory without another API call.
-
-> Ek baar search, hamesha yaad! 🧠
+<p><code>search_tavily</code> doesn't just return results — it <strong>writes them to KB memory</strong>. Next time agent needs similar info, it's already in memory without another API call.</p>
+<blockquote>
+<p>Ek baar search, hamesha yaad! 🧠</p>
+</blockquote>
 </details>
-
 <details>
 <summary>❓ What is `read_toolbox` and why is it special?</summary>
-
-A **meta-tool** — a tool that searches for other tools! Agent can call it mid-execution: "my current tools aren't enough, what else can I do?" → semantic search on toolbox → discovers new capabilities at runtime.
+<p>A <strong>meta-tool</strong> — a tool that searches for other tools! Agent can call it mid-execution: "my current tools aren't enough, what else can I do?" → semantic search on toolbox → discovers new capabilities at runtime.</p>
 </details>
-
 <hr />
 <h3 id="memory-operations-lesson-5">⚙️ Memory Operations (Lesson 5)<a class="headerlink" href="#memory-operations-lesson-5" title="Permanent link">#</a></h3>
 <details>
 <summary>❓ Context Window Reduction ke 2 techniques kya hain?</summary>
-
-1. **Context Summarization** — LLM compresses content into shorter form. ⚠️ **Lossy** — some info gone forever (JPEG compression jaisa)
-2. **Context Compaction** — Full content → DB, only ID + description in context. ✅ **Lossless** — `expand_summary(id)` gets everything back (file to drawer jaisa)
-
-> Summarization = thumbnail 📸. Compaction = original in drawer 🗄️
+<ol>
+<li><strong>Context Summarization</strong> — LLM compresses content into shorter form. ⚠️ <strong>Lossy</strong> — some info gone forever (JPEG compression jaisa)</li>
+<li><strong>Context Compaction</strong> — Full content → DB, only ID + description in context. ✅ <strong>Lossless</strong> — <code>expand_summary(id)</code> gets everything back (file to drawer jaisa)</li>
+</ol>
+<blockquote>
+<p>Summarization = thumbnail 📸. Compaction = original in drawer 🗄️</p>
+</blockquote>
 </details>
-
 <details>
 <summary>❓ Good summarization ke 3 goals?</summary>
-
-1. 🎯 **Retain highest-signal** — task-relevant facts, decisions, claims
-2. 🔗 **Preserve relationships** — who did what, why, results, caveats
-3. 🗑️ **Remove noise** — redundant, low-value, off-topic content
-
-Quality depends entirely on the summarization **prompt**!
+<ol>
+<li>🎯 <strong>Retain highest-signal</strong> — task-relevant facts, decisions, claims</li>
+<li>🔗 <strong>Preserve relationships</strong> — who did what, why, results, caveats</li>
+<li>🗑️ <strong>Remove noise</strong> — redundant, low-value, off-topic content</li>
+</ol>
+<p>Quality depends entirely on the summarization <strong>prompt</strong>!</p>
 </details>
-
 <details>
 <summary>❓ Workflow Memory kya hai?</summary>
-
-Agent's ability to **persist and reuse multi-step task sequences**. Stored as JSON (workflow_name, user_request, ordered steps) + vector embedding for semantic search.
-
-**Without:** Figure out steps from scratch every time. **With:** Follow saved recipe!
-
+<p>Agent's ability to <strong>persist and reuse multi-step task sequences</strong>. Stored as JSON (workflow_name, user_request, ordered steps) + vector embedding for semantic search.</p>
+<p><strong>Without:</strong> Figure out steps from scratch every time. <strong>With:</strong> Follow saved recipe!</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>&quot;Get current weather&quot; → Step 1: get_location → Step 2: weather_api → Step 3: pass lat/lon → Step 4: return response
 </span></code></pre></div>
-
-> Pehli baar trial-error, doosri baar recipe follow 🍳
+<blockquote>
+<p>Pehli baar trial-error, doosri baar recipe follow 🍳</p>
+</blockquote>
 </details>
-
 <details>
 <summary>❓ Double-summarization kaise prevent hota hai?</summary>
-
-After summarization: each original message gets **marked** with `summary_id` in DB. Next SQL query filters `WHERE summary_id IS NULL` → already-summarized messages skipped.
+<p>After summarization: each original message gets <strong>marked</strong> with <code>summary_id</code> in DB. Next SQL query filters <code>WHERE summary_id IS NULL</code> → already-summarized messages skipped.</p>
 </details>
-
 <details>
 <summary>❓ Context monitor ke 3 states?</summary>
-
-| State | Usage | Action |
-|---|---|---|
-| 🟢 `ok` | < 50% | Do nothing |
-| 🟡 `warning` | 50-80% | Heads up |
-| 🔴 `critical` | 80%+ | Trigger `summarize_and_store` |
-
-Agent can auto-trigger summarization via toolbox pattern!
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Usage</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🟢 <code>ok</code></td>
+<td>&lt; 50%</td>
+<td>Do nothing</td>
+</tr>
+<tr>
+<td>🟡 <code>warning</code></td>
+<td>50-80%</td>
+<td>Heads up</td>
+</tr>
+<tr>
+<td>🔴 <code>critical</code></td>
+<td>80%+</td>
+<td>Trigger <code>summarize_and_store</code></td>
+</tr>
+</tbody>
+</table>
+<p>Agent can auto-trigger summarization via toolbox pattern!</p>
 </details>
-
 <hr />
 <h3 id="memory-aware-agent-lesson-6">🤖 Memory Aware Agent (Lesson 6)<a class="headerlink" href="#memory-aware-agent-lesson-6" title="Permanent link">#</a></h3>
 <details>
 <summary>❓ Agent Loop ke 3 steps kya hain?</summary>
-
-1. **Assemble Context** — gather instructions, state, memory, tool outputs
-2. **Invoke LLM** — send context, LLM reasons & decides
-3. **Act** — respond to user, call tool, or ask for more input
-
-Cyclical: loops until stop condition (final answer, error, timeout, max iterations).
-
-> Washing machine 🔄 — keeps spinning until clothes are clean!
+<ol>
+<li><strong>Assemble Context</strong> — gather instructions, state, memory, tool outputs</li>
+<li><strong>Invoke LLM</strong> — send context, LLM reasons &amp; decides</li>
+<li><strong>Act</strong> — respond to user, call tool, or ask for more input</li>
+</ol>
+<p>Cyclical: loops until stop condition (final answer, error, timeout, max iterations).</p>
+<blockquote>
+<p>Washing machine 🔄 — keeps spinning until clothes are clean!</p>
+</blockquote>
 </details>
-
 <details>
 <summary>❓ Agent Harness kya hai?</summary>
-
-The **full programmatic scaffolding** — everything before, during, AND after the agent loop. Memory reads, context assembly, tool execution, post-loop persistence.
-
-> Loop = engine. Harness = the entire car 🚗
+<p>The <strong>full programmatic scaffolding</strong> — everything before, during, AND after the agent loop. Memory reads, context assembly, tool execution, post-loop persistence.</p>
+<blockquote>
+<p>Loop = engine. Harness = the entire car 🚗</p>
+</blockquote>
 </details>
-
 <details>
 <summary>❓ Memory ops OUTSIDE vs INSIDE the loop?</summary>
-
-**Outside (before):** Read all memory types + write user query + check 80% context threshold
-**Outside (after):** Write workflow, entities, final answer
-
-**Inside:** Tool calls (search, expand_summary), tool log writes (context offloading)
-
-> Outside = deterministic (always). Inside = dynamic (when needed).
+<p><strong>Outside (before):</strong> Read all memory types + write user query + check 80% context threshold
+<strong>Outside (after):</strong> Write workflow, entities, final answer</p>
+<p><strong>Inside:</strong> Tool calls (search, expand_summary), tool log writes (context offloading)</p>
+<blockquote>
+<p>Outside = deterministic (always). Inside = dynamic (when needed).</p>
+</blockquote>
 </details>
-
 <details>
 <summary>❓ System prompt agent ko memory aware kaise banata hai?</summary>
-
-Tells the LLM 4 things:
-1. What **memory types** exist
-2. How **context window is partitioned** (markdown headings)
-3. **How to use** each memory section
-4. What **tools** are available for memory ops
-
-Without it = raw text. With it = labeled filing cabinet the LLM knows how to navigate 🗄️
+<p>Tells the LLM 4 things:
+1. What <strong>memory types</strong> exist
+2. How <strong>context window is partitioned</strong> (markdown headings)
+3. <strong>How to use</strong> each memory section
+4. What <strong>tools</strong> are available for memory ops</p>
+<p>Without it = raw text. With it = labeled filing cabinet the LLM knows how to navigate 🗄️</p>
 </details>
-
 <details>
 <summary>❓ Why markdown headings for context window partitioning?</summary>
-
-LLMs understand **hierarchical markdown from training data**. `## Conversation Memory`, `## Knowledge Base Memory` etc. = labeled sections the LLM can parse & reason about individually.
+<p>LLMs understand <strong>hierarchical markdown from training data</strong>. <code>## Conversation Memory</code>, <code>## Knowledge Base Memory</code> etc. = labeled sections the LLM can parse &amp; reason about individually.</p>
 </details>
-
 <details>
 <summary>❓ What's "context offloading" inside the loop?</summary>
-
-When a tool executes, its full result gets written to `tool_log` in the DB instead of staying in the context window. This frees up context space while preserving the audit trail. The LLM gets a compact summary of the tool result, not the entire raw output.
+<p>When a tool executes, its full result gets written to <code>tool_log</code> in the DB instead of staying in the context window. This frees up context space while preserving the audit trail. The LLM gets a compact summary of the tool result, not the entire raw output.</p>
 </details>
-
 <hr />
 <blockquote>
 <p>💡 <em>Bolke batao — padhke nahi, bolke yaad hota hai!</em> 🗣️</p>

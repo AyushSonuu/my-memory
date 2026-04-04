@@ -5958,45 +5958,49 @@ Last updated: 2026-04-04</p>
 <h3 id="core-multiprocessing">📌 Core Multiprocessing<a class="headerlink" href="#core-multiprocessing" title="Permanent link">#</a></h3>
 <details>
 <summary>❓ When should you use multiprocessing over threading?</summary>
-
-| Task Type | Use |
-|-----------|-----|
-| **CPU-bound** (computation, image filters, math) | ⚙️ Multiprocessing |
-| **I/O-bound** (network, disk, sleep) | 🧵 Threading |
-
-Multiprocessing bypasses the GIL → true parallel execution on multiple CPU cores. Threading is limited by the GIL for CPU work.
-
-> CPU heavy = multiprocessing. Waiting heavy = threading. Andha andha mat karo — benchmark karo! 📊
+<table>
+<thead>
+<tr>
+<th>Task Type</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CPU-bound</strong> (computation, image filters, math)</td>
+<td>⚙️ Multiprocessing</td>
+</tr>
+<tr>
+<td><strong>I/O-bound</strong> (network, disk, sleep)</td>
+<td>🧵 Threading</td>
+</tr>
+</tbody>
+</table>
+<p>Multiprocessing bypasses the GIL → true parallel execution on multiple CPU cores. Threading is limited by the GIL for CPU work.</p>
+<blockquote>
+<p>CPU heavy = multiprocessing. Waiting heavy = threading. Andha andha mat karo — benchmark karo! 📊</p>
+</blockquote>
 </details>
-
 <details>
 <summary>❓ What is the GIL and how does multiprocessing bypass it?</summary>
-
-**GIL (Global Interpreter Lock)** = one lock per Python interpreter → only one thread runs Python bytecode at a time.
-
-**Threads** share the interpreter → share the GIL → can't truly run in parallel.
-**Processes** = separate Python interpreters → each has its own GIL → true parallel execution.
-
-Multiprocessing = multiple kitchens with multiple chefs. Threading = one kitchen, one chef, fast switching. 👨‍🍳
+<p><strong>GIL (Global Interpreter Lock)</strong> = one lock per Python interpreter → only one thread runs Python bytecode at a time.</p>
+<p><strong>Threads</strong> share the interpreter → share the GIL → can't truly run in parallel.
+<strong>Processes</strong> = separate Python interpreters → each has its own GIL → true parallel execution.</p>
+<p>Multiprocessing = multiple kitchens with multiple chefs. Threading = one kitchen, one chef, fast switching. 👨‍🍳</p>
 </details>
-
 <details>
 <summary>❓ What does "picklable" mean and why do multiprocessing arguments need to be picklable?</summary>
-
-**Pickling** = serializing Python objects into bytes (so they can be reconstructed). Multiprocessing requires it because processes have **separate memory** — arguments must be serialized to pass between processes via IPC.
-
-✅ Picklable: `int`, `float`, `str`, `list`, `dict`, regular functions
-❌ Not picklable: lambdas, file handles, database connections, some closures
-
-> Pickle = Python ka courier service. Pack karo → bhejo → unpack karo. Jo pack nahi ho sakta, wo nahi jaata! 📦
+<p><strong>Pickling</strong> = serializing Python objects into bytes (so they can be reconstructed). Multiprocessing requires it because processes have <strong>separate memory</strong> — arguments must be serialized to pass between processes via IPC.</p>
+<p>✅ Picklable: <code>int</code>, <code>float</code>, <code>str</code>, <code>list</code>, <code>dict</code>, regular functions
+❌ Not picklable: lambdas, file handles, database connections, some closures</p>
+<blockquote>
+<p>Pickle = Python ka courier service. Pack karo → bhejo → unpack karo. Jo pack nahi ho sakta, wo nahi jaata! 📦</p>
+</blockquote>
 </details>
-
 <details>
 <summary>❓ Why can't you `.join()` inside the process creation loop?</summary>
-
-`.join()` blocks until that process finishes. Inside loop: create P1 → start P1 → **wait for P1** → create P2... = sequential!
-
-**Correct pattern:**
+<p><code>.join()</code> blocks until that process finishes. Inside loop: create P1 → start P1 → <strong>wait for P1</strong> → create P2... = sequential!</p>
+<p><strong>Correct pattern:</strong>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">processes</span> <span class="o">=</span> <span class="p">[]</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">p</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">fn</span><span class="p">)</span>
@@ -6005,103 +6009,178 @@ Multiprocessing = multiple kitchens with multiple chefs. Threading = one kitchen
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">processes</span><span class="p">:</span>            <span class="c1"># join AFTER all started</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="n">p</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
-</span></code></pre></div>
+</span></code></pre></div></p>
 </details>
-
 <details>
 <summary>❓ What happens if you DON'T call `.join()` on your processes?</summary>
-
-Main script continues immediately while processes are still running. Timing/output at the end of the script executes before processes finish — you'll see "Finished in 0 seconds" because processes take time to spin up and main thread just runs past them.
-
-With `ProcessPoolExecutor` context manager: auto-joins when `with` block exits ✅
+<p>Main script continues immediately while processes are still running. Timing/output at the end of the script executes before processes finish — you'll see "Finished in 0 seconds" because processes take time to spin up and main thread just runs past them.</p>
+<p>With <code>ProcessPoolExecutor</code> context manager: auto-joins when <code>with</code> block exits ✅</p>
 </details>
-
 <details>
 <summary>❓ What's the difference between `submit()` and `map()` in ProcessPoolExecutor?</summary>
-
-| | `submit(fn, arg)` + `as_completed()` | `map(fn, iterable)` |
-|--|--------------------------------------|---------------------|
-| **Returns** | Future objects | Results (generator) |
-| **Result order** | ⚡ Completion order (fastest first) | 📋 Start order |
-| **Exception** | When `.result()` called | During iteration |
-| **Use when** | You want fastest results first | Order matters |
-
-> `as_completed` = race finish line. `map` = roll number order. 🏁📋
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>submit(fn, arg)</code> + <code>as_completed()</code></th>
+<th><code>map(fn, iterable)</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Returns</strong></td>
+<td>Future objects</td>
+<td>Results (generator)</td>
+</tr>
+<tr>
+<td><strong>Result order</strong></td>
+<td>⚡ Completion order (fastest first)</td>
+<td>📋 Start order</td>
+</tr>
+<tr>
+<td><strong>Exception</strong></td>
+<td>When <code>.result()</code> called</td>
+<td>During iteration</td>
+</tr>
+<tr>
+<td><strong>Use when</strong></td>
+<td>You want fastest results first</td>
+<td>Order matters</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><code>as_completed</code> = race finish line. <code>map</code> = roll number order. 🏁📋</p>
+</blockquote>
 </details>
-
 <details>
 <summary>❓ What is a Future object?</summary>
-
-A `Future` is returned by `executor.submit()`. It **encapsulates the execution** of a function scheduled on a process. You can:
-- `.result()` → get return value (blocks until done)
-- `.done()` → check if finished
-- `.running()` → check if currently executing
-
-It's like a delivery tracking number — submit karo, track karo, result lo. 📬
+<p>A <code>Future</code> is returned by <code>executor.submit()</code>. It <strong>encapsulates the execution</strong> of a function scheduled on a process. You can:
+- <code>.result()</code> → get return value (blocks until done)
+- <code>.done()</code> → check if finished
+- <code>.running()</code> → check if currently executing</p>
+<p>It's like a delivery tracking number — submit karo, track karo, result lo. 📬</p>
 </details>
-
 <details>
 <summary>❓ What is the `if __name__ == '__main__':` guard and why is it important for multiprocessing?</summary>
-
-On Windows and macOS (spawn start method), new processes **import the script** to get the function. Without the guard, each spawned process re-runs the main code → infinite process spawning!
-
+<p>On Windows and macOS (spawn start method), new processes <strong>import the script</strong> to get the function. Without the guard, each spawned process re-runs the main code → infinite process spawning!</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="k">with</span> <span class="n">concurrent</span><span class="o">.</span><span class="n">futures</span><span class="o">.</span><span class="n">ProcessPoolExecutor</span><span class="p">()</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        <span class="n">executor</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">process_image</span><span class="p">,</span> <span class="n">img_names</span><span class="p">)</span>
 </span></code></pre></div>
-
-Always use this guard in scripts using multiprocessing! In Jupyter notebooks / modules it's usually not needed.
+<p>Always use this guard in scripts using multiprocessing! In Jupyter notebooks / modules it's usually not needed.</p>
 </details>
-
 <hr />
 <h3 id="from-threading-cross-topic">🔗 From: Threading (Cross-Topic)<a class="headerlink" href="#from-threading-cross-topic" title="Permanent link">#</a></h3>
 <details>
 <summary>❓ Threading vs Multiprocessing — full comparison</summary>
-
-| | 🧵 Threading | ⚙️ Multiprocessing |
-|--|--------------|---------------------|
-| **Parallelism** | Concurrent (overlapping waits) | True parallel (multiple CPUs) |
-| **GIL** | Limited by it | Bypasses it ✅ |
-| **Best for** | I/O-bound | CPU-bound |
-| **Memory** | Shared space | Separate per process |
-| **Args requirement** | Any Python object | Must be picklable |
-| **Overhead** | Low | High (process spawn) |
-| **Switch between them** | Just swap `ThreadPool` ↔ `ProcessPool` | ← same |
-
-Real-world: 15 image downloads → Threading won (I/O-bound). 15 image filters → Multiprocessing 3× faster.
+<table>
+<thead>
+<tr>
+<th></th>
+<th>🧵 Threading</th>
+<th>⚙️ Multiprocessing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Parallelism</strong></td>
+<td>Concurrent (overlapping waits)</td>
+<td>True parallel (multiple CPUs)</td>
+</tr>
+<tr>
+<td><strong>GIL</strong></td>
+<td>Limited by it</td>
+<td>Bypasses it ✅</td>
+</tr>
+<tr>
+<td><strong>Best for</strong></td>
+<td>I/O-bound</td>
+<td>CPU-bound</td>
+</tr>
+<tr>
+<td><strong>Memory</strong></td>
+<td>Shared space</td>
+<td>Separate per process</td>
+</tr>
+<tr>
+<td><strong>Args requirement</strong></td>
+<td>Any Python object</td>
+<td>Must be picklable</td>
+</tr>
+<tr>
+<td><strong>Overhead</strong></td>
+<td>Low</td>
+<td>High (process spawn)</td>
+</tr>
+<tr>
+<td><strong>Switch between them</strong></td>
+<td>Just swap <code>ThreadPool</code> ↔ <code>ProcessPool</code></td>
+<td>← same</td>
+</tr>
+</tbody>
+</table>
+<p>Real-world: 15 image downloads → Threading won (I/O-bound). 15 image filters → Multiprocessing 3× faster.</p>
 </details>
-
 <details>
 <summary>❓ Can you switch between ThreadPoolExecutor and ProcessPoolExecutor easily?</summary>
-
-**Yes! That's the beauty of `concurrent.futures`:**
-
+<p><strong>Yes! That's the beauty of <code>concurrent.futures</code>:</strong></p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Multiprocessing:</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">with</span> <span class="n">concurrent</span><span class="o">.</span><span class="n">futures</span><span class="o">.</span><span class="n">ProcessPoolExecutor</span><span class="p">()</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Threading (one word!):</span>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">with</span> <span class="n">concurrent</span><span class="o">.</span><span class="n">futures</span><span class="o">.</span><span class="n">ThreadPoolExecutor</span><span class="p">()</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
 </span></code></pre></div>
-
-Same API: `submit()`, `map()`, `as_completed()` — all identical. Perfect for A/B benchmarking.
+<p>Same API: <code>submit()</code>, <code>map()</code>, <code>as_completed()</code> — all identical. Perfect for A/B benchmarking.</p>
 </details>
-
 <hr />
 <h3 id="from-asyncio-cross-topic">🔗 From: AsyncIO (Cross-Topic)<a class="headerlink" href="#from-asyncio-cross-topic" title="Permanent link">#</a></h3>
 <details>
 <summary>❓ Threading vs Multiprocessing vs AsyncIO — when to use each?</summary>
-
-| | 🧵 Threading | ⚙️ Multiprocessing | ⚡ AsyncIO |
-|--|--------------|---------------------|------------|
-| **Use when** | I/O, existing sync code | CPU-heavy computation | I/O, high concurrency (1000s) |
-| **Mechanism** | OS threads | Separate processes | Single-thread event loop |
-| **GIL** | Limited | Bypassed | N/A |
-| **Overhead** | Medium | High | Very low |
-| **Code style** | Normal Python | Normal Python | `async/await` |
-
-Quick rule: **CPU heavy → multiprocessing. Few I/O calls → threading. Thousands of connections → asyncio.**
+<table>
+<thead>
+<tr>
+<th></th>
+<th>🧵 Threading</th>
+<th>⚙️ Multiprocessing</th>
+<th>⚡ AsyncIO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Use when</strong></td>
+<td>I/O, existing sync code</td>
+<td>CPU-heavy computation</td>
+<td>I/O, high concurrency (1000s)</td>
+</tr>
+<tr>
+<td><strong>Mechanism</strong></td>
+<td>OS threads</td>
+<td>Separate processes</td>
+<td>Single-thread event loop</td>
+</tr>
+<tr>
+<td><strong>GIL</strong></td>
+<td>Limited</td>
+<td>Bypassed</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>Overhead</strong></td>
+<td>Medium</td>
+<td>High</td>
+<td>Very low</td>
+</tr>
+<tr>
+<td><strong>Code style</strong></td>
+<td>Normal Python</td>
+<td>Normal Python</td>
+<td><code>async/await</code></td>
+</tr>
+</tbody>
+</table>
+<p>Quick rule: <strong>CPU heavy → multiprocessing. Few I/O calls → threading. Thousands of connections → asyncio.</strong></p>
 </details>
-
 <hr />
 <blockquote>
 <p>💡 <strong>Revision tip:</strong> Cover the answer, try to explain OUT LOUD, then reveal.
