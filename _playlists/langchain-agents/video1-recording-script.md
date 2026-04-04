@@ -142,44 +142,45 @@
 
 ### Title
 ```
-Build AI Agents from Scratch — LangChain, LangGraph & Deep Agents | Complete Series Introduction
+Build AI Agents from Scratch with LangChain, LangGraph and Deep Agents | Complete Series Introduction
 ```
 
 ### Description
 ```
-🚀 The COMPLETE guide to building AI agents with the LangChain ecosystem!
+The complete guide to building AI agents with the LangChain ecosystem.
 
-In this series, you'll learn to build AI agents from absolute scratch:
-🦜 LangChain (28 episodes) — Models, Tools, Memory, Agents, Multi-Agent, Deploy
-🔷 LangGraph (22 episodes) — State, Persistence, Streaming, HITL, Orchestration
-🧠 Deep Agents (18 episodes) — Planning, Subagents, Sandboxes, Deep Research
+In this series, you'll learn to build AI agents from absolute scratch using three frameworks:
 
-68 episodes. 3 playlists. Following the official docs page by page.
+LangChain (28 episodes) - Models, Tools, Memory, Agents, Multi-Agent, Deployment
+LangGraph (22 episodes) - State, Persistence, Streaming, Human-in-the-Loop, Orchestration
+Deep Agents (18 episodes) - Planning, Subagents, Sandboxes, Deep Research
 
-👨‍💻 About me: Ayush Sonu | ML Engineer @ SAP Labs | 3+ years in GenAI & Agents
+68 episodes across 3 playlists. Following the official docs page by page. From zero to production-ready autonomous agents.
 
-💻 Code: https://github.com/AyushSonuu/langchain-ecosystem-tutorials
-📖 Docs: https://ayushsonuu.github.io/langchain-ecosystem-tutorials
-📚 Official Docs: https://docs.langchain.com
+About me: Ayush Sonu, Machine Learning Engineer at SAP Labs with 3+ years of experience in Generative AI and Autonomous Agents.
 
-⏰ Timestamps:
-00:00 — These agents are not magic
-00:40 — Who am I? (ML Engineer @ SAP Labs)
-01:45 — The 3-layer ecosystem
-04:00 — Learning path
-04:30 — 3 playlists breakdown (68 episodes)
-07:00 — Who is this for?
-07:45 — Series stats
-08:30 — Next steps
+Code: https://github.com/AyushSonuu/langchain-ecosystem-tutorials
+Docs: https://ayushsonuu.github.io/langchain-ecosystem-tutorials
+Official LangChain Docs: https://docs.langchain.com
 
-#langchain #langgraph #deepagents #aiagents #python #tutorial #buildaiagents
+Timestamps:
+00:00 These agents are not magic
+00:40 Who am I
+01:45 The 3-layer ecosystem
+04:00 Learning path
+04:30 What you'll learn in each playlist
+07:00 Who is this for
+07:45 Series stats
+08:30 What's next
+
+Tags: langchain, langgraph, deep agents, ai agents, python, tutorial, build ai agents, langchain tutorial, agentic ai, langchain 2026
 ```
 
 ### Tags
 ```
 langchain, langgraph, deep agents, ai agents tutorial, langchain tutorial,
 langchain 2026, build ai agents, python ai, agentic ai, langchain course,
-langchain complete guide, langchain for beginners, ml engineer sap,
-langchain ecosystem, deep agents langchain, ai engineering, autonomous agents,
-langchain from scratch, how to build ai agents, cursor ai, claude code
+langchain complete guide, langchain for beginners, ml engineer,
+langchain ecosystem, ai engineering, autonomous agents,
+langchain from scratch, how to build ai agents
 ```

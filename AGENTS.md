@@ -23,6 +23,7 @@ Ayra manages TWO repositories:
 - **Rule:** Keep this repo CLEAN and viewer-friendly. No personal notes, no vault files.
 - **Planning lives in `my-memory`:** Playlist plans, scripts, schedules stay in `_playlists/` here. Only code goes to the tutorials repo.
 - **🗣️ LANGUAGE:** All playlist content is **English ONLY** — scripts, notes, descriptions, hooks. NO Hinglish. Goal = improve Ayush's English communication and presentation skills. Professional, clear, confident English throughout.
+- **✍️ TONE:** YouTube metadata (titles, descriptions, tags, timestamps) must feel **human and clean** — no emojis, no long dashes (—), no excessive punctuation. SEO-optimized but natural. Write like a real person, not a marketing bot.
 
 > ⚠️ This English-only rule is ONLY for YouTube playlist content. The learning vault (`tech/` notes, flashcards, etc.) still uses Hinglish humor + English concepts — that's Ayush's personal revision style. Two purposes, two styles.
 
