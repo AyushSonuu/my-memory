@@ -12,7 +12,7 @@
 
 | Metric | Count |
 |--------|-------|
-| **Total Episodes** | 28 |
+| **Total Episodes** | 29 (Ep 00 + 28) |
 | **Notes Ready** | 0 |
 | **Recorded** | 0 |
 | **Published** | 0 |
@@ -34,9 +34,33 @@ langchain 2026, langchain beginner, agentic ai, build ai agents,
 python ai, langchain course, langgraph, langchain from scratch
 ```
 
+### Code Repository
+> 🔗 **Separate public repo:** `github.com/AyushSonuu/langchain-ecosystem-tutorials`
+> One umbrella repo with 3 folders — cleaner for viewers, no personal vault clutter.
+```
+langchain-ecosystem-tutorials/
+├── README.md                    ← Series overview + links
+├── langchain/                   ← Playlist 1 code
+│   ├── ep01-overview/
+│   ├── ep02-install/
+│   └── ...
+├── langgraph/                   ← Playlist 2 code
+│   ├── ep01-overview/
+│   └── ...
+└── deepagents/                  ← Playlist 3 code
+    ├── ep01-overview/
+    └── ...
+```
+
 ---
 
 ## 📺 Episode Plan — Following Official Docs Sidebar
+
+### 🎬 Episode 00: Series Introduction (SPECIAL)
+
+| Ep | Title | Script | Thumbnail | Status |
+|----|-------|--------|-----------|--------|
+| 00 | [Series Intro — LangChain, LangGraph & Deep Agents](ep00-series-introduction.md) | ✅ Ready | `LANGCHAIN` `COMPLETE GUIDE` | 📝 |
 
 ### 📦 Section 1: Overview & Getting Started (Ep 1–4)
 
