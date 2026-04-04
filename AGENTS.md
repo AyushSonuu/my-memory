@@ -330,7 +330,6 @@ These touch global files — do them at END of a learning session, not after eve
 | **`tech/README.md`** or **`non-tech/README.md`** | Update category overview map + table |
 | **Root `README.md`** | Update stats (topic count, lessons, flashcards, last updated) |
 | **`_revision/due-today.md`** | Regenerate from tracker.json |
-| **Homepage revision board** | Run `.venv/bin/python update_revision_board.py` — updates README.md revision table, stats, and due-today.md in one go |
 | **`index.html`** (root) | **REMOVED** — now using MkDocs Material. |
 | **`docs/` folder** | Auto-generated. Run `.venv/bin/python build_docs.py` to rebuild. Deploy via GitHub Pages (Settings → Pages → Source: main, folder: /docs). |
 | **`mkdocs.yml`** | Update `nav:` section when adding new topics/lessons. |
@@ -397,8 +396,6 @@ EVERY edit (Tier 1):
 End of session / when asked (Tier 2):
   ☐ _maps/* rebuilt
   ☐ Category + Root READMEs updated
-  ☐ Revision board updated (update_revision_board.py)
-  ☐ _revision/due-today.md regenerated
   ☐ _revision/due-today.md regenerated
   ☐ mkdocs.yml nav updated (if new pages added)
   ☐ Docs rebuilt (.venv/bin/python build_docs.py) & pushed
