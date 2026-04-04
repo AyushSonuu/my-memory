@@ -4,7 +4,8 @@
 > **Target:** Anyone — even if you know NOTHING about AI, you'll understand by the end
 > **Source:** Official LangChain Python Docs (following sidebar order)
 > **Style:** Concept → Diagram → Code (type live) → Recap
-> **Language:** English (natural Hinglish flavor)
+> **Language:** English only — professional, clear, confident delivery
+> **Goal:** Build AI agents AND improve communication/presentation skills
 
 ---
 

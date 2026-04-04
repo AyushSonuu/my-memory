@@ -22,6 +22,7 @@ Ayra manages TWO repositories:
 - **Structure:** `langchain/epXX/`, `langgraph/epXX/`, `deepagents/epXX/`
 - **Rule:** Keep this repo CLEAN and viewer-friendly. No personal notes, no vault files.
 - **Planning lives in `my-memory`:** Playlist plans, scripts, schedules stay in `_playlists/` here. Only code goes to the tutorials repo.
+- **🗣️ LANGUAGE:** All playlist content is **English ONLY** — scripts, notes, descriptions, hooks. NO Hinglish. Goal = improve Ayush's English communication and presentation skills. Professional, clear, confident English throughout.
 
 ## Session Startup
 
