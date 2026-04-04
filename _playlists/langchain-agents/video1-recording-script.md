@@ -1,12 +1,12 @@
-# 🎬 Video 1 — Series Intro + LangChain Overview (Combined Ep00 + Ep01)
+# 🎬 Video 1 — Series Intro + LangChain Overview
 
-> **Duration:** ~15 min | **Style:** Talk + scroll docs site | **No code**
-> **What to open:** https://ayushsonuu.github.io/langchain-ecosystem-tutorials/
+> **Duration:** ~10 min | **Style:** Talk + scroll docs site | **No code**
+> **Open:** https://ayushsonuu.github.io/langchain-ecosystem-tutorials/01-series-introduction/
 
 ---
 
 ## SECTION 1 · HOOK (0:00 - 0:40)
-**📍 Screen: Docs home page (don't scroll yet)**
+**📍 Screen: Docs page top (don't scroll yet)**
 
 > ChatGPT searches the web. Cursor reads your codebase. Claude Code plans, spawns agents, writes production code by itself.
 >
@@ -19,9 +19,9 @@
 ---
 
 ## SECTION 2 · WHO AM I (0:40 - 1:45)
-**📍 Screen: Stay on home page**
+**📍 Screen: Stay on top**
 
-> I'm Ayush Sonu. Machine Learning Engineer at SAP.
+> I'm Ayush Sonu. Machine Learning Engineer at SAP Labs.
 >
 > Three years in AI. Built RAG pipelines, multi-agent systems, LLM-powered apps in production.
 >
@@ -34,7 +34,7 @@
 ---
 
 ## SECTION 3 · THE 3-LAYER ECOSYSTEM (1:45 - 4:00)
-**📍 Screen: Scroll to "The Architecture" diagram on home page**
+**📍 Screen: Scroll to "The Architecture" diagram**
 
 > *Point at diagram as you explain each layer:*
 >
@@ -52,7 +52,7 @@
 > *Point at purple box*
 > Built on LangChain. Batteries-included. Planning tool, subagent spawning, file system access, sandboxes, context compression. This is how you build Claude Code-like agents.
 
-> *Scroll to "How They Relate" table*
+> *Scroll to analogy table*
 >
 > Think of it this way:
 > - LangGraph = the engine of a car
@@ -62,141 +62,124 @@
 ---
 
 ## SECTION 4 · THE LEARNING PATH (4:00 - 4:30)
-**📍 Screen: Scroll to "The Learning Path" diagram on home page**
+**📍 Screen: Scroll to "The Learning Path" diagram**
 
-> We go layer by layer. LangGraph first — the runtime. Then LangChain — the framework. Then Deep Agents — the harness.
+> We start with LangChain — the core abstractions, the nuts and bolts. Then LangGraph — the runtime underneath. Then Deep Agents — the harness on top.
 >
 > Each builds on the previous one. Follow in order.
 
 ---
 
-## SECTION 5 · CLICK "LANGCHAIN" TAB — WHAT IS IT? (4:30 - 6:00)
-**📍 Screen: Click the 🦜 LangChain tab. Scroll slowly.**
+## SECTION 5 · THREE PLAYLISTS PREVIEW (4:30 - 7:00)
+**📍 Screen: Scroll through each playlist diagram slowly**
 
-> *Scroll to "What is LangChain?" section*
+> **LangChain — 28 episodes. The Agent Framework.**
+> *Point at blue boxes:*
+> Models — any LLM, same code. Tools — web, APIs, custom. Memory — short and long-term. Structured output — JSON, Pydantic. Middleware — guardrails, safety. Multi-agent — handoffs, routing.
 >
-> LangChain is an open-source agent framework. It gives you six core things:
+> **LangGraph — 22 episodes. The Runtime.**
+> *Point at green boxes:*
+> Graph API — nodes, edges, state. Persistence — save and resume. Streaming — real-time output. Human-in-the-loop — pause, review, resume. Durable execution — survive crashes. Time travel — replay and fork.
 >
-> *Point at each box in the diagram:*
-> - **Models** — one interface for every LLM. OpenAI, Anthropic, Google, open-source. Same code.
-> - **Tools** — give your agent superpowers. Web search, APIs, custom functions.
-> - **Memory** — short-term for conversations, long-term across sessions.
-> - **Agent Architecture** — the think-act-observe loop, prebuilt for you.
-> - **Structured Output** — get JSON and Python objects, not just text.
-> - **Middleware** — guardrails, safety, control at every step.
-
----
-
-## SECTION 6 · WHERE DOES IT FIT? (6:00 - 7:00)
-**📍 Screen: Scroll to "Where Does LangChain Fit?" section**
-
-> *Point at stack diagram:*
->
-> Deep Agents is built on LangChain. LangChain is built on LangGraph.
->
-> *Point at "When to Use" table:*
->
-> - Need batteries-included with planning and subagents? Deep Agents.
-> - Want to build agents quickly with full control? LangChain. Most people start here.
-> - Need low-level custom state machines? LangGraph.
->
-> You don't need to know LangGraph to use LangChain. It handles that for you.
+> **Deep Agents — 18 episodes. The Agent Harness.**
+> *Point at purple boxes:*
+> Planning — agent plans its own approach. Subagents — delegate and parallelize. File systems — read, write, navigate. Sandboxes — safe code execution. Context compression — handle long tasks. ACP — IDE integration.
 
 ---
 
-## SECTION 7 · ONE INTERFACE, EVERY MODEL (7:00 - 7:45)
-**📍 Screen: Scroll to "One Interface, Every Model" diagram**
+## SECTION 6 · WHO IS THIS FOR (7:00 - 7:45)
+**📍 Screen: Scroll to "Who Is This For" table**
 
-> *Point at diagram:*
+> This is for you if you know basic Python but never used LLMs — I'll take you from zero.
 >
-> Write your code once. Connect to OpenAI, Anthropic, Google, open-source.
+> If you've used ChatGPT or Claude and want to build your own — I'll show you how.
 >
-> Want to switch from OpenAI to Anthropic? Change one string. Your tools, memory, everything else — stays the same.
+> If you tried LangChain but the docs were overwhelming — we go page by page.
 >
-> No vendor lock-in. New model comes out tomorrow? Switch in ten seconds.
-
----
-
-## SECTION 8 · FOUR CORE BENEFITS (7:45 - 10:30)
-**📍 Screen: Scroll through each benefit section slowly**
-
-> **Benefit 1 — Standard Model Interface**
-> *Scroll to table*
-> Every provider has a different API. LangChain standardizes all of them. One interface. Switch providers by changing one string.
+> If you want to go from API calls to production agent systems — this is the complete journey.
 >
-> **Benefit 2 — Easy to Start, Flexible to Scale**
-> *Scroll to progression*
-> Start with 10 lines. Need more? Add custom tools, middleware. Going advanced? Multi-agent, guardrails, streaming. You grow into complexity — never forced into it.
->
-> **Benefit 3 — Built on LangGraph Runtime**
-> *Scroll to capability table*
-> Because LangChain runs on LangGraph, every agent automatically gets: durable execution, streaming, human-in-the-loop, persistence. Zero extra code. It's just there.
->
-> **Benefit 4 — Debug with LangSmith**
-> *Scroll to diagram*
-> Set one environment variable. See exactly what your agent does at every step. Full traces, state transitions, runtime metrics. We'll cover this in detail later.
+> Only prerequisite — basic Python. Everything else, from scratch.
 
 ---
 
-## SECTION 9 · FIRST AGENT PREVIEW (10:30 - 12:00)
-**📍 Screen: Scroll to the code block + agent loop diagram**
+## SECTION 7 · STATS + ABOUT (7:45 - 8:30)
+**📍 Screen: Scroll to stats table then About section**
 
-> *Point at code:*
+> 68 episodes total. LangChain 28, LangGraph 22, Deep Agents 18. Plus real projects at the end that combine everything.
 >
-> This is an actual LangChain agent. Under 10 lines. create_agent — one function. Give it a model, tools, and a system prompt.
->
-> *Scroll to "Agent Loop" diagram:*
->
-> When you call invoke — the agent reads the message, thinks, decides to call the tool, gets the result, and responds. All in one call.
->
-> In the next video, we'll set up our environment and write this code together, live. You'll run it yourself.
+> *Point at About section:*
+> Everything I teach comes from real production experience. Three years at SAP Labs building AI systems that serve real users.
 
 ---
 
-## SECTION 10 · THE ROADMAP — 68 EPISODES (12:00 - 14:00)
-**📍 Screen: Scroll to the Episode tables**
-
-> *Scroll slowly through each section:*
->
-> **Getting Started** — overview, install, quickstart, philosophy.
->
-> **Core Components** — agents, models, messages, tools, memory, streaming, structured output.
->
-> **Middleware** — overview, prebuilt, custom.
->
-> **Advanced** — guardrails, runtime, context engineering, MCP, human-in-the-loop, retrieval, long-term memory.
->
-> **Multi-Agent** — overview, handoffs, routers, subagents.
->
-> **Ship It** — testing, observability, deploy.
->
-> 28 episodes for LangChain alone. Then 22 for LangGraph. Then 18 for Deep Agents. And at the end — real projects that combine everything.
-
----
-
-## SECTION 11 · CTA (14:00 - 14:30)
-**📍 Screen: Scroll back to top of home page**
+## SECTION 8 · CTA (8:30 - 9:00)
+**📍 Screen: Scroll back to top**
 
 > If you're serious about building AI agents — subscribe. Hit the bell.
 >
-> Next video — we set up our environment, install LangChain, configure API keys, and build our first agent together. You'll run real code.
+> Next video — we dive into LangChain. What it is, how it works, setup the environment, and build our first agent together. Real code.
 >
 > I'll see you there. Let's build some agents.
 
 ---
 
-## ⏱️ Quick Reference (keep on phone)
+## ⏱️ Phone Cheat Sheet
 
 ```
-0:00  HOOK — agents are real, frameworks are open source, let's build
-0:40  WHO — Ayush, MLE @ SAP, 3 yrs AI, production experience
-1:45  3 LAYERS — scroll diagram, explain bottom→middle→top
-4:00  PATH — scroll learning path diagram
-4:30  CLICK LANGCHAIN TAB — 6 things it gives you
-6:00  WHERE IT FITS — stack + when-to-use table
-7:00  ONE INTERFACE — swap models, one string
-7:45  4 BENEFITS — standard interface, easy+flexible, LangGraph, LangSmith
-10:30 CODE PREVIEW — show code + agent loop diagram
-12:00 ROADMAP — scroll episode tables
-14:00 CTA — subscribe, next video = setup + first agent
+0:00  HOOK — agents, open source, let's build
+0:40  WHO — Ayush, SAP Labs, 3 yrs AI, production
+1:45  3 LAYERS — diagram: LangGraph → LangChain → Deep Agents
+4:00  PATH — learning path diagram
+4:30  3 PLAYLISTS — scroll blue/green/purple boxes
+7:00  WHO IS THIS FOR — table
+7:45  STATS + ABOUT — numbers + credentials
+8:30  CTA — subscribe, next = LangChain deep dive
+```
+
+---
+
+## 📝 YouTube Metadata (copy-paste when uploading)
+
+### Title
+```
+Build AI Agents from Scratch — LangChain, LangGraph & Deep Agents | Complete Series Introduction
+```
+
+### Description
+```
+🚀 The COMPLETE guide to building AI agents with the LangChain ecosystem!
+
+In this series, you'll learn to build AI agents from absolute scratch:
+🦜 LangChain (28 episodes) — Models, Tools, Memory, Agents, Multi-Agent, Deploy
+🔷 LangGraph (22 episodes) — State, Persistence, Streaming, HITL, Orchestration
+🧠 Deep Agents (18 episodes) — Planning, Subagents, Sandboxes, Deep Research
+
+68 episodes. 3 playlists. Following the official docs page by page.
+
+👨‍💻 About me: Ayush Sonu | ML Engineer @ SAP Labs | 3+ years in GenAI & Agents
+
+💻 Code: https://github.com/AyushSonuu/langchain-ecosystem-tutorials
+📖 Docs: https://ayushsonuu.github.io/langchain-ecosystem-tutorials
+📚 Official Docs: https://docs.langchain.com
+
+⏰ Timestamps:
+00:00 — These agents are not magic
+00:40 — Who am I? (ML Engineer @ SAP Labs)
+01:45 — The 3-layer ecosystem
+04:00 — Learning path
+04:30 — 3 playlists breakdown (68 episodes)
+07:00 — Who is this for?
+07:45 — Series stats
+08:30 — Next steps
+
+#langchain #langgraph #deepagents #aiagents #python #tutorial #buildaiagents
+```
+
+### Tags
+```
+langchain, langgraph, deep agents, ai agents tutorial, langchain tutorial,
+langchain 2026, build ai agents, python ai, agentic ai, langchain course,
+langchain complete guide, langchain for beginners, ml engineer sap,
+langchain ecosystem, deep agents langchain, ai engineering, autonomous agents,
+langchain from scratch, how to build ai agents, cursor ai, claude code
 ```
