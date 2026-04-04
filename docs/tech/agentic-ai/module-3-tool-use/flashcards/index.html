@@ -6000,103 +6000,117 @@ Last updated: 2026-03-28</p>
 </blockquote>
 <hr />
 <h3 id="tool-basics">🔧 Tool Basics<a class="headerlink" href="#tool-basics" title="Permanent link">#</a></h3>
-<div class="flashcard-deck">
-<details class="flashcard">
-<summary>What does "tool use" mean for LLMs?</summary>
-<p>Giving the LLM access to <strong>functions</strong> it can <strong>request to call</strong> when it needs real-time data, external info, or computation. LLM bina tools ke = insaan bina haathon ke! 🖐️</p>
+<details>
+<summary>❓ What does "tool use" mean for LLMs?</summary>
+
+Giving the LLM access to **functions** it can **request to call** when it needs real-time data, external info, or computation. LLM bina tools ke = insaan bina haathon ke! 🖐️
 </details>
-<details class="flashcard">
-<summary>Does the LLM always use available tools?</summary>
-<p><strong>No.</strong> LLM decides based on the query. "What time?" → calls tool. "Caffeine in tea?" → answers directly. Smart delegation — only calls what's needed.</p>
+
+<details>
+<summary>❓ Does the LLM always use available tools?</summary>
+
+**No.** LLM decides based on the query. "What time?" → calls tool. "Caffeine in tea?" → answers directly. Smart delegation — only calls what's needed.
 </details>
-<details class="flashcard">
-<summary>Hard-coded vs LLM-chosen tool calls?</summary>
-<p><strong>Hard-coded:</strong> Developer pre-programs "always search web at step 2."
-<strong>LLM-chosen:</strong> Developer provides a menu of tools, LLM picks at runtime.
-This module = LLM-chosen approach.</p>
+
+<details>
+<summary>❓ Hard-coded vs LLM-chosen tool calls?</summary>
+
+**Hard-coded:** Developer pre-programs "always search web at step 2."
+**LLM-chosen:** Developer provides a menu of tools, LLM picks at runtime.
+This module = LLM-chosen approach.
 </details>
+
 <hr />
-</div>
 <h3 id="creating-tools-syntax">🛠️ Creating Tools &amp; Syntax<a class="headerlink" href="#creating-tools-syntax" title="Permanent link">#</a></h3>
-<div class="flashcard-deck">
-<details class="flashcard">
-<summary>What is aisuite?</summary>
-<p>Open source library (co-created by Andrew Ng) — <strong>unified interface</strong> for multiple LLM providers. One <code>client.chat.completions.create()</code> call handles: schema generation, tool execution, result feed-back — all automatic.</p>
+<details>
+<summary>❓ What is aisuite?</summary>
+
+Open source library (co-created by Andrew Ng) — **unified interface** for multiple LLM providers. One `client.chat.completions.create()` call handles: schema generation, tool execution, result feed-back — all automatic.
 </details>
-<details class="flashcard">
-<summary>How does aisuite auto-generate tool schemas?</summary>
-<p>Reads your function's: (1) <strong>name</strong> from <code>def</code>, (2) <strong>description</strong> from docstring, (3) <strong>parameters</strong> from signature. Builds JSON schema automatically. Docstring = tool ka resume! 📄</p>
+
+<details>
+<summary>❓ How does aisuite auto-generate tool schemas?</summary>
+
+Reads your function's: (1) **name** from `def`, (2) **description** from docstring, (3) **parameters** from signature. Builds JSON schema automatically. Docstring = tool ka resume! 📄
 </details>
-<details class="flashcard">
-<summary>What's `max_turns` in aisuite?</summary>
-<p>Ceiling on consecutive tool calls to prevent infinite loops. Set to <strong>5</strong>, forget about it. Andrew Ng: "In practice, you almost never hit this limit."</p>
+
+<details>
+<summary>❓ What's `max_turns` in aisuite?</summary>
+
+Ceiling on consecutive tool calls to prevent infinite loops. Set to **5**, forget about it. Andrew Ng: "In practice, you almost never hit this limit."
 </details>
-<details class="flashcard">
-<summary>What does the JSON schema for a tool with parameters look like?</summary>
-<p><div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;function&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;function&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+
+<details>
+<summary>❓ What does the JSON schema for a tool with parameters look like?</summary>
+
+<div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;function&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;function&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;get_current_time&quot;</span><span class="p">,</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Returns current time for the given time zone&quot;</span><span class="p">,</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">&quot;parameters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;timezone&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IANA timezone&quot;</span><span class="p">}}</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}}</span>
 </span></code></pre></div>
-All auto-generated from your function + docstring!</p>
+All auto-generated from your function + docstring!
 </details>
+
 <hr />
-</div>
 <h3 id="code-execution">💻 Code Execution<a class="headerlink" href="#code-execution" title="Permanent link">#</a></h3>
-<div class="flashcard-deck">
-<details class="flashcard">
-<summary>Why is code execution the ultimate meta-tool?</summary>
-<p>Instead of 50 individual tools (add, sqrt, log...), give the LLM ONE tool: write and execute Python. It can solve <strong>anything expressible in code</strong>. One tool to rule them all! 👑</p>
+<details>
+<summary>❓ Why is code execution the ultimate meta-tool?</summary>
+
+Instead of 50 individual tools (add, sqrt, log...), give the LLM ONE tool: write and execute Python. It can solve **anything expressible in code**. One tool to rule them all! 👑
 </details>
-<details class="flashcard">
-<summary>What's the `<execute_python>` tag pattern?</summary>
-<ol>
-<li>System prompt: "wrap code in <code>&lt;execute_python&gt;</code> tags"</li>
-<li>LLM writes code in tags</li>
-<li>Regex extracts: <code>re.search(r"&lt;execute_python&gt;([\s\S]*?)&lt;/execute_python&gt;", output)</code></li>
-<li><code>exec()</code> or sandbox → feed result back</li>
-</ol>
+
+<details>
+<summary>❓ What's the `<execute_python>` tag pattern?</summary>
+
+1. System prompt: "wrap code in `<execute_python>` tags"
+2. LLM writes code in tags
+3. Regex extracts: `re.search(r"<execute_python>([\s\S]*?)</execute_python>", output)`
+4. `exec()` or sandbox → feed result back
 </details>
-<details class="flashcard">
-<summary>Why sandbox LLM-generated code?</summary>
-<p>Real horror story: Andrew Ng's team agent ran <code>rm *.py</code> — deleted files! Options: <strong>Docker</strong> (heavy, secure), <strong>E2B</strong> (lightweight), <code>exec()</code> (zero protection). Always sandbox in production.</p>
+
+<details>
+<summary>❓ Why sandbox LLM-generated code?</summary>
+
+Real horror story: Andrew Ng's team agent ran `rm *.py` — deleted files! Options: **Docker** (heavy, secure), **E2B** (lightweight), `exec()` (zero protection). Always sandbox in production.
 </details>
+
 <hr />
-</div>
 <h3 id="mcp">🔌 MCP<a class="headerlink" href="#mcp" title="Permanent link">#</a></h3>
-<div class="flashcard-deck">
-<details class="flashcard">
-<summary>What problem does MCP solve?</summary>
-<p><strong>M×N → M+N.</strong> Without MCP, every app builds custom wrappers for each service. With MCP: clients connect to shared servers via standard protocol. 10 apps × 20 services = 200 wrappers → 30 connections! USB port for LLMs! 🔌</p>
+<details>
+<summary>❓ What problem does MCP solve?</summary>
+
+**M×N → M+N.** Without MCP, every app builds custom wrappers for each service. With MCP: clients connect to shared servers via standard protocol. 10 apps × 20 services = 200 wrappers → 30 connections! USB port for LLMs! 🔌
 </details>
-<details class="flashcard">
-<summary>MCP Client vs Server?</summary>
-<p><strong>Client</strong> = app that USES tools (Cursor, Claude Desktop, your app).
-<strong>Server</strong> = service that PROVIDES tools (GitHub, Slack, PostgreSQL).
-Protocol connects them all.</p>
+
+<details>
+<summary>❓ MCP Client vs Server?</summary>
+
+**Client** = app that USES tools (Cursor, Claude Desktop, your app).
+**Server** = service that PROVIDES tools (GitHub, Slack, PostgreSQL).
+Protocol connects them all.
 </details>
-<details class="flashcard">
-<summary>MCP Resources vs Tools?</summary>
-<p><strong>Resources</strong> = fetch data (read README from GitHub). <strong>Tools</strong> = take actions (create PR, send message). MCP handles both.</p>
+
+<details>
+<summary>❓ MCP Resources vs Tools?</summary>
+
+**Resources** = fetch data (read README from GitHub). **Tools** = take actions (create PR, send message). MCP handles both.
 </details>
+
 <hr />
-</div>
 <h3 id="code-lab-patterns">💻 Code Lab Patterns<a class="headerlink" href="#code-lab-patterns" title="Permanent link">#</a></h3>
-<div class="flashcard-deck">
-<details class="flashcard">
-<summary>What are the three M3 labs about?</summary>
-<ol>
-<li><strong>UGL 1</strong> — Turn functions into aisuite tools (get_current_time, file read/write, weather)</li>
-<li><strong>UGL 2</strong> — Email assistant: multi-tool agent (read/send/search emails via REST wrappers)</li>
-<li><strong>Graded Lab</strong> — Research agent: arxiv_search + tavily_search → reflection → HTML formatting</li>
-</ol>
+<details>
+<summary>❓ What are the three M3 labs about?</summary>
+
+1. **UGL 1** — Turn functions into aisuite tools (get_current_time, file read/write, weather)
+2. **UGL 2** — Email assistant: multi-tool agent (read/send/search emails via REST wrappers)
+3. **Graded Lab** — Research agent: arxiv_search + tavily_search → reflection → HTML formatting
 </details>
+
 <hr />
 <blockquote>
 <p>💡 <strong>Revision tip:</strong> Cover answers, explain OUT LOUD, then reveal. Bolke yaad hota hai! 🗣️</p>
 </blockquote>
-</div>
 
 
 
@@ -6226,8 +6240,6 @@ Protocol connects them all.</p>
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="../../../../_assets/mermaid-zoom.js"></script>
-      
-        <script src="../../../../_assets/flashcards.js"></script>
       
     
   </body>

@@ -108,7 +108,6 @@ extra_css:
 
 extra_javascript:
   - _assets/mermaid-zoom.js
-  - _assets/flashcards.js
 
 nav:
   - 🏠 Home:

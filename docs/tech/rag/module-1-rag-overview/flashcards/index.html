@@ -5264,6 +5264,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🃏 Flashcards
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -5280,6 +5298,47 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-rag-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Core RAG Concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rag-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 RAG Applications
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5823,6 +5882,36 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-rag-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Core RAG Concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rag-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 RAG Applications
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5844,187 +5933,122 @@
 Last updated: 2026-04-04</p>
 </blockquote>
 <hr />
-<div class="flashcard-deck">
-<details class="flashcard">
-<summary>What is RAG in one sentence?</summary>
-<p><strong>Retrieval Augmented Generation</strong> = retrieve relevant info from a knowledge base and inject it into the LLM's prompt so it can generate accurate, grounded answers using data it wasn't trained on.</p>
-<blockquote>
-<p>LLM ko Google de do — pehle dhundo, phir jawab do! 🔍</p>
-</blockquote>
+<h3 id="core-rag-concepts">📌 Core RAG Concepts<a class="headerlink" href="#core-rag-concepts" title="Permanent link">#</a></h3>
+<details>
+<summary>❓ What is RAG in one sentence?</summary>
+
+**Retrieval Augmented Generation** = retrieve relevant information from a knowledge base and inject it into the LLM's prompt so it can generate accurate, grounded answers using data it wasn't trained on.
+
+> LLM ko Google de do — pehle dhundo, phir jawab do! 🔍
 </details>
-<details class="flashcard">
-<summary>What do Retrieval, Augmented, and Generation each mean?</summary>
-<ul>
-<li><strong>Retrieval</strong> = collecting relevant info from a knowledge base</li>
-<li><strong>Augmented</strong> = enhancing the prompt by adding retrieved info</li>
-<li><strong>Generation</strong> = LLM reasons over augmented prompt → generates answer</li>
-</ul>
-<blockquote>
-<p>Naam hi recipe hai! Dhundo → daalo → jawab do 🍳</p>
-</blockquote>
+
+<details>
+<summary>❓ What do Retrieval, Augmented, and Generation each mean?</summary>
+
+- **Retrieval** = collecting relevant info from a knowledge base
+- **Augmented** = enhancing the prompt by adding retrieved info
+- **Generation** = LLM reasons over augmented prompt → generates answer
+
+> Naam hi recipe hai! Dhundo → daalo → jawab do 🍳
 </details>
-<details class="flashcard">
-<summary>What are the 3 components of a RAG system?</summary>
-<table>
-<thead>
-<tr>
-<th>Component</th>
-<th>Role</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Knowledge Base</strong></td>
-<td>Trusted, relevant, possibly private info</td>
-</tr>
-<tr>
-<td><strong>Retriever</strong></td>
-<td>Searches KB, finds most relevant docs</td>
-</tr>
-<tr>
-<td><strong>LLM</strong></td>
-<td>Receives augmented prompt → generates response</td>
-</tr>
-</tbody>
-</table>
+
+<details>
+<summary>❓ What are the 3 components of a RAG system?</summary>
+
+| Component | Role |
+|-----------|------|
+| **Knowledge Base** | Trusted, relevant, possibly private information |
+| **Retriever** | Searches KB, finds most relevant docs for query |
+| **LLM** | Receives augmented prompt → generates response |
 </details>
-<details class="flashcard">
-<summary>What is the "key insight" of RAG in the simplest terms?</summary>
-<p><strong>Just put it in the prompt!</strong> Modify the prompt before sending to the LLM — add relevant info from your knowledge base so it has what it needs.</p>
-<blockquote>
-<p>RAG = open-book exam. Cheat sheet legally de do! 📋😂</p>
-</blockquote>
+
+<details>
+<summary>❓ What is the "key insight" of RAG in the simplest terms?</summary>
+
+**Just put it in the prompt!** Modify the prompt before sending to the LLM — add relevant info from your knowledge base so it has what it needs.
+
+> RAG = open-book exam. Cheat sheet legally de do! 📋😂
 </details>
-<details class="flashcard">
-<summary>What 3 types of info are LLMs missing that RAG fills?</summary>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Private data</strong></td>
-<td>Company policies, internal docs</td>
-</tr>
-<tr>
-<td><strong>Real-time data</strong></td>
-<td>Today's news, current events</td>
-</tr>
-<tr>
-<td><strong>Specialized data</strong></td>
-<td>Niche domain knowledge</td>
-</tr>
-</tbody>
-</table>
-<p>RAG fills all three by retrieving at query time.</p>
+
+<details>
+<summary>❓ Why do LLMs need RAG? What 3 types of info are they missing?</summary>
+
+LLMs only know their training data. They're missing:
+
+| Type | Example |
+|------|---------|
+| **Private data** | Company policies, internal docs, confidential databases |
+| **Real-time data** | Today's news, current events, live prices |
+| **Specialized data** | Niche domain knowledge not widely available online |
+
+RAG gives them access to all of this at query time.
 </details>
-<details class="flashcard">
-<summary>Traditional RAG vs Agentic RAG — what's the difference?</summary>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Traditional</th>
-<th>Agentic</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Decides retrieval</strong></td>
-<td>Human engineer</td>
-<td>AI agent</td>
-</tr>
-<tr>
-<td><strong>Strategy</strong></td>
-<td>Fixed pipeline</td>
-<td>Dynamic, can retry</td>
-</tr>
-<tr>
-<td><strong>Error handling</strong></td>
-<td>Fails silently</td>
-<td>Routes back &amp; fixes</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>GPS fixed route vs GPS that recalculates! 🛣️</p>
-</blockquote>
+
+<details>
+<summary>❓ What's the difference between Traditional RAG and Agentic RAG?</summary>
+
+| | Traditional RAG | Agentic RAG |
+|--|----------------|-------------|
+| **Who decides retrieval?** | Human engineer (hardcoded) | AI agent (dynamic) |
+| **Strategy** | Fixed: query → retrieve → generate | Flexible: retrieve → evaluate → maybe retry |
+| **Error handling** | Fails silently | Routes back, tries different approach |
+
+> Traditional = GPS fixed route. Agentic = GPS that recalculates on traffic! 🛣️
 </details>
-<details class="flashcard">
-<summary>Why can't you just put ALL documents in the prompt?</summary>
-<p>Two problems:</p>
-<ol>
-<li><strong>Context window limit</strong> — LLMs have max token capacity</li>
-<li><strong>Computational cost</strong> — longer prompts = more computation per token generated</li>
-</ol>
-<p>RAG retrieves only the <strong>most relevant</strong> pieces → efficient + focused.</p>
+
+<details>
+<summary>❓ Why can't you just put ALL documents in the LLM prompt instead of using RAG?</summary>
+
+Two problems:
+1. **Context window limit** — LLMs have max token capacity
+2. **Computational cost** — longer prompts = more computation (model scans every token before generating each new one)
+
+RAG retrieves only the **most relevant** pieces → efficient + focused.
 </details>
-<details class="flashcard">
-<summary>Name 5 ways RAG is getting better over time</summary>
-<ol>
-<li>📉 Lower hallucination rates</li>
-<li>🧠 Reasoning models for complex Q&amp;A</li>
-<li>📏 Larger context windows</li>
-<li>📄 Better document extraction (PDFs, slides)</li>
-<li>🤖 Agentic RAG — AI decides what to retrieve</li>
-</ol>
+
+<details>
+<summary>❓ Name 5 ways RAG is getting better over time</summary>
+
+1. 📉 **Lower hallucination rates** — newer models stay grounded in context
+2. 🧠 **Reasoning models** — tackle complex questions over retrieved data
+3. 📏 **Larger context windows** — less chunking pressure
+4. 📄 **Better doc extraction** — PDFs, slides, images → usable text
+5. 🤖 **Agentic RAG** — AI decides what/when/how to retrieve
 </details>
-<details class="flashcard">
-<summary>Name the 5 major RAG application categories</summary>
-<table>
-<thead>
-<tr>
-<th>App</th>
-<th>Knowledge Base</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>💻 <strong>Code Gen</strong></td>
-<td>Your own codebase</td>
-</tr>
-<tr>
-<td>🏢 <strong>Company Chatbots</strong></td>
-<td>Products, policies, FAQs</td>
-</tr>
-<tr>
-<td>⚕️ <strong>Healthcare/Legal</strong></td>
-<td>Case files, journals</td>
-</tr>
-<tr>
-<td>🌐 <strong>AI Web Search</strong></td>
-<td>The entire internet</td>
-</tr>
-<tr>
-<td>👤 <strong>Personal Assistants</strong></td>
-<td>Texts, emails, calendar</td>
-</tr>
-</tbody>
-</table>
+
+<h3 id="rag-applications">📌 RAG Applications<a class="headerlink" href="#rag-applications" title="Permanent link">#</a></h3>
+<details>
+<summary>❓ Name the 5 major RAG application categories</summary>
+
+| # | Application | Knowledge Base |
+|---|-------------|---------------|
+| 1 | **Code Generation** | Your own codebase (classes, functions, style) |
+| 2 | **Company Chatbots** | Products, policies, FAQs, guidelines |
+| 3 | **Healthcare / Legal** | Case files, medical journals, private records |
+| 4 | **AI Web Search** | The entire internet |
+| 5 | **Personal Assistants** | Texts, emails, contacts, calendar, documents |
+
 </details>
-<details class="flashcard">
-<summary>Why is RAG the ONLY viable option for legal/medical LLM apps?</summary>
-<ol>
-<li><strong>Precision imperative</strong> — wrong answers = real consequences</li>
-<li><strong>Private data</strong> — case files, patient records can't be in training data</li>
-<li><strong>Recent data</strong> — latest journals, new case law not available at training time</li>
-</ol>
-<p>RAG is the only way to access this while keeping it private and current.</p>
+
+<details>
+<summary>❓ Why might RAG be the ONLY viable option for legal/medical LLM applications?</summary>
+
+1. **Precision imperative** — wrong answers = real consequences (liability, patient harm)
+2. **Private data** — case files, patient records can't be in LLM training data
+3. **Recent data** — latest medical journals, new case law not in training data
+
+RAG is the only way to give LLMs access to this information while keeping it private and current.
 </details>
-<details class="flashcard">
-<summary>How does AI web search (ChatGPT/Perplexity) relate to RAG?</summary>
-<p>It <strong>IS</strong> a RAG system — the entire internet is the knowledge base.</p>
-<p><strong>Traditional search</strong> = retriever only (returns URLs)
-<strong>AI search</strong> = retriever + LLM summarizer</p>
-<p>Same RAG pattern applied at internet scale.</p>
+
+<details>
+<summary>❓ How does an AI web search (ChatGPT/Perplexity) relate to RAG?</summary>
+
+It IS a RAG system — the **entire internet** is the knowledge base. Traditional search = retriever only (returns URLs). AI search = retriever + LLM summarizer. Same RAG pattern applied at internet scale.
 </details>
-</div>
+
 <hr />
 <blockquote>
-<p>💡 <strong>Revision tip:</strong> Try to answer each card OUT LOUD before flipping.
+<p>💡 <strong>Revision tip:</strong> Cover the answer, try to explain OUT LOUD, then reveal.
 Bolke batao — padhke nahi, bolke yaad hota hai! 🗣️</p>
 </blockquote>
 
@@ -6156,8 +6180,6 @@ Bolke batao — padhke nahi, bolke yaad hota hai! 🗣️</p>
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="../../../../_assets/mermaid-zoom.js"></script>
-      
-        <script src="../../../../_assets/flashcards.js"></script>
       
     
   </body>

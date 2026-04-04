@@ -7,18 +7,14 @@
 
 ### 📌 Core Agentic AI
 
-<div class="flashcard-deck" markdown>
-
-
-<details class="flashcard" markdown>
-<summary>What makes AI "agentic"?</summary>
+<details>
+<summary>❓ What makes AI "agentic"?</summary>
 
 It doesn't just respond — it **acts**: plans, executes, reflects, iterates. Multi-step workflows with autonomy, not one-shot generation.
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>Name the 4 agentic design patterns.</summary>
+<details>
+<summary>❓ Name the 4 agentic design patterns.</summary>
 
 1. **Reflection** — self-critique loops
 2. **Tool Use** — APIs, databases, code execution
@@ -26,30 +22,26 @@ It doesn't just respond — it **acts**: plans, executes, reflects, iterates. Mu
 4. **Multi-Agent** — specialized agents collaborating
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>What's the key skill that determines your ability to build agents?</summary>
+<details>
+<summary>❓ What's the key skill that determines your ability to build agents?</summary>
 
 **Task Decomposition** — looking at complex tasks and breaking them into discrete steps where each step is implementable by an LLM or a tool. You keep asking: *"Can an LLM or tool do this step?"* If not, decompose further.
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>What are the 6 building blocks for agentic workflows?</summary>
+<details>
+<summary>❓ What are the 6 building blocks for agentic workflows?</summary>
 
 LLMs · Multimodal Models · Specialized AI Models · APIs/Tools · Retrieval (DB + RAG) · Code Execution
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>What's the #1 differentiator between good and great agent builders?</summary>
+<details>
+<summary>❓ What's the #1 differentiator between good and great agent builders?</summary>
 
 **Disciplined dev process** — evals + error analysis. Not just building, but systematically measuring and improving. Build first → examine outputs → discover issues → create eval → fix → repeat.
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>Rank the 4 design patterns from most to least developer control.</summary>
+<details>
+<summary>❓ Rank the 4 design patterns from most to least developer control.</summary>
 
 1. 🪞 Reflection (highest — you control the loop)
 2. 🔧 Tool Use (you define the tools menu)
@@ -57,56 +49,44 @@ LLMs · Multimodal Models · Specialized AI Models · APIs/Tools · Retrieval (D
 4. 👥 Multi-Agent (agents interact freely — hardest to control)
 </details>
 
-
 ---
-
-
-</div>
 
 ### 🪞 Module 2 — Reflection
 
-<div class="flashcard-deck" markdown>
-
-
-<details class="flashcard" markdown>
-<summary>What's the simplest way to implement the reflection pattern?</summary>
+<details>
+<summary>❓ What's the simplest way to implement the reflection pattern?</summary>
 
 Two prompts, one loop: (1) Prompt LLM to generate v1, (2) Pass v1 back with a "critique and improve" prompt → get v2. **Surprisingly easy to implement** — Andrew Ng says so himself!
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>Why use a DIFFERENT LLM for the critique step?</summary>
+<details>
+<summary>❓ Why use a DIFFERENT LLM for the critique step?</summary>
 
 Different models have different strengths. **Reasoning models** (thinking models) are especially good at finding bugs. So: fast model for draft, reasoning model for critique. Jaise ek banda fast likhta hai, doosra carefully check karta hai! 🧐
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>What makes reflection MUCH more powerful?</summary>
+<details>
+<summary>❓ What makes reflection MUCH more powerful?</summary>
 
 **External feedback** — new information from outside the LLM. Example: actually running the code and feeding error messages back. Without it, the LLM is guessing what *might* be wrong. With it, the LLM *knows* what went wrong.
 
 Bina feedback = andhera mein teer 🏹. With feedback = spotlight ON 🔦
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>Is reflection only useful for code generation?</summary>
+<details>
+<summary>❓ Is reflection only useful for code generation?</summary>
 
 No! Works for **any** output — emails, essays, charts, SQL, domain names. The pattern is universal: generate → critique → improve.
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>Does reflection guarantee 100% correct output?</summary>
+<details>
+<summary>❓ Does reflection guarantee 100% correct output?</summary>
 
 **No.** Andrew Ng is explicit: "Reflection is not magic." It gives a **modest performance bump** — not perfection. But for how easy it is to implement, the ROI is excellent.
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>What is zero-shot vs one-shot vs few-shot prompting?</summary>
+<details>
+<summary>❓ What is zero-shot vs one-shot vs few-shot prompting?</summary>
 
 Number of **examples** in the prompt:
 - **Zero-shot** = 0 examples (just instruction) — this is "direct generation"
@@ -116,16 +96,14 @@ Number of **examples** in the prompt:
 More examples → LLM better understands your expected format.
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>What research paper proved reflection outperforms direct generation?</summary>
+<details>
+<summary>❓ What research paper proved reflection outperforms direct generation?</summary>
 
 **"Self-Refine"** by Madaan et al. (2023). Tested across 7 tasks (sentiment, code, math, etc.) — reflection won on ALL of them across multiple models (GPT-3.5, GPT-4).
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>What are the two golden rules for writing reflection prompts?</summary>
+<details>
+<summary>❓ What are the two golden rules for writing reflection prompts?</summary>
 
 1. **Clearly indicate the reflection action** — "Review...", "Check...", "Critique..."
 2. **Specify criteria to check** — don't just say "improve it", say WHAT to look for (tone, facts, pronunciation, etc.)
@@ -133,23 +111,20 @@ More examples → LLM better understands your expected format.
 Jitna specific criteria, utna focused feedback! 🎯
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>What's special about chart generation reflection (multimodal reflection)?</summary>
+<details>
+<summary>❓ What's special about chart generation reflection (multimodal reflection)?</summary>
 
 The critic LLM doesn't just read code — it **looks at the generated chart image**. This catches visual issues (bad chart type, cramped labels, poor colors) that code review alone would miss. Code padh ke bugs milte hain, chart DEKH ke UX problems milte hain! 👁️
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>Why might you use different LLMs for generation vs reflection?</summary>
+<details>
+<summary>❓ Why might you use different LLMs for generation vs reflection?</summary>
 
 Different models, different strengths. Fast general model (GPT-4o) for quick drafts. **Reasoning model** for thorough critique. Toggle combinations to find the best pairing for your task.
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>What are the two types of evals for reflection workflows?</summary>
+<details>
+<summary>❓ What are the two types of evals for reflection workflows?</summary>
 
 1. **Objective evals** — right answer exists → code compares output vs ground truth (e.g., SQL query returned 1,201? ✅/❌)
 2. **Subjective evals** — quality is fuzzy → LLM-as-Judge with a binary rubric (e.g., chart has clear title? 0/1)
@@ -157,37 +132,32 @@ Different models, different strengths. Fast general model (GPT-4o) for quick dra
 Objective = easier. Subjective = needs rubric tuning.
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>Why is "which image is better?" (LLM pair comparison) unreliable?</summary>
+<details>
+<summary>❓ Why is "which image is better?" (LLM pair comparison) unreliable?</summary>
 
 Three issues: (1) answers don't match human judgment, (2) prompt-sensitive — rewording flips the "winner", (3) **position bias** — most LLMs always pick the first option. Jaise exam mein pehla option dekhke "yeh sahi hai" bol dena! 🍕
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>Why use binary (0/1) rubric criteria instead of a 1-5 rating scale?</summary>
+<details>
+<summary>❓ Why use binary (0/1) rubric criteria instead of a 1-5 rating scale?</summary>
 
 LLMs are poorly calibrated on scales — "3 vs 4" is vague. Binary is clear: title present? yes/no. Sum 5 binary scores → same 0-5 range, **way more consistent**. Decomposed scoring also shows WHERE it lost points.
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>Once you build evals for reflection, what's the real unlock?</summary>
+<details>
+<summary>❓ Once you build evals for reflection, what's the real unlock?</summary>
 
 **Prompt engineering becomes data-driven.** Tweak the reflection/generation prompt → re-run eval → see if % correct goes up. No more vibes-based "this feels better." Numbers decide! 📈
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>Why is reflection with external feedback more powerful than basic reflection?</summary>
+<details>
+<summary>❓ Why is reflection with external feedback more powerful than basic reflection?</summary>
 
 Basic reflection = LLM re-examines the **same info** it already had. External feedback gives it **genuinely new facts** (error messages, web search, word counts, pattern matches). Apni copy khud check karna vs answer key mil jaana! 🔑
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>Name three external feedback tools that boost reflection.</summary>
+<details>
+<summary>❓ Name three external feedback tools that boost reflection.</summary>
 
 1. **Code execution** — run code, feed back errors/output
 2. **Web search** — fact-check claims against real sources
@@ -196,9 +166,8 @@ Basic reflection = LLM re-examines the **same info** it already had. External fe
 Bonus: **Word count** — LLMs can't count words, but `len(text.split())` can!
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>What are the 3 performance tiers, from worst to best?</summary>
+<details>
+<summary>❓ What are the 3 performance tiers, from worst to best?</summary>
 
 1. ★ **Direct generation** — improves, then plateaus
 2. ● **With reflection** — bumps above the plateau
@@ -207,116 +176,91 @@ Bonus: **Word count** — LLMs can't count words, but `len(text.split())` can!
 If you're stuck at a plateau, don't grind — escalate to the next tier!
 </details>
 
-
 ---
-
-
-</div>
 
 ### 🔧 Module 3 — Tool Use
 
-<div class="flashcard-deck" markdown>
-
-
-<details class="flashcard" markdown>
-<summary>What does "tool use" mean for LLMs?</summary>
+<details>
+<summary>❓ What does "tool use" mean for LLMs?</summary>
 
 Giving the LLM access to **functions** it can **request to call** when it needs real-time data, external info, or computation. Tools = regular code functions (web search, DB query, calculator). LLM bina tools ke = insaan bina haathon ke! 🖐️
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>Does the LLM always call tools when they're available?</summary>
+<details>
+<summary>❓ Does the LLM always call tools when they're available?</summary>
 
 **No!** LLM decides based on the query. "What time is it?" → calls get_current_time(). "Caffeine in green tea?" → answers directly. Smart delegation — only uses tools when it actually needs them.
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>Hard-coded tool calls vs LLM-chosen tool calls — what's the difference?</summary>
+<details>
+<summary>❓ Hard-coded tool calls vs LLM-chosen tool calls — what's the difference?</summary>
 
 **Hard-coded:** Developer pre-programs "always search web at step 2" — runs every time.
 **LLM-chosen:** Developer provides a tool menu, LLM decides at runtime which (if any) to call. More flexible, more intelligent.
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>In the calendar assistant, 3 tools available — how many used?</summary>
+<details>
+<summary>❓ In the calendar assistant, 3 tools available — how many used?</summary>
 
 **2 of 3.** check_calendar (find slots) → make_appointment (book 3 PM with Alice). Skipped delete_appointment — wasn't needed. LLM selects only what's relevant.
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>What is aisuite and how does it handle tool creation?</summary>
+<details>
+<summary>❓ What is aisuite and how does it handle tool creation?</summary>
 
 Open source library (co-created by Andrew Ng) — unified interface for multiple LLM providers. Pass `tools=[your_function]` → aisuite **auto-generates JSON schema** from function name + docstring + parameters. Also handles the execute-and-feed-back loop inside one `client.chat.completions.create()` call.
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>Why are docstrings critical for tool use?</summary>
+<details>
+<summary>❓ Why are docstrings critical for tool use?</summary>
 
 The docstring IS the tool's description to the LLM — it reads it to decide when/how to call the function. Bad docstring = bad tool decisions. Write it like a resume: clear, specific, with parameter format examples. Docstring = tool ka resume! 📄
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>What does aisuite extract from your function to build the JSON schema?</summary>
+<details>
+<summary>❓ What does aisuite extract from your function to build the JSON schema?</summary>
 
 Three things: (1) **name** from `def function_name`, (2) **description** from the docstring, (3) **parameters** from the function signature + docstring. The LLM sees this schema, not your actual code.
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>Why is code execution the ultimate meta-tool?</summary>
+<details>
+<summary>❓ Why is code execution the ultimate meta-tool?</summary>
 
 Instead of building 50 individual tools (add, sqrt, log, sin...), give the LLM ONE tool: write and execute code. It solves **anything expressible in Python**. LLM writes `import math; math.sqrt(2)` — done. One tool to rule them all! 👑
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>What's the `<execute_python>` tag pattern for code execution?</summary>
+<details>
+<summary>❓ What's the `<execute_python>` tag pattern for code execution?</summary>
 
 System prompt tells LLM: "wrap code in `<execute_python>` tags." Your code uses regex to extract: `re.search(r"<execute_python>([\s\S]*?)</execute_python>", output)` → `exec()` or sandbox → feed result back. Same pattern used in M2 visualization notebook!
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>Why use a sandbox for LLM code execution?</summary>
+<details>
+<summary>❓ Why use a sandbox for LLM code execution?</summary>
 
 Real risk: Andrew Ng's team had an agent run `rm *.py` — deleted Python files. Sandbox options: **Docker** (heavy, secure) or **E2B** (lightweight, purpose-built). `exec()` alone = zero protection. Bachche ko kitchen mein akela mat chhodo! 🔥
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>What problem does MCP solve?</summary>
+<details>
+<summary>❓ What problem does MCP solve?</summary>
 
 **M×N → M+N.** Without MCP, every app builds its own wrappers (3 apps × 4 services = 12 wrappers). With MCP: 3 clients + 4 servers = 7 connections. Standard protocol — build once, share with everyone. MCP = USB port for LLMs! 🔌
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>MCP Client vs MCP Server — what's the difference?</summary>
+<details>
+<summary>❓ MCP Client vs MCP Server — what's the difference?</summary>
 
 **Client** = app that CONSUMES tools/data (Cursor, Claude Desktop, your app).
 **Server** = service that PROVIDES tools/data (GitHub, Slack, PostgreSQL).
 Your app can be a client, a server, or both!
 </details>
 
-
 ---
-
-
-</div>
 
 ### 🛠️ Module 4 — Practical Tips
 
-<div class="flashcard-deck" markdown>
-
-
-<details class="flashcard" markdown>
-<summary>What's the 2×2 eval framework?</summary>
+<details>
+<summary>❓ What's the 2×2 eval framework?</summary>
 
 Two axes: (1) **Code-based vs LLM-as-judge**, (2) **Per-example ground truth vs no ground truth**.
 
@@ -326,9 +270,8 @@ Two axes: (1) **Code-based vs LLM-as-judge**, (2) **Per-example ground truth vs 
 | **LLM Judge** | Research talking points | Chart rubric grading |
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>What's the error analysis process?</summary>
+<details>
+<summary>❓ What's the error analysis process?</summary>
 
 1. Collect only failing examples
 2. Read traces (intermediate outputs of each step)
@@ -338,24 +281,21 @@ Two axes: (1) **Code-based vs LLM-as-judge**, (2) **Per-example ground truth vs 
 `Priority = Error Rate × Fixability`
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>Why should you NOT go by gut feeling?</summary>
+<details>
+<summary>❓ Why should you NOT go by gut feeling?</summary>
 
 Andrew Ng: gut feeling "leads to months of work with very little progress." The spreadsheet gives you data. Invoice example: most teams would fix PDF parser (15% errors), but the real problem was LLM extraction (87%).
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>What's the difference between end-to-end and component-level evals?</summary>
+<details>
+<summary>❓ What's the difference between end-to-end and component-level evals?</summary>
 
 **End-to-end:** Test entire pipeline (expensive, noisy from other components' randomness).
 **Component-level:** Test one component in isolation (fast, clear signal). Use gold standard + F1 score. Always confirm improvements with E2E eval afterward.
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>What order should you try when fixing an LLM component?</summary>
+<details>
+<summary>❓ What order should you try when fixing an LLM component?</summary>
 
 1. **Improve prompts** (explicit instructions, few-shot) — cheapest
 2. **Try a different model** — use evals to compare
@@ -363,61 +303,48 @@ Andrew Ng: gut feeling "leads to months of work with very little progress." The 
 4. **Fine-tune** — last resort, for mature apps at 90-95% needing 99%
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>Quality vs latency vs cost — what's the priority?</summary>
+<details>
+<summary>❓ Quality vs latency vs cost — what's the priority?</summary>
 
 **Quality first → Latency second → Cost third.** High-quality outputs are the hardest part. Optimize speed/cost only after the system works well.
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>What separates experienced from less experienced agentic AI teams?</summary>
+<details>
+<summary>❓ What separates experienced from less experienced agentic AI teams?</summary>
 
 Time spent on **analysis**. Less experienced teams spend most time building. Experienced teams balance building + analyzing equally (error analysis, evals, trace reading). Building ↔ Analyzing is a constant back-and-forth cycle.
 </details>
 
-
 ---
-
-
-</div>
 
 ### 🧠 Module 5 — Planning & Multi-Agent
 
-<div class="flashcard-deck" markdown>
-
-
-<details class="flashcard" markdown>
-<summary>What is the planning design pattern?</summary>
+<details>
+<summary>❓ What is the planning design pattern?</summary>
 
 Don't hard-code tool sequences — give the LLM tools + "return a step-by-step plan." LLM writes its own plan, then executes step by step, chaining outputs. Same tools, different queries → different plans automatically.
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>Rank plan formats by reliability.</summary>
+<details>
+<summary>❓ Rank plan formats by reliability.</summary>
 
 **Code > JSON > XML > Markdown > Plain text.** Code is the most precise (just execute it). JSON is the most popular structured format — `json.loads()` and loop. Research (Wang et al. 2024) confirms: Code > JSON > Text across multiple models.
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>Why is code execution better than custom tools for data analysis?</summary>
+<details>
+<summary>❓ Why is code execution better than custom tools for data analysis?</summary>
 
 Custom tools = **brittle treadmill** (24+ steps for "which month had highest hot chocolate sales", plus new tools for every new query type). Code execution = LLM writes Python + pandas → thousands of functions it already knows → any query, no new tools needed. Tools = limited menu. Code = entire kitchen! 🍳
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>How do you build an individual agent?</summary>
+<details>
+<summary>❓ How do you build an individual agent?</summary>
 
 Agent = **LLM prompted with a role + given specific tools**. Researcher = LLM + "You are a research agent..." + web_search. Designer = LLM + image_generation. Writer = LLM + no extra tools (text gen is native). Different prompts + different tools = different agents.
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>What are the two most common multi-agent communication patterns?</summary>
+<details>
+<summary>❓ What are the two most common multi-agent communication patterns?</summary>
 
 1. **Linear** — A → B → C (relay race, sequential)
 2. **Hierarchical** — Manager coordinates team (hub-and-spoke)
@@ -425,44 +352,31 @@ Agent = **LLM prompted with a role + given specific tools**. Researcher = LLM + 
 These two cover most production use cases. Deeper hierarchies and all-to-all exist but are harder to control.
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>In the manager-coordinated pattern, is the manager an agent too?</summary>
+<details>
+<summary>❓ In the manager-coordinated pattern, is the manager an agent too?</summary>
 
 **Yes!** It's the 4th agent. The manager plans, delegates to workers (researcher, designer, writer), collects results, and can reflect/improve output. Same as planning with tools, but green boxes (tools) replaced with purple boxes (agents).
 </details>
 
-
 ---
-
-
-</div>
 
 ### 🔗 From: Agent Memory
 
-<div class="flashcard-deck" markdown>
-
-
-<details class="flashcard" markdown>
-<summary>How does Agent Memory connect to Agentic AI?</summary>
+<details>
+<summary>❓ How does Agent Memory connect to Agentic AI?</summary>
 
 Agent Memory = the persistence layer. Without it, agents are goldfish. The 5 blocks (Modeling, Retrieval, Extraction, Consolidation, Write-Back) power the "remember and learn" capability that multi-step agentic workflows need.
 </details>
 
-
-<details class="flashcard" markdown>
-<summary>Memory vs Context Window — what's the difference?</summary>
+<details>
+<summary>❓ Memory vs Context Window — what's the difference?</summary>
 
 **Context window** = exam ka cheat sheet (temporary, fits limited info).  
 **Memory** = jo actually yaad hai (persistent, retrieved when needed via semantic search).  
 Agents need both — context window for current task, memory for long-term knowledge.
 </details>
 
-
 ---
 
 > 💡 **Revision tip:** Cover the answer, try to explain OUT LOUD, then reveal.
 > Bolke batao — padhke nahi, bolke yaad hota hai! 🗣️
-
-
-</div>
