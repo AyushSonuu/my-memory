@@ -23,12 +23,14 @@ graph TB
     ROOT(("🧠 My Memory"))
     ROOT --> TECH["🔧 Tech"]
     ROOT --> NT["🌍 Non-Tech"]
-    
-    TECH --> AG["🤖 Agentic AI — M1-M4 ✅ M5 🚧"]
+
+    TECH --> AG["🤖 Agentic AI — 30/30 ✅"]
     TECH --> AM["🧠 Agent Memory — 7/7 ✅"]
+    TECH --> RAG["🔍 RAG — 0/62 🔴"]
     TECH --> PY["🐍 Python"]
     PY --> AIO["⚡ AsyncIO — 1/1 ✅"]
     PY --> THR["🧵 Threading — 1/1 ✅"]
+    PY --> MP["⚙️ Multiprocessing — 1/1 ✅"]
 ```
 
 ## 📊 Stats
@@ -44,10 +46,12 @@ graph TB
 
 | Topic | Category | Lessons | Confidence | Source |
 |-------|----------|---------|------------|--------|
-| [🤖 Agentic AI](tech/agentic-ai/README.md) | Tech | M1-M4 ✅ (25/30 total) | 🔴 In Progress | DeepLearning.AI — Andrew Ng |
+| [🤖 Agentic AI](tech/agentic-ai/README.md) | Tech | 30/30 ✅ | 🟡 Learning | DeepLearning.AI — Andrew Ng |
 | [🧠 Agent Memory](tech/agent-memory/README.md) | Tech | 7/7 ✅ | 🟡 Learning | DeepLearning.AI × Oracle |
+| [🔍 RAG](tech/rag/README.md) | Tech | 0/62 | 🔴 Starting | DeepLearning.AI |
 | [⚡ AsyncIO](tech/python/asyncio/README.md) | Tech / Python | 1/1 ✅ | 🟡 Learning | Corey Schafer |
 | [🧵 Threading](tech/python/threading/README.md) | Tech / Python | 1/1 ✅ | 🟡 Learning | Corey Schafer |
+| [⚙️ Multiprocessing](tech/python/multiprocessing/README.md) | Tech / Python | 1/1 ✅ | 🟡 Learning | Corey Schafer |
 
 ## 🏗️ How This Works
 
@@ -58,6 +62,7 @@ graph TB
 | `_maps/` | Auto-generated knowledge graphs |
 | `_revision/` | Spaced repetition tracker |
 | `_templates/` | Blueprints for new content |
+| `plans/` | Action plans & trackers (roadmaps, courses, DSA) |
 
 ## 📏 The Rules
 
