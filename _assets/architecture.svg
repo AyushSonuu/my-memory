@@ -1,201 +1,242 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0d1117;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#161b22;stop-opacity:1" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117" />
+      <stop offset="100%" style="stop-color:#161b22" />
     </linearGradient>
-    <linearGradient id="ingestGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#e65100" />
-      <stop offset="100%" style="stop-color:#bf360c" />
-    </linearGradient>
-    <linearGradient id="compileGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#f57c00" />
-      <stop offset="100%" style="stop-color:#e65100" />
-    </linearGradient>
-    <linearGradient id="kbGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#1565c0" />
-      <stop offset="100%" style="stop-color:#0d47a1" />
-    </linearGradient>
-    <linearGradient id="readGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#2e7d32" />
-      <stop offset="100%" style="stop-color:#1b5e20" />
-    </linearGradient>
-    <linearGradient id="futureGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#6a1b9a" />
-      <stop offset="100%" style="stop-color:#4a148c" />
-    </linearGradient>
-    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
-      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/>
-    </filter>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="2" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <filter id="sh" x="-3%" y="-3%" width="106%" height="106%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
     </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="1000" height="520" rx="16" fill="url(#bgGrad)"/>
-  
-  <!-- Title -->
-  <text x="500" y="38" text-anchor="middle" fill="#ffffff" font-size="20" font-weight="700" letter-spacing="0.5">🧠 My Memory — Architecture</text>
-  <text x="500" y="56" text-anchor="middle" fill="#8b949e" font-size="11" letter-spacing="0.3">AI-maintained learning vault &amp; knowledge base · Inspired by Karpathy's LLM Wiki</text>
+  <rect width="1200" height="820" rx="16" fill="url(#bg)"/>
 
-  <!-- ═══ COLUMN 1: INGEST ═══ -->
-  <text x="145" y="86" text-anchor="middle" fill="#ff9800" font-size="13" font-weight="700" letter-spacing="1">📥 INGEST</text>
-  
-  <!-- Raw Sources -->
-  <rect x="30" y="98" width="230" height="34" rx="8" fill="url(#ingestGrad)" filter="url(#shadow)" opacity="0.9"/>
-  <text x="145" y="120" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">🎬 Video Transcripts</text>
-  
-  <rect x="30" y="140" width="230" height="34" rx="8" fill="url(#ingestGrad)" filter="url(#shadow)" opacity="0.9"/>
-  <text x="145" y="162" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">📰 Articles · URLs · Tweets</text>
-  
-  <rect x="30" y="182" width="230" height="34" rx="8" fill="url(#ingestGrad)" filter="url(#shadow)" opacity="0.9"/>
-  <text x="145" y="204" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">📦 PDFs · Slides · Code</text>
+  <!-- ═══ TITLE ═══ -->
+  <text x="40" y="46" fill="#ffffff" font-size="28" font-weight="800" letter-spacing="0.5">🧠 My Memory</text>
+  <text x="40" y="72" fill="#8b949e" font-size="14">Learning Vault + Personal Knowledge Base — built &amp; maintained by an AI agent</text>
+  <text x="40" y="92" fill="#6e7681" font-size="11" font-style="italic">Inspired by Andrej Karpathy's LLM Wiki pattern</text>
 
-  <!-- Agent Box -->
-  <rect x="45" y="236" width="200" height="60" rx="12" fill="url(#compileGrad)" filter="url(#shadow)"/>
-  <text x="145" y="261" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">🤖 Ayra</text>
-  <text x="145" y="280" text-anchor="middle" fill="#ffe0b2" font-size="10">AI Agent · OpenClaw runtime</text>
+  <!-- ═══ COLUMN HEADERS ═══ -->
+  <text x="165" y="128" text-anchor="middle" fill="#ff9800" font-size="14" font-weight="700" letter-spacing="2">INGEST</text>
+  <text x="620" y="128" text-anchor="middle" fill="#42a5f5" font-size="14" font-weight="700" letter-spacing="2">KNOWLEDGE BASE</text>
+  <text x="1040" y="128" text-anchor="middle" fill="#66bb6a" font-size="14" font-weight="700" letter-spacing="2">READ / QUERY</text>
+
+  <!-- ═══ KB CONTAINER ═══ -->
+  <rect x="400" y="140" width="440" height="340" rx="12" fill="none" stroke="#30363d" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="620" y="160" text-anchor="middle" fill="#484f58" font-size="10" letter-spacing="0.5">vault/ — .md directory structure</text>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- ═══ COLUMN 1: INGEST                   ═══ -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <!-- Video Transcripts -->
+  <rect x="40" y="155" width="250" height="52" rx="10" fill="#e65100" filter="url(#sh)"/>
+  <text x="165" y="178" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">🎬 Video Transcripts</text>
+  <text x="165" y="196" text-anchor="middle" fill="#ffcc80" font-size="10">Course lectures → .md transcripts</text>
+
+  <!-- Articles & URLs -->
+  <rect x="40" y="222" width="250" height="52" rx="10" fill="#ef6c00" filter="url(#sh)"/>
+  <text x="165" y="245" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">📰 Articles · URLs · Tweets</text>
+  <text x="165" y="263" text-anchor="middle" fill="#ffe0b2" font-size="10">KB ingest — batchable, lighter</text>
+
+  <!-- PDFs & Code -->
+  <rect x="40" y="289" width="250" height="52" rx="10" fill="#4caf50" filter="url(#sh)"/>
+  <text x="165" y="312" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">📦 PDFs · Slides · Code</text>
+  <text x="165" y="330" text-anchor="middle" fill="#c8e6c9" font-size="10">course_material/ + code/ notebooks</text>
+
+  <!-- Schema -->
+  <rect x="40" y="360" width="250" height="52" rx="10" fill="#455a64" filter="url(#sh)"/>
+  <text x="165" y="383" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">⚙️ AGENTS.md + SOUL.md</text>
+  <text x="165" y="401" text-anchor="middle" fill="#b0bec5" font-size="10">Schema · rules · _templates/</text>
+
+  <!-- AI Agent -->
+  <rect x="60" y="432" width="210" height="60" rx="12" fill="#f57c00" filter="url(#sh)"/>
+  <text x="165" y="458" text-anchor="middle" fill="#fff" font-size="15" font-weight="800">🤖 Ayra</text>
+  <text x="165" y="478" text-anchor="middle" fill="#ffe0b2" font-size="10">OpenClaw runtime · raw → structured vault</text>
 
   <!-- Arrows from sources to agent -->
-  <path d="M145 132 L145 236" stroke="#ff9800" stroke-width="1.5" stroke-dasharray="4,3" fill="none" opacity="0.5"/>
-  <path d="M145 174 L145 236" stroke="#ff9800" stroke-width="1.5" stroke-dasharray="4,3" fill="none" opacity="0.5"/>
-  <path d="M145 216 L145 236" stroke="#ff9800" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <line x1="165" y1="207" x2="165" y2="222" stroke="#ff9800" stroke-width="1.5" opacity="0.4"/>
+  <line x1="165" y1="274" x2="165" y2="289" stroke="#ff9800" stroke-width="1.5" opacity="0.4"/>
+  <line x1="165" y1="341" x2="165" y2="360" stroke="#ff9800" stroke-width="1.5" opacity="0.4"/>
+  <line x1="165" y1="412" x2="165" y2="432" stroke="#b0bec5" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
 
-  <!-- Schema box -->
-  <rect x="45" y="310" width="200" height="42" rx="8" fill="#21262d" stroke="#30363d" stroke-width="1.5"/>
-  <text x="145" y="330" text-anchor="middle" fill="#8b949e" font-size="11" font-weight="600">⚙️ AGENTS.md + SOUL.md</text>
-  <text x="145" y="344" text-anchor="middle" fill="#6e7681" font-size="9">schema · rules · templates</text>
+  <!-- "follows" label -->
+  <text x="180" y="426" fill="#6e7681" font-size="9" font-style="italic">follows</text>
 
-  <!-- Arrow agent to schema -->
-  <path d="M145 296 L145 310" stroke="#6e7681" stroke-width="1" stroke-dasharray="3,3" fill="none"/>
-  <text x="158" y="306" fill="#6e7681" font-size="8">follows</text>
+  <!-- ═══ COMPILE ARROW ═══ -->
+  <line x1="270" y1="462" x2="390" y2="462" stroke="#ff9800" stroke-width="2"/>
+  <polygon points="390,457 400,462 390,467" fill="#ff9800"/>
+  <text x="335" y="453" text-anchor="middle" fill="#ff9800" font-size="10" font-style="italic">compiles</text>
 
-  <!-- ═══ BIG ARROW: INGEST → KB ═══ -->
-  <path d="M260 266 L370 266" stroke="#ff9800" stroke-width="2.5" fill="none" marker-end="url(#arrowOrange)"/>
-  <defs><marker id="arrowOrange" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#ff9800"/></marker></defs>
-  <text x="315" y="258" text-anchor="middle" fill="#ff9800" font-size="9" font-weight="600">compiles</text>
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- ═══ COLUMN 2: KNOWLEDGE BASE           ═══ -->
+  <!-- ═══════════════════════════════════════════ -->
 
-  <!-- ═══ COLUMN 2: KNOWLEDGE BASE ═══ -->
-  <text x="530" y="86" text-anchor="middle" fill="#42a5f5" font-size="13" font-weight="700" letter-spacing="1">📝 KNOWLEDGE BASE</text>
+  <!-- Maps & READMEs -->
+  <rect x="420" y="172" width="200" height="56" rx="8" fill="#1565c0" filter="url(#sh)"/>
+  <text x="520" y="196" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">🗺️ _maps/ &amp; READMEs</text>
+  <text x="520" y="214" text-anchor="middle" fill="#bbdefb" font-size="9">Auto-maintained — always consulted first</text>
 
-  <rect x="370" y="98" width="320" height="256" rx="12" fill="#0d1117" stroke="#1565c0" stroke-width="1.5" opacity="0.8"/>
-  
-  <!-- KB items -->
-  <rect x="385" y="110" width="145" height="50" rx="8" fill="url(#kbGrad)" filter="url(#shadow)"/>
-  <text x="457" y="132" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">📄 Lesson Notes</text>
-  <text x="457" y="148" text-anchor="middle" fill="#bbdefb" font-size="9">visual-first · numbered</text>
-  
-  <rect x="540" y="110" width="140" height="50" rx="8" fill="url(#kbGrad)" filter="url(#shadow)"/>
-  <text x="610" y="132" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">🗺️ Knowledge Maps</text>
-  <text x="610" y="148" text-anchor="middle" fill="#bbdefb" font-size="9">connections · weak spots</text>
-  
-  <rect x="385" y="170" width="145" height="50" rx="8" fill="url(#kbGrad)" filter="url(#shadow)"/>
-  <text x="457" y="192" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">🃏 Flashcards</text>
-  <text x="457" y="208" text-anchor="middle" fill="#bbdefb" font-size="9">cross-topic pulls</text>
-  
-  <rect x="540" y="170" width="140" height="50" rx="8" fill="url(#kbGrad)" filter="url(#shadow)"/>
-  <text x="610" y="192" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">🔗 Cross-References</text>
-  <text x="610" y="208" text-anchor="middle" fill="#bbdefb" font-size="9">READMEs · ⚡ markers</text>
-  
-  <rect x="385" y="230" width="145" height="50" rx="8" fill="url(#kbGrad)" filter="url(#shadow)"/>
-  <text x="457" y="252" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">📋 Cheatsheets</text>
-  <text x="457" y="268" text-anchor="middle" fill="#bbdefb" font-size="9">one-page summaries</text>
+  <!-- Lesson Notes -->
+  <rect x="420" y="240" width="200" height="56" rx="8" fill="#1976d2" filter="url(#sh)"/>
+  <text x="520" y="264" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">📄 Lesson Notes (*.md)</text>
+  <text x="520" y="282" text-anchor="middle" fill="#bbdefb" font-size="9">45 lessons, visual-first, numbered</text>
 
-  <rect x="540" y="230" width="140" height="50" rx="8" fill="url(#kbGrad)" filter="url(#shadow)"/>
-  <text x="610" y="252" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">⚔️ Comparisons</text>
-  <text x="610" y="268" text-anchor="middle" fill="#bbdefb" font-size="9">vs.md files</text>
+  <!-- Flashcards & Cheatsheets -->
+  <rect x="420" y="308" width="200" height="56" rx="8" fill="#7b1fa2" filter="url(#sh)"/>
+  <text x="520" y="332" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">🃏 Flashcards &amp; Cheatsheets</text>
+  <text x="520" y="350" text-anchor="middle" fill="#e1bee7" font-size="9">Cross-topic pulls, spaced repetition</text>
 
-  <!-- Sync badges -->
-  <rect x="395" y="295" width="90" height="22" rx="11" fill="#1b5e20" opacity="0.8"/>
-  <text x="440" y="310" text-anchor="middle" fill="#a5d6a7" font-size="9" font-weight="600">⚡ Tier 1</text>
-  
-  <rect x="495" y="295" width="90" height="22" rx="11" fill="#e65100" opacity="0.8"/>
-  <text x="540" y="310" text-anchor="middle" fill="#ffcc80" font-size="9" font-weight="600">🗺️ Tier 2</text>
-  
-  <rect x="595" y="295" width="90" height="22" rx="11" fill="#6a1b9a" opacity="0.8"/>
-  <text x="640" y="310" text-anchor="middle" fill="#ce93d8" font-size="9" font-weight="600">🧹 Tier 3</text>
+  <!-- Cross-References -->
+  <rect x="420" y="376" width="200" height="56" rx="8" fill="#c62828" filter="url(#sh)"/>
+  <text x="520" y="400" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">🔗 Cross-Refs &amp; Connections</text>
+  <text x="520" y="418" text-anchor="middle" fill="#ffcdd2" font-size="9">Auto-generated link graph, ⚡ markers</text>
 
-  <!-- ═══ BIG ARROW: KB → READ ═══ -->
-  <path d="M690 200 L745 200" stroke="#42a5f5" stroke-width="2.5" fill="none" marker-end="url(#arrowBlue)"/>
-  <defs><marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#42a5f5"/></marker></defs>
+  <!-- vs.md & Comparisons -->
+  <rect x="630" y="172" width="195" height="56" rx="8" fill="#00695c" filter="url(#sh)"/>
+  <text x="727" y="196" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">⚔️ Comparisons (vs.md)</text>
+  <text x="727" y="214" text-anchor="middle" fill="#b2dfdb" font-size="9">Side-by-side topic analysis</text>
 
-  <!-- ═══ COLUMN 3: READ / QUERY ═══ -->
-  <text x="860" y="86" text-anchor="middle" fill="#66bb6a" font-size="13" font-weight="700" letter-spacing="1">👁️ READ · QUERY · REVISE</text>
+  <!-- Memory Fragments -->
+  <rect x="630" y="240" width="195" height="56" rx="8" fill="#4e342e" filter="url(#sh)"/>
+  <text x="727" y="264" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">💡 Memory Fragments</text>
+  <text x="727" y="282" text-anchor="middle" fill="#d7ccc8" font-size="9">TILs, insights, quick KB entries</text>
 
-  <rect x="750" y="98" width="220" height="42" rx="8" fill="url(#readGrad)" filter="url(#shadow)"/>
-  <text x="860" y="118" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">🌐 MkDocs Material Site</text>
-  <text x="860" y="132" text-anchor="middle" fill="#c8e6c9" font-size="9">search · dark mode · Mermaid</text>
+  <!-- Revision Tracker -->
+  <rect x="630" y="308" width="195" height="56" rx="8" fill="#827717" filter="url(#sh)"/>
+  <text x="727" y="332" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">📅 Revision Tracker</text>
+  <text x="727" y="350" text-anchor="middle" fill="#f0f4c3" font-size="9">tracker.json + due-today.md</text>
 
-  <rect x="750" y="150" width="220" height="42" rx="8" fill="url(#readGrad)" filter="url(#shadow)"/>
-  <text x="860" y="170" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">🔄 Spaced Repetition</text>
-  <text x="860" y="184" text-anchor="middle" fill="#c8e6c9" font-size="9">Day 1 → 3 → 7 → 14 → 30 → 90</text>
+  <!-- Derived Outputs -->
+  <rect x="630" y="376" width="195" height="56" rx="8" fill="#37474f" filter="url(#sh)"/>
+  <text x="727" y="400" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">📝 Filed Query Answers</text>
+  <text x="727" y="418" text-anchor="middle" fill="#b0bec5" font-size="9">Chat synthesis → vault pages</text>
 
-  <rect x="750" y="202" width="220" height="42" rx="8" fill="url(#readGrad)" filter="url(#shadow)"/>
-  <text x="860" y="222" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">💬 Chat Q&amp;A</text>
-  <text x="860" y="236" text-anchor="middle" fill="#c8e6c9" font-size="9">answers filed back into vault</text>
+  <!-- Sync tier badges -->
+  <rect x="435" y="445" width="75" height="22" rx="11" fill="#1b5e20"/>
+  <text x="472" y="460" text-anchor="middle" fill="#a5d6a7" font-size="9" font-weight="700">⚡ Tier 1</text>
+  <text x="472" y="475" text-anchor="middle" fill="#6e7681" font-size="8">every edit</text>
+  
+  <rect x="535" y="445" width="75" height="22" rx="11" fill="#e65100"/>
+  <text x="572" y="460" text-anchor="middle" fill="#ffcc80" font-size="9" font-weight="700">🗺️ Tier 2</text>
+  <text x="572" y="475" text-anchor="middle" fill="#6e7681" font-size="8">end of session</text>
+  
+  <rect x="635" y="445" width="75" height="22" rx="11" fill="#6a1b9a"/>
+  <text x="672" y="460" text-anchor="middle" fill="#ce93d8" font-size="9" font-weight="700">🧹 Tier 3</text>
+  <text x="672" y="475" text-anchor="middle" fill="#6e7681" font-size="8">monthly lint</text>
 
-  <rect x="750" y="254" width="220" height="42" rx="8" fill="url(#readGrad)" filter="url(#shadow)"/>
-  <text x="860" y="274" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">🧹 Monthly Lint</text>
-  <text x="860" y="288" text-anchor="middle" fill="#c8e6c9" font-size="9">contradictions · orphans · drift</text>
+  <rect x="735" y="445" width="90" height="22" rx="11" fill="#0d47a1"/>
+  <text x="780" y="460" text-anchor="middle" fill="#90caf9" font-size="9" font-weight="700">🔍 Filesystem</text>
+  <text x="780" y="475" text-anchor="middle" fill="#6e7681" font-size="8">always accurate</text>
 
-  <!-- ═══ FEEDBACK LOOPS ═══ -->
-  <!-- Q&A files back -->
-  <path d="M860 244 C860 370, 530 385, 530 354" stroke="#66bb6a" stroke-width="1.5" stroke-dasharray="5,3" fill="none" marker-end="url(#arrowGreen)" opacity="0.7"/>
-  <defs><marker id="arrowGreen" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5" fill="#66bb6a"/></marker></defs>
-  <rect x="645" y="368" width="120" height="18" rx="9" fill="#1b5e20" opacity="0.7"/>
-  <text x="705" y="380" text-anchor="middle" fill="#a5d6a7" font-size="8" font-weight="600">🔁 file back into vault</text>
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- ═══ COLUMN 3: READ / QUERY             ═══ -->
+  <!-- ═══════════════════════════════════════════ -->
 
-  <!-- Lint enhances -->
-  <path d="M860 296 C860 400, 430 410, 430 354" stroke="#ce93d8" stroke-width="1.5" stroke-dasharray="5,3" fill="none" marker-end="url(#arrowPurple)" opacity="0.6"/>
-  <defs><marker id="arrowPurple" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5" fill="#ce93d8"/></marker></defs>
-  <rect x="460" y="398" width="110" height="18" rx="9" fill="#4a148c" opacity="0.7"/>
-  <text x="515" y="410" text-anchor="middle" fill="#ce93d8" font-size="8" font-weight="600">🧹 lint → enhance</text>
+  <!-- MkDocs Site -->
+  <rect x="900" y="172" width="260" height="56" rx="10" fill="#2e7d32" filter="url(#sh)"/>
+  <text x="1030" y="196" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">🌐 MkDocs Material Site</text>
+  <text x="1030" y="214" text-anchor="middle" fill="#c8e6c9" font-size="10">Search, dark mode, live Mermaid diagrams</text>
 
-  <!-- ═══ FUTURE: RAG CHATBOT ═══ -->
-  <rect x="750" y="310" width="220" height="42" rx="8" fill="url(#futureGrad)" filter="url(#shadow)"/>
-  <text x="860" y="330" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">🚀 RAG Chatbot</text>
-  <text x="860" y="344" text-anchor="middle" fill="#e1bee7" font-size="9">query your own compiled knowledge</text>
-  
-  <!-- ═══ BOTTOM: PHASE PIPELINE ═══ -->
-  <rect x="30" y="435" width="940" height="60" rx="10" fill="#21262d" stroke="#30363d" stroke-width="1"/>
-  
-  <rect x="50" y="447" width="160" height="36" rx="8" fill="#e65100" opacity="0.9"/>
-  <text x="130" y="470" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">📥 Phase 1 · Ingest</text>
-  
-  <path d="M215 465 L235 465" stroke="#fff" stroke-width="1.5" fill="none" opacity="0.5"/>
-  <text x="225" y="460" fill="#fff" font-size="10" opacity="0.5">→</text>
-  
-  <rect x="240" y="447" width="170" height="36" rx="8" fill="#1565c0" opacity="0.9"/>
-  <text x="325" y="470" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">📝 Phase 2 · Compile</text>
-  
-  <path d="M415 465 L435 465" stroke="#fff" stroke-width="1.5" fill="none" opacity="0.5"/>
-  <text x="425" y="460" fill="#fff" font-size="10" opacity="0.5">→</text>
-  
-  <rect x="440" y="447" width="190" height="36" rx="8" fill="#2e7d32" opacity="0.9"/>
-  <text x="535" y="470" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">👁️ Phase 3 · Query &amp; Revise</text>
-  
-  <path d="M635 465 L655 465" stroke="#fff" stroke-width="1.5" fill="none" opacity="0.5"/>
-  <text x="645" y="460" fill="#fff" font-size="10" opacity="0.5">→</text>
-  
-  <rect x="660" y="447" width="155" height="36" rx="8" fill="#6a1b9a" opacity="0.9"/>
-  <text x="737" y="470" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">🧹 Phase 4 · Lint</text>
-  
-  <path d="M820 465 L840 465" stroke="#fff" stroke-width="1.5" fill="none" opacity="0.5"/>
-  <text x="830" y="460" fill="#fff" font-size="10" opacity="0.5">→</text>
-  
-  <rect x="845" y="447" width="110" height="36" rx="8" fill="#37474f" stroke="#6a1b9a" stroke-width="1" opacity="0.9"/>
-  <text x="900" y="470" text-anchor="middle" fill="#ce93d8" font-size="11" font-weight="700">🚀 Chatbot</text>
-  
-  <!-- Cycle arrow in phase bar -->
-  <path d="M737 483 C737 505, 130 505, 130 483" stroke="#8b949e" stroke-width="1" stroke-dasharray="4,3" fill="none" marker-end="url(#arrowGrey)" opacity="0.5"/>
-  <defs><marker id="arrowGrey" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto"><path d="M0,0 L6,2 L0,4" fill="#8b949e"/></marker></defs>
-  <text x="430" y="510" text-anchor="middle" fill="#6e7681" font-size="8" font-style="italic">cycle — always adding up</text>
+  <!-- Q&A Agent -->
+  <rect x="900" y="240" width="260" height="56" rx="10" fill="#388e3c" filter="url(#sh)"/>
+  <text x="1030" y="264" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">💬 Chat Q&amp;A Agent</text>
+  <text x="1030" y="282" text-anchor="middle" fill="#c8e6c9" font-size="10">Complex queries → answers filed back</text>
 
-  <!-- Footer -->
-  <text x="500" y="510" text-anchor="middle" fill="#30363d" font-size="0">.</text>
+  <!-- Spaced Repetition -->
+  <rect x="900" y="308" width="260" height="56" rx="10" fill="#1b5e20" filter="url(#sh)"/>
+  <text x="1030" y="332" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">🔄 Spaced Repetition</text>
+  <text x="1030" y="350" text-anchor="middle" fill="#a5d6a7" font-size="10">Day 1 → 3 → 7 → 14 → 30 → 90</text>
+
+  <!-- Linting -->
+  <rect x="900" y="376" width="260" height="56" rx="10" fill="#6a1b9a" filter="url(#sh)"/>
+  <text x="1030" y="400" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">🧹 Monthly Lint</text>
+  <text x="1030" y="418" text-anchor="middle" fill="#ce93d8" font-size="10">Contradictions, orphans, stale data, drift</text>
+
+  <!-- ═══ CONNECTING ARROWS WITH LABELS ═══ -->
+  
+  <!-- Maps → MkDocs: "always" -->
+  <line x1="840" y1="200" x2="895" y2="200" stroke="#8b949e" stroke-width="1.5"/>
+  <polygon points="895,196 903,200 895,204" fill="#8b949e"/>
+  <text x="867" y="193" text-anchor="middle" fill="#8b949e" font-size="9" font-style="italic">always</text>
+
+  <!-- Notes → Q&A: "if relevant" -->
+  <line x1="840" y1="268" x2="895" y2="268" stroke="#8b949e" stroke-width="1.5"/>
+  <polygon points="895,264 903,268 895,272" fill="#8b949e"/>
+  <text x="867" y="261" text-anchor="middle" fill="#8b949e" font-size="9" font-style="italic">if relevant</text>
+
+  <!-- Flashcards → SRS: "scheduled" -->
+  <line x1="840" y1="336" x2="895" y2="336" stroke="#8b949e" stroke-width="1.5"/>
+  <polygon points="895,332 903,336 895,340" fill="#8b949e"/>
+  <text x="867" y="329" text-anchor="middle" fill="#8b949e" font-size="9" font-style="italic">scheduled</text>
+
+  <!-- Cross-refs → Lint: "scan all" -->
+  <line x1="840" y1="404" x2="895" y2="404" stroke="#8b949e" stroke-width="1.5"/>
+  <polygon points="895,400 903,404 895,408" fill="#8b949e"/>
+  <text x="867" y="397" text-anchor="middle" fill="#8b949e" font-size="9" font-style="italic">scan all</text>
+
+  <!-- ═══ FEEDBACK LOOPS (dashed) ═══ -->
+  
+  <!-- Q&A → file back into wiki -->
+  <path d="M1030 296 C1030 510, 727 518, 727 432" stroke="#ff9800" stroke-width="1.5" stroke-dasharray="6,4" fill="none" opacity="0.7"/>
+  <polygon points="723,436 727,426 731,436" fill="#ff9800" opacity="0.7"/>
+  
+  <!-- Lint → enhance -->
+  <path d="M1030 432 C1030 530, 520 540, 520 432" stroke="#ce93d8" stroke-width="1.5" stroke-dasharray="6,4" fill="none" opacity="0.6"/>
+  <polygon points="516,436 520,426 524,436" fill="#ce93d8" opacity="0.6"/>
+
+  <!-- Feedback labels -->
+  <text x="920" y="520" text-anchor="middle" fill="#ff9800" font-size="10" font-style="italic" opacity="0.8">file back into vault</text>
+  <text x="700" y="545" text-anchor="middle" fill="#ce93d8" font-size="10" font-style="italic" opacity="0.7">enhance</text>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- ═══ PHASE PIPELINE                     ═══ -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <text x="40" y="590" fill="#484f58" font-size="11" font-style="italic">Compilation Pipeline — incremental, each step enhances the vault</text>
+
+  <rect x="40" y="602" width="195" height="50" rx="10" fill="#e65100" filter="url(#sh)"/>
+  <text x="137" y="624" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">Phase 1</text>
+  <text x="137" y="642" text-anchor="middle" fill="#ffcc80" font-size="10">Ingest raw data</text>
+
+  <line x1="240" y1="627" x2="275" y2="627" stroke="#8b949e" stroke-width="1.5"/>
+  <polygon points="275,623 283,627 275,631" fill="#8b949e"/>
+
+  <rect x="288" y="602" width="195" height="50" rx="10" fill="#1565c0" filter="url(#sh)"/>
+  <text x="385" y="624" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">Phase 2</text>
+  <text x="385" y="642" text-anchor="middle" fill="#bbdefb" font-size="10">Compile vault</text>
+
+  <line x1="488" y1="627" x2="523" y2="627" stroke="#8b949e" stroke-width="1.5"/>
+  <polygon points="523,623 531,627 523,631" fill="#8b949e"/>
+
+  <rect x="536" y="602" width="195" height="50" rx="10" fill="#2e7d32" filter="url(#sh)"/>
+  <text x="633" y="624" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">Phase 3</text>
+  <text x="633" y="642" text-anchor="middle" fill="#c8e6c9" font-size="10">Query &amp; revise</text>
+
+  <line x1="736" y1="627" x2="771" y2="627" stroke="#8b949e" stroke-width="1.5"/>
+  <polygon points="771,623 779,627 771,631" fill="#8b949e"/>
+
+  <rect x="784" y="602" width="195" height="50" rx="10" fill="#6a1b9a" filter="url(#sh)"/>
+  <text x="881" y="624" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">Phase 4</text>
+  <text x="881" y="642" text-anchor="middle" fill="#ce93d8" font-size="10">Lint &amp; maintain</text>
+
+  <!-- Cycle arrow -->
+  <path d="M881 657 C881 688, 137 688, 137 657" stroke="#8b949e" stroke-width="1.2" stroke-dasharray="6,4" fill="none" opacity="0.5"/>
+  <polygon points="133,660 137,650 141,660" fill="#8b949e" opacity="0.5"/>
+  <text x="510" y="700" text-anchor="middle" fill="#6e7681" font-size="10" font-style="italic">cycle — always adding up</text>
+
+  <!-- ═══ FUTURE ═══ -->
+  <rect x="40" y="722" width="1120" height="56" rx="12" fill="#21262d" stroke="#6a1b9a" stroke-width="1.5"/>
+  <text x="600" y="748" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">🚀 Future: RAG Chatbot on Compiled Knowledge</text>
+  <text x="600" y="768" text-anchor="middle" fill="#8b949e" font-size="11">Query your own structured, cross-referenced, synthesized notes — not raw document chunks</text>
+
+  <!-- ═══ LEGEND ═══ -->
+  <line x1="40" y1="800" x2="70" y2="800" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="70,797 76,800 70,803" fill="#8b949e"/>
+  <text x="82" y="804" fill="#6e7681" font-size="10">Direct flow</text>
+
+  <line x1="200" y1="800" x2="230" y2="800" stroke="#ff9800" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <polygon points="230,797 236,800 230,803" fill="#ff9800"/>
+  <text x="242" y="804" fill="#6e7681" font-size="10">Feedback loop — outputs enhance the vault</text>
 </svg>
