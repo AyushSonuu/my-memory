@@ -526,6 +526,18 @@ When new content updates or contradicts something already in the vault:
 - Log the contradiction in `_maps/connections.md` under a `⚡ Corrections & Updates` section
 - Don't silently overwrite — make the evolution of understanding visible
 
+## 📅 Sunday Planning Ritual
+Every Sunday, Ayush and Ayra plan the week together:
+
+1. **Review current week** — go through `plans/weekly/2026-WXX.md`, mark anything undone
+2. **Carry forward** — undone items move to next week with ➡️ marker
+3. **Check roadmap** — what's the monthly target? Are we on track?
+4. **Check revisions** — what's due/overdue in `_revision/tracker.json`?
+5. **Create next week's file** — `plans/weekly/2026-WXX.md` with daily tasks pre-filled
+6. **Be honest** — fill the Sunday Review section. No sugarcoating.
+
+> This is non-negotiable. The weekly file is the accountability system. No plan = no progress.
+
 ## Git (EVERY time, after all syncs done)
 ```bash
 git add -A && git commit -m "{emoji} {action}: {topic} — {brief}" && git push origin main
