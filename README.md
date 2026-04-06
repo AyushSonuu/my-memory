@@ -8,35 +8,76 @@
 
 ```mermaid
 graph LR
-    YOU["🧑 You"] -->|transcript, article,<br/>URL, thought| AGENT["🤖 AI Agent"]
-    
-    AGENT -->|writes & maintains| VAULT["📝 The Vault"]
-    AGENT -->|reads| SOURCES["📦 Raw Sources"]
-    AGENT -->|follows| SCHEMA["⚙️ Schema"]
-    
-    VAULT --> NOTES["📄 Visual Notes"]
-    VAULT --> FC["🃏 Flashcards"]
-    VAULT --> MAPS["🗺️ Knowledge Maps"]
-    VAULT --> REV["🔄 Revision Tracker"]
-    
-    NOTES -->|"numbered = teach order"| TEACH["🎬 Teach-Ready"]
-    FC -->|"cross-topic pulls"| RECALL["🧠 Active Recall"]
-    MAPS -->|"connections + weak spots"| GRAPH["🔗 Knowledge Graph"]
-    REV -->|"Day 1→3→7→14→30→90"| SRS["📅 Spaced Repetition"]
+    subgraph INGEST["📥 INGEST"]
+        direction TB
+        VT["🎬 Video Transcripts<br/><i>course lectures</i>"]
+        ART["📰 Articles · URLs · Tweets<br/><i>KB ingest — batchable</i>"]
+        RAW["📦 course_material/<br/><i>PDFs, slides, code notebooks</i>"]
+        VT --> AGENT
+        ART --> AGENT
+        RAW --> AGENT
+        AGENT["🤖 Ayra — AI Agent<br/><i>OpenClaw runtime</i><br/><i>raw → structured vault</i>"]
+    end
 
-    style YOU fill:#4caf50,color:#fff,stroke:#388e3c
-    style AGENT fill:#ff9800,color:#fff,stroke:#f57c00
-    style VAULT fill:#2196f3,color:#fff,stroke:#1976d2
-    style SOURCES fill:#9e9e9e,color:#fff,stroke:#757575
-    style SCHEMA fill:#9e9e9e,color:#fff,stroke:#757575
-    style NOTES fill:#42a5f5,color:#fff,stroke:#1e88e5
-    style FC fill:#42a5f5,color:#fff,stroke:#1e88e5
-    style MAPS fill:#42a5f5,color:#fff,stroke:#1e88e5
-    style REV fill:#42a5f5,color:#fff,stroke:#1e88e5
-    style TEACH fill:#66bb6a,color:#fff,stroke:#43a047
-    style RECALL fill:#66bb6a,color:#fff,stroke:#43a047
-    style GRAPH fill:#66bb6a,color:#fff,stroke:#43a047
-    style SRS fill:#66bb6a,color:#fff,stroke:#43a047
+    subgraph KB["📝 KNOWLEDGE BASE — vault/*.md"]
+        direction TB
+        MAPS["🗺️ _maps/<br/><i>knowledge graphs, connections,</i><br/><i>weak spots, learning journey</i>"]
+        NOTES["📄 Lesson Notes<br/><i>numbered .md files,</i><br/><i>visual-first, teach-ready</i>"]
+        FC["🃏 Flashcards · Cheatsheets · vs.md<br/><i>cross-topic pulls,</i><br/><i>spaced repetition schedule</i>"]
+        REFS["🔗 READMEs · connections.md<br/><i>auto-maintained cross-refs,</i><br/><i>⚡ contradiction markers</i>"]
+    end
+
+    subgraph READ["👁️ READ / QUERY"]
+        direction TB
+        DOCS["🌐 MkDocs Material Site<br/><i>search, dark mode, Mermaid</i>"]
+        QA["💬 Chat Q&A<br/><i>query → wiki filing</i>"]
+        REV["🔄 Spaced Repetition<br/><i>Day 1→3→7→14→30→90</i>"]
+        LINT["🧹 Tier 3 Lint<br/><i>contradictions, orphans, drift</i>"]
+    end
+
+    AGENT -->|compiles| KB
+    MAPS -->|"always"| DOCS
+    NOTES -->|"if relevant"| QA
+    FC -->|"scheduled"| REV
+    REFS -->|"scan all"| LINT
+
+    QA -.->|"file back<br/>into vault"| NOTES
+    LINT -.->|"enhance"| KB
+
+    style VT fill:#e65100,color:#fff
+    style ART fill:#e65100,color:#fff
+    style RAW fill:#e65100,color:#fff
+    style AGENT fill:#f57c00,color:#fff
+
+    style MAPS fill:#1565c0,color:#fff
+    style NOTES fill:#1565c0,color:#fff
+    style FC fill:#1565c0,color:#fff
+    style REFS fill:#1565c0,color:#fff
+
+    style DOCS fill:#2e7d32,color:#fff
+    style QA fill:#2e7d32,color:#fff
+    style REV fill:#2e7d32,color:#fff
+    style LINT fill:#2e7d32,color:#fff
+```
+
+```mermaid
+graph LR
+    P1["📥 Phase 1<br/><b>Ingest</b><br/><i>raw data in</i>"]
+    P2["📝 Phase 2<br/><b>Compile</b><br/><i>notes, flashcards, maps</i>"]
+    P3["👁️ Phase 3<br/><b>Query & Revise</b><br/><i>spaced repetition, Q&A</i>"]
+    P4["🧹 Phase 4<br/><b>Lint & Maintain</b><br/><i>monthly health audit</i>"]
+    FUTURE["🚀 Future<br/><b>RAG Chatbot</b><br/><i>query your own compiled</i><br/><i>knowledge — not raw chunks</i>"]
+
+    P1 --> P2 --> P3 --> P4
+    P4 -.->|"cycle — always adding up"| P1
+    P3 -.->|"file back into vault"| P2
+    P4 --> FUTURE
+
+    style P1 fill:#e65100,color:#fff
+    style P2 fill:#1565c0,color:#fff
+    style P3 fill:#2e7d32,color:#fff
+    style P4 fill:#6a1b9a,color:#fff
+    style FUTURE fill:#37474f,color:#fff
 ```
 
 ---

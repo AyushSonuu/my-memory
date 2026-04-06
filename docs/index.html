@@ -6425,35 +6425,73 @@
 <p><em>Inspired by <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">Andrej Karpathy's LLM Wiki pattern</a></em></p>
 </blockquote>
 <pre class="mermaid"><code>graph LR
-    YOU["🧑 You"] --&gt;|transcript, article,&lt;br/&gt;URL, thought| AGENT["🤖 AI Agent"]
+    subgraph INGEST["📥 INGEST"]
+        direction TB
+        VT["🎬 Video Transcripts&lt;br/&gt;&lt;i&gt;course lectures&lt;/i&gt;"]
+        ART["📰 Articles · URLs · Tweets&lt;br/&gt;&lt;i&gt;KB ingest — batchable&lt;/i&gt;"]
+        RAW["📦 course_material/&lt;br/&gt;&lt;i&gt;PDFs, slides, code notebooks&lt;/i&gt;"]
+        VT --&gt; AGENT
+        ART --&gt; AGENT
+        RAW --&gt; AGENT
+        AGENT["🤖 Ayra — AI Agent&lt;br/&gt;&lt;i&gt;OpenClaw runtime&lt;/i&gt;&lt;br/&gt;&lt;i&gt;raw → structured vault&lt;/i&gt;"]
+    end
 
-    AGENT --&gt;|writes &amp; maintains| VAULT["📝 The Vault"]
-    AGENT --&gt;|reads| SOURCES["📦 Raw Sources"]
-    AGENT --&gt;|follows| SCHEMA["⚙️ Schema"]
+    subgraph KB["📝 KNOWLEDGE BASE — vault/*.md"]
+        direction TB
+        MAPS["🗺️ _maps/&lt;br/&gt;&lt;i&gt;knowledge graphs, connections,&lt;/i&gt;&lt;br/&gt;&lt;i&gt;weak spots, learning journey&lt;/i&gt;"]
+        NOTES["📄 Lesson Notes&lt;br/&gt;&lt;i&gt;numbered .md files,&lt;/i&gt;&lt;br/&gt;&lt;i&gt;visual-first, teach-ready&lt;/i&gt;"]
+        FC["🃏 Flashcards · Cheatsheets · vs.md&lt;br/&gt;&lt;i&gt;cross-topic pulls,&lt;/i&gt;&lt;br/&gt;&lt;i&gt;spaced repetition schedule&lt;/i&gt;"]
+        REFS["🔗 READMEs · connections.md&lt;br/&gt;&lt;i&gt;auto-maintained cross-refs,&lt;/i&gt;&lt;br/&gt;&lt;i&gt;⚡ contradiction markers&lt;/i&gt;"]
+    end
 
-    VAULT --&gt; NOTES["📄 Visual Notes"]
-    VAULT --&gt; FC["🃏 Flashcards"]
-    VAULT --&gt; MAPS["🗺️ Knowledge Maps"]
-    VAULT --&gt; REV["🔄 Revision Tracker"]
+    subgraph READ["👁️ READ / QUERY"]
+        direction TB
+        DOCS["🌐 MkDocs Material Site&lt;br/&gt;&lt;i&gt;search, dark mode, Mermaid&lt;/i&gt;"]
+        QA["💬 Chat Q&amp;A&lt;br/&gt;&lt;i&gt;query → wiki filing&lt;/i&gt;"]
+        REV["🔄 Spaced Repetition&lt;br/&gt;&lt;i&gt;Day 1→3→7→14→30→90&lt;/i&gt;"]
+        LINT["🧹 Tier 3 Lint&lt;br/&gt;&lt;i&gt;contradictions, orphans, drift&lt;/i&gt;"]
+    end
 
-    NOTES --&gt;|"numbered = teach order"| TEACH["🎬 Teach-Ready"]
-    FC --&gt;|"cross-topic pulls"| RECALL["🧠 Active Recall"]
-    MAPS --&gt;|"connections + weak spots"| GRAPH["🔗 Knowledge Graph"]
-    REV --&gt;|"Day 1→3→7→14→30→90"| SRS["📅 Spaced Repetition"]
+    AGENT --&gt;|compiles| KB
+    MAPS --&gt;|"always"| DOCS
+    NOTES --&gt;|"if relevant"| QA
+    FC --&gt;|"scheduled"| REV
+    REFS --&gt;|"scan all"| LINT
 
-    style YOU fill:#4caf50,color:#fff,stroke:#388e3c
-    style AGENT fill:#ff9800,color:#fff,stroke:#f57c00
-    style VAULT fill:#2196f3,color:#fff,stroke:#1976d2
-    style SOURCES fill:#9e9e9e,color:#fff,stroke:#757575
-    style SCHEMA fill:#9e9e9e,color:#fff,stroke:#757575
-    style NOTES fill:#42a5f5,color:#fff,stroke:#1e88e5
-    style FC fill:#42a5f5,color:#fff,stroke:#1e88e5
-    style MAPS fill:#42a5f5,color:#fff,stroke:#1e88e5
-    style REV fill:#42a5f5,color:#fff,stroke:#1e88e5
-    style TEACH fill:#66bb6a,color:#fff,stroke:#43a047
-    style RECALL fill:#66bb6a,color:#fff,stroke:#43a047
-    style GRAPH fill:#66bb6a,color:#fff,stroke:#43a047
-    style SRS fill:#66bb6a,color:#fff,stroke:#43a047</code></pre>
+    QA -.-&gt;|"file back&lt;br/&gt;into vault"| NOTES
+    LINT -.-&gt;|"enhance"| KB
+
+    style VT fill:#e65100,color:#fff
+    style ART fill:#e65100,color:#fff
+    style RAW fill:#e65100,color:#fff
+    style AGENT fill:#f57c00,color:#fff
+
+    style MAPS fill:#1565c0,color:#fff
+    style NOTES fill:#1565c0,color:#fff
+    style FC fill:#1565c0,color:#fff
+    style REFS fill:#1565c0,color:#fff
+
+    style DOCS fill:#2e7d32,color:#fff
+    style QA fill:#2e7d32,color:#fff
+    style REV fill:#2e7d32,color:#fff
+    style LINT fill:#2e7d32,color:#fff</code></pre>
+<pre class="mermaid"><code>graph LR
+    P1["📥 Phase 1&lt;br/&gt;&lt;b&gt;Ingest&lt;/b&gt;&lt;br/&gt;&lt;i&gt;raw data in&lt;/i&gt;"]
+    P2["📝 Phase 2&lt;br/&gt;&lt;b&gt;Compile&lt;/b&gt;&lt;br/&gt;&lt;i&gt;notes, flashcards, maps&lt;/i&gt;"]
+    P3["👁️ Phase 3&lt;br/&gt;&lt;b&gt;Query &amp; Revise&lt;/b&gt;&lt;br/&gt;&lt;i&gt;spaced repetition, Q&amp;A&lt;/i&gt;"]
+    P4["🧹 Phase 4&lt;br/&gt;&lt;b&gt;Lint &amp; Maintain&lt;/b&gt;&lt;br/&gt;&lt;i&gt;monthly health audit&lt;/i&gt;"]
+    FUTURE["🚀 Future&lt;br/&gt;&lt;b&gt;RAG Chatbot&lt;/b&gt;&lt;br/&gt;&lt;i&gt;query your own compiled&lt;/i&gt;&lt;br/&gt;&lt;i&gt;knowledge — not raw chunks&lt;/i&gt;"]
+
+    P1 --&gt; P2 --&gt; P3 --&gt; P4
+    P4 -.-&gt;|"cycle — always adding up"| P1
+    P3 -.-&gt;|"file back into vault"| P2
+    P4 --&gt; FUTURE
+
+    style P1 fill:#e65100,color:#fff
+    style P2 fill:#1565c0,color:#fff
+    style P3 fill:#2e7d32,color:#fff
+    style P4 fill:#6a1b9a,color:#fff
+    style FUTURE fill:#37474f,color:#fff</code></pre>
 <hr />
 <h2 id="the-problem">The Problem<a class="headerlink" href="#the-problem" title="Permanent link">#</a></h2>
 <p>Most people's experience with LLMs and documents looks like RAG: upload files, retrieve chunks at query time, generate answers. It works, but the LLM is <strong>rediscovering knowledge from scratch on every question</strong>. Nothing accumulates. Nothing compounds.</p>
