@@ -157,7 +157,7 @@ Deep Agents (18 episodes) - Planning, Subagents, Sandboxes, Deep Research
 
 68 episodes across 3 playlists. Following the official docs page by page. From zero to production-ready autonomous agents.
 
-About me: Ayush Sonu, Machine Learning Engineer at SAP Labs with 3+ years of experience in Generative AI and Autonomous Agents.
+About me: Ayush Sonu, Machine Learning Engineer at SAP Labs with 3+ years of experience in Generative AI and Agentic Systems.
 
 Code: https://github.com/AyushSonuu/langchain-ecosystem-tutorials
 Docs: https://ayushsonuu.github.io/langchain-ecosystem-tutorials

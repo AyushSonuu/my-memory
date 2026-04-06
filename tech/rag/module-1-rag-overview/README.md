@@ -27,7 +27,7 @@ graph LR
 | 01 | [Module 1 Introduction](01-module-introduction.md) | 🟢 | — |
 | 02 | [Introduction to RAG](02-introduction-to-rag.md) | 🟢 | — |
 | 03 | [Applications of RAG](03-applications-of-rag.md) | 🟢 | — |
-| 04 | [RAG Architecture Overview](04-rag-architecture-overview.md) | 🔴 | — |
+| 04 | [RAG Architecture Overview](04-rag-architecture-overview.md) | 🟢 | — |
 | 05 | [Introduction to LLMs](05-introduction-to-llms.md) | 🔴 | — |
 | 06 | [A Brief Python Refresher](06-python-refresher.md) | 🔴 | — |
 | 07 | [LLM Calls & Crafting Augmented Prompts](07-llm-calls-augmented-prompts.md) | 🔴 | — |
@@ -45,6 +45,9 @@ graph LR
 > - ⚕️ Legal/Medical RAG = may be ONLY viable option. Precision + private data = RAG mandatory.
 > - 🌐 AI web search (ChatGPT/Gemini) = RAG with the entire internet as knowledge base.
 > - 👤 Small personal KB (texts, emails) > large generic KB — dense context beats raw size.
+> - 🏗️ RAG pipeline = 5 steps: route to retriever → query KB → build augmented prompt → send to LLM → respond.
+> - 🎯 RAG's #1 architectural addition = the retriever. That's the only difference from normal LLM use.
+> - 🛡️ 5 advantages: injects missing knowledge, reduces hallucinations, easy updates, source citations, separation of concerns.
 
 ---
 

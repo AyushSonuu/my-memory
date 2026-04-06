@@ -1,7 +1,7 @@
 # 🃏 RAG Overview Flashcards
 
 > From: module-1-rag-overview/
-> Last updated: 2026-04-04
+> Last updated: 2026-04-06
 
 ---
 
@@ -118,6 +118,58 @@ RAG is the only way to give LLMs access to this information while keeping it pri
 <summary>❓ How does an AI web search (ChatGPT/Perplexity) relate to RAG?</summary>
 
 It IS a RAG system — the **entire internet** is the knowledge base. Traditional search = retriever only (returns URLs). AI search = retriever + LLM summarizer. Same RAG pattern applied at internet scale.
+</details>
+
+### 📌 RAG Architecture
+
+<details markdown="1">
+<summary>❓ What are the 5 steps in the RAG pipeline (in order)?</summary>
+
+| Step | What Happens |
+|------|-------------|
+| 1. Route | Prompt goes to the **retriever** first, not the LLM |
+| 2. Query KB | Retriever searches the knowledge base for relevant docs |
+| 3. Augment | Original prompt + retrieved docs = **augmented prompt** |
+| 4. Generate | Augmented prompt sent to LLM → generates response |
+| 5. Respond | User gets the answer (slightly more latency) |
+
+From the user's POV, it's the same: type prompt → get response.
+</details>
+
+<details markdown="1">
+<summary>❓ What is the ONLY architectural difference between using an LLM directly vs a RAG system?</summary>
+
+The **retriever**. In a RAG system, the prompt is first routed to a retriever that searches the knowledge base, fetches relevant documents, and these are combined with the original prompt into an augmented prompt. The user experience stays identical.
+</details>
+
+<details markdown="1">
+<summary>❓ Name 5 advantages of RAG</summary>
+
+| # | Advantage | One-liner |
+|---|-----------|-----------|
+| 1 | **Injects missing knowledge** | Makes info available the LLM was never trained on |
+| 2 | **Reduces hallucinations** | Retrieved context grounds the response |
+| 3 | **Easy to keep up-to-date** | Update KB like a database, no retraining needed |
+| 4 | **Enables source citations** | Citation info flows through to the response |
+| 5 | **Focuses LLM on generation** | Retriever = fact-finder, LLM = writer (separation of concerns) |
+</details>
+
+<details markdown="1">
+<summary>❓ Why is updating a RAG knowledge base better than retraining the LLM?</summary>
+
+Retraining = **costly, time-consuming**, needs massive compute. Updating KB = update entries in a database. Once **indexed**, changes are immediately available. Same result (current info), fraction of the effort.
+</details>
+
+<details markdown="1">
+<summary>❓ How does RAG enable source citations?</summary>
+
+Citation info (article title, URL, author) can be included in the augmented prompt. The LLM then passes this info through to its response. Readers can verify claims and dig deeper. RAG makes responses **verifiable**, not just accurate.
+</details>
+
+<details markdown="1">
+<summary>❓ What does "focuses LLM on generation" mean as a RAG advantage?</summary>
+
+Separation of concerns: the **retriever** handles fact-finding and filtering from a vast world of information. The **LLM** focuses purely on writing a good response. Each component does what it's best at — like a researcher + writer team.
 </details>
 
 ---
