@@ -6424,74 +6424,10 @@
 <p>You never write the wiki yourself. The AI writes and maintains all of it. You're in charge of sourcing, exploration, and asking the right questions. The AI does all the grunt work.</p>
 <p><em>Inspired by <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">Andrej Karpathy's LLM Wiki pattern</a></em></p>
 </blockquote>
-<pre class="mermaid"><code>graph LR
-    subgraph INGEST["📥 INGEST"]
-        direction TB
-        VT["🎬 Video Transcripts&lt;br/&gt;&lt;i&gt;course lectures&lt;/i&gt;"]
-        ART["📰 Articles · URLs · Tweets&lt;br/&gt;&lt;i&gt;KB ingest — batchable&lt;/i&gt;"]
-        RAW["📦 course_material/&lt;br/&gt;&lt;i&gt;PDFs, slides, code notebooks&lt;/i&gt;"]
-        VT --&gt; AGENT
-        ART --&gt; AGENT
-        RAW --&gt; AGENT
-        AGENT["🤖 Ayra — AI Agent&lt;br/&gt;&lt;i&gt;OpenClaw runtime&lt;/i&gt;&lt;br/&gt;&lt;i&gt;raw → structured vault&lt;/i&gt;"]
-    end
+<p align="center">
+  <img src="_assets/architecture.svg" alt="My Memory Architecture" width="100%"/>
+</p>
 
-    subgraph KB["📝 KNOWLEDGE BASE — vault/*.md"]
-        direction TB
-        MAPS["🗺️ _maps/&lt;br/&gt;&lt;i&gt;knowledge graphs, connections,&lt;/i&gt;&lt;br/&gt;&lt;i&gt;weak spots, learning journey&lt;/i&gt;"]
-        NOTES["📄 Lesson Notes&lt;br/&gt;&lt;i&gt;numbered .md files,&lt;/i&gt;&lt;br/&gt;&lt;i&gt;visual-first, teach-ready&lt;/i&gt;"]
-        FC["🃏 Flashcards · Cheatsheets · vs.md&lt;br/&gt;&lt;i&gt;cross-topic pulls,&lt;/i&gt;&lt;br/&gt;&lt;i&gt;spaced repetition schedule&lt;/i&gt;"]
-        REFS["🔗 READMEs · connections.md&lt;br/&gt;&lt;i&gt;auto-maintained cross-refs,&lt;/i&gt;&lt;br/&gt;&lt;i&gt;⚡ contradiction markers&lt;/i&gt;"]
-    end
-
-    subgraph READ["👁️ READ / QUERY"]
-        direction TB
-        DOCS["🌐 MkDocs Material Site&lt;br/&gt;&lt;i&gt;search, dark mode, Mermaid&lt;/i&gt;"]
-        QA["💬 Chat Q&amp;A&lt;br/&gt;&lt;i&gt;query → wiki filing&lt;/i&gt;"]
-        REV["🔄 Spaced Repetition&lt;br/&gt;&lt;i&gt;Day 1→3→7→14→30→90&lt;/i&gt;"]
-        LINT["🧹 Tier 3 Lint&lt;br/&gt;&lt;i&gt;contradictions, orphans, drift&lt;/i&gt;"]
-    end
-
-    AGENT --&gt;|compiles| KB
-    MAPS --&gt;|"always"| DOCS
-    NOTES --&gt;|"if relevant"| QA
-    FC --&gt;|"scheduled"| REV
-    REFS --&gt;|"scan all"| LINT
-
-    QA -.-&gt;|"file back&lt;br/&gt;into vault"| NOTES
-    LINT -.-&gt;|"enhance"| KB
-
-    style VT fill:#e65100,color:#fff
-    style ART fill:#e65100,color:#fff
-    style RAW fill:#e65100,color:#fff
-    style AGENT fill:#f57c00,color:#fff
-
-    style MAPS fill:#1565c0,color:#fff
-    style NOTES fill:#1565c0,color:#fff
-    style FC fill:#1565c0,color:#fff
-    style REFS fill:#1565c0,color:#fff
-
-    style DOCS fill:#2e7d32,color:#fff
-    style QA fill:#2e7d32,color:#fff
-    style REV fill:#2e7d32,color:#fff
-    style LINT fill:#2e7d32,color:#fff</code></pre>
-<pre class="mermaid"><code>graph LR
-    P1["📥 Phase 1&lt;br/&gt;&lt;b&gt;Ingest&lt;/b&gt;&lt;br/&gt;&lt;i&gt;raw data in&lt;/i&gt;"]
-    P2["📝 Phase 2&lt;br/&gt;&lt;b&gt;Compile&lt;/b&gt;&lt;br/&gt;&lt;i&gt;notes, flashcards, maps&lt;/i&gt;"]
-    P3["👁️ Phase 3&lt;br/&gt;&lt;b&gt;Query &amp; Revise&lt;/b&gt;&lt;br/&gt;&lt;i&gt;spaced repetition, Q&amp;A&lt;/i&gt;"]
-    P4["🧹 Phase 4&lt;br/&gt;&lt;b&gt;Lint &amp; Maintain&lt;/b&gt;&lt;br/&gt;&lt;i&gt;monthly health audit&lt;/i&gt;"]
-    FUTURE["🚀 Future&lt;br/&gt;&lt;b&gt;RAG Chatbot&lt;/b&gt;&lt;br/&gt;&lt;i&gt;query your own compiled&lt;/i&gt;&lt;br/&gt;&lt;i&gt;knowledge — not raw chunks&lt;/i&gt;"]
-
-    P1 --&gt; P2 --&gt; P3 --&gt; P4
-    P4 -.-&gt;|"cycle — always adding up"| P1
-    P3 -.-&gt;|"file back into vault"| P2
-    P4 --&gt; FUTURE
-
-    style P1 fill:#e65100,color:#fff
-    style P2 fill:#1565c0,color:#fff
-    style P3 fill:#2e7d32,color:#fff
-    style P4 fill:#6a1b9a,color:#fff
-    style FUTURE fill:#37474f,color:#fff</code></pre>
 <hr />
 <h2 id="the-problem">The Problem<a class="headerlink" href="#the-problem" title="Permanent link">#</a></h2>
 <p>Most people's experience with LLMs and documents looks like RAG: upload files, retrieve chunks at query time, generate answers. It works, but the LLM is <strong>rediscovering knowledge from scratch on every question</strong>. Nothing accumulates. Nothing compounds.</p>
