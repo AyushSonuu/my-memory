@@ -99,7 +99,9 @@ my-memory/
 ├── AGENTS.md                 # Agent's brain — conventions, rules, workflows
 ├── SOUL.md                   # Agent's personality and values
 ├── USER.md                   # About the human (preferences, style)
-├── MEMORY.md                 # Agent's long-term memory (curated)
+├── MEMORY.md                 # Agent's long-term memory (curated, gitignored)
+├── mkdocs.yml                # MkDocs Material config for docs site
+├── build_docs.py             # Builds static site → docs/
 │
 ├── tech/                     # All technical topics
 │   ├── kafka/                #   Each topic = one folder
@@ -118,8 +120,10 @@ my-memory/
 ├── _maps/                    # Auto-maintained knowledge graphs
 │   ├── everything.md         #   God map — all topics + connections
 │   ├── tech.md               #   Tech knowledge graph
+│   ├── non-tech.md           #   Non-tech knowledge graph
 │   ├── weak-spots.md         #   All weak areas — where to focus
 │   ├── connections.md        #   Cross-topic links (rolling last 30)
+│   ├── learning-journey.md   #   Gantt timeline
 │   └── lint-report.md        #   Monthly vault health audit
 │
 ├── _revision/                # Spaced repetition engine
@@ -127,9 +131,21 @@ my-memory/
 │   └── due-today.md          #   What needs revision today
 │
 ├── _templates/               # Blueprints for new content
+│   ├── lesson.md
+│   ├── topic-readme.md
+│   ├── flashcards.md
+│   ├── cheatsheet.md
+│   └── vs.md
+│
 ├── _playlists/               # YouTube content planning
+├── _social/                  # LinkedIn, blog posts
+│   └── linkedin/
+│
 ├── plans/                    # Roadmaps, course trackers, goals
-└── memory/                   # Daily session logs (raw)
+├── scripts/                  # Helper scripts (transcript extraction, etc.)
+├── memory/                   # Daily session logs (raw, gitignored)
+├── docs/                     # Built static site (auto-generated)
+└── _generated/               # Code wrappers for docs (auto-generated)
 ```
 
 ### The Fractal Pattern
@@ -205,11 +221,11 @@ The agent follows strict rules to make every page worth revisiting:
 
 1. **Visual first, text second** — every concept opens with a diagram (Mermaid, ASCII, or table). The right visual tool for each concept, not one-size-fits-all.
 
-2. **Complete but concise** — every fact from the source is captured, but compressed. Tables over paragraphs. Bullets over walls of text. One concept = one scroll max.
+2. **Complete but concise** — every fact from the source captured. Say each concept ONCE with the best visual. No repeating the same info as diagram + table + prose.
 
-3. **Zero hallucination** — only facts from source material or web-verified. Confidence tags for anything uncertain. When unsure, search first.
+3. **Zero hallucination** — only facts from source material or web-verified. Confidence tags for anything uncertain. Definitions stay exact.
 
-4. **Memorable over correct** — if two explanations are equally accurate, pick the one that sticks. Analogies, humor, one-liners that make concepts click.
+4. **Memorable** — analogies, humor, one-liners that make concepts click. If two explanations are equally accurate, pick the one that sticks.
 
 5. **Teach-ready** — open any topic folder, read files in numbered order, and you can teach it to someone. Zero extra prep.
 
@@ -220,6 +236,7 @@ The agent follows strict rules to make every page worth revisiting:
 ### Prerequisites
 - [OpenClaw](https://github.com/nicobailon/openclaw) (the agent runtime this vault runs on) or any AI coding agent that can read/write files ([Claude Code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview), [OpenAI Codex](https://openai.com/index/codex/), [OpenCode](https://github.com/opencode-ai/opencode), or similar)
 - Git
+- Python 3.12+ (for MkDocs docs site, optional)
 
 ### Step 1: Fork or clone the structure
 
@@ -230,7 +247,7 @@ git init
 
 Create the core directories:
 ```bash
-mkdir -p tech non-tech _maps _revision _templates plans memory
+mkdir -p tech non-tech _maps _revision _templates _social plans memory scripts
 ```
 
 ### Step 2: Create your schema files
@@ -264,6 +281,8 @@ Templates in `_templates/` ensure every page follows the same structure. At mini
 - `lesson.md` — blueprint for a lesson file
 - `topic-readme.md` — blueprint for a topic's README
 - `flashcards.md` — blueprint for flashcard files
+- `cheatsheet.md` — blueprint for one-page summaries
+- `vs.md` — blueprint for comparison pages
 
 ### Step 4: Start feeding it
 
@@ -281,15 +300,23 @@ Agent: Creates tech/docker/README.md
        Commits everything to git
 ```
 
-### Step 5: Keep going
+### Step 5: (Optional) Set up docs site
+
+```bash
+python -m venv .venv
+.venv/bin/pip install mkdocs-material mkdocs-jupyter
+```
+
+Configure `mkdocs.yml` with your nav structure, then:
+```bash
+python build_docs.py    # Builds static site to docs/
+```
+
+Deploy via GitHub Pages (Settings → Pages → Source: main, folder: `/docs`).
+
+### Step 6: Keep going
 
 Every source you add makes the vault richer. The agent handles all cross-referencing, connection-tracking, and maintenance. You focus on learning.
-
----
-
-## Docs Site
-
-The vault is published as a searchable docs site using [MkDocs Material](https://squidfunctools.github.io/mkdocs-material/). GitHub Pages serves it from the `docs/` folder.
 
 ---
 
@@ -298,8 +325,8 @@ The vault is published as a searchable docs site using [MkDocs Material](https:/
 | Metric | Count |
 |--------|-------|
 | **Topics** | 6 |
-| **Lessons** | 41 |
-| **Flashcards** | 120+ |
+| **Lessons** | 45 |
+| **Flashcards** | 150+ |
 | **Last updated** | 2026-04-06 |
 
 ### Topics
