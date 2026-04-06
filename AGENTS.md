@@ -238,6 +238,8 @@ my-memory/
 ├── plans/                                 # 📋 Action plans & trackers (NOT notes!)
 │   ├── README.md                          # Index of all active plans
 │   ├── roadmap.md                         # Master roadmap 2026-27
+│   ├── weekly/                            # 📅 Weekly planners (1 file per week)
+│   │   └── 2026-W15.md                   # Mon-Sun: daily tasks, carry-forward, review
 │   ├── career-roadmap-2026.md             # Career-focused roadmap
 │   ├── ai-courses-tracker.md              # 🤖 AI courses: RAG, GenAI, NLP (day-by-day)
 │   ├── dsa-tracker.md                     # DSA problem tracking
