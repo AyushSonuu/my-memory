@@ -438,6 +438,8 @@
       
         
       
+        
+      
     
     
     
@@ -698,6 +700,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../llm-wiki-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📖 LLM Wiki Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../_revision/due-today/" class="md-nav__link">
         
   
@@ -753,10 +783,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_9" >
         
           
-          <label class="md-nav__link" for="__nav_1_8" id="__nav_1_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1_9" id="__nav_1_9_label" tabindex="0">
             
   
   
@@ -774,8 +804,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_8">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -5162,6 +5192,8 @@
       
         
       
+        
+      
     
     
     
@@ -5313,6 +5345,34 @@
     
   
     03 · Applications of RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/rag/module-1-rag-overview/04-rag-architecture-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · RAG Architecture Overview
   
 
     
@@ -6083,16 +6143,15 @@
     AM["🧠 Agent Memory"]
     AIO["⚡ AsyncIO"]
     THR["🧵 Threading"]
+    MP["⚙️ Multiprocessing"]
+    RAG["🔍 RAG"]
 
     AG ---|"builds on"| AM
     AM ---|"async for concurrent&lt;br/&gt;memory ops"| AIO
     THR ---|"both do I/O&lt;br/&gt;concurrency"| AIO
-    AG -.-|"future"| RAG["📖 RAG"]
-    AM -.-|"future"| RAG
-    AM -.-|"future"| VDB["🗄️ Vector DBs"]
-    AM -.-|"future"| LC["🔗 LangChain"]
-    AIO -.-|"future"| FAPI["🚀 FastAPI"]
-    THR -.-|"future"| MP["⚙️ Multiprocessing"]
+    THR ---|"CPU vs I/O"| MP
+    AM ---|"same pipeline&lt;br/&gt;+ CRUD"| RAG
+    AG ---|"agentic RAG"| RAG
     AG ---|"M5: planning&lt;br/&gt;builds on"| TU["🔧 Tool Use (M3)"]
     AG ---|"code as plan"| CE["💻 Code Exec (M3)"]
     AG ---|"manager reflects"| REF["🪞 Reflection (M2)"]</code></pre>
@@ -6106,6 +6165,21 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>2026-04-06</td>
+<td>RAG Architecture → Agent Memory (same retrieval pipeline)</td>
+<td>RAG retriever + KB = same pattern as agent memory's semantic retrieval, but agent memory adds CRUD + write-back (M1/04)</td>
+</tr>
+<tr>
+<td>2026-04-06</td>
+<td>RAG → Agentic AI (agentic RAG)</td>
+<td>RAG M1 mentions agentic RAG as future topic — AI agent decides what/when to retrieve. Connects to M5 planning.</td>
+</tr>
+<tr>
+<td>2026-04-06</td>
+<td>RAG Advantages → Reflection Pattern</td>
+<td>RAG's "reduces hallucinations by grounding" parallels reflection's "external feedback grounds output" — both inject real-world info to improve LLM output</td>
+</tr>
 <tr>
 <td>2026-04-03</td>
 <td>Planning → Tool Use (builds on)</td>

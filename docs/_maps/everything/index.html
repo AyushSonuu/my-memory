@@ -438,6 +438,8 @@
       
         
       
+        
+      
     
     
     
@@ -581,6 +583,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 Framework
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -709,6 +722,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../llm-wiki-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📖 LLM Wiki Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../_revision/due-today/" class="md-nav__link">
         
   
@@ -764,10 +805,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_9" >
         
           
-          <label class="md-nav__link" for="__nav_1_8" id="__nav_1_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1_9" id="__nav_1_9_label" tabindex="0">
             
   
   
@@ -785,8 +826,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_8">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -5173,6 +5214,8 @@
       
         
       
+        
+      
     
     
     
@@ -5324,6 +5367,34 @@
     
   
     03 · Applications of RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/rag/module-1-rag-overview/04-rag-architecture-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · RAG Architecture Overview
   
 
     
@@ -6079,6 +6150,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 Framework
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6103,14 +6185,19 @@
 <pre class="mermaid"><code>graph TB
     ROOT(("🧠 Everything"))
 
-    subgraph TECH ["🔧 Tech — 4 topics"]
-        AG["🤖 Agentic AI — 30/30 ✅ COMPLETE"]
+    subgraph TECH ["🔧 Tech — 6 topics"]
+        AG["🤖 Agentic AI — 30/30 ✅"]
         AM["🧠 Agent Memory — 7/7 ✅"]
+        RAG["🔍 RAG — 5/62 🔴"]
         PY["🐍 Python"]
         PY --&gt; AIO["⚡ AsyncIO — 1/1 ✅"]
         PY --&gt; THR["🧵 Threading — 1/1 ✅"]
+        PY --&gt; MP["⚙️ Multiprocessing — 1/1 ✅"]
         AG -.-&gt;|"builds on"| AM
+        AM -.-&gt;|"retrieval"| RAG
+        AG -.-&gt;|"extends to"| RAG
         THR -.-&gt;|"vs"| AIO
+        THR -.-&gt;|"vs"| MP
     end
 
     subgraph NT ["🌍 Non-Tech — 0 topics"]
@@ -6136,17 +6223,17 @@
 </tr>
 <tr>
 <td>🟡 Learning</td>
-<td>4</td>
-<td>Agentic AI (all modules complete!), Agent Memory, AsyncIO, Threading</td>
+<td>5</td>
+<td>Agentic AI, Agent Memory, AsyncIO, Threading, Multiprocessing</td>
 </tr>
 <tr>
 <td>🔴 Starting</td>
-<td>0</td>
-<td>—</td>
+<td>1</td>
+<td>RAG (5/62 lessons)</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Total:</strong> 4 topics · 30 lessons · 140+ flashcards · Last updated: 2026-04-03</p>
+<p><strong>Total:</strong> 6 topics · 46 lessons · 150+ flashcards · Last updated: 2026-04-06</p>
 <h2 id="key-connections">Key Connections<a class="headerlink" href="#key-connections" title="Permanent link">#</a></h2>
 <table>
 <thead>
@@ -6161,6 +6248,14 @@
 <td>Agent memory = one of the capabilities agentic systems need</td>
 </tr>
 <tr>
+<td>Agentic AI → RAG</td>
+<td>Agentic RAG = AI agent decides what/when to retrieve</td>
+</tr>
+<tr>
+<td>Agent Memory → RAG</td>
+<td>Same retrieval pipeline, agent memory adds CRUD + write-back</td>
+</tr>
+<tr>
 <td>Agentic AI → Evals &amp; Error Analysis</td>
 <td>#1 predictor of building agents well; M4 dedicated to this</td>
 </tr>
@@ -6169,12 +6264,8 @@
 <td>Reflection ✅, Tool Use ✅, Planning ✅, Multi-Agent ✅</td>
 </tr>
 <tr>
-<td>M4 Evals → M2 Evals</td>
-<td>M2 introduced basic evals (objective + rubric). M4 goes deep: 2×2 framework, error analysis, component evals</td>
-</tr>
-<tr>
 <td>Reflection → External Feedback</td>
-<td>Code execution, web search, regex, word count = breaks performance plateau</td>
+<td>Code execution, web search, regex = breaks performance plateau</td>
 </tr>
 <tr>
 <td>Tool Use → Code Execution</td>
@@ -6185,39 +6276,25 @@
 <td>M×N integrations → M+N via standard protocol</td>
 </tr>
 <tr>
-<td>Planning → Tool Use</td>
-<td>Planning builds ON TOP of tool use — multi-step plan with tool sequences</td>
+<td>Planning → Tool Use → Code Execution</td>
+<td>Planning builds on tools; code as plan format &gt; JSON &gt; Text</td>
 </tr>
 <tr>
-<td>Planning → Code Execution</td>
-<td>Code as plan format &gt; JSON &gt; Text (Wang et al. 2024)</td>
+<td>Multi-Agent → Planning + Reflection</td>
+<td>Manager plans, coordinates workers, reflects on output</td>
 </tr>
 <tr>
-<td>Multi-Agent → Planning</td>
-<td>Manager agent uses planning to coordinate workers (tools → agents)</td>
-</tr>
-<tr>
-<td>Multi-Agent → Reflection</td>
-<td>Manager agent can reflect on final output before delivering</td>
-</tr>
-<tr>
-<td>Code Execution → Reflection (M2)</td>
-<td>Failed code → error → reflect → retry. Same external feedback pattern!</td>
-</tr>
-<tr>
-<td>Threading ↔ AsyncIO</td>
-<td>Both do I/O concurrency — threading uses OS threads, AsyncIO uses event loop</td>
+<td>Threading ↔ AsyncIO ↔ Multiprocessing</td>
+<td>Three approaches to concurrency: threads (I/O), event loop (I/O), processes (CPU)</td>
 </tr>
 <tr>
 <td>Agent Memory ↔ AsyncIO</td>
 <td>Async for concurrent memory operations, tool execution, API calls</td>
 </tr>
-<tr>
-<td>Agent Memory → RAG</td>
-<td>Same pipeline, agent memory adds CRUD + write-back</td>
-</tr>
 </tbody>
 </table>
+<h2 id="framework">📖 Framework<a class="headerlink" href="#framework" title="Permanent link">#</a></h2>
+<p>This vault follows the <a href="../llm-wiki-pattern/">LLM Wiki pattern</a> — raw sources → AI-maintained wiki → schema.</p>
 <hr />
 <p>Detailed views: <a href="../tech/">Tech Map</a> · <a href="../non-tech/">Non-Tech Map</a> · <a href="../weak-spots/">Weak Spots</a> · <a href="../connections/">Connections</a> · <a href="../learning-journey/">Timeline</a></p>
 

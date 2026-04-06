@@ -8,16 +8,15 @@ graph LR
     AM["🧠 Agent Memory"]
     AIO["⚡ AsyncIO"]
     THR["🧵 Threading"]
+    MP["⚙️ Multiprocessing"]
+    RAG["🔍 RAG"]
     
     AG ---|"builds on"| AM
     AM ---|"async for concurrent<br/>memory ops"| AIO
     THR ---|"both do I/O<br/>concurrency"| AIO
-    AG -.-|"future"| RAG["📖 RAG"]
-    AM -.-|"future"| RAG
-    AM -.-|"future"| VDB["🗄️ Vector DBs"]
-    AM -.-|"future"| LC["🔗 LangChain"]
-    AIO -.-|"future"| FAPI["🚀 FastAPI"]
-    THR -.-|"future"| MP["⚙️ Multiprocessing"]
+    THR ---|"CPU vs I/O"| MP
+    AM ---|"same pipeline<br/>+ CRUD"| RAG
+    AG ---|"agentic RAG"| RAG
     AG ---|"M5: planning<br/>builds on"| TU["🔧 Tool Use (M3)"]
     AG ---|"code as plan"| CE["💻 Code Exec (M3)"]
     AG ---|"manager reflects"| REF["🪞 Reflection (M2)"]
@@ -27,6 +26,9 @@ graph LR
 
 | Date | Connection | How I Found It |
 |------|-----------|----------------|
+| 2026-04-06 | RAG Architecture → Agent Memory (same retrieval pipeline) | RAG retriever + KB = same pattern as agent memory's semantic retrieval, but agent memory adds CRUD + write-back (M1/04) |
+| 2026-04-06 | RAG → Agentic AI (agentic RAG) | RAG M1 mentions agentic RAG as future topic — AI agent decides what/when to retrieve. Connects to M5 planning. |
+| 2026-04-06 | RAG Advantages → Reflection Pattern | RAG's "reduces hallucinations by grounding" parallels reflection's "external feedback grounds output" — both inject real-world info to improve LLM output |
 | 2026-04-03 | Planning → Tool Use (builds on) | Planning adds a multi-step plan LAYER on top of tool use — same tools, but LLM decides the sequence (M5/01) |
 | 2026-04-03 | Planning → Code Execution (code as plan) | Code > JSON > Text for plan format. LLM writes Python as its plan — thousands of functions vs handful of custom tools. Wang et al. 2024 confirms (M5/03) |
 | 2026-04-03 | Multi-Agent → Planning | Manager agent uses planning to coordinate workers. Same mechanism but tools (green) replaced with agents (purple) (M5/04) |

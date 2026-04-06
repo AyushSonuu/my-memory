@@ -12,27 +12,31 @@
         <meta name="author" content="Ayush Sonu">
       
       
-        <link rel="canonical" href="https://ayushsonuu.github.io/my-memory/tech/">
+        <link rel="canonical" href="https://ayushsonuu.github.io/my-memory/_maps/llm-wiki-pattern/">
       
       
+        <link rel="prev" href="../weak-spots/">
+      
+      
+        <link rel="next" href="../../_revision/due-today/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>🗺️ Tech Knowledge Map - 🧠 My Memory</title>
+        <title>📖 LLM Wiki Pattern - 🧠 My Memory</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="../_assets/custom.css">
+      <link rel="stylesheet" href="../../_assets/custom.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tech-knowledge-map" class="md-skip">
+        <a href="#llm-wiki-pattern-karpathy-vs-our-vault" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +98,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="🧠 My Memory" class="md-header__button md-logo" aria-label="🧠 My Memory" data-md-component="logo">
+    <a href="../.." title="🧠 My Memory" class="md-header__button md-logo" aria-label="🧠 My Memory" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.687 1.687 0 0 1-1.86-.55L14.44 18c-.89-.15-1.73-.53-2.44-1.1-.5.15-1 .23-1.5.23-.88 0-1.76-.27-2.5-.79-.53.16-1.07.23-1.62.22-.79.01-1.57-.15-2.3-.45a4.1 4.1 0 0 1-2.43-3.61c-.08-.72.04-1.45.35-2.11-.29-.75-.32-1.57-.07-2.33C2.3 7.11 3 6.32 3.87 5.82c.58-1.69 2.21-2.82 4-2.7 1.6-1.5 4.05-1.66 5.83-.37.42-.11.86-.17 1.3-.17 1.36-.03 2.65.57 3.5 1.64 2.04.53 3.5 2.35 3.58 4.47.05 1.11-.25 2.2-.86 3.13.07.36.11.72.11 1.09m-5-1.41c.57.07 1.02.5 1.02 1.07a1 1 0 0 1-1 1h-.63c-.32.9-.88 1.69-1.62 2.29.25.09.51.14.77.21 5.13-.07 4.53-3.2 4.53-3.25a2.59 2.59 0 0 0-2.69-2.49 1 1 0 0 1-1-1 1 1 0 0 1 1-1c1.23.03 2.41.49 3.33 1.3.05-.29.08-.59.08-.89-.06-1.24-.62-2.32-2.87-2.53-1.25-2.96-4.4-1.32-4.4-.4-.03.23.21.72.25.75a1 1 0 0 1 1 1c0 .55-.45 1-1 1-.53-.02-1.03-.22-1.43-.56-.48.31-1.03.5-1.6.56-.57.05-1.04-.35-1.07-.9a.97.97 0 0 1 .88-1.1c.16-.02.94-.14.94-.77 0-.66.25-1.29.68-1.79-.92-.25-1.91.08-2.91 1.29C6.75 5 6 5.25 5.45 7.2 4.5 7.67 4 8 3.78 9c1.08-.22 2.19-.13 3.22.25.5.19.78.75.59 1.29-.19.52-.77.78-1.29.59-.73-.32-1.55-.34-2.3-.06-.32.27-.32.83-.32 1.27 0 .74.37 1.43 1 1.83.53.27 1.12.41 1.71.4q-.225-.39-.39-.81a1.038 1.038 0 0 1 1.96-.68c.4 1.14 1.42 1.92 2.62 2.05 1.37-.07 2.59-.88 3.19-2.13.23-1.38 1.34-1.5 2.56-1.5m2 7.47-.62-1.3-.71.16 1 1.25zm-4.65-8.61a1 1 0 0 0-.91-1.03c-.71-.04-1.4.2-1.93.67-.57.58-.87 1.38-.84 2.19a1 1 0 0 0 1 1c.57 0 1-.45 1-1 0-.27.07-.54.23-.76.12-.1.27-.15.43-.15.55.03 1.02-.38 1.02-.92"/></svg>
@@ -114,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              🗺️ Tech Knowledge Map
+              📖 LLM Wiki Pattern
             
           </span>
         </div>
@@ -224,11 +228,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href=".." class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../.." class="md-tabs__link">
           
   
   
@@ -250,7 +256,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="agent-memory/" class="md-tabs__link">
+        <a href="../../tech/agent-memory/" class="md-tabs__link">
           
   
   
@@ -272,7 +278,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="python/" class="md-tabs__link">
+        <a href="../../tech/python/" class="md-tabs__link">
           
   
   
@@ -294,7 +300,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="agentic-ai/" class="md-tabs__link">
+        <a href="../../tech/agentic-ai/" class="md-tabs__link">
           
   
   
@@ -316,7 +322,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="rag/" class="md-tabs__link">
+        <a href="../../tech/rag/" class="md-tabs__link">
           
   
   
@@ -380,7 +386,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="🧠 My Memory" class="md-nav__button md-logo" aria-label="🧠 My Memory" data-md-component="logo">
+    <a href="../.." title="🧠 My Memory" class="md-nav__button md-logo" aria-label="🧠 My Memory" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.687 1.687 0 0 1-1.86-.55L14.44 18c-.89-.15-1.73-.53-2.44-1.1-.5.15-1 .23-1.5.23-.88 0-1.76-.27-2.5-.79-.53.16-1.07.23-1.62.22-.79.01-1.57-.15-2.3-.45a4.1 4.1 0 0 1-2.43-3.61c-.08-.72.04-1.45.35-2.11-.29-.75-.32-1.57-.07-2.33C2.3 7.11 3 6.32 3.87 5.82c.58-1.69 2.21-2.82 4-2.7 1.6-1.5 4.05-1.66 5.83-.37.42-.11.86-.17 1.3-.17 1.36-.03 2.65.57 3.5 1.64 2.04.53 3.5 2.35 3.58 4.47.05 1.11-.25 2.2-.86 3.13.07.36.11.72.11 1.09m-5-1.41c.57.07 1.02.5 1.02 1.07a1 1 0 0 1-1 1h-.63c-.32.9-.88 1.69-1.62 2.29.25.09.51.14.77.21 5.13-.07 4.53-3.2 4.53-3.25a2.59 2.59 0 0 0-2.69-2.49 1 1 0 0 1-1-1 1 1 0 0 1 1-1c1.23.03 2.41.49 3.33 1.3.05-.29.08-.59.08-.89-.06-1.24-.62-2.32-2.87-2.53-1.25-2.96-4.4-1.32-4.4-.4-.03.23.21.72.25.75a1 1 0 0 1 1 1c0 .55-.45 1-1 1-.53-.02-1.03-.22-1.43-.56-.48.31-1.03.5-1.6.56-.57.05-1.04-.35-1.07-.9a.97.97 0 0 1 .88-1.1c.16-.02.94-.14.94-.77 0-.66.25-1.29.68-1.79-.92-.25-1.91.08-2.91 1.29C6.75 5 6 5.25 5.45 7.2 4.5 7.67 4 8 3.78 9c1.08-.22 2.19-.13 3.22.25.5.19.78.75.59 1.29-.19.52-.77.78-1.29.59-.73-.32-1.55-.34-2.3-.06-.32.27-.32.83-.32 1.27 0 .74.37 1.43 1 1.83.53.27 1.12.41 1.71.4q-.225-.39-.39-.81a1.038 1.038 0 0 1 1.96-.68c.4 1.14 1.42 1.92 2.62 2.05 1.37-.07 2.59-.88 3.19-2.13.23-1.38 1.34-1.5 2.56-1.5m2 7.47-.62-1.3-.71.16 1 1.25zm-4.65-8.61a1 1 0 0 0-.91-1.03c-.71-.04-1.4.2-1.93.67-.57.58-.87 1.38-.84 2.19a1 1 0 0 0 1 1c.57 0 1-.45 1-1 0-.27.07-.54.23-.76.12-.1.27-.15.43-.15.55.03 1.02-.38 1.02-.92"/></svg>
@@ -407,6 +413,8 @@
       
   
   
+    
+  
   
   
     
@@ -436,18 +444,21 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href=".." class="md-nav__link ">
+            <a href="../.." class="md-nav__link ">
               
   
   
@@ -465,13 +476,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -491,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_maps/everything/" class="md-nav__link">
+      <a href="../everything/" class="md-nav__link">
         
   
   
@@ -519,7 +530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_maps/tech/" class="md-nav__link">
+      <a href="../tech/" class="md-nav__link">
         
   
   
@@ -547,7 +558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_maps/connections/" class="md-nav__link">
+      <a href="../connections/" class="md-nav__link">
         
   
   
@@ -575,7 +586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_maps/learning-journey/" class="md-nav__link">
+      <a href="../learning-journey/" class="md-nav__link">
         
   
   
@@ -603,7 +614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_maps/weak-spots/" class="md-nav__link">
+      <a href="../weak-spots/" class="md-nav__link">
         
   
   
@@ -628,10 +639,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../_maps/llm-wiki-pattern/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📖 LLM Wiki Pattern
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -647,6 +685,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#one-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 One Line
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-three-layer-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🖼️ The Three-Layer Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚖️ Full Comparison
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-we-adopted-v33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 What We Adopted (V3.3)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-we-already-had-better" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 What We Already Had (Better)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -659,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_revision/due-today/" class="md-nav__link">
+      <a href="../../_revision/due-today/" class="md-nav__link">
         
   
   
@@ -753,7 +866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../plans/roadmap/" class="md-nav__link">
+      <a href="../../plans/roadmap/" class="md-nav__link">
         
   
   
@@ -781,7 +894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../plans/dsa-tracker/" class="md-nav__link">
+      <a href="../../plans/dsa-tracker/" class="md-nav__link">
         
   
   
@@ -809,7 +922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../plans/lld-tracker/" class="md-nav__link">
+      <a href="../../plans/lld-tracker/" class="md-nav__link">
         
   
   
@@ -837,7 +950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../plans/hld-tracker/" class="md-nav__link">
+      <a href="../../plans/hld-tracker/" class="md-nav__link">
         
   
   
@@ -865,7 +978,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../plans/ai-courses-tracker/" class="md-nav__link">
+      <a href="../../plans/ai-courses-tracker/" class="md-nav__link">
         
   
   
@@ -893,7 +1006,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../plans/speaking-tracker/" class="md-nav__link">
+      <a href="../../plans/speaking-tracker/" class="md-nav__link">
         
   
   
@@ -921,7 +1034,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../plans/weekly-reviews/" class="md-nav__link">
+      <a href="../../plans/weekly-reviews/" class="md-nav__link">
         
   
   
@@ -1003,7 +1116,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="agent-memory/" class="md-nav__link ">
+            <a href="../../tech/agent-memory/" class="md-nav__link ">
               
   
   
@@ -1047,7 +1160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agent-memory/01-introduction/" class="md-nav__link">
+      <a href="../../tech/agent-memory/01-introduction/" class="md-nav__link">
         
   
   
@@ -1075,7 +1188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agent-memory/02-why-agents-need-memory/" class="md-nav__link">
+      <a href="../../tech/agent-memory/02-why-agents-need-memory/" class="md-nav__link">
         
   
   
@@ -1103,7 +1216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agent-memory/03-memory-manager/" class="md-nav__link">
+      <a href="../../tech/agent-memory/03-memory-manager/" class="md-nav__link">
         
   
   
@@ -1131,7 +1244,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agent-memory/04-semantic-tool-memory/" class="md-nav__link">
+      <a href="../../tech/agent-memory/04-semantic-tool-memory/" class="md-nav__link">
         
   
   
@@ -1159,7 +1272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agent-memory/05-memory-operations/" class="md-nav__link">
+      <a href="../../tech/agent-memory/05-memory-operations/" class="md-nav__link">
         
   
   
@@ -1187,7 +1300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agent-memory/06-memory-aware-agent/" class="md-nav__link">
+      <a href="../../tech/agent-memory/06-memory-aware-agent/" class="md-nav__link">
         
   
   
@@ -1215,7 +1328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agent-memory/07-conclusion/" class="md-nav__link">
+      <a href="../../tech/agent-memory/07-conclusion/" class="md-nav__link">
         
   
   
@@ -1301,7 +1414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agent-memory/flashcards/" class="md-nav__link">
+      <a href="../../tech/agent-memory/flashcards/" class="md-nav__link">
         
   
   
@@ -1329,7 +1442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agent-memory/cheatsheet/" class="md-nav__link">
+      <a href="../../tech/agent-memory/cheatsheet/" class="md-nav__link">
         
   
   
@@ -1357,7 +1470,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agent-memory/vs/" class="md-nav__link">
+      <a href="../../tech/agent-memory/vs/" class="md-nav__link">
         
   
   
@@ -1424,7 +1537,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="agent-memory/code/" class="md-nav__link ">
+            <a href="../../tech/agent-memory/code/" class="md-nav__link ">
               
   
   
@@ -1468,7 +1581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agent-memory/code/L3/L3/" class="md-nav__link">
+      <a href="../../tech/agent-memory/code/L3/L3/" class="md-nav__link">
         
   
   
@@ -1496,7 +1609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agent-memory/code/L4/L4/" class="md-nav__link">
+      <a href="../../tech/agent-memory/code/L4/L4/" class="md-nav__link">
         
   
   
@@ -1524,7 +1637,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agent-memory/code/L5/L5/" class="md-nav__link">
+      <a href="../../tech/agent-memory/code/L5/L5/" class="md-nav__link">
         
   
   
@@ -1552,7 +1665,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agent-memory/code/L6/L6/" class="md-nav__link">
+      <a href="../../tech/agent-memory/code/L6/L6/" class="md-nav__link">
         
   
   
@@ -1580,7 +1693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_generated/tech/agent-memory/code/helper/" class="md-nav__link">
+      <a href="../../_generated/tech/agent-memory/code/helper/" class="md-nav__link">
         
   
   
@@ -1650,7 +1763,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="python/" class="md-nav__link ">
+            <a href="../../tech/python/" class="md-nav__link ">
               
   
   
@@ -1721,7 +1834,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="python/asyncio/" class="md-nav__link ">
+            <a href="../../tech/python/asyncio/" class="md-nav__link ">
               
   
   
@@ -1765,7 +1878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="python/asyncio/01-asyncio-complete-guide/" class="md-nav__link">
+      <a href="../../tech/python/asyncio/01-asyncio-complete-guide/" class="md-nav__link">
         
   
   
@@ -1793,7 +1906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="python/asyncio/flashcards/" class="md-nav__link">
+      <a href="../../tech/python/asyncio/flashcards/" class="md-nav__link">
         
   
   
@@ -1858,7 +1971,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="python/asyncio/code/" class="md-nav__link ">
+            <a href="../../tech/python/asyncio/code/" class="md-nav__link ">
               
   
   
@@ -1902,7 +2015,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_generated/tech/python/asyncio/code/L1/terms/" class="md-nav__link">
+      <a href="../../_generated/tech/python/asyncio/code/L1/terms/" class="md-nav__link">
         
   
   
@@ -1930,7 +2043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_generated/tech/python/asyncio/code/L1/example_1/" class="md-nav__link">
+      <a href="../../_generated/tech/python/asyncio/code/L1/example_1/" class="md-nav__link">
         
   
   
@@ -1958,7 +2071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_generated/tech/python/asyncio/code/L1/example_2/" class="md-nav__link">
+      <a href="../../_generated/tech/python/asyncio/code/L1/example_2/" class="md-nav__link">
         
   
   
@@ -1986,7 +2099,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_generated/tech/python/asyncio/code/L1/example_3/" class="md-nav__link">
+      <a href="../../_generated/tech/python/asyncio/code/L1/example_3/" class="md-nav__link">
         
   
   
@@ -2014,7 +2127,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_generated/tech/python/asyncio/code/L1/example_4/" class="md-nav__link">
+      <a href="../../_generated/tech/python/asyncio/code/L1/example_4/" class="md-nav__link">
         
   
   
@@ -2042,7 +2155,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_generated/tech/python/asyncio/code/L1/example_5/" class="md-nav__link">
+      <a href="../../_generated/tech/python/asyncio/code/L1/example_5/" class="md-nav__link">
         
   
   
@@ -2070,7 +2183,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_generated/tech/python/asyncio/code/L1/example_6/" class="md-nav__link">
+      <a href="../../_generated/tech/python/asyncio/code/L1/example_6/" class="md-nav__link">
         
   
   
@@ -2098,7 +2211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_generated/tech/python/asyncio/code/L1/example_7/" class="md-nav__link">
+      <a href="../../_generated/tech/python/asyncio/code/L1/example_7/" class="md-nav__link">
         
   
   
@@ -2169,7 +2282,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="python/threading/" class="md-nav__link ">
+            <a href="../../tech/python/threading/" class="md-nav__link ">
               
   
   
@@ -2213,7 +2326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="python/threading/01-threading-complete-guide/" class="md-nav__link">
+      <a href="../../tech/python/threading/01-threading-complete-guide/" class="md-nav__link">
         
   
   
@@ -2241,7 +2354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="python/threading/flashcards/" class="md-nav__link">
+      <a href="../../tech/python/threading/flashcards/" class="md-nav__link">
         
   
   
@@ -2302,7 +2415,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="python/threading/code/" class="md-nav__link ">
+            <a href="../../tech/python/threading/code/" class="md-nav__link ">
               
   
   
@@ -2346,7 +2459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_generated/tech/python/threading/code/L1/01_synchronous/" class="md-nav__link">
+      <a href="../../_generated/tech/python/threading/code/L1/01_synchronous/" class="md-nav__link">
         
   
   
@@ -2374,7 +2487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_generated/tech/python/threading/code/L1/02_basic_threads/" class="md-nav__link">
+      <a href="../../_generated/tech/python/threading/code/L1/02_basic_threads/" class="md-nav__link">
         
   
   
@@ -2402,7 +2515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_generated/tech/python/threading/code/L1/03_loop_threads/" class="md-nav__link">
+      <a href="../../_generated/tech/python/threading/code/L1/03_loop_threads/" class="md-nav__link">
         
   
   
@@ -2430,7 +2543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_generated/tech/python/threading/code/L1/04_thread_pool_submit/" class="md-nav__link">
+      <a href="../../_generated/tech/python/threading/code/L1/04_thread_pool_submit/" class="md-nav__link">
         
   
   
@@ -2458,7 +2571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_generated/tech/python/threading/code/L1/05_thread_pool_map/" class="md-nav__link">
+      <a href="../../_generated/tech/python/threading/code/L1/05_thread_pool_map/" class="md-nav__link">
         
   
   
@@ -2486,7 +2599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_generated/tech/python/threading/code/L1/06_download_images/" class="md-nav__link">
+      <a href="../../_generated/tech/python/threading/code/L1/06_download_images/" class="md-nav__link">
         
   
   
@@ -2557,7 +2670,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="python/multiprocessing/" class="md-nav__link ">
+            <a href="../../tech/python/multiprocessing/" class="md-nav__link ">
               
   
   
@@ -2601,7 +2714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="python/multiprocessing/01-multiprocessing-complete-guide/" class="md-nav__link">
+      <a href="../../tech/python/multiprocessing/01-multiprocessing-complete-guide/" class="md-nav__link">
         
   
   
@@ -2629,7 +2742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="python/multiprocessing/flashcards/" class="md-nav__link">
+      <a href="../../tech/python/multiprocessing/flashcards/" class="md-nav__link">
         
   
   
@@ -2690,7 +2803,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="python/multiprocessing/code/" class="md-nav__link ">
+            <a href="../../tech/python/multiprocessing/code/" class="md-nav__link ">
               
   
   
@@ -2734,7 +2847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_generated/tech/python/multiprocessing/code/L1/01_synchronous/" class="md-nav__link">
+      <a href="../../_generated/tech/python/multiprocessing/code/L1/01_synchronous/" class="md-nav__link">
         
   
   
@@ -2762,7 +2875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_generated/tech/python/multiprocessing/code/L1/02_basic_processes/" class="md-nav__link">
+      <a href="../../_generated/tech/python/multiprocessing/code/L1/02_basic_processes/" class="md-nav__link">
         
   
   
@@ -2790,7 +2903,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_generated/tech/python/multiprocessing/code/L1/03_loop_processes/" class="md-nav__link">
+      <a href="../../_generated/tech/python/multiprocessing/code/L1/03_loop_processes/" class="md-nav__link">
         
   
   
@@ -2818,7 +2931,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_generated/tech/python/multiprocessing/code/L1/04_pool_submit/" class="md-nav__link">
+      <a href="../../_generated/tech/python/multiprocessing/code/L1/04_pool_submit/" class="md-nav__link">
         
   
   
@@ -2846,7 +2959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_generated/tech/python/multiprocessing/code/L1/05_pool_map/" class="md-nav__link">
+      <a href="../../_generated/tech/python/multiprocessing/code/L1/05_pool_map/" class="md-nav__link">
         
   
   
@@ -2874,7 +2987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../_generated/tech/python/multiprocessing/code/L1/06_process_images/" class="md-nav__link">
+      <a href="../../_generated/tech/python/multiprocessing/code/L1/06_process_images/" class="md-nav__link">
         
   
   
@@ -2958,7 +3071,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="agentic-ai/" class="md-nav__link ">
+            <a href="../../tech/agentic-ai/" class="md-nav__link ">
               
   
   
@@ -3041,7 +3154,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="agentic-ai/module-1-intro/" class="md-nav__link ">
+            <a href="../../tech/agentic-ai/module-1-intro/" class="md-nav__link ">
               
   
   
@@ -3085,7 +3198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-1-intro/01-welcome/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-1-intro/01-welcome/" class="md-nav__link">
         
   
   
@@ -3113,7 +3226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-1-intro/02-what-is-agentic-ai/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-1-intro/02-what-is-agentic-ai/" class="md-nav__link">
         
   
   
@@ -3141,7 +3254,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-1-intro/03-degrees-of-autonomy/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-1-intro/03-degrees-of-autonomy/" class="md-nav__link">
         
   
   
@@ -3169,7 +3282,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-1-intro/04-benefits/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-1-intro/04-benefits/" class="md-nav__link">
         
   
   
@@ -3197,7 +3310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-1-intro/05-applications/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-1-intro/05-applications/" class="md-nav__link">
         
   
   
@@ -3225,7 +3338,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-1-intro/06-task-decomposition/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-1-intro/06-task-decomposition/" class="md-nav__link">
         
   
   
@@ -3253,7 +3366,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-1-intro/07-evals/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-1-intro/07-evals/" class="md-nav__link">
         
   
   
@@ -3281,7 +3394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-1-intro/08-design-patterns/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-1-intro/08-design-patterns/" class="md-nav__link">
         
   
   
@@ -3309,7 +3422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-1-intro/flashcards/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-1-intro/flashcards/" class="md-nav__link">
         
   
   
@@ -3380,7 +3493,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="agentic-ai/module-2-reflection/" class="md-nav__link ">
+            <a href="../../tech/agentic-ai/module-2-reflection/" class="md-nav__link ">
               
   
   
@@ -3424,7 +3537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-2-reflection/01-reflection-to-improve-outputs/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-2-reflection/01-reflection-to-improve-outputs/" class="md-nav__link">
         
   
   
@@ -3452,7 +3565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-2-reflection/02-why-not-direct-generation/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-2-reflection/02-why-not-direct-generation/" class="md-nav__link">
         
   
   
@@ -3480,7 +3593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-2-reflection/03-chart-generation-workflow/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-2-reflection/03-chart-generation-workflow/" class="md-nav__link">
         
   
   
@@ -3508,7 +3621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-2-reflection/04-evaluating-reflection/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-2-reflection/04-evaluating-reflection/" class="md-nav__link">
         
   
   
@@ -3536,7 +3649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-2-reflection/05-external-feedback/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-2-reflection/05-external-feedback/" class="md-nav__link">
         
   
   
@@ -3564,7 +3677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-2-reflection/flashcards/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-2-reflection/flashcards/" class="md-nav__link">
         
   
   
@@ -3654,7 +3767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-2-reflection/code/M2/examples/sql_agent/sql/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-2-reflection/code/M2/examples/sql_agent/sql/" class="md-nav__link">
         
   
   
@@ -3682,7 +3795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-2-reflection/code/M2/examples/visualization_agent/visualization/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-2-reflection/code/M2/examples/visualization_agent/visualization/" class="md-nav__link">
         
   
   
@@ -3710,7 +3823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-2-reflection/code/M2/ungraded_labs/M2_UGL_1/M2_UGL_1/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-2-reflection/code/M2/ungraded_labs/M2_UGL_1/M2_UGL_1/" class="md-nav__link">
         
   
   
@@ -3738,7 +3851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-2-reflection/code/M2/ungraded_labs/M2_UGL_2/M2_UGL_2/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-2-reflection/code/M2/ungraded_labs/M2_UGL_2/M2_UGL_2/" class="md-nav__link">
         
   
   
@@ -3766,7 +3879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-2-reflection/code/M2/graded_labs/research-agent/GL-M2/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-2-reflection/code/M2/graded_labs/research-agent/GL-M2/" class="md-nav__link">
         
   
   
@@ -3845,7 +3958,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="agentic-ai/module-3-tool-use/" class="md-nav__link ">
+            <a href="../../tech/agentic-ai/module-3-tool-use/" class="md-nav__link ">
               
   
   
@@ -3889,7 +4002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-3-tool-use/01-what-are-tools/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-3-tool-use/01-what-are-tools/" class="md-nav__link">
         
   
   
@@ -3917,7 +4030,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-3-tool-use/02-creating-a-tool/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-3-tool-use/02-creating-a-tool/" class="md-nav__link">
         
   
   
@@ -3945,7 +4058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-3-tool-use/03-tool-syntax/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-3-tool-use/03-tool-syntax/" class="md-nav__link">
         
   
   
@@ -3973,7 +4086,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-3-tool-use/04-code-execution/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-3-tool-use/04-code-execution/" class="md-nav__link">
         
   
   
@@ -4001,7 +4114,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-3-tool-use/05-mcp/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-3-tool-use/05-mcp/" class="md-nav__link">
         
   
   
@@ -4029,7 +4142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-3-tool-use/flashcards/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-3-tool-use/flashcards/" class="md-nav__link">
         
   
   
@@ -4115,7 +4228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-3-tool-use/code/M3/ungraded_labs/M3_UGL_1/M3_UGL_1/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-3-tool-use/code/M3/ungraded_labs/M3_UGL_1/M3_UGL_1/" class="md-nav__link">
         
   
   
@@ -4143,7 +4256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-3-tool-use/code/M3/ungraded_labs/M3_UGL_2/M3_UGL_2/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-3-tool-use/code/M3/ungraded_labs/M3_UGL_2/M3_UGL_2/" class="md-nav__link">
         
   
   
@@ -4171,7 +4284,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-3-tool-use/code/M3/graded_labs/research_agent/GL-M3/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-3-tool-use/code/M3/graded_labs/research_agent/GL-M3/" class="md-nav__link">
         
   
   
@@ -4254,7 +4367,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="agentic-ai/module-4-practical-tips/" class="md-nav__link ">
+            <a href="../../tech/agentic-ai/module-4-practical-tips/" class="md-nav__link ">
               
   
   
@@ -4298,7 +4411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-4-practical-tips/01-evaluations/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-4-practical-tips/01-evaluations/" class="md-nav__link">
         
   
   
@@ -4326,7 +4439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-4-practical-tips/02-error-analysis/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-4-practical-tips/02-error-analysis/" class="md-nav__link">
         
   
   
@@ -4354,7 +4467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-4-practical-tips/03-more-error-analysis/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-4-practical-tips/03-more-error-analysis/" class="md-nav__link">
         
   
   
@@ -4382,7 +4495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-4-practical-tips/04-component-level-evals/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-4-practical-tips/04-component-level-evals/" class="md-nav__link">
         
   
   
@@ -4410,7 +4523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-4-practical-tips/05-addressing-problems/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-4-practical-tips/05-addressing-problems/" class="md-nav__link">
         
   
   
@@ -4438,7 +4551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-4-practical-tips/06-latency-cost/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-4-practical-tips/06-latency-cost/" class="md-nav__link">
         
   
   
@@ -4466,7 +4579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-4-practical-tips/07-dev-process-summary/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-4-practical-tips/07-dev-process-summary/" class="md-nav__link">
         
   
   
@@ -4494,7 +4607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-4-practical-tips/flashcards/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-4-practical-tips/flashcards/" class="md-nav__link">
         
   
   
@@ -4576,7 +4689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-4-practical-tips/code/M4_UGL_1/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-4-practical-tips/code/M4_UGL_1/" class="md-nav__link">
         
   
   
@@ -4653,7 +4766,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="agentic-ai/module-5-autonomous-agents/" class="md-nav__link ">
+            <a href="../../tech/agentic-ai/module-5-autonomous-agents/" class="md-nav__link ">
               
   
   
@@ -4697,7 +4810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-5-autonomous-agents/01-planning-workflows/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-5-autonomous-agents/01-planning-workflows/" class="md-nav__link">
         
   
   
@@ -4725,7 +4838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-5-autonomous-agents/02-llm-plans/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-5-autonomous-agents/02-llm-plans/" class="md-nav__link">
         
   
   
@@ -4753,7 +4866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-5-autonomous-agents/03-planning-code-execution/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-5-autonomous-agents/03-planning-code-execution/" class="md-nav__link">
         
   
   
@@ -4781,7 +4894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-5-autonomous-agents/04-multi-agent/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-5-autonomous-agents/04-multi-agent/" class="md-nav__link">
         
   
   
@@ -4809,7 +4922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-5-autonomous-agents/05-communication-patterns/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-5-autonomous-agents/05-communication-patterns/" class="md-nav__link">
         
   
   
@@ -4837,7 +4950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/module-5-autonomous-agents/flashcards/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/module-5-autonomous-agents/flashcards/" class="md-nav__link">
         
   
   
@@ -4931,7 +5044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/flashcards/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/flashcards/" class="md-nav__link">
         
   
   
@@ -4959,7 +5072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/cheatsheet/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/cheatsheet/" class="md-nav__link">
         
   
   
@@ -4987,7 +5100,7 @@
   
   
     <li class="md-nav__item">
-      <a href="agentic-ai/vs/" class="md-nav__link">
+      <a href="../../tech/agentic-ai/vs/" class="md-nav__link">
         
   
   
@@ -5063,7 +5176,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="rag/" class="md-nav__link ">
+            <a href="../../tech/rag/" class="md-nav__link ">
               
   
   
@@ -5140,7 +5253,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="rag/module-1-rag-overview/" class="md-nav__link ">
+            <a href="../../tech/rag/module-1-rag-overview/" class="md-nav__link ">
               
   
   
@@ -5184,7 +5297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="rag/module-1-rag-overview/00-conversation-andrew-ng/" class="md-nav__link">
+      <a href="../../tech/rag/module-1-rag-overview/00-conversation-andrew-ng/" class="md-nav__link">
         
   
   
@@ -5212,7 +5325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="rag/module-1-rag-overview/01-module-introduction/" class="md-nav__link">
+      <a href="../../tech/rag/module-1-rag-overview/01-module-introduction/" class="md-nav__link">
         
   
   
@@ -5240,7 +5353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="rag/module-1-rag-overview/02-introduction-to-rag/" class="md-nav__link">
+      <a href="../../tech/rag/module-1-rag-overview/02-introduction-to-rag/" class="md-nav__link">
         
   
   
@@ -5268,7 +5381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="rag/module-1-rag-overview/03-applications-of-rag/" class="md-nav__link">
+      <a href="../../tech/rag/module-1-rag-overview/03-applications-of-rag/" class="md-nav__link">
         
   
   
@@ -5296,7 +5409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="rag/module-1-rag-overview/04-rag-architecture-overview/" class="md-nav__link">
+      <a href="../../tech/rag/module-1-rag-overview/04-rag-architecture-overview/" class="md-nav__link">
         
   
   
@@ -5324,7 +5437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="rag/module-1-rag-overview/flashcards/" class="md-nav__link">
+      <a href="../../tech/rag/module-1-rag-overview/flashcards/" class="md-nav__link">
         
   
   
@@ -5383,7 +5496,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="rag/module-2-ir-search-foundations/" class="md-nav__link ">
+            <a href="../../tech/rag/module-2-ir-search-foundations/" class="md-nav__link ">
               
   
   
@@ -5427,7 +5540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="rag/module-2-ir-search-foundations/flashcards/" class="md-nav__link">
+      <a href="../../tech/rag/module-2-ir-search-foundations/flashcards/" class="md-nav__link">
         
   
   
@@ -5486,7 +5599,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="rag/module-3-ir-vector-databases/" class="md-nav__link ">
+            <a href="../../tech/rag/module-3-ir-vector-databases/" class="md-nav__link ">
               
   
   
@@ -5530,7 +5643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="rag/module-3-ir-vector-databases/flashcards/" class="md-nav__link">
+      <a href="../../tech/rag/module-3-ir-vector-databases/flashcards/" class="md-nav__link">
         
   
   
@@ -5589,7 +5702,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="rag/module-4-llms-text-generation/" class="md-nav__link ">
+            <a href="../../tech/rag/module-4-llms-text-generation/" class="md-nav__link ">
               
   
   
@@ -5633,7 +5746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="rag/module-4-llms-text-generation/flashcards/" class="md-nav__link">
+      <a href="../../tech/rag/module-4-llms-text-generation/flashcards/" class="md-nav__link">
         
   
   
@@ -5692,7 +5805,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="rag/module-5-rag-production/" class="md-nav__link ">
+            <a href="../../tech/rag/module-5-rag-production/" class="md-nav__link ">
               
   
   
@@ -5736,7 +5849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="rag/module-5-rag-production/flashcards/" class="md-nav__link">
+      <a href="../../tech/rag/module-5-rag-production/flashcards/" class="md-nav__link">
         
   
   
@@ -5826,7 +5939,7 @@
   
   
     <li class="md-nav__item">
-      <a href="rag/flashcards/" class="md-nav__link">
+      <a href="../../tech/rag/flashcards/" class="md-nav__link">
         
   
   
@@ -6038,10 +6151,54 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#topics" class="md-nav__link">
+  <a href="#one-line" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📊 Topics
+        🎯 One Line
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-three-layer-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🖼️ The Three-Layer Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚖️ Full Comparison
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-we-adopted-v33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 What We Adopted (V3.3)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-we-already-had-better" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 What We Already Had (Better)
       
     </span>
   </a>
@@ -6065,83 +6222,199 @@
 
 
 
-<h1 id="tech-knowledge-map">🗺️ Tech Knowledge Map<a class="headerlink" href="#tech-knowledge-map" title="Permanent link">#</a></h1>
+<h1 id="llm-wiki-pattern-karpathy-vs-our-vault">LLM Wiki Pattern — Karpathy vs Our Vault<a class="headerlink" href="#llm-wiki-pattern-karpathy-vs-our-vault" title="Permanent link">#</a></h1>
 <blockquote>
-<p>All tech topics with confidence + progress.</p>
+<p>📰 Source: <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">Andrej Karpathy's "LLM Wiki" gist</a> (April 2026)
+Filed: 2026-04-06 — first use of Query → Wiki Filing rule!</p>
 </blockquote>
-<pre class="mermaid"><code>graph TB
-    T(("🔧 Tech"))
-    T --&gt; AG["🤖 &lt;b&gt;Agentic AI&lt;/b&gt;&lt;br/&gt;M1-M5 ✅"]
-    T --&gt; AM["🧠 &lt;b&gt;Agent Memory&lt;/b&gt;&lt;br/&gt;7/7 lessons ✅"]
-    T --&gt; RAG["🔍 &lt;b&gt;RAG&lt;/b&gt;&lt;br/&gt;M1: 5/10 🔴"]
-    T --&gt; PY["🐍 &lt;b&gt;Python&lt;/b&gt;"]
-    PY --&gt; AIO["⚡ &lt;b&gt;AsyncIO&lt;/b&gt;&lt;br/&gt;1/1 ✅"]
-    PY --&gt; THR["🧵 &lt;b&gt;Threading&lt;/b&gt;&lt;br/&gt;1/1 ✅"]
-    PY --&gt; MP["⚙️ &lt;b&gt;Multiprocessing&lt;/b&gt;&lt;br/&gt;1/1 ✅"]
-    AG -.-&gt;|"builds on"| AM
-    AM -.-&gt;|"retrieval"| RAG
-    RAG -.-&gt;|"extends"| AG
-    THR -.-&gt;|"vs"| AIO
-    THR -.-&gt;|"vs"| MP</code></pre>
-<h2 id="topics">📊 Topics<a class="headerlink" href="#topics" title="Permanent link">#</a></h2>
+<hr />
+<h2 id="one-line">🎯 One Line<a class="headerlink" href="#one-line" title="Permanent link">#</a></h2>
+<blockquote>
+<p>We're running the same architecture Karpathy described — raw sources → LLM-maintained wiki → schema. Ours is specialized for learning + teaching with spaced repetition, visual notes, and dual ingest.</p>
+</blockquote>
+<hr />
+<h2 id="the-three-layer-architecture">🖼️ The Three-Layer Architecture<a class="headerlink" href="#the-three-layer-architecture" title="Permanent link">#</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌───────────────────────────────────────────────────────┐
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│  LAYER 1: RAW SOURCES (immutable)                      │
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│                                                        │
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│  Karpathy: articles, papers, images in raw/            │
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│  Us: transcripts, PDFs in course_material/, code/      │
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│      + articles, tweets, URLs (KB mode)                │
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>├───────────────────────────────────────────────────────┤
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│  LAYER 2: THE WIKI (LLM-maintained)                    │
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│                                                        │
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│  Karpathy: entity pages, summaries, concept pages      │
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│  Us: lesson notes, READMEs, flashcards, cheatsheets,  │
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│      vs.md, _maps/ — all LLM-generated                │
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>├───────────────────────────────────────────────────────┤
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│  LAYER 3: THE SCHEMA (conventions)                     │
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>│                                                        │
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>│  Karpathy: CLAUDE.md / AGENTS.md                       │
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>│  Us: AGENTS.md + SOUL.md + _templates/                 │
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>└───────────────────────────────────────────────────────┘
+</span></code></pre></div>
+<h2 id="full-comparison">⚖️ Full Comparison<a class="headerlink" href="#full-comparison" title="Permanent link">#</a></h2>
 <table>
 <thead>
 <tr>
-<th>Topic</th>
-<th>Confidence</th>
-<th>Lessons</th>
-<th>Flashcards</th>
-<th>Last Updated</th>
+<th>Dimension</th>
+<th>Karpathy's LLM Wiki</th>
+<th>Our <code>my-memory</code> Vault</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="agentic-ai/">🤖 Agentic AI</a></td>
-<td>🟡 Learning</td>
-<td>30/30 ✅</td>
-<td>55+</td>
-<td>2026-04-03</td>
+<td><strong>Purpose</strong></td>
+<td>General-purpose knowledge management</td>
+<td>Learning + teaching + knowledge base</td>
 </tr>
 <tr>
-<td><a href="agent-memory/">🧠 Agent Memory</a></td>
-<td>🟡 Learning</td>
-<td>7/7 ✅</td>
-<td>40+</td>
-<td>2026-03-21</td>
+<td><strong>Raw sources</strong></td>
+<td><code>raw/</code> folder — articles, papers, images</td>
+<td><code>course_material/</code>, <code>code/</code>, chat transcripts, articles, URLs</td>
 </tr>
 <tr>
-<td><a href="rag/">🔍 RAG</a></td>
-<td>🔴 Starting</td>
-<td>5/62</td>
-<td>20+</td>
-<td>2026-04-06</td>
+<td><strong>Wiki layer</strong></td>
+<td>Flat markdown pages — entities, summaries</td>
+<td>Hierarchical — topic/module/lesson with READMEs at every level</td>
 </tr>
 <tr>
-<td><a href="python/asyncio/">⚡ AsyncIO</a></td>
-<td>🟡 Learning</td>
-<td>1/1 ✅</td>
-<td>12</td>
-<td>2026-03-21</td>
+<td><strong>Schema</strong></td>
+<td><code>CLAUDE.md</code></td>
+<td><code>AGENTS.md</code> + <code>SOUL.md</code> + <code>_templates/</code></td>
 </tr>
 <tr>
-<td><a href="python/threading/">🧵 Threading</a></td>
-<td>🟡 Learning</td>
-<td>1/1 ✅</td>
-<td>10</td>
-<td>2026-03-24</td>
+<td><strong>Index</strong></td>
+<td>Single <code>index.md</code></td>
+<td>6 map files in <code>_maps/</code> (everything, tech, non-tech, weak-spots, connections, journey)</td>
 </tr>
 <tr>
-<td><a href="python/multiprocessing/">⚙️ Multiprocessing</a></td>
-<td>🟡 Learning</td>
-<td>1/1 ✅</td>
-<td>10</td>
-<td>2026-04-04</td>
+<td><strong>Log</strong></td>
+<td>Single <code>log.md</code> (append-only)</td>
+<td><code>memory/YYYY-MM-DD.md</code> (daily) + <code>MEMORY.md</code> (curated long-term) — two-layer system</td>
+</tr>
+<tr>
+<td><strong>Reader/IDE</strong></td>
+<td>Obsidian (graph view)</td>
+<td>MkDocs Material → GitHub Pages</td>
+</tr>
+<tr>
+<td><strong>Search</strong></td>
+<td><code>qmd</code> vector search at scale</td>
+<td>Hierarchy + maps + grep (sufficient at current scale)</td>
+</tr>
+<tr>
+<td><strong>Ingest</strong></td>
+<td>Single mode (can batch)</td>
+<td><strong>Dual mode</strong> — Deep Ingest (courses) + KB Ingest (articles/TILs)</td>
+</tr>
+<tr>
+<td><strong>Revision</strong></td>
+<td>None</td>
+<td>Spaced repetition: Day 1→3→7→14→30→90 + flashcards</td>
+</tr>
+<tr>
+<td><strong>Active recall</strong></td>
+<td>None</td>
+<td>Flashcards at every level with cross-topic pulls</td>
+</tr>
+<tr>
+<td><strong>Visual style</strong></td>
+<td>Plain reference text</td>
+<td>Mermaid + ASCII + tables + emoji + Hinglish hooks</td>
+</tr>
+<tr>
+<td><strong>Teaching</strong></td>
+<td>Not a goal</td>
+<td>Core goal — numbered files = instant video scripts</td>
+</tr>
+<tr>
+<td><strong>Confidence tracking</strong></td>
+<td>What exists vs not</td>
+<td>🟢🟡🔴 per topic + weak-spots map</td>
+</tr>
+<tr>
+<td><strong>Health audit</strong></td>
+<td>Lint operation</td>
+<td>Tier 3 Monthly Lint (adopted from Karpathy)</td>
+</tr>
+<tr>
+<td><strong>Synthesis filing</strong></td>
+<td>Query answers → wiki pages</td>
+<td>Query → Wiki Filing rule (adopted from Karpathy)</td>
+</tr>
+<tr>
+<td><strong>Contradiction tracking</strong></td>
+<td>Flags when new contradicts old</td>
+<td>⚡ Contradiction Markers (adopted from Karpathy)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-we-adopted-v33">💡 What We Adopted (V3.3)<a class="headerlink" href="#what-we-adopted-v33" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>From Karpathy</th>
+<th>Our Implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lint operation</td>
+<td>Tier 3 Monthly Lint → <code>_maps/lint-report.md</code></td>
+</tr>
+<tr>
+<td>Query → wiki filing</td>
+<td>10+ line answers touching 2+ topics → offer to file</td>
+</tr>
+<tr>
+<td>Contradiction awareness</td>
+<td>⚡ markers inline + log in connections.md</td>
+</tr>
+<tr>
+<td>KB as primary use case</td>
+<td>Dual ingest — vault is now learning + knowledge base</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-we-already-had-better">💡 What We Already Had (Better)<a class="headerlink" href="#what-we-already-had-better" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Our Feature</th>
+<th>Why It's Better</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Two-layer memory (daily + MEMORY.md)</td>
+<td>Better than single append-only log — raw + curated</td>
+</tr>
+<tr>
+<td>6 map files</td>
+<td>More navigable than single index.md</td>
+</tr>
+<tr>
+<td>Hierarchical structure</td>
+<td>IS the search — no need for vector search at this scale</td>
+</tr>
+<tr>
+<td>Spaced repetition</td>
+<td>Knowledge without recall is useless — Karpathy's wiki has no revision system</td>
+</tr>
+<tr>
+<td>Flashcards with cross-pulls</td>
+<td>Active recall across topics</td>
+</tr>
+<tr>
+<td>Visual-first + Hinglish hooks</td>
+<td>Knowledge that sticks, not just knowledge that exists</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <blockquote>
-<p>🌱 6 topics and growing!</p>
+<p>🧠 <strong>The core insight both systems share:</strong> "The wiki is a persistent, compounding artifact. The knowledge is compiled once and then kept current, not re-derived on every query." — Karpathy</p>
 </blockquote>
 
 
@@ -6175,6 +6448,44 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../weak-spots/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 🎯 Weak Spots">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                🎯 Weak Spots
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../_revision/due-today/" class="md-footer__link md-footer__link--next" aria-label="Next: 📋 Due Today">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                📋 Due Today
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -6228,12 +6539,12 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow", "header.autohide"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow", "header.autohide"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../_assets/mermaid-zoom.js"></script>
+        <script src="../../_assets/mermaid-zoom.js"></script>
       
     
   </body>

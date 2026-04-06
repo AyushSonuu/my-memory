@@ -23,12 +23,24 @@ gantt
     First revision              :done, thrrev1, 2026-03-31, 1d
     Second revision due         :thrrev2, 2026-04-07, 1d
 
+    section Python / Multiprocessing
+    L01 (full video)            :done, mp, 2026-04-04, 1d
+    First revision due          :mprev1, 2026-04-07, 1d
+
     section Agentic AI
     M1 · Intro (8/8 ✅)        :done, m1, 2026-03-24, 2d
     M2 · Reflection (5/5 ✅)    :done, m2, 2026-03-26, 3d
     M3 · Tool Use (5/5 ✅)      :done, m3, 2026-03-28, 1d
     M4 · Practical Tips (7/7 ✅) :done, m4, 2026-03-31, 1d
     M5 · Autonomous Agents (5/5 ✅) :done, m5, 2026-04-03, 1d
+    First revision due          :agrev1, 2026-04-06, 1d
+
+    section RAG
+    M1 · RAG Overview (5/10)    :active, rag1, 2026-04-04, 7d
+    M2 · IR & Search            :rag2, 2026-04-12, 10d
+    M3 · Vector Databases       :rag3, 2026-04-22, 9d
+    M4 · LLMs & Generation      :rag4, 2026-05-01, 11d
+    M5 · Production             :rag5, 2026-05-12, 10d
 ```
 
 ## 📈 Monthly Stats
@@ -36,7 +48,7 @@ gantt
 | Month | Topics Started | Lessons Created | Flashcards Added |
 |-------|---------------|----------------|-----------------|
 | Mar 2026 | 4 (Agent Memory, AsyncIO, Threading, Agentic AI) | 25 | 120+ |
-| Apr 2026 | 0 (continued Agentic AI M5) | 5 | 20+ |
+| Apr 2026 | 1 (RAG) | 5+ | 20+ |
 
 ## 🏆 Milestones
 
@@ -58,6 +70,10 @@ gantt
 | 2026-04-03 | 🏆 Agentic AI Module 5 COMPLETE! 5/5 lessons (planning, JSON/code plans, multi-agent, communication patterns) |
 | 2026-04-03 | 🎓 AGENTIC AI COURSE COMPLETE! 30/30 lessons across all 5 modules! |
 | 2026-04-03 | 📊 30 lessons total · 140+ flashcards · 4 topics covered |
+| 2026-04-04 | 🔍 RAG course started! DeepLearning.AI, 5 modules, 62 lessons |
+| 2026-04-04 | ⚙️ Multiprocessing completed! Corey Schafer full video |
+| 2026-04-06 | 🏗️ V3.3 Architecture upgrade — LLM Wiki pattern (Karpathy), KB mode, dual ingest, Tier 3 lint |
+| 2026-04-06 | 📊 46 lessons total · 150+ flashcards · 6 topics · README rewrite |
 
 ---
 

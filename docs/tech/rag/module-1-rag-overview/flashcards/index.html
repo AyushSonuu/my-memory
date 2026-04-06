@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://ayushsonuu.github.io/my-memory/tech/rag/module-1-rag-overview/flashcards/">
       
       
-        <link rel="prev" href="../03-applications-of-rag/">
+        <link rel="prev" href="../04-rag-architecture-overview/">
       
       
         <link rel="next" href="../../module-2-ir-search-foundations/">
@@ -436,6 +436,8 @@
       
         
       
+        
+      
     
     
     
@@ -635,6 +637,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../_maps/llm-wiki-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📖 LLM Wiki Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../_revision/due-today/" class="md-nav__link">
         
   
@@ -690,10 +720,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_9" >
         
           
-          <label class="md-nav__link" for="__nav_1_8" id="__nav_1_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1_9" id="__nav_1_9_label" tabindex="0">
             
   
   
@@ -711,8 +741,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_8">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -5106,6 +5136,8 @@
       
         
       
+        
+      
     
     
     
@@ -5274,6 +5306,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-rag-architecture-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · RAG Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -5352,6 +5412,17 @@
     <span class="md-ellipsis">
       
         📌 RAG Applications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rag-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 RAG Architecture
       
     </span>
   </a>
@@ -6081,6 +6152,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#rag-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 RAG Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6101,7 +6183,7 @@
 <h1 id="rag-overview-flashcards">🃏 RAG Overview Flashcards<a class="headerlink" href="#rag-overview-flashcards" title="Permanent link">#</a></h1>
 <blockquote>
 <p>From: module-1-rag-overview/
-Last updated: 2026-04-04</p>
+Last updated: 2026-04-06</p>
 </blockquote>
 <hr />
 <h3 id="core-rag-concepts">📌 Core RAG Concepts<a class="headerlink" href="#core-rag-concepts" title="Permanent link">#</a></h3>
@@ -6284,6 +6366,96 @@ Last updated: 2026-04-04</p>
 <summary>❓ How does an AI web search (ChatGPT/Perplexity) relate to RAG?</summary>
 <p>It IS a RAG system — the <strong>entire internet</strong> is the knowledge base. Traditional search = retriever only (returns URLs). AI search = retriever + LLM summarizer. Same RAG pattern applied at internet scale.</p>
 </details>
+<h3 id="rag-architecture">📌 RAG Architecture<a class="headerlink" href="#rag-architecture" title="Permanent link">#</a></h3>
+<details>
+<summary>❓ What are the 5 steps in the RAG pipeline (in order)?</summary>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>What Happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Route</td>
+<td>Prompt goes to the <strong>retriever</strong> first, not the LLM</td>
+</tr>
+<tr>
+<td>2. Query KB</td>
+<td>Retriever searches the knowledge base for relevant docs</td>
+</tr>
+<tr>
+<td>3. Augment</td>
+<td>Original prompt + retrieved docs = <strong>augmented prompt</strong></td>
+</tr>
+<tr>
+<td>4. Generate</td>
+<td>Augmented prompt sent to LLM → generates response</td>
+</tr>
+<tr>
+<td>5. Respond</td>
+<td>User gets the answer (slightly more latency)</td>
+</tr>
+</tbody>
+</table>
+<p>From the user's POV, it's the same: type prompt → get response.</p>
+</details>
+<details>
+<summary>❓ What is the ONLY architectural difference between using an LLM directly vs a RAG system?</summary>
+<p>The <strong>retriever</strong>. In a RAG system, the prompt is first routed to a retriever that searches the knowledge base, fetches relevant documents, and these are combined with the original prompt into an augmented prompt. The user experience stays identical.</p>
+</details>
+<details>
+<summary>❓ Name 5 advantages of RAG</summary>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Advantage</th>
+<th>One-liner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Injects missing knowledge</strong></td>
+<td>Makes info available the LLM was never trained on</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Reduces hallucinations</strong></td>
+<td>Retrieved context grounds the response</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Easy to keep up-to-date</strong></td>
+<td>Update KB like a database, no retraining needed</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Enables source citations</strong></td>
+<td>Citation info flows through to the response</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Focuses LLM on generation</strong></td>
+<td>Retriever = fact-finder, LLM = writer (separation of concerns)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary>❓ Why is updating a RAG knowledge base better than retraining the LLM?</summary>
+<p>Retraining = <strong>costly, time-consuming</strong>, needs massive compute. Updating KB = update entries in a database. Once <strong>indexed</strong>, changes are immediately available. Same result (current info), fraction of the effort.</p>
+</details>
+<details>
+<summary>❓ How does RAG enable source citations?</summary>
+<p>Citation info (article title, URL, author) can be included in the augmented prompt. The LLM then passes this info through to its response. Readers can verify claims and dig deeper. RAG makes responses <strong>verifiable</strong>, not just accurate.</p>
+</details>
+<details>
+<summary>❓ What does "focuses LLM on generation" mean as a RAG advantage?</summary>
+<p>Separation of concerns: the <strong>retriever</strong> handles fact-finding and filtering from a vast world of information. The <strong>LLM</strong> focuses purely on writing a good response. Each component does what it's best at — like a researcher + writer team.</p>
+</details>
 <hr />
 <blockquote>
 <p>💡 <strong>Revision tip:</strong> Cover the answer, try to explain OUT LOUD, then reveal.
@@ -6326,7 +6498,7 @@ Bolke batao — padhke nahi, bolke yaad hota hai! 🗣️</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../03-applications-of-rag/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 03 · Applications of RAG">
+          <a href="../04-rag-architecture-overview/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 04 · RAG Architecture Overview">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -6336,7 +6508,7 @@ Bolke batao — padhke nahi, bolke yaad hota hai! 🗣️</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                03 · Applications of RAG
+                04 · RAG Architecture Overview
               </div>
             </div>
           </a>

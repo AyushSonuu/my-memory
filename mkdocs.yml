@@ -117,6 +117,7 @@ nav:
     - 🔗 Connections: _maps/connections.md
     - 📅 Timeline: _maps/learning-journey.md
     - 🎯 Weak Spots: _maps/weak-spots.md
+    - 📖 LLM Wiki Pattern: _maps/llm-wiki-pattern.md
     - 📋 Due Today: _revision/due-today.md
     - 📋 Plans:
       - 🎯 Roadmap: plans/roadmap.md
@@ -261,6 +262,7 @@ nav:
       - 01 · Module Introduction: tech/rag/module-1-rag-overview/01-module-introduction.md
       - 02 · Introduction to RAG: tech/rag/module-1-rag-overview/02-introduction-to-rag.md
       - 03 · Applications of RAG: tech/rag/module-1-rag-overview/03-applications-of-rag.md
+      - 04 · RAG Architecture Overview: tech/rag/module-1-rag-overview/04-rag-architecture-overview.md
       - 🃏 Flashcards: tech/rag/module-1-rag-overview/flashcards.md
     - Module 2 · IR & Search:
       - Overview: tech/rag/module-2-ir-search-foundations/README.md
