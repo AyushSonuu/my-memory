@@ -254,7 +254,11 @@ my-memory/
 │   ├── tracker.json                       # Topic schedules
 │   └── due-today.md                       # What needs revision today
 │
-├── _playlists/                            # YouTube/video collections
+├── _playlists/                            # YouTube content planning ONLY
+│
+├── _social/                               # LinkedIn, Twitter, blog posts
+│   ├── linkedin/                          # LinkedIn posts (dated)
+│   └── blog/                              # Blog posts (future)
 │
 └── _templates/                            # Blueprints — READ before creating!
     ├── topic-readme.md
