@@ -6,6 +6,39 @@
 >
 > *Inspired by [Andrej Karpathy's LLM Wiki pattern](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)*
 
+```mermaid
+graph LR
+    YOU["🧑 You"] -->|transcript, article,<br/>URL, thought| AGENT["🤖 AI Agent"]
+    
+    AGENT -->|writes & maintains| VAULT["📝 The Vault"]
+    AGENT -->|reads| SOURCES["📦 Raw Sources"]
+    AGENT -->|follows| SCHEMA["⚙️ Schema"]
+    
+    VAULT --> NOTES["📄 Visual Notes"]
+    VAULT --> FC["🃏 Flashcards"]
+    VAULT --> MAPS["🗺️ Knowledge Maps"]
+    VAULT --> REV["🔄 Revision Tracker"]
+    
+    NOTES -->|"numbered = teach order"| TEACH["🎬 Teach-Ready"]
+    FC -->|"cross-topic pulls"| RECALL["🧠 Active Recall"]
+    MAPS -->|"connections + weak spots"| GRAPH["🔗 Knowledge Graph"]
+    REV -->|"Day 1→3→7→14→30→90"| SRS["📅 Spaced Repetition"]
+
+    style YOU fill:#4caf50,color:#fff,stroke:#388e3c
+    style AGENT fill:#ff9800,color:#fff,stroke:#f57c00
+    style VAULT fill:#2196f3,color:#fff,stroke:#1976d2
+    style SOURCES fill:#9e9e9e,color:#fff,stroke:#757575
+    style SCHEMA fill:#9e9e9e,color:#fff,stroke:#757575
+    style NOTES fill:#42a5f5,color:#fff,stroke:#1e88e5
+    style FC fill:#42a5f5,color:#fff,stroke:#1e88e5
+    style MAPS fill:#42a5f5,color:#fff,stroke:#1e88e5
+    style REV fill:#42a5f5,color:#fff,stroke:#1e88e5
+    style TEACH fill:#66bb6a,color:#fff,stroke:#43a047
+    style RECALL fill:#66bb6a,color:#fff,stroke:#43a047
+    style GRAPH fill:#66bb6a,color:#fff,stroke:#43a047
+    style SRS fill:#66bb6a,color:#fff,stroke:#43a047
+```
+
 ---
 
 ## The Problem
