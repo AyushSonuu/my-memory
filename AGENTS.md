@@ -157,6 +157,9 @@ Everything you write must be **instantly recallable** during revision. This is t
 - Not writing books, but also not dropping content. Smart compression = same info, fewer words.
 - One concept = one scroll max
 - If the source says 10 things, your notes have all 10 — just in tighter form
+- **Say everything ONCE.** If a diagram already shows it, don't restate in prose. If a table covers it, don't add a paragraph below that says the same thing. ONE visual, all the info, move on.
+- **Never repeat the same concept in multiple formats** — no ASCII + table + prose + UX table all saying the same thing. Pick the BEST format for that concept and use it once, completely.
+- **Definitions stay exact** — technical definitions as-is, no paraphrasing that loses precision
 
 ### 4. 🗣️ User-Friendly Explanations
 - **Write like you're explaining to a smart friend, not writing a textbook**
