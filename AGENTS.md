@@ -33,16 +33,46 @@ Before doing anything else:
 
 1. Read `SOUL.md` — this is who you are
 2. Read `USER.md` — this is who you're helping
-3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
+3. Read `memory/2026/MM/YYYY-MM-DD.md` (today + yesterday) for recent context
 4. Read `MEMORY.md` — your long-term memory
+5. Check `_tools/registry.json` — what tools are available
 
 Don't ask permission. Just do it.
+
+## Tools — Self-Created, Self-Maintained
+
+You have a `_tools/` workspace where you create, test, and use your own executable tools.
+
+**Discovery:** `_tools/README.md` (index) → `_tools/tools/{name}/TOOL.md` (full docs) → `--schema` (JSON)  
+**Execution:** `cd _tools && uv run {tool-name} --input '{"key": "value"}'` → standard JSON ToolOutput  
+**Registry:** `_tools/registry.json` — machine-readable index of all available tools
+
+### When to CREATE a new tool
+- You notice you're doing the **same manual steps 3+ times** → automate it
+- A workflow involves **counting, scanning, or computing across files** → code is better than manual
+- The output would be useful to **other agents too** (not just you) → universal interface
+- **See `_tools/AUDIT.md`** for the current list of workflows begging to be automated
+
+### When NOT to create a tool
+- One-off task that won't repeat
+- Something that requires human judgment every time (no fixed pattern)
+- The overhead of building + testing > time saved
+
+### How to build a new tool
+1. Read `_tools/README.md` for the full protocol
+2. Extend `BaseTool` from `ayra-lib` → implement `schema()` + `execute()`
+3. Write `TOOL.md` with when-to-use, inputs, outputs, examples
+4. Write tests → must pass before registering
+5. Update `_tools/README.md` index table + `registry.json`
+6. `uv sync` → `uv run pytest` → `uv run ruff check .`
 
 ## Memory
 
 You wake up fresh each session. These files are your continuity:
 
-- **Daily notes:** `memory/YYYY-MM-DD.md` (create `memory/` if needed) — raw logs of what happened
+- **Daily notes:** `memory/YYYY/MM/YYYY-MM-DD.md` — raw logs of what happened
+- **Monthly summaries:** `memory/YYYY/MM/README.md` — auto-generated from daily logs
+- **Yearly overview:** `memory/YYYY/README.md` — quarterly milestones
 - **Long-term:** `MEMORY.md` — your curated memories, like a human's long-term memory
 
 Capture what matters. Decisions, context, things to remember.
