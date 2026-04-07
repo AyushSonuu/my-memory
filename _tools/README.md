@@ -1,95 +1,138 @@
-# 🔧 Ayra Tools
+# 🔧 Ayra Tools — Self-Created Executable Tools
 
-> Self-created, tested, versioned, SOLID-compliant executable tools for the learning vault.
+> Agent-agnostic. Filesystem-discoverable. JSON in, JSON out.
 
-## Architecture
+## Discovery (for any agent)
 
+**You are an agent and just landed in this repo. Here's how to find and use tools:**
+
+### Step 1: Read this file
+You're doing it. Below is the tool index with descriptions.
+
+### Step 2: Find the right tool
+Scan the index below. Each tool has a `TOOL.md` with full documentation.
+
+### Step 3: Read the tool's TOOL.md
 ```
-_tools/                          # Workspace root (uv manages)
-├── pyproject.toml               # Workspace config + shared deps + linting + testing
-├── uv.lock                      # Lockfile (deterministic, cross-platform)
-├── registry.json                # Tool discovery index (auto-maintained)
-├── README.md                    # This file
-│
-├── lib/                         # Shared library (workspace member)
-│   ├── pyproject.toml
-│   └── src/ayra_lib/            # Importable as `ayra_lib`
-│       ├── __init__.py
-│       ├── config.py            # Paths, constants, vault config
-│       ├── parsers.py           # Reusable parsers (flashcards, markdown, etc.)
-│       ├── registry.py          # Registry read/write operations
-│       └── types.py             # Shared data models (dataclasses)
-│
-└── tools/                       # Individual tools (each = workspace member)
-    └── flashcard-quiz/
-        ├── pyproject.toml       # Tool metadata + deps (depends on ayra-lib)
-        ├── src/flashcard_quiz/
-        │   ├── __init__.py
-        │   ├── cli.py           # CLI entrypoint (argparse)
-        │   ├── parser.py        # Flashcard parsing (SRP)
-        │   ├── quiz.py          # Quiz engine (SRP)
-        │   └── display.py       # Terminal display/formatting (SRP)
-        └── tests/
-            ├── __init__.py
-            ├── test_parser.py
-            ├── test_quiz.py
-            └── conftest.py      # Shared fixtures
+_tools/tools/{tool-name}/TOOL.md
 ```
+Contains: when to use, when NOT to use, inputs, outputs, examples, error handling.
 
-## Design Principles
-
-### SOLID Compliance
-
-| Principle | How We Apply It |
-|-----------|----------------|
-| **S**ingle Responsibility | Each module does ONE thing: `parser.py` parses, `quiz.py` runs quiz logic, `display.py` formats output |
-| **O**pen/Closed | New quiz modes (e.g., timed, spaced-repetition weighted) added by extending, not modifying existing classes |
-| **L**iskov Substitution | All parsers implement a common protocol — swap flashcard parser for any other card source |
-| **I**nterface Segregation | CLI depends on small interfaces, not fat classes. Quiz engine doesn't know about display. |
-| **D**ependency Inversion | High-level modules depend on abstractions (protocols), not concrete implementations |
-
-### Other Practices
-
-- **Type hints everywhere** — `mypy --strict` clean
-- **Dataclasses for data** — no dicts floating around
-- **Protocols for contracts** — duck typing with safety
-- **uv for dependency management** — fast, deterministic, lockfile-based
-- **ruff for linting** — fast, opinionated, consistent
-- **pytest for testing** — fixtures, parametrize, clean assertions
-- **Semantic versioning** — every tool is semver'd
-- **One command to run** — `uv run flashcard-quiz --topic agent-memory`
-
-## Quick Reference
-
+### Step 4: Get the schema (optional, for structured input building)
 ```bash
-# Install/sync all dependencies
-cd _tools && uv sync
+cd _tools && uv run {tool-name} --schema
+```
+Returns machine-readable JSON: inputs, types, required, defaults, enums, examples.
 
-# Run a tool
-uv run flashcard-quiz --topic agent-memory --count 5
+### Step 5: Execute
+```bash
+# Programmatic (agent mode) — JSON in → JSON out
+cd _tools && uv run {tool-name} --input '{"key": "value"}'
 
-# Run all tests
-uv run pytest
-
-# Run tests for one tool
-uv run pytest tools/flashcard-quiz/tests/ -v
-
-# Lint
-uv run ruff check .
-
-# Type check
-uv run mypy lib/ tools/
+# Interactive (human mode) — pretty terminal UI
+cd _tools && uv run {tool-name} --topic foo --count 5
 ```
 
-## Adding a New Tool
+### Step 6: Parse the response
+Every tool returns a standard `ToolOutput` envelope:
+```json
+{
+  "status": "success | error | partial",
+  "tool": "tool-name",
+  "version": "1.0.0",
+  "data": { ... },
+  "message": "Human-readable summary",
+  "errors": [],
+  "timestamp": "ISO-8601"
+}
+```
 
-1. Create `tools/new-tool/` with `pyproject.toml` + `src/` + `tests/`
-2. Add `ayra-lib` as workspace dependency
-3. Register console script entrypoint in pyproject.toml
+---
+
+## Tool Index
+
+<!-- TOOL_INDEX_START — auto-updated, do not edit manually -->
+
+| Tool | Description | Version | Status |
+|------|-------------|---------|--------|
+| [flashcard-quiz](tools/flashcard-quiz/TOOL.md) | Interactive quiz from vault flashcards. Revision, recall testing, structured Q&A data. | 1.1.0 | ✅ stable |
+
+<!-- TOOL_INDEX_END -->
+
+---
+
+## Universal Interface Protocol
+
+Every tool in this workspace implements the same contract:
+
+```
+┌────────────────────────────────────────────────┐
+│           TOOL EXECUTION PROTOCOL               │
+│                                                  │
+│  --schema       → ToolSchema JSON               │
+│                   (introspection for agents)     │
+│                                                  │
+│  --input '{}'   → ToolOutput JSON               │
+│                   (programmatic execution)       │
+│                                                  │
+│  --flag args    → Pretty terminal output        │
+│                   (interactive for humans)       │
+│                                                  │
+│  ALWAYS:                                         │
+│  • JSON parseable output (in agent mode)        │
+│  • Standard ToolOutput envelope                  │
+│  • Input validation with clear error messages   │
+│  • No ANSI/color codes in agent mode            │
+└────────────────────────────────────────────────┘
+```
+
+## File System Layout
+
+```
+_tools/
+├── README.md                       ← You are here (discovery index)
+├── pyproject.toml                  ← uv workspace root
+├── uv.lock                         ← Deterministic lockfile
+├── registry.json                   ← Machine-readable tool index
+│
+├── lib/                            ← Shared library (ayra-lib)
+│   └── src/ayra_lib/
+│       ├── config.py               ← Vault paths + topic discovery
+│       ├── types.py                ← Shared data models (frozen)
+│       ├── parsers.py              ← Content parsers + CardSource protocol
+│       ├── registry.py             ← Registry read/write ops
+│       └── tool_interface.py       ← BaseTool + ToolOutput + ToolSchema
+│
+└── tools/                          ← Individual tools
+    └── {tool-name}/
+        ├── TOOL.md                 ← Human + agent documentation
+        ├── pyproject.toml          ← Tool metadata + deps
+        ├── src/{tool_name}/
+        │   ├── cli.py              ← Composition root entrypoint
+        │   ├── tool.py             ← BaseTool implementation
+        │   └── ...                 ← Tool-specific modules (SRP)
+        └── tests/
+            └── test_*.py           ← pytest test suite
+```
+
+## Building a New Tool
+
+1. Create `tools/new-tool/` with: `TOOL.md`, `pyproject.toml`, `src/`, `tests/`
+2. Implement `BaseTool` → `schema()` + `execute()` + optionally `run_interactive()`
+3. Wire entrypoint in `pyproject.toml` → `[project.scripts]`
 4. Write tests — must pass before registering
-5. Add to `registry.json`
-6. `uv sync` to wire everything up
+5. Add `TOOL.md` with full documentation
+6. Update the tool index table in this README
+7. Update `registry.json`
+8. `uv sync` to wire everything up
 
-## Registry
+## Stack
 
-`registry.json` is the discovery layer. I (Ayra) auto-maintain it. Check it to see what's available.
+| Component | Version | Purpose |
+|-----------|---------|---------|
+| Python | 3.13 | Runtime |
+| uv | 0.11+ | Package management, workspace, lockfile |
+| ruff | 0.15+ | Linting (isort, pycodestyle, bugbear, simplify) |
+| mypy | 1.20+ | Type checking (strict mode) |
+| pytest | 9.0+ | Testing framework |
+| hatchling | — | Build backend |

@@ -1,18 +1,25 @@
 {
   "version": "1.0.0",
-  "description": "Ayra's self-created tool registry. Auto-maintained.",
+  "description": "Ayra's self-created tool registry. Machine-readable discovery index.",
+  "discovery": "Each tool has a TOOL.md at _tools/tools/{name}/TOOL.md with full human+agent documentation.",
+  "protocol": {
+    "schema": "--schema → JSON ToolSchema (introspection)",
+    "execute": "--input '{...}' → JSON ToolOutput (programmatic)",
+    "interactive": "CLI flags → terminal UI (human mode)"
+  },
   "tools": [
     {
       "name": "flashcard-quiz",
       "path": "_tools/tools/flashcard-quiz",
-      "version": "1.0.0",
+      "doc": "_tools/tools/flashcard-quiz/TOOL.md",
+      "version": "1.1.0",
       "runtime": "python",
-      "description": "Interactive CLI quiz from vault flashcards. SOLID-compliant, type-safe, tested.",
-      "tags": ["revision", "flashcards", "quiz", "learning"],
+      "description": "Interactive quiz from vault flashcards. Revision, recall testing, structured Q&A data.",
+      "tags": ["revision", "flashcards", "quiz", "learning", "recall"],
       "status": "stable",
       "created": "2026-04-07",
-      "tests": "27/27 passing"
+      "tests": "46/46 passing"
     }
   ],
-  "last_updated": "2026-04-07T15:45:00+05:30"
+  "last_updated": "2026-04-07T15:14:00+05:30"
 }
