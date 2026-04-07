@@ -147,9 +147,9 @@ my-memory/
 
 | Phase | What | Priority | Status |
 |-------|------|----------|--------|
-| **1a** | Create `_tools/` scaffold + README + registry + tool standard + first tool | 🔴 NOW | ⬜ |
-| **1b** | Restructure `memory/` → year/month + migrate existing files | 🔴 NOW | ⬜ |
-| **2** | Decompose AGENTS.md → kernel + `_agent/` modules | 🔴 NEXT | ⬜ |
+| **1a** | Create `_tools/` scaffold + README + registry + tool standard + first tool | 🔴 NOW | ✅ Done |
+| **1b** | Restructure `memory/` → year/month + migrate existing files | 🔴 NOW | ✅ Done |
+| **2** | Decompose AGENTS.md → kernel + `_agent/` modules | 🔴 NEXT | ✅ Done |
 | **3** | Build 5-6 high-priority tools, wire them up | 🟡 SOON | ⬜ |
 | **4** | `_db/` — build when we face a real problem that needs it | 🟢 FUTURE | 💭 |
 | **5** | Document Agent OS as a forkable spec (others can use it) | 🟢 FUTURE | 💭 |
