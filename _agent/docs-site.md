@@ -1,12 +1,12 @@
 # Docs Site — MkDocs Material Build & Nav Rules
 
-> Load this module when: building/updating the docs site, adding new topics to nav
+> Load this module when: building/updating the docs site, adding pages to nav, deploying
 
+## Overview
 The vault is published via **MkDocs Material** (LangChain-style docs).
 After adding/updating any lesson, code, or topic (batched with Tier 2 sync):
 
 ## Step 1: Update `mkdocs.yml` nav
-
 Add new pages manually to the `nav:` section. Follow these patterns:
 
 **New topic under tech/ (e.g., Redis):**

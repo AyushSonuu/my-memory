@@ -1,6 +1,6 @@
-# Sync System — Tier 1/2/3 + Scaling + Search + Revision
+# Sync System — Tier 1/2/3 + Scaling + Revision + Search
 
-> Load this module when: after creating/updating content, doing vault maintenance, or session end
+> Load this module when: after creating/updating content, running syncs, session end, monthly lint
 
 ## 🔄 AUTO-SYNC SYSTEM (THE GLUE THAT HOLDS EVERYTHING TOGETHER)
 
@@ -31,7 +31,7 @@ These touch global files — do them at END of a learning session, not after eve
 | **Root `README.md`** | Update stats (topic count, lessons, flashcards, last updated) |
 | **`_revision/due-today.md`** | Regenerate from tracker.json |
 | **`mkdocs.yml`** | Update `nav:` section when adding new topics/lessons. |
-| **Docs rebuild** | Update nav → run `.venv/bin/python build_docs.py` → commit & push. See `_agent/docs-site.md` for nav patterns. |
+| **Docs rebuild** | Update `mkdocs.yml` nav (if new pages) → run `.venv/bin/python build_docs.py` → commit & push. See `_agent/docs-site.md` for nav patterns. |
 
 **Why two tiers?** Rewriting 8 global files on every small edit wastes tokens and slows you down. Topic-level files = always. Global views + docs rebuild = batched.
 
@@ -56,10 +56,11 @@ End of session / when asked (Tier 2):
 **`_maps/everything.md` — Summary, NOT exhaustive:**
 - Show CATEGORIES + topic count + top 5 strongest connections
 - NOT every single topic as a node
+- Link to `tech/README.md` and `non-tech/README.md` for detail
 
 **`tech/README.md` — Topics only, NOT sub-topics:**
 - Show topic names + confidence + last updated
-- Each topic's own README handles its internal depth
+- NOT internal sub-folder structure
 
 **`connections.md` — Rolling log, NOT infinite:**
 - Keep only last 30 connections
@@ -93,14 +94,16 @@ Schedule: Day 1 → Day 3 → Day 7 → Day 14 → Day 30 → Day 90
 
 | Layer | What It Is | When to Use | Staleness Risk |
 |-------|-----------|-------------|----------------|
-| **`_maps/` + READMEs** | Curated navigation | Session startup orientation | ⚠️ Can be stale |
-| **Filesystem** (`grep`, `find`) | Raw search | Answering questions, finding content | ✅ Always accurate |
+| **`_maps/` + READMEs** | Curated navigation | Session startup orientation, big-picture | ⚠️ Can be stale if Tier 2 hasn't run |
+| **Filesystem** (`grep`, `find`) | Raw search across .md files | Answering questions, checking if content exists | ✅ Always accurate |
 
 **Rules:**
-1. **Answering a question?** → `grep -r "keyword" tech/ --include="*.md"` FIRST
-2. **Starting a session?** → Read `_maps/` + READMEs for orientation
-3. **Filing new content?** → Check filesystem for what already exists
-4. **Never say "we don't have notes on X"** without a filesystem search
+1. **Answering a question about vault content?** → `grep -r "keyword" tech/ --include="*.md"` FIRST
+2. **Starting a new session?** → Read `_maps/` + READMEs for orientation
+3. **Filing new content?** → Check filesystem to see what already exists
+4. **Never say "we don't have notes on X"** without doing a filesystem search
+
+> Maps = TOC. Filesystem = Ctrl+F. Use both.
 
 ## 🧹 TIER 3: Monthly Lint (1st of month or on request)
 
@@ -117,3 +120,15 @@ Monthly Lint Checklist:
   ☐ Map drift check — do _maps/ and READMEs match what actually exists on filesystem?
   ☐ Write findings to _maps/lint-report.md
 ```
+
+## 📅 Sunday Planning Ritual
+Every Sunday, Ayush and Ayra plan the week together:
+
+1. **Review current week** — go through `plans/weekly/2026-WXX.md`, mark anything undone
+2. **Carry forward** — undone items move to next week with ➡️ marker
+3. **Check roadmap** — what's the monthly target? Are we on track?
+4. **Check revisions** — what's due/overdue in `_revision/tracker.json`?
+5. **Create next week's file** — `plans/weekly/2026-WXX.md` with daily tasks pre-filled
+6. **Be honest** — fill the Sunday Review section. No sugarcoating.
+
+> This is non-negotiable. The weekly file is the accountability system. No plan = no progress.

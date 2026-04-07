@@ -1,6 +1,6 @@
-# Golden Rules — Full Reference
+# Golden Rules — Content Quality Standards
 
-> Load this module when: writing ANY content (lessons, flashcards, READMEs, cheatsheets)
+> Load this module when: writing ANY content (lessons, flashcards, READMEs, KB entries)
 
 ## 0. 🧠 HIGHLY RECALLABLE (THE CORE PRINCIPLE)
 Everything you write must be **instantly recallable** during revision. This is the #1 priority.
