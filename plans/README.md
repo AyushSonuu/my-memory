@@ -14,6 +14,7 @@
 | [HLD Tracker](hld-tracker.md) | Active | 2026-04-03 | Dec 2026 |
 | [Speaking Tracker](speaking-tracker.md) | Active | 2026-04-03 | Mar 2027 |
 | [Weekly Reviews](weekly-reviews.md) | Active | 2026-04-03 | Ongoing |
+| [Agent OS](agent-os.md) | 📐 Planning | 2026-04-07 | Phased |
 
 ## How This Folder Works
 

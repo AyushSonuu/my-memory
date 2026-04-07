@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0",
+  "description": "Ayra's self-created tool registry. Auto-maintained.",
+  "tools": [
+    {
+      "name": "flashcard-quiz",
+      "path": "_tools/flashcard-quiz",
+      "version": "1.0.0",
+      "runtime": "python",
+      "description": "Interactive CLI quiz from any topic's flashcards.md. Parses vault format, randomizes questions, tracks score.",
+      "tags": ["revision", "flashcards", "quiz", "learning"],
+      "status": "stable",
+      "created": "2026-04-07",
+      "tests": "8/8 passing"
+    }
+  ],
+  "last_updated": "2026-04-07T15:00:00+05:30"
+}

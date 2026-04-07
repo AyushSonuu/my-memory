@@ -15,8 +15,13 @@ memory/
 # MkDocs build helper (symlinks)
 content/
 
-# Python venv
+# Python venvs
 .venv/
+_tools/.venv/
+_tools/node_modules/
+_tools/__pycache__/
+__pycache__/
+.pytest_cache/
 
 # Auto-generated code wrappers (rebuilt by build_docs.py)
 content/_generated/
