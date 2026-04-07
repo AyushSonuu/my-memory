@@ -1,97 +1,95 @@
-# 🔧 _tools/ — Self-Created Executable Tools
+# 🔧 Ayra Tools
 
-> Ayra creates, tests, versions, and uses these tools. The repo's self-extending capability layer.
+> Self-created, tested, versioned, SOLID-compliant executable tools for the learning vault.
 
-## How It Works
-
-```
-NEED → CREATE → TEST → REGISTER → USE → ITERATE
-```
-
-1. **Need:** I identify a task that should be a reusable tool (not a one-off script)
-2. **Create:** Write `tool.yaml` (metadata) + `run.py`/`run.js` (executable) + tests
-3. **Test:** Run tests — must pass before registering
-4. **Register:** Add to `registry.json`
-5. **Use:** Execute via standard interface
-6. **Iterate:** Bug or enhancement → fix → bump version → update CHANGELOG.md
-
-## Tool Standard
-
-Every tool is a folder with:
+## Architecture
 
 ```
-tool-name/
-├── tool.yaml          # Metadata: name, version, inputs, outputs, runtime, deps
-├── run.py             # Main executable (or run.js for Node.js)
-├── run_test.py        # Tests (or run.test.js)
-└── CHANGELOG.md       # Version history
+_tools/                          # Workspace root (uv manages)
+├── pyproject.toml               # Workspace config + shared deps + linting + testing
+├── uv.lock                      # Lockfile (deterministic, cross-platform)
+├── registry.json                # Tool discovery index (auto-maintained)
+├── README.md                    # This file
+│
+├── lib/                         # Shared library (workspace member)
+│   ├── pyproject.toml
+│   └── src/ayra_lib/            # Importable as `ayra_lib`
+│       ├── __init__.py
+│       ├── config.py            # Paths, constants, vault config
+│       ├── parsers.py           # Reusable parsers (flashcards, markdown, etc.)
+│       ├── registry.py          # Registry read/write operations
+│       └── types.py             # Shared data models (dataclasses)
+│
+└── tools/                       # Individual tools (each = workspace member)
+    └── flashcard-quiz/
+        ├── pyproject.toml       # Tool metadata + deps (depends on ayra-lib)
+        ├── src/flashcard_quiz/
+        │   ├── __init__.py
+        │   ├── cli.py           # CLI entrypoint (argparse)
+        │   ├── parser.py        # Flashcard parsing (SRP)
+        │   ├── quiz.py          # Quiz engine (SRP)
+        │   └── display.py       # Terminal display/formatting (SRP)
+        └── tests/
+            ├── __init__.py
+            ├── test_parser.py
+            ├── test_quiz.py
+            └── conftest.py      # Shared fixtures
 ```
 
-### tool.yaml Schema
+## Design Principles
 
-```yaml
-name: tool-name                    # kebab-case, unique
-version: 1.0.0                    # semver
-description: What this tool does   # one-liner
-runtime: python                    # python | node
-entrypoint: run.py                 # main file to execute
-python_version: ">=3.10"           # if runtime=python
-node_version: ">=18"               # if runtime=node
+### SOLID Compliance
 
-inputs:                            # CLI arguments
-  - name: arg_name
-    type: string                   # string | integer | float | boolean | path
-    required: true
-    description: What this arg does
-    default: null                  # optional default
-    enum: [opt1, opt2]             # optional allowed values
+| Principle | How We Apply It |
+|-----------|----------------|
+| **S**ingle Responsibility | Each module does ONE thing: `parser.py` parses, `quiz.py` runs quiz logic, `display.py` formats output |
+| **O**pen/Closed | New quiz modes (e.g., timed, spaced-repetition weighted) added by extending, not modifying existing classes |
+| **L**iskov Substitution | All parsers implement a common protocol — swap flashcard parser for any other card source |
+| **I**nterface Segregation | CLI depends on small interfaces, not fat classes. Quiz engine doesn't know about display. |
+| **D**ependency Inversion | High-level modules depend on abstractions (protocols), not concrete implementations |
 
-outputs:
-  - name: result
-    type: object
-    description: What the tool returns
+### Other Practices
 
-dependencies: []                   # pip packages (python) or npm packages (node)
-tags: []                           # for discovery
-created: 2026-04-07
-updated: 2026-04-07
-author: ayra                       # ayra | ayush
-status: stable                     # dev | stable | deprecated
-```
+- **Type hints everywhere** — `mypy --strict` clean
+- **Dataclasses for data** — no dicts floating around
+- **Protocols for contracts** — duck typing with safety
+- **uv for dependency management** — fast, deterministic, lockfile-based
+- **ruff for linting** — fast, opinionated, consistent
+- **pytest for testing** — fixtures, parametrize, clean assertions
+- **Semantic versioning** — every tool is semver'd
+- **One command to run** — `uv run flashcard-quiz --topic agent-memory`
 
-## Running a Tool
+## Quick Reference
 
 ```bash
-# Python tool
-_tools/.venv/bin/python _tools/tool-name/run.py --arg1 value1 --arg2 value2
+# Install/sync all dependencies
+cd _tools && uv sync
 
-# Node.js tool
-node _tools/tool-name/run.js --arg1 value1 --arg2 value2
+# Run a tool
+uv run flashcard-quiz --topic agent-memory --count 5
 
-# Running tests
-_tools/.venv/bin/python -m pytest _tools/tool-name/run_test.py -v
+# Run all tests
+uv run pytest
+
+# Run tests for one tool
+uv run pytest tools/flashcard-quiz/tests/ -v
+
+# Lint
+uv run ruff check .
+
+# Type check
+uv run mypy lib/ tools/
 ```
+
+## Adding a New Tool
+
+1. Create `tools/new-tool/` with `pyproject.toml` + `src/` + `tests/`
+2. Add `ayra-lib` as workspace dependency
+3. Register console script entrypoint in pyproject.toml
+4. Write tests — must pass before registering
+5. Add to `registry.json`
+6. `uv sync` to wire everything up
 
 ## Registry
 
-`registry.json` is the master index — auto-maintained by Ayra. Check it to discover available tools.
-
-## Runtimes
-
-| Runtime | When to Use | Env |
-|---------|------------|-----|
-| **Python** | Data processing, DB ops, ML/embeddings, PDF/image work, analysis. **Default choice.** | `_tools/.venv/` |
-| **Node.js** | JSON/API-heavy ops, stream processing, fast CLI tools, when npm packages are best option | `_tools/node_modules/` |
-
-## Shared Code
-
-`_lib/python/` and `_lib/node/` contain shared utilities used across multiple tools. Import from here to avoid duplication.
-
-## Rules
-
-1. **No tool without tests** — tests must pass before registering
-2. **Semver versioning** — bump version on every change
-3. **One tool, one purpose** — keep tools focused
-4. **Dependencies in tool.yaml** — auto-installed into _tools/.venv or node_modules
-5. **Git-tracked** — every tool is version controlled
-6. **Self-documenting** — tool.yaml IS the documentation
+`registry.json` is the discovery layer. I (Ayra) auto-maintain it. Check it to see what's available.

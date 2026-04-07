@@ -1,0 +1,60 @@
+[project]
+name = "ayra-tools"
+version = "1.0.0"
+description = "Self-created, self-maintained tools for the Ayra learning vault agent."
+requires-python = ">=3.13"
+readme = "README.md"
+
+dependencies = [
+    "pyyaml>=6.0",
+    "ayra-lib",
+    "flashcard-quiz",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=6.0",
+    "ruff>=0.11",
+    "mypy>=1.15",
+]
+
+[tool.uv]
+managed = true
+
+[tool.uv.sources]
+ayra-lib = { workspace = true }
+flashcard-quiz = { workspace = true }
+
+[tool.uv.workspace]
+members = ["lib", "tools/*"]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+    "E",     # pycodestyle errors
+    "W",     # pycodestyle warnings
+    "F",     # pyflakes
+    "I",     # isort
+    "N",     # pep8-naming
+    "UP",    # pyupgrade
+    "B",     # flake8-bugbear
+    "SIM",   # flake8-simplify
+    "RUF",   # ruff-specific
+]
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tools"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"

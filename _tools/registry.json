@@ -4,15 +4,15 @@
   "tools": [
     {
       "name": "flashcard-quiz",
-      "path": "_tools/flashcard-quiz",
+      "path": "_tools/tools/flashcard-quiz",
       "version": "1.0.0",
       "runtime": "python",
-      "description": "Interactive CLI quiz from any topic's flashcards.md. Parses vault format, randomizes questions, tracks score.",
+      "description": "Interactive CLI quiz from vault flashcards. SOLID-compliant, type-safe, tested.",
       "tags": ["revision", "flashcards", "quiz", "learning"],
       "status": "stable",
       "created": "2026-04-07",
-      "tests": "8/8 passing"
+      "tests": "27/27 passing"
     }
   ],
-  "last_updated": "2026-04-07T15:00:00+05:30"
+  "last_updated": "2026-04-07T15:45:00+05:30"
 }
