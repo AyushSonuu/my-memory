@@ -108,33 +108,37 @@
 ## Weekly Schedule Template
 
 ```
-Monday - Friday (SAP 9:00–16:00, ~3 hrs personal/day):
-├── 07:30–08:30  DSA: 1 hr (1-2 problems + topic study)
-├── 08:30–09:00  Speaking: 30 min (record/shadow)
-├── 09:00–16:00  SAP WORK (protect this boundary!)
-│   └── lunch/gap  AI Reading: 30 min (course material, articles)
-├── 16:30–17:30  LLD (M/W/F) or Course deeper study (Tu/Th)
-├── 17:30–18:00  Revision: flashcards
-└── 18:00–18:30  Day close: fill tracker, plan tomorrow
+Monday - Friday (SAP 9:00–16:00, ~1 hr commute each way):
+├── 05:30        Wake up
+├── 05:30–06:00  Exercise (walk/pushups/yoga)
+├── 06:00–06:45  DSA: 1 problem (best brain hours!)
+├── 06:45–07:00  Speaking: 15 min (shadow/record)
+├── 07:00–08:30  Ready + temple + commute
+├── 08:30–09:00  AI Reading on commute (30 min)
+├── 09:00–16:00  SAP WORK (evals, tasks, lunch-gap reading)
+├── 16:00–17:30  Commute (podcast/audiobook OK)
+├── 17:30–19:30  REST — nap, scroll, recover. No guilt.
+├── 19:30–20:30  Eat + chill
+├── 20:30–22:00  LLD (M/W/F) or Course deeper study (Tu/Th)
+├── 22:00–22:15  Day close: fill tracker, plan tomorrow
+├── 22:15–23:00  Wind down, no screens after 22:45
+└── 23:00        SLEEP (non-negotiable)
 
-Saturday (8 hrs):
-├── 09:00–10:30  DSA: 1.5 hrs (3 problems, weekend push)
-├── 11:00–13:00  AI Course: 2 hrs (RAG / GenAI / NLP deep study)
-├── 14:00–15:30  SAP Research: 1.5 hrs (evals, reading, understanding)
-├── 15:30–16:30  LLD: 1 hr (watch + implement)
-├── 16:30–17:00  Speaking: 30 min
-└── 17:00–18:00  Revision + Day close
-
-Sunday (6 hrs):
-├── 09:00–10:30  DSA: 1.5 hrs
-├── 11:00–13:00  AI Course: 2 hrs
-├── 14:00–15:30  SAP Research: 1.5 hrs (evals, prep for week)
-├── 15:30–16:30  LLD: 1 hr
-├── 16:30–17:00  Speaking: 30 min
-└── 17:00–18:00  Weekly review + plan next week
+Saturday & Sunday:
+├── 07:00–07:30  Wake + freshen up (sleep in!)
+├── 07:30–08:00  Exercise
+├── 08:00–08:30  Temple + breakfast
+├── 08:30–10:30  DSA: 2-3 problems (deep session)
+├── 11:00–13:00  AI Course: 2 hrs (deep study)
+├── 14:00–15:30  SAP Research: evals, reading, prep
+├── 16:00–17:00  LLD: watch + implement
+├── 17:00–17:30  Speaking: record explanation
+├── 17:30–18:00  Revision + day close
+├── 18:00+       FREE — guilt-free rest
+└── 23:00        SLEEP
 ```
 
-**Total: ~22-25 hrs/week (personal) + SAP research woven in**
+**Total personal growth: ~26 hrs/week — sustainable because sleep is protected**
 
 ---
 
