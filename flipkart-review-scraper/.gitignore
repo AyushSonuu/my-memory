@@ -1,0 +1,13 @@
+# Output
+flipkart_reviews.csv
+flipkart_debug.html
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db
+.venv

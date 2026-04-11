@@ -1,0 +1,16 @@
+[project]
+name = "flipkart-review-scraper"
+version = "1.0.0"
+description = "Scrape all reviews from any Flipkart product page (handles infinite scroll, CAPTCHA detection, React Native Web DOM)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "Ayush Sonu", email = "sonuayush55@gmail.com"}]
+
+dependencies = [
+    "selenium>=4.20.0",
+    "webdriver-manager>=4.0.0",
+]
+
+[project.scripts]
+scrape = "scraper:main"
