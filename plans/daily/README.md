@@ -32,22 +32,25 @@ Without time-blocking, work expands to fill all available time, and personal lea
 
 ## 🧱 Ayush's Time Blocks (Weekday Template)
 
-> Based on: Night owl, SAP work hours, ~2.5-3 hrs/day for personal growth
+> Based on: Night owl, SAP 9:00–16:00, ~3 hrs personal around work
 
 | Time | Block | What Goes Here |
 |------|-------|----------------|
-| 08:00–09:00 | 🌅 Morning Power Hour | DSA (brain is fresh, hard problems first) |
-| 09:00–09:30 | 🎤 Speaking Practice | Record/shadow (before work, no excuses) |
-| 09:30–18:30 | 💼 SAP Work | Office hours (protect this — no personal study) |
-| 18:30–19:00 | 🍽️ Break | Decompress, eat, recharge |
-| 19:00–20:00 | 📐 LLD / 📚 Course | Alternate: Mon/Wed/Fri = LLD, Tue/Thu = Course |
-| 20:00–20:30 | 🔄 Revision | Flashcard quiz (whatever's due) |
-| 20:30–21:00 | 📝 Day Close | Fill daily tracker, plan tomorrow |
-| 21:00+ | 🆓 Free | Guilt-free rest. You earned it. |
+| 07:30–08:30 | 🌅 Morning Power Hour | DSA (brain is fresh, hard problems first) |
+| 08:30–09:00 | 🎤 Speaking Practice | Record/shadow (before work, no excuses) |
+| 09:00–16:00 | 💼 SAP Work | Office hours — protect this boundary |
+| ↳ lunch/gap | 📚 AI Reading (30 min) | RAG course / paper / article — light reading only |
+| 16:00–16:30 | 🍽️ Break | Decompress, snack, recharge |
+| 16:30–17:30 | 📐 LLD / 📚 Course | Mon/Wed/Fri = LLD, Tue/Thu = Course (deeper study) |
+| 17:30–18:00 | 🔄 Revision | Flashcard quiz (whatever's due) |
+| 18:00–18:30 | 📝 Day Close | Fill daily tracker, plan tomorrow |
+| 18:30+ | 🆓 Free | Guilt-free rest. You earned it. |
 
 ---
 
 ## 🔥 Weekend Template (Sat/Sun)
+
+> Weekends = deeper study + SAP research (evals, reading) + bigger DSA sessions
 
 | Time | Block | What Goes Here |
 |------|-------|----------------|
@@ -55,11 +58,12 @@ Without time-blocking, work expands to fill all available time, and personal lea
 | 10:30–11:00 | ☕ Break | |
 | 11:00–13:00 | 📚 AI Course | Deep study (RAG / GenAI / NLP) |
 | 13:00–14:00 | 🍽️ Lunch | |
-| 14:00–15:00 | 📐 LLD | Watch + implement pattern |
-| 15:00–15:30 | 🎤 Speaking | Record explanation of something learned today |
-| 15:30–16:00 | 🔄 Revision | Flashcards |
-| 16:00–16:30 | 📝 Day Close | Fill tracker, plan tomorrow |
-| 16:30+ | 🆓 Free | YouTube recording, projects, rest |
+| 14:00–15:30 | 💼 SAP Research | Evals reading, research, understanding — work prep |
+| 15:30–16:30 | 📐 LLD | Watch + implement pattern |
+| 16:30–17:00 | 🎤 Speaking | Record explanation of something learned today |
+| 17:00–17:30 | 🔄 Revision | Flashcards |
+| 17:30–18:00 | 📝 Day Close | Fill tracker, plan tomorrow |
+| 18:00+ | 🆓 Free | YouTube recording, projects, rest |
 
 > **Sunday extra:** 30 min weekly review after Day Close
 

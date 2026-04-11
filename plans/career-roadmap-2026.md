@@ -108,24 +108,33 @@
 ## Weekly Schedule Template
 
 ```
-Monday - Friday (2.5-3 hrs/day):
-├── DSA: 1-1.5 hrs (1 problem + topic study)
-├── Speaking: 15-20 min (record/shadow)
-└── LLD or HLD: 30 min (read/watch)
+Monday - Friday (SAP 9:00–16:00, ~3 hrs personal/day):
+├── 07:30–08:30  DSA: 1 hr (1-2 problems + topic study)
+├── 08:30–09:00  Speaking: 30 min (record/shadow)
+├── 09:00–16:00  SAP WORK (protect this boundary!)
+│   └── lunch/gap  AI Reading: 30 min (course material, articles)
+├── 16:30–17:30  LLD (M/W/F) or Course deeper study (Tu/Th)
+├── 17:30–18:00  Revision: flashcards
+└── 18:00–18:30  Day close: fill tracker, plan tomorrow
 
-Saturday (5 hrs):
-├── AI Course: 2.5 hrs (RAG / GenAI with LLMs / NLP Spec)
-├── DSA: 1.5 hrs (harder problems)
-└── System Design: 1 hr (design a system end-to-end)
+Saturday (8 hrs):
+├── 09:00–10:30  DSA: 1.5 hrs (3 problems, weekend push)
+├── 11:00–13:00  AI Course: 2 hrs (RAG / GenAI / NLP deep study)
+├── 14:00–15:30  SAP Research: 1.5 hrs (evals, reading, understanding)
+├── 15:30–16:30  LLD: 1 hr (watch + implement)
+├── 16:30–17:00  Speaking: 30 min
+└── 17:00–18:00  Revision + Day close
 
-Sunday (4 hrs):
-├── AI Course: 2 hrs
-├── LLD: 1 hr (watch video + implement pattern)
-└── Weekly review: 30 min (what got done, what slipped)
-└── Speaking: 30 min (prep for Toastmasters if applicable)
+Sunday (6 hrs):
+├── 09:00–10:30  DSA: 1.5 hrs
+├── 11:00–13:00  AI Course: 2 hrs
+├── 14:00–15:30  SAP Research: 1.5 hrs (evals, prep for week)
+├── 15:30–16:30  LLD: 1 hr
+├── 16:30–17:00  Speaking: 30 min
+└── 17:00–18:00  Weekly review + plan next week
 ```
 
-**Total: ~21-23 hrs/week**
+**Total: ~22-25 hrs/week (personal) + SAP research woven in**
 
 ---
 
