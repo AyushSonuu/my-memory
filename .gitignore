@@ -28,3 +28,6 @@ __pycache__/
 
 # Auto-generated code wrappers (rebuilt by build_docs.py)
 content/_generated/
+
+# SAP proprietary work (NEVER push to personal GitHub)
+work/
