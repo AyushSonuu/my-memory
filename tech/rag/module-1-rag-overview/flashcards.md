@@ -1,7 +1,7 @@
 # 🃏 RAG Overview Flashcards
 
 > From: module-1-rag-overview/
-> Last updated: 2026-04-06
+> Last updated: 2026-04-18
 
 ---
 
@@ -170,6 +170,74 @@ Citation info (article title, URL, author) can be included in the augmented prom
 <summary>❓ What does "focuses LLM on generation" mean as a RAG advantage?</summary>
 
 Separation of concerns: the **retriever** handles fact-finding and filtering from a vast world of information. The **LLM** focuses purely on writing a good response. Each component does what it's best at — like a researcher + writer team.
+</details>
+
+### 📌 LLM Foundations (Lesson 05)
+
+<details markdown="1">
+<summary>❓ What does an LLM actually do under the hood? (5-step cycle)</summary>
+
+1. **Read** entire completion so far (prompt + generated tokens)
+2. **Understand** relationships between words + overall meaning
+3. **Score** every token in vocabulary → probability distribution
+4. **Randomly sample** one token from that distribution
+5. **Append** to completion → repeat from step 1
+
+It's literally autocomplete — but with billions of parameters and deep contextual understanding.
+</details>
+
+<details markdown="1">
+<summary>❓ What are tokens, and why don't LLMs just use whole words?</summary>
+
+**Tokens** = pieces of words. Simple words (`London`, `door`) get one token. Compound words (`programmatically` → `program` + `matically`) split into multiple. Punctuation gets its own tokens too.
+
+Why? A vocabulary of 10K–100K tokens can build **any possible word** from smaller pieces — no need for a dedicated token per word. Flexibility over brute-force.
+</details>
+
+<details markdown="1">
+<summary>❓ Why does the same prompt give different answers each time?</summary>
+
+Because token selection is **random sampling** from a probability distribution, not always picking the highest-probability token. "Shining" might be 80% likely, but "rising" (10%) or even "exploding" (0.01%) could be chosen. Randomness + autoregressive behavior = different completions every time.
+</details>
+
+<details markdown="1">
+<summary>❓ What does "autoregressive" mean for LLMs?</summary>
+
+**Self-influencing.** Each generated token becomes part of the context for the NEXT token. Once the LLM picks "shining," it continues with "in the sky." If it had picked "warming," it would continue with "our faces." One early choice sets the direction for the entire completion.
+
+> Goa plan bana liya toh hotel, flight, beach sab Goa ke. Manali bol diya hota toh pura trip alag! 🏖️ vs 🏔️
+</details>
+
+<details markdown="1">
+<summary>❓ How are LLMs trained? (3 key points)</summary>
+
+1. Shown **incomplete text** from training data (trillions of tokens, mostly from open internet)
+2. Tries to **predict the next word** → compares against actual
+3. **Updates billions of parameters** based on prediction accuracy
+
+Before training = gibberish. After training = learns factual info + linguistic styles from training data.
+</details>
+
+<details markdown="1">
+<summary>❓ Are hallucinations a malfunction?</summary>
+
+**No.** LLMs are designed to generate **probable text, not truthful text**. "Truth" for an LLM = a probabilistically likely word sequence based on training data. When relevant info is missing (private data, recent events), the model still produces plausible-sounding but ungrounded text. Not a bug — it's the design working without the right data.
+</details>
+
+<details markdown="1">
+<summary>❓ Why can't RAG just dump the entire KB into the prompt?</summary>
+
+Two constraints:
+1. **Computation** — before each new token, the model scans EVERY token in the completion. Longer prompt = more compute.
+2. **Context window** — max tokens the model can process at once (older: ~4K, newer: millions).
+
+Retriever must select only the **most relevant** pieces to stay within budget.
+</details>
+
+<details markdown="1">
+<summary>❓ What LLM property makes RAG possible?</summary>
+
+LLMs can **understand and incorporate information from the prompt** into their responses — even info NOT in their training data. RAG exploits this: inject retrieved docs into the prompt → LLM uses them → **grounded** response.
 </details>
 
 ---

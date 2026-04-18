@@ -28,13 +28,13 @@ graph LR
 | 02 | [Introduction to RAG](02-introduction-to-rag.md) | 🟢 | — |
 | 03 | [Applications of RAG](03-applications-of-rag.md) | 🟢 | — |
 | 04 | [RAG Architecture Overview](04-rag-architecture-overview.md) | 🟢 | — |
-| 05 | [Introduction to LLMs](05-introduction-to-llms.md) | 🔴 | — |
+| 05 | [Introduction to LLMs](05-introduction-to-llms.md) | 🟢 | — |
 | 06 | [A Brief Python Refresher](06-python-refresher.md) | 🔴 | — |
 | 07 | [LLM Calls & Crafting Augmented Prompts](07-llm-calls-augmented-prompts.md) | 🔴 | — |
 | 08 | [Introduction to Information Retrieval](08-introduction-to-ir.md) | 🔴 | — |
 | 09 | [Introduction to RAG Systems](09-introduction-to-rag-systems.md) | 🔴 | — |
 
-**Overall confidence:** 🔴 Not started
+**Overall confidence:** 🟡 In progress (6/10)
 
 ## 🧩 Memory Fragments
 > - 🔍 RAG = pair search systems + LLM reasoning. Most commonly built LLM app type.
@@ -44,6 +44,11 @@ graph LR
 > - 💻 Code RAG = your codebase as KB. LLM can't code for your project without seeing your code.
 > - ⚕️ Legal/Medical RAG = may be ONLY viable option. Precision + private data = RAG mandatory.
 > - 🌐 AI web search (ChatGPT/Gemini) = RAG with the entire internet as knowledge base.
+> - 👻 LLMs don't hallucinate by malfunction — they're designed for probable text, not truthful text. Truth = just probabilistically likely word sequences.
+> - 🎲 Token generation = random sampling from probability distribution. Same prompt → different completions. "Shining" = 80%, but "exploding" still has a chance.
+> - 🔄 Autoregressive = self-influencing. One early token choice sets direction for entire completion.
+> - 🧩 Tokens ≠ words. "Programmatically" = 2+ tokens. 10K–100K token vocabulary builds any word from pieces.
+> - 🔗 RAG works because LLMs can understand & use prompt context they were never trained on — that's "grounding."
 > - 👤 Small personal KB (texts, emails) > large generic KB — dense context beats raw size.
 > - 🏗️ RAG pipeline = 5 steps: route to retriever → query KB → build augmented prompt → send to LLM → respond.
 > - 🎯 RAG's #1 architectural addition = the retriever. That's the only difference from normal LLM use.
