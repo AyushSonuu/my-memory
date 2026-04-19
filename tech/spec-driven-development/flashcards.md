@@ -122,3 +122,40 @@ A: Three things get revised: 1) **Constitution** — update based on learnings. 
 
 **Q: Who does the Constitution serve as an agreement between?**
 A: Two agreements: 1) Between **human and agent** (key decisions on how to build). 2) Between **humans** on the team (shared understanding of mission, tech stack, roadmap).
+
+---
+
+## Lesson 06 — Creating the Constitution
+
+**Q: How do you actually create a Constitution? (8-step process)**
+A: 1) Provide project description to agent. 2) Point to stakeholder input (README.md). 3) Tell agent: "work with me on mission, tech stack, roadmap." 4) Agent asks clarifying questions. 5) You answer (make key decisions). 6) Agent writes 3 spec files. 7) Human reviews & iterates. 8) Git commit.
+
+---
+
+**Q: Why write the Constitution WITH the agent instead of alone?**
+A: Agent asks surprisingly good questions — architecture patterns, external packages, tradeoffs (speed vs data fidelity). It's collaborative: your business context + agent's technical knowledge = better specs than either could write alone.
+
+---
+
+**Q: Why should you ask the agent to edit specs instead of editing manually?**
+A: Keeps all artifacts **consistent**. Manual edits risk missing updates to related documents. The agent tracks cross-references across mission.md, tech-stack.md, and roadmap.md.
+
+---
+
+**Q: What belongs in mission.md vs tech-stack.md?**
+A: **mission.md** = business context: vision, target audience, scope, problems to solve (stuff the agent can't know). **tech-stack.md** = architecture decisions: API pipelines, DB schema, data catalogs, smoke tests (engineering separated from business).
+
+---
+
+**Q: Why define the DB schema in the constitution upfront?**
+A: It's a **headache to update later**. Getting the schema right early means features build on a stable data foundation from day one.
+
+---
+
+**Q: What's the "two versions" approach for constitution docs?**
+A: Start with a **detailed version** (long, comprehensive — totally normal). Then generate a **pared-down version** for daily use. Both have value — detailed for reference, light for the agent's working context.
+
+---
+
+**Q: How does the agent act as a spec REVIEWER?**
+A: The agent finds inconsistencies, asks about ambiguities, and suggests decisions. Examples: threshold inconsistencies in logic, security vs convenience tradeoffs, missing schema versions, alignment between mission and tech-stack docs.
