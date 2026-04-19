@@ -225,3 +225,30 @@ A: Replanning prevents compounding mistakes. Taking time between features to upd
 
 **Q: When adding testing retroactively, what THREE things do you tell the agent?**
 A: 1) State your testing policy (framework, approach). 2) Update **existing** feature specs + implementation to match. 3) Actually **write the tests** — agent sets up the framework but won't write tests unless you ask.
+
+---
+
+## Lesson 11 — The Second Feature Phase
+
+**Q: What is AI fatigue and how do you fight it?**
+A: **AI fatigue** = exhaustion from reviewing massive amounts of agent-generated code. Fight it with: clean breaks between features, /clear agent context, high-level reviews (not nitpicking), and manageable change sizes.
+
+---
+
+**Q: What's the Flow State Checklist before starting a new feature?**
+A: 4 checks: 1) Unfinished work cleared? 2) Last feature branch merged to main? 3) Next roadmap item still correct? 4) Agent context `/clear`'d (specs capture intent, not memory snapshots)?
+
+---
+
+**Q: Why use sub-agents for deep review during validation?**
+A: Sub-agents **preserve the main agent's context window** (deep review is context-heavy). They have more space to think. Agent usually finds important issues on a second look. Validates you "weren't lied to."
+
+---
+
+**Q: Are spec omissions (like missing coding conventions) a failure?**
+A: **No.** You're **evolving the spec** as you discover new details. Capturing discoveries leads to better future results. The spec is a living document — omissions are part of the evolution process.
+
+---
+
+**Q: When should you implement a feature in parts instead of all at once?**
+A: When the feature seems **too big to implement all at once**. Ask agent to implement part of the plan first — keeps changes manageable and reduces AI fatigue.

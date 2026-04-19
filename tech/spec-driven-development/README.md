@@ -33,14 +33,14 @@ graph LR
 | 08 | [Feature Implementation](08-feature-implementation.md) | 🟢 | — |
 | 09 | [Feature Validation](09-feature-validation.md) | 🟢 | — |
 | 10 | [Project Replanning](10-project-replanning.md) | 🟢 | — |
-| 11 | [The Second Feature Phase](11-second-feature-phase.md) | 🔴 | — |
+| 11 | [The Second Feature Phase](11-second-feature-phase.md) | 🟢 | — |
 | 12 | [The MVP](12-the-mvp.md) | 🔴 | — |
 | 13 | [Legacy Support](13-legacy-support.md) | 🔴 | — |
 | 14 | [Build Your Own Workflow](14-build-your-own-workflow.md) | 🔴 | — |
 | 15 | [Agent Replaceability](15-agent-replaceability.md) | 🔴 | — |
 | 16 | [Conclusion](16-conclusion.md) | 🔴 | — |
 
-**Overall: 7/16 lessons done** (L04/L05 = setup, L07 = pending)
+**Overall: 8/16 lessons done** (L04/L05 = setup, L07 = pending)
 
 ## 🧩 Memory Fragments
 
