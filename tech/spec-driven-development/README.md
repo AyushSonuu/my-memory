@@ -24,8 +24,8 @@ graph LR
 | # | Lesson | Confidence | Revised |
 |---|--------|-----------|---------|
 | 01 | [Introduction](01-introduction.md) | 🟢 | — |
-| 02 | [Why Spec-Driven Development?](02-why-sdd.md) | 🔴 | — |
-| 03 | [Workflow Overview](03-workflow-overview.md) | 🔴 | — |
+| 02 | [Why Spec-Driven Development?](02-why-sdd.md) | 🟢 | — |
+| 03 | [Workflow Overview](03-workflow-overview.md) | 🟢 | — |
 | 04 | [Set Up Your Environment](04-setup-environment.md) | 🔴 | — |
 | 05 | [Setup](05-setup.md) | 🔴 | — |
 | 06 | [Creating the Constitution](06-creating-the-constitution.md) | 🔴 | — |
@@ -40,7 +40,7 @@ graph LR
 | 15 | [Agent Replaceability](15-agent-replaceability.md) | 🔴 | — |
 | 16 | [Conclusion](16-conclusion.md) | 🔴 | — |
 
-**Overall: 1/16 lessons done**
+**Overall: 3/16 lessons done**
 
 ## 🧩 Memory Fragments
 
