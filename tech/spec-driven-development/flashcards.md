@@ -198,3 +198,30 @@ A: The **mental load** of tracking what your code is doing and how it evolved. A
 
 **Q: When should spec updates go on a separate branch vs the feature branch?**
 A: **Small updates** (checking off a roadmap step) → same branch as the feature. **Major constitution updates** → separate branch. Associating which specs created which code changes is an evolving topic.
+
+---
+
+## Lesson 10 — Project Replanning
+
+**Q: What are the three levels of replanning in SDD?**
+A: 1) **Feature-level** — update specs + code for recent feature (e.g., add testing). 2) **Project-level** — revise constitution + roadmap (consolidate phases, new requirements). 3) **Workflow-level** — improve the SDD process itself (build agent skills to automate).
+
+---
+
+**Q: When should a new requirement be implemented directly vs scheduled as a new feature?**
+A: **Small change early in development** → implement directly during replanning. **Big change** → schedule as its own feature phase on the roadmap. Use your judgment.
+
+---
+
+**Q: What are agent skills in SDD?**
+A: Packages of instructions + resources that give agents new capabilities. For **definable, repeatable workflows** needing project/org context. Examples: changelog updates on merge, validation (lint, format, test, README update). Can be project-specific or global across all projects.
+
+---
+
+**Q: Why does the course say "run slow to run fast"?**
+A: Replanning prevents compounding mistakes. Taking time between features to update the constitution, revise the roadmap, and improve your workflow saves massive headaches later.
+
+---
+
+**Q: When adding testing retroactively, what THREE things do you tell the agent?**
+A: 1) State your testing policy (framework, approach). 2) Update **existing** feature specs + implementation to match. 3) Actually **write the tests** — agent sets up the framework but won't write tests unless you ask.
