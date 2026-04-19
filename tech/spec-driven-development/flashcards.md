@@ -269,3 +269,25 @@ A: You need **responsible replanning** to eliminate whatever led the agent astra
 
 **Q: How is MVP validation different from regular feature validation?**
 A: Regular: you validate the code (“does it work?”). MVP: **agent validates the specs** (“where are the holes in our planning?”). The evaluation of planning gaps is shared with stakeholders for their review.
+
+---
+
+## Lesson 13 — Legacy Support
+
+**Q: How does SDD work for existing/legacy projects?**
+A: Agent **reverse-engineers** a Constitution from existing code, commits, README, TODO files, and other documents. It extracts mission, tech stack (framework versions, file structure), and roadmap. After that, the workflow is **exactly the same** as greenfield.
+
+---
+
+**Q: Why is the conversation richer for brownfield vs greenfield?**
+A: The agent has **more artifacts** to draw from — code, commits, documents, issue trackers, READMEs. This gives it more context to ask better questions and produce a more accurate constitution.
+
+---
+
+**Q: Why is replanning especially important when introducing SDD to a legacy project?**
+A: You just added SDD — expect **a lot to tune**. Initial constitution may have gaps, roadmap may need reorg, existing patterns need documentation. Give extra time for replanning.
+
+---
+
+**Q: What does "the spec is the memory of the project" mean?**
+A: Unlike tribal knowledge or abandoned docs, the spec **doesn’t fade**. It’s committed alongside code, versioned, and anchors the agent to the project’s intent across sessions, developers, and time.
