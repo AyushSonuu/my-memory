@@ -30,8 +30,8 @@ graph LR
 | 05 | [Setup](05-setup.md) | ⬜ | — |
 | 06 | [Creating the Constitution](06-creating-the-constitution.md) | 🟢 | — |
 | 07 | [Feature Specification](07-feature-specification.md) | 🔴 | — |
-| 08 | [Feature Implementation](08-feature-implementation.md) | 🔴 | — |
-| 09 | [Feature Validation](09-feature-validation.md) | 🔴 | — |
+| 08 | [Feature Implementation](08-feature-implementation.md) | 🟢 | — |
+| 09 | [Feature Validation](09-feature-validation.md) | 🟢 | — |
 | 10 | [Project Replanning](10-project-replanning.md) | 🔴 | — |
 | 11 | [The Second Feature Phase](11-second-feature-phase.md) | 🔴 | — |
 | 12 | [The MVP](12-the-mvp.md) | 🔴 | — |
@@ -40,7 +40,7 @@ graph LR
 | 15 | [Agent Replaceability](15-agent-replaceability.md) | 🔴 | — |
 | 16 | [Conclusion](16-conclusion.md) | 🔴 | — |
 
-**Overall: 4/16 lessons done** (L04/L05 = setup, skipped)
+**Overall: 6/16 lessons done** (L04/L05 = setup, skipped)
 
 ## 🧩 Memory Fragments
 

@@ -159,3 +159,42 @@ A: Start with a **detailed version** (long, comprehensive — totally normal). T
 
 **Q: How does the agent act as a spec REVIEWER?**
 A: The agent finds inconsistencies, asks about ambiguities, and suggests decisions. Examples: threshold inconsistencies in logic, security vs convenience tradeoffs, missing schema versions, alignment between mission and tech-stack docs.
+
+---
+
+## Lesson 08 — Feature Implementation
+
+**Q: What's the first thing to do before implementing a feature?**
+A: Run `/clear` to reset the agent's context. Stale context from previous work can contaminate the build. Start fresh with only the feature spec.
+
+---
+
+**Q: When should you implement task groups one at a time instead of all at once?**
+A: When small mistakes can **compound later** — especially in **security** or **database management**. Smaller steps = smaller commits = easier to catch issues early.
+
+---
+
+## Lesson 09 — Feature Validation
+
+**Q: What should you focus on during feature validation/code review?**
+A: **High-level concerns**: Does the feature work? Does it reflect the spec? Are conventions followed? Are components structured correctly? DON'T focus on low-level details like CSS classes or variable naming.
+
+---
+
+**Q: When a code bug flows from a spec mistake, what do you fix?**
+A: Fix **BOTH** — ask the agent to update the spec (add missing requirement) AND the code (implement it). Code mistakes from spec mistakes need correction at both levels.
+
+---
+
+**Q: What is "drift" in SDD and why is manual editing dangerous?**
+A: **Drift** = when artifacts (specs, READMEs, code) go out of sync. Even "easy" manual edits cause drift because other documents won't know about the change. Always ask the agent to make changes so it updates all related mentions.
+
+---
+
+**Q: What is "cognitive debt"?**
+A: The **mental load** of tracking what your code is doing and how it evolved. Agents write code so fast you can't keep up. SDD reduces it by keeping changes manageable (small feature loops) and using specs as review checklists.
+
+---
+
+**Q: When should spec updates go on a separate branch vs the feature branch?**
+A: **Small updates** (checking off a roadmap step) → same branch as the feature. **Major constitution updates** → separate branch. Associating which specs created which code changes is an evolving topic.
