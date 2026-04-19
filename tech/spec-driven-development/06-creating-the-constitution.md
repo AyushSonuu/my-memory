@@ -45,6 +45,10 @@ graph TB
 
 ## 📜 What Goes in Each File
 
+<p align="center">
+  <img src="_assets/constitution-pillars.svg" alt="Constitution: Mission + Tech Stack + Roadmap" width="600"/>
+</p>
+
 | File | Contains | Key Insight |
 |------|----------|-------------|
 | **mission.md** | Vision, target audience, scope, problems to solve, constraints | Stuff the agent **can't know** — your business context |

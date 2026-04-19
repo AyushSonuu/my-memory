@@ -72,6 +72,10 @@ graph LR
 
 ## 🏗️ Greenfield vs Brownfield
 
+<p align="center">
+  <img src="_assets/greenfield-brownfield.svg" alt="SDD works for both Greenfield and Brownfield projects" width="600"/>
+</p>
+
 | | Greenfield 🌱 | Brownfield 🏭 |
 |---|---|---|
 | **Starting point** | From scratch | Existing codebase |
