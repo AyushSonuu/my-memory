@@ -164,6 +164,21 @@ A: The agent finds inconsistencies, asks about ambiguities, and suggests decisio
 
 ## Lesson 08 — Feature Implementation
 
+**Q: What are the three documents in a feature spec?**
+A: 1) **Plan** — approach and sequence of tasks. 2) **Requirements** — technical needs and constraints. 3) **Validation scorecard** — how to verify the feature works. All three stay in sync when you edit via the agent.
+
+---
+
+**Q: Why /clear before writing a feature spec?**
+A: Gives agent **fresh context** — it reads from the constitution (official source), not stale memory. Ensures specs capture intent, not artifacts of previous work. Focuses limited context budget on next work.
+
+---
+
+**Q: What does "control the process but don't oversteer" mean in feature specs?**
+A: Make key decisions (scope, pinned versions, validation method) but **don't micromanage** variable names or minor implementation details. Agent proposes solutions — you decide the important stuff.
+
+---
+
 **Q: What's the first thing to do before implementing a feature?**
 A: Run `/clear` to reset the agent's context. Stale context from previous work can contaminate the build. Start fresh with only the feature spec.
 
