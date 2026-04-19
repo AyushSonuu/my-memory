@@ -252,3 +252,20 @@ A: **No.** You're **evolving the spec** as you discover new details. Capturing d
 
 **Q: When should you implement a feature in parts instead of all at once?**
 A: When the feature seems **too big to implement all at once**. Ask agent to implement part of the plan first — keeps changes manageable and reduces AI fatigue.
+
+---
+
+## Lesson 12 — The MVP
+
+**Q: When is it safe to implement the rest of the roadmap in one big chunk?**
+A: Only when: 1) Constitution quality is **high**. 2) Previous feature specs are solid. 3) You can handle reviewing the big diff. 4) You're confident in context quality. The MVP is an **extreme test** of your SDD foundation.
+
+---
+
+**Q: What happens if the MVP result doesn't match your vision?**
+A: You need **responsible replanning** to eliminate whatever led the agent astray. It means gaps in specs → agent filled with incorrect assumptions. Fix the root cause before building more features.
+
+---
+
+**Q: How is MVP validation different from regular feature validation?**
+A: Regular: you validate the code (“does it work?”). MVP: **agent validates the specs** (“where are the holes in our planning?”). The evaluation of planning gaps is shared with stakeholders for their review.
