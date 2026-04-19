@@ -36,11 +36,11 @@ graph LR
 | 11 | [The Second Feature Phase](11-second-feature-phase.md) | 🟢 | — |
 | 12 | [The MVP](12-the-mvp.md) | 🟢 | — |
 | 13 | [Legacy Support](13-legacy-support.md) | 🟢 | — |
-| 14 | [Build Your Own Workflow](14-build-your-own-workflow.md) | 🔴 | — |
+| 14 | [Build Your Own Workflow](14-build-your-own-workflow.md) | 🟢 | — |
 | 15 | [Agent Replaceability](15-agent-replaceability.md) | 🔴 | — |
 | 16 | [Conclusion](16-conclusion.md) | 🔴 | — |
 
-**Overall: 10/16 lessons done** (L04/L05 = setup, L07 = pending)
+**Overall: 11/16 lessons done** (L04/L05 = setup, L07 = pending)
 
 ## 🧩 Memory Fragments
 

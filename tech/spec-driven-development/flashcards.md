@@ -291,3 +291,25 @@ A: You just added SDD — expect **a lot to tune**. Initial constitution may hav
 
 **Q: What does "the spec is the memory of the project" mean?**
 A: Unlike tribal knowledge or abandoned docs, the spec **doesn’t fade**. It’s committed alongside code, versioned, and anchors the agent to the project’s intent across sessions, developers, and time.
+
+---
+
+## Lesson 14 — Build Your Own Workflow
+
+**Q: What are the three ways to invoke an agent skill?**
+A: 1) **Name it in prompt** — explicitly say "use X skill." 2) **Skill-from-skill** — one skill calls another. 3) **Progressive disclosure** — agent reads description and auto-decides when to call (but not always reliable, especially with large context windows).
+
+---
+
+**Q: Why is the trend shifting from MCP servers to CLI + Skills?**
+A: CLI tools **take action with less setup and less context usage**. Tools like Context7 now suggest CLI + Skills over MCP. The trend is accelerating because it’s more elegant and lightweight.
+
+---
+
+**Q: What is the Research Backlog pattern?**
+A: When you have an idea mid-feature but aren’t committed: research with agent → tell it to write a **report in a well-known location** (backlog) → later schedule on roadmap with link to backlog. Don’t stop branch work. Don’t lose the idea.
+
+---
+
+**Q: Name two open-source SDD frameworks and their workflows.**
+A: 1) **GitHub Spec Kit**: `/constitution`, `/plan`, `/tasks`, `/implement`. 2) **OpenSpec** (Fission AI): `propose → explore → apply → archive`. Both include branch management, verification scripts, and opinionated spec formats.
