@@ -15,6 +15,8 @@ graph TB
     AG -.->|"builds on"| AM
     AM -.->|"retrieval"| RAG
     RAG -.->|"extends"| AG
+    T --> SDD["📋 <b>Spec-Driven Dev</b><br/>1/16 🔴"]
+    SDD -.->|"guides"| AG
     THR -.->|"vs"| AIO
     THR -.->|"vs"| MP
 ```
@@ -29,6 +31,7 @@ graph TB
 | [⚡ AsyncIO](../tech/python/asyncio/) | 🟡 Learning | 1/1 ✅ | 12 | 2026-03-21 |
 | [🧵 Threading](../tech/python/threading/) | 🟡 Learning | 1/1 ✅ | 10 | 2026-03-24 |
 | [⚙️ Multiprocessing](../tech/python/multiprocessing/) | 🟡 Learning | 1/1 ✅ | 10 | 2026-04-04 |
+| [📋 Spec-Driven Dev](../tech/spec-driven-development/) | 🔴 Starting | 1/16 | 10 | 2026-04-20 |
 
 ## What's Covered
 
@@ -57,6 +60,12 @@ graph TB
 | 02 | Threading | ✅ 1/1 | Threads, Thread Pool, submit/map, join, GIL, daemon threads |
 | 03 | Multiprocessing | ✅ 1/1 | Processes, Pool, submit/map, bypasses GIL, CPU-bound tasks |
 
+### Spec-Driven Development (16 lessons — starting 🔴)
+| # | Lesson | Status | Topics |
+|---|--------|--------|---------|
+| 01 | Introduction | ✅ | What is SDD, 3 benefits, workflow overview, greenfield vs brownfield |
+| 02–16 | Remaining 15 lessons | 🔴 | Constitution, feature loops, validation, legacy, agent skills |
+
 ---
 
-> 🌱 6 topics and growing!
+> 🌱 7 topics and growing!

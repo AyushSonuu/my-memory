@@ -6,10 +6,11 @@
 graph TB
     ROOT(("🧠 Everything"))
     
-    subgraph TECH ["🔧 Tech — 6 topics"]
+    subgraph TECH ["🔧 Tech — 7 topics"]
         AG["🤖 Agentic AI — 30/30 ✅"]
         AM["🧠 Agent Memory — 7/7 ✅"]
-        RAG["🔍 RAG — 5/62 🔴"]
+        RAG["🔍 RAG — 6/62 🔴"]
+        SDD["📋 Spec-Driven Dev — 1/16 🔴"]
         PY["🐍 Python"]
         PY --> AIO["⚡ AsyncIO — 1/1 ✅"]
         PY --> THR["🧵 Threading — 1/1 ✅"]
@@ -17,6 +18,7 @@ graph TB
         AG -.->|"builds on"| AM
         AM -.->|"retrieval"| RAG
         AG -.->|"extends to"| RAG
+        SDD -.->|"guides"| AG
         THR -.->|"vs"| AIO
         THR -.->|"vs"| MP
     end
@@ -35,9 +37,9 @@ graph TB
 |--------|-------|--------|
 | 🟢 Solid | 0 | — |
 | 🟡 Learning | 5 | Agentic AI, Agent Memory, AsyncIO, Threading, Multiprocessing |
-| 🔴 Starting | 1 | RAG (5/62 lessons) |
+| 🔴 Starting | 2 | RAG (6/62 lessons), SDD (1/16 lessons) |
 
-**Total:** 6 topics · 46 lessons · 150+ flashcards · Last updated: 2026-04-06
+**Total:** 7 topics · 47 lessons · 160+ flashcards · Last updated: 2026-04-20
 
 ## Key Connections
 
@@ -54,6 +56,7 @@ graph TB
 | Planning → Tool Use → Code Execution | Planning builds on tools; code as plan format > JSON > Text |
 | Multi-Agent → Planning + Reflection | Manager plans, coordinates workers, reflects on output |
 | Threading ↔ AsyncIO ↔ Multiprocessing | Three approaches to concurrency: threads (I/O), event loop (I/O), processes (CPU) |
+| SDD → Agentic AI | SDD is the workflow for directing coding agents; Agentic AI covers the agents themselves |
 | Agent Memory ↔ AsyncIO | Async for concurrent memory operations, tool execution, API calls |
 
 ## 📖 Framework

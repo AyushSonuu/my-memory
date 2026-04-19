@@ -15,6 +15,8 @@ graph TB
     AG -.->|"builds on"| AM
     AM -.->|"retrieval"| RAG
     RAG -.->|"extends"| AG
+    T --> SDD["📋 <b>Spec-Driven Dev</b><br/>1/16 🔴"]
+    SDD -.->|"guides"| AG
     THR -.->|"vs"| AIO
     THR -.->|"vs"| MP
 ```
@@ -29,7 +31,8 @@ graph TB
 | [⚡ AsyncIO](python/asyncio/) | 🟡 Learning | 1/1 ✅ | 12 | 2026-03-21 |
 | [🧵 Threading](python/threading/) | 🟡 Learning | 1/1 ✅ | 10 | 2026-03-24 |
 | [⚙️ Multiprocessing](python/multiprocessing/) | 🟡 Learning | 1/1 ✅ | 10 | 2026-04-04 |
+| [📋 Spec-Driven Dev](spec-driven-development/) | 🔴 Starting | 1/16 | 10 | 2026-04-20 |
 
 ---
 
-> 🌱 6 topics and growing!
+> 🌱 7 topics and growing!

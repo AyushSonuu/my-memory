@@ -17,6 +17,7 @@ graph LR
     THR ---|"CPU vs I/O"| MP
     AM ---|"same pipeline<br/>+ CRUD"| RAG
     AG ---|"agentic RAG"| RAG
+    SDD["📋 Spec-Driven Dev"] ---|"guides coding"| AG
     AG ---|"M5: planning<br/>builds on"| TU["🔧 Tool Use (M3)"]
     AG ---|"code as plan"| CE["💻 Code Exec (M3)"]
     AG ---|"manager reflects"| REF["🪞 Reflection (M2)"]
@@ -26,6 +27,7 @@ graph LR
 
 | Date | Connection | How I Found It |
 |------|-----------|----------------|
+| 2026-04-20 | SDD → Agentic AI (SDD guides coding agents) | SDD is the workflow for directing coding agents — you write the spec, the agent implements. Directly connects to tool use and planning patterns from Agentic AI M3/M5. |
 | 2026-04-06 | RAG Architecture → Agent Memory (same retrieval pipeline) | RAG retriever + KB = same pattern as agent memory's semantic retrieval, but agent memory adds CRUD + write-back (M1/04) |
 | 2026-04-06 | RAG → Agentic AI (agentic RAG) | RAG M1 mentions agentic RAG as future topic — AI agent decides what/when to retrieve. Connects to M5 planning. |
 | 2026-04-06 | RAG Advantages → Reflection Pattern | RAG's "reduces hallucinations by grounding" parallels reflection's "external feedback grounds output" — both inject real-world info to improve LLM output |
