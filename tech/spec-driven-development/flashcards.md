@@ -313,3 +313,20 @@ A: When you have an idea mid-feature but aren’t committed: research with agent
 
 **Q: Name two open-source SDD frameworks and their workflows.**
 A: 1) **GitHub Spec Kit**: `/constitution`, `/plan`, `/tasks`, `/implement`. 2) **OpenSpec** (Fission AI): `propose → explore → apply → archive`. Both include branch management, verification scripts, and opinionated spec formats.
+
+---
+
+## Lesson 15 — Agent Replaceability
+
+**Q: What four agent standards enable replaceability in SDD?**
+A: 1) **MCP** — external tools. 2) **AGENTS.md** — rules/conventions. 3) **Agent Skills** — repeatable workflows with context. 4) **ACP** (Agent Client Protocol) — connects agents to editors/clients (like LSP for AI agents).
+
+---
+
+**Q: What is ACP and why does it matter?**
+A: **Agent Client Protocol** — connects agents to editors/clients, like LSP does for language servers. The ACP Registry automates finding, installing, and connecting agents. Covers chat, Next Edit Suggestion, and plan mode. Lets you mix agents in the same editor.
+
+---
+
+**Q: Why does SDD make you agent-independent?**
+A: Specs operate at a **higher level** than any specific agent — they capture the "what and why," not the "how." Since specs aren’t tied to one agent or IDE, you can switch agents while keeping your workflow, tools, and project history.
