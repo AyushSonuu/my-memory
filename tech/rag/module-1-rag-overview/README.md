@@ -31,10 +31,10 @@ graph LR
 | 05 | [Introduction to LLMs](05-introduction-to-llms.md) | 🟢 | — |
 | 06 | [A Brief Python Refresher](06-python-refresher.md) | 🔴 | — |
 | 07 | [LLM Calls & Crafting Augmented Prompts](07-llm-calls-augmented-prompts.md) | 🔴 | — |
-| 08 | [Introduction to Information Retrieval](08-introduction-to-ir.md) | 🔴 | — |
+| 08 | [Introduction to Information Retrieval](08-introduction-to-ir.md) | 🟢 | — |
 | 09 | [Introduction to RAG Systems](09-introduction-to-rag-systems.md) | 🔴 | — |
 
-**Overall confidence:** 🟡 In progress (6/10)
+**Overall confidence:** 🟡 In progress (7/10)
 
 ## 🧩 Memory Fragments
 > - 🔍 RAG = pair search systems + LLM reasoning. Most commonly built LLM app type.
@@ -53,6 +53,11 @@ graph LR
 > - 🏗️ RAG pipeline = 5 steps: route to retriever → query KB → build augmented prompt → send to LLM → respond.
 > - 🎯 RAG's #1 architectural addition = the retriever. That's the only difference from normal LLM use.
 > - 🛡️ 5 advantages: injects missing knowledge, reduces hallucinations, easy updates, source citations, separation of concerns.
+> - 📚 Retriever = library system: knowledge base (books) + index (shelves) + search mechanism (librarian).
+> - 📊 Every document gets a numerical similarity score → ranked → only top-ranked returned.
+> - ⚖️ Retrieval balance: too many docs = noise + cost, too few = missed info. Tuning is the whole game.
+> - 🗄️ Vector databases = production standard for retrieval, but not strictly required at small scale.
+> - 🌐 Web search engines + relational DBs = familiar systems doing the same retrieval job. IR was mature before LLMs.
 
 ---
 

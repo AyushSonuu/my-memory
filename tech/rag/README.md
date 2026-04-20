@@ -28,7 +28,7 @@ graph LR
 
 | # | Module | Lessons | Confidence | Revised |
 |---|--------|---------|-----------|---------|
-| 01 | [RAG Overview](module-1-rag-overview/) | 6/10 | 🟡 | — |
+| 01 | [RAG Overview](module-1-rag-overview/) | 7/10 | 🟡 | — |
 | 02 | [IR & Search Foundations](module-2-ir-search-foundations/) | 0/12 | 🔴 | — |
 | 03 | [IR with Vector Databases](module-3-ir-vector-databases/) | 0/12 | 🔴 | — |
 | 04 | [LLMs & Text Generation](module-4-llms-text-generation/) | 0/14 | 🔴 | — |

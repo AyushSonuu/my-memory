@@ -1,7 +1,7 @@
 # 🃏 RAG Overview Flashcards
 
 > From: module-1-rag-overview/
-> Last updated: 2026-04-18
+> Last updated: 2026-04-20
 
 ---
 
@@ -238,6 +238,66 @@ Retriever must select only the **most relevant** pieces to stay within budget.
 <summary>❓ What LLM property makes RAG possible?</summary>
 
 LLMs can **understand and incorporate information from the prompt** into their responses — even info NOT in their training data. RAG exploits this: inject retrieved docs into the prompt → LLM uses them → **grounded** response.
+</details>
+
+### 📌 Information Retrieval (Lesson 08)
+
+<details markdown="1">
+<summary>❓ What are the 3 components of a retriever and their library equivalents?</summary>
+
+| Component | Role | Library Equivalent |
+|-----------|------|-------------------|
+| **Knowledge Base** | Collection of documents to search | Book collection |
+| **Index** | Organized catalog for efficient search | Sections, shelves, genre groupings |
+| **Search Mechanism** | Interprets prompt meaning → finds relevant docs | The librarian |
+
+> Retriever = library system. Books + shelves + librarian = KB + index + search! 📚
+</details>
+
+<details markdown="1">
+<summary>❓ How does a retriever rank and select documents?</summary>
+
+Each document gets a **numerical relevance score** — a measure of similarity between the prompt text and the document text. Documents are ranked by score, and only the **highest-scored** ones are returned to the LLM.
+
+Multiple approaches exist for calculating similarity scores (covered in Module 2).
+</details>
+
+<details markdown="1">
+<summary>❓ What's the retrieval balance problem? (Too many vs too few)</summary>
+
+| Extreme | Problem |
+|---------|--------|
+| **Return everything** | Relevant docs buried in irrelevant noise + blows up prompt cost / context window |
+| **Return too few** | Miss valuable info in lower-ranked but still relevant docs |
+| **Goal** | Return ALL relevant docs + NONE of the irrelevant ones |
+
+In practice, ranking is imperfect — need monitoring + experimentation to optimize.
+
+> Filter coffee analogy ☕ — too coarse = grounds leak, too fine = no coffee. Tuning the filter = the game!
+</details>
+
+<details markdown="1">
+<summary>❓ What is a vector database and why is it used for production RAG?</summary>
+
+A **specialized database optimized for rapidly finding documents that most closely match a prompt**. Not strictly required (any retrieval approach works), but at production scale, vector DBs are the standard for fast similarity search over large knowledge bases.
+</details>
+
+<details markdown="1">
+<summary>❓ What familiar systems perform similar tasks to a RAG retriever?</summary>
+
+| System | What It Retrieves |
+|--------|------------------|
+| **Web search engine** | Web pages relevant to search query |
+| **Relational database** | Rows/tables matching SQL query |
+| **RAG retriever** | Documents relevant to LLM prompt |
+
+Information retrieval was a mature field **before** LLMs existed — RAG borrows from it heavily.
+</details>
+
+<details markdown="1">
+<summary>❓ Why does the retriever need to understand the MEANING of a prompt, not just keywords?</summary>
+
+A question like "How can I make New York style pizza?" should lead to cooking, Italian cuisine, and possibly New York sections — not just pages containing the exact words. The retriever interprets **underlying meaning** to search the right areas of the index, just like a librarian would.
 </details>
 
 ---
