@@ -81,7 +81,18 @@ graph LR
 | **Ranking** | All documents sorted by score — highest = most relevant |
 | **Selection** | Only the top-scored documents get returned to the LLM |
 
-> The retriever doesn't just find relevant documents — it **scores and ranks every document** in the knowledge base. Multiple approaches exist for calculating these similarity scores (covered in Module 2).
+### Concrete Example — Pizza Query Scores
+
+> Query: *"How can I make New York style pizza at home?"*
+
+| Document | Score | Why? |
+|----------|-------|------|
+| 🍕 Pizza Basics | **0.95** | Direct pizza match |
+| 🏠 Cooking at Home | **0.80** | Home cooking match |
+| 🍅 Sauce Secrets | **0.70** | Cooking-adjacent |
+| 🗽 A History of NYC | **0.60** | NYC match, but not cooking |
+
+> The retriever scores and ranks **every document** in the knowledge base. Multiple approaches exist for calculating these similarity scores (covered in Module 2).
 
 ---
 
