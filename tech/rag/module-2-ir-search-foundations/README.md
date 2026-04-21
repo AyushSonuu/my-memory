@@ -22,7 +22,7 @@ graph LR
 
 | # | Lesson | Confidence | Revised |
 |---|--------|-----------|---------|
-| 01 | [Module 2 Introduction](01-module-introduction.md) | 🔴 | — |
+| 01 | [Module 2 Introduction](01-module-introduction.md) | 🟢 | — |
 | 02 | [Retriever Architecture Overview](02-retriever-architecture.md) | 🔴 | — |
 | 03 | [Metadata Filtering](03-metadata-filtering.md) | 🔴 | — |
 | 04 | [Keyword Search: TF-IDF](04-keyword-search-tfidf.md) | 🔴 | — |
@@ -35,10 +35,11 @@ graph LR
 | 11 | [Retrieval Metrics](11-retrieval-metrics.md) | 🔴 | — |
 | 12 | [Lab: Implementing Retriever Functions](12-lab-retriever-functions.md) | 🔴 | — |
 
-**Overall confidence:** 🔴 Not started
+**Overall confidence:** 🟡 In progress (1/12)
 
 ## 🧩 Memory Fragments
-> - _Add fragments as you learn..._
+> - 🔍 The retriever's core challenge: messy human queries + messy human documents, matched in milliseconds.
+> - 🎯 Module 2 = techniques + theory + strengths/weaknesses + combining them + evaluation + coding.
 
 ---
 

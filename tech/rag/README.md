@@ -29,7 +29,7 @@ graph LR
 | # | Module | Lessons | Confidence | Revised |
 |---|--------|---------|-----------|---------|
 | 01 | [RAG Overview](module-1-rag-overview/) | 7/10 | 🟡 | — |
-| 02 | [IR & Search Foundations](module-2-ir-search-foundations/) | 0/12 | 🔴 | — |
+| 02 | [IR & Search Foundations](module-2-ir-search-foundations/) | 1/12 | 🟡 | — |
 | 03 | [IR with Vector Databases](module-3-ir-vector-databases/) | 0/12 | 🔴 | — |
 | 04 | [LLMs & Text Generation](module-4-llms-text-generation/) | 0/14 | 🔴 | — |
 | 05 | [RAG in Production](module-5-rag-production/) | 0/14 | 🔴 | — |
@@ -98,7 +98,7 @@ graph LR
 
 | Day | Date | Lesson | Status |
 |-----|------|--------|--------|
-| Sat 🔥 | Apr 12 | Module 2 Introduction + Retriever Architecture | ⬜ |
+| Sat 🔥 | Apr 12 | Module 2 Introduction + Retriever Architecture | ✅ (Intro) |
 | Sun 🔥 | Apr 13 | Metadata Filtering + Keyword Search: TF-IDF | ⬜ |
 | Mon | Apr 14 | Keyword Search: BM25 | ⬜ |
 | Tue | Apr 15 | Semantic Search: Introduction | ⬜ |
