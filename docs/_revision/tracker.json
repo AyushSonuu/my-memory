@@ -45,6 +45,14 @@
     "nextRevision": "2026-04-07",
     "confidence": "red",
     "revisionCount": 0,
-    "lessonsCompleted": 5
+    "lessonsCompleted": 12
+  },
+  "tech/spec-driven-development": {
+    "firstLearned": "2026-04-20",
+    "lastRevised": "2026-04-20",
+    "nextRevision": "2026-04-23",
+    "confidence": "red",
+    "revisionCount": 0,
+    "lessonsCompleted": 4
   }
 }

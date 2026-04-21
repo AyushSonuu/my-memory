@@ -263,9 +263,12 @@ nav:
       - 02 · Introduction to RAG: tech/rag/module-1-rag-overview/02-introduction-to-rag.md
       - 03 · Applications of RAG: tech/rag/module-1-rag-overview/03-applications-of-rag.md
       - 04 · RAG Architecture Overview: tech/rag/module-1-rag-overview/04-rag-architecture-overview.md
+      - 05 · Introduction to LLMs: tech/rag/module-1-rag-overview/05-introduction-to-llms.md
+      - 08 · Introduction to IR: tech/rag/module-1-rag-overview/08-introduction-to-ir.md
       - 🃏 Flashcards: tech/rag/module-1-rag-overview/flashcards.md
     - Module 2 · IR & Search:
       - Overview: tech/rag/module-2-ir-search-foundations/README.md
+      - 01 · Module Introduction: tech/rag/module-2-ir-search-foundations/01-module-introduction.md
       - 🃏 Flashcards: tech/rag/module-2-ir-search-foundations/flashcards.md
     - Module 3 · Vector Databases:
       - Overview: tech/rag/module-3-ir-vector-databases/README.md
@@ -278,6 +281,23 @@ nav:
       - 🃏 Flashcards: tech/rag/module-5-rag-production/flashcards.md
     - Resources:
       - 🃏 Flashcards: tech/rag/flashcards.md
+
+  - 📋 Spec-Driven Dev:
+    - tech/spec-driven-development/README.md
+    - 01 · Introduction: tech/spec-driven-development/01-introduction.md
+    - 02 · Why SDD: tech/spec-driven-development/02-why-sdd.md
+    - 03 · Workflow Overview: tech/spec-driven-development/03-workflow-overview.md
+    - 06 · Creating the Constitution: tech/spec-driven-development/06-creating-the-constitution.md
+    - 07 · Feature Specification: tech/spec-driven-development/07-feature-specification.md
+    - 08 · Feature Implementation: tech/spec-driven-development/08-feature-implementation.md
+    - 09 · Feature Validation: tech/spec-driven-development/09-feature-validation.md
+    - 10 · Project Replanning: tech/spec-driven-development/10-project-replanning.md
+    - 11 · Second Feature Phase: tech/spec-driven-development/11-second-feature-phase.md
+    - 12 · The MVP: tech/spec-driven-development/12-the-mvp.md
+    - 13 · Legacy Support: tech/spec-driven-development/13-legacy-support.md
+    - 14 · Build Your Own Workflow: tech/spec-driven-development/14-build-your-own-workflow.md
+    - 15 · Agent Replaceability: tech/spec-driven-development/15-agent-replaceability.md
+    - 🃏 Flashcards: tech/spec-driven-development/flashcards.md
 
   - 🎬 Playlists:
     - 🦜 LangChain: https://ayushsonuu.github.io/langchain-ecosystem-tutorials/langchain/

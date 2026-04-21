@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" font-family="Inter, -apple-system, sans-serif">
+  <!-- Background -->
+  <rect width="680" height="420" rx="16" fill="#1e1e2e"/>
+  
+  <!-- Title -->
+  <text x="340" y="45" text-anchor="middle" font-size="22" font-weight="700" fill="#cdd6f4">The Constitution</text>
+  
+  <!-- Scroll icon (left side) -->
+  <g transform="translate(100, 120)" fill="none" stroke="#cdd6f4" stroke-width="2.5">
+    <rect x="8" y="0" width="56" height="72" rx="4"/>
+    <path d="M0 12 C0 4, 8 0, 8 0 L8 72 C8 72, 0 68, 0 60Z" fill="#45475a" stroke="#cdd6f4"/>
+    <line x1="22" y1="20" x2="52" y2="20"/>
+    <line x1="22" y1="32" x2="52" y2="32"/>
+    <line x1="22" y1="44" x2="44" y2="44"/>
+    <!-- Pen -->
+    <g transform="translate(40, 48) rotate(45)">
+      <rect x="-3" y="-16" width="6" height="20" rx="1" fill="#f38ba8"/>
+      <polygon points="-3,4 3,4 0,10" fill="#f38ba8"/>
+    </g>
+  </g>
+  
+  <!-- Constitution card -->
+  <rect x="230" y="70" width="260" height="300" rx="14" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="268" y="105" font-size="18" font-weight="700" fill="#cdd6f4">Constitution</text>
+  
+  <!-- Mission (pink/red tint) -->
+  <rect x="248" y="120" width="224" height="70" rx="10" fill="#45293a"/>
+  <rect x="248" y="120" width="224" height="70" rx="10" fill="none" stroke="#f38ba8" stroke-width="1" opacity="0.4"/>
+  <!-- Doc icon -->
+  <g transform="translate(264, 138)" fill="none" stroke="#f38ba8" stroke-width="1.5">
+    <rect width="24" height="30" rx="3"/>
+    <line x1="6" y1="10" x2="18" y2="10"/>
+    <line x1="6" y1="16" x2="18" y2="16"/>
+    <line x1="6" y1="22" x2="14" y2="22"/>
+  </g>
+  <text x="298" y="162" font-size="16" font-weight="600" fill="#f38ba8">Mission</text>
+  
+  <!-- Tech Stack (blue tint) -->
+  <rect x="248" y="200" width="224" height="70" rx="10" fill="#293545"/>
+  <rect x="248" y="200" width="224" height="70" rx="10" fill="none" stroke="#89b4fa" stroke-width="1" opacity="0.4"/>
+  <!-- Doc icon -->
+  <g transform="translate(264, 218)" fill="none" stroke="#89b4fa" stroke-width="1.5">
+    <rect width="24" height="30" rx="3"/>
+    <line x1="6" y1="10" x2="18" y2="10"/>
+    <line x1="6" y1="16" x2="18" y2="16"/>
+    <line x1="6" y1="22" x2="14" y2="22"/>
+  </g>
+  <text x="298" y="242" font-size="16" font-weight="600" fill="#89b4fa">Tech Stack</text>
+  
+  <!-- Roadmap (green tint) -->
+  <rect x="248" y="280" width="224" height="70" rx="10" fill="#293d2e"/>
+  <rect x="248" y="280" width="224" height="70" rx="10" fill="none" stroke="#a6e3a1" stroke-width="1" opacity="0.4"/>
+  <!-- Doc icon -->
+  <g transform="translate(264, 298)" fill="none" stroke="#a6e3a1" stroke-width="1.5">
+    <rect width="24" height="30" rx="3"/>
+    <line x1="6" y1="10" x2="18" y2="10"/>
+    <line x1="6" y1="16" x2="18" y2="16"/>
+    <line x1="6" y1="22" x2="14" y2="22"/>
+  </g>
+  <text x="298" y="322" font-size="16" font-weight="600" fill="#a6e3a1">Roadmap</text>
+  
+  <!-- Right side labels -->
+  <text x="520" y="160" font-size="14" fill="#a6adc8" font-style="italic">What's the core idea?</text>
+  <text x="520" y="240" font-size="14" fill="#a6adc8" font-style="italic">How does it fit your stack?</text>
+  <text x="520" y="320" font-size="14" fill="#a6adc8" font-style="italic">What features are planned?</text>
+  
+  <!-- Connecting lines -->
+  <line x1="476" y1="155" x2="516" y2="155" stroke="#585b70" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="476" y1="235" x2="516" y2="235" stroke="#585b70" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="476" y1="315" x2="516" y2="315" stroke="#585b70" stroke-width="1.5" stroke-dasharray="4,3"/>
+  
+  <!-- Bottom subtitle -->
+  <text x="340" y="402" text-anchor="middle" font-size="13" fill="#6c7086">A global set of high-level requirements guiding future feature development</text>
+</svg>

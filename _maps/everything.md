@@ -9,8 +9,8 @@ graph TB
     subgraph TECH ["🔧 Tech — 7 topics"]
         AG["🤖 Agentic AI — 30/30 ✅"]
         AM["🧠 Agent Memory — 7/7 ✅"]
-        RAG["🔍 RAG — 6/62 🔴"]
-        SDD["📋 Spec-Driven Dev — 1/16 🔴"]
+        RAG["🔍 RAG — 8/62 🔴"]
+        SDD["📋 Spec-Driven Dev — 13/16 🟡"]
         PY["🐍 Python"]
         PY --> AIO["⚡ AsyncIO — 1/1 ✅"]
         PY --> THR["🧵 Threading — 1/1 ✅"]
@@ -36,10 +36,10 @@ graph TB
 | Status | Count | Topics |
 |--------|-------|--------|
 | 🟢 Solid | 0 | — |
-| 🟡 Learning | 5 | Agentic AI, Agent Memory, AsyncIO, Threading, Multiprocessing |
-| 🔴 Starting | 2 | RAG (6/62 lessons), SDD (1/16 lessons) |
+| 🟡 Learning | 6 | Agentic AI, Agent Memory, AsyncIO, Threading, Multiprocessing, SDD |
+| 🔴 Starting | 1 | RAG (8/62 lessons) |
 
-**Total:** 7 topics · 47 lessons · 160+ flashcards · Last updated: 2026-04-20
+**Total:** 7 topics · 61 lessons · 200+ flashcards · Last updated: 2026-04-21
 
 ## Key Connections
 

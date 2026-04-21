@@ -7,7 +7,7 @@ graph TB
     T(("🔧 Tech"))
     T --> AG["🤖 <b>Agentic AI</b><br/>M1-M5 ✅"]
     T --> AM["🧠 <b>Agent Memory</b><br/>7/7 lessons ✅"]
-    T --> RAG["🔍 <b>RAG</b><br/>M1: 5/10 🔴"]
+    T --> RAG["🔍 <b>RAG</b><br/>M1: 7/10, M2: 1/12"]
     T --> PY["🐍 <b>Python</b>"]
     PY --> AIO["⚡ <b>AsyncIO</b><br/>1/1 ✅"]
     PY --> THR["🧵 <b>Threading</b><br/>1/1 ✅"]
@@ -15,7 +15,7 @@ graph TB
     AG -.->|"builds on"| AM
     AM -.->|"retrieval"| RAG
     RAG -.->|"extends"| AG
-    T --> SDD["📋 <b>Spec-Driven Dev</b><br/>1/16 🔴"]
+    T --> SDD["📋 <b>Spec-Driven Dev</b><br/>13/16 🟡"]
     SDD -.->|"guides"| AG
     THR -.->|"vs"| AIO
     THR -.->|"vs"| MP
@@ -25,13 +25,13 @@ graph TB
 
 | Topic | Confidence | Lessons | Flashcards | Last Updated |
 |-------|-----------|---------|------------|-------------|
-| [🤖 Agentic AI](../tech/agentic-ai/) | 🟡 Learning | 30/30 ✅ | 55+ | 2026-04-03 |
-| [🧠 Agent Memory](../tech/agent-memory/) | 🟡 Learning | 7/7 ✅ | 40+ | 2026-03-21 |
-| [🔍 RAG](../tech/rag/) | 🔴 Starting | 5/62 | 20+ | 2026-04-06 |
+| [🤖 Agentic AI](../tech/agentic-ai/) | 🟡 Learning | 30/30 ✅ | 95+ | 2026-04-03 |
+| [🧠 Agent Memory](../tech/agent-memory/) | 🟡 Learning | 7/7 ✅ | 37 | 2026-03-21 |
+| [🔍 RAG](../tech/rag/) | 🔴 Starting | 8/62 | 31 | 2026-04-21 |
+| [📋 Spec-Driven Dev](../tech/spec-driven-development/) | 🟡 Learning | 13/16 | 30+ | 2026-04-20 |
 | [⚡ AsyncIO](../tech/python/asyncio/) | 🟡 Learning | 1/1 ✅ | 12 | 2026-03-21 |
-| [🧵 Threading](../tech/python/threading/) | 🟡 Learning | 1/1 ✅ | 10 | 2026-03-24 |
-| [⚙️ Multiprocessing](../tech/python/multiprocessing/) | 🟡 Learning | 1/1 ✅ | 10 | 2026-04-04 |
-| [📋 Spec-Driven Dev](../tech/spec-driven-development/) | 🔴 Starting | 1/16 | 10 | 2026-04-20 |
+| [🧵 Threading](../tech/python/threading/) | 🟡 Learning | 1/1 ✅ | 11 | 2026-03-24 |
+| [⚙️ Multiprocessing](../tech/python/multiprocessing/) | 🟡 Learning | 1/1 ✅ | 11 | 2026-04-04 |
 
 ## What's Covered
 
@@ -47,11 +47,19 @@ graph TB
 ### RAG (5 modules — in progress 🔴)
 | # | Module | Status | Topics |
 |---|--------|--------|--------|
-| 01 | RAG Overview | 🟡 5/10 | What is RAG, Applications, Architecture, (next: LLMs intro, IR intro) |
-| 02 | IR & Search Foundations | 🔴 0/12 | Retriever arch, TF-IDF, BM25, Semantic search, Embeddings, Hybrid, Eval |
+| 01 | RAG Overview | 🟡 7/10 | What is RAG, Applications, Architecture, LLMs, IR |
+| 02 | IR & Search Foundations | 🔴 1/12 | Module intro done; next: Retriever Architecture |
 | 03 | IR with Vector Databases | 🔴 0/12 | ANN, Vector DBs, Weaviate, Chunking, Query parsing, Reranking |
 | 04 | LLMs & Text Generation | 🔴 0/14 | Transformers, Sampling, Prompt engineering, Hallucinations, Agentic RAG |
 | 05 | RAG in Production | 🔴 0/14 | Evaluation, Monitoring, Tracing, Quantization, Cost/Latency, Security |
+
+### Spec-Driven Development (16 lessons — nearly complete 🟡)
+| # | Lesson | Status |
+|---|--------|--------|
+| 01–03 | Intro, Why SDD, Workflow | ✅ |
+| 04–05 | Setup (skipped) | ⬜ |
+| 06–15 | Constitution → Agent Replaceability | ✅ (10/10) |
+| 16 | Conclusion | 🔴 |
 
 ### Python (3 sub-topics — all complete ✅)
 | # | Sub-topic | Status | Topics |
@@ -59,12 +67,6 @@ graph TB
 | 01 | AsyncIO | ✅ 1/1 | Event Loop, Coroutines, Tasks, gather, TaskGroup, to_thread, Semaphores |
 | 02 | Threading | ✅ 1/1 | Threads, Thread Pool, submit/map, join, GIL, daemon threads |
 | 03 | Multiprocessing | ✅ 1/1 | Processes, Pool, submit/map, bypasses GIL, CPU-bound tasks |
-
-### Spec-Driven Development (16 lessons — starting 🔴)
-| # | Lesson | Status | Topics |
-|---|--------|--------|---------|
-| 01 | Introduction | ✅ | What is SDD, 3 benefits, workflow overview, greenfield vs brownfield |
-| 02–16 | Remaining 15 lessons | 🔴 | Constitution, feature loops, validation, legacy, agent skills |
 
 ---
 

@@ -1,41 +1,41 @@
 # 🔴 Where I'm Weak
 
 > Shows all topics/areas needing attention. Auto-maintained.
-> Last updated: 2026-04-06
+> Last updated: 2026-04-21
 
 ## Focus Areas
 
 | Topic | Weak Area | Suggestion | Priority |
 |-------|-----------|-----------|----------|
-| 🧠 Agent Memory | Learned 2026-03-21 — revision overdue since Mar 28 | Revise flashcards ASAP (9 days overdue!) | 🔴 High |
-| 🤖 Agentic AI | 30/30 complete but never revised. Due today. | Revise M1-M5 flashcards today | 🔴 High |
-| 🔍 RAG | Only 5/62 lessons done (Module 1 in progress) | Keep going — next lesson: Introduction to LLMs | 🟡 Medium |
+| 🧠 Agent Memory | Learned 2026-03-21 — revision overdue since Mar 28 | Revise flashcards ASAP (24 days overdue!) | 🔴 High |
+| 🤖 Agentic AI | 30/30 complete but never revised. Overdue since Apr 6. | Revise M1-M5 flashcards | 🔴 High |
+| 🔍 RAG | Only 8/62 lessons done (M1: 7/10, M2: 1/12) | Continue M2 — next: Retriever Architecture | 🟡 Medium |
+| 📋 SDD | 13/16 done — just L16 (conclusion) remaining | Finish last lesson, then revise | 🟢 Low |
 
 ## 🔴 Red Topics
 
 | Topic | Status | Action |
 |-------|--------|--------|
-| 🔍 RAG | 5/62 lessons (M1 in progress, M2-M5 untouched) | Continue daily schedule — on track, even ahead by 1 day |
+| 🔍 RAG | 8/62 lessons (M1 nearly done, M2 just started) | Continue Module 2 |
+
+## ⚠️ Overdue Revisions (Critical!)
+
+| Topic | Due Date | Days Overdue | Action |
+|-------|----------|-------------|--------|
+| 🧠 Agent Memory | 2026-03-28 | **24 days** | Run flashcard quiz immediately |
+| 🤖 Agentic AI | 2026-04-06 | **15 days** | Revise M1-M5 flashcards |
+| 🧵 Threading | 2026-04-07 | **14 days** | Run flashcard quiz |
+| ⚙️ Multiprocessing | 2026-04-07 | **14 days** | Run flashcard quiz |
+| 🔍 RAG | 2026-04-07 | **14 days** | Revise M1 flashcards |
+| ⚡ AsyncIO | 2026-04-14 | **7 days** | Run flashcard quiz |
 
 ## ✅ Caught Up
 
-| Topic | Status | Next Revision |
-|-------|--------|---------------|
-| ⚡ AsyncIO | Revised 2026-03-31 (Round 2) | 2026-04-14 |
-| 🧵 Threading | Revised 2026-03-31 (Round 1) | 2026-04-07 |
-| ⚙️ Multiprocessing | Learned 2026-04-04 | 2026-04-07 |
-
-## 📅 Overdue & Upcoming Revisions
-
-| Topic | Due Date | Status |
-|-------|----------|--------|
-| 🧠 Agent Memory | 2026-03-28 | ⚠️ **Overdue by 9 days** |
-| 🤖 Agentic AI | 2026-04-06 | 📋 **Due today** — first revision |
-| 🧵 Threading | 2026-04-07 | 📋 Due tomorrow |
-| ⚙️ Multiprocessing | 2026-04-07 | 📋 Due tomorrow |
-| 🔍 RAG | 2026-04-07 | 📋 Due tomorrow |
-| ⚡ AsyncIO | 2026-04-14 | ✅ Coming up |
+| Topic | Status |
+|-------|--------|
+| — | Nothing is caught up. Everything is overdue! 😬 |
 
 ---
 
 > 💡 This file updates automatically. Your weakest spots show up here so you know where to focus.
+> ⚠️ **6 topics overdue for revision as of April 21. Revision debt is growing!**
