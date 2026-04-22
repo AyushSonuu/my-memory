@@ -29,7 +29,7 @@ graph LR
 | # | Module | Lessons | Confidence | Revised |
 |---|--------|---------|-----------|---------|
 | 01 | [RAG Overview](module-1-rag-overview/) | 7/10 | 🟡 | — |
-| 02 | [IR & Search Foundations](module-2-ir-search-foundations/) | 1/12 | 🟡 | — |
+| 02 | [IR & Search Foundations](module-2-ir-search-foundations/) | 4/12 | 🟡 | — |
 | 03 | [IR with Vector Databases](module-3-ir-vector-databases/) | 0/12 | 🔴 | — |
 | 04 | [LLMs & Text Generation](module-4-llms-text-generation/) | 0/14 | 🔴 | — |
 | 05 | [RAG in Production](module-5-rag-production/) | 0/14 | 🔴 | — |
@@ -38,7 +38,10 @@ graph LR
 
 > Things picked up over time. Random "aha!" moments, project learnings.
 >
-> - _Add fragments as you learn..._
+> - 🔎 Hybrid retrieval flow = keyword + semantic candidate generation, metadata filtering, then final rank fusion.
+> - ⚖️ Retriever quality is mostly about tuning balance between exact match, semantic similarity, and hard filters.
+> - 🔐 Metadata filtering is a policy/control layer (who can see what), not a relevance engine.
+> - 🔤 TF-IDF gives stronger weight to rare terms, making keyword retrieval less dominated by filler words.
 
 ---
 
@@ -98,8 +101,8 @@ graph LR
 
 | Day | Date | Lesson | Status |
 |-----|------|--------|--------|
-| Sat 🔥 | Apr 12 | Module 2 Introduction + Retriever Architecture | ✅ (Intro) |
-| Sun 🔥 | Apr 13 | Metadata Filtering + Keyword Search: TF-IDF | ⬜ |
+| Sat 🔥 | Apr 12 | Module 2 Introduction + Retriever Architecture | ✅ |
+| Sun 🔥 | Apr 13 | Metadata Filtering + Keyword Search: TF-IDF | ✅ |
 | Mon | Apr 14 | Keyword Search: BM25 | ⬜ |
 | Tue | Apr 15 | Semantic Search: Introduction | ⬜ |
 | Wed | Apr 16 | Semantic Search: Embedding Model Deep Dive | ⬜ |

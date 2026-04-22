@@ -5463,6 +5463,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -5530,6 +5536,90 @@
     
   
     01 · Module Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-2-ir-search-foundations/02-retriever-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Retriever Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-2-ir-search-foundations/03-metadata-filtering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Metadata Filtering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module-2-ir-search-foundations/04-keyword-search-tfidf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Keyword Search: TF-IDF
   
 
     
@@ -5960,6 +6050,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🃏 Flashcards
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -5976,6 +6084,36 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#m2-pulls-retriever-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        M2 Pulls — Retriever Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -6658,6 +6796,25 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#m2-pulls-retriever-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        M2 Pulls — Retriever Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -6676,7 +6833,7 @@
 <h1 id="rag-flashcards-cross-module">🃏 RAG Flashcards — Cross-Module<a class="headerlink" href="#rag-flashcards-cross-module" title="Permanent link">#</a></h1>
 <blockquote>
 <p>From: all modules + related: agentic-ai/, agent-memory/
-Last updated: —</p>
+Last updated: 2026-04-22</p>
 </blockquote>
 <hr />
 <blockquote>
@@ -6713,6 +6870,50 @@ Last updated: —</p>
 </tr>
 </tbody>
 </table>
+<hr />
+<h2 id="m2-pulls-retriever-architecture">M2 Pulls — Retriever Architecture<a class="headerlink" href="#m2-pulls-retriever-architecture" title="Permanent link">#</a></h2>
+<details>
+<summary>❓ What makes a retriever architecture “hybrid” in RAG?</summary>
+
+Combining keyword search and semantic search, applying metadata filters, and fusing results into one final ranking.
+</details>
+
+<details>
+<summary>❓ Why is metadata filtering not replaceable by keyword/semantic search?</summary>
+
+Because metadata filtering enforces strict non-semantic rules (like team, policy scope, or region constraints).
+</details>
+
+<details>
+<summary>❓ In one line, why does retriever tuning matter?</summary>
+
+Retriever tuning controls which documents the LLM sees, so it directly controls answer quality.
+</details>
+
+<details>
+<summary>❓ What is the clean mental model for metadata filtering?</summary>
+
+Metadata filtering is a hard policy gate that narrows candidates before final ranking.
+</details>
+
+<details>
+<summary>❓ Give two examples of user-attribute-based metadata filters in production RAG.</summary>
+
+Subscription filter (exclude paid content for free users) and region filter (only local-region content).
+</details>
+
+<details>
+<summary>❓ Why does TF-IDF usually beat plain keyword counting?</summary>
+
+Because it weights informative rare terms higher while reducing the influence of overly common terms.
+</details>
+
+<details>
+<summary>❓ What two fixes were needed before TF-IDF becomes useful in practice?</summary>
+
+Term-frequency scoring (count repeats) and length normalization (avoid long-document bias).
+</details>
+
 <hr />
 <blockquote>
 <p>💡 <strong>Revision tip:</strong> Cover the answer, try to explain OUT LOUD, then reveal.

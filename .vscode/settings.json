@@ -1,3 +1,9 @@
 {
-    "gemini-cli.debug.logging.enabled": true
+    "gemini-cli.debug.logging.enabled": true,
+    "chat.tools.terminal.autoApprove": {
+        "/Users/I772464/Library/CloudStorage/OneDrive-SAPSE/Desktop/my-memory/.venv/bin/python": true,
+        "git add": true,
+        "git commit": true,
+        "git push": true
+    }
 }

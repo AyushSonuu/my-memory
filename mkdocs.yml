@@ -269,6 +269,9 @@ nav:
     - Module 2 · IR & Search:
       - Overview: tech/rag/module-2-ir-search-foundations/README.md
       - 01 · Module Introduction: tech/rag/module-2-ir-search-foundations/01-module-introduction.md
+      - 02 · Retriever Architecture: tech/rag/module-2-ir-search-foundations/02-retriever-architecture.md
+      - 03 · Metadata Filtering: tech/rag/module-2-ir-search-foundations/03-metadata-filtering.md
+      - "04 · Keyword Search: TF-IDF": tech/rag/module-2-ir-search-foundations/04-keyword-search-tfidf.md
       - 🃏 Flashcards: tech/rag/module-2-ir-search-foundations/flashcards.md
     - Module 3 · Vector Databases:
       - Overview: tech/rag/module-3-ir-vector-databases/README.md

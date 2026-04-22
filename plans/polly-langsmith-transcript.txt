@@ -1,0 +1,196 @@
+Today, we're excited to launch Langmith
+Poly, an AI assistant for AI
+engineering. Poly is an AI assistant
+that lives inside Langmith and helps you
+do AI engineering. There's three
+specific places that we've introduced
+Poly into for this beta launch. The
+first place we've introduced Poly into
+is within the thread page. So if we go
+to a tracing project in this case one
+for chat lang chain our support
+application and we go to threads this is
+a list of all the different
+conversations that have happened and so
+you can see that there are multiple
+traces these are multiple back and
+forths representing a single thread or a
+single conversation down in this bottom
+right hand corner you'll see Paulie
+Paulie is your AI assistant for
+interacting with Langmith in this case
+with this thread we can move from the
+sidebar down to this little window. We
+can resize it. It's pretty flexible in
+how we want to use it. Once we're here,
+we can ask questions about this thread.
+So, let's ask something like, "Did the
+user ever seem frustrated in this
+convo?" And what Polly will do now is
+Poly will interact with the data in this
+thread and analyze it. And so, we can
+see that it's reading the thread. It
+will then read through all of the
+trajectories
+and here just to zoom out we can see
+more of the conversation here. So this
+is actually the and if we want to we can
+actually close poly while it's working.
+So we can see the full turn here. How to
+implement I'm assuming this is agent
+with create agent. And so it does some
+searches. Um and then there's some
+responses and then there's some back and
+forth. And so if we open back up poly,
+it's continuing to working and it's
+continuing to look things through. And
+if we now see its response, we can see
+no, the user did not appear frustrated
+throughout this conversation. So it
+lists out the topics that were covered,
+the tone indicators and things like
+that. So that's the first place we can
+use poly to analyze a particular thread.
+The second place we can use poly is to
+analyze a particular trace. So here if
+we go to the runs page and we click on
+an incoming trace, we can see here the
+poly is back and it's back in this
+corner. The questions we can ask are
+again pretty similar, but they're about
+this particular trace. So let's maybe
+ask something and and and maybe we'll
+use one of the pre-builts here. So you
+can see that we'll have some some kind
+of like pre-built things. So let's see
+if there's any errors in this trace.
+Anything that the agent didn't do well
+or could have improved on.
+And so here again we can see that it's
+accessing the underlying data. It's
+reading the file. So we represent all
+the data in this trace in a file system
+because LLMs are really good at
+interacting with file systems. And so
+it's doing a bunch of work. You can also
+see here that Poly is searching the
+docs. So one of the nice things that
+Poly has is it actually has
+documentation on everything. So it's
+hooked up to chat link chain. This is
+given to Pauly as a sub agent and it's
+using that to get more data to help
+answer part of this question. So it's
+combo of debugging what's going on here
+but bringing in exterior knowledge from
+our support and from our open source
+document. And so we can see here that
+Paulie is responding. And so we can see
+some issues that it's identified. So it
+already identified some issues with the
+final response here. So the the agent
+said something false. That's probably
+because we're using pretty cheap model,
+the Grock 41 fast for our support
+because we have pretty high volume here.
+Major error number two, contradictory
+explanation. So it starts to contradict
+itself and it's identifying kind of like
+flaws in the logic there. It's
+misdiagnosing the problem. So it's doing
+it's analyzing a bunch of things and and
+identifying what the model got wrong.
+So this is the second place that we can
+use. The final place that we can use
+poly is in the playground. So if we go
+let's scroll down maybe here to one of
+the final model responses and let's open
+it up in the playground and we'll see
+that poly is still down here. So we now
+we can ask it to do a bunch of things.
+So we can ask it to optimize prompts and
+this really will suggest changes based
+on uh some prompting guidelines. It's
+not yet going to run this against eval
+that'll happen later. Um, it we can ask
+it to generate tools, add an output
+schema. In this case, I'm going to want
+to uh I'm going to want to make some
+changes to the system prompt. So,
+specifically, let let's come up with
+something. Let's say, you know, it's
+it's already done um a bunch of
+searches.
+Um, and so let's maybe tell it that it
+like how many searches has it done?
+Yeah, it's done a bunch.
+So, let's maybe say like, you know,
+don't do more than two rounds of
+searches. The agent should never do more
+than two rounds of searches.
+Update the prompt to make sure this
+happens.
+And so now it's kicking it off and it's
+it knows that it has uh some of these
+files. So, it's looking at the system
+prompt that it has in context. And now
+it's it's editing it. So, it's making an
+edit to the system. And so, here, if we
+click in, we can see more details here.
+And so, we can see a nice little git
+diff of of the changes it made there.
+Um, we can click in here and see some
+more changes that it made. Um, now, if
+we rerun from here,
+I don't have the API key loaded. So, let
+me actually change this model to a
+different provider. Um, let's just
+change it to to that model. Let's rerun
+there.
+Okay, so it's still messed up. So I'm
+going to say
+and actually here I'm going to show
+another version. So here I'm going to
+open up and have two prompts. And the
+reason I'm going to do this is so that I
+can compare it side by side. So now I'm
+saying, okay, it's still messing up.
+Didn't already do two rounds of
+searching. Shouldn't it finalize now?
+Let's see what it says to that. We can
+see that it's saying that the problem is
+the instructions aren't strong enough
+about stopping after two rounds. Let me
+strengthen the language. It's making
+more changes here. We're adding more
+explicit reminders. Now, let's try
+rerunning. And we'll rerun both of them.
+And this should have only changed this
+prompt right here. And we'll check that
+in a and so we can see here the changes
+that it made. And these are highlighted
+in green. And this is because it only
+affected the first system prompt. So we
+can see the changes that it made between
+one prompt and the other. And so this is
+a new compare prompt functionality that
+we add. And if we look at the result
+now, which is now finished, we can see
+that here it when and this is in output
+B. This is for this prompt over here. So
+when it when it added those instructions
+to be more strict about responding, we
+can see now that it actually responded
+whereas before it still called another
+tool. So this is how we can use Pauly as
+an AI engineer to edit prompts. Those
+are the three ways that you can use
+Pauly, our new AI assistant for AI
+engineering to support your AI
+engineering workflows in Langmith. This
+is still in beta, so we're really
+excited to see how people use it and we
+would love any feedback. So, please try
+it out and let us know what you think.
+
+--- Total entries: 194 ---
