@@ -25,7 +25,7 @@ graph LR
 | 01 | [Module 2 Introduction](01-module-introduction.md) | 🟢 | — |
 | 02 | [Retriever Architecture Overview](02-retriever-architecture.md) | 🟢 | — |
 | 03 | [Metadata Filtering](03-metadata-filtering.md) | 🟢 | — |
-| 04 | [Keyword Search: TF-IDF](04-keyword-search-tfidf.md) | 🟢 | 4 SVG visualizations added |
+| 04 | [Keyword Search: TF-IDF](04-keyword-search-tfidf.md) | 🟢 | 4 SVG visualizations |
 | 05 | [Keyword Search: BM25](05-keyword-search-bm25.md) | 🔴 | — |
 | 06 | [Semantic Search: Introduction](06-semantic-search-intro.md) | 🔴 | — |
 | 07 | [Semantic Search: Embedding Deep Dive](07-embedding-model-deepdive.md) | 🔴 | — |
@@ -35,7 +35,7 @@ graph LR
 | 11 | [Retrieval Metrics](11-retrieval-metrics.md) | 🔴 | — |
 | 12 | [Lab: Implementing Retriever Functions](12-lab-retriever-functions.md) | 🔴 | — |
 
-**Overall confidence:** 🟡 In progress (4/12)
+**Overall confidence:** � Just started (4/12)
 
 ## 🧩 Memory Fragments
 > - 🔍 The retriever's core challenge: messy human queries + messy human documents, matched in milliseconds.
