@@ -131,6 +131,36 @@ Term frequency within a document (TF) and inverse document frequency across the 
 BM25, a refined scoring approach built on similar intuition.
 </details>
 
+<details>
+<summary>❓ What does BM25 improve over TF-IDF?</summary>
+
+It adds term-frequency saturation (diminishing returns for repeated words), gentler document-length normalization, and tunable hyperparameters for better corpus-specific ranking.
+</details>
+
+<details>
+<summary>❓ In BM25, what does term-frequency saturation mean in plain language?</summary>
+
+If a keyword appears many times, each extra repetition helps less and less; 20 mentions are not twice as valuable as 10 mentions.
+</details>
+
+<details>
+<summary>❓ What is the role of `k1` in BM25?</summary>
+
+`k1` controls how quickly term-frequency rewards saturate. Higher `k1` means slower saturation; lower `k1` means faster saturation.
+</details>
+
+<details>
+<summary>❓ What is the role of `b` in BM25?</summary>
+
+`b` controls document-length normalization strength. `b=0` means no length penalty; `b=1` means full normalization.
+</details>
+
+<details>
+<summary>❓ Why is BM25 usually preferred in production retrievers?</summary>
+
+It tends to outperform TF-IDF with similar computational cost and gives tuning knobs (`k1`, `b`) to fit real corpus behavior.
+</details>
+
 ---
 
 > 💡 **Revision tip:** Cover the answer, explain it out loud, then reveal.

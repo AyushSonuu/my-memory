@@ -7,7 +7,7 @@ graph TB
     T(("🔧 Tech"))
     T --> AG["🤖 <b>Agentic AI</b><br/>M1-M5 ✅"]
     T --> AM["🧠 <b>Agent Memory</b><br/>7/7 lessons ✅"]
-    T --> RAG["🔍 <b>RAG</b><br/>M1: 7/10, M2: 4/12 ✨"]
+    T --> RAG["🔍 <b>RAG</b><br/>M1: 7/10, M2: 5/12 ✨"]
     T --> PY["🐍 <b>Python</b>"]
     PY --> AIO["⚡ <b>AsyncIO</b><br/>1/1 ✅"]
     PY --> THR["🧵 <b>Threading</b><br/>1/1 ✅"]
@@ -27,7 +27,7 @@ graph TB
 |-------|-----------|---------|------------|-------------|
 | [🤖 Agentic AI](../tech/agentic-ai/) | 🟡 Learning | 30/30 ✅ | 95+ | 2026-04-03 |
 | [🧠 Agent Memory](../tech/agent-memory/) | 🟡 Learning | 7/7 ✅ | 37 | 2026-03-21 |
-| [🔍 RAG](../tech/rag/) | 🔴 Starting | 12/62 | 35 | 2026-04-22 |
+| [🔍 RAG](../tech/rag/) | 🔴 Starting | 13/62 | 40 | 2026-04-22 |
 | [📋 Spec-Driven Dev](../tech/spec-driven-development/) | 🟡 Learning | 13/16 | 30+ | 2026-04-20 |
 | [⚡ AsyncIO](../tech/python/asyncio/) | 🟡 Learning | 1/1 ✅ | 12 | 2026-03-21 |
 | [🧵 Threading](../tech/python/threading/) | 🟡 Learning | 1/1 ✅ | 11 | 2026-03-24 |
@@ -48,8 +48,7 @@ graph TB
 | # | Module | Status | Topics |
 |---|--------|--------|--------|
 | 01 | RAG Overview | 🟡 7/10 | What is RAG, Applications, Architecture, LLMs, IR |
-| 02 | IR & Search Foundations | 🟡 4/12 | Retriever architecture, metadata filtering, TF-IDF (SVG visualizations), BM25 (pending) |
-| 02 | IR & Search Foundations | 🔴 1/12 | Module intro done; next: Retriever Architecture |
+| 02 | IR & Search Foundations | 🟡 5/12 | Retriever architecture, metadata filtering, TF-IDF (SVG visualizations), BM25 (SVG + hyperparameters) |
 | 03 | IR with Vector Databases | 🔴 0/12 | ANN, Vector DBs, Weaviate, Chunking, Query parsing, Reranking |
 | 04 | LLMs & Text Generation | 🔴 0/14 | Transformers, Sampling, Prompt engineering, Hallucinations, Agentic RAG |
 | 05 | RAG in Production | 🔴 0/14 | Evaluation, Monitoring, Tracing, Quantization, Cost/Latency, Security |

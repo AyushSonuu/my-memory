@@ -62,6 +62,18 @@ Because it weights informative rare terms higher while reducing the influence of
 Term-frequency scoring (count repeats) and length normalization (avoid long-document bias).
 </details>
 
+<details>
+<summary>❓ Why does BM25 usually beat TF-IDF in real retrieval systems?</summary>
+
+BM25 models diminishing returns for repeated terms and applies fairer length normalization, improving ranking quality without increasing compute significantly.
+</details>
+
+<details>
+<summary>❓ In BM25 tuning, what practical behavior do `k1` and `b` control?</summary>
+
+`k1` controls how quickly repeated-term rewards saturate; `b` controls how strongly long documents are penalized.
+</details>
+
 ---
 
 > 💡 **Revision tip:** Cover the answer, try to explain OUT LOUD, then reveal.

@@ -12,27 +12,31 @@
         <meta name="author" content="Ayush Sonu">
       
       
-        <link rel="canonical" href="https://ayushsonuu.github.io/my-memory/_generated/tech/agentic-ai/module-5-autonomous-agents/code/M5/ungraded_labs/M5_UGL_1/utils/">
+        <link rel="canonical" href="https://ayushsonuu.github.io/my-memory/tech/rag/module-2-ir-search-foundations/05-keyword-search-bm25/">
       
       
+        <link rel="prev" href="../04-keyword-search-tfidf/">
+      
+      
+        <link rel="next" href="../flashcards/">
       
       
         
       
       
-      <link rel="icon" href="../../../../../../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>📄 Utils - 🧠 My Memory</title>
+        <title>05 · Keyword Search: BM25 - 🧠 My Memory</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../../../../../_assets/custom.css">
+      <link rel="stylesheet" href="../../../../_assets/custom.css">
     
-    <script>__md_scope=new URL("../../../../../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#utils" class="md-skip">
+        <a href="#lesson-05-keyword-search-bm25" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +98,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../../../../../../.." title="🧠 My Memory" class="md-header__button md-logo" aria-label="🧠 My Memory" data-md-component="logo">
+    <a href="../../../.." title="🧠 My Memory" class="md-header__button md-logo" aria-label="🧠 My Memory" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.687 1.687 0 0 1-1.86-.55L14.44 18c-.89-.15-1.73-.53-2.44-1.1-.5.15-1 .23-1.5.23-.88 0-1.76-.27-2.5-.79-.53.16-1.07.23-1.62.22-.79.01-1.57-.15-2.3-.45a4.1 4.1 0 0 1-2.43-3.61c-.08-.72.04-1.45.35-2.11-.29-.75-.32-1.57-.07-2.33C2.3 7.11 3 6.32 3.87 5.82c.58-1.69 2.21-2.82 4-2.7 1.6-1.5 4.05-1.66 5.83-.37.42-.11.86-.17 1.3-.17 1.36-.03 2.65.57 3.5 1.64 2.04.53 3.5 2.35 3.58 4.47.05 1.11-.25 2.2-.86 3.13.07.36.11.72.11 1.09m-5-1.41c.57.07 1.02.5 1.02 1.07a1 1 0 0 1-1 1h-.63c-.32.9-.88 1.69-1.62 2.29.25.09.51.14.77.21 5.13-.07 4.53-3.2 4.53-3.25a2.59 2.59 0 0 0-2.69-2.49 1 1 0 0 1-1-1 1 1 0 0 1 1-1c1.23.03 2.41.49 3.33 1.3.05-.29.08-.59.08-.89-.06-1.24-.62-2.32-2.87-2.53-1.25-2.96-4.4-1.32-4.4-.4-.03.23.21.72.25.75a1 1 0 0 1 1 1c0 .55-.45 1-1 1-.53-.02-1.03-.22-1.43-.56-.48.31-1.03.5-1.6.56-.57.05-1.04-.35-1.07-.9a.97.97 0 0 1 .88-1.1c.16-.02.94-.14.94-.77 0-.66.25-1.29.68-1.79-.92-.25-1.91.08-2.91 1.29C6.75 5 6 5.25 5.45 7.2 4.5 7.67 4 8 3.78 9c1.08-.22 2.19-.13 3.22.25.5.19.78.75.59 1.29-.19.52-.77.78-1.29.59-.73-.32-1.55-.34-2.3-.06-.32.27-.32.83-.32 1.27 0 .74.37 1.43 1 1.83.53.27 1.12.41 1.71.4q-.225-.39-.39-.81a1.038 1.038 0 0 1 1.96-.68c.4 1.14 1.42 1.92 2.62 2.05 1.37-.07 2.59-.88 3.19-2.13.23-1.38 1.34-1.5 2.56-1.5m2 7.47-.62-1.3-.71.16 1 1.25zm-4.65-8.61a1 1 0 0 0-.91-1.03c-.71-.04-1.4.2-1.93.67-.57.58-.87 1.38-.84 2.19a1 1 0 0 0 1 1c.57 0 1-.45 1-1 0-.27.07-.54.23-.76.12-.1.27-.15.43-.15.55.03 1.02-.38 1.02-.92"/></svg>
@@ -114,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              📄 Utils
+              05 · Keyword Search: BM25
             
           </span>
         </div>
@@ -228,7 +232,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../../../../.." class="md-tabs__link">
+        <a href="../../../.." class="md-tabs__link">
           
   
   
@@ -250,7 +254,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../../../../../tech/agent-memory/" class="md-tabs__link">
+        <a href="../../../agent-memory/" class="md-tabs__link">
           
   
   
@@ -272,7 +276,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../../../../../tech/python/" class="md-tabs__link">
+        <a href="../../../python/" class="md-tabs__link">
           
   
   
@@ -294,7 +298,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../../../../../tech/agentic-ai/" class="md-tabs__link">
+        <a href="../../../agentic-ai/" class="md-tabs__link">
           
   
   
@@ -312,11 +316,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../../../../../../../tech/rag/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -338,7 +344,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../../../../../tech/spec-driven-development/" class="md-tabs__link">
+        <a href="../../../spec-driven-development/" class="md-tabs__link">
           
   
   
@@ -402,7 +408,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../../../../../.." title="🧠 My Memory" class="md-nav__button md-logo" aria-label="🧠 My Memory" data-md-component="logo">
+    <a href="../../../.." title="🧠 My Memory" class="md-nav__button md-logo" aria-label="🧠 My Memory" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.687 1.687 0 0 1-1.86-.55L14.44 18c-.89-.15-1.73-.53-2.44-1.1-.5.15-1 .23-1.5.23-.88 0-1.76-.27-2.5-.79-.53.16-1.07.23-1.62.22-.79.01-1.57-.15-2.3-.45a4.1 4.1 0 0 1-2.43-3.61c-.08-.72.04-1.45.35-2.11-.29-.75-.32-1.57-.07-2.33C2.3 7.11 3 6.32 3.87 5.82c.58-1.69 2.21-2.82 4-2.7 1.6-1.5 4.05-1.66 5.83-.37.42-.11.86-.17 1.3-.17 1.36-.03 2.65.57 3.5 1.64 2.04.53 3.5 2.35 3.58 4.47.05 1.11-.25 2.2-.86 3.13.07.36.11.72.11 1.09m-5-1.41c.57.07 1.02.5 1.02 1.07a1 1 0 0 1-1 1h-.63c-.32.9-.88 1.69-1.62 2.29.25.09.51.14.77.21 5.13-.07 4.53-3.2 4.53-3.25a2.59 2.59 0 0 0-2.69-2.49 1 1 0 0 1-1-1 1 1 0 0 1 1-1c1.23.03 2.41.49 3.33 1.3.05-.29.08-.59.08-.89-.06-1.24-.62-2.32-2.87-2.53-1.25-2.96-4.4-1.32-4.4-.4-.03.23.21.72.25.75a1 1 0 0 1 1 1c0 .55-.45 1-1 1-.53-.02-1.03-.22-1.43-.56-.48.31-1.03.5-1.6.56-.57.05-1.04-.35-1.07-.9a.97.97 0 0 1 .88-1.1c.16-.02.94-.14.94-.77 0-.66.25-1.29.68-1.79-.92-.25-1.91.08-2.91 1.29C6.75 5 6 5.25 5.45 7.2 4.5 7.67 4 8 3.78 9c1.08-.22 2.19-.13 3.22.25.5.19.78.75.59 1.29-.19.52-.77.78-1.29.59-.73-.32-1.55-.34-2.3-.06-.32.27-.32.83-.32 1.27 0 .74.37 1.43 1 1.83.53.27 1.12.41 1.71.4q-.225-.39-.39-.81a1.038 1.038 0 0 1 1.96-.68c.4 1.14 1.42 1.92 2.62 2.05 1.37-.07 2.59-.88 3.19-2.13.23-1.38 1.34-1.5 2.56-1.5m2 7.47-.62-1.3-.71.16 1 1.25zm-4.65-8.61a1 1 0 0 0-.91-1.03c-.71-.04-1.4.2-1.93.67-.57.58-.87 1.38-.84 2.19a1 1 0 0 0 1 1c.57 0 1-.45 1-1 0-.27.07-.54.23-.76.12-.1.27-.15.43-.15.55.03 1.02-.38 1.02-.92"/></svg>
@@ -469,7 +475,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../../.." class="md-nav__link ">
+            <a href="../../../.." class="md-nav__link ">
               
   
   
@@ -513,7 +519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../_maps/everything/" class="md-nav__link">
+      <a href="../../../../_maps/everything/" class="md-nav__link">
         
   
   
@@ -541,7 +547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../_maps/tech/" class="md-nav__link">
+      <a href="../../../../_maps/tech/" class="md-nav__link">
         
   
   
@@ -569,7 +575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../_maps/connections/" class="md-nav__link">
+      <a href="../../../../_maps/connections/" class="md-nav__link">
         
   
   
@@ -597,7 +603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../_maps/learning-journey/" class="md-nav__link">
+      <a href="../../../../_maps/learning-journey/" class="md-nav__link">
         
   
   
@@ -625,7 +631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../_maps/weak-spots/" class="md-nav__link">
+      <a href="../../../../_maps/weak-spots/" class="md-nav__link">
         
   
   
@@ -653,7 +659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../_maps/llm-wiki-pattern/" class="md-nav__link">
+      <a href="../../../../_maps/llm-wiki-pattern/" class="md-nav__link">
         
   
   
@@ -681,7 +687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../_revision/due-today/" class="md-nav__link">
+      <a href="../../../../_revision/due-today/" class="md-nav__link">
         
   
   
@@ -775,7 +781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../plans/roadmap/" class="md-nav__link">
+      <a href="../../../../plans/roadmap/" class="md-nav__link">
         
   
   
@@ -803,7 +809,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../plans/dsa-tracker/" class="md-nav__link">
+      <a href="../../../../plans/dsa-tracker/" class="md-nav__link">
         
   
   
@@ -831,7 +837,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../plans/lld-tracker/" class="md-nav__link">
+      <a href="../../../../plans/lld-tracker/" class="md-nav__link">
         
   
   
@@ -859,7 +865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../plans/hld-tracker/" class="md-nav__link">
+      <a href="../../../../plans/hld-tracker/" class="md-nav__link">
         
   
   
@@ -887,7 +893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../plans/ai-courses-tracker/" class="md-nav__link">
+      <a href="../../../../plans/ai-courses-tracker/" class="md-nav__link">
         
   
   
@@ -915,7 +921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../plans/speaking-tracker/" class="md-nav__link">
+      <a href="../../../../plans/speaking-tracker/" class="md-nav__link">
         
   
   
@@ -943,7 +949,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../plans/weekly-reviews/" class="md-nav__link">
+      <a href="../../../../plans/weekly-reviews/" class="md-nav__link">
         
   
   
@@ -1025,7 +1031,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../../../tech/agent-memory/" class="md-nav__link ">
+            <a href="../../../agent-memory/" class="md-nav__link ">
               
   
   
@@ -1069,7 +1075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agent-memory/01-introduction/" class="md-nav__link">
+      <a href="../../../agent-memory/01-introduction/" class="md-nav__link">
         
   
   
@@ -1097,7 +1103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agent-memory/02-why-agents-need-memory/" class="md-nav__link">
+      <a href="../../../agent-memory/02-why-agents-need-memory/" class="md-nav__link">
         
   
   
@@ -1125,7 +1131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agent-memory/03-memory-manager/" class="md-nav__link">
+      <a href="../../../agent-memory/03-memory-manager/" class="md-nav__link">
         
   
   
@@ -1153,7 +1159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agent-memory/04-semantic-tool-memory/" class="md-nav__link">
+      <a href="../../../agent-memory/04-semantic-tool-memory/" class="md-nav__link">
         
   
   
@@ -1181,7 +1187,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agent-memory/05-memory-operations/" class="md-nav__link">
+      <a href="../../../agent-memory/05-memory-operations/" class="md-nav__link">
         
   
   
@@ -1209,7 +1215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agent-memory/06-memory-aware-agent/" class="md-nav__link">
+      <a href="../../../agent-memory/06-memory-aware-agent/" class="md-nav__link">
         
   
   
@@ -1237,7 +1243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agent-memory/07-conclusion/" class="md-nav__link">
+      <a href="../../../agent-memory/07-conclusion/" class="md-nav__link">
         
   
   
@@ -1323,7 +1329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agent-memory/flashcards/" class="md-nav__link">
+      <a href="../../../agent-memory/flashcards/" class="md-nav__link">
         
   
   
@@ -1351,7 +1357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agent-memory/cheatsheet/" class="md-nav__link">
+      <a href="../../../agent-memory/cheatsheet/" class="md-nav__link">
         
   
   
@@ -1379,7 +1385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agent-memory/vs/" class="md-nav__link">
+      <a href="../../../agent-memory/vs/" class="md-nav__link">
         
   
   
@@ -1446,7 +1452,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../../../tech/agent-memory/code/" class="md-nav__link ">
+            <a href="../../../agent-memory/code/" class="md-nav__link ">
               
   
   
@@ -1490,7 +1496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agent-memory/code/L3/L3/" class="md-nav__link">
+      <a href="../../../agent-memory/code/L3/L3/" class="md-nav__link">
         
   
   
@@ -1518,7 +1524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agent-memory/code/L4/L4/" class="md-nav__link">
+      <a href="../../../agent-memory/code/L4/L4/" class="md-nav__link">
         
   
   
@@ -1546,7 +1552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agent-memory/code/L5/L5/" class="md-nav__link">
+      <a href="../../../agent-memory/code/L5/L5/" class="md-nav__link">
         
   
   
@@ -1574,7 +1580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agent-memory/code/L6/L6/" class="md-nav__link">
+      <a href="../../../agent-memory/code/L6/L6/" class="md-nav__link">
         
   
   
@@ -1602,7 +1608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../agent-memory/code/helper/" class="md-nav__link">
+      <a href="../../../../_generated/tech/agent-memory/code/helper/" class="md-nav__link">
         
   
   
@@ -1672,7 +1678,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../../../tech/python/" class="md-nav__link ">
+            <a href="../../../python/" class="md-nav__link ">
               
   
   
@@ -1743,7 +1749,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../../../tech/python/asyncio/" class="md-nav__link ">
+            <a href="../../../python/asyncio/" class="md-nav__link ">
               
   
   
@@ -1787,7 +1793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/python/asyncio/01-asyncio-complete-guide/" class="md-nav__link">
+      <a href="../../../python/asyncio/01-asyncio-complete-guide/" class="md-nav__link">
         
   
   
@@ -1815,7 +1821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/python/asyncio/flashcards/" class="md-nav__link">
+      <a href="../../../python/asyncio/flashcards/" class="md-nav__link">
         
   
   
@@ -1880,7 +1886,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../../../tech/python/asyncio/code/" class="md-nav__link ">
+            <a href="../../../python/asyncio/code/" class="md-nav__link ">
               
   
   
@@ -1924,7 +1930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../python/asyncio/code/L1/terms/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/asyncio/code/L1/terms/" class="md-nav__link">
         
   
   
@@ -1952,7 +1958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../python/asyncio/code/L1/example_1/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/asyncio/code/L1/example_1/" class="md-nav__link">
         
   
   
@@ -1980,7 +1986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../python/asyncio/code/L1/example_2/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/asyncio/code/L1/example_2/" class="md-nav__link">
         
   
   
@@ -2008,7 +2014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../python/asyncio/code/L1/example_3/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/asyncio/code/L1/example_3/" class="md-nav__link">
         
   
   
@@ -2036,7 +2042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../python/asyncio/code/L1/example_4/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/asyncio/code/L1/example_4/" class="md-nav__link">
         
   
   
@@ -2064,7 +2070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../python/asyncio/code/L1/example_5/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/asyncio/code/L1/example_5/" class="md-nav__link">
         
   
   
@@ -2092,7 +2098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../python/asyncio/code/L1/example_6/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/asyncio/code/L1/example_6/" class="md-nav__link">
         
   
   
@@ -2120,7 +2126,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../python/asyncio/code/L1/example_7/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/asyncio/code/L1/example_7/" class="md-nav__link">
         
   
   
@@ -2191,7 +2197,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../../../tech/python/threading/" class="md-nav__link ">
+            <a href="../../../python/threading/" class="md-nav__link ">
               
   
   
@@ -2235,7 +2241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/python/threading/01-threading-complete-guide/" class="md-nav__link">
+      <a href="../../../python/threading/01-threading-complete-guide/" class="md-nav__link">
         
   
   
@@ -2263,7 +2269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/python/threading/flashcards/" class="md-nav__link">
+      <a href="../../../python/threading/flashcards/" class="md-nav__link">
         
   
   
@@ -2324,7 +2330,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../../../tech/python/threading/code/" class="md-nav__link ">
+            <a href="../../../python/threading/code/" class="md-nav__link ">
               
   
   
@@ -2368,7 +2374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../python/threading/code/L1/01_synchronous/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/threading/code/L1/01_synchronous/" class="md-nav__link">
         
   
   
@@ -2396,7 +2402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../python/threading/code/L1/02_basic_threads/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/threading/code/L1/02_basic_threads/" class="md-nav__link">
         
   
   
@@ -2424,7 +2430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../python/threading/code/L1/03_loop_threads/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/threading/code/L1/03_loop_threads/" class="md-nav__link">
         
   
   
@@ -2452,7 +2458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../python/threading/code/L1/04_thread_pool_submit/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/threading/code/L1/04_thread_pool_submit/" class="md-nav__link">
         
   
   
@@ -2480,7 +2486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../python/threading/code/L1/05_thread_pool_map/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/threading/code/L1/05_thread_pool_map/" class="md-nav__link">
         
   
   
@@ -2508,7 +2514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../python/threading/code/L1/06_download_images/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/threading/code/L1/06_download_images/" class="md-nav__link">
         
   
   
@@ -2579,7 +2585,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../../../tech/python/multiprocessing/" class="md-nav__link ">
+            <a href="../../../python/multiprocessing/" class="md-nav__link ">
               
   
   
@@ -2623,7 +2629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/python/multiprocessing/01-multiprocessing-complete-guide/" class="md-nav__link">
+      <a href="../../../python/multiprocessing/01-multiprocessing-complete-guide/" class="md-nav__link">
         
   
   
@@ -2651,7 +2657,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/python/multiprocessing/flashcards/" class="md-nav__link">
+      <a href="../../../python/multiprocessing/flashcards/" class="md-nav__link">
         
   
   
@@ -2712,7 +2718,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../../../tech/python/multiprocessing/code/" class="md-nav__link ">
+            <a href="../../../python/multiprocessing/code/" class="md-nav__link ">
               
   
   
@@ -2756,7 +2762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../python/multiprocessing/code/L1/01_synchronous/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/multiprocessing/code/L1/01_synchronous/" class="md-nav__link">
         
   
   
@@ -2784,7 +2790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../python/multiprocessing/code/L1/02_basic_processes/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/multiprocessing/code/L1/02_basic_processes/" class="md-nav__link">
         
   
   
@@ -2812,7 +2818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../python/multiprocessing/code/L1/03_loop_processes/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/multiprocessing/code/L1/03_loop_processes/" class="md-nav__link">
         
   
   
@@ -2840,7 +2846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../python/multiprocessing/code/L1/04_pool_submit/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/multiprocessing/code/L1/04_pool_submit/" class="md-nav__link">
         
   
   
@@ -2868,7 +2874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../python/multiprocessing/code/L1/05_pool_map/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/multiprocessing/code/L1/05_pool_map/" class="md-nav__link">
         
   
   
@@ -2896,7 +2902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../python/multiprocessing/code/L1/06_process_images/" class="md-nav__link">
+      <a href="../../../../_generated/tech/python/multiprocessing/code/L1/06_process_images/" class="md-nav__link">
         
   
   
@@ -2980,7 +2986,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../../../tech/agentic-ai/" class="md-nav__link ">
+            <a href="../../../agentic-ai/" class="md-nav__link ">
               
   
   
@@ -3063,7 +3069,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../../../tech/agentic-ai/module-1-intro/" class="md-nav__link ">
+            <a href="../../../agentic-ai/module-1-intro/" class="md-nav__link ">
               
   
   
@@ -3107,7 +3113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-1-intro/01-welcome/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-1-intro/01-welcome/" class="md-nav__link">
         
   
   
@@ -3135,7 +3141,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-1-intro/02-what-is-agentic-ai/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-1-intro/02-what-is-agentic-ai/" class="md-nav__link">
         
   
   
@@ -3163,7 +3169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-1-intro/03-degrees-of-autonomy/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-1-intro/03-degrees-of-autonomy/" class="md-nav__link">
         
   
   
@@ -3191,7 +3197,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-1-intro/04-benefits/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-1-intro/04-benefits/" class="md-nav__link">
         
   
   
@@ -3219,7 +3225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-1-intro/05-applications/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-1-intro/05-applications/" class="md-nav__link">
         
   
   
@@ -3247,7 +3253,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-1-intro/06-task-decomposition/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-1-intro/06-task-decomposition/" class="md-nav__link">
         
   
   
@@ -3275,7 +3281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-1-intro/07-evals/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-1-intro/07-evals/" class="md-nav__link">
         
   
   
@@ -3303,7 +3309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-1-intro/08-design-patterns/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-1-intro/08-design-patterns/" class="md-nav__link">
         
   
   
@@ -3331,7 +3337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-1-intro/flashcards/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-1-intro/flashcards/" class="md-nav__link">
         
   
   
@@ -3402,7 +3408,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../../../tech/agentic-ai/module-2-reflection/" class="md-nav__link ">
+            <a href="../../../agentic-ai/module-2-reflection/" class="md-nav__link ">
               
   
   
@@ -3446,7 +3452,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-2-reflection/01-reflection-to-improve-outputs/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-2-reflection/01-reflection-to-improve-outputs/" class="md-nav__link">
         
   
   
@@ -3474,7 +3480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-2-reflection/02-why-not-direct-generation/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-2-reflection/02-why-not-direct-generation/" class="md-nav__link">
         
   
   
@@ -3502,7 +3508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-2-reflection/03-chart-generation-workflow/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-2-reflection/03-chart-generation-workflow/" class="md-nav__link">
         
   
   
@@ -3530,7 +3536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-2-reflection/04-evaluating-reflection/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-2-reflection/04-evaluating-reflection/" class="md-nav__link">
         
   
   
@@ -3558,7 +3564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-2-reflection/05-external-feedback/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-2-reflection/05-external-feedback/" class="md-nav__link">
         
   
   
@@ -3586,7 +3592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-2-reflection/flashcards/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-2-reflection/flashcards/" class="md-nav__link">
         
   
   
@@ -3676,7 +3682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-2-reflection/code/M2/examples/sql_agent/sql/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-2-reflection/code/M2/examples/sql_agent/sql/" class="md-nav__link">
         
   
   
@@ -3704,7 +3710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-2-reflection/code/M2/examples/visualization_agent/visualization/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-2-reflection/code/M2/examples/visualization_agent/visualization/" class="md-nav__link">
         
   
   
@@ -3732,7 +3738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-2-reflection/code/M2/ungraded_labs/M2_UGL_1/M2_UGL_1/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-2-reflection/code/M2/ungraded_labs/M2_UGL_1/M2_UGL_1/" class="md-nav__link">
         
   
   
@@ -3760,7 +3766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-2-reflection/code/M2/ungraded_labs/M2_UGL_2/M2_UGL_2/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-2-reflection/code/M2/ungraded_labs/M2_UGL_2/M2_UGL_2/" class="md-nav__link">
         
   
   
@@ -3788,7 +3794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-2-reflection/code/M2/graded_labs/research-agent/GL-M2/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-2-reflection/code/M2/graded_labs/research-agent/GL-M2/" class="md-nav__link">
         
   
   
@@ -3867,7 +3873,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../../../tech/agentic-ai/module-3-tool-use/" class="md-nav__link ">
+            <a href="../../../agentic-ai/module-3-tool-use/" class="md-nav__link ">
               
   
   
@@ -3911,7 +3917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-3-tool-use/01-what-are-tools/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-3-tool-use/01-what-are-tools/" class="md-nav__link">
         
   
   
@@ -3939,7 +3945,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-3-tool-use/02-creating-a-tool/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-3-tool-use/02-creating-a-tool/" class="md-nav__link">
         
   
   
@@ -3967,7 +3973,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-3-tool-use/03-tool-syntax/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-3-tool-use/03-tool-syntax/" class="md-nav__link">
         
   
   
@@ -3995,7 +4001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-3-tool-use/04-code-execution/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-3-tool-use/04-code-execution/" class="md-nav__link">
         
   
   
@@ -4023,7 +4029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-3-tool-use/05-mcp/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-3-tool-use/05-mcp/" class="md-nav__link">
         
   
   
@@ -4051,7 +4057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-3-tool-use/flashcards/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-3-tool-use/flashcards/" class="md-nav__link">
         
   
   
@@ -4137,7 +4143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-3-tool-use/code/M3/ungraded_labs/M3_UGL_1/M3_UGL_1/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-3-tool-use/code/M3/ungraded_labs/M3_UGL_1/M3_UGL_1/" class="md-nav__link">
         
   
   
@@ -4165,7 +4171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-3-tool-use/code/M3/ungraded_labs/M3_UGL_2/M3_UGL_2/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-3-tool-use/code/M3/ungraded_labs/M3_UGL_2/M3_UGL_2/" class="md-nav__link">
         
   
   
@@ -4193,7 +4199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-3-tool-use/code/M3/graded_labs/research_agent/GL-M3/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-3-tool-use/code/M3/graded_labs/research_agent/GL-M3/" class="md-nav__link">
         
   
   
@@ -4276,7 +4282,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../../../tech/agentic-ai/module-4-practical-tips/" class="md-nav__link ">
+            <a href="../../../agentic-ai/module-4-practical-tips/" class="md-nav__link ">
               
   
   
@@ -4320,7 +4326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-4-practical-tips/01-evaluations/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-4-practical-tips/01-evaluations/" class="md-nav__link">
         
   
   
@@ -4348,7 +4354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-4-practical-tips/02-error-analysis/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-4-practical-tips/02-error-analysis/" class="md-nav__link">
         
   
   
@@ -4376,7 +4382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-4-practical-tips/03-more-error-analysis/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-4-practical-tips/03-more-error-analysis/" class="md-nav__link">
         
   
   
@@ -4404,7 +4410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-4-practical-tips/04-component-level-evals/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-4-practical-tips/04-component-level-evals/" class="md-nav__link">
         
   
   
@@ -4432,7 +4438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-4-practical-tips/05-addressing-problems/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-4-practical-tips/05-addressing-problems/" class="md-nav__link">
         
   
   
@@ -4460,7 +4466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-4-practical-tips/06-latency-cost/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-4-practical-tips/06-latency-cost/" class="md-nav__link">
         
   
   
@@ -4488,7 +4494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-4-practical-tips/07-dev-process-summary/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-4-practical-tips/07-dev-process-summary/" class="md-nav__link">
         
   
   
@@ -4516,7 +4522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-4-practical-tips/flashcards/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-4-practical-tips/flashcards/" class="md-nav__link">
         
   
   
@@ -4598,7 +4604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-4-practical-tips/code/M4_UGL_1/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-4-practical-tips/code/M4_UGL_1/" class="md-nav__link">
         
   
   
@@ -4675,7 +4681,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../../../tech/agentic-ai/module-5-autonomous-agents/" class="md-nav__link ">
+            <a href="../../../agentic-ai/module-5-autonomous-agents/" class="md-nav__link ">
               
   
   
@@ -4719,7 +4725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-5-autonomous-agents/01-planning-workflows/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-5-autonomous-agents/01-planning-workflows/" class="md-nav__link">
         
   
   
@@ -4747,7 +4753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-5-autonomous-agents/02-llm-plans/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-5-autonomous-agents/02-llm-plans/" class="md-nav__link">
         
   
   
@@ -4775,7 +4781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-5-autonomous-agents/03-planning-code-execution/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-5-autonomous-agents/03-planning-code-execution/" class="md-nav__link">
         
   
   
@@ -4803,7 +4809,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-5-autonomous-agents/04-multi-agent/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-5-autonomous-agents/04-multi-agent/" class="md-nav__link">
         
   
   
@@ -4831,7 +4837,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-5-autonomous-agents/05-communication-patterns/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-5-autonomous-agents/05-communication-patterns/" class="md-nav__link">
         
   
   
@@ -4859,7 +4865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/module-5-autonomous-agents/flashcards/" class="md-nav__link">
+      <a href="../../../agentic-ai/module-5-autonomous-agents/flashcards/" class="md-nav__link">
         
   
   
@@ -4953,7 +4959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/flashcards/" class="md-nav__link">
+      <a href="../../../agentic-ai/flashcards/" class="md-nav__link">
         
   
   
@@ -4981,7 +4987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/cheatsheet/" class="md-nav__link">
+      <a href="../../../agentic-ai/cheatsheet/" class="md-nav__link">
         
   
   
@@ -5009,7 +5015,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/agentic-ai/vs/" class="md-nav__link">
+      <a href="../../../agentic-ai/vs/" class="md-nav__link">
         
   
   
@@ -5049,6 +5055,8 @@
       
   
   
+    
+  
   
   
     
@@ -5074,18 +5082,21 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../../../tech/rag/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -5103,13 +5114,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -5166,7 +5177,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../../../tech/rag/module-1-rag-overview/" class="md-nav__link ">
+            <a href="../../module-1-rag-overview/" class="md-nav__link ">
               
   
   
@@ -5210,7 +5221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/rag/module-1-rag-overview/00-conversation-andrew-ng/" class="md-nav__link">
+      <a href="../../module-1-rag-overview/00-conversation-andrew-ng/" class="md-nav__link">
         
   
   
@@ -5238,7 +5249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/rag/module-1-rag-overview/01-module-introduction/" class="md-nav__link">
+      <a href="../../module-1-rag-overview/01-module-introduction/" class="md-nav__link">
         
   
   
@@ -5266,7 +5277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/rag/module-1-rag-overview/02-introduction-to-rag/" class="md-nav__link">
+      <a href="../../module-1-rag-overview/02-introduction-to-rag/" class="md-nav__link">
         
   
   
@@ -5294,7 +5305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/rag/module-1-rag-overview/03-applications-of-rag/" class="md-nav__link">
+      <a href="../../module-1-rag-overview/03-applications-of-rag/" class="md-nav__link">
         
   
   
@@ -5322,7 +5333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/rag/module-1-rag-overview/04-rag-architecture-overview/" class="md-nav__link">
+      <a href="../../module-1-rag-overview/04-rag-architecture-overview/" class="md-nav__link">
         
   
   
@@ -5350,7 +5361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/rag/module-1-rag-overview/05-introduction-to-llms/" class="md-nav__link">
+      <a href="../../module-1-rag-overview/05-introduction-to-llms/" class="md-nav__link">
         
   
   
@@ -5378,7 +5389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/rag/module-1-rag-overview/08-introduction-to-ir/" class="md-nav__link">
+      <a href="../../module-1-rag-overview/08-introduction-to-ir/" class="md-nav__link">
         
   
   
@@ -5406,7 +5417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/rag/module-1-rag-overview/flashcards/" class="md-nav__link">
+      <a href="../../module-1-rag-overview/flashcards/" class="md-nav__link">
         
   
   
@@ -5439,6 +5450,8 @@
                 
   
   
+    
+  
   
   
     
@@ -5467,15 +5480,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../../../tech/rag/module-2-ir-search-foundations/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -5499,7 +5512,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -5519,7 +5532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/rag/module-2-ir-search-foundations/01-module-introduction/" class="md-nav__link">
+      <a href="../01-module-introduction/" class="md-nav__link">
         
   
   
@@ -5547,7 +5560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/rag/module-2-ir-search-foundations/02-retriever-architecture/" class="md-nav__link">
+      <a href="../02-retriever-architecture/" class="md-nav__link">
         
   
   
@@ -5575,7 +5588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/rag/module-2-ir-search-foundations/03-metadata-filtering/" class="md-nav__link">
+      <a href="../03-metadata-filtering/" class="md-nav__link">
         
   
   
@@ -5603,7 +5616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/rag/module-2-ir-search-foundations/04-keyword-search-tfidf/" class="md-nav__link">
+      <a href="../04-keyword-search-tfidf/" class="md-nav__link">
         
   
   
@@ -5628,10 +5641,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/rag/module-2-ir-search-foundations/05-keyword-search-bm25/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Keyword Search: BM25
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -5647,6 +5687,319 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Key Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Key Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-bm25-formula-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. BM25 Formula &amp; Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-term-frequency-saturation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Term Frequency Saturation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-document-length-normalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Document Length Normalization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-hyperparameters-k_1-and-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Hyperparameters: $k_1$ and $b$
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bm25-vs-tf-idf-comparison-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 BM25 vs TF-IDF Comparison Table
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keyword-search-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔑 Keyword Search Summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔑 Keyword Search Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-principle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Principle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strengths" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strengths ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weaknesses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Weaknesses ❌
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-bm25-is-the-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Why BM25 Is the Standard
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flashcards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Flashcards
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 Flashcards">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#card-01-bm25-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 01: BM25 Purpose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-02-term-frequency-saturation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 02: Term Frequency Saturation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-03-hyperparameter-k_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 03: Hyperparameter $k_1$
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-04-hyperparameter-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 04: Hyperparameter $b$
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-05-length-normalization-difference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 05: Length Normalization Difference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-06-tunable-vs-non-tunable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 06: Tunable vs Non-Tunable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-07-bm25-formula-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 07: BM25 Formula Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-08-keyword-search-strength" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 08: Keyword Search Strength
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-09-keyword-search-weakness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 09: Keyword Search Weakness
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-10-bm25-production-adoption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 10: BM25 Production Adoption
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔗 Related Topics
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -5659,7 +6012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/rag/module-2-ir-search-foundations/flashcards/" class="md-nav__link">
+      <a href="../flashcards/" class="md-nav__link">
         
   
   
@@ -5718,7 +6071,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../../../tech/rag/module-3-ir-vector-databases/" class="md-nav__link ">
+            <a href="../../module-3-ir-vector-databases/" class="md-nav__link ">
               
   
   
@@ -5762,7 +6115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/rag/module-3-ir-vector-databases/flashcards/" class="md-nav__link">
+      <a href="../../module-3-ir-vector-databases/flashcards/" class="md-nav__link">
         
   
   
@@ -5821,7 +6174,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../../../tech/rag/module-4-llms-text-generation/" class="md-nav__link ">
+            <a href="../../module-4-llms-text-generation/" class="md-nav__link ">
               
   
   
@@ -5865,7 +6218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/rag/module-4-llms-text-generation/flashcards/" class="md-nav__link">
+      <a href="../../module-4-llms-text-generation/flashcards/" class="md-nav__link">
         
   
   
@@ -5924,7 +6277,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../../../tech/rag/module-5-rag-production/" class="md-nav__link ">
+            <a href="../../module-5-rag-production/" class="md-nav__link ">
               
   
   
@@ -5968,7 +6321,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/rag/module-5-rag-production/flashcards/" class="md-nav__link">
+      <a href="../../module-5-rag-production/flashcards/" class="md-nav__link">
         
   
   
@@ -6058,7 +6411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/rag/flashcards/" class="md-nav__link">
+      <a href="../../flashcards/" class="md-nav__link">
         
   
   
@@ -6150,7 +6503,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../../../../../tech/spec-driven-development/" class="md-nav__link ">
+            <a href="../../../spec-driven-development/" class="md-nav__link ">
               
   
   
@@ -6194,7 +6547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/spec-driven-development/01-introduction/" class="md-nav__link">
+      <a href="../../../spec-driven-development/01-introduction/" class="md-nav__link">
         
   
   
@@ -6222,7 +6575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/spec-driven-development/02-why-sdd/" class="md-nav__link">
+      <a href="../../../spec-driven-development/02-why-sdd/" class="md-nav__link">
         
   
   
@@ -6250,7 +6603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/spec-driven-development/03-workflow-overview/" class="md-nav__link">
+      <a href="../../../spec-driven-development/03-workflow-overview/" class="md-nav__link">
         
   
   
@@ -6278,7 +6631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/spec-driven-development/06-creating-the-constitution/" class="md-nav__link">
+      <a href="../../../spec-driven-development/06-creating-the-constitution/" class="md-nav__link">
         
   
   
@@ -6306,7 +6659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/spec-driven-development/07-feature-specification/" class="md-nav__link">
+      <a href="../../../spec-driven-development/07-feature-specification/" class="md-nav__link">
         
   
   
@@ -6334,7 +6687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/spec-driven-development/08-feature-implementation/" class="md-nav__link">
+      <a href="../../../spec-driven-development/08-feature-implementation/" class="md-nav__link">
         
   
   
@@ -6362,7 +6715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/spec-driven-development/09-feature-validation/" class="md-nav__link">
+      <a href="../../../spec-driven-development/09-feature-validation/" class="md-nav__link">
         
   
   
@@ -6390,7 +6743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/spec-driven-development/10-project-replanning/" class="md-nav__link">
+      <a href="../../../spec-driven-development/10-project-replanning/" class="md-nav__link">
         
   
   
@@ -6418,7 +6771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/spec-driven-development/11-second-feature-phase/" class="md-nav__link">
+      <a href="../../../spec-driven-development/11-second-feature-phase/" class="md-nav__link">
         
   
   
@@ -6446,7 +6799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/spec-driven-development/12-the-mvp/" class="md-nav__link">
+      <a href="../../../spec-driven-development/12-the-mvp/" class="md-nav__link">
         
   
   
@@ -6474,7 +6827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/spec-driven-development/13-legacy-support/" class="md-nav__link">
+      <a href="../../../spec-driven-development/13-legacy-support/" class="md-nav__link">
         
   
   
@@ -6502,7 +6855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/spec-driven-development/14-build-your-own-workflow/" class="md-nav__link">
+      <a href="../../../spec-driven-development/14-build-your-own-workflow/" class="md-nav__link">
         
   
   
@@ -6530,7 +6883,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/spec-driven-development/15-agent-replaceability/" class="md-nav__link">
+      <a href="../../../spec-driven-development/15-agent-replaceability/" class="md-nav__link">
         
   
   
@@ -6558,7 +6911,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../tech/spec-driven-development/flashcards/" class="md-nav__link">
+      <a href="../../../spec-driven-development/flashcards/" class="md-nav__link">
         
   
   
@@ -6755,6 +7108,307 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Key Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Key Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-bm25-formula-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. BM25 Formula &amp; Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-term-frequency-saturation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Term Frequency Saturation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-document-length-normalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Document Length Normalization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-hyperparameters-k_1-and-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Hyperparameters: $k_1$ and $b$
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bm25-vs-tf-idf-comparison-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 BM25 vs TF-IDF Comparison Table
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keyword-search-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔑 Keyword Search Summary
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔑 Keyword Search Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-principle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Principle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strengths" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strengths ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weaknesses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Weaknesses ❌
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-bm25-is-the-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Why BM25 Is the Standard
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flashcards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Flashcards
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 Flashcards">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#card-01-bm25-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 01: BM25 Purpose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-02-term-frequency-saturation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 02: Term Frequency Saturation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-03-hyperparameter-k_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 03: Hyperparameter $k_1$
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-04-hyperparameter-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 04: Hyperparameter $b$
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-05-length-normalization-difference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 05: Length Normalization Difference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-06-tunable-vs-non-tunable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 06: Tunable vs Non-Tunable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-07-bm25-formula-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 07: BM25 Formula Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-08-keyword-search-strength" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 08: Keyword Search Strength
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-09-keyword-search-weakness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 09: Keyword Search Weakness
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-10-bm25-production-adoption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 10: BM25 Production Adoption
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔗 Related Topics
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -6770,119 +7424,500 @@
 
 
 
-<h1 id="utils">📄 Utils<a class="headerlink" href="#utils" title="Permanent link">#</a></h1>
-<p><strong>File:</strong> <code>tech/agentic-ai/module-5-autonomous-agents/code/M5/ungraded_labs/M5_UGL_1/utils.py</code></p>
-<blockquote>
-<p>================================</p>
-</blockquote>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># ================================</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Standard library imports</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># ================================</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">html</span><span class="w"> </span><span class="kn">import</span> <span class="n">escape</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># ================================</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># Third-party imports</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1"># ================================</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="c1"># ================================</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1"># Personal / local imports</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="c1"># ================================</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="c1"># </span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="c1"># ================================</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="c1"># Utility function</span>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="c1"># ================================</span>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="k">def</span><span class="w"> </span><span class="nf">print_html</span><span class="p">(</span><span class="n">content</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">is_image</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="sd">    Pretty-print inside a styled card.</span>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="sd">    - If is_image=True and content is a string: treat as image path/URL and render &lt;img&gt;.</span>
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="sd">    - If content is a pandas DataFrame/Series: render as an HTML table.</span>
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="sd">    - Otherwise (strings/otros): show as code/text in &lt;pre&gt;&lt;code&gt;.</span>
-</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>    <span class="k">try</span><span class="p">:</span>
-</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">html</span><span class="w"> </span><span class="kn">import</span> <span class="n">escape</span> <span class="k">as</span> <span class="n">_escape</span>
-</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>        <span class="n">_escape</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span>
-</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>
-</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">image_to_base64</span><span class="p">(</span><span class="n">image_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">img_file</span><span class="p">:</span>
-</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>            <span class="k">return</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">img_file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
-</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>
-</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>    <span class="c1"># Render content</span>
-</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>    <span class="k">if</span> <span class="n">is_image</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>        <span class="n">b64</span> <span class="o">=</span> <span class="n">image_to_base64</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
-</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>        <span class="n">rendered</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&lt;img src=&quot;data:image/png;base64,</span><span class="si">{</span><span class="n">b64</span><span class="si">}</span><span class="s1">&quot; alt=&quot;Image&quot; style=&quot;max-width:100%; height:auto; border-radius:8px;&quot;&gt;&#39;</span>
-</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
-</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>        <span class="n">rendered</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span><span class="n">classes</span><span class="o">=</span><span class="s2">&quot;pretty-table&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">border</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">escape</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">):</span>
-</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>        <span class="n">rendered</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span><span class="n">classes</span><span class="o">=</span><span class="s2">&quot;pretty-table&quot;</span><span class="p">,</span> <span class="n">border</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">escape</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>        <span class="n">rendered</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&lt;pre&gt;&lt;code&gt;</span><span class="si">{</span><span class="n">_escape</span><span class="p">(</span><span class="n">content</span><span class="p">)</span><span class="si">}</span><span class="s2">&lt;/code&gt;&lt;/pre&gt;&quot;</span>
-</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>    <span class="k">else</span><span class="p">:</span>
-</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>        <span class="n">rendered</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&lt;pre&gt;&lt;code&gt;</span><span class="si">{</span><span class="n">_escape</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">content</span><span class="p">))</span><span class="si">}</span><span class="s2">&lt;/code&gt;&lt;/pre&gt;&quot;</span>
-</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>
-</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>    <span class="n">css</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="s2">    &lt;style&gt;</span>
-</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="s2">    .pretty-card{</span>
-</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a><span class="s2">      font-family: ui-sans-serif, system-ui;</span>
-</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a><span class="s2">      border: 2px solid transparent;</span>
-</span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a><span class="s2">      border-radius: 14px;</span>
-</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a><span class="s2">      padding: 14px 16px;</span>
-</span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a><span class="s2">      margin: 10px 0;</span>
-</span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a><span class="s2">      background: linear-gradient(#fff, #fff) padding-box,</span>
-</span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a><span class="s2">                  linear-gradient(135deg, #3b82f6, #9333ea) border-box;</span>
-</span><span id="__span-0-63"><a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a><span class="s2">      color: #111;</span>
-</span><span id="__span-0-64"><a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a><span class="s2">      box-shadow: 0 4px 12px rgba(0,0,0,.08);</span>
-</span><span id="__span-0-65"><a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a><span class="s2">    }</span>
-</span><span id="__span-0-66"><a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a><span class="s2">    .pretty-title{</span>
-</span><span id="__span-0-67"><a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a><span class="s2">      font-weight:700;</span>
-</span><span id="__span-0-68"><a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a><span class="s2">      margin-bottom:8px;</span>
-</span><span id="__span-0-69"><a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a><span class="s2">      font-size:14px;</span>
-</span><span id="__span-0-70"><a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a><span class="s2">      color:#111;</span>
-</span><span id="__span-0-71"><a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a><span class="s2">    }</span>
-</span><span id="__span-0-72"><a id="__codelineno-0-72" name="__codelineno-0-72" href="#__codelineno-0-72"></a><span class="s2">    /* 🔒 Solo afecta lo DENTRO de la tarjeta */</span>
-</span><span id="__span-0-73"><a id="__codelineno-0-73" name="__codelineno-0-73" href="#__codelineno-0-73"></a><span class="s2">    .pretty-card pre, </span>
-</span><span id="__span-0-74"><a id="__codelineno-0-74" name="__codelineno-0-74" href="#__codelineno-0-74"></a><span class="s2">    .pretty-card code {</span>
-</span><span id="__span-0-75"><a id="__codelineno-0-75" name="__codelineno-0-75" href="#__codelineno-0-75"></a><span class="s2">      background: #f3f4f6;</span>
-</span><span id="__span-0-76"><a id="__codelineno-0-76" name="__codelineno-0-76" href="#__codelineno-0-76"></a><span class="s2">      color: #111;</span>
-</span><span id="__span-0-77"><a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a><span class="s2">      padding: 8px;</span>
-</span><span id="__span-0-78"><a id="__codelineno-0-78" name="__codelineno-0-78" href="#__codelineno-0-78"></a><span class="s2">      border-radius: 8px;</span>
-</span><span id="__span-0-79"><a id="__codelineno-0-79" name="__codelineno-0-79" href="#__codelineno-0-79"></a><span class="s2">      display: block;</span>
-</span><span id="__span-0-80"><a id="__codelineno-0-80" name="__codelineno-0-80" href="#__codelineno-0-80"></a><span class="s2">      overflow-x: auto;</span>
-</span><span id="__span-0-81"><a id="__codelineno-0-81" name="__codelineno-0-81" href="#__codelineno-0-81"></a><span class="s2">      font-size: 13px;</span>
-</span><span id="__span-0-82"><a id="__codelineno-0-82" name="__codelineno-0-82" href="#__codelineno-0-82"></a><span class="s2">      white-space: pre-wrap;</span>
-</span><span id="__span-0-83"><a id="__codelineno-0-83" name="__codelineno-0-83" href="#__codelineno-0-83"></a><span class="s2">    }</span>
-</span><span id="__span-0-84"><a id="__codelineno-0-84" name="__codelineno-0-84" href="#__codelineno-0-84"></a><span class="s2">    .pretty-card img { max-width: 100%; height: auto; border-radius: 8px; }</span>
-</span><span id="__span-0-85"><a id="__codelineno-0-85" name="__codelineno-0-85" href="#__codelineno-0-85"></a><span class="s2">    .pretty-card table.pretty-table {</span>
-</span><span id="__span-0-86"><a id="__codelineno-0-86" name="__codelineno-0-86" href="#__codelineno-0-86"></a><span class="s2">      border-collapse: collapse;</span>
-</span><span id="__span-0-87"><a id="__codelineno-0-87" name="__codelineno-0-87" href="#__codelineno-0-87"></a><span class="s2">      width: 100%;</span>
-</span><span id="__span-0-88"><a id="__codelineno-0-88" name="__codelineno-0-88" href="#__codelineno-0-88"></a><span class="s2">      font-size: 13px;</span>
-</span><span id="__span-0-89"><a id="__codelineno-0-89" name="__codelineno-0-89" href="#__codelineno-0-89"></a><span class="s2">      color: #111;</span>
-</span><span id="__span-0-90"><a id="__codelineno-0-90" name="__codelineno-0-90" href="#__codelineno-0-90"></a><span class="s2">    }</span>
-</span><span id="__span-0-91"><a id="__codelineno-0-91" name="__codelineno-0-91" href="#__codelineno-0-91"></a><span class="s2">    .pretty-card table.pretty-table th, </span>
-</span><span id="__span-0-92"><a id="__codelineno-0-92" name="__codelineno-0-92" href="#__codelineno-0-92"></a><span class="s2">    .pretty-card table.pretty-table td {</span>
-</span><span id="__span-0-93"><a id="__codelineno-0-93" name="__codelineno-0-93" href="#__codelineno-0-93"></a><span class="s2">      border: 1px solid #e5e7eb;</span>
-</span><span id="__span-0-94"><a id="__codelineno-0-94" name="__codelineno-0-94" href="#__codelineno-0-94"></a><span class="s2">      padding: 6px 8px;</span>
-</span><span id="__span-0-95"><a id="__codelineno-0-95" name="__codelineno-0-95" href="#__codelineno-0-95"></a><span class="s2">      text-align: left;</span>
-</span><span id="__span-0-96"><a id="__codelineno-0-96" name="__codelineno-0-96" href="#__codelineno-0-96"></a><span class="s2">    }</span>
-</span><span id="__span-0-97"><a id="__codelineno-0-97" name="__codelineno-0-97" href="#__codelineno-0-97"></a><span class="s2">    .pretty-card table.pretty-table th { background: #f9fafb; font-weight: 600; }</span>
-</span><span id="__span-0-98"><a id="__codelineno-0-98" name="__codelineno-0-98" href="#__codelineno-0-98"></a><span class="s2">    &lt;/style&gt;</span>
-</span><span id="__span-0-99"><a id="__codelineno-0-99" name="__codelineno-0-99" href="#__codelineno-0-99"></a><span class="s2">    &quot;&quot;&quot;</span>
-</span><span id="__span-0-100"><a id="__codelineno-0-100" name="__codelineno-0-100" href="#__codelineno-0-100"></a>
-</span><span id="__span-0-101"><a id="__codelineno-0-101" name="__codelineno-0-101" href="#__codelineno-0-101"></a>    <span class="n">title_html</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&lt;div class=&quot;pretty-title&quot;&gt;</span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s1">&lt;/div&gt;&#39;</span> <span class="k">if</span> <span class="n">title</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
-</span><span id="__span-0-102"><a id="__codelineno-0-102" name="__codelineno-0-102" href="#__codelineno-0-102"></a>    <span class="n">card</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&lt;div class=&quot;pretty-card&quot;&gt;</span><span class="si">{</span><span class="n">title_html</span><span class="si">}{</span><span class="n">rendered</span><span class="si">}</span><span class="s1">&lt;/div&gt;&#39;</span>
-</span><span id="__span-0-103"><a id="__codelineno-0-103" name="__codelineno-0-103" href="#__codelineno-0-103"></a>    <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">css</span> <span class="o">+</span> <span class="n">card</span><span class="p">))</span>
-</span></code></pre></div>
+<h1 id="lesson-05-keyword-search-bm25">Lesson 05: Keyword Search — BM25<a class="headerlink" href="#lesson-05-keyword-search-bm25" title="Permanent link">#</a></h1>
+<h2 id="overview">📌 Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
+<p>While TF-IDF is a classic keyword search algorithm, most modern retrievers use <strong>BM25 (Best Matching 25)</strong> — the 25th variant in a series of scoring functions. BM25 improves upon TF-IDF with two critical insights: <strong>term frequency saturation</strong> and <strong>diminishing length penalties</strong>, plus tunable hyperparameters for production optimization.</p>
 <hr />
-<blockquote>
-<p><a href="/tech/agentic-ai/module-5-autonomous-agents/code/M5/ungraded_labs/M5_UGL_1/utils.py">⬇️ Download raw file</a></p>
-</blockquote>
+<h2 id="key-concepts">🎯 Key Concepts<a class="headerlink" href="#key-concepts" title="Permanent link">#</a></h2>
+<h3 id="1-bm25-formula-structure">1. BM25 Formula &amp; Structure<a class="headerlink" href="#1-bm25-formula-structure" title="Permanent link">#</a></h3>
+<p>BM25 calculates a relevance score per keyword, then sums across all query keywords:</p>
+<p>$$\text{BM25}(D, Q) = \sum_{i}^{n} \text{IDF}(q_i) \cdot \frac{f(q_i, D) \cdot (k_1 + 1)}{f(q_i, D) + k_1 \cdot (1 - b + b \cdot \frac{|D|}{avgdl})}$$</p>
+<p>Where:
+- $f(q_i, D)$ = frequency of query term $q_i$ in document $D$
+- $|D|$ = length of document (word count)
+- $avgdl$ = average document length in corpus
+- $k_1$ = term frequency saturation parameter (typical: 1.5)
+- $b$ = length normalization parameter (typical: 0.75)</p>
+<hr />
+<h3 id="2-term-frequency-saturation">2. Term Frequency Saturation<a class="headerlink" href="#2-term-frequency-saturation" title="Permanent link">#</a></h3>
+<p><strong>Problem with TF-IDF:</strong> Document with "pizza" 20 times scores 2x higher than "pizza" 10 times — unrealistic relevance boost.</p>
+<p><strong>BM25 Solution:</strong> Scoring plateaus. Adding more repetitions yields diminishing returns.</p>
+<p><svg viewBox="0 0 900 350" xmlns="http://www.w3.org/2000/svg" style="border: 1px solid #ddd; background: #f9f9f9; max-width: 100%; height: auto;">
+  <!-- Title --></p>
+<p><text x="450" y="25" font-size="18" font-weight="bold" text-anchor="middle" fill="#222">Term Frequency Saturation: TF-IDF vs BM25</text></p>
+<!-- Left chart: TF-IDF (linear) -->
+<p><g id="tfidf-chart">
+    <text x="150" y="55" font-size="14" font-weight="bold" fill="#222">TF-IDF: Linear Growth</text></p>
+<div class="language-text highlight"><pre><span></span><code>&lt;!-- Axes --&gt;
+&lt;line x1=&quot;80&quot; y1=&quot;300&quot; x2=&quot;80&quot; y2=&quot;80&quot; stroke=&quot;#333&quot; stroke-width=&quot;2&quot;/&gt;
+&lt;line x1=&quot;80&quot; y1=&quot;300&quot; x2=&quot;280&quot; y2=&quot;300&quot; stroke=&quot;#333&quot; stroke-width=&quot;2&quot;/&gt;
+
+&lt;!-- Axis labels --&gt;
+&lt;text x=&quot;40&quot; y=&quot;305&quot; font-size=&quot;11&quot; fill=&quot;#555&quot;&gt;Score&lt;/text&gt;
+&lt;text x=&quot;170&quot; y=&quot;330&quot; font-size=&quot;11&quot; fill=&quot;#555&quot;&gt;Term Frequency&lt;/text&gt;
+
+&lt;!-- Grid &amp; ticks --&gt;
+&lt;line x1=&quot;75&quot; y1=&quot;260&quot; x2=&quot;280&quot; y2=&quot;260&quot; stroke=&quot;#eee&quot; stroke-width=&quot;1&quot;/&gt;
+&lt;text x=&quot;60&quot; y=&quot;265&quot; font-size=&quot;10&quot; fill=&quot;#999&quot;&gt;0.5&lt;/text&gt;
+
+&lt;line x1=&quot;75&quot; y1=&quot;220&quot; x2=&quot;280&quot; y2=&quot;220&quot; stroke=&quot;#eee&quot; stroke-width=&quot;1&quot;/&gt;
+&lt;text x=&quot;60&quot; y=&quot;225&quot; font-size=&quot;10&quot; fill=&quot;#999&quot;&gt;1.0&lt;/text&gt;
+
+&lt;line x1=&quot;75&quot; y1=&quot;180&quot; x2=&quot;280&quot; y2=&quot;180&quot; stroke=&quot;#eee&quot; stroke-width=&quot;1&quot;/&gt;
+&lt;text x=&quot;60&quot; y=&quot;185&quot; font-size=&quot;10&quot; fill=&quot;#999&quot;&gt;1.5&lt;/text&gt;
+
+&lt;line x1=&quot;75&quot; y1=&quot;140&quot; x2=&quot;280&quot; y2=&quot;140&quot; stroke=&quot;#eee&quot; stroke-width=&quot;1&quot;/&gt;
+&lt;text x=&quot;60&quot; y=&quot;145&quot; font-size=&quot;10&quot; fill=&quot;#999&quot;&gt;2.0&lt;/text&gt;
+
+&lt;!-- X-axis ticks: 1,5,10,15,20 --&gt;
+&lt;line x1=&quot;100&quot; y1=&quot;298&quot; x2=&quot;100&quot; y2=&quot;305&quot;/&gt;
+&lt;text x=&quot;95&quot; y=&quot;320&quot; font-size=&quot;10&quot; fill=&quot;#555&quot;&gt;1&lt;/text&gt;
+
+&lt;line x1=&quot;140&quot; y1=&quot;298&quot; x2=&quot;140&quot; y2=&quot;305&quot;/&gt;
+&lt;text x=&quot;132&quot; y=&quot;320&quot; font-size=&quot;10&quot; fill=&quot;#555&quot;&gt;5&lt;/text&gt;
+
+&lt;line x1=&quot;180&quot; y1=&quot;298&quot; x2=&quot;180&quot; y2=&quot;305&quot;/&gt;
+&lt;text x=&quot;172&quot; y=&quot;320&quot; font-size=&quot;10&quot; fill=&quot;#555&quot;&gt;10&lt;/text&gt;
+
+&lt;line x1=&quot;220&quot; y1=&quot;298&quot; x2=&quot;220&quot; y2=&quot;305&quot;/&gt;
+&lt;text x=&quot;212&quot; y=&quot;320&quot; font-size=&quot;10&quot; fill=&quot;#555&quot;&gt;15&lt;/text&gt;
+
+&lt;line x1=&quot;260&quot; y1=&quot;298&quot; x2=&quot;260&quot; y2=&quot;305&quot;/&gt;
+&lt;text x=&quot;252&quot; y=&quot;320&quot; font-size=&quot;10&quot; fill=&quot;#555&quot;&gt;20&lt;/text&gt;
+
+&lt;!-- TF-IDF curve (linear: score = TF/2) --&gt;
+&lt;polyline points=&quot;100,280 140,260 180,240 220,220 260,200&quot; fill=&quot;none&quot; stroke=&quot;#FF6B6B&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot;/&gt;
+
+&lt;!-- Points --&gt;
+&lt;circle cx=&quot;100&quot; cy=&quot;280&quot; r=&quot;4&quot; fill=&quot;#FF6B6B&quot;/&gt;
+&lt;circle cx=&quot;140&quot; cy=&quot;260&quot; r=&quot;4&quot; fill=&quot;#FF6B6B&quot;/&gt;
+&lt;circle cx=&quot;180&quot; cy=&quot;240&quot; r=&quot;4&quot; fill=&quot;#FF6B6B&quot;/&gt;
+&lt;circle cx=&quot;220&quot; cy=&quot;220&quot; r=&quot;4&quot; fill=&quot;#FF6B6B&quot;/&gt;
+&lt;circle cx=&quot;260&quot; cy=&quot;200&quot; r=&quot;4&quot; fill=&quot;#FF6B6B&quot;/&gt;
+
+&lt;!-- Annotation: +100% at 10 freq --&gt;
+&lt;path d=&quot;M 180 240 L 180 160&quot; stroke=&quot;#FF6B6B&quot; stroke-width=&quot;1&quot; stroke-dasharray=&quot;3,3&quot;/&gt;
+&lt;text x=&quot;190&quot; y=&quot;165&quot; font-size=&quot;10&quot; fill=&quot;#FF6B6B&quot;&gt;+100%&lt;/text&gt;
+</code></pre></div>
+<p></g></p>
+<!-- Right chart: BM25 (saturating, k1=1.5) -->
+<p><g id="bm25-chart">
+    <text x="600" y="55" font-size="14" font-weight="bold" fill="#222">BM25: Saturation (k₁=1.5)</text></p>
+<div class="language-text highlight"><pre><span></span><code>&lt;!-- Axes --&gt;
+&lt;line x1=&quot;530&quot; y1=&quot;300&quot; x2=&quot;530&quot; y2=&quot;80&quot; stroke=&quot;#333&quot; stroke-width=&quot;2&quot;/&gt;
+&lt;line x1=&quot;530&quot; y1=&quot;300&quot; x2=&quot;730&quot; y2=&quot;300&quot; stroke=&quot;#333&quot; stroke-width=&quot;2&quot;/&gt;
+
+&lt;!-- Axis labels --&gt;
+&lt;text x=&quot;490&quot; y=&quot;305&quot; font-size=&quot;11&quot; fill=&quot;#555&quot;&gt;Score&lt;/text&gt;
+&lt;text x=&quot;620&quot; y=&quot;330&quot; font-size=&quot;11&quot; fill=&quot;#555&quot;&gt;Term Frequency&lt;/text&gt;
+
+&lt;!-- Grid &amp; ticks --&gt;
+&lt;line x1=&quot;525&quot; y1=&quot;260&quot; x2=&quot;730&quot; y2=&quot;260&quot; stroke=&quot;#eee&quot; stroke-width=&quot;1&quot;/&gt;
+&lt;text x=&quot;510&quot; y=&quot;265&quot; font-size=&quot;10&quot; fill=&quot;#999&quot;&gt;0.5&lt;/text&gt;
+
+&lt;line x1=&quot;525&quot; y1=&quot;220&quot; x2=&quot;730&quot; y2=&quot;220&quot; stroke=&quot;#eee&quot; stroke-width=&quot;1&quot;/&gt;
+&lt;text x=&quot;510&quot; y=&quot;225&quot; font-size=&quot;10&quot; fill=&quot;#999&quot;&gt;1.0&lt;/text&gt;
+
+&lt;line x1=&quot;525&quot; y1=&quot;180&quot; x2=&quot;730&quot; y2=&quot;180&quot; stroke=&quot;#eee&quot; stroke-width=&quot;1&quot;/&gt;
+&lt;text x=&quot;510&quot; y=&quot;185&quot; font-size=&quot;10&quot; fill=&quot;#999&quot;&gt;1.5&lt;/text&gt;
+
+&lt;line x1=&quot;525&quot; y1=&quot;140&quot; x2=&quot;730&quot; y2=&quot;140&quot; stroke=&quot;#eee&quot; stroke-width=&quot;1&quot;/&gt;
+&lt;text x=&quot;510&quot; y=&quot;145&quot; font-size=&quot;10&quot; fill=&quot;#999&quot;&gt;2.0&lt;/text&gt;
+
+&lt;!-- X-axis ticks: 1,5,10,15,20 --&gt;
+&lt;line x1=&quot;550&quot; y1=&quot;298&quot; x2=&quot;550&quot; y2=&quot;305&quot;/&gt;
+&lt;text x=&quot;545&quot; y=&quot;320&quot; font-size=&quot;10&quot; fill=&quot;#555&quot;&gt;1&lt;/text&gt;
+
+&lt;line x1=&quot;590&quot; y1=&quot;298&quot; x2=&quot;590&quot; y2=&quot;305&quot;/&gt;
+&lt;text x=&quot;582&quot; y=&quot;320&quot; font-size=&quot;10&quot; fill=&quot;#555&quot;&gt;5&lt;/text&gt;
+
+&lt;line x1=&quot;630&quot; y1=&quot;298&quot; x2=&quot;630&quot; y2=&quot;305&quot;/&gt;
+&lt;text x=&quot;622&quot; y=&quot;320&quot; font-size=&quot;10&quot; fill=&quot;#555&quot;&gt;10&lt;/text&gt;
+
+&lt;line x1=&quot;670&quot; y1=&quot;298&quot; x2=&quot;670&quot; y2=&quot;305&quot;/&gt;
+&lt;text x=&quot;662&quot; y=&quot;320&quot; font-size=&quot;10&quot; fill=&quot;#555&quot;&gt;15&lt;/text&gt;
+
+&lt;line x1=&quot;710&quot; y1=&quot;298&quot; x2=&quot;710&quot; y2=&quot;305&quot;/&gt;
+&lt;text x=&quot;702&quot; y=&quot;320&quot; font-size=&quot;10&quot; fill=&quot;#555&quot;&gt;20&lt;/text&gt;
+
+&lt;!-- BM25 curve (saturating): score = TF * (k1+1) / (TF + k1) where k1=1.5 --&gt;
+&lt;!-- At TF=1: 1*2.5/(1+1.5) = 2.5/2.5 = 1.0 --&gt;
+&lt;!-- At TF=5: 5*2.5/(5+1.5) = 12.5/6.5 ≈ 1.92 --&gt;
+&lt;!-- At TF=10: 10*2.5/(10+1.5) = 25/11.5 ≈ 2.17 --&gt;
+&lt;!-- At TF=15: 15*2.5/(15+1.5) = 37.5/16.5 ≈ 2.27 --&gt;
+&lt;!-- At TF=20: 20*2.5/(20+1.5) = 50/21.5 ≈ 2.33 --&gt;
+&lt;!-- Normalized: scale to 0-2.0 range where 1.0 maps to score 1.0, 2.33 maps to 2.0 --&gt;
+&lt;polyline points=&quot;550,282 590,240 630,215 670,205 710,200&quot; fill=&quot;none&quot; stroke=&quot;#4CAF50&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot;/&gt;
+
+&lt;!-- Points --&gt;
+&lt;circle cx=&quot;550&quot; cy=&quot;282&quot; r=&quot;4&quot; fill=&quot;#4CAF50&quot;/&gt;
+&lt;circle cx=&quot;590&quot; cy=&quot;240&quot; r=&quot;4&quot; fill=&quot;#4CAF50&quot;/&gt;
+&lt;circle cx=&quot;630&quot; cy=&quot;215&quot; r=&quot;4&quot; fill=&quot;#4CAF50&quot;/&gt;
+&lt;circle cx=&quot;670&quot; cy=&quot;205&quot; r=&quot;4&quot; fill=&quot;#4CAF50&quot;/&gt;
+&lt;circle cx=&quot;710&quot; cy=&quot;200&quot; r=&quot;4&quot; fill=&quot;#4CAF50&quot;/&gt;
+
+&lt;!-- Annotation: +40% at 10 freq --&gt;
+&lt;path d=&quot;M 630 215 L 630 140&quot; stroke=&quot;#4CAF50&quot; stroke-width=&quot;1&quot; stroke-dasharray=&quot;3,3&quot;/&gt;
+&lt;text x=&quot;635&quot; y=&quot;145&quot; font-size=&quot;10&quot; fill=&quot;#4CAF50&quot;&gt;+40%&lt;/text&gt;
+
+&lt;!-- Saturation zone --&gt;
+&lt;rect x=&quot;670&quot; y=&quot;190&quot; width=&quot;50&quot; height=&quot;25&quot; fill=&quot;#4CAF50&quot; opacity=&quot;0.1&quot; stroke=&quot;#4CAF50&quot; stroke-width=&quot;1&quot; stroke-dasharray=&quot;2,2&quot;/&gt;
+&lt;text x=&quot;680&quot; y=&quot;215&quot; font-size=&quot;9&quot; fill=&quot;#4CAF50&quot;&gt;plateaus&lt;/text&gt;
+</code></pre></div>
+<p></g></p>
+<!-- Legend -->
+<p><g id="legend" transform="translate(350, 310)">
+    <text x="0" y="0" font-size="11" fill="#555" font-style="italic">TF-IDF score doubles 10→20. BM25 score increases only 15%.</text>
+  </g>
+</svg></p>
+<hr />
+<h3 id="3-document-length-normalization">3. Document Length Normalization<a class="headerlink" href="#3-document-length-normalization" title="Permanent link">#</a></h3>
+<p><strong>Problem with TF-IDF:</strong> Long documents penalized too aggressively — a 1000-word relevant document scores lower than a 100-word marginally relevant document.</p>
+<p><strong>BM25 Solution:</strong> Diminishing length penalties. Long documents still score high if keyword frequency is substantial.</p>
+<p><svg viewBox="0 0 900 350" xmlns="http://www.w3.org/2000/svg" style="border: 1px solid #ddd; background: #f9f9f9; max-width: 100%; height: auto;">
+  <!-- Title --></p>
+<p><text x="450" y="25" font-size="18" font-weight="bold" text-anchor="middle" fill="#222">Document Length Normalization: TF-IDF vs BM25</text></p>
+<!-- Left chart: TF-IDF (aggressive penalty) -->
+<p><g id="tfidf-length">
+    <text x="150" y="55" font-size="14" font-weight="bold" fill="#222">TF-IDF: Aggressive Penalty</text></p>
+<div class="language-text highlight"><pre><span></span><code>&lt;!-- Axes --&gt;
+&lt;line x1=&quot;80&quot; y1=&quot;300&quot; x2=&quot;80&quot; y2=&quot;80&quot; stroke=&quot;#333&quot; stroke-width=&quot;2&quot;/&gt;
+&lt;line x1=&quot;80&quot; y1=&quot;300&quot; x2=&quot;280&quot; y2=&quot;300&quot; stroke=&quot;#333&quot; stroke-width=&quot;2&quot;/&gt;
+
+&lt;!-- Axis labels --&gt;
+&lt;text x=&quot;40&quot; y=&quot;305&quot; font-size=&quot;11&quot; fill=&quot;#555&quot;&gt;Score&lt;/text&gt;
+&lt;text x=&quot;140&quot; y=&quot;330&quot; font-size=&quot;11&quot; fill=&quot;#555&quot;&gt;Doc Length (words)&lt;/text&gt;
+
+&lt;!-- Grid --&gt;
+&lt;line x1=&quot;75&quot; y1=&quot;260&quot; x2=&quot;280&quot; y2=&quot;260&quot; stroke=&quot;#eee&quot; stroke-width=&quot;1&quot;/&gt;
+&lt;text x=&quot;60&quot; y=&quot;265&quot; font-size=&quot;10&quot; fill=&quot;#999&quot;&gt;0.5&lt;/text&gt;
+
+&lt;line x1=&quot;75&quot; y1=&quot;220&quot; x2=&quot;280&quot; y2=&quot;220&quot; stroke=&quot;#eee&quot; stroke-width=&quot;1&quot;/&gt;
+&lt;text x=&quot;60&quot; y=&quot;225&quot; font-size=&quot;10&quot; fill=&quot;#999&quot;&gt;1.0&lt;/text&gt;
+
+&lt;line x1=&quot;75&quot; y1=&quot;180&quot; x2=&quot;280&quot; y2=&quot;180&quot; stroke=&quot;#eee&quot; stroke-width=&quot;1&quot;/&gt;
+&lt;text x=&quot;60&quot; y=&quot;185&quot; font-size=&quot;10&quot; fill=&quot;#999&quot;&gt;1.5&lt;/text&gt;
+
+&lt;!-- X-axis ticks: 100,500,1000,2000 words --&gt;
+&lt;line x1=&quot;100&quot; y1=&quot;298&quot; x2=&quot;100&quot; y2=&quot;305&quot;/&gt;
+&lt;text x=&quot;85&quot; y=&quot;320&quot; font-size=&quot;10&quot; fill=&quot;#555&quot;&gt;100&lt;/text&gt;
+
+&lt;line x1=&quot;150&quot; y1=&quot;298&quot; x2=&quot;150&quot; y2=&quot;305&quot;/&gt;
+&lt;text x=&quot;130&quot; y=&quot;320&quot; font-size=&quot;10&quot; fill=&quot;#555&quot;&gt;500&lt;/text&gt;
+
+&lt;line x1=&quot;200&quot; y1=&quot;298&quot; x2=&quot;200&quot; y2=&quot;305&quot;/&gt;
+&lt;text x=&quot;185&quot; y=&quot;320&quot; font-size=&quot;10&quot; fill=&quot;#555&quot;&gt;1000&lt;/text&gt;
+
+&lt;line x1=&quot;250&quot; y1=&quot;298&quot; x2=&quot;250&quot; y2=&quot;305&quot;/&gt;
+&lt;text x=&quot;235&quot; y=&quot;320&quot; font-size=&quot;10&quot; fill=&quot;#555&quot;&gt;2000&lt;/text&gt;
+
+&lt;!-- TF-IDF penalty curve (1/sqrt(length)) --&gt;
+&lt;polyline points=&quot;100,180 150,140 200,120 250,100&quot; fill=&quot;none&quot; stroke=&quot;#FF6B6B&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot;/&gt;
+
+&lt;!-- Points --&gt;
+&lt;circle cx=&quot;100&quot; cy=&quot;180&quot; r=&quot;4&quot; fill=&quot;#FF6B6B&quot;/&gt;
+&lt;circle cx=&quot;150&quot; cy=&quot;140&quot; r=&quot;4&quot; fill=&quot;#FF6B6B&quot;/&gt;
+&lt;circle cx=&quot;200&quot; cy=&quot;120&quot; r=&quot;4&quot; fill=&quot;#FF6B6B&quot;/&gt;
+&lt;circle cx=&quot;250&quot; cy=&quot;100&quot; r=&quot;4&quot; fill=&quot;#FF6B6B&quot;/&gt;
+
+&lt;!-- Annotations --&gt;
+&lt;text x=&quot;110&quot; y=&quot;170&quot; font-size=&quot;9&quot; fill=&quot;#FF6B6B&quot;&gt;1.0&lt;/text&gt;
+&lt;text x=&quot;155&quot; y=&quot;135&quot; font-size=&quot;9&quot; fill=&quot;#FF6B6B&quot;&gt;0.63&lt;/text&gt;
+&lt;text x=&quot;205&quot; y=&quot;110&quot; font-size=&quot;9&quot; fill=&quot;#FF6B6B&quot;&gt;0.45&lt;/text&gt;
+
+&lt;!-- Problem zone --&gt;
+&lt;rect x=&quot;200&quot; y=&quot;95&quot; width=&quot;55&quot; height=&quot;100&quot; fill=&quot;#FF6B6B&quot; opacity=&quot;0.1&quot; stroke=&quot;#FF6B6B&quot; stroke-width=&quot;1&quot; stroke-dasharray=&quot;2,2&quot;/&gt;
+&lt;text x=&quot;205&quot; y=&quot;160&quot; font-size=&quot;9&quot; fill=&quot;#FF6B6B&quot;&gt;too low&lt;/text&gt;
+</code></pre></div>
+<p></g></p>
+<!-- Right chart: BM25 (gentle penalty, b=0.75) -->
+<p><g id="bm25-length">
+    <text x="600" y="55" font-size="14" font-weight="bold" fill="#222">BM25: Gentle Penalty (b=0.75)</text></p>
+<div class="language-text highlight"><pre><span></span><code>&lt;!-- Axes --&gt;
+&lt;line x1=&quot;530&quot; y1=&quot;300&quot; x2=&quot;530&quot; y2=&quot;80&quot; stroke=&quot;#333&quot; stroke-width=&quot;2&quot;/&gt;
+&lt;line x1=&quot;530&quot; y1=&quot;300&quot; x2=&quot;730&quot; y2=&quot;300&quot; stroke=&quot;#333&quot; stroke-width=&quot;2&quot;/&gt;
+
+&lt;!-- Axis labels --&gt;
+&lt;text x=&quot;490&quot; y=&quot;305&quot; font-size=&quot;11&quot; fill=&quot;#555&quot;&gt;Score&lt;/text&gt;
+&lt;text x=&quot;590&quot; y=&quot;330&quot; font-size=&quot;11&quot; fill=&quot;#555&quot;&gt;Doc Length (words)&lt;/text&gt;
+
+&lt;!-- Grid --&gt;
+&lt;line x1=&quot;525&quot; y1=&quot;260&quot; x2=&quot;730&quot; y2=&quot;260&quot; stroke=&quot;#eee&quot; stroke-width=&quot;1&quot;/&gt;
+&lt;text x=&quot;510&quot; y=&quot;265&quot; font-size=&quot;10&quot; fill=&quot;#999&quot;&gt;0.5&lt;/text&gt;
+
+&lt;line x1=&quot;525&quot; y1=&quot;220&quot; x2=&quot;730&quot; y2=&quot;220&quot; stroke=&quot;#eee&quot; stroke-width=&quot;1&quot;/&gt;
+&lt;text x=&quot;510&quot; y=&quot;225&quot; font-size=&quot;10&quot; fill=&quot;#999&quot;&gt;1.0&lt;/text&gt;
+
+&lt;line x1=&quot;525&quot; y1=&quot;180&quot; x2=&quot;730&quot; y2=&quot;180&quot; stroke=&quot;#eee&quot; stroke-width=&quot;1&quot;/&gt;
+&lt;text x=&quot;510&quot; y=&quot;185&quot; font-size=&quot;10&quot; fill=&quot;#999&quot;&gt;1.5&lt;/text&gt;
+
+&lt;!-- X-axis ticks: 100,500,1000,2000 words --&gt;
+&lt;line x1=&quot;550&quot; y1=&quot;298&quot; x2=&quot;550&quot; y2=&quot;305&quot;/&gt;
+&lt;text x=&quot;535&quot; y=&quot;320&quot; font-size=&quot;10&quot; fill=&quot;#555&quot;&gt;100&lt;/text&gt;
+
+&lt;line x1=&quot;600&quot; y1=&quot;298&quot; x2=&quot;600&quot; y2=&quot;305&quot;/&gt;
+&lt;text x=&quot;585&quot; y=&quot;320&quot; font-size=&quot;10&quot; fill=&quot;#555&quot;&gt;500&lt;/text&gt;
+
+&lt;line x1=&quot;650&quot; y1=&quot;298&quot; x2=&quot;650&quot; y2=&quot;305&quot;/&gt;
+&lt;text x=&quot;635&quot; y=&quot;320&quot; font-size=&quot;10&quot; fill=&quot;#555&quot;&gt;1000&lt;/text&gt;
+
+&lt;line x1=&quot;700&quot; y1=&quot;298&quot; x2=&quot;700&quot; y2=&quot;305&quot;/&gt;
+&lt;text x=&quot;685&quot; y=&quot;320&quot; font-size=&quot;10&quot; fill=&quot;#555&quot;&gt;2000&lt;/text&gt;
+
+&lt;!-- BM25 penalty curve (gentler) --&gt;
+&lt;polyline points=&quot;550,180 600,160 650,150 700,145&quot; fill=&quot;none&quot; stroke=&quot;#4CAF50&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot;/&gt;
+
+&lt;!-- Points --&gt;
+&lt;circle cx=&quot;550&quot; cy=&quot;180&quot; r=&quot;4&quot; fill=&quot;#4CAF50&quot;/&gt;
+&lt;circle cx=&quot;600&quot; cy=&quot;160&quot; r=&quot;4&quot; fill=&quot;#4CAF50&quot;/&gt;
+&lt;circle cx=&quot;650&quot; cy=&quot;150&quot; r=&quot;4&quot; fill=&quot;#4CAF50&quot;/&gt;
+&lt;circle cx=&quot;700&quot; cy=&quot;145&quot; r=&quot;4&quot; fill=&quot;#4CAF50&quot;/&gt;
+
+&lt;!-- Annotations --&gt;
+&lt;text x=&quot;555&quot; y=&quot;175&quot; font-size=&quot;9&quot; fill=&quot;#4CAF50&quot;&gt;1.0&lt;/text&gt;
+&lt;text x=&quot;605&quot; y=&quot;150&quot; font-size=&quot;9&quot; fill=&quot;#4CAF50&quot;&gt;0.89&lt;/text&gt;
+&lt;text x=&quot;655&quot; y=&quot;140&quot; font-size=&quot;9&quot; fill=&quot;#4CAF50&quot;&gt;0.82&lt;/text&gt;
+
+&lt;!-- Still-high zone --&gt;
+&lt;rect x=&quot;650&quot; y=&quot;140&quot; width=&quot;55&quot; height=&quot;25&quot; fill=&quot;#4CAF50&quot; opacity=&quot;0.1&quot; stroke=&quot;#4CAF50&quot; stroke-width=&quot;1&quot; stroke-dasharray=&quot;2,2&quot;/&gt;
+&lt;text x=&quot;658&quot; y=&quot;160&quot; font-size=&quot;9&quot; fill=&quot;#4CAF50&quot;&gt;still high&lt;/text&gt;
+</code></pre></div>
+<p></g></p>
+<!-- Legend -->
+<p><g id="legend" transform="translate(300, 310)">
+    <text x="0" y="0" font-size="11" fill="#555" font-style="italic">TF-IDF: 2000-word doc scores 0.45 × base. BM25: 2000-word doc scores 0.82 × base (fairer).</text>
+  </g>
+</svg></p>
+<hr />
+<h3 id="4-hyperparameters-k_1-and-b">4. Hyperparameters: $k_1$ and $b$<a class="headerlink" href="#4-hyperparameters-k_1-and-b" title="Permanent link">#</a></h3>
+<p>BM25's power comes from <strong>two tunable hyperparameters</strong>, allowing optimization for your specific corpus:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Role</th>
+<th>Typical Value</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>$k_1$</strong></td>
+<td>Term Frequency Saturation</td>
+<td>1.5</td>
+<td>Controls how quickly TF rewards plateau. Higher = slower saturation.</td>
+</tr>
+<tr>
+<td><strong>$b$</strong></td>
+<td>Length Normalization Strength</td>
+<td>0.75</td>
+<td>Controls penalty for long docs. 0 = no length penalty, 1.0 = full normalization.</td>
+</tr>
+</tbody>
+</table>
+<p><svg viewBox="0 0 900 250" xmlns="http://www.w3.org/2000/svg" style="border: 1px solid #ddd; background: #f9f9f9; max-width: 100%; height: auto;">
+  <!-- Title --></p>
+<p><text x="450" y="25" font-size="18" font-weight="bold" text-anchor="middle" fill="#222">Hyperparameter Impact on BM25 Scoring</text></p>
+<!-- k1 parameter chart -->
+<p><g id="k1-chart">
+    <text x="220" y="55" font-size="13" font-weight="bold" fill="#222">Tuning $k_1$ (TF Saturation)</text></p>
+<div class="language-text highlight"><pre><span></span><code>&lt;line x1=&quot;80&quot; y1=&quot;220&quot; x2=&quot;80&quot; y2=&quot;70&quot; stroke=&quot;#333&quot; stroke-width=&quot;2&quot;/&gt;
+&lt;line x1=&quot;80&quot; y1=&quot;220&quot; x2=&quot;280&quot; y2=&quot;220&quot; stroke=&quot;#333&quot; stroke-width=&quot;2&quot;/&gt;
+
+&lt;text x=&quot;40&quot; y=&quot;225&quot; font-size=&quot;11&quot; fill=&quot;#555&quot;&gt;Score&lt;/text&gt;
+&lt;text x=&quot;160&quot; y=&quot;245&quot; font-size=&quot;11&quot; fill=&quot;#555&quot;&gt;Term Freq&lt;/text&gt;
+
+&lt;!-- Grid --&gt;
+&lt;line x1=&quot;75&quot; y1=&quot;175&quot; x2=&quot;280&quot; y2=&quot;175&quot; stroke=&quot;#eee&quot; stroke-width=&quot;1&quot;/&gt;
+&lt;text x=&quot;65&quot; y=&quot;180&quot; font-size=&quot;9&quot; fill=&quot;#999&quot;&gt;0.5&lt;/text&gt;
+
+&lt;line x1=&quot;75&quot; y1=&quot;130&quot; x2=&quot;280&quot; y2=&quot;130&quot; stroke=&quot;#eee&quot; stroke-width=&quot;1&quot;/&gt;
+&lt;text x=&quot;65&quot; y=&quot;135&quot; font-size=&quot;9&quot; fill=&quot;#999&quot;&gt;1.0&lt;/text&gt;
+
+&lt;!-- X-axis ticks --&gt;
+&lt;line x1=&quot;110&quot; y1=&quot;218&quot; x2=&quot;110&quot; y2=&quot;224&quot;/&gt;
+&lt;text x=&quot;105&quot; y=&quot;238&quot; font-size=&quot;9&quot; fill=&quot;#555&quot;&gt;5&lt;/text&gt;
+
+&lt;line x1=&quot;170&quot; y1=&quot;218&quot; x2=&quot;170&quot; y2=&quot;224&quot;/&gt;
+&lt;text x=&quot;165&quot; y=&quot;238&quot; font-size=&quot;9&quot; fill=&quot;#555&quot;&gt;15&lt;/text&gt;
+
+&lt;line x1=&quot;230&quot; y1=&quot;218&quot; x2=&quot;230&quot; y2=&quot;224&quot;/&gt;
+&lt;text x=&quot;225&quot; y=&quot;238&quot; font-size=&quot;9&quot; fill=&quot;#555&quot;&gt;25&lt;/text&gt;
+
+&lt;!-- k1=0.5 (steep saturation) --&gt;
+&lt;polyline points=&quot;110,190 170,145 230,125&quot; fill=&quot;none&quot; stroke=&quot;#FF9800&quot; stroke-width=&quot;2.5&quot;/&gt;
+&lt;text x=&quot;245&quot; y=&quot;125&quot; font-size=&quot;10&quot; fill=&quot;#FF9800&quot;&gt;k₁=0.5 (steep)&lt;/text&gt;
+
+&lt;!-- k1=1.5 (standard) --&gt;
+&lt;polyline points=&quot;110,170 170,120 230,110&quot; fill=&quot;none&quot; stroke=&quot;#2196F3&quot; stroke-width=&quot;3&quot;/&gt;
+&lt;text x=&quot;245&quot; y=&quot;110&quot; font-size=&quot;10&quot; fill=&quot;#2196F3&quot;&gt;k₁=1.5&lt;/text&gt;
+
+&lt;!-- k1=3.0 (gentle) --&gt;
+&lt;polyline points=&quot;110,155 170,110 230,95&quot; fill=&quot;none&quot; stroke=&quot;#4CAF50&quot; stroke-width=&quot;2.5&quot;/&gt;
+&lt;text x=&quot;245&quot; y=&quot;95&quot; font-size=&quot;10&quot; fill=&quot;#4CAF50&quot;&gt;k₁=3.0 (gentle)&lt;/text&gt;
+</code></pre></div>
+<p></g></p>
+<!-- b parameter chart -->
+<p><g id="b-chart">
+    <text x="670" y="55" font-size="13" font-weight="bold" fill="#222">Tuning $b$ (Length Normalization)</text></p>
+<div class="language-text highlight"><pre><span></span><code>&lt;line x1=&quot;530&quot; y1=&quot;220&quot; x2=&quot;530&quot; y2=&quot;70&quot; stroke=&quot;#333&quot; stroke-width=&quot;2&quot;/&gt;
+&lt;line x1=&quot;530&quot; y1=&quot;220&quot; x2=&quot;730&quot; y2=&quot;220&quot; stroke=&quot;#333&quot; stroke-width=&quot;2&quot;/&gt;
+
+&lt;text x=&quot;490&quot; y=&quot;225&quot; font-size=&quot;11&quot; fill=&quot;#555&quot;&gt;Score&lt;/text&gt;
+&lt;text x=&quot;610&quot; y=&quot;245&quot; font-size=&quot;11&quot; fill=&quot;#555&quot;&gt;Doc Length&lt;/text&gt;
+
+&lt;!-- Grid --&gt;
+&lt;line x1=&quot;525&quot; y1=&quot;175&quot; x2=&quot;730&quot; y2=&quot;175&quot; stroke=&quot;#eee&quot; stroke-width=&quot;1&quot;/&gt;
+&lt;text x=&quot;515&quot; y=&quot;180&quot; font-size=&quot;9&quot; fill=&quot;#999&quot;&gt;0.5&lt;/text&gt;
+
+&lt;line x1=&quot;525&quot; y1=&quot;130&quot; x2=&quot;730&quot; y2=&quot;130&quot; stroke=&quot;#eee&quot; stroke-width=&quot;1&quot;/&gt;
+&lt;text x=&quot;515&quot; y=&quot;135&quot; font-size=&quot;9&quot; fill=&quot;#999&quot;&gt;1.0&lt;/text&gt;
+
+&lt;!-- X-axis ticks --&gt;
+&lt;line x1=&quot;560&quot; y1=&quot;218&quot; x2=&quot;560&quot; y2=&quot;224&quot;/&gt;
+&lt;text x=&quot;550&quot; y=&quot;238&quot; font-size=&quot;9&quot; fill=&quot;#555&quot;&gt;500w&lt;/text&gt;
+
+&lt;line x1=&quot;620&quot; y1=&quot;218&quot; x2=&quot;620&quot; y2=&quot;224&quot;/&gt;
+&lt;text x=&quot;610&quot; y=&quot;238&quot; font-size=&quot;9&quot; fill=&quot;#555&quot;&gt;1500w&lt;/text&gt;
+
+&lt;line x1=&quot;680&quot; y1=&quot;218&quot; x2=&quot;680&quot; y2=&quot;224&quot;/&gt;
+&lt;text x=&quot;670&quot; y=&quot;238&quot; font-size=&quot;9&quot; fill=&quot;#555&quot;&gt;3000w&lt;/text&gt;
+
+&lt;!-- b=0 (no length penalty) --&gt;
+&lt;polyline points=&quot;560,175 620,175 680,175&quot; fill=&quot;none&quot; stroke=&quot;#FF9800&quot; stroke-width=&quot;2.5&quot;/&gt;
+&lt;text x=&quot;695&quot; y=&quot;175&quot; font-size=&quot;10&quot; fill=&quot;#FF9800&quot;&gt;b=0 (none)&lt;/text&gt;
+
+&lt;!-- b=0.75 (standard) --&gt;
+&lt;polyline points=&quot;560,175 620,145 680,135&quot; fill=&quot;none&quot; stroke=&quot;#2196F3&quot; stroke-width=&quot;3&quot;/&gt;
+&lt;text x=&quot;695&quot; y=&quot;135&quot; font-size=&quot;10&quot; fill=&quot;#2196F3&quot;&gt;b=0.75&lt;/text&gt;
+
+&lt;!-- b=1.0 (full) --&gt;
+&lt;polyline points=&quot;560,175 620,130 680,105&quot; fill=&quot;none&quot; stroke=&quot;#4CAF50&quot; stroke-width=&quot;2.5&quot;/&gt;
+&lt;text x=&quot;695&quot; y=&quot;105&quot; font-size=&quot;10&quot; fill=&quot;#4CAF50&quot;&gt;b=1.0 (full)&lt;/text&gt;
+</code></pre></div>
+<p></g>
+</svg></p>
+<hr />
+<h2 id="bm25-vs-tf-idf-comparison-table">📊 BM25 vs TF-IDF Comparison Table<a class="headerlink" href="#bm25-vs-tf-idf-comparison-table" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>TF-IDF</th>
+<th>BM25</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TF Scoring</strong></td>
+<td>Linear (f(q, D))</td>
+<td>Saturating with $k_1$ parameter</td>
+</tr>
+<tr>
+<td><strong>Length Penalty</strong></td>
+<td>$1/\sqrt{len}$ (aggressive)</td>
+<td>Diminishing via $b$ parameter (configurable)</td>
+</tr>
+<tr>
+<td><strong>Tunable</strong></td>
+<td>No hyperparameters</td>
+<td>Two hyperparameters ($k_1$, $b$)</td>
+</tr>
+<tr>
+<td><strong>Production Ready</strong></td>
+<td>Older, less common</td>
+<td>Industry standard (used in Elasticsearch, Solr, etc.)</td>
+</tr>
+<tr>
+<td><strong>Computational Cost</strong></td>
+<td>Very low</td>
+<td>Very low (similar to TF-IDF)</td>
+</tr>
+<tr>
+<td><strong>Typical Performance</strong></td>
+<td>Baseline</td>
+<td>10-30% better than TF-IDF on real corpora</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="keyword-search-summary">🔑 Keyword Search Summary<a class="headerlink" href="#keyword-search-summary" title="Permanent link">#</a></h2>
+<h3 id="core-principle">Core Principle<a class="headerlink" href="#core-principle" title="Permanent link">#</a></h3>
+<p>Match documents to queries by keyword presence frequency. Both queries and documents converted to <strong>sparse vectors</strong> (word counts), then scored using TF-IDF or <strong>BM25</strong> (modern standard).</p>
+<h3 id="strengths">Strengths ✅<a class="headerlink" href="#strengths" title="Permanent link">#</a></h3>
+<ol>
+<li><strong>Simplicity</strong> — Straightforward, easy to understand and implement</li>
+<li><strong>Exactness</strong> — Guarantees retrieved docs contain query keywords (critical for technical searches, product names)</li>
+<li><strong>Speed</strong> — Fast computation, can be competitive benchmark</li>
+<li><strong>Flexibility</strong> — Can be tuned (BM25 hyperparameters)</li>
+</ol>
+<h3 id="weaknesses">Weaknesses ❌<a class="headerlink" href="#weaknesses" title="Permanent link">#</a></h3>
+<ol>
+<li><strong>Lexical Gap</strong> — Fails when user query has different wording than matching document</li>
+<li>Query: "fast vehicle"</li>
+<li>Document: "quick car" ← Missed (no keyword overlap)</li>
+<li><strong>Synonyms</strong> — Doesn't understand "automobile" ≈ "car"</li>
+<li><strong>Semantic Misses</strong> — Query meaning present but keywords absent</li>
+</ol>
+<hr />
+<h2 id="why-bm25-is-the-standard">🚀 Why BM25 Is the Standard<a class="headerlink" href="#why-bm25-is-the-standard" title="Permanent link">#</a></h2>
+<ul>
+<li><strong>Decades-Tested</strong> — Proven in production since 1990s</li>
+<li><strong>Good Balance</strong> — Complexity vs. real-world performance</li>
+<li><strong>Tunable</strong> — Hyperparameters let you optimize per domain</li>
+<li><strong>Competitive</strong> — Often matches or beats more complex methods</li>
+<li><strong>Foundation</strong> — Frequently combined with semantic search in hybrid retrievers</li>
+</ul>
+<hr />
+<h2 id="key-takeaways">📚 Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">#</a></h2>
+<ol>
+<li><strong>BM25 improves TF-IDF</strong> with term frequency saturation (diminishing returns on repeated terms) and flexible length normalization</li>
+<li><strong>Hyperparameters $k_1$ and $b$</strong> allow optimization for your specific corpus and use case</li>
+<li><strong>Keyword search strength</strong> is exactness (retrieves docs with actual keywords), critical for technical/product queries</li>
+<li><strong>Keyword search weakness</strong> is lexical gap (synonyms, paraphrasing cause misses)</li>
+<li><strong>BM25 is the production standard</strong>, industry-wide choice for keyword retrieval in production systems</li>
+</ol>
+<hr />
+<h2 id="flashcards">💡 Flashcards<a class="headerlink" href="#flashcards" title="Permanent link">#</a></h2>
+<h3 id="card-01-bm25-purpose">Card 01: BM25 Purpose<a class="headerlink" href="#card-01-bm25-purpose" title="Permanent link">#</a></h3>
+<p><strong>Q:</strong> Why is BM25 used instead of TF-IDF in most modern retrievers?
+<strong>A:</strong> BM25 adds term frequency saturation (diminishing returns on repeated keywords) and configurable length normalization, plus two tunable hyperparameters ($k_1$, $b$) that allow optimization for specific corpora. It performs 10-30% better than TF-IDF on real data with similar computational cost.</p>
+<h3 id="card-02-term-frequency-saturation">Card 02: Term Frequency Saturation<a class="headerlink" href="#card-02-term-frequency-saturation" title="Permanent link">#</a></h3>
+<p><strong>Q:</strong> What is term frequency saturation in BM25, and why is it important?
+<strong>A:</strong> Saturation means scores plateau as term frequency increases—a doc with "pizza" 20 times doesn't score twice as high as "pizza" 10 times (unlike TF-IDF). This is more realistic: beyond a certain repetition count, additional keyword instances add little relevance boost.</p>
+<h3 id="card-03-hyperparameter-k_1">Card 03: Hyperparameter $k_1$<a class="headerlink" href="#card-03-hyperparameter-k_1" title="Permanent link">#</a></h3>
+<p><strong>Q:</strong> What does the $k_1$ hyperparameter control in BM25?
+<strong>A:</strong> $k_1$ controls how quickly term frequency saturation occurs. Typical value is 1.5. Higher $k_1$ = slower saturation (rewards more term repetitions). Lower $k_1$ = faster saturation (penalizes repetition more aggressively).</p>
+<h3 id="card-04-hyperparameter-b">Card 04: Hyperparameter $b$<a class="headerlink" href="#card-04-hyperparameter-b" title="Permanent link">#</a></h3>
+<p><strong>Q:</strong> What does the $b$ hyperparameter control in BM25?
+<strong>A:</strong> $b$ controls the strength of length normalization (penalty for long documents). Typical value is 0.75. $b=0$ means no length penalty. $b=1.0$ means full normalization. BM25's diminishing penalties keep long docs relevant if keyword frequency is high (unlike TF-IDF's aggressive penalties).</p>
+<h3 id="card-05-length-normalization-difference">Card 05: Length Normalization Difference<a class="headerlink" href="#card-05-length-normalization-difference" title="Permanent link">#</a></h3>
+<p><strong>Q:</strong> How does BM25 handle long documents differently than TF-IDF?
+<strong>A:</strong> TF-IDF uses $1/\sqrt{length}$ (aggressive penalty). BM25 uses diminishing penalties controlled by $b$. Result: a 2000-word document with high keyword frequency scores 0.82× base in BM25 vs. 0.45× in TF-IDF—much fairer for relevant long documents.</p>
+<h3 id="card-06-tunable-vs-non-tunable">Card 06: Tunable vs Non-Tunable<a class="headerlink" href="#card-06-tunable-vs-non-tunable" title="Permanent link">#</a></h3>
+<p><strong>Q:</strong> What's the advantage of BM25's hyperparameters over TF-IDF's fixed approach?
+<strong>A:</strong> BM25's $k_1$ and $b$ can be tuned per corpus/domain to optimize performance. TF-IDF has no hyperparameters. This makes BM25 more flexible for production systems where you can A/B test or learn optimal settings from training data.</p>
+<h3 id="card-07-bm25-formula-structure">Card 07: BM25 Formula Structure<a class="headerlink" href="#card-07-bm25-formula-structure" title="Permanent link">#</a></h3>
+<p><strong>Q:</strong> Summarize what the BM25 formula does conceptually.
+<strong>A:</strong> For each query keyword, calculate IDF × (a term frequency component scaled by $k_1$ and length-normalized by $b$). Sum across all keywords to get total relevance score. This combines rarity (IDF), frequency saturation ($k_1$), and fair length treatment ($b$).</p>
+<h3 id="card-08-keyword-search-strength">Card 08: Keyword Search Strength<a class="headerlink" href="#card-08-keyword-search-strength" title="Permanent link">#</a></h3>
+<p><strong>Q:</strong> What is the primary strength of keyword search (TF-IDF/BM25)?
+<strong>A:</strong> <strong>Exactness</strong>: Guarantees retrieved documents contain the actual keywords from the user's query. Critical for technical searches, product names, or exact term requirements where semantic similarity isn't sufficient.</p>
+<h3 id="card-09-keyword-search-weakness">Card 09: Keyword Search Weakness<a class="headerlink" href="#card-09-keyword-search-weakness" title="Permanent link">#</a></h3>
+<p><strong>Q:</strong> What is the primary weakness of keyword search?
+<strong>A:</strong> <strong>Lexical gap</strong>: Fails when the query and document have the same meaning but different words. Example: query "fast vehicle" won't match document "quick car" because no keywords overlap. Synonyms and paraphrases are invisible to keyword search.</p>
+<h3 id="card-10-bm25-production-adoption">Card 10: BM25 Production Adoption<a class="headerlink" href="#card-10-bm25-production-adoption" title="Permanent link">#</a></h3>
+<p><strong>Q:</strong> Why is BM25 the industry standard for keyword retrieval?
+<strong>A:</strong> Decades-tested (since 1990s), good balance of simplicity and performance, tunable hyperparameters, computational efficiency (similar to TF-IDF), and proven effectiveness. Often used as a baseline—more complex methods must beat BM25 to justify the added cost.</p>
+<hr />
+<h2 id="related-topics">🔗 Related Topics<a class="headerlink" href="#related-topics" title="Permanent link">#</a></h2>
+<ul>
+<li><strong>04-keyword-search-tfidf.md</strong> — Foundation: TF-IDF scoring (what BM25 improves on)</li>
+<li><strong>06-semantic-search-embeddings.md</strong> — Next: Semantic search (addresses keyword search's lexical gap)</li>
+<li><strong>07-hybrid-retrieval.md</strong> — Integration: Combining keyword (BM25) + semantic search</li>
+</ul>
+<hr />
+<p><strong>Status:</strong> 🟢 Complete | <strong>Last Revised:</strong> 2026-04-22 | <strong>Confidence:</strong> 🟢 Solid</p>
 
 
 
@@ -6915,6 +7950,44 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../04-keyword-search-tfidf/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 04 · Keyword Search: TF-IDF">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                04 · Keyword Search: TF-IDF
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../flashcards/" class="md-footer__link md-footer__link--next" aria-label="Next: 🃏 Flashcards">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                🃏 Flashcards
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -6968,12 +8041,12 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../../../../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow", "header.autohide"], "search": "../../../../../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow", "header.autohide"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../../../../../../../../../_assets/mermaid-zoom.js"></script>
+        <script src="../../../../_assets/mermaid-zoom.js"></script>
       
     
   </body>

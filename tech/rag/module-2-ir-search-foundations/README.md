@@ -26,7 +26,7 @@ graph LR
 | 02 | [Retriever Architecture Overview](02-retriever-architecture.md) | 🟢 | — |
 | 03 | [Metadata Filtering](03-metadata-filtering.md) | 🟢 | — |
 | 04 | [Keyword Search: TF-IDF](04-keyword-search-tfidf.md) | 🟢 | 4 SVG visualizations |
-| 05 | [Keyword Search: BM25](05-keyword-search-bm25.md) | 🔴 | — |
+| 05 | [Keyword Search: BM25](05-keyword-search-bm25.md) | 🟢 | 2 SVG diagrams + hyperparameter chart |
 | 06 | [Semantic Search: Introduction](06-semantic-search-intro.md) | 🔴 | — |
 | 07 | [Semantic Search: Embedding Deep Dive](07-embedding-model-deepdive.md) | 🔴 | — |
 | 08 | [Vector Embeddings in RAG](08-vector-embeddings-in-rag.md) | 🔴 | — |
@@ -35,7 +35,7 @@ graph LR
 | 11 | [Retrieval Metrics](11-retrieval-metrics.md) | 🔴 | — |
 | 12 | [Lab: Implementing Retriever Functions](12-lab-retriever-functions.md) | 🔴 | — |
 
-**Overall confidence:** � Just started (4/12)
+**Overall confidence:** 🟡 In progress (5/12)
 
 ## 🧩 Memory Fragments
 > - 🔍 The retriever's core challenge: messy human queries + messy human documents, matched in milliseconds.
@@ -44,6 +44,7 @@ graph LR
 > - 🧱 Metadata filtering = strict policy gate (author/date/access/region), not content relevance ranking.
 > - 🔤 TF-IDF = term frequency × inverse document frequency; rare-but-relevant keywords get stronger ranking weight.
 > - 📊 TF-IDF visualized: 4-step scoring evolution (binary → TF → normalized → IDF) with SVG diagrams + full scoring table example.
+> - ⚡ BM25 > TF-IDF: Saturation ("pizza" 20× = pizza 10× + 40%, not 2×) + gentle length penalties + tunable (k₁ saturation, b normalization).
 
 ---
 
