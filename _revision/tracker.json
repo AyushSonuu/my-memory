@@ -41,11 +41,11 @@
   },
   "tech/rag": {
     "firstLearned": "2026-04-04",
-    "lastRevised": "2026-04-22",
-    "nextRevision": "2026-04-25",
+    "lastRevised": "2026-04-24",
+    "nextRevision": "2026-04-27",
     "confidence": "red",
     "revisionCount": 0,
-    "lessonsCompleted": 13
+    "lessonsCompleted": 14
   },
   "tech/spec-driven-development": {
     "firstLearned": "2026-04-20",

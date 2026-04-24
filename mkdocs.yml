@@ -273,6 +273,7 @@ nav:
       - 03 · Metadata Filtering: tech/rag/module-2-ir-search-foundations/03-metadata-filtering.md
       - "04 · Keyword Search: TF-IDF": tech/rag/module-2-ir-search-foundations/04-keyword-search-tfidf.md
       - "05 · Keyword Search: BM25": tech/rag/module-2-ir-search-foundations/05-keyword-search-bm25.md
+      - "07 · Semantic Search: Embedding Deep Dive": tech/rag/module-2-ir-search-foundations/07-embedding-model-deepdive.md
       - 🃏 Flashcards: tech/rag/module-2-ir-search-foundations/flashcards.md
     - Module 3 · Vector Databases:
       - Overview: tech/rag/module-3-ir-vector-databases/README.md

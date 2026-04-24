@@ -9,7 +9,7 @@ graph TB
     subgraph TECH ["🔧 Tech — 7 topics"]
         AG["🤖 Agentic AI — 30/30 ✅"]
         AM["🧠 Agent Memory — 7/7 ✅"]
-        RAG["🔍 RAG — 13/62 ✨"]
+        RAG["🔍 RAG — 14/62 ✨"]
         SDD["📋 Spec-Driven Dev — 13/16 🟡"]
         PY["🐍 Python"]
         PY --> AIO["⚡ AsyncIO — 1/1 ✅"]
@@ -40,6 +40,7 @@ graph TB
 | 🔴 Starting | 1 | RAG (13/62 lessons) |
 
 **Total:** 7 topics · 63 lessons · 210+ flashcards · Last updated: 2026-04-22
+**Total:** 7 topics · 64 lessons · 213+ flashcards · Last updated: 2026-04-24
 
 ## Key Connections
 

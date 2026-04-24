@@ -7,7 +7,7 @@ graph TB
     T(("🔧 Tech"))
     T --> AG["🤖 <b>Agentic AI</b><br/>M1-M5 ✅"]
     T --> AM["🧠 <b>Agent Memory</b><br/>7/7 lessons ✅"]
-    T --> RAG["🔍 <b>RAG</b><br/>M1: 7/10, M2: 5/12 ✨"]
+    T --> RAG["🔍 <b>RAG</b><br/>M1: 7/10, M2: 6/12 ✨"]
     T --> PY["🐍 <b>Python</b>"]
     PY --> AIO["⚡ <b>AsyncIO</b><br/>1/1 ✅"]
     PY --> THR["🧵 <b>Threading</b><br/>1/1 ✅"]
@@ -27,7 +27,7 @@ graph TB
 |-------|-----------|---------|------------|-------------|
 | [🤖 Agentic AI](../tech/agentic-ai/) | 🟡 Learning | 30/30 ✅ | 95+ | 2026-04-03 |
 | [🧠 Agent Memory](../tech/agent-memory/) | 🟡 Learning | 7/7 ✅ | 37 | 2026-03-21 |
-| [🔍 RAG](../tech/rag/) | 🔴 Starting | 13/62 | 40 | 2026-04-22 |
+| [🔍 RAG](../tech/rag/) | 🔴 Starting | 14/62 | 43 | 2026-04-24 |
 | [📋 Spec-Driven Dev](../tech/spec-driven-development/) | 🟡 Learning | 13/16 | 30+ | 2026-04-20 |
 | [⚡ AsyncIO](../tech/python/asyncio/) | 🟡 Learning | 1/1 ✅ | 12 | 2026-03-21 |
 | [🧵 Threading](../tech/python/threading/) | 🟡 Learning | 1/1 ✅ | 11 | 2026-03-24 |

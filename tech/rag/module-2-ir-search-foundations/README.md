@@ -28,14 +28,14 @@ graph LR
 | 04 | [Keyword Search: TF-IDF](04-keyword-search-tfidf.md) | 🟢 | 4 SVG visualizations |
 | 05 | [Keyword Search: BM25](05-keyword-search-bm25.md) | 🟢 | 2 SVG diagrams + hyperparameter chart |
 | 06 | [Semantic Search: Introduction](06-semantic-search-intro.md) | 🔴 | — |
-| 07 | [Semantic Search: Embedding Deep Dive](07-embedding-model-deepdive.md) | 🔴 | — |
+| 07 | [Semantic Search: Embedding Deep Dive](07-embedding-model-deepdive.md) | � | 4 SVG visualizations (pairs, training evolution, clustering) |
 | 08 | [Vector Embeddings in RAG](08-vector-embeddings-in-rag.md) | 🔴 | — |
 | 09 | [Hybrid Search](09-hybrid-search.md) | 🔴 | — |
 | 10 | [Evaluating Retrieval](10-evaluating-retrieval.md) | 🔴 | — |
 | 11 | [Retrieval Metrics](11-retrieval-metrics.md) | 🔴 | — |
 | 12 | [Lab: Implementing Retriever Functions](12-lab-retriever-functions.md) | 🔴 | — |
 
-**Overall confidence:** 🟡 In progress (5/12)
+**Overall confidence:** 🟡 In progress (6/12)
 
 ## 🧩 Memory Fragments
 > - 🔍 The retriever's core challenge: messy human queries + messy human documents, matched in milliseconds.
@@ -45,6 +45,7 @@ graph LR
 > - 🔤 TF-IDF = term frequency × inverse document frequency; rare-but-relevant keywords get stronger ranking weight.
 > - 📊 TF-IDF visualized: 4-step scoring evolution (binary → TF → normalized → IDF) with SVG diagrams + full scoring table example.
 > - ⚡ BM25 > TF-IDF: Saturation ("pizza" 20× = pizza 10× + 40%, not 2×) + gentle length penalties + tunable (k₁ saturation, b normalization).
+> - 🧠 Embedding models work by contrastive training: similar texts pulled close, dissimilar texts pushed far. High-dimensional spaces allow millions of semantic clusters without overlap. Vectors from different models are incomparable.
 
 ---
 
