@@ -34,7 +34,11 @@ Everything you write must be **instantly recallable** during revision. This is t
 - Text explains the visual, not vice versa
 - A good diagram replaces 3 paragraphs
 - Mix visual types across sections — variety = visually appealing
-- **SVG guidelines:** dark theme (`#0d1117` background), gradient fills, drop shadows, color-coded sections. Save in `_assets/`. Reference as `<img src="_assets/filename.svg"/>` in markdown.
+- **SVG guidelines:** dark theme (`#0d1117` background), gradient fills, drop shadows, color-coded sections.
+  - **ALWAYS save SVGs as standalone `.svg` files in an `assets/` folder** inside the topic/module directory. NEVER inline SVGs in markdown — they don't render in most viewers.
+  - Reference as `![Alt text](assets/filename.svg)` in markdown.
+  - Escape `&` as `&amp;` in SVG text — it's XML, not HTML.
+  - Filename convention: `{lesson-number}-{slug-from-title}.svg` (e.g. `05-bm25-tf-saturation.svg`).
 
 ## 3. ✂️ Concise but COMPLETE
 - Tables > paragraphs. Bullets > walls of text.

@@ -31,6 +31,7 @@ my-memory/
 │       ├── flashcards.md                  # 🃏 Self + children + related
 │       ├── vs.md                          # (optional) Comparisons
 │       ├── cheatsheet.md                  # (optional) One-pager
+│       ├── assets/                       # SVG diagrams (standalone .svg files)
 │       ├── _assets/                       # (optional) Screenshots, slides
 │       ├── code/                          # (optional) Ayush-managed practice code
 │       ├── course_material/               # (optional) PDFs from courses
