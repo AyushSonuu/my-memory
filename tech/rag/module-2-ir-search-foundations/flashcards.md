@@ -1,7 +1,7 @@
 # 🃏 IR Search Foundations Flashcards
 
 > From: module-2-ir-search-foundations/
-> Last updated: 2026-04-22
+> Last updated: 2026-04-25
 
 ---
 
@@ -159,6 +159,102 @@ If a keyword appears many times, each extra repetition helps less and less; 20 m
 <summary>❓ Why is BM25 usually preferred in production retrievers?</summary>
 
 It tends to outperform TF-IDF with similar computational cost and gives tuning knobs (`k1`, `b`) to fit real corpus behavior.
+</details>
+
+<details>
+<summary>❓ What is hybrid search in retrieval?</summary>
+
+A pipeline that combines keyword search, semantic search, and metadata filtering to leverage the strengths of all three techniques.
+</details>
+
+<details>
+<summary>❓ In hybrid search, when do keyword and semantic searches run?</summary>
+
+In parallel — both run simultaneously on the same prompt and each return their own ranked list.
+</details>
+
+<details>
+<summary>❓ What happens to the two ranked lists (keyword + semantic) after they are returned?</summary>
+
+They are each filtered using metadata criteria, then merged using Reciprocal Rank Fusion (RRF) into a single final ranking.
+</details>
+
+<details>
+<summary>❓ What does Reciprocal Rank Fusion (RRF) do?</summary>
+
+It merges multiple ranked lists into one by scoring documents based on their rank positions (not original scores).
+</details>
+
+<details>
+<summary>❓ What is the RRF scoring formula?</summary>
+
+Score = Σ (1 / (k + rank)) — documents earn points from each ranking they appear in, summed across all lists.
+</details>
+
+<details>
+<summary>❓ In RRF, if a document ranks 2nd in keyword search and 10th in semantic search, what is its score when k=0?</summary>
+
+1/2 + 1/10 = 0.5 + 0.1 = **0.6 points**.
+</details>
+
+<details>
+<summary>❓ What does the RRF parameter `k` control?</summary>
+
+`k` controls how much being ranked #1 dominates the final ranking. k=0 → top rank dominates (10× difference). k=50 → balanced (1.2× difference).
+</details>
+
+<details>
+<summary>❓ Why is k=50 commonly used in RRF?</summary>
+
+It prevents a single #1 ranking from dominating the overall result, ensuring both keyword and semantic signals matter.
+</details>
+
+<details>
+<summary>❓ Does RRF use the original scores from keyword/semantic search?</summary>
+
+No — RRF only uses the rank position (1st, 2nd, 3rd, etc.), not the scores that led to those rankings.
+</details>
+
+<details>
+<summary>❓ What does the beta (β) parameter control in hybrid search?</summary>
+
+β controls the weight balance between semantic and keyword rankings — β=0.7 means 70% semantic, 30% keyword.
+</details>
+
+<details>
+<summary>❓ What is a good default beta value to start with?</summary>
+
+**β=0.7** (70% semantic, 30% keyword) — works well for most applications.
+</details>
+
+<details>
+<summary>❓ When should you lower beta (e.g., β=0.3)?</summary>
+
+When exact keyword matching is critical — e.g., technical terms, product codes, API names, error codes.
+</details>
+
+<details>
+<summary>❓ When should you raise beta (e.g., β=0.8)?</summary>
+
+When semantic meaning matters more than exact words — e.g., customer support queries with many ways to phrase the same question.
+</details>
+
+<details>
+<summary>❓ What are the three complementary strengths in hybrid search?</summary>
+
+Keyword = exact word match | Semantic = fuzzy meaning match | Metadata = strict yes/no filtering.
+</details>
+
+<details>
+<summary>❓ What tuning knobs does hybrid search expose?</summary>
+
+`k` (RRF dominance), `β` (keyword vs semantic weight), `k1` and `b` (BM25 parameters), metadata filtering rules.
+</details>
+
+<details>
+<summary>❓ Why is hybrid search the default choice in production RAG systems?</summary>
+
+It handles both exact keyword matching AND fuzzy semantic similarity, which most real-world queries require.
 </details>
 
 ---
