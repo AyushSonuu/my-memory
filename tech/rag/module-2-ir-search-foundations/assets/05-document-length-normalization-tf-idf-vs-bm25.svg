@@ -1,0 +1,117 @@
+<svg viewBox="0 0 900 350" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="450" y="25" font-size="18" font-weight="bold" text-anchor="middle" fill="#222">Document Length Normalization: TF-IDF vs BM25</text>
+  
+  <!-- Left chart: TF-IDF (aggressive penalty) -->
+  <g id="tfidf-length">
+    <text x="150" y="55" font-size="14" font-weight="bold" fill="#222">TF-IDF: Aggressive Penalty</text>
+    
+    <!-- Axes -->
+    <line x1="80" y1="300" x2="80" y2="80" stroke="#333" stroke-width="2"/>
+    <line x1="80" y1="300" x2="280" y2="300" stroke="#333" stroke-width="2"/>
+    
+    <!-- Axis labels -->
+    <text x="40" y="305" font-size="11" fill="#555">Score</text>
+    <text x="140" y="330" font-size="11" fill="#555">Doc Length (words)</text>
+    
+    <!-- Grid -->
+    <line x1="75" y1="260" x2="280" y2="260" stroke="#eee" stroke-width="1"/>
+    <text x="60" y="265" font-size="10" fill="#999">0.5</text>
+    
+    <line x1="75" y1="220" x2="280" y2="220" stroke="#eee" stroke-width="1"/>
+    <text x="60" y="225" font-size="10" fill="#999">1.0</text>
+    
+    <line x1="75" y1="180" x2="280" y2="180" stroke="#eee" stroke-width="1"/>
+    <text x="60" y="185" font-size="10" fill="#999">1.5</text>
+    
+    <!-- X-axis ticks: 100,500,1000,2000 words -->
+    <line x1="100" y1="298" x2="100" y2="305"/>
+    <text x="85" y="320" font-size="10" fill="#555">100</text>
+    
+    <line x1="150" y1="298" x2="150" y2="305"/>
+    <text x="130" y="320" font-size="10" fill="#555">500</text>
+    
+    <line x1="200" y1="298" x2="200" y2="305"/>
+    <text x="185" y="320" font-size="10" fill="#555">1000</text>
+    
+    <line x1="250" y1="298" x2="250" y2="305"/>
+    <text x="235" y="320" font-size="10" fill="#555">2000</text>
+    
+    <!-- TF-IDF penalty curve (1/sqrt(length)) -->
+    <polyline points="100,180 150,140 200,120 250,100" fill="none" stroke="#FF6B6B" stroke-width="3" stroke-linecap="round"/>
+    
+    <!-- Points -->
+    <circle cx="100" cy="180" r="4" fill="#FF6B6B"/>
+    <circle cx="150" cy="140" r="4" fill="#FF6B6B"/>
+    <circle cx="200" cy="120" r="4" fill="#FF6B6B"/>
+    <circle cx="250" cy="100" r="4" fill="#FF6B6B"/>
+    
+    <!-- Annotations -->
+    <text x="110" y="170" font-size="9" fill="#FF6B6B">1.0</text>
+    <text x="155" y="135" font-size="9" fill="#FF6B6B">0.63</text>
+    <text x="205" y="110" font-size="9" fill="#FF6B6B">0.45</text>
+    
+    <!-- Problem zone -->
+    <rect x="200" y="95" width="55" height="100" fill="#FF6B6B" opacity="0.1" stroke="#FF6B6B" stroke-width="1" stroke-dasharray="2,2"/>
+    <text x="205" y="160" font-size="9" fill="#FF6B6B">too low</text>
+  </g>
+  
+  <!-- Right chart: BM25 (gentle penalty, b=0.75) -->
+  <g id="bm25-length">
+    <text x="600" y="55" font-size="14" font-weight="bold" fill="#222">BM25: Gentle Penalty (b=0.75)</text>
+    
+    <!-- Axes -->
+    <line x1="530" y1="300" x2="530" y2="80" stroke="#333" stroke-width="2"/>
+    <line x1="530" y1="300" x2="730" y2="300" stroke="#333" stroke-width="2"/>
+    
+    <!-- Axis labels -->
+    <text x="490" y="305" font-size="11" fill="#555">Score</text>
+    <text x="590" y="330" font-size="11" fill="#555">Doc Length (words)</text>
+    
+    <!-- Grid -->
+    <line x1="525" y1="260" x2="730" y2="260" stroke="#eee" stroke-width="1"/>
+    <text x="510" y="265" font-size="10" fill="#999">0.5</text>
+    
+    <line x1="525" y1="220" x2="730" y2="220" stroke="#eee" stroke-width="1"/>
+    <text x="510" y="225" font-size="10" fill="#999">1.0</text>
+    
+    <line x1="525" y1="180" x2="730" y2="180" stroke="#eee" stroke-width="1"/>
+    <text x="510" y="185" font-size="10" fill="#999">1.5</text>
+    
+    <!-- X-axis ticks: 100,500,1000,2000 words -->
+    <line x1="550" y1="298" x2="550" y2="305"/>
+    <text x="535" y="320" font-size="10" fill="#555">100</text>
+    
+    <line x1="600" y1="298" x2="600" y2="305"/>
+    <text x="585" y="320" font-size="10" fill="#555">500</text>
+    
+    <line x1="650" y1="298" x2="650" y2="305"/>
+    <text x="635" y="320" font-size="10" fill="#555">1000</text>
+    
+    <line x1="700" y1="298" x2="700" y2="305"/>
+    <text x="685" y="320" font-size="10" fill="#555">2000</text>
+    
+    <!-- BM25 penalty curve (gentler) -->
+    <polyline points="550,180 600,160 650,150 700,145" fill="none" stroke="#4CAF50" stroke-width="3" stroke-linecap="round"/>
+    
+    <!-- Points -->
+    <circle cx="550" cy="180" r="4" fill="#4CAF50"/>
+    <circle cx="600" cy="160" r="4" fill="#4CAF50"/>
+    <circle cx="650" cy="150" r="4" fill="#4CAF50"/>
+    <circle cx="700" cy="145" r="4" fill="#4CAF50"/>
+    
+    <!-- Annotations -->
+    <text x="555" y="175" font-size="9" fill="#4CAF50">1.0</text>
+    <text x="605" y="150" font-size="9" fill="#4CAF50">0.89</text>
+    <text x="655" y="140" font-size="9" fill="#4CAF50">0.82</text>
+    
+    <!-- Still-high zone -->
+    <rect x="650" y="140" width="55" height="25" fill="#4CAF50" opacity="0.1" stroke="#4CAF50" stroke-width="1" stroke-dasharray="2,2"/>
+    <text x="658" y="160" font-size="9" fill="#4CAF50">still high</text>
+  </g>
+  
+  <!-- Legend -->
+  <g id="legend" transform="translate(300, 310)">
+    <text x="0" y="0" font-size="11" fill="#555" font-style="italic">TF-IDF: 2000-word doc scores 0.45 × base. BM25: 2000-word doc scores 0.82 × base (fairer).</text>
+  </g>
+</svg>

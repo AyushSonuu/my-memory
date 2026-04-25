@@ -1,0 +1,44 @@
+<svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg">
+  <text x="10" y="25" font-size="14" font-weight="bold" fill="#333">Inverse Document Frequency (IDF) — Reward Rare Words</text>
+  
+  <!-- Pizza (rare) -->
+  <rect x="10" y="45" width="160" height="220" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="4"/>
+  <text x="20" y="70" font-size="12" font-weight="bold" fill="#333">PIZZA (Rare)</text>
+  <text x="20" y="90" font-size="10" fill="#555">Corpus: 100 docs</text>
+  <text x="20" y="105" font-size="10" fill="#555">Appears in: 5 docs</text>
+  
+  <text x="20" y="130" font-size="10" font-weight="bold" fill="#333">DF = 5/100 = 0.05</text>
+  <text x="20" y="150" font-size="10" font-weight="bold" fill="#333">IDF = 1/0.05 = 20</text>
+  <text x="20" y="170" font-size="10" font-weight="bold" fill="#333">log(IDF) = log(20)</text>
+  <text x="20" y="185" font-size="11" font-weight="bold" fill="#f57c00">= 1.30</text>
+  
+  <text x="20" y="210" font-size="10" font-style="italic" fill="#666">Rare word gets<br/>HIGH weight</text>
+  
+  <!-- The (common) -->
+  <rect x="190" y="45" width="160" height="220" fill="#f3e5f5" stroke="#9c27b0" stroke-width="2" rx="4"/>
+  <text x="200" y="70" font-size="12" font-weight="bold" fill="#333">THE (Common)</text>
+  <text x="200" y="90" font-size="10" fill="#555">Corpus: 100 docs</text>
+  <text x="200" y="105" font-size="10" fill="#555">Appears in: 100 docs</text>
+  
+  <text x="200" y="130" font-size="10" font-weight="bold" fill="#333">DF = 100/100 = 1.0</text>
+  <text x="200" y="150" font-size="10" font-weight="bold" fill="#333">IDF = 1/1.0 = 1</text>
+  <text x="200" y="170" font-size="10" font-weight="bold" fill="#333">log(IDF) = log(1)</text>
+  <text x="200" y="185" font-size="11" font-weight="bold" fill="#9c27b0">= 0</text>
+  
+  <text x="200" y="210" font-size="10" font-style="italic" fill="#666">Common word gets<br/>NO weight</text>
+  
+  <!-- The formula -->
+  <rect x="370" y="45" width="310" height="220" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" rx="4"/>
+  <text x="380" y="70" font-size="12" font-weight="bold" fill="#333">TF-IDF Formula</text>
+  
+  <text x="380" y="100" font-size="11" fill="#555">Score = TF(word, doc)</text>
+  <text x="380" y="120" font-size="11" fill="#555">        × log( Total Docs</text>
+  <text x="380" y="140" font-size="11" fill="#555">               / Docs with word )</text>
+  
+  <rect x="380" y="160" width="290" height="1" fill="#666"/>
+  
+  <text x="380" y="185" font-size="11" fill="#333">Example: Query term "pizza"</text>
+  <text x="380" y="205" font-size="11" fill="#555">TF in Doc 1 = 0.20 (2 mentions / 10 words)</text>
+  <text x="380" y="225" font-size="11" fill="#555">IDF weight = 1.30 (log of rarity)</text>
+  <text x="380" y="245" font-size="11" font-weight="bold" fill="#1976d2">Score = 0.20 × 1.30 = 0.26</text>
+</svg>
