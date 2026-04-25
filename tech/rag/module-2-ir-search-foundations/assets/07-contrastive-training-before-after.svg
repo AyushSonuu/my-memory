@@ -1,6 +1,6 @@
 <svg viewBox="0 0 900 350" xmlns="http://www.w3.org/2000/svg">
   <!-- Title -->
-  <text x="450" y="25" font-size="18" font-weight="bold" text-anchor="middle" fill="#222">Contrastive Training: Before & After</text>
+  <text x="450" y="25" font-size="18" font-weight="bold" text-anchor="middle" fill="#222">Contrastive Training: Before &amp; After</text>
   
   <!-- Before Training -->
   <g id="before-training">
