@@ -31,11 +31,11 @@ graph LR
 | 06 | [Chunking (Lab)](06-chunking-lab.md) | 🔴 | — |
 | 07 | [Advanced Chunking Techniques](07-advanced-chunking.md) | 🟢 | 4 SVGs: semantic, LLM, context-aware |
 | 08 | [Query Parsing](08-query-parsing.md) | 🔴 | — |
-| 09 | [Cross-Encoders & ColBERT](09-cross-encoders-colbert.md) | 🔴 | — |
+| 09 | [Cross-Encoders & ColBERT](09-cross-encoders-colbert.md) | 🟢 | 3 SVG visualizations |
 | 10 | [Reranking](10-reranking.md) | 🔴 | — |
 | 11 | [Lab: Building RAG with Vector DB](11-lab-rag-vector-db.md) | 🔴 | — |
 
-**Overall confidence:** 🟡 In progress (4/11)
+**Overall confidence:** 🟡 In progress (5/11)
 
 ## 🧩 Memory Fragments
 > - 🗄️ Vector DBs exist because relational DBs choke on vector ops at million/billion scale.
@@ -51,6 +51,8 @@ graph LR
 > - 🧠 Semantic chunking = group sentences by meaning similarity (vector distance threshold). Expensive but high quality.
 > - 🤖 LLM-based chunking = give doc to LLM with chunking instructions. Black box but very high performing.
 > - 📝 Context-aware chunking = LLM adds context to each chunk. Works ON TOP of any strategy — low-hanging fruit for improvement.
+> - 🔍 Bi-encoder = fast, shallow (1 vec/doc). Cross-encoder = slow, deep (prompt+doc together). ColBERT = balanced (N vecs/doc, MaxSim).
+> - ⚡ Production pattern: bi-encoder for retrieval → cross-encoder for reranking top K. Best of both worlds.
 
 ---
 

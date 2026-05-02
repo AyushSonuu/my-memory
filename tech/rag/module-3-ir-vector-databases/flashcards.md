@@ -235,5 +235,80 @@ It works **on top of any chunking strategy** (fixed, semantic, etc.), improves b
 
 ---
 
+## Cross-Encoders & ColBERT (Lesson 09)
+
+<details>
+<summary>❓ What are the three architectures for semantic search?</summary>
+
+1. **Bi-Encoder** — documents and prompts embedded separately (default, fast)
+2. **Cross-Encoder** — prompt + doc concatenated and scored together (best quality, slow)
+3. **ColBERT** — token-level vectors with MaxSim scoring (balanced quality/speed)
+</details>
+
+<details>
+<summary>❓ Why is a bi-encoder called "bi"?</summary>
+
+Because it embeds **two things separately**: documents are embedded ahead of time, prompts are embedded at query time. They never "see" each other during encoding — only compared as finished vectors.
+</details>
+
+<details>
+<summary>❓ What makes cross-encoders produce higher quality results?</summary>
+
+Cross-encoders concatenate prompt + document and process them **together**. This allows the model to understand deep contextual interactions between words (e.g., "New York" ↔ "NYC", "eat" ↔ "cuisine").
+</details>
+
+<details>
+<summary>❓ Why can't cross-encoders be used directly for search at scale?</summary>
+
+Must run the model for EVERY document in the KB for each query. With millions of docs, this takes hours per query. No pre-computation possible because you need the prompt first.
+</details>
+
+<details>
+<summary>❓ What does ColBERT stand for?</summary>
+
+**C**ontextualized **L**ate **I**nteraction over **BERT** — "late interaction" means document and prompt vectors are computed separately but compared at a more detailed level (tokens).
+</details>
+
+<details>
+<summary>❓ How does ColBERT differ from bi-encoder in embedding?</summary>
+
+Bi-encoder: 1 vector per document
+ColBERT: **N vectors per document** (one per token)
+
+A 2000-token document needs 2000 vectors in ColBERT vs 1 in bi-encoder.
+</details>
+
+<details>
+<summary>❓ What is MaxSim scoring in ColBERT?</summary>
+
+For each prompt token, find its MAX similarity to any doc token. Sum all the max similarities = final document score. This captures token-level matching (e.g., "New York" ↔ "NYC").
+</details>
+
+<details>
+<summary>❓ What is the main trade-off of ColBERT vs bi-encoder?</summary>
+
+**Storage explosion.** ColBERT needs N vectors per document (one per token). A 2000-token doc = 2000× more storage than bi-encoder. But provides much richer matching.
+</details>
+
+<details>
+<summary>❓ When should you use each architecture?</summary>
+
+- **Bi-Encoder:** Default, general search, speed critical
+- **Cross-Encoder:** Reranking top K candidates (too slow for initial search)
+- **ColBERT:** High-stakes domains (legal, medical) where precision matters and storage cost is acceptable
+</details>
+
+<details>
+<summary>❓ What is the production pattern for using cross-encoders?</summary>
+
+1. Use bi-encoder to retrieve top K candidates (fast, ~100 docs)
+2. Use cross-encoder to re-rank those K candidates (slow but only K docs, not millions)
+3. Return the re-ranked top results
+
+Best of both worlds: speed of bi-encoder + quality of cross-encoder.
+</details>
+
+---
+
 > 💡 **Revision tip:** Cover the answer, try to explain OUT LOUD, then reveal.
 > Bolke batao — padhke nahi, bolke yaad hota hai! 🗣️
