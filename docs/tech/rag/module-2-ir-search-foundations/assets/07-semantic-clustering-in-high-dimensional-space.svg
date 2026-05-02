@@ -1,0 +1,65 @@
+<svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="450" y="25" font-size="17" font-weight="bold" text-anchor="middle" fill="#222">Semantic Clustering in High-Dimensional Space</text>
+  
+  <!-- Left: Low Dimensions (2D, cramped) -->
+  <g id="low-dims">
+    <text x="150" y="60" font-size="12" font-weight="bold" fill="#222">Low Dimensions: Cramped</text>
+    
+    <!-- 2D space with overlapping clusters -->
+    <rect x="80" y="80" width="140" height="140" fill="none" stroke="#ddd" stroke-width="2"/>
+    
+    <!-- Lion cluster -->
+    <circle cx="110" cy="110" r="15" fill="#FF9800" opacity="0.2"/>
+    <circle cx="105" cy="105" r="4" fill="#FF9800" stroke="#333" stroke-width="1"/>
+    <circle cx="115" cy="115" r="4" fill="#FF9800" stroke="#333" stroke-width="1"/>
+    
+    <!-- Trombone cluster -->
+    <circle cx="190" cy="150" r="15" fill="#2196F3" opacity="0.2"/>
+    <circle cx="185" cy="145" r="4" fill="#2196F3" stroke="#333" stroke-width="1"/>
+    <circle cx="195" cy="155" r="4" fill="#2196F3" stroke="#333" stroke-width="1"/>
+    
+    <!-- Greeting cluster -->
+    <circle cx="140" cy="190" r="15" fill="#4CAF50" opacity="0.2"/>
+    <circle cx="135" cy="185" r="4" fill="#4CAF50" stroke="#333" stroke-width="1"/>
+    <circle cx="145" cy="195" r="4" fill="#4CAF50" stroke="#333" stroke-width="1"/>
+    
+    <!-- Overlaps show competition -->
+    <text x="150" y="235" font-size="9" text-anchor="middle" fill="#FF6B6B" font-weight="bold">clusters overlap!</text>
+    <text x="150" y="250" font-size="9" text-anchor="middle" fill="#999" font-style="italic">similar concepts hard to separate</text>
+  </g>
+  
+  <!-- Right: High Dimensions (3D conceptual) -->
+  <g id="high-dims">
+    <text x="750" y="60" font-size="12" font-weight="bold" fill="#222">High Dimensions: Spacious</text>
+    
+    <!-- 3D perspective cube -->
+    <path d="M 700 100 L 740 90 L 800 90 L 760 100 Z" stroke="#ddd" stroke-width="1" fill="none"/>
+    <path d="M 700 100 L 700 180 L 740 170 L 740 90 Z" stroke="#ddd" stroke-width="1" fill="none"/>
+    <path d="M 760 100 L 800 90 L 800 170 L 760 180 Z" stroke="#ddd" stroke-width="1" fill="none"/>
+    <path d="M 700 180 L 740 170 L 800 170 L 760 180 Z" stroke="#ddd" stroke-width="1" fill="none"/>
+    
+    <!-- Separate clusters in 3D space -->
+    <!-- Lion cluster (far corner) -->
+    <circle cx="715" cy="105" r="12" fill="#FF9800" opacity="0.2"/>
+    <circle cx="712" cy="102" r="3" fill="#FF9800" stroke="#333" stroke-width="1"/>
+    <circle cx="718" cy="108" r="3" fill="#FF9800" stroke="#333" stroke-width="1"/>
+    <text x="715" y="125" font-size="8" text-anchor="middle" fill="#FF9800">Lion</text>
+    
+    <!-- Trombone cluster (top) -->
+    <circle cx="760" cy="85" r="12" fill="#2196F3" opacity="0.2"/>
+    <circle cx="755" cy="80" r="3" fill="#2196F3" stroke="#333" stroke-width="1"/>
+    <circle cx="765" cy="90" r="3" fill="#2196F3" stroke="#333" stroke-width="1"/>
+    <text x="760" y="65" font-size="8" text-anchor="middle" fill="#2196F3">Trombone</text>
+    
+    <!-- Greeting cluster (right) -->
+    <circle cx="790" cy="155" r="12" fill="#4CAF50" opacity="0.2"/>
+    <circle cx="785" cy="150" r="3" fill="#4CAF50" stroke="#333" stroke-width="1"/>
+    <circle cx="795" cy="160" r="3" fill="#4CAF50" stroke="#333" stroke-width="1"/>
+    <text x="790" y="175" font-size="8" text-anchor="middle" fill="#4CAF50">Greeting</text>
+    
+    <!-- Highlight no overlap -->
+    <text x="750" y="235" font-size="9" text-anchor="middle" fill="#4CAF50" font-weight="bold">clusters separate</text>
+    <text x="750" y="250" font-size="9" text-anchor="middle" fill="#999" font-style="italic">plenty of room to arrange meanings</text>
+  </g>
+</svg>

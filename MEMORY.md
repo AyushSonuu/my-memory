@@ -76,11 +76,11 @@
 - **Key concept:** Write markdown specs → coding agent implements. Constitution + feature loops.
 - **Connects to:** Agentic AI (guides coding agents), Tool Use, Planning patterns
 
-### RAG (tech/rag/) — 🔴 In Progress
+### RAG (tech/rag/) — 🟡 In Progress
 - **Source:** DeepLearning.AI course (5 modules, 62 lessons)
-- **Progress:** M1: 7/10, M2: 1/12, M3-M5: not started (8/62 total)
-- **M2 PDF:** 85 pages of course material ready
-- **Key concepts so far:** RAG architecture, retriever + LLM + KB, applications, LLM foundations, IR basics
+- **Progress:** M1: 7/10, M2: 7/12, M3-M5: not started (15/62 total)
+- **M2 Progress:** Metadata filtering, TF-IDF, BM25, embedding model training, **hybrid search** ✅
+- **Key concepts so far:** RAG architecture, retriever + LLM + KB, applications, LLM foundations, IR basics, keyword vs semantic search, RRF + beta tuning
 - **Workflow:** Same as Agentic AI (transcript + PDF cross-reference)
 
 ## Conventions & Decisions

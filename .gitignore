@@ -31,3 +31,8 @@ content/_generated/
 
 # SAP proprietary work (NEVER push to personal GitHub)
 work/
+# ML model files (too large for GitHub)
+.models/
+*.safetensors
+*.joblib
+*.ipynb_checkpoints/

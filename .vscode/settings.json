@@ -4,6 +4,12 @@
         "/Users/I772464/Library/CloudStorage/OneDrive-SAPSE/Desktop/my-memory/.venv/bin/python": true,
         "git add": true,
         "git commit": true,
-        "git push": true
+        "git push": true,
+        "/^python build_docs\\.py 2>&1$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "git -C /Users/I772464/Library/CloudStorage/OneDrive-SAPSE/Desktop/my-memory": true,
+        "git reset": true
     }
 }

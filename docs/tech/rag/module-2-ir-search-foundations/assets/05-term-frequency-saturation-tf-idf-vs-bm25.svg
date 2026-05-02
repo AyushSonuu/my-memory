@@ -1,0 +1,131 @@
+<svg viewBox="0 0 900 350" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="450" y="25" font-size="18" font-weight="bold" text-anchor="middle" fill="#222">Term Frequency Saturation: TF-IDF vs BM25</text>
+  
+  <!-- Left chart: TF-IDF (linear) -->
+  <g id="tfidf-chart">
+    <text x="150" y="55" font-size="14" font-weight="bold" fill="#222">TF-IDF: Linear Growth</text>
+    
+    <!-- Axes -->
+    <line x1="80" y1="300" x2="80" y2="80" stroke="#333" stroke-width="2"/>
+    <line x1="80" y1="300" x2="280" y2="300" stroke="#333" stroke-width="2"/>
+    
+    <!-- Axis labels -->
+    <text x="40" y="305" font-size="11" fill="#555">Score</text>
+    <text x="170" y="330" font-size="11" fill="#555">Term Frequency</text>
+    
+    <!-- Grid & ticks -->
+    <line x1="75" y1="260" x2="280" y2="260" stroke="#eee" stroke-width="1"/>
+    <text x="60" y="265" font-size="10" fill="#999">0.5</text>
+    
+    <line x1="75" y1="220" x2="280" y2="220" stroke="#eee" stroke-width="1"/>
+    <text x="60" y="225" font-size="10" fill="#999">1.0</text>
+    
+    <line x1="75" y1="180" x2="280" y2="180" stroke="#eee" stroke-width="1"/>
+    <text x="60" y="185" font-size="10" fill="#999">1.5</text>
+    
+    <line x1="75" y1="140" x2="280" y2="140" stroke="#eee" stroke-width="1"/>
+    <text x="60" y="145" font-size="10" fill="#999">2.0</text>
+    
+    <!-- X-axis ticks: 1,5,10,15,20 -->
+    <line x1="100" y1="298" x2="100" y2="305"/>
+    <text x="95" y="320" font-size="10" fill="#555">1</text>
+    
+    <line x1="140" y1="298" x2="140" y2="305"/>
+    <text x="132" y="320" font-size="10" fill="#555">5</text>
+    
+    <line x1="180" y1="298" x2="180" y2="305"/>
+    <text x="172" y="320" font-size="10" fill="#555">10</text>
+    
+    <line x1="220" y1="298" x2="220" y2="305"/>
+    <text x="212" y="320" font-size="10" fill="#555">15</text>
+    
+    <line x1="260" y1="298" x2="260" y2="305"/>
+    <text x="252" y="320" font-size="10" fill="#555">20</text>
+    
+    <!-- TF-IDF curve (linear: score = TF/2) -->
+    <polyline points="100,280 140,260 180,240 220,220 260,200" fill="none" stroke="#FF6B6B" stroke-width="3" stroke-linecap="round"/>
+    
+    <!-- Points -->
+    <circle cx="100" cy="280" r="4" fill="#FF6B6B"/>
+    <circle cx="140" cy="260" r="4" fill="#FF6B6B"/>
+    <circle cx="180" cy="240" r="4" fill="#FF6B6B"/>
+    <circle cx="220" cy="220" r="4" fill="#FF6B6B"/>
+    <circle cx="260" cy="200" r="4" fill="#FF6B6B"/>
+    
+    <!-- Annotation: +100% at 10 freq -->
+    <path d="M 180 240 L 180 160" stroke="#FF6B6B" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="190" y="165" font-size="10" fill="#FF6B6B">+100%</text>
+  </g>
+  
+  <!-- Right chart: BM25 (saturating, k1=1.5) -->
+  <g id="bm25-chart">
+    <text x="600" y="55" font-size="14" font-weight="bold" fill="#222">BM25: Saturation (k₁=1.5)</text>
+    
+    <!-- Axes -->
+    <line x1="530" y1="300" x2="530" y2="80" stroke="#333" stroke-width="2"/>
+    <line x1="530" y1="300" x2="730" y2="300" stroke="#333" stroke-width="2"/>
+    
+    <!-- Axis labels -->
+    <text x="490" y="305" font-size="11" fill="#555">Score</text>
+    <text x="620" y="330" font-size="11" fill="#555">Term Frequency</text>
+    
+    <!-- Grid & ticks -->
+    <line x1="525" y1="260" x2="730" y2="260" stroke="#eee" stroke-width="1"/>
+    <text x="510" y="265" font-size="10" fill="#999">0.5</text>
+    
+    <line x1="525" y1="220" x2="730" y2="220" stroke="#eee" stroke-width="1"/>
+    <text x="510" y="225" font-size="10" fill="#999">1.0</text>
+    
+    <line x1="525" y1="180" x2="730" y2="180" stroke="#eee" stroke-width="1"/>
+    <text x="510" y="185" font-size="10" fill="#999">1.5</text>
+    
+    <line x1="525" y1="140" x2="730" y2="140" stroke="#eee" stroke-width="1"/>
+    <text x="510" y="145" font-size="10" fill="#999">2.0</text>
+    
+    <!-- X-axis ticks: 1,5,10,15,20 -->
+    <line x1="550" y1="298" x2="550" y2="305"/>
+    <text x="545" y="320" font-size="10" fill="#555">1</text>
+    
+    <line x1="590" y1="298" x2="590" y2="305"/>
+    <text x="582" y="320" font-size="10" fill="#555">5</text>
+    
+    <line x1="630" y1="298" x2="630" y2="305"/>
+    <text x="622" y="320" font-size="10" fill="#555">10</text>
+    
+    <line x1="670" y1="298" x2="670" y2="305"/>
+    <text x="662" y="320" font-size="10" fill="#555">15</text>
+    
+    <line x1="710" y1="298" x2="710" y2="305"/>
+    <text x="702" y="320" font-size="10" fill="#555">20</text>
+    
+    <!-- BM25 curve (saturating): score = TF * (k1+1) / (TF + k1) where k1=1.5 -->
+    <!-- At TF=1: 1*2.5/(1+1.5) = 2.5/2.5 = 1.0 -->
+    <!-- At TF=5: 5*2.5/(5+1.5) = 12.5/6.5 ≈ 1.92 -->
+    <!-- At TF=10: 10*2.5/(10+1.5) = 25/11.5 ≈ 2.17 -->
+    <!-- At TF=15: 15*2.5/(15+1.5) = 37.5/16.5 ≈ 2.27 -->
+    <!-- At TF=20: 20*2.5/(20+1.5) = 50/21.5 ≈ 2.33 -->
+    <!-- Normalized: scale to 0-2.0 range where 1.0 maps to score 1.0, 2.33 maps to 2.0 -->
+    <polyline points="550,282 590,240 630,215 670,205 710,200" fill="none" stroke="#4CAF50" stroke-width="3" stroke-linecap="round"/>
+    
+    <!-- Points -->
+    <circle cx="550" cy="282" r="4" fill="#4CAF50"/>
+    <circle cx="590" cy="240" r="4" fill="#4CAF50"/>
+    <circle cx="630" cy="215" r="4" fill="#4CAF50"/>
+    <circle cx="670" cy="205" r="4" fill="#4CAF50"/>
+    <circle cx="710" cy="200" r="4" fill="#4CAF50"/>
+    
+    <!-- Annotation: +40% at 10 freq -->
+    <path d="M 630 215 L 630 140" stroke="#4CAF50" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="635" y="145" font-size="10" fill="#4CAF50">+40%</text>
+    
+    <!-- Saturation zone -->
+    <rect x="670" y="190" width="50" height="25" fill="#4CAF50" opacity="0.1" stroke="#4CAF50" stroke-width="1" stroke-dasharray="2,2"/>
+    <text x="680" y="215" font-size="9" fill="#4CAF50">plateaus</text>
+  </g>
+  
+  <!-- Legend -->
+  <g id="legend" transform="translate(350, 310)">
+    <text x="0" y="0" font-size="11" fill="#555" font-style="italic">TF-IDF score doubles 10→20. BM25 score increases only 15%.</text>
+  </g>
+</svg>

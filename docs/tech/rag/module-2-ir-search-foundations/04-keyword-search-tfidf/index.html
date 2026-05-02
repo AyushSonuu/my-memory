@@ -5473,6 +5473,8 @@
       
         
       
+        
+      
     
     
     
@@ -5837,6 +5839,34 @@
     
   
     05 · Keyword Search: BM25
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-embedding-model-deepdive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · Semantic Search: Embedding Deep Dive
   
 
     
@@ -7167,276 +7197,20 @@
 <hr />
 <h2 id="visual-term-document-matrix">📊 Visual: Term-Document Matrix<a class="headerlink" href="#visual-term-document-matrix" title="Permanent link">#</a></h2>
 <p>Query: "making pizza without a pizza oven"</p>
-<p><svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" style="border: 1px solid #ccc; background: #f9f9f9; max-width: 100%; height: auto;">
-  <!-- Title --></p>
-<p><text x="400" y="25" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">Term-Document Matrix (Bag of Words)</text></p>
-<!-- Column headers (documents) -->
-<p><text x="80" y="70" font-size="12" text-anchor="middle" fill="#666">Doc 1</text>
-  <text x="160" y="70" font-size="12" text-anchor="middle" fill="#666">Doc 2</text>
-  <text x="240" y="70" font-size="12" text-anchor="middle" fill="#666">Doc 3</text>
-  <text x="320" y="70" font-size="12" text-anchor="middle" fill="#666">Doc 4</text>
-  <text x="400" y="70" font-size="12" text-anchor="middle" fill="#666">Doc 5</text></p>
-<!-- Row headers (terms) -->
-<p><text x="10" y="110" font-size="12" text-anchor="end" fill="#666">making</text>
-  <text x="10" y="150" font-size="12" text-anchor="end" fill="#666">pizza</text>
-  <text x="10" y="190" font-size="12" text-anchor="end" fill="#666">without</text>
-  <text x="10" y="230" font-size="12" text-anchor="end" fill="#666">a</text>
-  <text x="10" y="270" font-size="12" text-anchor="end" fill="#666">oven</text></p>
-<!-- Grid cells with values -->
-<!-- making row -->
-<p><rect x="60" y="95" width="40" height="35" fill="#e8f5e9" stroke="#4caf50" stroke-width="1"/>
-  <text x="80" y="120" font-size="14" text-anchor="middle" font-weight="bold" fill="#2e7d32">1</text></p>
-<p><rect x="140" y="95" width="40" height="35" fill="#f3e5f5" stroke="#999" stroke-width="1"/>
-  <text x="160" y="120" font-size="14" text-anchor="middle" fill="#666">0</text></p>
-<p><rect x="220" y="95" width="40" height="35" fill="#f3e5f5" stroke="#999" stroke-width="1"/>
-  <text x="240" y="120" font-size="14" text-anchor="middle" fill="#666">0</text></p>
-<p><rect x="300" y="95" width="40" height="35" fill="#e8f5e9" stroke="#4caf50" stroke-width="1"/>
-  <text x="320" y="120" font-size="14" text-anchor="middle" font-weight="bold" fill="#2e7d32">1</text></p>
-<p><rect x="380" y="95" width="40" height="35" fill="#e8f5e9" stroke="#4caf50" stroke-width="1"/>
-  <text x="400" y="120" font-size="14" text-anchor="middle" font-weight="bold" fill="#2e7d32">1</text></p>
-<!-- pizza row -->
-<p><rect x="60" y="135" width="40" height="35" fill="#e8f5e9" stroke="#4caf50" stroke-width="1"/>
-  <text x="80" y="160" font-size="14" text-anchor="middle" font-weight="bold" fill="#2e7d32">1</text></p>
-<p><rect x="140" y="135" width="40" height="35" fill="#e8f5e9" stroke="#4caf50" stroke-width="1"/>
-  <text x="160" y="160" font-size="14" text-anchor="middle" font-weight="bold" fill="#2e7d32">1</text></p>
-<p><rect x="220" y="135" width="40" height="35" fill="#f3e5f5" stroke="#999" stroke-width="1"/>
-  <text x="240" y="160" font-size="14" text-anchor="middle" fill="#666">0</text></p>
-<p><rect x="300" y="135" width="40" height="35" fill="#e8f5e9" stroke="#4caf50" stroke-width="1"/>
-  <text x="320" y="160" font-size="14" text-anchor="middle" font-weight="bold" fill="#2e7d32">1</text></p>
-<p><rect x="380" y="135" width="40" height="35" fill="#e8f5e9" stroke="#4caf50" stroke-width="1"/>
-  <text x="400" y="160" font-size="14" text-anchor="middle" font-weight="bold" fill="#2e7d32">1</text></p>
-<!-- without row -->
-<p><rect x="60" y="175" width="40" height="35" fill="#e8f5e9" stroke="#4caf50" stroke-width="1"/>
-  <text x="80" y="200" font-size="14" text-anchor="middle" font-weight="bold" fill="#2e7d32">1</text></p>
-<p><rect x="140" y="175" width="40" height="35" fill="#e8f5e9" stroke="#4caf50" stroke-width="1"/>
-  <text x="160" y="200" font-size="14" text-anchor="middle" font-weight="bold" fill="#2e7d32">1</text></p>
-<p><rect x="220" y="175" width="40" height="35" fill="#e8f5e9" stroke="#4caf50" stroke-width="1"/>
-  <text x="240" y="200" font-size="14" text-anchor="middle" font-weight="bold" fill="#2e7d32">1</text></p>
-<p><rect x="300" y="175" width="40" height="35" fill="#e8f5e9" stroke="#4caf50" stroke-width="1"/>
-  <text x="320" y="200" font-size="14" text-anchor="middle" font-weight="bold" fill="#2e7d32">1</text></p>
-<p><rect x="380" y="175" width="40" height="35" fill="#e8f5e9" stroke="#4caf50" stroke-width="1"/>
-  <text x="400" y="200" font-size="14" text-anchor="middle" font-weight="bold" fill="#2e7d32">1</text></p>
-<!-- a row -->
-<p><rect x="60" y="215" width="40" height="35" fill="#f3e5f5" stroke="#999" stroke-width="1"/>
-  <text x="80" y="240" font-size="14" text-anchor="middle" fill="#666">0</text></p>
-<p><rect x="140" y="215" width="40" height="35" fill="#e8f5e9" stroke="#4caf50" stroke-width="1"/>
-  <text x="160" y="240" font-size="14" text-anchor="middle" font-weight="bold" fill="#2e7d32">1</text></p>
-<p><rect x="220" y="215" width="40" height="35" fill="#e8f5e9" stroke="#4caf50" stroke-width="1"/>
-  <text x="240" y="240" font-size="14" text-anchor="middle" font-weight="bold" fill="#2e7d32">1</text></p>
-<p><rect x="300" y="215" width="40" height="35" fill="#e8f5e9" stroke="#4caf50" stroke-width="1"/>
-  <text x="320" y="240" font-size="14" text-anchor="middle" font-weight="bold" fill="#2e7d32">1</text></p>
-<p><rect x="380" y="215" width="40" height="35" fill="#e8f5e9" stroke="#4caf50" stroke-width="1"/>
-  <text x="400" y="240" font-size="14" text-anchor="middle" font-weight="bold" fill="#2e7d32">1</text></p>
-<!-- oven row -->
-<p><rect x="60" y="255" width="40" height="35" fill="#f3e5f5" stroke="#999" stroke-width="1"/>
-  <text x="80" y="280" font-size="14" text-anchor="middle" fill="#666">0</text></p>
-<p><rect x="140" y="255" width="40" height="35" fill="#e8f5e9" stroke="#4caf50" stroke-width="1"/>
-  <text x="160" y="280" font-size="14" text-anchor="middle" font-weight="bold" fill="#2e7d32">1</text></p>
-<p><rect x="220" y="255" width="40" height="35" fill="#e8f5e9" stroke="#4caf50" stroke-width="1"/>
-  <text x="240" y="280" font-size="14" text-anchor="middle" font-weight="bold" fill="#2e7d32">1</text></p>
-<p><rect x="300" y="255" width="40" height="35" fill="#e8f5e9" stroke="#4caf50" stroke-width="1"/>
-  <text x="320" y="280" font-size="14" text-anchor="middle" font-weight="bold" fill="#2e7d32">1</text></p>
-<p><rect x="380" y="255" width="40" height="35" fill="#e8f5e9" stroke="#4caf50" stroke-width="1"/>
-  <text x="400" y="280" font-size="14" text-anchor="middle" font-weight="bold" fill="#2e7d32">1</text></p>
-<!-- Legend -->
-<p><rect x="480" y="95" width="20" height="20" fill="#e8f5e9" stroke="#4caf50" stroke-width="1"/>
-  <text x="510" y="110" font-size="12" fill="#333">Term present in doc</text></p>
-<p><rect x="480" y="125" width="20" height="20" fill="#f3e5f5" stroke="#999" stroke-width="1"/>
-  <text x="510" y="140" font-size="12" fill="#333">Term absent (0)</text>
-</svg></p>
+<p><img alt="Term-Document Matrix (Bag of Words)" src="../assets/04-term-document-matrix-bag-of-words.svg" /></p>
 <hr />
 <h2 id="scoring-evolution-4-progressive-improvements">⚙️ Scoring Evolution (4 Progressive Improvements)<a class="headerlink" href="#scoring-evolution-4-progressive-improvements" title="Permanent link">#</a></h2>
 <h3 id="step-1-binary-keyword-score">Step 1️⃣: Binary Keyword Score<a class="headerlink" href="#step-1-binary-keyword-score" title="Permanent link">#</a></h3>
-<p><svg viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg" style="border: 1px solid #ddd; background: #fafafa; margin: 10px 0; max-width: 100%; height: auto;">
-  <text x="10" y="25" font-size="14" font-weight="bold" fill="#333">Query: "pizza oven"</text>
-  <text x="10" y="50" font-size="12" fill="#666">Rule: +1 point for each matching keyword</text></p>
-<p><rect x="10" y="65" width="150" height="70" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="4"/>
-  <text x="20" y="85" font-size="12" font-weight="bold" fill="#333">Doc 1</text>
-  <text x="20" y="105" font-size="11" fill="#555">Has "pizza": +1</text>
-  <text x="20" y="120" font-size="11" fill="#555">Has "oven": +1</text>
-  <text x="20" y="135" font-size="12" font-weight="bold" fill="#f57c00">Total: 2 points</text></p>
-<p><rect x="200" y="65" width="150" height="70" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="4"/>
-  <text x="210" y="85" font-size="12" font-weight="bold" fill="#333">Doc 2</text>
-  <text x="210" y="105" font-size="11" fill="#555">Has "pizza": +1</text>
-  <text x="210" y="120" font-size="11" fill="#555">Has "oven": +1</text>
-  <text x="210" y="135" font-size="12" font-weight="bold" fill="#f57c00">Total: 2 points</text></p>
-<p><text x="400" y="110" font-size="12" font-style="italic" fill="#666">⚠️ Problem: Both docs tie,<br/>even though Doc 2 mentions<br/>"oven" 3 times!</text>
-</svg></p>
+<p><img alt="Query: &quot;pizza oven&quot;" src="../assets/04-query-pizza-oven.svg" /></p>
 <h3 id="step-2-term-frequency-tf-score">Step 2️⃣: Term Frequency (TF) Score<a class="headerlink" href="#step-2-term-frequency-tf-score" title="Permanent link">#</a></h3>
-<p><svg viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg" style="border: 1px solid #ddd; background: #fafafa; margin: 10px 0; max-width: 100%; height: auto;">
-  <text x="10" y="25" font-size="14" font-weight="bold" fill="#333">Query: "pizza oven"</text>
-  <text x="10" y="50" font-size="12" fill="#666">Rule: Add points for EACH occurrence of a keyword</text></p>
-<p><rect x="10" y="65" width="150" height="100" fill="#e8f5e9" stroke="#4caf50" stroke-width="2" rx="4"/>
-  <text x="20" y="85" font-size="12" font-weight="bold" fill="#333">Doc 1</text>
-  <text x="20" y="105" font-size="11" fill="#555">"pizza" appears 2x: +2</text>
-  <text x="20" y="120" font-size="11" fill="#555">"oven" appears 1x: +1</text>
-  <text x="20" y="140" font-size="12" font-weight="bold" fill="#2e7d32">Total: 3 points</text></p>
-<p><rect x="200" y="65" width="150" height="100" fill="#c8e6c9" stroke="#388e3c" stroke-width="3" rx="4"/>
-  <text x="210" y="85" font-size="12" font-weight="bold" fill="#333">Doc 2 ⭐</text>
-  <text x="210" y="105" font-size="11" fill="#555">"pizza" appears 1x: +1</text>
-  <text x="210" y="120" font-size="11" fill="#555">"oven" appears 3x: +3</text>
-  <text x="210" y="140" font-size="12" font-weight="bold" fill="#1b5e20">Total: 4 points</text></p>
-<p><text x="400" y="110" font-size="12" font-style="italic" fill="#666">✓ Doc 2 wins!<br/><br/>⚠️ Problem: Longer docs<br/>naturally get higher scores<br/>just because they have more words</text>
-</svg></p>
+<p><img alt="TF Score — Count Frequency" src="../assets/04-tf-score-frequency.svg" /></p>
 <h3 id="step-3-length-normalization">Step 3️⃣: Length Normalization<a class="headerlink" href="#step-3-length-normalization" title="Permanent link">#</a></h3>
-<p><svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" style="border: 1px solid #ddd; background: #fafafa; margin: 10px 0; max-width: 100%; height: auto;">
-  <text x="10" y="25" font-size="14" font-weight="bold" fill="#333">Query: "pizza oven"</text>
-  <text x="10" y="50" font-size="12" fill="#666">Rule: Divide by document length to level playing field</text></p>
-<p><rect x="10" y="65" width="160" height="120" fill="#e8f5e9" stroke="#4caf50" stroke-width="2" rx="4"/>
-  <text x="20" y="85" font-size="12" font-weight="bold" fill="#333">Doc 1 (10 words)</text>
-  <text x="20" y="105" font-size="11" fill="#555">Raw score: 3</text>
-  <text x="20" y="125" font-size="11" fill="#555">Normalized:</text>
-  <text x="20" y="140" font-size="11" font-weight="bold" fill="#2e7d32">3 ÷ 10 = 0.30</text>
-  <text x="20" y="160" font-size="10" fill="#666">(30% keywords)</text></p>
-<p><rect x="210" y="65" width="160" height="120" fill="#c8e6c9" stroke="#388e3c" stroke-width="2" rx="4"/>
-  <text x="220" y="85" font-size="12" font-weight="bold" fill="#333">Doc 2 (50 words)</text>
-  <text x="220" y="105" font-size="11" fill="#555">Raw score: 4</text>
-  <text x="220" y="125" font-size="11" fill="#555">Normalized:</text>
-  <text x="220" y="140" font-size="11" font-weight="bold" fill="#2e7d32">4 ÷ 50 = 0.08</text>
-  <text x="220" y="160" font-size="10" fill="#666">(8% keywords)</text></p>
-<p><text x="410" y="110" font-size="12" font-style="italic" fill="#666">✓ Now Doc 1 wins!<br/>It's denser with keywords.<br/><br/>⚠️ Problem: "pizza" and "the"<br/>treated equally, but "pizza"<br/>is more meaningful</text>
-</svg></p>
+<p><img alt="Length-Normalized TF" src="../assets/04-tf-length-normalized.svg" /></p>
 <h3 id="step-4-idf-weighting-the-final-piece">Step 4️⃣: IDF Weighting (The Final Piece)<a class="headerlink" href="#step-4-idf-weighting-the-final-piece" title="Permanent link">#</a></h3>
-<p><svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg" style="border: 1px solid #ddd; background: #fafafa; margin: 10px 0; max-width: 100%; height: auto;">
-  <text x="10" y="25" font-size="14" font-weight="bold" fill="#333">Inverse Document Frequency (IDF) — Reward Rare Words</text></p>
-<!-- Pizza (rare) -->
-<p><rect x="10" y="45" width="160" height="220" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="4"/>
-  <text x="20" y="70" font-size="12" font-weight="bold" fill="#333">PIZZA (Rare)</text>
-  <text x="20" y="90" font-size="10" fill="#555">Corpus: 100 docs</text>
-  <text x="20" y="105" font-size="10" fill="#555">Appears in: 5 docs</text></p>
-<p><text x="20" y="130" font-size="10" font-weight="bold" fill="#333">DF = 5/100 = 0.05</text>
-  <text x="20" y="150" font-size="10" font-weight="bold" fill="#333">IDF = 1/0.05 = 20</text>
-  <text x="20" y="170" font-size="10" font-weight="bold" fill="#333">log(IDF) = log(20)</text>
-  <text x="20" y="185" font-size="11" font-weight="bold" fill="#f57c00">= 1.30</text></p>
-<p><text x="20" y="210" font-size="10" font-style="italic" fill="#666">Rare word gets<br/>HIGH weight</text></p>
-<!-- The (common) -->
-<p><rect x="190" y="45" width="160" height="220" fill="#f3e5f5" stroke="#9c27b0" stroke-width="2" rx="4"/>
-  <text x="200" y="70" font-size="12" font-weight="bold" fill="#333">THE (Common)</text>
-  <text x="200" y="90" font-size="10" fill="#555">Corpus: 100 docs</text>
-  <text x="200" y="105" font-size="10" fill="#555">Appears in: 100 docs</text></p>
-<p><text x="200" y="130" font-size="10" font-weight="bold" fill="#333">DF = 100/100 = 1.0</text>
-  <text x="200" y="150" font-size="10" font-weight="bold" fill="#333">IDF = 1/1.0 = 1</text>
-  <text x="200" y="170" font-size="10" font-weight="bold" fill="#333">log(IDF) = log(1)</text>
-  <text x="200" y="185" font-size="11" font-weight="bold" fill="#9c27b0">= 0</text></p>
-<p><text x="200" y="210" font-size="10" font-style="italic" fill="#666">Common word gets<br/>NO weight</text></p>
-<!-- The formula -->
-<p><rect x="370" y="45" width="310" height="220" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" rx="4"/>
-  <text x="380" y="70" font-size="12" font-weight="bold" fill="#333">TF-IDF Formula</text></p>
-<p><text x="380" y="100" font-size="11" fill="#555">Score = TF(word, doc)</text>
-  <text x="380" y="120" font-size="11" fill="#555">        × log( Total Docs</text>
-  <text x="380" y="140" font-size="11" fill="#555">               / Docs with word )</text></p>
-<p><rect x="380" y="160" width="290" height="1" fill="#666"/></p>
-<p><text x="380" y="185" font-size="11" fill="#333">Example: Query term "pizza"</text>
-  <text x="380" y="205" font-size="11" fill="#555">TF in Doc 1 = 0.20 (2 mentions / 10 words)</text>
-  <text x="380" y="225" font-size="11" fill="#555">IDF weight = 1.30 (log of rarity)</text>
-  <text x="380" y="245" font-size="11" font-weight="bold" fill="#1976d2">Score = 0.20 × 1.30 = 0.26</text>
-</svg></p>
+<p><img alt="Inverse Document Frequency (IDF) — Reward Rare Words" src="../assets/04-inverse-document-frequency-idf-reward-rare-words.svg" /></p>
 <hr />
 <h2 id="complete-tf-idf-example-making-pizza-without-a-pizza-oven">🎯 Complete TF-IDF Example: "making pizza without a pizza oven"<a class="headerlink" href="#complete-tf-idf-example-making-pizza-without-a-pizza-oven" title="Permanent link">#</a></h2>
-<p><svg viewBox="0 0 850 350" xmlns="http://www.w3.org/2000/svg" style="border: 1px solid #ddd; background: #fafafa; margin: 10px 0; max-width: 100%; height: auto;">
-  <!-- Title --></p>
-<p><text x="425" y="25" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">TF-IDF Scoring Progression</text></p>
-<!-- Column headers -->
-<p><text x="100" y="60" font-size="11" font-weight="bold" text-anchor="middle" fill="#333">Term</text>
-  <text x="160" y="60" font-size="11" font-weight="bold" text-anchor="middle" fill="#333">Rarity (IDF)</text>
-  <text x="260" y="60" font-size="11" font-weight="bold" text-anchor="middle" fill="#333">Doc 1 TF</text>
-  <text x="340" y="60" font-size="11" font-weight="bold" text-anchor="middle" fill="#333">Doc 1 Score</text>
-  <text x="480" y="60" font-size="11" font-weight="bold" text-anchor="middle" fill="#333">Doc 2 TF</text>
-  <text x="560" y="60" font-size="11" font-weight="bold" text-anchor="middle" fill="#333">Doc 2 Score</text>
-  <text x="700" y="60" font-size="11" font-weight="bold" text-anchor="middle" fill="#333">Doc 3 TF</text>
-  <text x="780" y="60" font-size="11" font-weight="bold" text-anchor="middle" fill="#333">Doc 3 Score</text></p>
-<!-- Divider -->
-<p><line x1="10" y1="70" x2="840" y2="70" stroke="#ddd" stroke-width="1"/></p>
-<!-- making row -->
-<p><text x="100" y="100" font-size="11" text-anchor="middle" fill="#333">making</text>
-  <rect x="140" y="85" width="40" height="20" fill="#fff9c4" stroke="#fbc02d" stroke-width="1" rx="2"/>
-  <text x="160" y="100" font-size="10" text-anchor="middle" fill="#333">0.4</text></p>
-<p><rect x="235" y="85" width="50" height="20" fill="#f3e5f5" stroke="#bbb" stroke-width="1" rx="2"/>
-  <text x="260" y="100" font-size="10" text-anchor="middle" fill="#333">0.3</text></p>
-<p><rect x="310" y="85" width="60" height="20" fill="#ffe0b2" stroke="#ff9800" stroke-width="1" rx="2"/>
-  <text x="340" y="100" font-size="10" text-anchor="middle" fill="#333">0.12</text></p>
-<p><rect x="450" y="85" width="60" height="20" fill="#f3e5f5" stroke="#bbb" stroke-width="1" rx="2"/>
-  <text x="480" y="100" font-size="10" text-anchor="middle" fill="#333">0.0</text></p>
-<p><rect x="530" y="85" width="60" height="20" fill="#f3e5f5" stroke="#bbb" stroke-width="1" rx="2"/>
-  <text x="560" y="100" font-size="10" text-anchor="middle" fill="#333">0.0</text></p>
-<p><rect x="670" y="85" width="60" height="20" fill="#fff9c4" stroke="#fbc02d" stroke-width="1" rx="2"/>
-  <text x="700" y="100" font-size="10" text-anchor="middle" fill="#333">0.5</text></p>
-<p><rect x="750" y="85" width="60" height="20" fill="#ffe0b2" stroke="#ff9800" stroke-width="1" rx="2"/>
-  <text x="780" y="100" font-size="10" text-anchor="middle" fill="#333">0.20</text></p>
-<!-- pizza row -->
-<p><text x="100" y="145" font-size="11" text-anchor="middle" fill="#333">pizza</text>
-  <rect x="140" y="130" width="40" height="20" fill="#c8e6c9" stroke="#4caf50" stroke-width="2" rx="2"/>
-  <text x="160" y="145" font-size="10" font-weight="bold" text-anchor="middle" fill="#1b5e20">0.7</text></p>
-<p><rect x="235" y="130" width="50" height="20" fill="#e8f5e9" stroke="#4caf50" stroke-width="1" rx="2"/>
-  <text x="260" y="145" font-size="10" text-anchor="middle" fill="#333">0.2</text></p>
-<p><rect x="310" y="130" width="60" height="20" fill="#c8e6c9" stroke="#4caf50" stroke-width="2" rx="2"/>
-  <text x="340" y="145" font-size="10" font-weight="bold" text-anchor="middle" fill="#1b5e20">0.14</text></p>
-<p><rect x="450" y="130" width="60" height="20" fill="#e8f5e9" stroke="#4caf50" stroke-width="1" rx="2"/>
-  <text x="480" y="145" font-size="10" text-anchor="middle" fill="#333">0.1</text></p>
-<p><rect x="530" y="130" width="60" height="20" fill="#e8f5e9" stroke="#4caf50" stroke-width="1" rx="2"/>
-  <text x="560" y="145" font-size="10" text-anchor="middle" fill="#333">0.07</text></p>
-<p><rect x="670" y="130" width="60" height="20" fill="#f3e5f5" stroke="#bbb" stroke-width="1" rx="2"/>
-  <text x="700" y="145" font-size="10" text-anchor="middle" fill="#333">0.0</text></p>
-<p><rect x="750" y="130" width="60" height="20" fill="#f3e5f5" stroke="#bbb" stroke-width="1" rx="2"/>
-  <text x="780" y="145" font-size="10" text-anchor="middle" fill="#333">0.0</text></p>
-<!-- without row -->
-<p><text x="100" y="190" font-size="11" text-anchor="middle" fill="#333">without</text>
-  <rect x="140" y="175" width="40" height="20" fill="#f3e5f5" stroke="#bbb" stroke-width="1" rx="2"/>
-  <text x="160" y="190" font-size="10" text-anchor="middle" fill="#666">0.2</text></p>
-<p><rect x="235" y="175" width="50" height="20" fill="#f3e5f5" stroke="#bbb" stroke-width="1" rx="2"/>
-  <text x="260" y="190" font-size="10" text-anchor="middle" fill="#666">0.8</text></p>
-<p><rect x="310" y="175" width="60" height="20" fill="#f3e5f5" stroke="#bbb" stroke-width="1" rx="2"/>
-  <text x="340" y="190" font-size="10" text-anchor="middle" fill="#666">0.16</text></p>
-<p><rect x="450" y="175" width="60" height="20" fill="#f3e5f5" stroke="#bbb" stroke-width="1" rx="2"/>
-  <text x="480" y="190" font-size="10" text-anchor="middle" fill="#666">0.6</text></p>
-<p><rect x="530" y="175" width="60" height="20" fill="#f3e5f5" stroke="#bbb" stroke-width="1" rx="2"/>
-  <text x="560" y="190" font-size="10" text-anchor="middle" fill="#666">0.12</text></p>
-<p><rect x="670" y="175" width="60" height="20" fill="#f3e5f5" stroke="#bbb" stroke-width="1" rx="2"/>
-  <text x="700" y="190" font-size="10" text-anchor="middle" fill="#666">0.7</text></p>
-<p><rect x="750" y="175" width="60" height="20" fill="#f3e5f5" stroke="#bbb" stroke-width="1" rx="2"/>
-  <text x="780" y="190" font-size="10" text-anchor="middle" fill="#666">0.14</text></p>
-<!-- a row -->
-<p><text x="100" y="235" font-size="11" text-anchor="middle" fill="#333">a</text>
-  <rect x="140" y="220" width="40" height="20" fill="#f3e5f5" stroke="#bbb" stroke-width="1" rx="2"/>
-  <text x="160" y="235" font-size="10" text-anchor="middle" fill="#666">0.1</text></p>
-<p><rect x="235" y="220" width="50" height="20" fill="#f3e5f5" stroke="#bbb" stroke-width="1" rx="2"/>
-  <text x="260" y="235" font-size="10" text-anchor="middle" fill="#666">0.6</text></p>
-<p><rect x="310" y="220" width="60" height="20" fill="#f3e5f5" stroke="#bbb" stroke-width="1" rx="2"/>
-  <text x="340" y="235" font-size="10" text-anchor="middle" fill="#666">0.06</text></p>
-<p><rect x="450" y="220" width="60" height="20" fill="#f3e5f5" stroke="#bbb" stroke-width="1" rx="2"/>
-  <text x="480" y="235" font-size="10" text-anchor="middle" fill="#666">0.5</text></p>
-<p><rect x="530" y="220" width="60" height="20" fill="#f3e5f5" stroke="#bbb" stroke-width="1" rx="2"/>
-  <text x="560" y="235" font-size="10" text-anchor="middle" fill="#666">0.05</text></p>
-<p><rect x="670" y="220" width="60" height="20" fill="#f3e5f5" stroke="#bbb" stroke-width="1" rx="2"/>
-  <text x="700" y="235" font-size="10" text-anchor="middle" fill="#666">0.6</text></p>
-<p><rect x="750" y="220" width="60" height="20" fill="#f3e5f5" stroke="#bbb" stroke-width="1" rx="2"/>
-  <text x="780" y="235" font-size="10" text-anchor="middle" fill="#666">0.06</text></p>
-<!-- oven row -->
-<p><text x="100" y="280" font-size="11" text-anchor="middle" fill="#333">oven</text>
-  <rect x="140" y="265" width="40" height="20" fill="#c8e6c9" stroke="#4caf50" stroke-width="2" rx="2"/>
-  <text x="160" y="280" font-size="10" font-weight="bold" text-anchor="middle" fill="#1b5e20">0.2</text></p>
-<p><rect x="235" y="265" width="50" height="20" fill="#e8f5e9" stroke="#4caf50" stroke-width="1" rx="2"/>
-  <text x="260" y="280" font-size="10" text-anchor="middle" fill="#333">0.6</text></p>
-<p><rect x="310" y="265" width="60" height="20" fill="#c8e6c9" stroke="#4caf50" stroke-width="2" rx="2"/>
-  <text x="340" y="280" font-size="10" font-weight="bold" text-anchor="middle" fill="#1b5e20">0.12</text></p>
-<p><rect x="450" y="265" width="60" height="20" fill="#e8f5e9" stroke="#4caf50" stroke-width="1" rx="2"/>
-  <text x="480" y="280" font-size="10" text-anchor="middle" fill="#333">0.8</text></p>
-<p><rect x="530" y="265" width="60" height="20" fill="#e8f5e9" stroke="#4caf50" stroke-width="1" rx="2"/>
-  <text x="560" y="280" font-size="10" text-anchor="middle" fill="#333">0.16</text></p>
-<p><rect x="670" y="265" width="60" height="20" fill="#e8f5e9" stroke="#4caf50" stroke-width="1" rx="2"/>
-  <text x="700" y="280" font-size="10" text-anchor="middle" fill="#333">0.5</text></p>
-<p><rect x="750" y="265" width="60" height="20" fill="#e8f5e9" stroke="#4caf50" stroke-width="1" rx="2"/>
-  <text x="780" y="280" font-size="10" text-anchor="middle" fill="#333">0.10</text></p>
-<!-- Totals row -->
-<p><line x1="10" y1="305" x2="840" y2="305" stroke="#ddd" stroke-width="1"/></p>
-<p><text x="100" y="330" font-size="11" font-weight="bold" text-anchor="middle" fill="#333">TOTAL SCORE</text>
-  <rect x="230" y="315" width="70" height="25" fill="#e8f5e9" stroke="#4caf50" stroke-width="2" rx="3"/>
-  <text x="265" y="335" font-size="11" font-weight="bold" text-anchor="middle" fill="#1b5e20">0.60</text></p>
-<p><rect x="450" y="315" width="70" height="25" fill="#f3e5f5" stroke="#ccc" stroke-width="1" rx="3"/>
-  <text x="485" y="335" font-size="11" text-anchor="middle" fill="#666">0.40</text></p>
-<p><rect x="670" y="315" width="70" height="25" fill="#f3e5f5" stroke="#ccc" stroke-width="1" rx="3"/>
-  <text x="705" y="335" font-size="11" text-anchor="middle" fill="#666">0.50</text>
-</svg></p>
+<p><img alt="TF-IDF Scoring Progression" src="../assets/04-tf-idf-scoring-progression.svg" /></p>
 <p><strong>Key Insight:</strong> Doc 1 scores highest because it contains the rare keywords <code>pizza</code> and <code>oven</code> proportionally more than the other docs, even though simpler metrics might rank them differently.</p>
 <hr />
 <h2 id="why-tf-idf-is-a-strong-baseline">✅ Why TF-IDF Is a Strong Baseline<a class="headerlink" href="#why-tf-idf-is-a-strong-baseline" title="Permanent link">#</a></h2>
