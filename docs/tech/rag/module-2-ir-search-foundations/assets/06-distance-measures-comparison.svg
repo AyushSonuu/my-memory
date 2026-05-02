@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 400">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#888"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="750" height="400" fill="#1a1a2e" rx="12"/>
+  
+  <!-- Title -->
+  <text x="375" y="30" text-anchor="middle" font-family="system-ui" font-size="16" font-weight="bold" fill="#e0e0e0">Distance Measures Comparison</text>
+  
+  <!-- === EUCLIDEAN === -->
+  <rect x="20" y="50" width="220" height="300" rx="8" fill="rgba(244,67,54,0.08)" stroke="#f44336" stroke-width="1"/>
+  <text x="130" y="75" text-anchor="middle" font-family="system-ui" font-size="13" font-weight="bold" fill="#f44336">Euclidean Distance</text>
+  
+  <!-- Axes -->
+  <line x1="50" y1="290" x2="210" y2="290" stroke="#555" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="50" y1="290" x2="50" y2="110" stroke="#555" stroke-width="1" marker-end="url(#arr)"/>
+  
+  <!-- Vectors -->
+  <circle cx="90" cy="230" r="5" fill="#ef5350"/>
+  <text x="80" y="248" font-family="system-ui" font-size="10" fill="#ef9a9a">A</text>
+  <circle cx="170" cy="150" r="5" fill="#ef5350"/>
+  <text x="178" y="148" font-family="system-ui" font-size="10" fill="#ef9a9a">B</text>
+  
+  <!-- Distance line -->
+  <line x1="90" y1="230" x2="170" y2="150" stroke="#ef5350" stroke-width="2" stroke-dasharray="4,3"/>
+  <text x="115" y="185" font-family="system-ui" font-size="10" fill="#ef9a9a">d = straight line</text>
+  
+  <!-- Info -->
+  <text x="130" y="315" text-anchor="middle" font-family="system-ui" font-size="10" fill="#aaa">Lower = more similar</text>
+  <text x="130" y="332" text-anchor="middle" font-family="system-ui" font-size="10" fill="#aaa">Range: [0, infinity)</text>
+  <text x="130" y="349" text-anchor="middle" font-family="system-ui" font-size="10" fill="#ef5350">Weak in high dims ⚠️</text>
+  
+  <!-- === COSINE SIMILARITY === -->
+  <rect x="260" y="50" width="220" height="300" rx="8" fill="rgba(76,175,80,0.08)" stroke="#4caf50" stroke-width="1.5"/>
+  <text x="370" y="75" text-anchor="middle" font-family="system-ui" font-size="13" font-weight="bold" fill="#4caf50">Cosine Similarity ⭐</text>
+  
+  <!-- Origin -->
+  <circle cx="290" cy="290" r="3" fill="#666"/>
+  
+  <!-- Vector A -->
+  <line x1="290" y1="290" x2="420" y2="180" stroke="#66bb6a" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="425" y="178" font-family="system-ui" font-size="10" fill="#a5d6a7">A</text>
+  
+  <!-- Vector B -->
+  <line x1="290" y1="290" x2="440" y2="220" stroke="#81c784" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="445" y="218" font-family="system-ui" font-size="10" fill="#a5d6a7">B</text>
+  
+  <!-- Angle arc -->
+  <path d="M 340 255 A 50 50 0 0 1 355 240" fill="none" stroke="#4caf50" stroke-width="1.5"/>
+  <text x="360" y="258" font-family="system-ui" font-size="11" fill="#4caf50">θ</text>
+  
+  <!-- Info -->
+  <text x="370" y="315" text-anchor="middle" font-family="system-ui" font-size="10" fill="#aaa">Higher = more similar</text>
+  <text x="370" y="332" text-anchor="middle" font-family="system-ui" font-size="10" fill="#aaa">Range: [-1, +1]</text>
+  <text x="370" y="349" text-anchor="middle" font-family="system-ui" font-size="10" fill="#4caf50">Most used in practice ✅</text>
+  
+  <!-- === DOT PRODUCT === -->
+  <rect x="500" y="50" width="230" height="300" rx="8" fill="rgba(33,150,243,0.08)" stroke="#2196f3" stroke-width="1"/>
+  <text x="615" y="75" text-anchor="middle" font-family="system-ui" font-size="13" font-weight="bold" fill="#2196f3">Dot Product</text>
+  
+  <!-- Origin -->
+  <circle cx="530" cy="290" r="3" fill="#666"/>
+  
+  <!-- Vector A (long) -->
+  <line x1="530" y1="290" x2="680" y2="180" stroke="#42a5f5" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="685" y="178" font-family="system-ui" font-size="10" fill="#90caf9">A</text>
+  
+  <!-- Vector B (short) -->
+  <line x1="530" y1="290" x2="610" y2="240" stroke="#64b5f6" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="615" y="235" font-family="system-ui" font-size="10" fill="#90caf9">B</text>
+  
+  <!-- Projection line -->
+  <line x1="610" y1="240" x2="622" y2="248" stroke="#2196f3" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="530" y1="290" x2="622" y2="248" stroke="#2196f3" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="575" y="278" font-family="system-ui" font-size="9" fill="#64b5f6">projection</text>
+  
+  <!-- Info -->
+  <text x="615" y="315" text-anchor="middle" font-family="system-ui" font-size="10" fill="#aaa">Higher = more similar</text>
+  <text x="615" y="332" text-anchor="middle" font-family="system-ui" font-size="10" fill="#aaa">Range: (-inf, +inf)</text>
+  <text x="615" y="349" text-anchor="middle" font-family="system-ui" font-size="10" fill="#2196f3">Direction + magnitude</text>
+  
+  <!-- Footer -->
+  <text x="375" y="385" text-anchor="middle" font-family="system-ui" font-size="11" fill="#888">For semantic search, cosine similarity is the default choice — robust in high-dimensional space</text>
+</svg>

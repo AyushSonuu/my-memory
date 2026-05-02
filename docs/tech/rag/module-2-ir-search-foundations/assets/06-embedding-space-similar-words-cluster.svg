@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 450">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="450" fill="#1a1a2e" rx="12"/>
+  
+  <!-- Title -->
+  <text x="350" y="35" text-anchor="middle" font-family="system-ui" font-size="18" font-weight="bold" fill="#e0e0e0">Semantic Clustering in Embedding Space</text>
+  
+  <!-- Axes -->
+  <line x1="80" y1="400" x2="650" y2="400" stroke="#444" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <line x1="80" y1="400" x2="80" y2="60" stroke="#444" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  
+  <!-- Food cluster (green) -->
+  <ellipse cx="200" cy="150" rx="80" ry="55" fill="rgba(76, 175, 80, 0.15)" stroke="#4caf50" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="200" y="95" text-anchor="middle" font-family="system-ui" font-size="11" fill="#4caf50" font-weight="bold">FOOD CLUSTER</text>
+  <circle cx="180" cy="140" r="6" fill="#4caf50"/>
+  <text x="180" y="160" text-anchor="middle" font-family="system-ui" font-size="12" fill="#a5d6a7">pizza</text>
+  <circle cx="220" cy="130" r="6" fill="#4caf50"/>
+  <text x="220" y="120" text-anchor="middle" font-family="system-ui" font-size="12" fill="#a5d6a7">food</text>
+  <circle cx="240" cy="155" r="6" fill="#4caf50"/>
+  <text x="240" y="175" text-anchor="middle" font-family="system-ui" font-size="12" fill="#a5d6a7">cuisine</text>
+  <circle cx="170" cy="170" r="6" fill="#4caf50"/>
+  <text x="170" y="190" text-anchor="middle" font-family="system-ui" font-size="12" fill="#a5d6a7">pasta</text>
+  
+  <!-- Animal cluster (orange) -->
+  <ellipse cx="500" cy="300" rx="85" ry="55" fill="rgba(255, 152, 0, 0.15)" stroke="#ff9800" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="500" y="248" text-anchor="middle" font-family="system-ui" font-size="11" fill="#ff9800" font-weight="bold">ANIMAL CLUSTER</text>
+  <circle cx="480" cy="290" r="6" fill="#ff9800"/>
+  <text x="480" y="280" text-anchor="middle" font-family="system-ui" font-size="12" fill="#ffcc80">bear</text>
+  <circle cx="520" cy="310" r="6" fill="#ff9800"/>
+  <text x="520" y="330" text-anchor="middle" font-family="system-ui" font-size="12" fill="#ffcc80">cat</text>
+  <circle cx="540" cy="280" r="6" fill="#ff9800"/>
+  <text x="540" y="270" text-anchor="middle" font-family="system-ui" font-size="12" fill="#ffcc80">dog</text>
+  <circle cx="460" cy="320" r="6" fill="#ff9800"/>
+  <text x="460" y="340" text-anchor="middle" font-family="system-ui" font-size="12" fill="#ffcc80">snake</text>
+  
+  <!-- Emotion cluster (purple) -->
+  <ellipse cx="400" cy="130" rx="75" ry="50" fill="rgba(156, 39, 176, 0.15)" stroke="#9c27b0" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="400" y="82" text-anchor="middle" font-family="system-ui" font-size="11" fill="#9c27b0" font-weight="bold">EMOTION CLUSTER</text>
+  <circle cx="380" cy="120" r="6" fill="#9c27b0"/>
+  <text x="380" y="140" text-anchor="middle" font-family="system-ui" font-size="12" fill="#ce93d8">happy</text>
+  <circle cx="420" cy="125" r="6" fill="#9c27b0"/>
+  <text x="420" y="145" text-anchor="middle" font-family="system-ui" font-size="12" fill="#ce93d8">glad</text>
+  <circle cx="400" cy="150" r="6" fill="#9c27b0"/>
+  <text x="400" y="170" text-anchor="middle" font-family="system-ui" font-size="12" fill="#ce93d8">joyful</text>
+  
+  <!-- Music cluster (blue) -->
+  <ellipse cx="180" cy="320" rx="70" ry="45" fill="rgba(33, 150, 243, 0.15)" stroke="#2196f3" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="180" y="275" text-anchor="middle" font-family="system-ui" font-size="11" fill="#2196f3" font-weight="bold">MUSIC CLUSTER</text>
+  <circle cx="160" cy="310" r="6" fill="#2196f3"/>
+  <text x="160" y="330" text-anchor="middle" font-family="system-ui" font-size="12" fill="#90caf9">trombone</text>
+  <circle cx="200" cy="330" r="6" fill="#2196f3"/>
+  <text x="200" y="350" text-anchor="middle" font-family="system-ui" font-size="12" fill="#90caf9">guitar</text>
+  <circle cx="185" cy="300" r="6" fill="#2196f3"/>
+  <text x="185" y="290" text-anchor="middle" font-family="system-ui" font-size="12" fill="#90caf9">melody</text>
+  
+  <!-- Key insight box -->
+  <rect x="400" y="380" width="280" height="50" rx="6" fill="rgba(255,255,255,0.05)" stroke="#666" stroke-width="1"/>
+  <text x="540" y="400" text-anchor="middle" font-family="system-ui" font-size="11" fill="#aaa">Key Insight:</text>
+  <text x="540" y="418" text-anchor="middle" font-family="system-ui" font-size="12" fill="#e0e0e0" font-weight="bold">Similar meaning = Nearby vectors</text>
+</svg>
