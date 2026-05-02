@@ -55,11 +55,11 @@ Query: "making pizza without a pizza oven"
 
 ### Step 2️⃣: Term Frequency (TF) Score
 
-![Query: "pizza oven"](assets/04-query-pizza-oven.svg)
+![TF Score — Count Frequency](assets/04-tf-score-frequency.svg)
 
 ### Step 3️⃣: Length Normalization
 
-![Query: "pizza oven"](assets/04-query-pizza-oven.svg)
+![Length-Normalized TF](assets/04-tf-length-normalized.svg)
 
 ### Step 4️⃣: IDF Weighting (The Final Piece)
 

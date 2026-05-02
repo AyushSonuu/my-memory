@@ -1,0 +1,18 @@
+<svg viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg">
+  <text x="10" y="25" font-size="14" font-weight="bold" fill="#333">Query: "pizza oven" — Length-Normalized TF</text>
+  <text x="10" y="50" font-size="12" fill="#666">Rule: TF = keyword count / total words in doc</text>
+
+  <rect x="10" y="65" width="170" height="70" fill="#e8f5e9" stroke="#4caf50" stroke-width="2" rx="4"/>
+  <text x="20" y="85" font-size="12" font-weight="bold" fill="#333">Doc 1 (10 words)</text>
+  <text x="20" y="105" font-size="11" fill="#555">pizza: 2/10 + oven: 1/10</text>
+  <text x="20" y="135" font-size="12" font-weight="bold" fill="#2e7d32">Score: 0.30</text>
+
+  <rect x="210" y="65" width="170" height="70" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="4"/>
+  <text x="220" y="85" font-size="12" font-weight="bold" fill="#333">Doc 2 (100 words)</text>
+  <text x="220" y="105" font-size="11" fill="#555">pizza: 3/100 + oven: 3/100</text>
+  <text x="220" y="135" font-size="12" font-weight="bold" fill="#f57c00">Score: 0.06</text>
+
+  <text x="410" y="95" font-size="11" font-style="italic" fill="#4caf50">Short focused doc wins!</text>
+  <text x="410" y="115" font-size="11" font-style="italic" fill="#666">But common words still</text>
+  <text x="410" y="135" font-size="11" font-style="italic" fill="#666">score too high...</text>
+</svg>
