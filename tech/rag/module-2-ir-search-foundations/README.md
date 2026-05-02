@@ -31,11 +31,11 @@ graph LR
 | 07 | [Semantic Search: Embedding Deep Dive](07-embedding-model-deepdive.md) | 🟢 | 4 SVG visualizations (pairs, training evolution, clustering) |
 | 08 | [Hybrid Search](08-hybrid-search.md) | 🟢 | RRF formula + beta tuning |
 | 09 | [Vector Embeddings in RAG](09-vector-embeddings-in-rag.md) | 🔴 | — |
-| 10 | [Evaluating Retrieval](10-evaluating-retrieval.md) | 🔴 | — |
+| 10 | [Evaluating Retrieval](10-evaluating-retrieval.md) | 🟢 | 5 SVG visualizations |
 | 11 | [Retrieval Metrics](11-retrieval-metrics.md) | 🔴 | — |
 | 12 | [Lab: Implementing Retriever Functions](12-lab-retriever-functions.md) | 🔴 | — |
 
-**Overall confidence:** 🟡 In progress (7/12)
+**Overall confidence:** 🟡 In progress (8/12)
 
 ## 🧩 Memory Fragments
 > - 🔍 The retriever's core challenge: messy human queries + messy human documents, matched in milliseconds.
@@ -49,6 +49,11 @@ graph LR
 > - 🔀 Hybrid search = keyword + semantic in parallel → metadata filter → RRF merges rankings → return top K. Best of all worlds.
 > - 🔢 RRF (Reciprocal Rank Fusion): score = Σ(1/(k + rank)). k=0 → #1 dominates, k=50 → balanced. Only uses ranks, not scores.
 > - ⚖️ Beta (β) tunes keyword vs semantic weight: β=0.7 (70-30 split) is default. Lower β → exact keywords matter more. Higher β → fuzzy meaning matters more.
+> - 📏 Retrieval metrics require 3 ingredients: query, retrieved list, ground truth (hand-labeled relevant docs = answer key).
+> - 🎯 Precision = relevant_found / total_returned (trustworthiness). Recall = relevant_found / total_relevant (completeness). Perfect = find ALL relevant AND return ONLY those.
+> - 📊 Precision@K and Recall@K scope metrics to top K results. Lower K = stricter, higher K = more forgiving.
+> - 🏆 MAP rewards ranking relevant docs high — irrelevant docs sneaking into top spots hurt all scores below them.
+> - ⚡ MRR = "how fast to first relevant hit?" RR = 1/rank. MRR = 0.5 means first relevant ≈ rank 2 on average.
 
 ---
 

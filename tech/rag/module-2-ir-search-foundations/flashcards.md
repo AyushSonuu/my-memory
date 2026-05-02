@@ -1,7 +1,7 @@
 # 🃏 IR Search Foundations Flashcards
 
 > From: module-2-ir-search-foundations/
-> Last updated: 2026-04-25
+> Last updated: 2026-05-02
 
 ---
 
@@ -255,6 +255,129 @@ Keyword = exact word match | Semantic = fuzzy meaning match | Metadata = strict 
 <summary>❓ Why is hybrid search the default choice in production RAG systems?</summary>
 
 It handles both exact keyword matching AND fuzzy semantic similarity, which most real-world queries require.
+</details>
+
+---
+
+## Retrieval Metrics (Lesson 10)
+
+<details>
+<summary>❓ What are the 3 ingredients required to evaluate a retriever?</summary>
+
+1. **Query** — the search prompt
+2. **Retrieved list** — ranked documents the retriever returns
+3. **Ground truth** — all relevant documents in the KB (hand-labeled answer key)
+</details>
+
+<details>
+<summary>❓ What does Precision measure?</summary>
+
+Precision = (Relevant Retrieved) / (Total Retrieved). It measures how trustworthy your results are — what fraction of returned docs are actually relevant.
+</details>
+
+<details>
+<summary>❓ What does Recall measure?</summary>
+
+Recall = (Relevant Retrieved) / (Total Relevant in KB). It measures how comprehensive you are — what fraction of all relevant docs did you find.
+</details>
+
+<details>
+<summary>❓ If you retrieved 12 docs and 8 are relevant, but there are 10 relevant docs total in the KB, what is precision? What is recall?</summary>
+
+**Precision** = 8/12 = 66% (8 relevant out of 12 returned)
+**Recall** = 8/10 = 80% (found 8 out of 10 total relevant)
+</details>
+
+<details>
+<summary>❓ What is the typical trade-off between precision and recall?</summary>
+
+Returning more documents often improves recall (find more relevant) but hurts precision (more noise included). Perfect score = return ONLY the relevant documents.
+</details>
+
+<details>
+<summary>❓ What does "@K" mean in Precision@K or Recall@K?</summary>
+
+It means "looking at only the top K results". E.g., Precision@5 = precision when only considering the top 5 ranked documents.
+</details>
+
+<details>
+<summary>❓ If the top 10 docs have 6 relevant ones (out of 8 total relevant in KB), what is Precision@10 and Recall@10?</summary>
+
+**Precision@10** = 6/10 = 60%
+**Recall@10** = 6/8 = 75%
+</details>
+
+<details>
+<summary>❓ When should you use stricter metrics like @1, @3, @5 vs. more generous @10, @15?</summary>
+
+**Strict (@1-5):** When only top results matter (e.g., search UX, first-page quality)
+**Generous (@10-15):** For general evaluation, more forgiving of ranking imperfections
+</details>
+
+<details>
+<summary>❓ What does Mean Average Precision (MAP) reward?</summary>
+
+MAP rewards placing relevant documents **high in the ranking**. Irrelevant docs sneaking into top spots hurt the score at every relevant doc below them.
+</details>
+
+<details>
+<summary>❓ How do you calculate Average Precision (AP)?</summary>
+
+1. Calculate Precision@K at each rank
+2. Sum the precisions ONLY at relevant document positions
+3. Divide by the number of relevant documents found
+</details>
+
+<details>
+<summary>❓ In a ranking of 6 docs where ranks 1, 4, 5 are relevant: P@1=1.0, P@4=0.5, P@5=0.6. What is AP@6?</summary>
+
+AP = (1.0 + 0.5 + 0.6) / 3 = 2.1 / 3 = **0.7**
+</details>
+
+<details>
+<summary>❓ What is Mean Reciprocal Rank (MRR)?</summary>
+
+MRR measures how quickly you find the FIRST relevant document. Reciprocal Rank = 1/rank of first relevant doc. MRR averages this across many queries.
+</details>
+
+<details>
+<summary>❓ If first relevant appears at rank 4, what is the reciprocal rank?</summary>
+
+**1/4 = 0.25**
+</details>
+
+<details>
+<summary>❓ For 4 searches where first relevant appears at ranks 1, 3, 6, 2, what is MRR?</summary>
+
+RRs: 1/1=1.0, 1/3=0.33, 1/6=0.17, 1/2=0.5
+MRR = (1.0 + 0.33 + 0.17 + 0.5) / 4 = **0.5**
+</details>
+
+<details>
+<summary>❓ What does MRR = 0.5 mean in plain language?</summary>
+
+"On average, the first relevant result appears around rank 2." Great for search UX — users find something useful quickly.
+</details>
+
+<details>
+<summary>❓ Match each metric to what it measures: Recall@K, Precision@K, MAP@K, MRR.</summary>
+
+- **Recall@K** → Did I find everything? (completeness)
+- **Precision@K** → Are results trustworthy? (no noise)
+- **MAP@K** → Overall ranking quality (relevant at top)
+- **MRR** → First-result UX (how fast to first hit)
+</details>
+
+<details>
+<summary>❓ What is the biggest limitation of all retrieval metrics?</summary>
+
+They all require **ground truth** — hand-labeled relevant documents for sample queries. This is expensive and time-consuming to create.
+</details>
+
+<details>
+<summary>❓ Why is Recall the most cited retriever metric?</summary>
+
+It captures the most fundamental goal: finding all the relevant documents. You can't answer well with an LLM if the retriever missed the good stuff.
 </details>
 
 ---

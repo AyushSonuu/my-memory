@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 380">
+  <defs>
+    <linearGradient id="mrrHeader" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#11998e"/>
+      <stop offset="100%" style="stop-color:#38ef7d"/>
+    </linearGradient>
+    <filter id="shadowMrr">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="380" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="350" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Mean Reciprocal Rank (MRR) — First Hit Matters</text>
+
+  <!-- Four search examples -->
+  <g transform="translate(30, 60)">
+    <!-- Search 1 -->
+    <rect x="0" y="0" width="145" height="150" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="0" y="0" width="145" height="30" rx="8" fill="url(#mrrHeader)"/>
+    <text x="72" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Search 1</text>
+
+    <rect x="15" y="40" width="115" height="22" rx="4" fill="#238636"/>
+    <text x="72" y="55" fill="#fff" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">✓ Rank 1 — FIRST!</text>
+    <rect x="15" y="67" width="115" height="22" rx="4" fill="#21262d"/>
+    <text x="72" y="82" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Rank 2</text>
+    <rect x="15" y="94" width="115" height="22" rx="4" fill="#21262d"/>
+    <text x="72" y="109" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Rank 3</text>
+
+    <text x="72" y="140" fill="#38ef7d" font-family="Inter, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">RR = 1/1 = 1.0</text>
+
+    <!-- Search 2 -->
+    <rect x="160" y="0" width="145" height="150" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="160" y="0" width="145" height="30" rx="8" fill="url(#mrrHeader)"/>
+    <text x="232" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Search 2</text>
+
+    <rect x="175" y="40" width="115" height="22" rx="4" fill="#21262d"/>
+    <text x="232" y="55" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Rank 1</text>
+    <rect x="175" y="67" width="115" height="22" rx="4" fill="#21262d"/>
+    <text x="232" y="82" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Rank 2</text>
+    <rect x="175" y="94" width="115" height="22" rx="4" fill="#238636"/>
+    <text x="232" y="109" fill="#fff" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">✓ Rank 3 — FIRST!</text>
+
+    <text x="232" y="140" fill="#38ef7d" font-family="Inter, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">RR = 1/3 = 0.33</text>
+
+    <!-- Search 3 -->
+    <rect x="320" y="0" width="145" height="150" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="320" y="0" width="145" height="30" rx="8" fill="url(#mrrHeader)"/>
+    <text x="392" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Search 3</text>
+
+    <rect x="335" y="40" width="115" height="22" rx="4" fill="#21262d"/>
+    <text x="392" y="55" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Rank 1-5: all ✗</text>
+    <rect x="335" y="67" width="115" height="22" rx="4" fill="#238636"/>
+    <text x="392" y="82" fill="#fff" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">✓ Rank 6 — FIRST!</text>
+    <rect x="335" y="94" width="115" height="22" rx="4" fill="#21262d"/>
+    <text x="392" y="109" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Rank 7+</text>
+
+    <text x="392" y="140" fill="#38ef7d" font-family="Inter, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">RR = 1/6 = 0.17</text>
+
+    <!-- Search 4 -->
+    <rect x="480" y="0" width="145" height="150" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <rect x="480" y="0" width="145" height="30" rx="8" fill="url(#mrrHeader)"/>
+    <text x="552" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Search 4</text>
+
+    <rect x="495" y="40" width="115" height="22" rx="4" fill="#21262d"/>
+    <text x="552" y="55" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Rank 1</text>
+    <rect x="495" y="67" width="115" height="22" rx="4" fill="#238636"/>
+    <text x="552" y="82" fill="#fff" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">✓ Rank 2 — FIRST!</text>
+    <rect x="495" y="94" width="115" height="22" rx="4" fill="#21262d"/>
+    <text x="552" y="109" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Rank 3</text>
+
+    <text x="552" y="140" fill="#38ef7d" font-family="Inter, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">RR = 1/2 = 0.5</text>
+  </g>
+
+  <!-- MRR Calculation -->
+  <g transform="translate(100, 230)">
+    <rect x="0" y="0" width="500" height="110" rx="12" fill="#161b22" stroke="#38ef7d" stroke-width="2" filter="url(#shadowMrr)"/>
+
+    <text x="250" y="30" fill="#38ef7d" font-family="Inter, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">MRR Calculation</text>
+
+    <!-- Step 1 -->
+    <text x="30" y="55" fill="#e6edf3" font-family="Inter, sans-serif" font-size="12">Step 1: Sum all RRs</text>
+    <text x="30" y="75" fill="#ffd54f" font-family="monospace" font-size="13">1.0 + 0.33 + 0.17 + 0.5 = 2.0</text>
+
+    <!-- Step 2 -->
+    <text x="280" y="55" fill="#e6edf3" font-family="Inter, sans-serif" font-size="12">Step 2: Divide by # searches</text>
+    <text x="280" y="75" fill="#ffd54f" font-family="monospace" font-size="13">2.0 / 4 = 0.5</text>
+
+    <!-- Result -->
+    <rect x="160" y="85" width="180" height="20" rx="4" fill="#238636"/>
+    <text x="250" y="100" fill="#fff" font-family="Inter, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">MRR = 0.5</text>
+  </g>
+
+  <!-- Interpretation -->
+  <text x="350" y="360" fill="#8b949e" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">MRR = 0.5 means "on average, the first relevant result appears around rank 2" — great for search UX!</text>
+</svg>
