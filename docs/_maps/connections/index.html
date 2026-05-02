@@ -5531,6 +5531,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -5730,6 +5736,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../tech/rag/module-2-ir-search-foundations/06-semantic-search-embeddings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Semantic Search: Embeddings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../tech/rag/module-2-ir-search-foundations/07-embedding-model-deepdive/" class="md-nav__link">
         
   
@@ -5737,7 +5771,63 @@
   <span class="md-ellipsis">
     
   
-    07 · Semantic Search: Embedding Deep Dive
+    07 · Embedding Model Deep Dive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/rag/module-2-ir-search-foundations/08-hybrid-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · Hybrid Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/rag/module-2-ir-search-foundations/10-evaluating-retrieval/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Evaluating Retrieval
   
 
     
@@ -5802,6 +5892,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -5852,6 +5948,90 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/rag/module-3-ir-vector-databases/01-module-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Module Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/rag/module-3-ir-vector-databases/02-ann-knn-nsw-hnsw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · ANN & HNSW
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tech/rag/module-3-ir-vector-databases/03-vector-databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Vector Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -6949,6 +7129,21 @@
 <td>2026-04-03</td>
 <td>Planning → Code Execution (code as plan)</td>
 <td>Code &gt; JSON &gt; Text for plan format. LLM writes Python as its plan — thousands of functions vs handful of custom tools. Wang et al. 2024 confirms (M5/03)</td>
+</tr>
+<tr>
+<td>2026-05-02</td>
+<td>RAG M2 Semantic Search → Agent Memory (retrieval)</td>
+<td>Same embedding + cosine similarity pipeline used in both. Agent Memory's OracleVS uses the exact same ANN search under the hood</td>
+</tr>
+<tr>
+<td>2026-05-02</td>
+<td>RAG M3 HNSW → Vector Databases</td>
+<td>HNSW is THE algorithm inside Weaviate/Pinecone. Without HNSW, billion-scale vector search would be impossible</td>
+</tr>
+<tr>
+<td>2026-05-02</td>
+<td>BM25 (keyword) + Embeddings (semantic) → Hybrid Search (RRF)</td>
+<td>Neither alone is sufficient. RRF rank fusion + beta weighting combines both for production retrievers</td>
 </tr>
 <tr>
 <td>2026-04-03</td>

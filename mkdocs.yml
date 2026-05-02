@@ -273,10 +273,16 @@ nav:
       - 03 · Metadata Filtering: tech/rag/module-2-ir-search-foundations/03-metadata-filtering.md
       - "04 · Keyword Search: TF-IDF": tech/rag/module-2-ir-search-foundations/04-keyword-search-tfidf.md
       - "05 · Keyword Search: BM25": tech/rag/module-2-ir-search-foundations/05-keyword-search-bm25.md
-      - "07 · Semantic Search: Embedding Deep Dive": tech/rag/module-2-ir-search-foundations/07-embedding-model-deepdive.md
+      - "06 · Semantic Search: Embeddings": tech/rag/module-2-ir-search-foundations/06-semantic-search-embeddings.md
+      - 07 · Embedding Model Deep Dive: tech/rag/module-2-ir-search-foundations/07-embedding-model-deepdive.md
+      - 08 · Hybrid Search: tech/rag/module-2-ir-search-foundations/08-hybrid-search.md
+      - 10 · Evaluating Retrieval: tech/rag/module-2-ir-search-foundations/10-evaluating-retrieval.md
       - 🃏 Flashcards: tech/rag/module-2-ir-search-foundations/flashcards.md
     - Module 3 · Vector Databases:
       - Overview: tech/rag/module-3-ir-vector-databases/README.md
+      - 01 · Module Introduction: tech/rag/module-3-ir-vector-databases/01-module-introduction.md
+      - 02 · ANN & HNSW: tech/rag/module-3-ir-vector-databases/02-ann-knn-nsw-hnsw.md
+      - 03 · Vector Databases: tech/rag/module-3-ir-vector-databases/03-vector-databases.md
       - 🃏 Flashcards: tech/rag/module-3-ir-vector-databases/flashcards.md
     - Module 4 · LLMs & Generation:
       - Overview: tech/rag/module-4-llms-text-generation/README.md

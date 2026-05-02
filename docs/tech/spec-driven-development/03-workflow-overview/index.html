@@ -5468,6 +5468,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -5667,6 +5673,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../rag/module-2-ir-search-foundations/06-semantic-search-embeddings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Semantic Search: Embeddings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../rag/module-2-ir-search-foundations/07-embedding-model-deepdive/" class="md-nav__link">
         
   
@@ -5674,7 +5708,63 @@
   <span class="md-ellipsis">
     
   
-    07 · Semantic Search: Embedding Deep Dive
+    07 · Embedding Model Deep Dive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rag/module-2-ir-search-foundations/08-hybrid-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · Hybrid Search
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rag/module-2-ir-search-foundations/10-evaluating-retrieval/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Evaluating Retrieval
   
 
     
@@ -5739,6 +5829,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -5789,6 +5885,90 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rag/module-3-ir-vector-databases/01-module-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Module Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rag/module-3-ir-vector-databases/02-ann-knn-nsw-hnsw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · ANN & HNSW
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rag/module-3-ir-vector-databases/03-vector-databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Vector Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -7084,29 +7264,7 @@
 </blockquote>
 <hr />
 <h2 id="the-full-sdd-workflow">🖼️ The Full SDD Workflow<a class="headerlink" href="#the-full-sdd-workflow" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph TB
-    subgraph CONST["📜 Constitution (One-time, then evolving)"]
-        M["🎯 Mission&lt;br/&gt;Vision, audience, scope"]
-        TS["🛠️ Tech Stack&lt;br/&gt;Dev &amp; deploy technologies"]
-        RM["🗺️ Roadmap&lt;br/&gt;Sequence of phases"]
-    end
-
-    CONST --&gt; FL1
-
-    subgraph FL1["🔁 Feature Loop"]
-        P["📝 Plan"] --&gt; I["⚙️ Implement"] --&gt; V["✅ Validate"]
-    end
-
-    FL1 --&gt; RP["🔄 Replan&lt;br/&gt;Revise constitution,&lt;br/&gt;update roadmap,&lt;br/&gt;improve process"]
-
-    RP --&gt; FL2["🔁 Next Feature Loop&lt;br/&gt;Plan → Implement → Validate"]
-    FL2 --&gt; RP2["🔄 Replan again..."]
-
-    style CONST fill:#e91e63,color:#fff
-    style FL1 fill:#4caf50,color:#fff
-    style RP fill:#ff9800,color:#fff
-    style FL2 fill:#4caf50,color:#fff
-    style RP2 fill:#ff9800,color:#fff</code></pre>
+<p><img alt="SDD Workflow" src="../_assets/03-sdd-workflow.svg" /></p>
 <blockquote>
 <p>💡 <em>Constitution ek baar banao, phir feature-by-feature build karo. Har loop ke baad sudhar karo — yeh hai SDD ka chakra!</em> 🔄</p>
 </blockquote>

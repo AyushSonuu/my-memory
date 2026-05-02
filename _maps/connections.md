@@ -33,6 +33,9 @@ graph LR
 | 2026-04-06 | RAG Advantages → Reflection Pattern | RAG's "reduces hallucinations by grounding" parallels reflection's "external feedback grounds output" — both inject real-world info to improve LLM output |
 | 2026-04-03 | Planning → Tool Use (builds on) | Planning adds a multi-step plan LAYER on top of tool use — same tools, but LLM decides the sequence (M5/01) |
 | 2026-04-03 | Planning → Code Execution (code as plan) | Code > JSON > Text for plan format. LLM writes Python as its plan — thousands of functions vs handful of custom tools. Wang et al. 2024 confirms (M5/03) |
+| 2026-05-02 | RAG M2 Semantic Search → Agent Memory (retrieval) | Same embedding + cosine similarity pipeline used in both. Agent Memory's OracleVS uses the exact same ANN search under the hood |
+| 2026-05-02 | RAG M3 HNSW → Vector Databases | HNSW is THE algorithm inside Weaviate/Pinecone. Without HNSW, billion-scale vector search would be impossible |
+| 2026-05-02 | BM25 (keyword) + Embeddings (semantic) → Hybrid Search (RRF) | Neither alone is sufficient. RRF rank fusion + beta weighting combines both for production retrievers |
 | 2026-04-03 | Multi-Agent → Planning | Manager agent uses planning to coordinate workers. Same mechanism but tools (green) replaced with agents (purple) (M5/04) |
 | 2026-04-03 | Multi-Agent → Reflection | Manager agent can reflect on final output before delivering — reflection pattern inside multi-agent workflows (M5/04) |
 | 2026-04-03 | Multi-Agent → Org Design | Communication patterns (linear, hierarchical, all-to-all) mirror human org charts — same design problem (M5/05) |
