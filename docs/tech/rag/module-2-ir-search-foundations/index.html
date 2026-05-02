@@ -6969,9 +6969,9 @@
 </tr>
 <tr>
 <td>10</td>
-<td><a href="10-evaluating-retrieval.md">Evaluating Retrieval</a></td>
-<td>🔴</td>
-<td>—</td>
+<td><a href="10-evaluating-retrieval/">Evaluating Retrieval</a></td>
+<td>🟢</td>
+<td>5 SVG visualizations</td>
 </tr>
 <tr>
 <td>11</td>
@@ -6987,7 +6987,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Overall confidence:</strong> 🟡 In progress (7/12)</p>
+<p><strong>Overall confidence:</strong> 🟡 In progress (8/12)</p>
 <h2 id="memory-fragments">🧩 Memory Fragments<a class="headerlink" href="#memory-fragments" title="Permanent link">#</a></h2>
 <blockquote>
 <ul>
@@ -7002,6 +7002,11 @@
 <li>🔀 Hybrid search = keyword + semantic in parallel → metadata filter → RRF merges rankings → return top K. Best of all worlds.</li>
 <li>🔢 RRF (Reciprocal Rank Fusion): score = Σ(1/(k + rank)). k=0 → #1 dominates, k=50 → balanced. Only uses ranks, not scores.</li>
 <li>⚖️ Beta (β) tunes keyword vs semantic weight: β=0.7 (70-30 split) is default. Lower β → exact keywords matter more. Higher β → fuzzy meaning matters more.</li>
+<li>📏 Retrieval metrics require 3 ingredients: query, retrieved list, ground truth (hand-labeled relevant docs = answer key).</li>
+<li>🎯 Precision = relevant_found / total_returned (trustworthiness). Recall = relevant_found / total_relevant (completeness). Perfect = find ALL relevant AND return ONLY those.</li>
+<li>📊 Precision@K and Recall@K scope metrics to top K results. Lower K = stricter, higher K = more forgiving.</li>
+<li>🏆 MAP rewards ranking relevant docs high — irrelevant docs sneaking into top spots hurt all scores below them.</li>
+<li>⚡ MRR = "how fast to first relevant hit?" RR = 1/rank. MRR = 0.5 means first relevant ≈ rank 2 on average.</li>
 </ul>
 </blockquote>
 <hr />
