@@ -82,19 +82,31 @@ Everything you write must be **instantly recallable** during revision. This is t
 
 ---
 
-## 7. 🎨 SVG Style Guide — Preferred Theme Visual Language based on wibe of the lesson
-
+## 7. 🎨 SVG Style Guide — Visual Language Based on Lesson Vibe
 
 When creating SVG diagrams, follow this consistent visual language for professional, GitHub-friendly visuals that look sharp and polished.
 
 ### Canvas & Background
 ```xml
-<rect width="800" height="400" fill="#0d1117"/>  <!-- GitHub dark background -->
+<!-- Dark theme (technical, serious) -->
+<rect width="800" height="400" fill="#0d1117"/>
+
+<!-- Light theme (friendly, introductory) -->
+<rect width="800" height="400" fill="#ffffff"/>
+
+<!-- Warm theme (creative, conceptual) -->
+<rect width="800" height="400" fill="#fafafa"/>
 ```
 - Standard canvas: `800×400` to `800×550` (16:9 or taller)
-- Always include dark background — don't rely on viewer's theme
+- **Choose theme based on lesson vibe:**
+  - **Dark (`#0d1117`)** — technical deep-dives, algorithms, system architecture
+  - **Light (`#ffffff`)** — introductions, overviews, friendly explanations
+  - **Warm/Neutral** — conceptual diagrams, comparisons
+- Always include explicit background — don't rely on viewer's theme
 
 ### Color Palette (Semantic Colors)
+Works on both dark and light backgrounds — adjust text colors accordingly.
+
 | Purpose | Color | Hex | Usage |
 |---------|-------|-----|-------|
 | **Primary action** | Blue | `#2196f3` / `#1976d2` | Retriever, semantic search, primary flow |
@@ -102,11 +114,13 @@ When creating SVG diagrams, follow this consistent visual language for professio
 | **Warning/Highlight** | Orange | `#ff9800` / `#f57c00` | Prompts, augmented content, attention |
 | **Danger/Slow** | Red | `#f44336` / `#d32f2f` | Cross-encoder (slow), errors, negatives |
 | **Special/Advanced** | Purple | `#9c27b0` / `#7b1fa2` | Knowledge base, reranker, fusion |
-| **Neutral/Muted** | Gray | `#8b949e` | Labels, descriptions, secondary text |
-| **Text primary** | Light gray | `#e6edf3` | Main text, titles |
-| **Card background** | Dark gray | `#161b22` / `#21262d` | Boxes, containers |
-| **Accent link** | Bright blue | `#58a6ff` | Highlights, links, callouts |
 | **Cyan** | Teal | `#00bcd4` / `#0097a7` | Alternative accent, easy updates |
+
+**Text colors by theme:**
+| Theme | Primary text | Secondary text | Card background |
+|-------|-------------|----------------|-----------------|
+| Dark | `#e6edf3` | `#8b949e` | `#161b22` / `#21262d` |
+| Light | `#24292f` | `#57606a` | `#f6f8fa` / `#ffffff` |
 
 ### Gradients (For Depth & Polish)
 ```xml
