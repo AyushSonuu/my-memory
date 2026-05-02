@@ -78,10 +78,10 @@
 
 ### RAG (tech/rag/) — 🟡 In Progress
 - **Source:** DeepLearning.AI course (5 modules, 62 lessons)
-- **Progress:** M1: 7/10, M2: 8/12, M3: 3/11, M4-M5: not started (19/62 total)
+- **Progress:** M1: 7/10, M2: 8/12, M3: 4/11, M4-M5: not started (20/62 total)
 - **M2 Progress:** Metadata filtering, TF-IDF, BM25, embedding model training, hybrid search, **retrieval evaluation metrics** ✅
-- **M3 Progress:** Module intro ✅, vector databases ✅, **chunking concepts** ✅
-- **Key concepts so far:** RAG architecture, retriever + LLM + KB, applications, LLM foundations, IR basics, keyword vs semantic search, RRF + beta tuning, Precision/Recall/@K, MAP, MRR, Weaviate, alpha parameter, chunking, overlap, recursive splitting
+- **M3 Progress:** Module intro ✅, vector databases ✅, chunking concepts ✅, **advanced chunking** ✅
+- **Key concepts so far:** RAG architecture, retriever + LLM + KB, applications, LLM foundations, IR basics, keyword vs semantic search, RRF + beta tuning, Precision/Recall/@K, MAP, MRR, Weaviate, alpha parameter, chunking, overlap, recursive splitting, semantic chunking, LLM-based chunking, context-aware chunking
 - **Workflow:** Same as Agentic AI (transcript + PDF cross-reference)
 
 ## Conventions & Decisions

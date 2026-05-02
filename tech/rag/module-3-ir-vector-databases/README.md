@@ -29,13 +29,13 @@ graph LR
 | 04 | [Introduction to Weaviate API](04-weaviate-api.md) | 🔴 | — |
 | 05 | [Chunking (Concepts)](05-chunking-concepts.md) | 🟢 | 3 SVG visualizations |
 | 06 | [Chunking (Lab)](06-chunking-lab.md) | 🔴 | — |
-| 07 | [Advanced Chunking Techniques](07-advanced-chunking.md) | 🔴 | — |
+| 07 | [Advanced Chunking Techniques](07-advanced-chunking.md) | 🟢 | Semantic, LLM-based, context-aware |
 | 08 | [Query Parsing](08-query-parsing.md) | 🔴 | — |
 | 09 | [Cross-Encoders & ColBERT](09-cross-encoders-colbert.md) | 🔴 | — |
 | 10 | [Reranking](10-reranking.md) | 🔴 | — |
 | 11 | [Lab: Building RAG with Vector DB](11-lab-rag-vector-db.md) | 🔴 | — |
 
-**Overall confidence:** 🟡 In progress (3/11)
+**Overall confidence:** 🟡 In progress (4/11)
 
 ## 🧩 Memory Fragments
 > - 🗄️ Vector DBs exist because relational DBs choke on vector ops at million/billion scale.
@@ -48,6 +48,9 @@ graph LR
 > - 📏 Chunk size goldilocks: too large = blurry vectors, too small = no context. Sweet spot ≈ paragraph level.
 > - 🔗 Overlap (10-20%) preserves context at chunk boundaries — words at edges appear in TWO chunks.
 > - 📐 Starting point: 500 chars, 50-100 char overlap. Recursive splitting for structured docs (HTML, code).
+> - 🧠 Semantic chunking = group sentences by meaning similarity (vector distance threshold). Expensive but high quality.
+> - 🤖 LLM-based chunking = give doc to LLM with chunking instructions. Black box but very high performing.
+> - 📝 Context-aware chunking = LLM adds context to each chunk. Works ON TOP of any strategy — low-hanging fruit for improvement.
 
 ---
 

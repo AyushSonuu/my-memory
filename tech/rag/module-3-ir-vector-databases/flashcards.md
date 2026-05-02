@@ -172,6 +172,67 @@ Split on meaningful characters (like `\n` between paragraphs) instead of fixed p
 **Con:** More vectors to store (some redundant information).
 </details>
 
+## Advanced Chunking (Lesson 07)
+
+<details>
+<summary>❓ What problem does semantic chunking solve that fixed-size chunking doesn't?</summary>
+
+Fixed-size splits can break text mid-thought, losing context. Example: "she dreamed...that she was finally an Olympic champion" could split to make it seem she's already a champion. Semantic chunking groups sentences by **meaning similarity**.
+</details>
+
+<details>
+<summary>❓ How does the semantic chunking algorithm work?</summary>
+
+1. Move through document sentence by sentence
+2. Vectorize current chunk + vectorize next sentence
+3. Calculate cosine distance between them
+4. If distance < threshold → add to same chunk
+5. If distance > threshold → start NEW chunk
+</details>
+
+<details>
+<summary>❓ What are the pros and cons of semantic chunking?</summary>
+
+**Pros:** Follows author's train of thought, smarter boundaries, higher precision/recall.
+**Cons:** Computationally expensive (vector calc per sentence), harder to tune threshold, variable chunk sizes.
+</details>
+
+<details>
+<summary>❓ How does LLM-based chunking work?</summary>
+
+Give the document to an LLM with instructions like "keep similar concepts together, start new chunk when topic changes." LLM generates chunk output. Black box but very high performing.
+</details>
+
+<details>
+<summary>❓ What is context-aware chunking?</summary>
+
+Use an LLM to add **context text** to every chunk, explaining its place in the broader document. Example: a list of names becomes "Acknowledgments section thanking contributors: Alice, Bob..."
+</details>
+
+<details>
+<summary>❓ Why is context-aware chunking a good first improvement to try?</summary>
+
+It works **on top of any chunking strategy** (fixed, semantic, etc.), improves both search relevancy AND LLM understanding, and has no impact on search speed. Just preprocessing cost.
+</details>
+
+<details>
+<summary>❓ When should you use fixed-size vs semantic vs LLM-based chunking?</summary>
+
+- **Fixed-size:** Prototyping, simple docs (default)
+- **Semantic:** Long-form content where topics flow across paragraphs
+- **LLM-based:** Complex documents, when LLM costs are acceptable
+- **Context-aware:** First upgrade to try on any strategy
+</details>
+
+<details>
+<summary>❓ What's the practical advice for choosing a chunking strategy?</summary>
+
+1. Start simple (fixed-size with overlap)
+2. Measure precision/recall before upgrading
+3. Experiment on a **subset** before processing entire KB
+4. Context-aware is low-hanging fruit for improvement
+</details>
+
 ---
 
 > 💡 **Revision tip:** Cover the answer, try to explain OUT LOUD, then reveal.
