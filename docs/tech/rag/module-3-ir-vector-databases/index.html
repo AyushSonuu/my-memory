@@ -7120,9 +7120,9 @@
 </tr>
 <tr>
 <td>05</td>
-<td><a href="05-chunking-concepts.md">Chunking (Concepts)</a></td>
-<td>🔴</td>
-<td>—</td>
+<td><a href="05-chunking-concepts/">Chunking (Concepts)</a></td>
+<td>🟢</td>
+<td>3 SVG visualizations</td>
 </tr>
 <tr>
 <td>06</td>
@@ -7132,9 +7132,9 @@
 </tr>
 <tr>
 <td>07</td>
-<td><a href="07-advanced-chunking.md">Advanced Chunking Techniques</a></td>
-<td>🔴</td>
-<td>—</td>
+<td><a href="07-advanced-chunking/">Advanced Chunking Techniques</a></td>
+<td>🟢</td>
+<td>4 SVGs: semantic, LLM, context-aware</td>
 </tr>
 <tr>
 <td>08</td>
@@ -7162,7 +7162,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Overall confidence:</strong> 🟡 In progress (2/11)</p>
+<p><strong>Overall confidence:</strong> 🟡 In progress (4/11)</p>
 <h2 id="memory-fragments">🧩 Memory Fragments<a class="headerlink" href="#memory-fragments" title="Permanent link">#</a></h2>
 <blockquote>
 <ul>
@@ -7172,6 +7172,13 @@
 <li>🚀 VDB setup flow: connect → create collection → batch insert → auto-generates sparse vectors + dense embeddings + HNSW index.</li>
 <li>⚖️ Weaviate alpha parameter: 0.0 = 100% keyword, 1.0 = 100% vector, 0.25 = 25% vector + 75% keyword (production default).</li>
 <li>🏭 Most production RAG uses <strong>hybrid search</strong> — balances semantic similarity with exact keyword matching.</li>
+<li>✂️ Chunking = breaking documents into smaller pieces. Why: token limits, better relevancy, focused LLM context.</li>
+<li>📏 Chunk size goldilocks: too large = blurry vectors, too small = no context. Sweet spot ≈ paragraph level.</li>
+<li>🔗 Overlap (10-20%) preserves context at chunk boundaries — words at edges appear in TWO chunks.</li>
+<li>📐 Starting point: 500 chars, 50-100 char overlap. Recursive splitting for structured docs (HTML, code).</li>
+<li>🧠 Semantic chunking = group sentences by meaning similarity (vector distance threshold). Expensive but high quality.</li>
+<li>🤖 LLM-based chunking = give doc to LLM with chunking instructions. Black box but very high performing.</li>
+<li>📝 Context-aware chunking = LLM adds context to each chunk. Works ON TOP of any strategy — low-hanging fruit for improvement.</li>
 </ul>
 </blockquote>
 <hr />

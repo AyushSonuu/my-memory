@@ -7222,30 +7222,7 @@
 </blockquote>
 <hr />
 <h2 id="normal-llm-vs-rag-system">🖼️ Normal LLM vs RAG System<a class="headerlink" href="#normal-llm-vs-rag-system" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph LR
-    subgraph NORMAL["Normal LLM Use"]
-        direction LR
-        P1["📝 Prompt"] --&gt; LLM1["🧠 LLM"] --&gt; R1["💬 Response"]
-    end
-
-    subgraph RAG["RAG System"]
-        direction LR
-        P2["📝 Prompt"] --&gt; RET["🔍 Retriever"]
-        RET --&gt;|"queries"| KB["📚 Knowledge Base"]
-        KB --&gt;|"relevant docs"| RET
-        RET --&gt; AUG["📝 Augmented&lt;br/&gt;Prompt"]
-        AUG --&gt; LLM2["🧠 LLM"]
-        LLM2 --&gt; R2["💬 Response"]
-    end
-
-    style RET fill:#2196f3,color:#fff
-    style KB fill:#9c27b0,color:#fff
-    style LLM1 fill:#4caf50,color:#fff
-    style LLM2 fill:#4caf50,color:#fff
-    style AUG fill:#ff9800,color:#fff</code></pre>
-<blockquote>
-<p>User sees no difference. The retriever works behind the scenes.</p>
-</blockquote>
+<p><img alt="Normal LLM vs RAG System" src="../assets/04-normal-vs-rag.svg" /></p>
 <hr />
 <h2 id="the-5-step-pipeline">⚡ The 5-Step Pipeline<a class="headerlink" href="#the-5-step-pipeline" title="Permanent link">#</a></h2>
 <table>
@@ -7299,20 +7276,7 @@
 <p>Just the <strong>original question + retrieved context</strong> in one prompt. That's it.</p>
 <hr />
 <h2 id="5-advantages-of-rag">🏆 5 Advantages of RAG<a class="headerlink" href="#5-advantages-of-rag" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph TB
-    RAG(("🔍 RAG&lt;br/&gt;Advantages"))
-    RAG --&gt; A1["💉 Injects Missing Knowledge"]
-    RAG --&gt; A2["🛡️ Reduces Hallucinations"]
-    RAG --&gt; A3["🔄 Easy to Keep Up-to-Date"]
-    RAG --&gt; A4["📎 Enables Source Citations"]
-    RAG --&gt; A5["🎯 Focuses LLM on Generation"]
-
-    style RAG fill:#ff9800,color:#fff
-    style A1 fill:#2196f3,color:#fff
-    style A2 fill:#4caf50,color:#fff
-    style A3 fill:#00bcd4,color:#fff
-    style A4 fill:#9c27b0,color:#fff
-    style A5 fill:#f44336,color:#fff</code></pre>
+<p><img alt="5 Advantages of RAG" src="../assets/04-rag-advantages.svg" /></p>
 <table>
 <thead>
 <tr>

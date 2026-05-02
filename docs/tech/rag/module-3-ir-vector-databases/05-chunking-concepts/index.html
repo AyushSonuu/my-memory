@@ -12,13 +12,9 @@
         <meta name="author" content="Ayush Sonu">
       
       
-        <link rel="canonical" href="https://ayushsonuu.github.io/my-memory/tech/rag/module-2-ir-search-foundations/02-retriever-architecture/">
+        <link rel="canonical" href="https://ayushsonuu.github.io/my-memory/tech/rag/module-3-ir-vector-databases/05-chunking-concepts/">
       
       
-        <link rel="prev" href="../01-module-introduction/">
-      
-      
-        <link rel="next" href="../03-metadata-filtering/">
       
       
         
@@ -29,7 +25,7 @@
     
     
       
-        <title>02 · Retriever Architecture - 🧠 My Memory</title>
+        <title>05 — Chunking: Breaking Documents for Better Retrieval - 🧠 My Memory</title>
       
     
     
@@ -82,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#02-retriever-architecture-overview" class="md-skip">
+        <a href="#05-chunking-breaking-documents-for-better-retrieval" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              02 · Retriever Architecture
+              05 — Chunking: Breaking Documents for Better Retrieval
             
           </span>
         </div>
@@ -316,12 +312,10 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../../" class="md-tabs__link">
           
   
@@ -5055,8 +5049,6 @@
       
   
   
-    
-  
   
   
     
@@ -5082,17 +5074,14 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -5114,13 +5103,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -5450,8 +5439,6 @@
                 
   
   
-    
-  
   
   
     
@@ -5488,15 +5475,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../module-2-ir-search-foundations/" class="md-nav__link ">
               
   
   
@@ -5520,7 +5507,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -5540,7 +5527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-module-introduction/" class="md-nav__link">
+      <a href="../../module-2-ir-search-foundations/01-module-introduction/" class="md-nav__link">
         
   
   
@@ -5565,37 +5552,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    02 · Retriever Architecture
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../module-2-ir-search-foundations/02-retriever-architecture/" class="md-nav__link">
         
   
   
@@ -5611,92 +5571,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#one-line" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🎯 One Line
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#end-to-end-retriever-flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🖼️ End-to-End Retriever Flow
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#core-components" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🧱 Core Components
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-happens-in-practice" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ⚙️ What Happens in Practice
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-is-called-hybrid-search" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ✅ Why This Is Called Hybrid Search
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gotchas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ⚠️ Gotchas
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -5709,7 +5583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-metadata-filtering/" class="md-nav__link">
+      <a href="../../module-2-ir-search-foundations/03-metadata-filtering/" class="md-nav__link">
         
   
   
@@ -5737,7 +5611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-keyword-search-tfidf/" class="md-nav__link">
+      <a href="../../module-2-ir-search-foundations/04-keyword-search-tfidf/" class="md-nav__link">
         
   
   
@@ -5765,7 +5639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../05-keyword-search-bm25/" class="md-nav__link">
+      <a href="../../module-2-ir-search-foundations/05-keyword-search-bm25/" class="md-nav__link">
         
   
   
@@ -5793,7 +5667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../06-semantic-search-embeddings/" class="md-nav__link">
+      <a href="../../module-2-ir-search-foundations/06-semantic-search-embeddings/" class="md-nav__link">
         
   
   
@@ -5821,7 +5695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../07-embedding-model-deepdive/" class="md-nav__link">
+      <a href="../../module-2-ir-search-foundations/07-embedding-model-deepdive/" class="md-nav__link">
         
   
   
@@ -5849,7 +5723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../08-hybrid-search/" class="md-nav__link">
+      <a href="../../module-2-ir-search-foundations/08-hybrid-search/" class="md-nav__link">
         
   
   
@@ -5877,7 +5751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../10-evaluating-retrieval/" class="md-nav__link">
+      <a href="../../module-2-ir-search-foundations/10-evaluating-retrieval/" class="md-nav__link">
         
   
   
@@ -5905,7 +5779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../flashcards/" class="md-nav__link">
+      <a href="../../module-2-ir-search-foundations/flashcards/" class="md-nav__link">
         
   
   
@@ -5970,7 +5844,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../module-3-ir-vector-databases/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -6014,7 +5888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module-3-ir-vector-databases/01-module-introduction/" class="md-nav__link">
+      <a href="../01-module-introduction/" class="md-nav__link">
         
   
   
@@ -6042,7 +5916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module-3-ir-vector-databases/02-ann-knn-nsw-hnsw/" class="md-nav__link">
+      <a href="../02-ann-knn-nsw-hnsw/" class="md-nav__link">
         
   
   
@@ -6070,7 +5944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module-3-ir-vector-databases/03-vector-databases/" class="md-nav__link">
+      <a href="../03-vector-databases/" class="md-nav__link">
         
   
   
@@ -6098,7 +5972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module-3-ir-vector-databases/flashcards/" class="md-nav__link">
+      <a href="../flashcards/" class="md-nav__link">
         
   
   
@@ -7098,10 +6972,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#one-line" class="md-nav__link">
+  <a href="#why-chunk-documents" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🎯 One Line
+        Why Chunk Documents?
       
     </span>
   </a>
@@ -7109,10 +6983,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#end-to-end-retriever-flow" class="md-nav__link">
+  <a href="#the-problem-no-chunking" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🖼️ End-to-End Retriever Flow
+        The Problem: No Chunking
       
     </span>
   </a>
@@ -7120,10 +6994,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#core-components" class="md-nav__link">
+  <a href="#the-solution-chunk-your-content" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🧱 Core Components
+        The Solution: Chunk Your Content
       
     </span>
   </a>
@@ -7131,10 +7005,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-happens-in-practice" class="md-nav__link">
+  <a href="#chunk-size-the-goldilocks-problem" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ⚙️ What Happens in Practice
+        Chunk Size: The Goldilocks Problem
       
     </span>
   </a>
@@ -7142,10 +7016,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-this-is-called-hybrid-search" class="md-nav__link">
+  <a href="#strategy-1-fixed-size-chunking" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ✅ Why This Is Called Hybrid Search
+        Strategy 1: Fixed-Size Chunking
       
     </span>
   </a>
@@ -7153,10 +7027,82 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#gotchas" class="md-nav__link">
+  <a href="#strategy-2-fixed-size-with-overlap" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ⚠️ Gotchas
+        Strategy 2: Fixed-Size with Overlap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strategy-3-recursive-character-splitting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strategy 3: Recursive Character Splitting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Strategy 3: Recursive Character Splitting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#split-different-document-types-differently" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Split Different Document Types Differently
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chunking-decision-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chunking Decision Flowchart
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-preservation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata Preservation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference-starting-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Reference: Starting Point
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔗 Connections
       
     </span>
   </a>
@@ -7180,80 +7126,327 @@
 
 
 
-<h1 id="02-retriever-architecture-overview">02 · Retriever Architecture Overview 🧩<a class="headerlink" href="#02-retriever-architecture-overview" title="Permanent link">#</a></h1>
-<hr />
-<h2 id="one-line">🎯 One Line<a class="headerlink" href="#one-line" title="Permanent link">#</a></h2>
+<h1 id="05-chunking-breaking-documents-for-better-retrieval">05 — Chunking: Breaking Documents for Better Retrieval<a class="headerlink" href="#05-chunking-breaking-documents-for-better-retrieval" title="Permanent link">#</a></h1>
 <blockquote>
-<p>A high-performing retriever is a hybrid pipeline: keyword search + semantic search + metadata filtering + rank fusion, then top documents go to the LLM.</p>
+<p>Poori kitaab ek vector mein? Recipe for disaster. Chunks = sharp, relevant retrieval! ✂️</p>
 </blockquote>
 <hr />
-<h2 id="end-to-end-retriever-flow">🖼️ End-to-End Retriever Flow<a class="headerlink" href="#end-to-end-retriever-flow" title="Permanent link">#</a></h2>
-<p><img alt="Retriever Architecture Flow" src="../assets/02-retriever-architecture-flow.svg" /></p>
-<blockquote>
-<p>💡 <strong>Retriever ka funda:</strong> ek hi search pe भरोसा mat karo — "exact words" bhi chahiye, "same meaning" bhi chahiye, aur "right audience" filter bhi chahiye.</p>
-</blockquote>
-<hr />
-<h2 id="core-components">🧱 Core Components<a class="headerlink" href="#core-components" title="Permanent link">#</a></h2>
+<h2 id="why-chunk-documents">Why Chunk Documents?<a class="headerlink" href="#why-chunk-documents" title="Permanent link">#</a></h2>
 <table>
 <thead>
 <tr>
-<th>Component</th>
-<th>What it does</th>
-<th>Why it matters</th>
+<th>Reason</th>
+<th>Problem Without Chunking</th>
+<th>Solution</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Keyword Search</strong></td>
-<td>Finds documents containing exact prompt words</td>
-<td>Preserves precise term matching (time-tested IR behavior)</td>
+<td><strong>Token Limits</strong></td>
+<td>Embedding models have max input length</td>
+<td>Smaller chunks fit within limits</td>
 </tr>
 <tr>
-<td><strong>Semantic Search</strong></td>
-<td>Finds documents with similar meaning</td>
-<td>Recovers relevant docs even when wording differs</td>
+<td><strong>Improved Relevancy</strong></td>
+<td>Entire book = blurry vector (averages everything)</td>
+<td>Paragraph/page = sharp, topic-specific vectors</td>
 </tr>
 <tr>
-<td><strong>Metadata Filtering</strong></td>
-<td>Keeps only docs matching strict metadata rules (team, region, role, etc.)</td>
-<td>Enforces hard business constraints</td>
-</tr>
-<tr>
-<td><strong>Fusion / Re-ranking</strong></td>
-<td>Combines keyword + semantic result lists into one final ranking</td>
-<td>Balances precision and recall from both search styles</td>
+<td><strong>LLM Context</strong></td>
+<td>Retrieving whole books fills context window</td>
+<td>Send only the relevant chunks to LLM</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="what-happens-in-practice">⚙️ What Happens in Practice<a class="headerlink" href="#what-happens-in-practice" title="Permanent link">#</a></h2>
-<ol>
-<li>Prompt arrives at retriever.</li>
-<li>Retriever runs <strong>keyword</strong> and <strong>semantic</strong> searches in parallel.</li>
-<li>Each search returns a candidate set (often around 20–50 docs).</li>
-<li>Apply metadata filtering to both candidate sets.</li>
-<li>Merge filtered sets and produce one final rank.</li>
-<li>Return top-ranked docs to build augmented prompt.</li>
-</ol>
-<hr />
-<h2 id="why-this-is-called-hybrid-search">✅ Why This Is Called Hybrid Search<a class="headerlink" href="#why-this-is-called-hybrid-search" title="Permanent link">#</a></h2>
-<p>Hybrid search combines multiple retrieval signals:
-- <strong>Exact-word sensitivity</strong> (keyword)
-- <strong>Meaning-level flexibility</strong> (semantic)
-- <strong>Rule-based control</strong> (metadata)</p>
-<p>Design quality comes from tuning the balance between these signals for your project goals.</p>
-<hr />
-<h2 id="gotchas">⚠️ Gotchas<a class="headerlink" href="#gotchas" title="Permanent link">#</a></h2>
-<ul>
-<li>Using only keyword search misses paraphrased but relevant documents.</li>
-<li>Using only semantic search can miss exact-term intent.</li>
-<li>Skipping metadata filtering can leak irrelevant department/domain docs.</li>
-<li>Poor fusion tuning can over-favor one signal and hurt retrieval quality.</li>
-</ul>
-<hr />
+<h2 id="the-problem-no-chunking">The Problem: No Chunking<a class="headerlink" href="#the-problem-no-chunking" title="Permanent link">#</a></h2>
+<p><img alt="Chunking Problem" src="../assets/05-no-chunking-problem.svg" /></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Knowledge Base: 1,000 books
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>        ↓
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Embedding Model vectorizes each book
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        ↓
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Result: 1,000 vectors
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Problem: Each vector compresses an ENTIRE BOOK
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>         → Can&#39;t represent specific topics sharply
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>         → Search relevance = poor
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>         → Retrieves whole books = fills LLM context
+</span></code></pre></div>
 <blockquote>
-<p><strong>Next →</strong> <a href="../03-metadata-filtering/">Metadata Filtering</a></p>
+<p>💡 Ek vector mein Mahabharat compress karna = every topic becomes "meh." Chunking karo toh Arjun, Krishna, Karna sab alag alag sharp vectors! 🎯</p>
 </blockquote>
+<hr />
+<h2 id="the-solution-chunk-your-content">The Solution: Chunk Your Content<a class="headerlink" href="#the-solution-chunk-your-content" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Granularity</th>
+<th># Vectors</th>
+<th>Trade-off</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Book</strong></td>
+<td>1,000</td>
+<td>Too coarse — blurry vectors</td>
+</tr>
+<tr>
+<td><strong>Chapter</strong></td>
+<td>~10,000</td>
+<td>Still too large</td>
+</tr>
+<tr>
+<td><strong>Page</strong></td>
+<td>~200,000</td>
+<td>Better relevance</td>
+</tr>
+<tr>
+<td><strong>Paragraph</strong></td>
+<td>~1,000,000</td>
+<td>Good balance ✅</td>
+</tr>
+<tr>
+<td><strong>Sentence</strong></td>
+<td>~10,000,000</td>
+<td>May lose context</td>
+</tr>
+<tr>
+<td><strong>Word</strong></td>
+<td>~100,000,000</td>
+<td>Useless — no context</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Vector databases easily scale to millions of vectors. Don't be afraid to chunk small!</p>
+</blockquote>
+<hr />
+<h2 id="chunk-size-the-goldilocks-problem">Chunk Size: The Goldilocks Problem<a class="headerlink" href="#chunk-size-the-goldilocks-problem" title="Permanent link">#</a></h2>
+<p><img alt="Chunk Size Trade-offs" src="../assets/05-chunk-size-tradeoffs.svg" /></p>
+<table>
+<thead>
+<tr>
+<th>Too Large (Chapter)</th>
+<th>Just Right</th>
+<th>Too Small (Word)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌ Too many topics in one vector</td>
+<td>✅ Balance between context and specificity</td>
+<td>❌ Loses surrounding context</td>
+</tr>
+<tr>
+<td>❌ Fills LLM context window</td>
+<td>✅ Sharp semantic representation</td>
+<td>❌ Reduces search relevance</td>
+</tr>
+<tr>
+<td>❌ Blurry, averaged meaning</td>
+<td>✅ Retrieves focused content</td>
+<td>❌ "The" doesn't mean anything alone</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="strategy-1-fixed-size-chunking">Strategy 1: Fixed-Size Chunking<a class="headerlink" href="#strategy-1-fixed-size-chunking" title="Permanent link">#</a></h2>
+<p>The simplest approach — every chunk has the same character count.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Document: &quot;The quick brown fox jumps over the lazy dog...&quot;
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Chunk size: 250 characters
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Chunk 1: Characters 1-250
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Chunk 2: Characters 251-500
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Chunk 3: Characters 501-750
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>...
+</span></code></pre></div>
+<p><strong>Problem:</strong> Splits often fall mid-word or break cohesive thoughts.</p>
+<hr />
+<h2 id="strategy-2-fixed-size-with-overlap">Strategy 2: Fixed-Size with Overlap<a class="headerlink" href="#strategy-2-fixed-size-with-overlap" title="Permanent link">#</a></h2>
+<p>Add overlap between chunks to preserve context at boundaries.</p>
+<p><img alt="Overlapping Chunks" src="../assets/05-overlapping-chunks.svg" /></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Chunk size: 250 characters
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Overlap: 25 characters (10%)
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Chunk 1: Characters 1-250
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Chunk 2: Characters 226-475  (overlaps with chunk 1)
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>Chunk 3: Characters 451-700  (overlaps with chunk 2)
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>...
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Benefit</th>
+<th>Trade-off</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Words at edges appear in TWO chunks</td>
+<td>More vectors = more storage</td>
+</tr>
+<tr>
+<td>Minimizes words cut off from context</td>
+<td>Some redundant information</td>
+</tr>
+<tr>
+<td>Words in middle have context on both sides</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>Good starting point:</strong> 500 characters with 50-100 character overlap (10-20%).</p>
+</blockquote>
+<hr />
+<h2 id="strategy-3-recursive-character-splitting">Strategy 3: Recursive Character Splitting<a class="headerlink" href="#strategy-3-recursive-character-splitting" title="Permanent link">#</a></h2>
+<p>Split on meaningful characters (like <code>\n</code> between paragraphs) instead of fixed positions.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Original text:
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>&quot;Taylor Swift is performing three sold-out shows...
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>[newline]
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Thousands of fans are traveling to the city...
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>[newline]
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Local hotels are fully booked...&quot;
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>Split on newline (\n):
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>├─ Chunk 1: &quot;Taylor Swift is performing...&quot;
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>├─ Chunk 2: &quot;Thousands of fans are traveling...&quot;
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>└─ Chunk 3: &quot;Local hotels are fully booked...&quot;
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accounts for document structure</td>
+<td>Variable chunk sizes</td>
+</tr>
+<tr>
+<td>Related concepts stay together</td>
+<td>Very long paragraphs = very large chunks</td>
+</tr>
+<tr>
+<td>More natural boundaries</td>
+<td>Very short paragraphs = tiny chunks</td>
+</tr>
+</tbody>
+</table>
+<h3 id="split-different-document-types-differently">Split Different Document Types Differently<a class="headerlink" href="#split-different-document-types-differently" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Document Type</th>
+<th>Split On</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>HTML</strong></td>
+<td><code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code> tags</td>
+</tr>
+<tr>
+<td><strong>Python code</strong></td>
+<td>Function definitions, class definitions</td>
+</tr>
+<tr>
+<td><strong>Markdown</strong></td>
+<td>Headers (<code>#</code>, <code>##</code>), blank lines</td>
+</tr>
+<tr>
+<td><strong>Plain text</strong></td>
+<td>Newline characters (<code>\n</code>)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="chunking-decision-flowchart">Chunking Decision Flowchart<a class="headerlink" href="#chunking-decision-flowchart" title="Permanent link">#</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>┌─────────────────────────────────────────────┐
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>│  What kind of documents?                    │
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>├─────────────────────────────────────────────┤
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>│                                             │
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>│  Plain text / unknown structure             │
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>│  └─→ Fixed-size with overlap (500 chars)   │
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>│                                             │
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>│  Structured (HTML, Markdown, Code)          │
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>│  └─→ Recursive character splitting          │
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>│      (split on tags/headers/definitions)    │
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>│                                             │
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>│  Need highest relevancy?                    │
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>│  └─→ Semantic chunking (next lesson)        │
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>│                                             │
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>└─────────────────────────────────────────────┘
+</span></code></pre></div>
+<hr />
+<h2 id="metadata-preservation">Metadata Preservation<a class="headerlink" href="#metadata-preservation" title="Permanent link">#</a></h2>
+<p>When chunking, chunks should <strong>inherit metadata</strong> from their source:</p>
+<table>
+<thead>
+<tr>
+<th>Inherited</th>
+<th>Added</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document title</td>
+<td>Chunk index (1, 2, 3...)</td>
+</tr>
+<tr>
+<td>Author</td>
+<td>Character position (start-end)</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>Page number (if applicable)</td>
+</tr>
+<tr>
+<td>Category/tags</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>This enables filtering: "Find chunks from documents by author X published after 2023"</p>
+<hr />
+<h2 id="quick-reference-starting-point">Quick Reference: Starting Point<a class="headerlink" href="#quick-reference-starting-point" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Recommended</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Chunk size</strong></td>
+<td>~500 characters</td>
+</tr>
+<tr>
+<td><strong>Overlap</strong></td>
+<td>50-100 characters (10-20%)</td>
+</tr>
+<tr>
+<td><strong>Strategy</strong></td>
+<td>Fixed-size with overlap (simple, works well)</td>
+</tr>
+<tr>
+<td><strong>When to upgrade</strong></td>
+<td>If relevancy metrics are poor → try semantic chunking</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="connections">🔗 Connections<a class="headerlink" href="#connections" title="Permanent link">#</a></h2>
+<ul>
+<li>← Stored in: <a href="../03-vector-databases/">Vector Databases</a></li>
+<li>→ Next: <a href="06-chunking-lab.md">Chunking Lab</a> (hands-on)</li>
+<li>→ Advanced: <a href="../07-advanced-chunking/">Advanced Chunking</a> (semantic, LLM-based)</li>
+<li>Related: <a href="../../module-2-ir-search-foundations/07-embedding-model-deepdive/">Embedding Models</a> (what creates the vectors)</li>
+</ul>
 
 
 
@@ -7286,44 +7479,6 @@
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-          
-          <a href="../01-module-introduction/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 01 · Module Introduction">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                01 · Module Introduction
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../03-metadata-filtering/" class="md-footer__link md-footer__link--next" aria-label="Next: 03 · Metadata Filtering">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                03 · Metadata Filtering
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">

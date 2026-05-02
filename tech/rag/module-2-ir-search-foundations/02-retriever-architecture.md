@@ -9,19 +9,7 @@
 
 ## 🖼️ End-to-End Retriever Flow
 
-```mermaid
-graph TD
-    P[User Prompt] --> R[Retriever]
-    R --> K[Keyword Search\nExact terms]
-    R --> S[Semantic Search\nMeaning similarity]
-    K --> KF[Metadata Filter]
-    S --> SF[Metadata Filter]
-    KF --> F[Fusion / Final Ranking]
-    SF --> F
-    F --> T[Top Documents]
-    T --> A[Augmented Prompt]
-    A --> L[LLM Response]
-```
+![Retriever Architecture Flow](assets/02-retriever-architecture-flow.svg)
 
 > 💡 **Retriever ka funda:** ek hi search pe भरोसा mat karo — "exact words" bhi chahiye, "same meaning" bhi chahiye, aur "right audience" filter bhi chahiye.
 

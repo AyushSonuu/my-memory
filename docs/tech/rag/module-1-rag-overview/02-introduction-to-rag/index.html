@@ -7324,16 +7324,7 @@
 </blockquote>
 <hr />
 <h2 id="the-three-rag-components">🧱 The Three RAG Components<a class="headerlink" href="#the-three-rag-components" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph TB
-    USER["👤 User Prompt"] --&gt; RET["🔍 Retriever"]
-    RET --&gt;|"searches"| KB["📚 Knowledge Base&lt;br/&gt;(trusted, relevant,&lt;br/&gt;possibly private info)"]
-    KB --&gt;|"returns relevant docs"| RET
-    RET --&gt;|"augmented prompt"| LLM["🧠 LLM"]
-    LLM --&gt; RESP["✅ Response"]
-
-    style RET fill:#2196f3,color:#fff
-    style KB fill:#9c27b0,color:#fff
-    style LLM fill:#4caf50,color:#fff</code></pre>
+<p><img alt="RAG System Overview" src="../assets/02-rag-system-overview.svg" /></p>
 <table>
 <thead>
 <tr>

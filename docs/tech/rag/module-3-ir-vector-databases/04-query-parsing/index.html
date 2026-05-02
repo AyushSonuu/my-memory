@@ -12,13 +12,9 @@
         <meta name="author" content="Ayush Sonu">
       
       
-        <link rel="canonical" href="https://ayushsonuu.github.io/my-memory/tech/rag/module-2-ir-search-foundations/02-retriever-architecture/">
+        <link rel="canonical" href="https://ayushsonuu.github.io/my-memory/tech/rag/module-3-ir-vector-databases/04-query-parsing/">
       
       
-        <link rel="prev" href="../01-module-introduction/">
-      
-      
-        <link rel="next" href="../03-metadata-filtering/">
       
       
         
@@ -29,7 +25,7 @@
     
     
       
-        <title>02 · Retriever Architecture - 🧠 My Memory</title>
+        <title>Lesson 04: Query Parsing — Rewriting, NER & HyDE - 🧠 My Memory</title>
       
     
     
@@ -82,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#02-retriever-architecture-overview" class="md-skip">
+        <a href="#lesson-04-query-parsing-rewriting-ner-hyde" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              02 · Retriever Architecture
+              Lesson 04: Query Parsing — Rewriting, NER &amp; HyDE
             
           </span>
         </div>
@@ -316,12 +312,10 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../../" class="md-tabs__link">
           
   
@@ -5055,8 +5049,6 @@
       
   
   
-    
-  
   
   
     
@@ -5082,17 +5074,14 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -5114,13 +5103,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -5450,8 +5439,6 @@
                 
   
   
-    
-  
   
   
     
@@ -5488,15 +5475,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../module-2-ir-search-foundations/" class="md-nav__link ">
               
   
   
@@ -5520,7 +5507,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -5540,7 +5527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-module-introduction/" class="md-nav__link">
+      <a href="../../module-2-ir-search-foundations/01-module-introduction/" class="md-nav__link">
         
   
   
@@ -5565,37 +5552,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    02 · Retriever Architecture
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../module-2-ir-search-foundations/02-retriever-architecture/" class="md-nav__link">
         
   
   
@@ -5611,92 +5571,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#one-line" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🎯 One Line
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#end-to-end-retriever-flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🖼️ End-to-End Retriever Flow
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#core-components" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🧱 Core Components
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-happens-in-practice" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ⚙️ What Happens in Practice
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-is-called-hybrid-search" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ✅ Why This Is Called Hybrid Search
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gotchas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ⚠️ Gotchas
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -5709,7 +5583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-metadata-filtering/" class="md-nav__link">
+      <a href="../../module-2-ir-search-foundations/03-metadata-filtering/" class="md-nav__link">
         
   
   
@@ -5737,7 +5611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-keyword-search-tfidf/" class="md-nav__link">
+      <a href="../../module-2-ir-search-foundations/04-keyword-search-tfidf/" class="md-nav__link">
         
   
   
@@ -5765,7 +5639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../05-keyword-search-bm25/" class="md-nav__link">
+      <a href="../../module-2-ir-search-foundations/05-keyword-search-bm25/" class="md-nav__link">
         
   
   
@@ -5793,7 +5667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../06-semantic-search-embeddings/" class="md-nav__link">
+      <a href="../../module-2-ir-search-foundations/06-semantic-search-embeddings/" class="md-nav__link">
         
   
   
@@ -5821,7 +5695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../07-embedding-model-deepdive/" class="md-nav__link">
+      <a href="../../module-2-ir-search-foundations/07-embedding-model-deepdive/" class="md-nav__link">
         
   
   
@@ -5849,7 +5723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../08-hybrid-search/" class="md-nav__link">
+      <a href="../../module-2-ir-search-foundations/08-hybrid-search/" class="md-nav__link">
         
   
   
@@ -5877,7 +5751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../10-evaluating-retrieval/" class="md-nav__link">
+      <a href="../../module-2-ir-search-foundations/10-evaluating-retrieval/" class="md-nav__link">
         
   
   
@@ -5905,7 +5779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../flashcards/" class="md-nav__link">
+      <a href="../../module-2-ir-search-foundations/flashcards/" class="md-nav__link">
         
   
   
@@ -5970,7 +5844,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../module-3-ir-vector-databases/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -6014,7 +5888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module-3-ir-vector-databases/01-module-introduction/" class="md-nav__link">
+      <a href="../01-module-introduction/" class="md-nav__link">
         
   
   
@@ -6042,7 +5916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module-3-ir-vector-databases/02-ann-knn-nsw-hnsw/" class="md-nav__link">
+      <a href="../02-ann-knn-nsw-hnsw/" class="md-nav__link">
         
   
   
@@ -6070,7 +5944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module-3-ir-vector-databases/03-vector-databases/" class="md-nav__link">
+      <a href="../03-vector-databases/" class="md-nav__link">
         
   
   
@@ -6098,7 +5972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module-3-ir-vector-databases/flashcards/" class="md-nav__link">
+      <a href="../flashcards/" class="md-nav__link">
         
   
   
@@ -7098,10 +6972,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#one-line" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🎯 One Line
+        📌 Overview
       
     </span>
   </a>
@@ -7109,10 +6983,166 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#end-to-end-retriever-flow" class="md-nav__link">
+  <a href="#key-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🖼️ End-to-End Retriever Flow
+        🎯 Key Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Key Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-the-problem-messy-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. The Problem: Messy Prompts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-llm-query-rewriting-essential-technique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. LLM Query Rewriting (Essential Technique)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. LLM Query Rewriting (Essential Technique)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-prompt-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Prompt Template
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#before-vs-after" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before vs After
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-named-entity-recognition-ner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Named Entity Recognition (NER)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Named Entity Recognition (NER)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-hyde-hypothetical-document-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. HyDE — Hypothetical Document Embeddings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. HyDE — Hypothetical Document Embeddings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why It Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tradeoffs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tradeoffs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-decision-framework-which-technique-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Decision Framework — Which Technique to Use
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Visual Summary
       
     </span>
   </a>
@@ -7120,10 +7150,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#core-components" class="md-nav__link">
+  <a href="#key-takeaways" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🧱 Core Components
+        🧠 Key Takeaways
       
     </span>
   </a>
@@ -7131,32 +7161,115 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-happens-in-practice" class="md-nav__link">
+  <a href="#flashcards" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ⚙️ What Happens in Practice
+        🃏 Flashcards
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🃏 Flashcards">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#card-01-why-query-parsing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 01: Why Query Parsing?
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#why-this-is-called-hybrid-search" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#card-02-query-rewriting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ✅ Why This Is Called Hybrid Search
+        Card 02: Query Rewriting
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#gotchas" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#card-03-query-rewriter-prompt-design" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ⚠️ Gotchas
+        Card 03: Query Rewriter Prompt Design
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-04-named-entity-recognition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 04: Named Entity Recognition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-05-hyde-concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 05: HyDE Concept
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-06-hyde-tradeoffs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 06: HyDE Tradeoffs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-07-decision-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 07: Decision Framework
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#card-08-apples-to-apples-analogy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Card 08: Apples to Apples Analogy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔗 Related Topics
       
     </span>
   </a>
@@ -7180,80 +7293,289 @@
 
 
 
-<h1 id="02-retriever-architecture-overview">02 · Retriever Architecture Overview 🧩<a class="headerlink" href="#02-retriever-architecture-overview" title="Permanent link">#</a></h1>
+<h1 id="lesson-04-query-parsing-rewriting-ner-hyde">Lesson 04: Query Parsing — Rewriting, NER &amp; HyDE<a class="headerlink" href="#lesson-04-query-parsing-rewriting-ner-hyde" title="Permanent link">#</a></h1>
+<h2 id="overview">📌 Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
+<p>Human-written prompts make <strong>terrible search queries</strong> — they're chatty, ambiguous, and lack domain terminology. Production retrievers <strong>parse and transform</strong> queries before searching. Three techniques: <strong>LLM Query Rewriting</strong> (essential, always use), <strong>Named Entity Recognition</strong> (targeted filtering), and <strong>HyDE</strong> (hypothetical document matching for better recall).</p>
 <hr />
-<h2 id="one-line">🎯 One Line<a class="headerlink" href="#one-line" title="Permanent link">#</a></h2>
-<blockquote>
-<p>A high-performing retriever is a hybrid pipeline: keyword search + semantic search + metadata filtering + rank fusion, then top documents go to the LLM.</p>
-</blockquote>
-<hr />
-<h2 id="end-to-end-retriever-flow">🖼️ End-to-End Retriever Flow<a class="headerlink" href="#end-to-end-retriever-flow" title="Permanent link">#</a></h2>
-<p><img alt="Retriever Architecture Flow" src="../assets/02-retriever-architecture-flow.svg" /></p>
-<blockquote>
-<p>💡 <strong>Retriever ka funda:</strong> ek hi search pe भरोसा mat karo — "exact words" bhi chahiye, "same meaning" bhi chahiye, aur "right audience" filter bhi chahiye.</p>
-</blockquote>
-<hr />
-<h2 id="core-components">🧱 Core Components<a class="headerlink" href="#core-components" title="Permanent link">#</a></h2>
+<h2 id="key-concepts">🎯 Key Concepts<a class="headerlink" href="#key-concepts" title="Permanent link">#</a></h2>
+<h3 id="1-the-problem-messy-prompts">1. The Problem: Messy Prompts<a class="headerlink" href="#1-the-problem-messy-prompts" title="Permanent link">#</a></h3>
+<p>Users interact with RAG systems conversationally, but retrievers need optimized search queries:</p>
 <table>
 <thead>
 <tr>
-<th>Component</th>
-<th>What it does</th>
-<th>Why it matters</th>
+<th>User Prompt Style</th>
+<th>Problem for Retrieval</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Keyword Search</strong></td>
-<td>Finds documents containing exact prompt words</td>
-<td>Preserves precise term matching (time-tested IR behavior)</td>
+<td>Casual language ("pins and needles")</td>
+<td>Won't match medical terminology in docs</td>
 </tr>
 <tr>
-<td><strong>Semantic Search</strong></td>
-<td>Finds documents with similar meaning</td>
-<td>Recovers relevant docs even when wording differs</td>
+<td>Irrelevant details (dog name, breed)</td>
+<td>Dilutes search signal</td>
 </tr>
 <tr>
-<td><strong>Metadata Filtering</strong></td>
-<td>Keeps only docs matching strict metadata rules (team, region, role, etc.)</td>
-<td>Enforces hard business constraints</td>
+<td>Missing domain terms</td>
+<td>Can't find relevant documents</td>
 </tr>
 <tr>
-<td><strong>Fusion / Re-ranking</strong></td>
-<td>Combines keyword + semantic result lists into one final ranking</td>
-<td>Balances precision and recall from both search styles</td>
+<td>Ambiguous phrasing</td>
+<td>Retriever doesn't know true intent</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="what-happens-in-practice">⚙️ What Happens in Practice<a class="headerlink" href="#what-happens-in-practice" title="Permanent link">#</a></h2>
+<h3 id="2-llm-query-rewriting-essential-technique">2. LLM Query Rewriting (Essential Technique)<a class="headerlink" href="#2-llm-query-rewriting-essential-technique" title="Permanent link">#</a></h3>
+<p><strong>The most widely used and most impactful technique.</strong> Simple: add an LLM call before retrieval.</p>
+<p><img alt="Query Rewriting Pipeline" src="../assets/04-query-rewriting-pipeline.svg" /></p>
+<h4 id="system-prompt-template">System Prompt Template<a class="headerlink" href="#system-prompt-template" title="Permanent link">#</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>The following prompt was submitted by a user to query a database of 
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>{DOMAIN} documents. Rewrite the prompt to optimize it for search by:
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>- Clarifying ambiguous phrases
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>- Using {DOMAIN} terminology where applicable
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>- Adding synonyms that increase matching odds
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>- Removing unnecessary or distracting information
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>User prompt: {USER_PROMPT}
+</span></code></pre></div>
+<h4 id="before-vs-after">Before vs After<a class="headerlink" href="#before-vs-after" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Original</th>
+<th>Rewritten</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Content</strong></td>
+<td>Walking dog, Poppy yanked leash, shoulder numb, pins and needles</td>
+<td>Sudden forceful shoulder pull, persistent numbness, finger tingling</td>
+</tr>
+<tr>
+<td><strong>Terminology</strong></td>
+<td>Casual</td>
+<td>Medical (neuropathy, nerve impingement)</td>
+</tr>
+<tr>
+<td><strong>Noise</strong></td>
+<td>Dog name, breed, 3 days later narrative</td>
+<td>Just symptoms + mechanism of injury</td>
+</tr>
+<tr>
+<td><strong>Synonyms</strong></td>
+<td>None</td>
+<td>Added (neuropathy, nerve impingement)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>Almost every production RAG system uses query rewriting.</strong> Benefits easily justify the cost of one LLM call. Iterate on your rewriter prompt!</p>
+</blockquote>
+<hr />
+<h3 id="3-named-entity-recognition-ner">3. Named Entity Recognition (NER)<a class="headerlink" href="#3-named-entity-recognition-ner" title="Permanent link">#</a></h3>
+<p>Identifies <strong>categories of information</strong> in the query → enables targeted filtering and search.</p>
+<p><img alt="NER Entity Extraction with GLiNER" src="../assets/04-ner-entity-extraction.svg" /></p>
+<h4 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">#</a></h4>
 <ol>
-<li>Prompt arrives at retriever.</li>
-<li>Retriever runs <strong>keyword</strong> and <strong>semantic</strong> searches in parallel.</li>
-<li>Each search returns a candidate set (often around 20–50 docs).</li>
-<li>Apply metadata filtering to both candidate sets.</li>
-<li>Merge filtered sets and produce one final rank.</li>
-<li>Return top-ranked docs to build augmented prompt.</li>
+<li>User submits a query</li>
+<li>NER model (e.g., <strong>GLiNER</strong>) extracts labeled entities</li>
+<li>Entities inform metadata filtering and/or search refinement</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Entity Type</th>
+<th>Example</th>
+<th>Use in RAG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>📖 Book</td>
+<td>"The Great Gatsby"</td>
+<td>Filter to book-related docs</td>
+</tr>
+<tr>
+<td>👤 Person</td>
+<td>"F. Scott Fitzgerald"</td>
+<td>Author metadata filter</td>
+</tr>
+<tr>
+<td>📍 Location</td>
+<td>"New York"</td>
+<td>Geographic metadata filter</td>
+</tr>
+<tr>
+<td>📅 Date</td>
+<td>"1920s"</td>
+<td>Temporal metadata filter</td>
+</tr>
+</tbody>
+</table>
+<p><strong>GLiNER</strong> = general NER model. You provide text + entity types → it returns labeled entities. Fast and efficient enough to run on every query.</p>
+<blockquote>
+<p>NER outputs feed directly into <strong>metadata filtering</strong> — converting vague queries into structured search criteria! 🎯</p>
+</blockquote>
+<hr />
+<h3 id="4-hyde-hypothetical-document-embeddings">4. HyDE — Hypothetical Document Embeddings<a class="headerlink" href="#4-hyde-hypothetical-document-embeddings" title="Permanent link">#</a></h3>
+<p><strong>Idea:</strong> Instead of matching query→document (apples to oranges), generate a hypothetical "perfect answer" document, embed THAT, and search document→document (apples to apples).</p>
+<p><img alt="HyDE: Hypothetical Document Embeddings" src="../assets/04-hyde-hypothetical-document-embeddings.svg" /></p>
+<h4 id="pipeline">Pipeline<a class="headerlink" href="#pipeline" title="Permanent link">#</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>User prompt → LLM generates hypothetical &quot;ideal answer&quot; document
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>           → Embed the hypothetical document
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>           → Use THAT embedding for vector search
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>           → Find real documents closest to hypothetical
+</span></code></pre></div>
+<h4 id="why-it-works">Why It Works<a class="headerlink" href="#why-it-works" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Normal Search</th>
+<th style="text-align: center;">HyDE Search</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Question vector ↔ Document vectors</td>
+<td style="text-align: center;">Hypothetical Doc vector ↔ Document vectors</td>
+</tr>
+<tr>
+<td style="text-align: center;">Apples to oranges 🍎🍊</td>
+<td style="text-align: center;">Apples to apples 🍎🍎</td>
+</tr>
+<tr>
+<td style="text-align: center;">Cross-type matching (harder)</td>
+<td style="text-align: center;">Same-type matching (easier for embeddings)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="tradeoffs">Tradeoffs<a class="headerlink" href="#tradeoffs" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>✅ Benefit</th>
+<th>⚠️ Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Better retrieval quality</td>
+<td>Added latency (LLM generation step)</td>
+</tr>
+<tr>
+<td>More semantically rich search vector</td>
+<td>Added cost (LLM call per query)</td>
+</tr>
+<tr>
+<td>Helps bridge query-document gap</td>
+<td>Hypothetical doc may hallucinate</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="5-decision-framework-which-technique-to-use">5. Decision Framework — Which Technique to Use<a class="headerlink" href="#5-decision-framework-which-technique-to-use" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>When to Use</th>
+<th style="text-align: center;">Cost</th>
+<th style="text-align: center;">Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Query Rewriting</strong></td>
+<td><strong>ALWAYS</strong> — default for every RAG system</td>
+<td style="text-align: center;">1 LLM call</td>
+<td style="text-align: center;">🟢 High</td>
+</tr>
+<tr>
+<td><strong>NER</strong></td>
+<td>When queries contain structured info (names, dates, places)</td>
+<td style="text-align: center;">Fast model inference</td>
+<td style="text-align: center;">🟡 Medium</td>
+</tr>
+<tr>
+<td><strong>HyDE</strong></td>
+<td>When retrieval quality is critical and latency is acceptable</td>
+<td style="text-align: center;">1 LLM call (generation)</td>
+<td style="text-align: center;">🟡 Medium</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Instructor's advice: <strong>Start with query rewriting. Always.</strong> Advanced techniques (NER, HyDE) — experiment and let results decide. Don't over-engineer. 🧪</p>
+</blockquote>
+<hr />
+<h2 id="visual-summary">📊 Visual Summary<a class="headerlink" href="#visual-summary" title="Permanent link">#</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>                QUERY PARSING TECHNIQUES
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    ┌─────────────────────────────────────────────┐
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    │  1. QUERY REWRITING (always use!)           │
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    │     Messy prompt → LLM → Clean query        │
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    │     Cost: 1 LLM call | Impact: HIGH         │
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    ├─────────────────────────────────────────────┤
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    │  2. NAMED ENTITY RECOGNITION (optional)     │
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    │     Query → GLiNER → Labeled entities       │
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    │     Use: Metadata filtering                 │
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    │     Cost: Fast model | Impact: MEDIUM       │
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    ├─────────────────────────────────────────────┤
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    │  3. HyDE (optional, advanced)               │
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    │     Query → LLM → Hypothetical doc → Embed  │
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    │     Use: Doc-to-doc matching                │
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    │     Cost: 1 LLM call | Impact: MEDIUM       │
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>    └─────────────────────────────────────────────┘
+</span></code></pre></div>
+<hr />
+<h2 id="key-takeaways">🧠 Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">#</a></h2>
+<ol>
+<li><strong>Human prompts ≠ good search queries</strong> — always parse/transform before retrieval</li>
+<li><strong>Query rewriting = #1 priority</strong> — simple LLM call, massive quality improvement, always justify the cost</li>
+<li><strong>NER extracts structured info</strong> — feeds metadata filters (dates, names, locations)</li>
+<li><strong>HyDE turns questions into answers</strong> — embed hypothetical doc for apples-to-apples matching</li>
+<li><strong>Start simple, add complexity only if results improve</strong> — don't over-engineer</li>
 </ol>
 <hr />
-<h2 id="why-this-is-called-hybrid-search">✅ Why This Is Called Hybrid Search<a class="headerlink" href="#why-this-is-called-hybrid-search" title="Permanent link">#</a></h2>
-<p>Hybrid search combines multiple retrieval signals:
-- <strong>Exact-word sensitivity</strong> (keyword)
-- <strong>Meaning-level flexibility</strong> (semantic)
-- <strong>Rule-based control</strong> (metadata)</p>
-<p>Design quality comes from tuning the balance between these signals for your project goals.</p>
+<h2 id="flashcards">🃏 Flashcards<a class="headerlink" href="#flashcards" title="Permanent link">#</a></h2>
+<h3 id="card-01-why-query-parsing">Card 01: Why Query Parsing?<a class="headerlink" href="#card-01-why-query-parsing" title="Permanent link">#</a></h3>
+<p><strong>Q:</strong> Why can't you directly use user prompts as search queries in a RAG retriever?
+<strong>A:</strong> Users write conversationally — prompts contain irrelevant details, casual language, missing domain terminology, and ambiguity. Retrievers need focused, keyword/semantic-rich queries to find relevant documents. Query parsing bridges this gap.</p>
+<h3 id="card-02-query-rewriting">Card 02: Query Rewriting<a class="headerlink" href="#card-02-query-rewriting" title="Permanent link">#</a></h3>
+<p><strong>Q:</strong> What is LLM query rewriting and why is it the #1 recommended technique?
+<strong>A:</strong> An LLM rewrites the user's messy prompt into an optimized search query — removing noise, adding domain terminology, clarifying ambiguity, and inserting synonyms. Recommended because: substantial quality improvement, easy to implement (one LLM call), and cost easily justified by better retrieval.</p>
+<h3 id="card-03-query-rewriter-prompt-design">Card 03: Query Rewriter Prompt Design<a class="headerlink" href="#card-03-query-rewriter-prompt-design" title="Permanent link">#</a></h3>
+<p><strong>Q:</strong> What instructions should a query rewriter LLM prompt include?
+<strong>A:</strong> 1) Clarify ambiguous phrases, 2) Use domain-specific terminology, 3) Add synonyms for better matching, 4) Remove unnecessary/distracting information. Also specify the domain context (medical, legal, etc.) so the LLM uses appropriate vocabulary.</p>
+<h3 id="card-04-named-entity-recognition">Card 04: Named Entity Recognition<a class="headerlink" href="#card-04-named-entity-recognition" title="Permanent link">#</a></h3>
+<p><strong>Q:</strong> How does NER improve RAG retrieval, and what model is commonly used?
+<strong>A:</strong> NER (e.g., <strong>GLiNER</strong>) identifies categorized entities in queries (people, dates, locations, books). These entities feed directly into <strong>metadata filtering</strong> — converting vague text into structured search criteria. Fast enough to run on every query with minimal added latency.</p>
+<h3 id="card-05-hyde-concept">Card 05: HyDE Concept<a class="headerlink" href="#card-05-hyde-concept" title="Permanent link">#</a></h3>
+<p><strong>Q:</strong> What is HyDE (Hypothetical Document Embeddings) and why does it work?
+<strong>A:</strong> HyDE uses an LLM to generate a hypothetical "perfect answer" document, then embeds THAT document (not the query) for vector search. It works because normally retrievers match questions↔documents (dissimilar types), but HyDE matches documents↔documents (similar types) — easier for embedding models.</p>
+<h3 id="card-06-hyde-tradeoffs">Card 06: HyDE Tradeoffs<a class="headerlink" href="#card-06-hyde-tradeoffs" title="Permanent link">#</a></h3>
+<p><strong>Q:</strong> What are HyDE's benefits and costs?
+<strong>A:</strong> ✅ Better retrieval quality (document-to-document matching). ⚠️ Added latency (must generate hypothetical doc before search). ⚠️ Added cost (LLM call per query). ⚠️ Hypothetical doc may contain hallucinations. Use when retrieval quality &gt; speed.</p>
+<h3 id="card-07-decision-framework">Card 07: Decision Framework<a class="headerlink" href="#card-07-decision-framework" title="Permanent link">#</a></h3>
+<p><strong>Q:</strong> In what order should you adopt query parsing techniques for a production RAG system?
+<strong>A:</strong> 1) <strong>Query rewriting — ALWAYS</strong> (default, high impact, low complexity). 2) NER — if queries contain structured info (names/dates/places) that maps to metadata. 3) HyDE — if retrieval quality is critical and latency budget allows. Start simple, measure results, add complexity only when justified.</p>
+<h3 id="card-08-apples-to-apples-analogy">Card 08: Apples to Apples Analogy<a class="headerlink" href="#card-08-apples-to-apples-analogy" title="Permanent link">#</a></h3>
+<p><strong>Q:</strong> Explain the "apples to apples" vs "apples to oranges" analogy for HyDE.
+<strong>A:</strong> Normal retrieval: embed a <strong>question</strong> and compare to <strong>documents</strong> = comparing different text types (apples to oranges). HyDE: embed a <strong>hypothetical document</strong> and compare to <strong>real documents</strong> = comparing same text types (apples to apples). Embedding models are better at measuring similarity within the same text type.</p>
 <hr />
-<h2 id="gotchas">⚠️ Gotchas<a class="headerlink" href="#gotchas" title="Permanent link">#</a></h2>
+<h2 id="related-topics">🔗 Related Topics<a class="headerlink" href="#related-topics" title="Permanent link">#</a></h2>
 <ul>
-<li>Using only keyword search misses paraphrased but relevant documents.</li>
-<li>Using only semantic search can miss exact-term intent.</li>
-<li>Skipping metadata filtering can leak irrelevant department/domain docs.</li>
-<li>Poor fusion tuning can over-favor one signal and hurt retrieval quality.</li>
+<li><strong>03-vector-databases.md</strong> — Previous: Where these optimized queries get sent</li>
+<li><strong>Module 2 / 08-hybrid-search.md</strong> — Hybrid pipeline that receives the parsed query</li>
+<li><strong>Module 2 / 03-metadata-filtering.md</strong> — NER outputs feed metadata filters</li>
+<li><strong>05-chunking.md</strong> — Next: How documents are prepared before indexing</li>
 </ul>
 <hr />
-<blockquote>
-<p><strong>Next →</strong> <a href="../03-metadata-filtering/">Metadata Filtering</a></p>
-</blockquote>
+<p><strong>Status:</strong> 🟢 Complete | <strong>Last Revised:</strong> 2026-05-03 | <strong>Confidence:</strong> 🟢 Solid</p>
 
 
 
@@ -7286,44 +7608,6 @@
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-          
-          <a href="../01-module-introduction/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 01 · Module Introduction">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                01 · Module Introduction
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../03-metadata-filtering/" class="md-footer__link md-footer__link--next" aria-label="Next: 03 · Metadata Filtering">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                03 · Metadata Filtering
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">

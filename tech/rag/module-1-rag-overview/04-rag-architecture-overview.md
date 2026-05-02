@@ -9,31 +9,7 @@
 
 ## 🖼️ Normal LLM vs RAG System
 
-```mermaid
-graph LR
-    subgraph NORMAL["Normal LLM Use"]
-        direction LR
-        P1["📝 Prompt"] --> LLM1["🧠 LLM"] --> R1["💬 Response"]
-    end
-
-    subgraph RAG["RAG System"]
-        direction LR
-        P2["📝 Prompt"] --> RET["🔍 Retriever"]
-        RET -->|"queries"| KB["📚 Knowledge Base"]
-        KB -->|"relevant docs"| RET
-        RET --> AUG["📝 Augmented<br/>Prompt"]
-        AUG --> LLM2["🧠 LLM"]
-        LLM2 --> R2["💬 Response"]
-    end
-
-    style RET fill:#2196f3,color:#fff
-    style KB fill:#9c27b0,color:#fff
-    style LLM1 fill:#4caf50,color:#fff
-    style LLM2 fill:#4caf50,color:#fff
-    style AUG fill:#ff9800,color:#fff
-```
-
-> User sees no difference. The retriever works behind the scenes.
+![Normal LLM vs RAG System](assets/04-normal-vs-rag.svg)
 
 ---
 
@@ -67,22 +43,7 @@ Just the **original question + retrieved context** in one prompt. That's it.
 
 ## 🏆 5 Advantages of RAG
 
-```mermaid
-graph TB
-    RAG(("🔍 RAG<br/>Advantages"))
-    RAG --> A1["💉 Injects Missing Knowledge"]
-    RAG --> A2["🛡️ Reduces Hallucinations"]
-    RAG --> A3["🔄 Easy to Keep Up-to-Date"]
-    RAG --> A4["📎 Enables Source Citations"]
-    RAG --> A5["🎯 Focuses LLM on Generation"]
-
-    style RAG fill:#ff9800,color:#fff
-    style A1 fill:#2196f3,color:#fff
-    style A2 fill:#4caf50,color:#fff
-    style A3 fill:#00bcd4,color:#fff
-    style A4 fill:#9c27b0,color:#fff
-    style A5 fill:#f44336,color:#fff
-```
+![5 Advantages of RAG](assets/04-rag-advantages.svg)
 
 | # | Advantage | Why It Matters |
 |---|-----------|----------------|

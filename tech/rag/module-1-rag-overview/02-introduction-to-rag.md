@@ -73,18 +73,7 @@ graph LR
 
 ## 🧱 The Three RAG Components
 
-```mermaid
-graph TB
-    USER["👤 User Prompt"] --> RET["🔍 Retriever"]
-    RET -->|"searches"| KB["📚 Knowledge Base<br/>(trusted, relevant,<br/>possibly private info)"]
-    KB -->|"returns relevant docs"| RET
-    RET -->|"augmented prompt"| LLM["🧠 LLM"]
-    LLM --> RESP["✅ Response"]
-
-    style RET fill:#2196f3,color:#fff
-    style KB fill:#9c27b0,color:#fff
-    style LLM fill:#4caf50,color:#fff
-```
+![RAG System Overview](assets/02-rag-system-overview.svg)
 
 | Component | Role |
 |-----------|------|

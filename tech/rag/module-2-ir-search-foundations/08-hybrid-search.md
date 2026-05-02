@@ -59,6 +59,8 @@ flowchart TD
 
 ## Reciprocal Rank Fusion (RRF)
 
+![Reciprocal Rank Fusion](assets/08-hybrid-search-rrf.svg)
+
 **Formula:**
 
 $$
