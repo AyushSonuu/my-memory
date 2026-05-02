@@ -10,26 +10,7 @@
 
 ## 🖼️ Vibe Coding vs Spec-Driven Development
 
-```mermaid
-graph LR
-    subgraph VIBE["🎲 Vibe Coding"]
-        VP["Vague prompt"] --> AR["Agent tries"] --> LOOK["Look at result"]
-        LOOK -->|"not quite right"| FIX["Point out mistakes"]
-        FIX --> AR
-    end
-
-    subgraph SDD["📋 Spec-Driven Development"]
-        SP["Clear spec<br/>(what + why)"] --> AI["Agent implements<br/>(how)"] --> REV["Review & validate"]
-    end
-
-    VIBE -.->|"produces"| SLOP["💀 Disposable code<br/>+ tech debt<br/>+ lost history"]
-    SDD -.->|"produces"| ENG["✅ Engineered product<br/>+ permanent artifact<br/>+ contract"]
-
-    style VIBE fill:#f44336,color:#fff
-    style SDD fill:#4caf50,color:#fff
-    style SLOP fill:#ff9800,color:#fff
-    style ENG fill:#2196f3,color:#fff
-```
+![Vibe vs SDD](_assets/02-vibe-vs-sdd.svg)
 
 > 💡 *Vibe coding = "bana de kuch" aur phir "yeh nahi, woh kar." SDD = pehle soch, phir bol — ek baar mein sahi!* 😂
 

@@ -10,26 +10,7 @@
 
 ## 🖼️ The Big Picture
 
-```mermaid
-graph TB
-    subgraph YOU["👤 You (The Thinker)"]
-        THINK["Decide: product,<br>features, architecture"]
-        SPEC["Write Markdown Spec"]
-    end
-    
-    subgraph AGENT["🤖 Coding Agent"]
-        READ["Read Spec"]
-        CODE["Generate Code<br>(hundreds of lines)"]
-    end
-    
-    THINK --> SPEC
-    SPEC -->|"feed"| READ
-    READ --> CODE
-    
-    style THINK fill:#ff9800,color:#fff
-    style SPEC fill:#4caf50,color:#fff
-    style CODE fill:#2196f3,color:#fff
-```
+![SDD Big Picture](_assets/01-big-picture.svg)
 
 > 💡 *Tere paas context hai, agent ke paas speed. Dono milke kaam karo — tu soch, woh type kare!* 😎
 

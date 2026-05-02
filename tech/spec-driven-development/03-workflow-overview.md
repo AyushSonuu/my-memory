@@ -10,31 +10,7 @@
 
 ## 🖼️ The Full SDD Workflow
 
-```mermaid
-graph TB
-    subgraph CONST["📜 Constitution (One-time, then evolving)"]
-        M["🎯 Mission<br/>Vision, audience, scope"]
-        TS["🛠️ Tech Stack<br/>Dev & deploy technologies"]
-        RM["🗺️ Roadmap<br/>Sequence of phases"]
-    end
-
-    CONST --> FL1
-
-    subgraph FL1["🔁 Feature Loop"]
-        P["📝 Plan"] --> I["⚙️ Implement"] --> V["✅ Validate"]
-    end
-
-    FL1 --> RP["🔄 Replan<br/>Revise constitution,<br/>update roadmap,<br/>improve process"]
-
-    RP --> FL2["🔁 Next Feature Loop<br/>Plan → Implement → Validate"]
-    FL2 --> RP2["🔄 Replan again..."]
-
-    style CONST fill:#e91e63,color:#fff
-    style FL1 fill:#4caf50,color:#fff
-    style RP fill:#ff9800,color:#fff
-    style FL2 fill:#4caf50,color:#fff
-    style RP2 fill:#ff9800,color:#fff
-```
+![SDD Workflow](_assets/03-sdd-workflow.svg)
 
 > 💡 *Constitution ek baar banao, phir feature-by-feature build karo. Har loop ke baad sudhar karo — yeh hai SDD ka chakra!* 🔄
 

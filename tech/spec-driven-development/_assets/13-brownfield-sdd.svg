@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420">
+  <defs>
+    <linearGradient id="legacyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#795548"/>
+      <stop offset="100%" style="stop-color:#5d4037"/>
+    </linearGradient>
+    <linearGradient id="agentExploreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#f57c00"/>
+    </linearGradient>
+    <linearGradient id="constNewGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#388e3c"/>
+    </linearGradient>
+    <linearGradient id="sameWorkflowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196f3"/>
+      <stop offset="100%" style="stop-color:#1976d2"/>
+    </linearGradient>
+    <filter id="shadowBf">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="420" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="400" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Brownfield SDD: Legacy Projects Get Specs Too</text>
+
+  <!-- LEGACY PROJECT (Left) -->
+  <g transform="translate(30, 60)">
+    <rect x="0" y="0" width="180" height="200" rx="12" fill="#161b22" stroke="#795548" stroke-width="2" filter="url(#shadowBf)"/>
+    <rect x="0" y="0" width="180" height="35" rx="12" fill="url(#legacyGrad)"/>
+    <text x="90" y="24" fill="#fff" font-family="Inter, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">🏭 EXISTING PROJECT</text>
+
+    <g transform="translate(15, 50)">
+      <rect x="0" y="0" width="150" height="28" rx="4" fill="#21262d"/>
+      <text x="75" y="18" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">📂 Existing codebase</text>
+    </g>
+    <g transform="translate(15, 85)">
+      <rect x="0" y="0" width="150" height="28" rx="4" fill="#21262d"/>
+      <text x="75" y="18" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">📄 README.md</text>
+    </g>
+    <g transform="translate(15, 120)">
+      <rect x="0" y="0" width="150" height="28" rx="4" fill="#21262d"/>
+      <text x="75" y="18" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">📋 TODO / Issues / Docs</text>
+    </g>
+    <g transform="translate(15, 155)">
+      <rect x="0" y="0" width="150" height="28" rx="4" fill="#21262d"/>
+      <text x="75" y="18" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">📜 Git history</text>
+    </g>
+  </g>
+
+  <!-- Arrow: Legacy to Agent -->
+  <g transform="translate(215, 155)">
+    <path d="M 0 0 L 55 0" stroke="#795548" stroke-width="3"/>
+    <polygon points="55,0 45,-6 45,6" fill="#795548"/>
+  </g>
+
+  <!-- AGENT EXPLORES (Center-Left) -->
+  <g transform="translate(275, 95)">
+    <rect x="0" y="0" width="160" height="130" rx="12" fill="#161b22" stroke="#ff9800" stroke-width="2" filter="url(#shadowBf)"/>
+    <rect x="0" y="0" width="160" height="35" rx="12" fill="url(#agentExploreGrad)"/>
+    <text x="80" y="24" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">🤖 AGENT EXPLORES</text>
+
+    <text x="80" y="55" fill="#ff9800" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Reverse-engineers:</text>
+    <text x="80" y="75" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">• Reads code &amp; commits</text>
+    <text x="80" y="90" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">• Parses README, TODO</text>
+    <text x="80" y="105" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">• Extracts framework info</text>
+    <text x="80" y="120" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">• Builds roadmap from issues</text>
+  </g>
+
+  <!-- Arrow: Agent to Constitution -->
+  <g transform="translate(440, 155)">
+    <path d="M 0 0 L 45 0" stroke="#ff9800" stroke-width="3"/>
+    <polygon points="45,0 35,-6 35,6" fill="#ff9800"/>
+  </g>
+
+  <!-- CONSTITUTION (Center-Right) -->
+  <g transform="translate(490, 75)">
+    <rect x="0" y="0" width="140" height="170" rx="12" fill="#161b22" stroke="#4caf50" stroke-width="3" filter="url(#shadowBf)"/>
+    <rect x="0" y="0" width="140" height="35" rx="12" fill="url(#constNewGrad)"/>
+    <text x="70" y="24" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">📜 CONSTITUTION</text>
+
+    <g transform="translate(15, 50)">
+      <rect x="0" y="0" width="110" height="32" rx="4" fill="#238636" opacity="0.3"/>
+      <text x="55" y="14" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">🎯 Mission</text>
+      <text x="55" y="26" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">from README</text>
+    </g>
+    <g transform="translate(15, 90)">
+      <rect x="0" y="0" width="110" height="32" rx="4" fill="#238636" opacity="0.3"/>
+      <text x="55" y="14" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">🛠️ Tech Stack</text>
+      <text x="55" y="26" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">from code analysis</text>
+    </g>
+    <g transform="translate(15, 130)">
+      <rect x="0" y="0" width="110" height="32" rx="4" fill="#238636" opacity="0.3"/>
+      <text x="55" y="14" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">🗺️ Roadmap</text>
+      <text x="55" y="26" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">from TODO/issues</text>
+    </g>
+  </g>
+
+  <!-- Arrow: Constitution to Same Workflow -->
+  <g transform="translate(635, 155)">
+    <path d="M 0 0 L 45 0" stroke="#4caf50" stroke-width="3"/>
+    <polygon points="45,0 35,-6 35,6" fill="#4caf50"/>
+  </g>
+
+  <!-- SAME WORKFLOW (Right) -->
+  <g transform="translate(685, 80)">
+    <rect x="0" y="0" width="95" height="160" rx="12" fill="#161b22" stroke="#2196f3" stroke-width="2" filter="url(#shadowBf)"/>
+    <rect x="0" y="0" width="95" height="35" rx="12" fill="url(#sameWorkflowGrad)"/>
+    <text x="47" y="18" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">🔁 SAME</text>
+    <text x="47" y="30" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">WORKFLOW!</text>
+
+    <text x="47" y="55" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Plan</text>
+    <text x="47" y="68" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">↓</text>
+    <text x="47" y="83" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Implement</text>
+    <text x="47" y="96" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">↓</text>
+    <text x="47" y="111" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Validate</text>
+    <text x="47" y="124" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">↓</text>
+    <text x="47" y="139" fill="#ff9800" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Replan ⭐</text>
+    <text x="47" y="152" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">(extra important)</text>
+  </g>
+
+  <!-- Bottom comparison -->
+  <g transform="translate(80, 290)">
+    <rect x="0" y="0" width="280" height="110" rx="10" fill="#21262d"/>
+    <text x="140" y="22" fill="#81c784" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">🌱 Greenfield</text>
+    <text x="140" y="45" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Constitution from conversation</text>
+    <text x="140" y="62" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">with agent (your vision)</text>
+    <line x1="20" y1="75" x2="260" y2="75" stroke="#30363d" stroke-width="1"/>
+    <text x="140" y="95" fill="#4caf50" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">→ Feature loops →</text>
+  </g>
+
+  <g transform="translate(440, 290)">
+    <rect x="0" y="0" width="280" height="110" rx="10" fill="#21262d"/>
+    <text x="140" y="22" fill="#a1887f" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">🏭 Brownfield</text>
+    <text x="140" y="45" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Constitution from reverse-</text>
+    <text x="140" y="62" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">engineering existing code</text>
+    <line x1="20" y1="75" x2="260" y2="75" stroke="#30363d" stroke-width="1"/>
+    <text x="140" y="95" fill="#4caf50" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">→ Feature loops →</text>
+  </g>
+
+  <!-- Arrow connecting bottom boxes -->
+  <path d="M 360 345 L 440 345" stroke="#4caf50" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="400" y="338" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Same!</text>
+</svg>

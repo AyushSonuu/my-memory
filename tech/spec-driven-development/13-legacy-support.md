@@ -10,28 +10,7 @@
 
 ## 🖼️ Brownfield SDD Flow
 
-```mermaid
-graph TB
-    subgraph LEGACY["🏭 Existing Project"]
-        CODE["📂 Existing codebase"]
-        README["📄 README.md"]
-        TODO["📋 TODO.md / issues / docs"]
-        COMMITS["📜 Git history"]
-    end
-
-    LEGACY --> AGENT["🤖 Agent explores & <br/>reverse-engineers"]
-    
-    AGENT --> CONST["📜 Constitution<br/>(mission + tech stack + roadmap)"]
-    
-    CONST --> SAME["🔁 Same SDD workflow<br/>as greenfield!"]
-    SAME --> FEAT["Feature loops:<br/>Plan → Implement → Validate"]
-    FEAT --> REPLAN["🔄 Replan<br/>(especially important — lots to tune!)"]
-
-    style LEGACY fill:#3d3229
-    style AGENT fill:#ff9800,color:#fff
-    style CONST fill:#4caf50,color:#fff
-    style SAME fill:#2196f3,color:#fff
-```
+![Brownfield SDD Flow](_assets/13-brownfield-sdd.svg)
 
 > 💡 *"SDD sirf naye projects ke liye hai" — galat! Purane codebase pe bhi lagao, agent khud samajh lega!* 😎
 

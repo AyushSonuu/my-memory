@@ -10,24 +10,7 @@
 
 ## 🖼️ The Replanning Landscape
 
-```mermaid
-graph TB
-    RP(("🔄 Replanning"))
-    
-    RP --> CONST["📜 Update Constitution<br/>(tech stack, mission)"]
-    RP --> ROAD["🗺️ Revise Roadmap<br/>(consolidate, reprioritize)"]
-    RP --> RETRO["🔧 Retroactive Updates<br/>(apply to existing features)"]
-    RP --> SKILL["⚡ Build Agent Skills<br/>(automate repeatable workflows)"]
-    RP --> PROD["📋 Product Updates<br/>(new requirements from PM)"]
-
-    CONST --> TEST["Add testing framework<br/>to tech stack"]
-    RETRO --> UPTEST["Update existing specs<br/>+ implementation"]
-    PROD --> RESP["Responsive design<br/>(40% mobile users)"]
-    SKILL --> CL["Changelog skill<br/>(stakeholder comms)"]
-
-    style RP fill:#9c27b0,color:#fff
-    style SKILL fill:#ff9800,color:#fff
-```
+![Replanning Landscape](_assets/10-replanning-landscape.svg)
 
 > 💡 *"You have to run slow to run fast."* — Pehle ruko, socho, sudhaaro, phir aage badho! 🏃‍♂️
 
