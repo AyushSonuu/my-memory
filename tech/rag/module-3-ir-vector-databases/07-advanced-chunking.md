@@ -27,6 +27,8 @@ Result: First chunk makes it sound like she's ALREADY a champion!
 
 **Idea:** Group sentences together based on **similar meanings**, not arbitrary character limits.
 
+![Fixed vs Semantic Comparison](assets/07-fixed-vs-semantic.svg)
+
 ![Semantic Chunking Algorithm](assets/07-semantic-chunking.svg)
 
 ### The Algorithm
@@ -72,26 +74,7 @@ When the line crosses threshold → new chunk starts
 
 **Idea:** Give the document to an LLM with instructions on how to chunk it.
 
-```
-┌─────────────────────────────────────────────┐
-│  PROMPT TO LLM:                             │
-│                                             │
-│  "Break this document into chunks.          │
-│   Keep similar concepts together.           │
-│   Start a new chunk when a new topic        │
-│   is discussed."                            │
-│                                             │
-│  [Document text here]                       │
-└─────────────────────────────────────────────┘
-              ↓
-┌─────────────────────────────────────────────┐
-│  LLM OUTPUT:                                │
-│                                             │
-│  Chunk 1: [Concept A text...]               │
-│  Chunk 2: [Concept B text...]               │
-│  Chunk 3: [Concept C text...]               │
-└─────────────────────────────────────────────┘
-```
+![LLM-Based Chunking](assets/07-llm-based-chunking.svg)
 
 ### Pros & Cons
 
@@ -108,39 +91,7 @@ When the line crosses threshold → new chunk starts
 
 **Idea:** Use an LLM to **add context** to every chunk, explaining its place in the broader document.
 
-### The Problem It Solves
-
-```
-Blog post ends with: "Thanks to Alice, Bob, Carol, David, 
-                      Eve, Frank, Grace, and Heidi for 
-                      their support on this project."
-
-Chunk alone: Just a list of names → meaningless!
-             Hard to search, hard for LLM to interpret.
-
-With context: "This is an acknowledgments section from a 
-              blog post about [topic]. The author is 
-              thanking contributors: Alice, Bob, Carol..."
-
-Result: Searchable, interpretable, useful!
-```
-
-### How It Works
-
-```
-┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│  Original   │ ──► │    LLM      │ ──► │  Enhanced   │
-│   Chunk     │     │ adds context│     │   Chunk     │
-└─────────────┘     └─────────────┘     └─────────────┘
-     │                                        │
-     │                                        ▼
-     │                              Better vectors (search)
-     │                              Better LLM understanding
-     │                              (generation)
-     ▼
-  "Alice, Bob,          "Acknowledgments section thanking
-   Carol..."             contributors: Alice, Bob, Carol..."
-```
+![Context-Aware Chunking](assets/07-context-aware-chunking.svg)
 
 ### Pros & Cons
 

@@ -29,7 +29,7 @@ graph LR
 | 04 | [Introduction to Weaviate API](04-weaviate-api.md) | 🔴 | — |
 | 05 | [Chunking (Concepts)](05-chunking-concepts.md) | 🟢 | 3 SVG visualizations |
 | 06 | [Chunking (Lab)](06-chunking-lab.md) | 🔴 | — |
-| 07 | [Advanced Chunking Techniques](07-advanced-chunking.md) | 🟢 | Semantic, LLM-based, context-aware |
+| 07 | [Advanced Chunking Techniques](07-advanced-chunking.md) | 🟢 | 4 SVGs: semantic, LLM, context-aware |
 | 08 | [Query Parsing](08-query-parsing.md) | 🔴 | — |
 | 09 | [Cross-Encoders & ColBERT](09-cross-encoders-colbert.md) | 🔴 | — |
 | 10 | [Reranking](10-reranking.md) | 🔴 | — |
