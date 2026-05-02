@@ -1,7 +1,7 @@
 # 🃏 Vector Databases Flashcards
 
 > From: module-3-ir-vector-databases/
-> Last updated: 2026-05-02
+> Last updated: 2026-05-03
 
 ---
 
@@ -96,6 +96,80 @@ Use `filters=Filter.by_property("field").equal("value")` — objects must match 
 1. Sparse vectors (inverted index for BM25)
 2. Dense vectors (embeddings via specified vectorizer)
 3. HNSW index (for ANN search)
+</details>
+
+---
+
+## Chunking Concepts (Lesson 05)
+
+<details>
+<summary>❓ What is chunking and why do we do it?</summary>
+
+Chunking = breaking longer documents into smaller text pieces. Three reasons:
+1. **Token limits** — embedding models have max input length
+2. **Improved relevancy** — smaller chunks = sharper, topic-specific vectors
+3. **LLM context** — send only relevant chunks, not whole books
+</details>
+
+<details>
+<summary>❓ What's wrong with vectorizing an entire book as a single vector?</summary>
+
+The vector becomes blurry — it averages ALL topics in the book into one representation. Can't represent specific chapters/pages sharply. Also fills up LLM context window when retrieved.
+</details>
+
+<details>
+<summary>❓ What's the "Goldilocks problem" with chunk size?</summary>
+
+**Too large (chapter):** Blurry vectors, fills LLM context, averages too many topics.
+**Too small (word):** Loses context, reduces relevance — "the" alone means nothing.
+**Just right (paragraph):** Sharp vectors, balanced context and specificity.
+</details>
+
+<details>
+<summary>❓ What is fixed-size chunking?</summary>
+
+The simplest approach: every chunk has the same character count (e.g., 250 characters). Chunk 1 = chars 1-250, Chunk 2 = chars 251-500, etc. Problem: splits may fall mid-word.
+</details>
+
+<details>
+<summary>❓ Why add overlap to fixed-size chunks?</summary>
+
+Overlap preserves context at chunk boundaries. Words at edges appear in TWO chunks, increasing odds they have relevant context. Example: 250 chars with 25 char (10%) overlap.
+</details>
+
+<details>
+<summary>❓ What's a good starting point for chunk size and overlap?</summary>
+
+**~500 characters** with **50-100 character overlap** (10-20%). Simple, works well for most cases. Adjust based on relevancy metrics.
+</details>
+
+<details>
+<summary>❓ What is recursive character splitting?</summary>
+
+Split on meaningful characters (like `\n` between paragraphs) instead of fixed positions. Variable chunk sizes, but related concepts stay together within natural boundaries.
+</details>
+
+<details>
+<summary>❓ How should you split different document types?</summary>
+
+- **HTML:** Split on `<p>`, `<h1>`, `<h2>` tags
+- **Python code:** Split on function/class definitions
+- **Markdown:** Split on headers (`#`, `##`)
+- **Plain text:** Split on newline characters
+</details>
+
+<details>
+<summary>❓ What metadata should chunks inherit from their source document?</summary>
+
+**Inherited:** Document title, author, date, category/tags.
+**Added:** Chunk index (1, 2, 3...), character position (start-end), page number if applicable.
+</details>
+
+<details>
+<summary>❓ What's the trade-off of using more overlap?</summary>
+
+**Pro:** Better relevancy — words at boundaries have context.
+**Con:** More vectors to store (some redundant information).
 </details>
 
 ---

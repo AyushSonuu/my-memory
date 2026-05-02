@@ -27,7 +27,7 @@ graph LR
 | 02 | [ANN Algorithms](02-ann-algorithms.md) | 🔴 | — |
 | 03 | [Vector Databases](03-vector-databases.md) | 🟢 | 1 SVG, Weaviate code examples |
 | 04 | [Introduction to Weaviate API](04-weaviate-api.md) | 🔴 | — |
-| 05 | [Chunking (Concepts)](05-chunking-concepts.md) | 🔴 | — |
+| 05 | [Chunking (Concepts)](05-chunking-concepts.md) | 🟢 | 3 SVG visualizations |
 | 06 | [Chunking (Lab)](06-chunking-lab.md) | 🔴 | — |
 | 07 | [Advanced Chunking Techniques](07-advanced-chunking.md) | 🔴 | — |
 | 08 | [Query Parsing](08-query-parsing.md) | 🔴 | — |
@@ -35,7 +35,7 @@ graph LR
 | 10 | [Reranking](10-reranking.md) | 🔴 | — |
 | 11 | [Lab: Building RAG with Vector DB](11-lab-rag-vector-db.md) | 🔴 | — |
 
-**Overall confidence:** 🟡 In progress (2/11)
+**Overall confidence:** 🟡 In progress (3/11)
 
 ## 🧩 Memory Fragments
 > - 🗄️ Vector DBs exist because relational DBs choke on vector ops at million/billion scale.
@@ -44,6 +44,10 @@ graph LR
 > - 🚀 VDB setup flow: connect → create collection → batch insert → auto-generates sparse vectors + dense embeddings + HNSW index.
 > - ⚖️ Weaviate alpha parameter: 0.0 = 100% keyword, 1.0 = 100% vector, 0.25 = 25% vector + 75% keyword (production default).
 > - 🏭 Most production RAG uses **hybrid search** — balances semantic similarity with exact keyword matching.
+> - ✂️ Chunking = breaking documents into smaller pieces. Why: token limits, better relevancy, focused LLM context.
+> - 📏 Chunk size goldilocks: too large = blurry vectors, too small = no context. Sweet spot ≈ paragraph level.
+> - 🔗 Overlap (10-20%) preserves context at chunk boundaries — words at edges appear in TWO chunks.
+> - 📐 Starting point: 500 chars, 50-100 char overlap. Recursive splitting for structured docs (HTML, code).
 
 ---
 
