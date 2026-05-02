@@ -16,7 +16,7 @@
 
 ## The Problem: No Chunking
 
-![Chunking Problem](_assets/05-no-chunking-problem.svg)
+![Chunking Problem](assets/05-no-chunking-problem.svg)
 
 ```
 Knowledge Base: 1,000 books
@@ -52,7 +52,7 @@ Problem: Each vector compresses an ENTIRE BOOK
 
 ## Chunk Size: The Goldilocks Problem
 
-![Chunk Size Trade-offs](_assets/05-chunk-size-tradeoffs.svg)
+![Chunk Size Trade-offs](assets/05-chunk-size-tradeoffs.svg)
 
 | Too Large (Chapter) | Just Right | Too Small (Word) |
 |---------------------|-----------|------------------|
@@ -84,7 +84,7 @@ Chunk 3: Characters 501-750
 
 Add overlap between chunks to preserve context at boundaries.
 
-![Overlapping Chunks](_assets/05-overlapping-chunks.svg)
+![Overlapping Chunks](assets/05-overlapping-chunks.svg)
 
 ```
 Chunk size: 250 characters
