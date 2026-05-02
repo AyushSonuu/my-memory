@@ -23,7 +23,7 @@ graph LR
 
 | # | Lesson | Confidence | Revised |
 |---|--------|-----------|---------|
-| 01 | [Module 3 Introduction](01-module-introduction.md) | 🔴 | — |
+| 01 | [Module 3 Introduction](01-module-introduction.md) | 🟢 | — |
 | 02 | [ANN Algorithms](02-ann-algorithms.md) | 🔴 | — |
 | 03 | [Vector Databases](03-vector-databases.md) | 🔴 | — |
 | 04 | [Introduction to Weaviate API](04-weaviate-api.md) | 🔴 | — |
@@ -35,10 +35,12 @@ graph LR
 | 10 | [Reranking](10-reranking.md) | 🔴 | — |
 | 11 | [Lab: Building RAG with Vector DB](11-lab-rag-vector-db.md) | 🔴 | — |
 
-**Overall confidence:** 🔴 Not started
+**Overall confidence:** 🟡 In progress (1/11)
 
 ## 🧩 Memory Fragments
-> - _Add fragments as you learn..._
+> - 🗄️ Vector DBs exist because relational DBs choke on vector ops at million/billion scale.
+> - 🔀 Module 3 = VDB internals → chunking → query parsing → reranking → hands-on lab.
+> - 🤝 Vector databases are now almost synonymous with RAG systems.
 
 ---
 
