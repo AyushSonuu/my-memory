@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 350">
+  <rect width="650" height="350" fill="#1a1a2e" rx="12"/>
+  
+  <!-- Title -->
+  <text x="325" y="30" text-anchor="middle" font-family="system-ui" font-size="16" font-weight="bold" fill="#e0e0e0">KNN vs HNSW: Scaling Comparison</text>
+  
+  <!-- Axes -->
+  <line x1="80" y1="290" x2="600" y2="290" stroke="#555" stroke-width="1.5"/>
+  <line x1="80" y1="290" x2="80" y2="50" stroke="#555" stroke-width="1.5"/>
+  
+  <!-- X axis label -->
+  <text x="340" y="320" text-anchor="middle" font-family="system-ui" font-size="12" fill="#aaa">Dataset Size (documents)</text>
+  
+  <!-- Y axis label -->
+  <text x="30" y="170" text-anchor="middle" font-family="system-ui" font-size="12" fill="#aaa" transform="rotate(-90 30 170)">Search Time</text>
+  
+  <!-- X ticks -->
+  <text x="130" y="308" text-anchor="middle" font-family="system-ui" font-size="10" fill="#777">1K</text>
+  <text x="250" y="308" text-anchor="middle" font-family="system-ui" font-size="10" fill="#777">100K</text>
+  <text x="400" y="308" text-anchor="middle" font-family="system-ui" font-size="10" fill="#777">10M</text>
+  <text x="560" y="308" text-anchor="middle" font-family="system-ui" font-size="10" fill="#777">1B</text>
+  
+  <!-- KNN line (linear - steep) -->
+  <path d="M 100 275 L 200 250 L 350 180 L 500 100 L 580 65" stroke="#f44336" stroke-width="3" fill="none"/>
+  <circle cx="580" cy="65" r="4" fill="#f44336"/>
+  <text x="590" y="60" font-family="system-ui" font-size="11" fill="#f44336" font-weight="bold">KNN</text>
+  <text x="590" y="75" font-family="system-ui" font-size="9" fill="#ef9a9a">O(n) Linear</text>
+  
+  <!-- HNSW line (logarithmic - flat) -->
+  <path d="M 100 275 L 200 260 L 350 248 L 500 240 L 580 237" stroke="#4caf50" stroke-width="3" fill="none"/>
+  <circle cx="580" cy="237" r="4" fill="#4caf50"/>
+  <text x="590" y="233" font-family="system-ui" font-size="11" fill="#4caf50" font-weight="bold">HNSW</text>
+  <text x="590" y="248" font-family="system-ui" font-size="9" fill="#a5d6a7">O(log n)</text>
+  
+  <!-- Gap annotation -->
+  <line x1="500" y1="100" x2="500" y2="240" stroke="#ffeb3b" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="510" y="170" font-family="system-ui" font-size="12" fill="#ffeb3b" font-weight="bold">1000x+</text>
+  <text x="510" y="185" font-family="system-ui" font-size="10" fill="#ffeb3b">faster</text>
+  
+  <!-- Annotation box -->
+  <rect x="120" y="55" width="250" height="55" rx="6" fill="rgba(255,255,255,0.05)" stroke="#666" stroke-width="1"/>
+  <text x="130" y="73" font-family="system-ui" font-size="10" fill="#f44336">● KNN: 1B docs = 1B distance calcs</text>
+  <text x="130" y="90" font-family="system-ui" font-size="10" fill="#4caf50">● HNSW: 1B docs = ~30 hops (layers)</text>
+  <text x="130" y="105" font-family="system-ui" font-size="10" fill="#aaa">  Tradeoff: approximate (not exact)</text>
+  
+  <!-- Milliseconds annotation -->
+  <text x="325" y="340" text-anchor="middle" font-family="system-ui" font-size="10" fill="#666">HNSW enables billion-scale search in ~milliseconds where KNN would take seconds/minutes</text>
+</svg>

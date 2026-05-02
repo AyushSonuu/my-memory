@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500">
+  <rect width="700" height="500" fill="#1a1a2e" rx="12"/>
+  
+  <!-- Title -->
+  <text x="350" y="30" text-anchor="middle" font-family="system-ui" font-size="16" font-weight="bold" fill="#e0e0e0">HNSW: Hierarchical Navigable Small World</text>
+  
+  <!-- === LAYER 3 (Top - 10 vectors) === -->
+  <rect x="30" y="45" width="640" height="110" rx="8" fill="rgba(156,39,176,0.08)" stroke="#9c27b0" stroke-width="1.5"/>
+  <text x="55" y="68" font-family="system-ui" font-size="12" font-weight="bold" fill="#9c27b0">Layer 3 — 10 vectors (fast, big jumps)</text>
+  
+  <!-- Nodes layer 3 -->
+  <circle cx="120" cy="105" r="8" fill="#9c27b0"/>
+  <circle cx="220" cy="95" r="8" fill="#9c27b0"/>
+  <circle cx="310" cy="110" r="8" fill="#9c27b0"/>
+  <circle cx="400" cy="90" r="8" fill="#9c27b0"/>
+  <circle cx="480" cy="105" r="8" fill="#9c27b0"/>
+  <circle cx="560" cy="95" r="8" fill="#9c27b0"/>
+  
+  <!-- Edges layer 3 -->
+  <line x1="120" y1="105" x2="220" y2="95" stroke="#7b1fa2" stroke-width="1"/>
+  <line x1="220" y1="95" x2="310" y2="110" stroke="#7b1fa2" stroke-width="1"/>
+  <line x1="310" y1="110" x2="400" y2="90" stroke="#7b1fa2" stroke-width="1"/>
+  <line x1="400" y1="90" x2="480" y2="105" stroke="#7b1fa2" stroke-width="1"/>
+  <line x1="480" y1="105" x2="560" y2="95" stroke="#7b1fa2" stroke-width="1"/>
+  <line x1="120" y1="105" x2="310" y2="110" stroke="#7b1fa2" stroke-width="0.5" stroke-dasharray="3,3"/>
+  <line x1="400" y1="90" x2="560" y2="95" stroke="#7b1fa2" stroke-width="0.5" stroke-dasharray="3,3"/>
+  
+  <!-- Entry point + traversal in layer 3 -->
+  <circle cx="120" cy="105" r="12" fill="none" stroke="#f44336" stroke-width="2"/>
+  <text x="120" y="135" text-anchor="middle" font-family="system-ui" font-size="9" fill="#ef5350">entry</text>
+  <path d="M 128 105 L 212 97" stroke="#ff9800" stroke-width="2.5" stroke-dasharray="5,3" marker-end="url(#arr3)"/>
+  <path d="M 228 95 L 302 108" stroke="#ff9800" stroke-width="2.5" stroke-dasharray="5,3"/>
+  <path d="M 318 110 L 392 92" stroke="#ff9800" stroke-width="2.5" stroke-dasharray="5,3"/>
+  <circle cx="400" cy="90" r="12" fill="none" stroke="#4caf50" stroke-width="2"/>
+  <text x="400" y="75" text-anchor="middle" font-family="system-ui" font-size="9" fill="#66bb6a">best₃</text>
+  
+  <!-- === LAYER 2 (Mid - 100 vectors) === -->
+  <rect x="30" y="170" width="640" height="120" rx="8" fill="rgba(33,150,243,0.08)" stroke="#2196f3" stroke-width="1.5"/>
+  <text x="55" y="193" font-family="system-ui" font-size="12" font-weight="bold" fill="#2196f3">Layer 2 — 100 vectors (medium jumps)</text>
+  
+  <!-- More nodes layer 2 -->
+  <circle cx="90" cy="240" r="6" fill="#1565c0"/>
+  <circle cx="140" cy="250" r="6" fill="#1565c0"/>
+  <circle cx="190" cy="235" r="6" fill="#1565c0"/>
+  <circle cx="240" cy="245" r="6" fill="#1565c0"/>
+  <circle cx="290" cy="230" r="6" fill="#1565c0"/>
+  <circle cx="340" cy="250" r="6" fill="#1565c0"/>
+  <circle cx="390" cy="225" r="6" fill="#1565c0"/>
+  <circle cx="440" cy="240" r="6" fill="#1565c0"/>
+  <circle cx="490" cy="235" r="6" fill="#1565c0"/>
+  <circle cx="530" cy="255" r="6" fill="#1565c0"/>
+  <circle cx="570" cy="230" r="6" fill="#1565c0"/>
+  <circle cx="620" cy="245" r="6" fill="#1565c0"/>
+  
+  <!-- Edges layer 2 (subset) -->
+  <line x1="90" y1="240" x2="140" y2="250" stroke="#0d47a1" stroke-width="0.8"/>
+  <line x1="140" y1="250" x2="190" y2="235" stroke="#0d47a1" stroke-width="0.8"/>
+  <line x1="190" y1="235" x2="240" y2="245" stroke="#0d47a1" stroke-width="0.8"/>
+  <line x1="240" y1="245" x2="290" y2="230" stroke="#0d47a1" stroke-width="0.8"/>
+  <line x1="290" y1="230" x2="340" y2="250" stroke="#0d47a1" stroke-width="0.8"/>
+  <line x1="340" y1="250" x2="390" y2="225" stroke="#0d47a1" stroke-width="0.8"/>
+  <line x1="390" y1="225" x2="440" y2="240" stroke="#0d47a1" stroke-width="0.8"/>
+  <line x1="440" y1="240" x2="490" y2="235" stroke="#0d47a1" stroke-width="0.8"/>
+  <line x1="490" y1="235" x2="530" y2="255" stroke="#0d47a1" stroke-width="0.8"/>
+  <line x1="530" y1="255" x2="570" y2="230" stroke="#0d47a1" stroke-width="0.8"/>
+  <line x1="570" y1="230" x2="620" y2="245" stroke="#0d47a1" stroke-width="0.8"/>
+  
+  <!-- Drop-down arrow from layer 3 to layer 2 -->
+  <path d="M 400 102 L 400 160 L 390 168" stroke="#ffeb3b" stroke-width="2" fill="none" stroke-dasharray="4,2"/>
+  <text x="415" y="150" font-family="system-ui" font-size="9" fill="#ffeb3b">drop down</text>
+  
+  <!-- Traversal in layer 2 -->
+  <circle cx="390" cy="225" r="10" fill="none" stroke="#ff9800" stroke-width="1.5"/>
+  <path d="M 396 225 L 434 240" stroke="#ff9800" stroke-width="2" stroke-dasharray="4,3"/>
+  <path d="M 446 240 L 484 235" stroke="#ff9800" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="490" cy="235" r="10" fill="none" stroke="#4caf50" stroke-width="2"/>
+  <text x="490" y="215" text-anchor="middle" font-family="system-ui" font-size="9" fill="#66bb6a">best₂</text>
+  
+  <!-- === LAYER 1 (Bottom - ALL 1000 vectors) === -->
+  <rect x="30" y="305" width="640" height="130" rx="8" fill="rgba(76,175,80,0.08)" stroke="#4caf50" stroke-width="1.5"/>
+  <text x="55" y="328" font-family="system-ui" font-size="12" font-weight="bold" fill="#4caf50">Layer 1 — ALL 1,000 vectors (fine-grained)</text>
+  
+  <!-- Many small nodes layer 1 -->
+  <circle cx="70" cy="375" r="4" fill="#2e7d32"/>
+  <circle cx="95" cy="365" r="4" fill="#2e7d32"/>
+  <circle cx="120" cy="380" r="4" fill="#2e7d32"/>
+  <circle cx="145" cy="370" r="4" fill="#2e7d32"/>
+  <circle cx="170" cy="385" r="4" fill="#2e7d32"/>
+  <circle cx="195" cy="360" r="4" fill="#2e7d32"/>
+  <circle cx="220" cy="375" r="4" fill="#2e7d32"/>
+  <circle cx="245" cy="380" r="4" fill="#2e7d32"/>
+  <circle cx="270" cy="365" r="4" fill="#2e7d32"/>
+  <circle cx="295" cy="378" r="4" fill="#2e7d32"/>
+  <circle cx="320" cy="370" r="4" fill="#2e7d32"/>
+  <circle cx="345" cy="385" r="4" fill="#2e7d32"/>
+  <circle cx="370" cy="360" r="4" fill="#2e7d32"/>
+  <circle cx="395" cy="375" r="4" fill="#2e7d32"/>
+  <circle cx="420" cy="365" r="4" fill="#2e7d32"/>
+  <circle cx="445" cy="380" r="4" fill="#2e7d32"/>
+  <circle cx="470" cy="370" r="4" fill="#2e7d32"/>
+  <circle cx="495" cy="362" r="4" fill="#2e7d32"/>
+  <circle cx="520" cy="378" r="4" fill="#2e7d32"/>
+  <circle cx="545" cy="368" r="4" fill="#2e7d32"/>
+  <circle cx="570" cy="382" r="4" fill="#2e7d32"/>
+  <circle cx="595" cy="365" r="4" fill="#2e7d32"/>
+  <circle cx="620" cy="375" r="4" fill="#2e7d32"/>
+  <circle cx="645" cy="368" r="4" fill="#2e7d32"/>
+  
+  <!-- Drop-down from layer 2 -->
+  <path d="M 490 245 L 490 298 L 495 305" stroke="#ffeb3b" stroke-width="2" fill="none" stroke-dasharray="4,2"/>
+  <text x="508" y="285" font-family="system-ui" font-size="9" fill="#ffeb3b">drop down</text>
+  
+  <!-- Traversal in layer 1 -->
+  <circle cx="495" cy="362" r="8" fill="none" stroke="#ff9800" stroke-width="1.5"/>
+  <path d="M 499 362 L 516 375" stroke="#ff9800" stroke-width="2" stroke-dasharray="4,3"/>
+  <path d="M 524 378 L 541 368" stroke="#ff9800" stroke-width="2" stroke-dasharray="4,3"/>
+  
+  <!-- Final result -->
+  <circle cx="545" cy="368" r="8" fill="none" stroke="#4caf50" stroke-width="3"/>
+  <text x="545" y="395" text-anchor="middle" font-family="system-ui" font-size="10" fill="#4caf50" font-weight="bold">RESULT ✓</text>
+  
+  <!-- Query vector indicator -->
+  <polygon points="560,340 564,350 575,350 566,356 569,366 560,360 551,366 554,356 545,350 556,350" fill="#ff9800"/>
+  <text x="560" y="335" text-anchor="middle" font-family="system-ui" font-size="9" fill="#ffcc80">Query</text>
+  
+  <!-- Footer -->
+  <text x="350" y="460" text-anchor="middle" font-family="system-ui" font-size="11" fill="#888">Upper layers: big jumps (few vectors) → Lower layers: fine-tune (all vectors)</text>
+  <text x="350" y="480" text-anchor="middle" font-family="system-ui" font-size="11" fill="#4caf50" font-weight="bold">Result: O(log n) — billions of vectors in milliseconds</text>
+</svg>

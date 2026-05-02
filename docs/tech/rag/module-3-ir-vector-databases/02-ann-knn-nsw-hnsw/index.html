@@ -7122,6 +7122,7 @@
 </tr>
 </tbody>
 </table>
+<p><img alt="KNN Brute Force — compute distance to every document" src="../assets/02-knn-brute-force.svg" /></p>
 <blockquote>
 <p>KNN is easy to understand, easy to implement... aur scale pe completely useless! 💀</p>
 </blockquote>
@@ -7185,6 +7186,7 @@
 <hr />
 <h3 id="4-hnsw-hierarchical-navigable-small-world">4. HNSW — Hierarchical Navigable Small World<a class="headerlink" href="#4-hnsw-hierarchical-navigable-small-world" title="Permanent link">#</a></h3>
 <p>HNSW adds <strong>layers</strong> to NSW for faster convergence:</p>
+<p><img alt="HNSW Hierarchical Layers" src="../assets/02-hnsw-hierarchical-layers.svg" /></p>
 <h4 id="building-the-hierarchical-graph">Building the Hierarchical Graph<a class="headerlink" href="#building-the-hierarchical-graph" title="Permanent link">#</a></h4>
 <table>
 <thead>
@@ -7234,6 +7236,7 @@
 <p><strong>Why it's faster:</strong> Upper layers have exponentially fewer vectors → algorithm makes <strong>big jumps</strong> early to get into the right neighborhood. By the time it reaches Layer 1, it's already very close → minimal fine-tuning needed.</p>
 <hr />
 <h3 id="5-runtime-comparison">5. Runtime Comparison<a class="headerlink" href="#5-runtime-comparison" title="Permanent link">#</a></h3>
+<p><img alt="KNN vs HNSW Scaling" src="../assets/02-knn-vs-hnsw-scaling.svg" /></p>
 <table>
 <thead>
 <tr>

@@ -23,6 +23,8 @@ Exact k-nearest neighbor (KNN) search scales **linearly** — 1B docs = 1B dista
 | 1,000,000 docs | 1,000,000 | 1,000× slower |
 | 1,000,000,000 docs | 1,000,000,000 | 1,000,000× slower |
 
+![KNN Brute Force — compute distance to every document](assets/02-knn-brute-force.svg)
+
 > KNN is easy to understand, easy to implement... aur scale pe completely useless! 💀
 
 ---
@@ -75,6 +77,8 @@ Result: A web-like graph where nearby nodes are connected.
 
 HNSW adds **layers** to NSW for faster convergence:
 
+![HNSW Hierarchical Layers](assets/02-hnsw-hierarchical-layers.svg)
+
 #### Building the Hierarchical Graph
 
 | Layer | Vectors | Purpose |
@@ -111,6 +115,8 @@ Each layer has its own proximity graph built from its subset of vectors.
 ---
 
 ### 5. Runtime Comparison
+
+![KNN vs HNSW Scaling](assets/02-knn-vs-hnsw-scaling.svg)
 
 | Algorithm | Time Complexity | 1B docs latency | Quality |
 |-----------|:--------------:|:---------------:|---------|
