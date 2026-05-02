@@ -34,6 +34,12 @@ Everything you write must be **instantly recallable** during revision. This is t
 - Text explains the visual, not vice versa
 - A good diagram replaces 3 paragraphs
 - Mix visual types across sections — variety = visually appealing
+- **🔥 SVG as a Teaching Power Tool:** Don't just use SVG for decoration — use it to **explain concepts in depth**. If a concept can be understood better through a visual walkthrough (step-by-step scoring, token grids, before/after transformations, algorithm visualization), BUILD IT IN SVG. The visual becomes the explanation itself. Examples:
+  - **ColBERT MaxSim:** Token similarity grid showing exactly which tokens match
+  - **RRF scoring:** Two ranked lists merging with actual numbers
+  - **Chunking tradeoffs:** Visual spectrum from "too large" to "too small"
+  - **Precision/Recall:** Venn diagram with actual overlap calculations
+  - If you can show the math/logic/flow visually, DO IT — it's 10× more memorable than prose.
 - **SVG guidelines:** See detailed **SVG Style Guide** below (Section 7).
   - **ALWAYS save SVGs as standalone `.svg` files in an `assets/` folder** inside the topic/module directory. NEVER inline SVGs in markdown — they don't render in most viewers.
   - Reference as `![Alt text](assets/filename.svg)` in markdown.
