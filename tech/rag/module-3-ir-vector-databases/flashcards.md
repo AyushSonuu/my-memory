@@ -310,5 +310,65 @@ Best of both worlds: speed of bi-encoder + quality of cross-encoder.
 
 ---
 
+## Reranking (Lesson 10)
+
+<details>
+<summary>❓ What is reranking and when does it happen?</summary>
+
+**Reranking** = re-scoring and re-ordering documents **after** initial retrieval but **before** sending to LLM.
+
+Pipeline: Vector DB retrieves 20-100 docs → Reranker re-scores them → Return top 5-10 to LLM
+</details>
+
+<details>
+<summary>❓ What is overfetching and why do we do it?</summary>
+
+**Overfetching** = retrieving more documents than you'll ultimately return (e.g., retrieve 50, return 10).
+
+Why: Bi-encoder ranking isn't perfect. The true best document might be at rank 15, not rank 3. Overfetching gives the reranker a chance to find and promote truly relevant docs.
+</details>
+
+<details>
+<summary>❓ Why can cross-encoders be used for reranking but not initial search?</summary>
+
+Cross-encoders require prompt + document together — no pre-computation possible.
+
+- Initial search: Must score **millions** of docs → infeasible (hours)
+- Reranking: Only score **20-100** docs → totally viable (100-500ms)
+
+Bi-encoder narrows candidates, cross-encoder refines.
+</details>
+
+<details>
+<summary>❓ What's the typical overfetch/return ratio for reranking?</summary>
+
+**Overfetch:** 15-25 docs (up to 100 for high-stakes)
+**Return:** 5-10 docs to LLM
+
+The 3-5× ratio gives reranker room to find truly relevant docs that might have ranked lower initially.
+</details>
+
+<details>
+<summary>❓ What are the two main types of rerankers?</summary>
+
+1. **Cross-encoder reranker:** [prompt + doc] → specialized model → relevance score. Standard approach.
+2. **LLM-based reranker:** [prompt + doc] → LLM → scores relevance. Emerging approach, more expensive.
+
+Both have same scaling limits — only viable on small candidate sets (after initial retrieval).
+</details>
+
+<details>
+<summary>❓ Why is reranking "one of the first techniques to try" for improving RAG?</summary>
+
+1. **Easy to implement** — often just one line/parameter
+2. **Minimal latency** — 100-500ms for 20-100 docs
+3. **Big quality boost** — cross-encoder deeply understands relevance
+4. **Low risk** — doesn't change your architecture, just adds a step
+
+Almost always worth the trade-off unless latency is extremely critical.
+</details>
+
+---
+
 > 💡 **Revision tip:** Cover the answer, try to explain OUT LOUD, then reveal.
 > Bolke batao — padhke nahi, bolke yaad hota hai! 🗣️
