@@ -7144,15 +7144,15 @@
 </tr>
 <tr>
 <td>09</td>
-<td><a href="09-cross-encoders-colbert.md">Cross-Encoders &amp; ColBERT</a></td>
-<td>🔴</td>
-<td>—</td>
+<td><a href="09-cross-encoders-colbert/">Cross-Encoders &amp; ColBERT</a></td>
+<td>🟢</td>
+<td>3 SVG visualizations</td>
 </tr>
 <tr>
 <td>10</td>
-<td><a href="10-reranking.md">Reranking</a></td>
-<td>🔴</td>
-<td>—</td>
+<td><a href="10-reranking/">Reranking</a></td>
+<td>🟢</td>
+<td>2 SVG visualizations</td>
 </tr>
 <tr>
 <td>11</td>
@@ -7162,7 +7162,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Overall confidence:</strong> 🟡 In progress (4/11)</p>
+<p><strong>Overall confidence:</strong> 🟡 In progress (6/11)</p>
 <h2 id="memory-fragments">🧩 Memory Fragments<a class="headerlink" href="#memory-fragments" title="Permanent link">#</a></h2>
 <blockquote>
 <ul>
@@ -7179,6 +7179,10 @@
 <li>🧠 Semantic chunking = group sentences by meaning similarity (vector distance threshold). Expensive but high quality.</li>
 <li>🤖 LLM-based chunking = give doc to LLM with chunking instructions. Black box but very high performing.</li>
 <li>📝 Context-aware chunking = LLM adds context to each chunk. Works ON TOP of any strategy — low-hanging fruit for improvement.</li>
+<li>🔍 Bi-encoder = fast, shallow (1 vec/doc). Cross-encoder = slow, deep (prompt+doc together). ColBERT = balanced (N vecs/doc, MaxSim).</li>
+<li>⚡ Production pattern: bi-encoder for retrieval → cross-encoder for reranking top K. Best of both worlds.</li>
+<li>🎯 Reranking = re-score 20-100 candidates with cross-encoder, return top 5-10. Easy to implement, big quality boost.</li>
+<li>📊 Overfetch because bi-encoder ranking isn't perfect — true best doc might be at rank 15, not rank 3.</li>
 </ul>
 </blockquote>
 <hr />

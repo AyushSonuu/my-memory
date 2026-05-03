@@ -27,6 +27,9 @@ graph LR
 
 | Date | Connection | How I Found It |
 |------|-----------|----------------|
+| 2026-05-03 | Cross-Encoder → Reranking | Cross-encoders are too slow for initial search but PERFECT for reranking top K candidates. Bi-encoder finds, cross-encoder refines. |
+| 2026-05-03 | ColBERT → High-Stakes Search | Token-level vectors (N per doc) give near cross-encoder quality at bi-encoder speed. Trade-off: massive storage. Good for legal/medical. |
+| 2026-05-03 | Reranking → Easy Quality Win | Overfetch 20-100 docs, rerank with cross-encoder, return top 5-10. Often just one line to add. First technique to try. |
 | 2026-04-20 | SDD → Agentic AI (SDD guides coding agents) | SDD is the workflow for directing coding agents — you write the spec, the agent implements. Directly connects to tool use and planning patterns from Agentic AI M3/M5. |
 | 2026-04-06 | RAG Architecture → Agent Memory (same retrieval pipeline) | RAG retriever + KB = same pattern as agent memory's semantic retrieval, but agent memory adds CRUD + write-back (M1/04) |
 | 2026-04-06 | RAG → Agentic AI (agentic RAG) | RAG M1 mentions agentic RAG as future topic — AI agent decides what/when to retrieve. Connects to M5 planning. |
@@ -54,9 +57,6 @@ graph LR
 | 2026-03-28 | SQL Agent → aisuite library | Unified multi-provider LLM client by Andrew Ng's team (M2 code) |
 | 2026-03-25 | Agentic AI → Evals & Error Analysis | Evals = #1 predictor of building agents well (M1/07) |
 | 2026-03-25 | Agentic AI → HuggingGPT (Planning) | LLM orchestrates multiple HF models: openpose, vit-gpt2, fastspeech (M1/08) |
-| 2026-03-25 | Agentic AI → Multi-Agent Debate | Du et al. 2023 — biographies, MMLU, chess all improve with multi-agent (M1/08) |
-| 2026-03-25 | Agentic AI → ChatDev | Virtual software company with CEO/Programmer/Tester/Designer agents (M1/08) |
-| 2026-03-25 | Reflection + Tool Use combine | Code generation example: self-critique loop + running code for error feedback (M1/08) |
 | 2026-03-24 | Agentic AI ↔ Agent Memory | Agent memory is a key capability for agentic systems (M1 overview) |
 | 2026-03-24 | Threading ↔ AsyncIO | Both solve I/O concurrency — threads use OS threads, asyncio uses event loop |
 | 2026-03-24 | Threading → Multiprocessing | Threading for I/O-bound, multiprocessing for CPU-bound (Corey Schafer) |

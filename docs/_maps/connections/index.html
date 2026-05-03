@@ -7101,6 +7101,21 @@
 </thead>
 <tbody>
 <tr>
+<td>2026-05-03</td>
+<td>Cross-Encoder → Reranking</td>
+<td>Cross-encoders are too slow for initial search but PERFECT for reranking top K candidates. Bi-encoder finds, cross-encoder refines.</td>
+</tr>
+<tr>
+<td>2026-05-03</td>
+<td>ColBERT → High-Stakes Search</td>
+<td>Token-level vectors (N per doc) give near cross-encoder quality at bi-encoder speed. Trade-off: massive storage. Good for legal/medical.</td>
+</tr>
+<tr>
+<td>2026-05-03</td>
+<td>Reranking → Easy Quality Win</td>
+<td>Overfetch 20-100 docs, rerank with cross-encoder, return top 5-10. Often just one line to add. First technique to try.</td>
+</tr>
+<tr>
 <td>2026-04-20</td>
 <td>SDD → Agentic AI (SDD guides coding agents)</td>
 <td>SDD is the workflow for directing coding agents — you write the spec, the agent implements. Directly connects to tool use and planning patterns from Agentic AI M3/M5.</td>
@@ -7234,21 +7249,6 @@
 <td>2026-03-25</td>
 <td>Agentic AI → HuggingGPT (Planning)</td>
 <td>LLM orchestrates multiple HF models: openpose, vit-gpt2, fastspeech (M1/08)</td>
-</tr>
-<tr>
-<td>2026-03-25</td>
-<td>Agentic AI → Multi-Agent Debate</td>
-<td>Du et al. 2023 — biographies, MMLU, chess all improve with multi-agent (M1/08)</td>
-</tr>
-<tr>
-<td>2026-03-25</td>
-<td>Agentic AI → ChatDev</td>
-<td>Virtual software company with CEO/Programmer/Tester/Designer agents (M1/08)</td>
-</tr>
-<tr>
-<td>2026-03-25</td>
-<td>Reflection + Tool Use combine</td>
-<td>Code generation example: self-critique loop + running code for error feedback (M1/08)</td>
 </tr>
 <tr>
 <td>2026-03-24</td>

@@ -7122,7 +7122,7 @@
     subgraph TECH ["🔧 Tech — 7 topics"]
         AG["🤖 Agentic AI — 30/30 ✅"]
         AM["🧠 Agent Memory — 7/7 ✅"]
-        RAG["🔍 RAG — 19/62 ✨"]
+        RAG["🔍 RAG — 22/62 ✨"]
         SDD["📋 Spec-Driven Dev — 13/16 🟡"]
         PY["🐍 Python"]
         PY --&gt; AIO["⚡ AsyncIO — 1/1 ✅"]
@@ -7159,17 +7159,17 @@
 </tr>
 <tr>
 <td>🟡 Learning</td>
-<td>6</td>
-<td>Agentic AI, Agent Memory, AsyncIO, Threading, Multiprocessing, SDD</td>
+<td>7</td>
+<td>Agentic AI, Agent Memory, RAG, AsyncIO, Threading, Multiprocessing, SDD</td>
 </tr>
 <tr>
 <td>🔴 Starting</td>
-<td>1</td>
-<td>RAG (19/62 lessons)</td>
+<td>0</td>
+<td>—</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Total:</strong> 7 topics · 72 lessons · 230+ flashcards · Last updated: 2026-05-02</p>
+<p><strong>Total:</strong> 7 topics · 75 lessons · 250+ flashcards · Last updated: 2026-05-03</p>
 <h2 id="key-connections">Key Connections<a class="headerlink" href="#key-connections" title="Permanent link">#</a></h2>
 <table>
 <thead>
@@ -7190,6 +7190,14 @@
 <tr>
 <td>Agent Memory → RAG</td>
 <td>Same retrieval pipeline, agent memory adds CRUD + write-back</td>
+</tr>
+<tr>
+<td>RAG → Bi-encoder + Cross-encoder</td>
+<td>Bi-encoder for fast retrieval, cross-encoder for reranking top K</td>
+</tr>
+<tr>
+<td>RAG → Vector Databases</td>
+<td>Weaviate, chunking, hybrid search, reranking = production RAG stack</td>
 </tr>
 <tr>
 <td>Agentic AI → Evals &amp; Error Analysis</td>

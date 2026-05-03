@@ -329,9 +329,10 @@ Every source you add makes the vault richer. The agent handles all cross-referen
 | Metric | Count |
 |--------|-------|
 | **Topics** | 7 |
-| **Lessons** | 61 |
-| **Flashcards** | 200+ |
-| **Last updated** | 2026-04-21 |
+| **Lessons** | 75 |
+| **Flashcards** | 250+ |
+| **SVGs created** | 42+ |
+| **Last updated** | 2026-05-03 |
 
 ### Topics
 
@@ -339,7 +340,7 @@ Every source you add makes the vault richer. The agent handles all cross-referen
 |-------|---------|------------|--------|
 | [🤖 Agentic AI](tech/agentic-ai/) | 30/30 ✅ | 🟡 | DeepLearning.AI |
 | [🧠 Agent Memory](tech/agent-memory/) | 7/7 ✅ | 🟡 | DeepLearning.AI × Oracle |
-| [🔍 RAG](tech/rag/) | 8/62 | 🔴 | DeepLearning.AI |
+| [🔍 RAG](tech/rag/) | 22/62 | 🟡 | DeepLearning.AI |
 | [📋 Spec-Driven Dev](tech/spec-driven-development/) | 13/16 | 🟡 | DeepLearning.AI × JetBrains |
 | [⚡ AsyncIO](tech/python/asyncio/) | 1/1 ✅ | 🟡 | Corey Schafer |
 | [🧵 Threading](tech/python/threading/) | 1/1 ✅ | 🟡 | Corey Schafer |

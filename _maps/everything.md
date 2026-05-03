@@ -9,7 +9,7 @@ graph TB
     subgraph TECH ["🔧 Tech — 7 topics"]
         AG["🤖 Agentic AI — 30/30 ✅"]
         AM["🧠 Agent Memory — 7/7 ✅"]
-        RAG["🔍 RAG — 19/62 ✨"]
+        RAG["🔍 RAG — 22/62 ✨"]
         SDD["📋 Spec-Driven Dev — 13/16 🟡"]
         PY["🐍 Python"]
         PY --> AIO["⚡ AsyncIO — 1/1 ✅"]
@@ -36,10 +36,10 @@ graph TB
 | Status | Count | Topics |
 |--------|-------|--------|
 | 🟢 Solid | 0 | — |
-| 🟡 Learning | 6 | Agentic AI, Agent Memory, AsyncIO, Threading, Multiprocessing, SDD |
-| 🔴 Starting | 1 | RAG (19/62 lessons) |
+| 🟡 Learning | 7 | Agentic AI, Agent Memory, RAG, AsyncIO, Threading, Multiprocessing, SDD |
+| 🔴 Starting | 0 | — |
 
-**Total:** 7 topics · 72 lessons · 230+ flashcards · Last updated: 2026-05-02
+**Total:** 7 topics · 75 lessons · 250+ flashcards · Last updated: 2026-05-03
 
 ## Key Connections
 
@@ -48,6 +48,8 @@ graph TB
 | Agentic AI ↔ Agent Memory | Agent memory = one of the capabilities agentic systems need |
 | Agentic AI → RAG | Agentic RAG = AI agent decides what/when to retrieve |
 | Agent Memory → RAG | Same retrieval pipeline, agent memory adds CRUD + write-back |
+| RAG → Bi-encoder + Cross-encoder | Bi-encoder for fast retrieval, cross-encoder for reranking top K |
+| RAG → Vector Databases | Weaviate, chunking, hybrid search, reranking = production RAG stack |
 | Agentic AI → Evals & Error Analysis | #1 predictor of building agents well; M4 dedicated to this |
 | Agentic AI → 4 Design Patterns | Reflection ✅, Tool Use ✅, Planning ✅, Multi-Agent ✅ |
 | Reflection → External Feedback | Code execution, web search, regex = breaks performance plateau |

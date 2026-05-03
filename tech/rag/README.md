@@ -28,9 +28,9 @@ graph LR
 
 | # | Module | Lessons | Confidence | Revised |
 |---|--------|---------|-----------|---------|
-| 01 | [RAG Overview](module-1-rag-overview/) | 7/10 | 🟡 | — |
-| 02 | [IR & Search Foundations](module-2-ir-search-foundations/) | 7/12 | 🟡 | SVG visualizations: TF-IDF + BM25 + embedding model training dynamics |
-| 03 | [IR with Vector Databases](module-3-ir-vector-databases/) | 0/12 | 🔴 | — |
+| 01 | [RAG Overview](module-1-rag-overview/) | 7/10 | 🟡 | 3 SVGs: RAG pipeline, Normal vs RAG, 5 Advantages |
+| 02 | [IR & Search Foundations](module-2-ir-search-foundations/) | 9/12 | 🟡 | 22 SVGs: TF-IDF, BM25, embeddings, hybrid search, retrieval metrics |
+| 03 | [IR with Vector Databases](module-3-ir-vector-databases/) | 6/11 | 🟡 | 17 SVGs: ANN, chunking, query parsing, cross-encoders, reranking |
 | 04 | [LLMs & Text Generation](module-4-llms-text-generation/) | 0/14 | 🔴 | — |
 | 05 | [RAG in Production](module-5-rag-production/) | 0/14 | 🔴 | — |
 
@@ -44,6 +44,9 @@ graph LR
 > - 🔤 TF-IDF gives stronger weight to rare terms, making keyword retrieval less dominated by filler words.
 > - ⚡ BM25 is production keyword default: TF saturation + tunable length normalization (`k1`, `b`) with similar compute cost.
 > - 🧠 Embedding models learn semantic meaning via contrastive training: pull positive pairs close, push negative pairs far. Same model always; don't mix vectors across models.
+> - 🔀 Bi-encoder = fast, shallow (1 vec/doc). Cross-encoder = slow, deep (prompt+doc together). ColBERT = balanced (N vecs/doc, MaxSim).
+> - 🎯 Reranking = overfetch 20-100 docs → re-score with cross-encoder → return top 5-10. Easy win for quality.
+> - ✂️ Chunking sweet spot ≈ 500 chars, 10-20% overlap. Semantic chunking follows author's train of thought.
 
 ---
 
