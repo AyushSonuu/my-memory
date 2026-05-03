@@ -748,3 +748,175 @@
 [data-md-color-scheme="default"] .highlight .nc { color: #b45309 !important; }  /* class names */
 [data-md-color-scheme="default"] .highlight .nn { color: #2563eb !important; }  /* module names */
 [data-md-color-scheme="default"] .highlight .ow { color: #7c3aed !important; }  /* operator words */
+
+/* ========================================
+   COURSE CARDS — Tech Hub Layout
+   ======================================== */
+
+/* Grid container */
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0 2rem 0;
+}
+
+/* Individual card */
+.course-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 12px;
+  padding: 1.25rem;
+  text-decoration: none !important;
+  color: inherit !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  border-color: var(--md-primary-fg-color);
+}
+
+/* Card header with icon */
+.course-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.course-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.course-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--md-default-fg-color);
+}
+
+/* Badge styles */
+.course-badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-learning {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badge-solid {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.badge-weak {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Dark mode badge adjustments */
+[data-md-color-scheme="slate"] .badge-learning {
+  background: #78350f;
+  color: #fef3c7;
+}
+
+[data-md-color-scheme="slate"] .badge-solid {
+  background: #064e3b;
+  color: #d1fae5;
+}
+
+[data-md-color-scheme="slate"] .badge-weak {
+  background: #7f1d1d;
+  color: #fee2e2;
+}
+
+/* Card content */
+.course-content {
+  flex: 1;
+}
+
+.course-desc {
+  font-size: 0.9rem;
+  color: var(--md-default-fg-color--light);
+  margin: 0.5rem 0;
+  line-height: 1.5;
+}
+
+/* Card meta info */
+.course-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+  font-size: 0.8rem;
+  color: var(--md-default-fg-color--light);
+}
+
+.course-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* Progress bar */
+.course-progress {
+  width: 100%;
+  height: 6px;
+  background: var(--md-default-fg-color--lightest);
+  border-radius: 3px;
+  margin-top: 0.75rem;
+  overflow: hidden;
+}
+
+.course-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--md-primary-fg-color), #22c55e);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* Section headers */
+.hub-section {
+  margin-top: 2.5rem;
+}
+
+.hub-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  border-bottom: none;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .course-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .course-card {
+    padding: 1rem;
+  }
+
+  .course-icon {
+    font-size: 1.75rem;
+  }
+}

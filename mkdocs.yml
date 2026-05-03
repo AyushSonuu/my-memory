@@ -128,208 +128,206 @@ nav:
       - 🎤 Speaking: plans/speaking-tracker.md
       - 📅 Weekly Reviews: plans/weekly-reviews.md
 
-  - 🧠 Agent Memory:
-    - tech/agent-memory/README.md
-    - 01 · Introduction: tech/agent-memory/01-introduction.md
-    - 02 · Why Memory: tech/agent-memory/02-why-agents-need-memory.md
-    - 03 · Memory Manager: tech/agent-memory/03-memory-manager.md
-    - 04 · Semantic Tool Memory: tech/agent-memory/04-semantic-tool-memory.md
-    - 05 · Memory Operations: tech/agent-memory/05-memory-operations.md
-    - 06 · Memory Aware Agent: tech/agent-memory/06-memory-aware-agent.md
-    - 07 · Conclusion: tech/agent-memory/07-conclusion.md
-    - Resources:
-      - 🃏 Flashcards: tech/agent-memory/flashcards.md
-      - 📋 Cheatsheet: tech/agent-memory/cheatsheet.md
-      - ⚔️ RAG vs Agent Memory: tech/agent-memory/vs.md
-    - 💻 Code Lab:
-      - Overview: tech/agent-memory/code/README.md
-      - L3 · Memory Manager: tech/agent-memory/code/L3/L3.ipynb
-      - L4 · Semantic Tool Memory: tech/agent-memory/code/L4/L4.ipynb
-      - L5 · Memory Operations: tech/agent-memory/code/L5/L5.ipynb
-      - L6 · Memory Aware Agent: tech/agent-memory/code/L6/L6.ipynb
-      - helper.py: _generated/tech/agent-memory/code/helper.md
-
-  - 🐍 Python:
-    - tech/python/README.md
-    - ⚡ AsyncIO:
-      - Overview: tech/python/asyncio/README.md
-      - 01 · Complete Guide: tech/python/asyncio/01-asyncio-complete-guide.md
-      - 🃏 Flashcards: tech/python/asyncio/flashcards.md
-      - 💻 Code Examples:
-        - Overview: tech/python/asyncio/code/README.md
-        - terms.py: _generated/tech/python/asyncio/code/L1/terms.md
-        - example_1.py: _generated/tech/python/asyncio/code/L1/example_1.md
-        - example_2.py: _generated/tech/python/asyncio/code/L1/example_2.md
-        - example_3.py: _generated/tech/python/asyncio/code/L1/example_3.md
-        - example_4.py: _generated/tech/python/asyncio/code/L1/example_4.md
-        - example_5.py: _generated/tech/python/asyncio/code/L1/example_5.md
-        - example_6.py: _generated/tech/python/asyncio/code/L1/example_6.md
-        - example_7.py: _generated/tech/python/asyncio/code/L1/example_7.md
-    - 🧵 Threading:
-      - Overview: tech/python/threading/README.md
-      - 01 · Complete Guide: tech/python/threading/01-threading-complete-guide.md
-      - 🃏 Flashcards: tech/python/threading/flashcards.md
-      - 💻 Code Examples:
-        - Overview: tech/python/threading/code/README.md
-        - 01_synchronous.py: _generated/tech/python/threading/code/L1/01_synchronous.md
-        - 02_basic_threads.py: _generated/tech/python/threading/code/L1/02_basic_threads.md
-        - 03_loop_threads.py: _generated/tech/python/threading/code/L1/03_loop_threads.md
-        - 04_thread_pool_submit.py: _generated/tech/python/threading/code/L1/04_thread_pool_submit.md
-        - 05_thread_pool_map.py: _generated/tech/python/threading/code/L1/05_thread_pool_map.md
-        - 06_download_images.py: _generated/tech/python/threading/code/L1/06_download_images.md
-    - ⚙️ Multiprocessing:
-      - Overview: tech/python/multiprocessing/README.md
-      - 01 · Complete Guide: tech/python/multiprocessing/01-multiprocessing-complete-guide.md
-      - 🃏 Flashcards: tech/python/multiprocessing/flashcards.md
-      - 💻 Code Examples:
-        - Overview: tech/python/multiprocessing/code/README.md
-        - 01_synchronous.py: _generated/tech/python/multiprocessing/code/L1/01_synchronous.md
-        - 02_basic_processes.py: _generated/tech/python/multiprocessing/code/L1/02_basic_processes.md
-        - 03_loop_processes.py: _generated/tech/python/multiprocessing/code/L1/03_loop_processes.md
-        - 04_pool_submit.py: _generated/tech/python/multiprocessing/code/L1/04_pool_submit.md
-        - 05_pool_map.py: _generated/tech/python/multiprocessing/code/L1/05_pool_map.md
-        - 06_process_images.py: _generated/tech/python/multiprocessing/code/L1/06_process_images.md
-
-  - 🤖 Agentic AI:
-    - tech/agentic-ai/README.md
-    - Module 1 · Intro:
-      - Overview: tech/agentic-ai/module-1-intro/README.md
-      - 01 · Welcome: tech/agentic-ai/module-1-intro/01-welcome.md
-      - 02 · What is Agentic AI: tech/agentic-ai/module-1-intro/02-what-is-agentic-ai.md
-      - 03 · Degrees of Autonomy: tech/agentic-ai/module-1-intro/03-degrees-of-autonomy.md
-      - 04 · Benefits: tech/agentic-ai/module-1-intro/04-benefits.md
-      - 05 · Applications: tech/agentic-ai/module-1-intro/05-applications.md
-      - 06 · Task Decomposition: tech/agentic-ai/module-1-intro/06-task-decomposition.md
-      - 07 · Evals: tech/agentic-ai/module-1-intro/07-evals.md
-      - 08 · Design Patterns: tech/agentic-ai/module-1-intro/08-design-patterns.md
-      - 🃏 Flashcards: tech/agentic-ai/module-1-intro/flashcards.md
-    - Module 2 · Reflection:
-      - Overview: tech/agentic-ai/module-2-reflection/README.md
-      - 01 · Reflection to Improve Outputs: tech/agentic-ai/module-2-reflection/01-reflection-to-improve-outputs.md
-      - 02 · Why Not Direct Generation: tech/agentic-ai/module-2-reflection/02-why-not-direct-generation.md
-      - 03 · Chart Generation Workflow: tech/agentic-ai/module-2-reflection/03-chart-generation-workflow.md
-      - 04 · Evaluating Reflection: tech/agentic-ai/module-2-reflection/04-evaluating-reflection.md
-      - 05 · External Feedback: tech/agentic-ai/module-2-reflection/05-external-feedback.md
-      - 🃏 Flashcards: tech/agentic-ai/module-2-reflection/flashcards.md
-      - 💻 Code Labs:
-        - SQL Agent: tech/agentic-ai/module-2-reflection/code/M2/examples/sql_agent/sql.ipynb
-        - Visualization Agent: tech/agentic-ai/module-2-reflection/code/M2/examples/visualization_agent/visualization.ipynb
-        - Ungraded Lab 1 · Chart Reflection: tech/agentic-ai/module-2-reflection/code/M2/ungraded_labs/M2_UGL_1/M2_UGL_1.ipynb
-        - Ungraded Lab 2 · SQL Reflection: tech/agentic-ai/module-2-reflection/code/M2/ungraded_labs/M2_UGL_2/M2_UGL_2.ipynb
-        - Graded Lab · Research Agent: tech/agentic-ai/module-2-reflection/code/M2/graded_labs/research-agent/GL-M2.ipynb
-    - Module 3 · Tool Use:
-      - Overview: tech/agentic-ai/module-3-tool-use/README.md
-      - 01 · What Are Tools: tech/agentic-ai/module-3-tool-use/01-what-are-tools.md
-      - 02 · Creating a Tool: tech/agentic-ai/module-3-tool-use/02-creating-a-tool.md
-      - 03 · Tool Syntax: tech/agentic-ai/module-3-tool-use/03-tool-syntax.md
-      - 04 · Code Execution: tech/agentic-ai/module-3-tool-use/04-code-execution.md
-      - 05 · MCP: tech/agentic-ai/module-3-tool-use/05-mcp.md
-      - 🃏 Flashcards: tech/agentic-ai/module-3-tool-use/flashcards.md
-      - 💻 Code Labs:
-        - Ungraded Lab 1 · Tool Functions: tech/agentic-ai/module-3-tool-use/code/M3/ungraded_labs/M3_UGL_1/M3_UGL_1.ipynb
-        - Ungraded Lab 2 · Email Assistant: tech/agentic-ai/module-3-tool-use/code/M3/ungraded_labs/M3_UGL_2/M3_UGL_2.ipynb
-        - Graded Lab · Research Agent: tech/agentic-ai/module-3-tool-use/code/M3/graded_labs/research_agent/GL-M3.ipynb
-    - Module 4 · Practical Tips:
-      - Overview: tech/agentic-ai/module-4-practical-tips/README.md
-      - 01 · Evaluations: tech/agentic-ai/module-4-practical-tips/01-evaluations.md
-      - 02 · Error Analysis: tech/agentic-ai/module-4-practical-tips/02-error-analysis.md
-      - 03 · More Error Analysis: tech/agentic-ai/module-4-practical-tips/03-more-error-analysis.md
-      - 04 · Component-Level Evals: tech/agentic-ai/module-4-practical-tips/04-component-level-evals.md
-      - 05 · Addressing Problems: tech/agentic-ai/module-4-practical-tips/05-addressing-problems.md
-      - 06 · Latency & Cost: tech/agentic-ai/module-4-practical-tips/06-latency-cost.md
-      - 07 · Dev Process Summary: tech/agentic-ai/module-4-practical-tips/07-dev-process-summary.md
-      - 🃏 Flashcards: tech/agentic-ai/module-4-practical-tips/flashcards.md
+  - 🔧 Tech:
+    - Hub: tech/README.md
+    - 🧠 Agent Memory:
+      - tech/agent-memory/README.md
+      - 01 · Introduction: tech/agent-memory/01-introduction.md
+      - 02 · Why Memory: tech/agent-memory/02-why-agents-need-memory.md
+      - 03 · Memory Manager: tech/agent-memory/03-memory-manager.md
+      - 04 · Semantic Tool Memory: tech/agent-memory/04-semantic-tool-memory.md
+      - 05 · Memory Operations: tech/agent-memory/05-memory-operations.md
+      - 06 · Memory Aware Agent: tech/agent-memory/06-memory-aware-agent.md
+      - 07 · Conclusion: tech/agent-memory/07-conclusion.md
+      - Resources:
+        - 🃏 Flashcards: tech/agent-memory/flashcards.md
+        - 📋 Cheatsheet: tech/agent-memory/cheatsheet.md
+        - ⚔️ RAG vs Agent Memory: tech/agent-memory/vs.md
       - 💻 Code Lab:
-        - Ungraded Lab 1 · Evals: tech/agentic-ai/module-4-practical-tips/code/M4_UGL_1.ipynb
-    - Module 5 · Autonomous Agents:
-      - Overview: tech/agentic-ai/module-5-autonomous-agents/README.md
-      - 01 · Planning Workflows: tech/agentic-ai/module-5-autonomous-agents/01-planning-workflows.md
-      - 02 · Creating & Executing LLM Plans: tech/agentic-ai/module-5-autonomous-agents/02-llm-plans.md
-      - 03 · Planning with Code Execution: tech/agentic-ai/module-5-autonomous-agents/03-planning-code-execution.md
-      - 04 · Multi-Agentic Workflows: tech/agentic-ai/module-5-autonomous-agents/04-multi-agent.md
-      - 05 · Communication Patterns: tech/agentic-ai/module-5-autonomous-agents/05-communication-patterns.md
-      - 🃏 Flashcards: tech/agentic-ai/module-5-autonomous-agents/flashcards.md
-    - Resources:
-      - 🃏 Flashcards: tech/agentic-ai/flashcards.md
-      - 📋 Cheatsheet: tech/agentic-ai/cheatsheet.md
-      - ⚔️ Evals & Error Analysis: tech/agentic-ai/vs.md
-
-  - 🔍 RAG:
-    - tech/rag/README.md
-    - Module 1 · RAG Overview:
-      - Overview: tech/rag/module-1-rag-overview/README.md
-      - 00 · Conversation with Andrew Ng: tech/rag/module-1-rag-overview/00-conversation-andrew-ng.md
-      - 01 · Module Introduction: tech/rag/module-1-rag-overview/01-module-introduction.md
-      - 02 · Introduction to RAG: tech/rag/module-1-rag-overview/02-introduction-to-rag.md
-      - 03 · Applications of RAG: tech/rag/module-1-rag-overview/03-applications-of-rag.md
-      - 04 · RAG Architecture Overview: tech/rag/module-1-rag-overview/04-rag-architecture-overview.md
-      - 05 · Introduction to LLMs: tech/rag/module-1-rag-overview/05-introduction-to-llms.md
-      - 08 · Introduction to IR: tech/rag/module-1-rag-overview/08-introduction-to-ir.md
-      - 🃏 Flashcards: tech/rag/module-1-rag-overview/flashcards.md
-      - 💻 Code Labs:
-        - Ungraded Lab 1: tech/rag/module-1-rag-overview/code/Module1/ungraded_labs/ungraded_lab_1/C1M1_Ungraded_Lab_1.ipynb
-        - Ungraded Lab 2: tech/rag/module-1-rag-overview/code/Module1/ungraded_labs/ungraded_lab_2/C1M1_Ungraded_Lab_2.ipynb
-        - Assignment: tech/rag/module-1-rag-overview/code/C1M1_Assignment.ipynb
-    - Module 2 · IR & Search:
-      - Overview: tech/rag/module-2-ir-search-foundations/README.md
-      - 01 · Module Introduction: tech/rag/module-2-ir-search-foundations/01-module-introduction.md
-      - 02 · Retriever Architecture: tech/rag/module-2-ir-search-foundations/02-retriever-architecture.md
-      - 03 · Metadata Filtering: tech/rag/module-2-ir-search-foundations/03-metadata-filtering.md
-      - "04 · Keyword Search: TF-IDF": tech/rag/module-2-ir-search-foundations/04-keyword-search-tfidf.md
-      - "05 · Keyword Search: BM25": tech/rag/module-2-ir-search-foundations/05-keyword-search-bm25.md
-      - "06 · Semantic Search: Embeddings": tech/rag/module-2-ir-search-foundations/06-semantic-search-embeddings.md
-      - 07 · Embedding Model Deep Dive: tech/rag/module-2-ir-search-foundations/07-embedding-model-deepdive.md
-      - 08 · Hybrid Search: tech/rag/module-2-ir-search-foundations/08-hybrid-search.md
-      - 10 · Evaluating Retrieval: tech/rag/module-2-ir-search-foundations/10-evaluating-retrieval.md
-      - 🃏 Flashcards: tech/rag/module-2-ir-search-foundations/flashcards.md
-      - 💻 Code Labs:
-        - Ungraded Lab 1: tech/rag/module-2-ir-search-foundations/code/Module2/ungraded_labs/ungraded_lab_1/C1M2_Ungraded_Lab_1.ipynb
-        - Ungraded Lab 2: tech/rag/module-2-ir-search-foundations/code/Module2/ungraded_labs/ungraded_lab_2/C1M2_Ungraded_Lab_2.ipynb
-        - Assignment: tech/rag/module-2-ir-search-foundations/code/Module2/ungraded_labs/C1M2_Assignment.ipynb
-    - Module 3 · Vector Databases:
-      - Overview: tech/rag/module-3-ir-vector-databases/README.md
-      - 01 · Module Introduction: tech/rag/module-3-ir-vector-databases/01-module-introduction.md
-      - 02 · ANN & HNSW: tech/rag/module-3-ir-vector-databases/02-ann-knn-nsw-hnsw.md
-      - 03 · Vector Databases: tech/rag/module-3-ir-vector-databases/03-vector-databases.md
-      - 04 · Query Parsing: tech/rag/module-3-ir-vector-databases/04-query-parsing.md
-      - 05 · Chunking Concepts: tech/rag/module-3-ir-vector-databases/05-chunking-concepts.md
-      - 07 · Advanced Chunking: tech/rag/module-3-ir-vector-databases/07-advanced-chunking.md
-      - 09 · Cross-Encoders & ColBERT: tech/rag/module-3-ir-vector-databases/09-cross-encoders-colbert.md
-      - 10 · Reranking: tech/rag/module-3-ir-vector-databases/10-reranking.md
-      - 🃏 Flashcards: tech/rag/module-3-ir-vector-databases/flashcards.md
-      - 💻 Code Labs:
-        - Ungraded Lab 1: tech/rag/module-3-ir-vector-databases/code/Module3/ungraded_labs/ungraded_lab_1/C1M3_Ungraded_Lab_1.ipynb
-        - Ungraded Lab 2: tech/rag/module-3-ir-vector-databases/code/Module3/ungraded_labs/ungraded_lab_2/C1M3_Ungraded_Lab_2.ipynb
-    - Module 4 · LLMs & Generation:
-      - Overview: tech/rag/module-4-llms-text-generation/README.md
-      - 🃏 Flashcards: tech/rag/module-4-llms-text-generation/flashcards.md
-      - 💻 Code Labs:
-        - Ungraded Lab 1: tech/rag/module-4-llms-text-generation/code/Module4/ungraded_labs/ungraded_lab_1/C1M4_Ungraded_Lab_1.ipynb
-        - Ungraded Lab 2: tech/rag/module-4-llms-text-generation/code/Module4/ungraded_labs/ungraded_lab_2/C1M4_Ungraded_Lab_2.ipynb
-    - Module 5 · Production:
-      - Overview: tech/rag/module-5-rag-production/README.md
-      - 🃏 Flashcards: tech/rag/module-5-rag-production/flashcards.md
-      - 💻 Code Labs:
-        - Ungraded Lab 1: tech/rag/module-5-rag-production/code/Module5/ungraded_labs/ungraded_lab_1/C1M5_Ungraded_Lab_1.ipynb
-    - Resources:
-      - 🃏 Flashcards: tech/rag/flashcards.md
-
-  - 📋 Spec-Driven Dev:
-    - tech/spec-driven-development/README.md
-    - 01 · Introduction: tech/spec-driven-development/01-introduction.md
-    - 02 · Why SDD: tech/spec-driven-development/02-why-sdd.md
-    - 03 · Workflow Overview: tech/spec-driven-development/03-workflow-overview.md
-    - 06 · Creating the Constitution: tech/spec-driven-development/06-creating-the-constitution.md
-    - 07 · Feature Specification: tech/spec-driven-development/07-feature-specification.md
-    - 08 · Feature Implementation: tech/spec-driven-development/08-feature-implementation.md
-    - 09 · Feature Validation: tech/spec-driven-development/09-feature-validation.md
-    - 10 · Project Replanning: tech/spec-driven-development/10-project-replanning.md
-    - 11 · Second Feature Phase: tech/spec-driven-development/11-second-feature-phase.md
-    - 12 · The MVP: tech/spec-driven-development/12-the-mvp.md
-    - 13 · Legacy Support: tech/spec-driven-development/13-legacy-support.md
-    - 14 · Build Your Own Workflow: tech/spec-driven-development/14-build-your-own-workflow.md
-    - 15 · Agent Replaceability: tech/spec-driven-development/15-agent-replaceability.md
-    - 🃏 Flashcards: tech/spec-driven-development/flashcards.md
+        - Overview: tech/agent-memory/code/README.md
+        - L3 · Memory Manager: tech/agent-memory/code/L3/L3.ipynb
+        - L4 · Semantic Tool Memory: tech/agent-memory/code/L4/L4.ipynb
+        - L5 · Memory Operations: tech/agent-memory/code/L5/L5.ipynb
+        - L6 · Memory Aware Agent: tech/agent-memory/code/L6/L6.ipynb
+        - helper.py: _generated/tech/agent-memory/code/helper.md
+    - 🐍 Python:
+      - tech/python/README.md
+      - ⚡ AsyncIO:
+        - Overview: tech/python/asyncio/README.md
+        - 01 · Complete Guide: tech/python/asyncio/01-asyncio-complete-guide.md
+        - 🃏 Flashcards: tech/python/asyncio/flashcards.md
+        - 💻 Code Examples:
+          - Overview: tech/python/asyncio/code/README.md
+          - terms.py: _generated/tech/python/asyncio/code/L1/terms.md
+          - example_1.py: _generated/tech/python/asyncio/code/L1/example_1.md
+          - example_2.py: _generated/tech/python/asyncio/code/L1/example_2.md
+          - example_3.py: _generated/tech/python/asyncio/code/L1/example_3.md
+          - example_4.py: _generated/tech/python/asyncio/code/L1/example_4.md
+          - example_5.py: _generated/tech/python/asyncio/code/L1/example_5.md
+          - example_6.py: _generated/tech/python/asyncio/code/L1/example_6.md
+          - example_7.py: _generated/tech/python/asyncio/code/L1/example_7.md
+      - 🧵 Threading:
+        - Overview: tech/python/threading/README.md
+        - 01 · Complete Guide: tech/python/threading/01-threading-complete-guide.md
+        - 🃏 Flashcards: tech/python/threading/flashcards.md
+        - 💻 Code Examples:
+          - Overview: tech/python/threading/code/README.md
+          - 01_synchronous.py: _generated/tech/python/threading/code/L1/01_synchronous.md
+          - 02_basic_threads.py: _generated/tech/python/threading/code/L1/02_basic_threads.md
+          - 03_loop_threads.py: _generated/tech/python/threading/code/L1/03_loop_threads.md
+          - 04_thread_pool_submit.py: _generated/tech/python/threading/code/L1/04_thread_pool_submit.md
+          - 05_thread_pool_map.py: _generated/tech/python/threading/code/L1/05_thread_pool_map.md
+          - 06_download_images.py: _generated/tech/python/threading/code/L1/06_download_images.md
+      - ⚙️ Multiprocessing:
+        - Overview: tech/python/multiprocessing/README.md
+        - 01 · Complete Guide: tech/python/multiprocessing/01-multiprocessing-complete-guide.md
+        - 🃏 Flashcards: tech/python/multiprocessing/flashcards.md
+        - 💻 Code Examples:
+          - Overview: tech/python/multiprocessing/code/README.md
+          - 01_synchronous.py: _generated/tech/python/multiprocessing/code/L1/01_synchronous.md
+          - 02_basic_processes.py: _generated/tech/python/multiprocessing/code/L1/02_basic_processes.md
+          - 03_loop_processes.py: _generated/tech/python/multiprocessing/code/L1/03_loop_processes.md
+          - 04_pool_submit.py: _generated/tech/python/multiprocessing/code/L1/04_pool_submit.md
+          - 05_pool_map.py: _generated/tech/python/multiprocessing/code/L1/05_pool_pool_map.md
+          - 06_process_images.py: _generated/tech/python/multiprocessing/code/L1/06_process_images.md
+    - 🤖 Agentic AI:
+      - tech/agentic-ai/README.md
+      - Module 1 · Intro:
+        - Overview: tech/agentic-ai/module-1-intro/README.md
+        - 01 · Welcome: tech/agentic-ai/module-1-intro/01-welcome.md
+        - 02 · What is Agentic AI: tech/agentic-ai/module-1-intro/02-what-is-agentic-ai.md
+        - 03 · Degrees of Autonomy: tech/agentic-ai/module-1-intro/03-degrees-of-autonomy.md
+        - 04 · Benefits: tech/agentic-ai/module-1-intro/04-benefits.md
+        - 05 · Applications: tech/agentic-ai/module-1-intro/05-applications.md
+        - 06 · Task Decomposition: tech/agentic-ai/module-1-intro/06-task-decomposition.md
+        - 07 · Evals: tech/agentic-ai/module-1-intro/07-evals.md
+        - 08 · Design Patterns: tech/agentic-ai/module-1-intro/08-design-patterns.md
+        - 🃏 Flashcards: tech/agentic-ai/module-1-intro/flashcards.md
+      - Module 2 · Reflection:
+        - Overview: tech/agentic-ai/module-2-reflection/README.md
+        - 01 · Reflection to Improve Outputs: tech/agentic-ai/module-2-reflection/01-reflection-to-improve-outputs.md
+        - 02 · Why Not Direct Generation: tech/agentic-ai/module-2-reflection/02-why-not-direct-generation.md
+        - 03 · Chart Generation Workflow: tech/agentic-ai/module-2-reflection/03-chart-generation-workflow.md
+        - 04 · Evaluating Reflection: tech/agentic-ai/module-2-reflection/04-evaluating-reflection.md
+        - 05 · External Feedback: tech/agentic-ai/module-2-reflection/05-external-feedback.md
+        - 🃏 Flashcards: tech/agentic-ai/module-2-reflection/flashcards.md
+        - 💻 Code Labs:
+          - SQL Agent: tech/agentic-ai/module-2-reflection/code/M2/examples/sql_agent/sql.ipynb
+          - Visualization Agent: tech/agentic-ai/module-2-reflection/code/M2/examples/visualization_agent/visualization.ipynb
+          - Ungraded Lab 1 · Chart Reflection: tech/agentic-ai/module-2-reflection/code/M2/ungraded_labs/M2_UGL_1/M2_UGL_1.ipynb
+          - Ungraded Lab 2 · SQL Reflection: tech/agentic-ai/module-2-reflection/code/M2/ungraded_labs/M2_UGL_2/M2_UGL_2.ipynb
+          - Graded Lab · Research Agent: tech/agentic-ai/module-2-reflection/code/M2/graded_labs/research-agent/GL-M2.ipynb
+      - Module 3 · Tool Use:
+        - Overview: tech/agentic-ai/module-3-tool-use/README.md
+        - 01 · What Are Tools: tech/agentic-ai/module-3-tool-use/01-what-are-tools.md
+        - 02 · Creating a Tool: tech/agentic-ai/module-3-tool-use/02-creating-a-tool.md
+        - 03 · Tool Syntax: tech/agentic-ai/module-3-tool-use/03-tool-syntax.md
+        - 04 · Code Execution: tech/agentic-ai/module-3-tool-use/04-code-execution.md
+        - 05 · MCP: tech/agentic-ai/module-3-tool-use/05-mcp.md
+        - 🃏 Flashcards: tech/agentic-ai/module-3-tool-use/flashcards.md
+        - 💻 Code Labs:
+          - Ungraded Lab 1 · Tool Functions: tech/agentic-ai/module-3-tool-use/code/M3/ungraded_labs/M3_UGL_1/M3_UGL_1.ipynb
+          - Ungraded Lab 2 · Email Assistant: tech/agentic-ai/module-3-tool-use/code/M3/ungraded_labs/M3_UGL_2/M3_UGL_2.ipynb
+          - Graded Lab · Research Agent: tech/agentic-ai/module-3-tool-use/code/M3/graded_labs/research_agent/GL-M3.ipynb
+      - Module 4 · Practical Tips:
+        - Overview: tech/agentic-ai/module-4-practical-tips/README.md
+        - 01 · Evaluations: tech/agentic-ai/module-4-practical-tips/01-evaluations.md
+        - 02 · Error Analysis: tech/agentic-ai/module-4-practical-tips/02-error-analysis.md
+        - 03 · More Error Analysis: tech/agentic-ai/module-4-practical-tips/03-more-error-analysis.md
+        - 04 · Component-Level Evals: tech/agentic-ai/module-4-practical-tips/04-component-level-evals.md
+        - 05 · Addressing Problems: tech/agentic-ai/module-4-practical-tips/05-addressing-problems.md
+        - 06 · Latency & Cost: tech/agentic-ai/module-4-practical-tips/06-latency-cost.md
+        - 07 · Dev Process Summary: tech/agentic-ai/module-4-practical-tips/07-dev-process-summary.md
+        - 🃏 Flashcards: tech/agentic-ai/module-4-practical-tips/flashcards.md
+        - 💻 Code Lab:
+          - Ungraded Lab 1 · Evals: tech/agentic-ai/module-4-practical-tips/code/M4_UGL_1.ipynb
+      - Module 5 · Autonomous Agents:
+        - Overview: tech/agentic-ai/module-5-autonomous-agents/README.md
+        - 01 · Planning Workflows: tech/agentic-ai/module-5-autonomous-agents/01-planning-workflows.md
+        - 02 · Creating & Executing LLM Plans: tech/agentic-ai/module-5-autonomous-agents/02-llm-plans.md
+        - 03 · Planning with Code Execution: tech/agentic-ai/module-5-autonomous-agents/03-planning-code-execution.md
+        - 04 · Multi-Agentic Workflows: tech/agentic-ai/module-5-autonomous-agents/04-multi-agent.md
+        - 05 · Communication Patterns: tech/agentic-ai/module-5-autonomous-agents/05-communication-patterns.md
+        - 🃏 Flashcards: tech/agentic-ai/module-5-autonomous-agents/flashcards.md
+      - Resources:
+        - 🃏 Flashcards: tech/agentic-ai/flashcards.md
+        - 📋 Cheatsheet: tech/agentic-ai/cheatsheet.md
+        - ⚔️ Evals & Error Analysis: tech/agentic-ai/vs.md
+    - 🔍 RAG:
+      - tech/rag/README.md
+      - Module 1 · RAG Overview:
+        - Overview: tech/rag/module-1-rag-overview/README.md
+        - 00 · Conversation with Andrew Ng: tech/rag/module-1-rag-overview/00-conversation-andrew-ng.md
+        - 01 · Module Introduction: tech/rag/module-1-rag-overview/01-module-introduction.md
+        - 02 · Introduction to RAG: tech/rag/module-1-rag-overview/02-introduction-to-rag.md
+        - 03 · Applications of RAG: tech/rag/module-1-rag-overview/03-applications-of-rag.md
+        - 04 · RAG Architecture Overview: tech/rag/module-1-rag-overview/04-rag-architecture-overview.md
+        - 05 · Introduction to LLMs: tech/rag/module-1-rag-overview/05-introduction-to-llms.md
+        - 08 · Introduction to IR: tech/rag/module-1-rag-overview/08-introduction-to-ir.md
+        - 🃏 Flashcards: tech/rag/module-1-rag-overview/flashcards.md
+        - 💻 Code Labs:
+          - Ungraded Lab 1: tech/rag/module-1-rag-overview/code/Module1/ungraded_labs/ungraded_lab_1/C1M1_Ungraded_Lab_1.ipynb
+          - Ungraded Lab 2: tech/rag/module-1-rag-overview/code/Module1/ungraded_labs/ungraded_lab_2/C1M1_Ungraded_Lab_2.ipynb
+          - Assignment: tech/rag/module-1-rag-overview/code/C1M1_Assignment.ipynb
+      - Module 2 · IR & Search:
+        - Overview: tech/rag/module-2-ir-search-foundations/README.md
+        - 01 · Module Introduction: tech/rag/module-2-ir-search-foundations/01-module-introduction.md
+        - 02 · Retriever Architecture: tech/rag/module-2-ir-search-foundations/02-retriever-architecture.md
+        - 03 · Metadata Filtering: tech/rag/module-2-ir-search-foundations/03-metadata-filtering.md
+        - "04 · Keyword Search: TF-IDF": tech/rag/module-2-ir-search-foundations/04-keyword-search-tfidf.md
+        - "05 · Keyword Search: BM25": tech/rag/module-2-ir-search-foundations/05-keyword-search-bm25.md
+        - "06 · Semantic Search: Embeddings": tech/rag/module-2-ir-search-foundations/06-semantic-search-embeddings.md
+        - 07 · Embedding Model Deep Dive: tech/rag/module-2-ir-search-foundations/07-embedding-model-deepdive.md
+        - 08 · Hybrid Search: tech/rag/module-2-ir-search-foundations/08-hybrid-search.md
+        - 10 · Evaluating Retrieval: tech/rag/module-2-ir-search-foundations/10-evaluating-retrieval.md
+        - 🃏 Flashcards: tech/rag/module-2-ir-search-foundations/flashcards.md
+        - 💻 Code Labs:
+          - Ungraded Lab 1: tech/rag/module-2-ir-search-foundations/code/Module2/ungraded_labs/ungraded_lab_1/C1M2_Ungraded_Lab_1.ipynb
+          - Ungraded Lab 2: tech/rag/module-2-ir-search-foundations/code/Module2/ungraded_labs/ungraded_lab_2/C1M2_Ungraded_Lab_2.ipynb
+          - Assignment: tech/rag/module-2-ir-search-foundations/code/Module2/ungraded_labs/C1M2_Assignment.ipynb
+      - Module 3 · Vector Databases:
+        - Overview: tech/rag/module-3-ir-vector-databases/README.md
+        - 01 · Module Introduction: tech/rag/module-3-ir-vector-databases/01-module-introduction.md
+        - 02 · ANN & HNSW: tech/rag/module-3-ir-vector-databases/02-ann-knn-nsw-hnsw.md
+        - 03 · Vector Databases: tech/rag/module-3-ir-vector-databases/03-vector-databases.md
+        - 04 · Query Parsing: tech/rag/module-3-ir-vector-databases/04-query-parsing.md
+        - 05 · Chunking Concepts: tech/rag/module-3-ir-vector-databases/05-chunking-concepts.md
+        - 07 · Advanced Chunking: tech/rag/module-3-ir-vector-databases/07-advanced-chunking.md
+        - 09 · Cross-Encoders & ColBERT: tech/rag/module-3-ir-vector-databases/09-cross-encoders-colbert.md
+        - 10 · Reranking: tech/rag/module-3-ir-vector-databases/10-reranking.md
+        - 🃏 Flashcards: tech/rag/module-3-ir-vector-databases/flashcards.md
+        - 💻 Code Labs:
+          - Ungraded Lab 1: tech/rag/module-3-ir-vector-databases/code/Module3/ungraded_labs/ungraded_lab_1/C1M3_Ungraded_Lab_1.ipynb
+          - Ungraded Lab 2: tech/rag/module-3-ir-vector-databases/code/Module3/ungraded_labs/ungraded_lab_2/C1M3_Ungraded_Lab_2.ipynb
+      - Module 4 · LLMs & Generation:
+        - Overview: tech/rag/module-4-llms-text-generation/README.md
+        - 🃏 Flashcards: tech/rag/module-4-llms-text-generation/flashcards.md
+        - 💻 Code Labs:
+          - Ungraded Lab 1: tech/rag/module-4-llms-text-generation/code/Module4/ungraded_labs/ungraded_lab_1/C1M4_Ungraded_Lab_1.ipynb
+          - Ungraded Lab 2: tech/rag/module-4-llms-text-generation/code/Module4/ungraded_labs/ungraded_lab_2/C1M4_Ungraded_Lab_2.ipynb
+      - Module 5 · Production:
+        - Overview: tech/rag/module-5-rag-production/README.md
+        - 🃏 Flashcards: tech/rag/module-5-rag-production/flashcards.md
+        - 💻 Code Labs:
+          - Ungraded Lab 1: tech/rag/module-5-rag-production/code/Module5/ungraded_labs/ungraded_lab_1/C1M5_Ungraded_Lab_1.ipynb
+      - Resources:
+        - 🃏 Flashcards: tech/rag/flashcards.md
+    - 📋 Spec-Driven Dev:
+      - tech/spec-driven-development/README.md
+      - 01 · Introduction: tech/spec-driven-development/01-introduction.md
+      - 02 · Why SDD: tech/spec-driven-development/02-why-sdd.md
+      - 03 · Workflow Overview: tech/spec-driven-development/03-workflow-overview.md
+      - 06 · Creating the Constitution: tech/spec-driven-development/06-creating-the-constitution.md
+      - 07 · Feature Specification: tech/spec-driven-development/07-feature-specification.md
+      - 08 · Feature Implementation: tech/spec-driven-development/08-feature-implementation.md
+      - 09 · Feature Validation: tech/spec-driven-development/09-feature-validation.md
+      - 10 · Project Replanning: tech/spec-driven-development/10-project-replanning.md
+      - 11 · Second Feature Phase: tech/spec-driven-development/11-second-feature-phase.md
+      - 12 · The MVP: tech/spec-driven-development/12-the-mvp.md
+      - 13 · Legacy Support: tech/spec-driven-development/13-legacy-support.md
+      - 14 · Build Your Own Workflow: tech/spec-driven-development/14-build-your-own-workflow.md
+      - 15 · Agent Replaceability: tech/spec-driven-development/15-agent-replaceability.md
+      - 🃏 Flashcards: tech/spec-driven-development/flashcards.md
 
   - 🎬 Playlists:
     - 🦜 LangChain: https://ayushsonuu.github.io/langchain-ecosystem-tutorials/langchain/
