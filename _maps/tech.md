@@ -7,7 +7,7 @@ graph TB
     T(("🔧 Tech"))
     T --> AG["🤖 <b>Agentic AI</b><br/>M1-M5 ✅"]
     T --> AM["🧠 <b>Agent Memory</b><br/>7/7 lessons ✅"]
-    T --> RAG["🔍 <b>RAG</b><br/>M1: 7/10, M2: 9/12, M3: 6/11 ✨"]
+    T --> RAG["🔍 <b>RAG</b><br/>M1: 7/10, M2: 9/12, M3: 8/11 ✨"]
     T --> PY["🐍 <b>Python</b>"]
     PY --> AIO["⚡ <b>AsyncIO</b><br/>1/1 ✅"]
     PY --> THR["🧵 <b>Threading</b><br/>1/1 ✅"]
@@ -49,7 +49,7 @@ graph TB
 |---|--------|--------|--------|
 | 01 | RAG Overview | 🟡 7/10 | What is RAG, Applications, Architecture, LLMs, IR. **3 SVGs** |
 | 02 | IR & Search Foundations | 🟡 9/12 | Retriever architecture, metadata filtering, TF-IDF, BM25, semantic search, embeddings, hybrid search, RRF, evaluation metrics. **22 SVGs** |
-| 03 | IR with Vector Databases | 🟡 6/11 | ANN/KNN/NSW/HNSW, vector databases, chunking, query parsing, cross-encoders, ColBERT, reranking. **17 SVGs** |
+| 03 | IR with Vector Databases | 🟡 8/11 | ANN/KNN/NSW/HNSW, vector databases, chunking, query parsing, cross-encoders, ColBERT, reranking. **22 SVGs** |
 | 04 | LLMs & Text Generation | 🔴 0/14 | Transformers, Sampling, Prompt engineering, Hallucinations, Agentic RAG |
 | 05 | RAG in Production | 🔴 0/14 | Evaluation, Monitoring, Tracing, Quantization, Cost/Latency, Security |
 

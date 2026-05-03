@@ -56,6 +56,7 @@ Every tool returns a standard `ToolOutput` envelope:
 | Tool | Description | Version | Status |
 |------|-------------|---------|--------|
 | [flashcard-quiz](tools/flashcard-quiz/TOOL.md) | Interactive quiz from vault flashcards. Revision, recall testing, structured Q&A data. | 1.1.0 | ✅ stable |
+| [youtube-transcript](tools/youtube-transcript/TOOL.md) | Extract transcripts from YouTube videos for note-taking and vault ingestion. | 1.0.0 | ✅ stable |
 
 <!-- TOOL_INDEX_END -->
 

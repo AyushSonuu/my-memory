@@ -1,7 +1,21 @@
 # 🔍 Tool Opportunity Audit — Ayra's Repeated Manual Workflows
 
-> Audited: 2026-04-07
+> Audited: 2026-05-03
 > Rule: If I do the same steps 3+ times manually, it becomes a tool.
+
+## ✅ Built Tools
+
+### 1. 🃏 flashcard-quiz (v1.1.0) — COMPLETE
+Interactive quiz from vault flashcards. Revision + recall testing.
+- **Status:** 46/46 tests passing ✅
+- **When:** User wants to revise or test knowledge on any topic
+
+### 2. 🎬 youtube-transcript (v1.0.0) — COMPLETE
+Extract transcripts from YouTube videos for note-taking and vault ingestion.
+- **Status:** Unit tests passing ✅
+- **When:** User shares YouTube URL and wants to create notes from it
+
+---
 
 ## Hardcoded Workflows I Repeat Every Session
 

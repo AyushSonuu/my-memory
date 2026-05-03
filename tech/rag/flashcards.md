@@ -1,7 +1,7 @@
 # 🃏 RAG Flashcards — Cross-Module
 
 > From: all modules + related: agentic-ai/, agent-memory/
-> Last updated: 2026-04-22
+> Last updated: 2026-05-03
 
 ---
 
@@ -72,6 +72,41 @@ BM25 models diminishing returns for repeated terms and applies fairer length nor
 <summary>❓ In BM25 tuning, what practical behavior do `k1` and `b` control?</summary>
 
 `k1` controls how quickly repeated-term rewards saturate; `b` controls how strongly long documents are penalized.
+</details>
+
+---
+
+## M3 Pulls — Vector DBs & Reranking
+
+<details>
+<summary>❓ What's the production pattern for combining bi-encoder and cross-encoder?</summary>
+
+1. Bi-encoder retrieves top 20-100 candidates (fast, scalable)
+2. Cross-encoder reranks those candidates (slow but high quality)
+3. Return top 5-10 to LLM
+
+Speed of bi-encoder + quality of cross-encoder = best of both worlds.
+</details>
+
+<details>
+<summary>❓ Why is ColBERT called "late interaction"?</summary>
+
+Because document and prompt are encoded separately (like bi-encoder), but compared at **token level** via MaxSim scoring (deeper than bi-encoder). The "interaction" happens late — at comparison time, not encoding time.
+</details>
+
+<details>
+<summary>❓ When would you choose ColBERT over bi-encoder despite 1000× storage cost?</summary>
+
+High-stakes domains (legal, medical, financial) where precision matters more than storage cost. Token-level matching catches semantic relationships that single-vector bi-encoders miss.
+</details>
+
+<details>
+<summary>❓ Why is reranking "one of the first techniques to try" for RAG quality?</summary>
+
+1. Easy to implement (often just one line)
+2. Minimal latency (100-500ms for 20-100 docs)
+3. Big quality boost (cross-encoder deeply understands relevance)
+4. Low risk (doesn't change architecture, just adds a step)
 </details>
 
 ---

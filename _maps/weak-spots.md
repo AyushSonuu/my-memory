@@ -9,7 +9,7 @@
 |-------|-----------|-----------|----------|
 | 🧠 Agent Memory | Learned 2026-03-21 — revision overdue since Mar 28 | Revise flashcards ASAP (36 days overdue!) | 🔴 High |
 | 🤖 Agentic AI | 30/30 complete but never revised. Overdue since Apr 6. | Revise M1-M5 flashcards | 🔴 High |
-| 🔍 RAG | 22/62 lessons done (M1: 7/10, M2: 9/12, M3: 6/11) | Continue M4 — LLMs & Text Generation | 🟡 Medium |
+| 🔍 RAG | 22/62 lessons done (M1: 7/10, M2: 9/12, M3: 8/11) | Continue M4 — LLMs & Text Generation | 🟡 Medium |
 | 📋 SDD | 13/16 done — just L16 (conclusion) remaining | Finish last lesson, then revise | 🟢 Low |
 
 ## 🔴 Red Topics

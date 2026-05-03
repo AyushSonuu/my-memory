@@ -54,7 +54,7 @@ gantt
 |-------|---------------|----------------|-----------------|
 | Mar 2026 | 4 (Agent Memory, AsyncIO, Threading, Agentic AI) | 25 | 120+ |
 | Apr 2026 | 2 (RAG, SDD) | 21+ | 60+ |
-| May 2026 | 0 | 5+ | 30+ |
+| May 2026 | 0 | 7+ | 40+ |
 
 ## 🏆 Milestones
 
@@ -84,7 +84,9 @@ gantt
 | 2026-04-21 | 🔍 RAG M2 started! Module 2 Introduction completed |
 | 2026-05-02 | 🔍 RAG M2 nearly done! 9/12 lessons (TF-IDF, BM25, semantic search, hybrid, eval metrics — all with SVGs) |
 | 2026-05-02 | 🔍 RAG M3 started! 3/11 lessons (ANN/HNSW, vector databases) |
-| 2026-05-02 | 📊 72 lessons total — vault growing steadily |
+| 2026-05-03 | 🔍 RAG M3 progress! 8/11 lessons (chunking, cross-encoders, ColBERT, reranking — 22 SVGs total) |
+| 2026-05-03 | 🏗️ Tech Hub refactoring — course cards replace cluttered nav tabs |
+| 2026-05-03 | 📊 75 lessons total — vault growing steadily |
 
 ---
 
