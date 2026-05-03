@@ -266,6 +266,10 @@ nav:
       - 05 · Introduction to LLMs: tech/rag/module-1-rag-overview/05-introduction-to-llms.md
       - 08 · Introduction to IR: tech/rag/module-1-rag-overview/08-introduction-to-ir.md
       - 🃏 Flashcards: tech/rag/module-1-rag-overview/flashcards.md
+      - 💻 Code Labs:
+        - Ungraded Lab 1: tech/rag/module-1-rag-overview/code/Module1/ungraded_labs/ungraded_lab_1/C1M1_Ungraded_Lab_1.ipynb
+        - Ungraded Lab 2: tech/rag/module-1-rag-overview/code/Module1/ungraded_labs/ungraded_lab_2/C1M1_Ungraded_Lab_2.ipynb
+        - Assignment: tech/rag/module-1-rag-overview/code/C1M1_Assignment.ipynb
     - Module 2 · IR & Search:
       - Overview: tech/rag/module-2-ir-search-foundations/README.md
       - 01 · Module Introduction: tech/rag/module-2-ir-search-foundations/01-module-introduction.md
@@ -278,18 +282,35 @@ nav:
       - 08 · Hybrid Search: tech/rag/module-2-ir-search-foundations/08-hybrid-search.md
       - 10 · Evaluating Retrieval: tech/rag/module-2-ir-search-foundations/10-evaluating-retrieval.md
       - 🃏 Flashcards: tech/rag/module-2-ir-search-foundations/flashcards.md
+      - 💻 Code Labs:
+        - Ungraded Lab 1: tech/rag/module-2-ir-search-foundations/code/Module2/ungraded_labs/ungraded_lab_1/C1M2_Ungraded_Lab_1.ipynb
+        - Ungraded Lab 2: tech/rag/module-2-ir-search-foundations/code/Module2/ungraded_labs/ungraded_lab_2/C1M2_Ungraded_Lab_2.ipynb
+        - Assignment: tech/rag/module-2-ir-search-foundations/code/Module2/ungraded_labs/C1M2_Assignment.ipynb
     - Module 3 · Vector Databases:
       - Overview: tech/rag/module-3-ir-vector-databases/README.md
       - 01 · Module Introduction: tech/rag/module-3-ir-vector-databases/01-module-introduction.md
       - 02 · ANN & HNSW: tech/rag/module-3-ir-vector-databases/02-ann-knn-nsw-hnsw.md
       - 03 · Vector Databases: tech/rag/module-3-ir-vector-databases/03-vector-databases.md
+      - 04 · Query Parsing: tech/rag/module-3-ir-vector-databases/04-query-parsing.md
+      - 05 · Chunking Concepts: tech/rag/module-3-ir-vector-databases/05-chunking-concepts.md
+      - 07 · Advanced Chunking: tech/rag/module-3-ir-vector-databases/07-advanced-chunking.md
+      - 09 · Cross-Encoders & ColBERT: tech/rag/module-3-ir-vector-databases/09-cross-encoders-colbert.md
+      - 10 · Reranking: tech/rag/module-3-ir-vector-databases/10-reranking.md
       - 🃏 Flashcards: tech/rag/module-3-ir-vector-databases/flashcards.md
+      - 💻 Code Labs:
+        - Ungraded Lab 1: tech/rag/module-3-ir-vector-databases/code/Module3/ungraded_labs/ungraded_lab_1/C1M3_Ungraded_Lab_1.ipynb
+        - Ungraded Lab 2: tech/rag/module-3-ir-vector-databases/code/Module3/ungraded_labs/ungraded_lab_2/C1M3_Ungraded_Lab_2.ipynb
     - Module 4 · LLMs & Generation:
       - Overview: tech/rag/module-4-llms-text-generation/README.md
       - 🃏 Flashcards: tech/rag/module-4-llms-text-generation/flashcards.md
+      - 💻 Code Labs:
+        - Ungraded Lab 1: tech/rag/module-4-llms-text-generation/code/Module4/ungraded_labs/ungraded_lab_1/C1M4_Ungraded_Lab_1.ipynb
+        - Ungraded Lab 2: tech/rag/module-4-llms-text-generation/code/Module4/ungraded_labs/ungraded_lab_2/C1M4_Ungraded_Lab_2.ipynb
     - Module 5 · Production:
       - Overview: tech/rag/module-5-rag-production/README.md
       - 🃏 Flashcards: tech/rag/module-5-rag-production/flashcards.md
+      - 💻 Code Labs:
+        - Ungraded Lab 1: tech/rag/module-5-rag-production/code/Module5/ungraded_labs/ungraded_lab_1/C1M5_Ungraded_Lab_1.ipynb
     - Resources:
       - 🃏 Flashcards: tech/rag/flashcards.md
 
