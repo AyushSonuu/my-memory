@@ -20,6 +20,8 @@ Why? Because initial retrieval (bi-encoder) is **fast but imperfect**. Reranking
 
 ## The Problem Reranking Solves
 
+![Before vs After Reranking](assets/10-before-after-reranking.svg)
+
 **Example:** Prompt = "What is the capital of Canada?"
 
 Vector DB might return:
@@ -155,6 +157,8 @@ This makes reranking **one of the easiest RAG improvements** to implement.
 ---
 
 ## The Full Picture: Retrieval Stack
+
+![Full RAG Retrieval Stack](assets/10-full-retrieval-stack.svg)
 
 ```
 ┌─────────────────────────────────────────────────────────────┐

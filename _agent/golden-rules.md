@@ -24,6 +24,9 @@ Everything you write must be **instantly recallable** during revision. This is t
 - When unsure → **web search first**, don't guess silently
 
 ## 2. 📊 Visual FIRST, Text SECOND
+
+**🎯 PREFER SVGs FOR CONCEPTUAL DEPTH:** When in doubt, use SVG. SVGs are your primary teaching tool — they convey more information, look more polished, and are more memorable than any other format. If a concept can be visualized, BUILD AN SVG. The cost (time to create) is worth the benefit (10× better understanding and recall). Don't be lazy with quick ASCII or tables when an SVG would truly illuminate the concept.
+
 - Every concept opens with a visual — pick the **RIGHT tool for the job**:
   - **Mermaid** → cycles, relationships, hierarchies, flows, architectures, pipelines, convergence diagrams
   - **SVG** → complex architectures, multi-column layouts, detailed system diagrams, anything that needs precise positioning, colors, gradients, or drop shadows. SVGs render natively on GitHub and look sharp at any zoom. Use when Mermaid can't capture the full picture cleanly.
