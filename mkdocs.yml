@@ -301,6 +301,8 @@ nav:
           - Ungraded Lab 2: tech/rag/module-3-ir-vector-databases/code/Module3/ungraded_labs/ungraded_lab_2/C1M3_Ungraded_Lab_2.ipynb
       - Module 4 · LLMs & Generation:
         - Overview: tech/rag/module-4-llms-text-generation/README.md
+        - 01 · Module Introduction: tech/rag/module-4-llms-text-generation/01-module-introduction.md
+        - 02 · Transformer Architecture: tech/rag/module-4-llms-text-generation/02-transformer-architecture.md
         - 🃏 Flashcards: tech/rag/module-4-llms-text-generation/flashcards.md
         - 💻 Code Labs:
           - Ungraded Lab 1: tech/rag/module-4-llms-text-generation/code/Module4/ungraded_labs/ungraded_lab_1/C1M4_Ungraded_Lab_1.ipynb

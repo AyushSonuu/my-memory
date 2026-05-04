@@ -24,8 +24,8 @@ graph LR
 
 | # | Lesson | Confidence | Revised |
 |---|--------|-----------|---------|
-| 01 | [Module 4 Introduction](01-module-introduction.md) | 🔴 | — |
-| 02 | [Transformer Architecture](02-transformer-architecture.md) | 🔴 | — |
+| 01 | [Module 4 Introduction](01-module-introduction.md) | 🟢 | — |
+| 02 | [Transformer Architecture](02-transformer-architecture.md) | 🟢 | 3 SVGs |
 | 03 | [LLM Sampling Strategies](03-llm-sampling-strategies.md) | 🔴 | — |
 | 04 | [Exploring LLM Capabilities](04-exploring-llm-capabilities.md) | 🔴 | — |
 | 05 | [Choosing Your LLM](05-choosing-your-llm.md) | 🔴 | — |
@@ -38,10 +38,15 @@ graph LR
 | 12 | [RAG vs Fine-Tuning](12-rag-vs-finetuning.md) | 🔴 | — |
 | 13 | [Lab: Developing a RAG Chatbot](13-lab-rag-chatbot.md) | 🔴 | — |
 
-**Overall confidence:** 🔴 Not started
+**Overall confidence:** 🟡 In progress (2/13)
 
 ## 🧩 Memory Fragments
-> - _Add fragments as you learn..._
+> - 🧠 LLM is the "real brains" of RAG — retriever finds, LLM understands and generates
+> - 🔄 Transformer = attention + feed-forward, repeated 8-64 times for refinement
+> - 👀 Attention = "which tokens should impact MY meaning?" Each token sees ALL others
+> - 🎭 Multiple attention heads (8-100+) = multiple perspectives on relationships
+> - 💰 Cost grows with prompt length — each token looks at every other (quadratic!)
+> - 🎲 LLMs are inherently random — even with good context, might ignore it
 
 ---
 
