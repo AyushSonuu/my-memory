@@ -129,5 +129,81 @@ This means:
 
 ---
 
+## LLM Sampling Strategies (Lesson 03)
+
+<details>
+<summary>❓ What does an LLM actually output at each generation step?</summary>
+
+A **probability distribution** over the entire vocabulary (~100,000 tokens).
+
+Not text — PROBABILITIES. Sampling strategies decide HOW to pick one token from these probabilities.
+</details>
+
+<details>
+<summary>❓ What does temperature control in LLM generation?</summary>
+
+Temperature controls the **shape** of the probability distribution:
+- **Temp 0** → Spike at highest prob token (greedy/deterministic)
+- **Temp 1** → Original distribution (balanced)
+- **Temp >1** → Flatter distribution (more random)
+
+Formula: `softmax(logits / temperature)`
+</details>
+
+<details>
+<summary>❓ What's the difference between Top-K and Top-P sampling?</summary>
+
+| Method | Cutoff Rule | Behavior |
+|--------|-------------|----------|
+| **Top-K** | Fixed count (K=5) | Always exactly K tokens |
+| **Top-P** | Cumulative prob (P=0.9) | Adapts to confidence |
+
+**Top-P wins:** Fewer tokens when confident (peaked dist), more when uncertain (flat dist).
+</details>
+
+<details>
+<summary>❓ What's greedy decoding and when to use it?</summary>
+
+**Greedy decoding** = Always pick the highest probability token (temperature = 0).
+
+Use for:
+- Code generation
+- Factual Q&A
+- Data extraction
+- Anything needing **deterministic** output
+
+Downside: Can get stuck in repetitive loops.
+</details>
+
+<details>
+<summary>❓ What do repetition penalty and logit bias control?</summary>
+
+Both are **token-specific** controls:
+
+| Control | What | Use Case |
+|---------|------|----------|
+| **Repetition penalty** | Reduce prob of already-used tokens | Prevent loops |
+| **Logit bias** | Permanently adjust specific tokens | Content filtering, force/block words |
+
+Repetition = dynamic (changes per generation). Logit bias = static (same every time).
+</details>
+
+<details>
+<summary>❓ What are recommended sampling settings for RAG applications?</summary>
+
+```python
+{
+    "temperature": 0.5-0.7,  # Lower = more factual
+    "top_p": 0.9,            # Avoid tail tokens
+    "repetition_penalty": 1.1-1.2  # Mild loop prevention
+}
+```
+
+For factual Q&A: temp 0.3-0.5
+For creative: temp 0.8-1.0
+</details>
+
+---
+
 > 💡 **Revision tip:** Cover the answer, try to explain OUT LOUD, then reveal.
 > Bolke batao — padhke nahi, bolke yaad hota hai! 🗣️

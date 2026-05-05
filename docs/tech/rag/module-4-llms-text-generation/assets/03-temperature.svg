@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550">
+  <defs>
+    <linearGradient id="tempGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2196f3"/>
+      <stop offset="50%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#f44336"/>
+    </linearGradient>
+    <filter id="shadowTemp">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="550" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="450" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Temperature: The Randomness Dial</text>
+  <text x="450" y="50" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Temperature changes the SHAPE of the probability distribution</text>
+
+  <!-- Temperature Scale -->
+  <g transform="translate(50, 70)">
+    <rect x="0" y="0" width="800" height="40" rx="6" fill="url(#tempGrad)"/>
+    <text x="0" y="55" fill="#2196f3" font-family="Inter, sans-serif" font-size="10" font-weight="bold">0</text>
+    <text x="160" y="55" fill="#58a6ff" font-family="Inter, sans-serif" font-size="10">0.5</text>
+    <text x="400" y="55" fill="#ff9800" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">1.0 (default)</text>
+    <text x="560" y="55" fill="#ff9800" font-family="Inter, sans-serif" font-size="10">1.2</text>
+    <text x="800" y="55" fill="#f44336" font-family="Inter, sans-serif" font-size="10" text-anchor="end">5+</text>
+
+    <text x="80" y="25" fill="#fff" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Greedy</text>
+    <text x="240" y="25" fill="#fff" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Focused</text>
+    <text x="400" y="25" fill="#fff" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Original</text>
+    <text x="560" y="25" fill="#fff" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Creative</text>
+    <text x="720" y="25" fill="#fff" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Nonsense</text>
+  </g>
+
+  <!-- Five distribution examples -->
+  <!-- Temp 0 -->
+  <g transform="translate(30, 140)">
+    <rect x="0" y="0" width="160" height="180" rx="8" fill="#161b22" stroke="#2196f3" stroke-width="2" filter="url(#shadowTemp)"/>
+    <text x="80" y="20" fill="#2196f3" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Temp: 0</text>
+    <text x="80" y="35" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Greedy Decoding</text>
+
+    <!-- Single tall bar -->
+    <rect x="50" y="55" width="30" height="100" fill="#2196f3" rx="2"/>
+    <text x="65" y="165" fill="#fff" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">100%</text>
+    <rect x="90" y="152" width="20" height="3" fill="#21262d" rx="1"/>
+    <rect x="120" y="152" width="15" height="3" fill="#21262d" rx="1"/>
+
+    <text x="80" y="175" fill="#4caf50" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Deterministic!</text>
+  </g>
+
+  <!-- Temp 0.5 -->
+  <g transform="translate(200, 140)">
+    <rect x="0" y="0" width="160" height="180" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2" filter="url(#shadowTemp)"/>
+    <text x="80" y="20" fill="#58a6ff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Temp: 0.5</text>
+    <text x="80" y="35" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">More Spiky</text>
+
+    <!-- Spiky distribution -->
+    <rect x="30" y="55" width="25" height="100" fill="#58a6ff" rx="2"/>
+    <rect x="60" y="105" width="25" height="50" fill="#58a6ff" rx="2"/>
+    <rect x="90" y="130" width="20" height="25" fill="#58a6ff" rx="2"/>
+    <rect x="115" y="145" width="15" height="10" fill="#58a6ff" rx="2"/>
+
+    <text x="80" y="175" fill="#58a6ff" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Focused choices</text>
+  </g>
+
+  <!-- Temp 1.0 -->
+  <g transform="translate(370, 140)">
+    <rect x="0" y="0" width="160" height="180" rx="8" fill="#161b22" stroke="#ff9800" stroke-width="2" filter="url(#shadowTemp)"/>
+    <text x="80" y="20" fill="#ff9800" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Temp: 1.0</text>
+    <text x="80" y="35" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Original Distribution</text>
+
+    <!-- Normal distribution -->
+    <rect x="25" y="65" width="25" height="90" fill="#ff9800" rx="2"/>
+    <rect x="55" y="95" width="25" height="60" fill="#ff9800" rx="2"/>
+    <rect x="85" y="115" width="22" height="40" fill="#ff9800" rx="2"/>
+    <rect x="112" y="130" width="18" height="25" fill="#ff9800" rx="2"/>
+    <rect x="135" y="142" width="15" height="13" fill="#ff9800" rx="2"/>
+
+    <text x="80" y="175" fill="#ff9800" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Default behavior</text>
+  </g>
+
+  <!-- Temp 1.2 -->
+  <g transform="translate(540, 140)">
+    <rect x="0" y="0" width="160" height="180" rx="8" fill="#161b22" stroke="#ff5722" stroke-width="2" filter="url(#shadowTemp)"/>
+    <text x="80" y="20" fill="#ff5722" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Temp: 1.2</text>
+    <text x="80" y="35" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Flatter / Creative</text>
+
+    <!-- Flatter distribution -->
+    <rect x="20" y="90" width="22" height="65" fill="#ff5722" rx="2"/>
+    <rect x="47" y="100" width="22" height="55" fill="#ff5722" rx="2"/>
+    <rect x="74" y="108" width="22" height="47" fill="#ff5722" rx="2"/>
+    <rect x="101" y="115" width="22" height="40" fill="#ff5722" rx="2"/>
+    <rect x="128" y="122" width="18" height="33" fill="#ff5722" rx="2"/>
+
+    <text x="80" y="175" fill="#ff5722" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">More variety!</text>
+  </g>
+
+  <!-- Temp 5+ -->
+  <g transform="translate(710, 140)">
+    <rect x="0" y="0" width="160" height="180" rx="8" fill="#161b22" stroke="#f44336" stroke-width="2" filter="url(#shadowTemp)"/>
+    <text x="80" y="20" fill="#f44336" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Temp: 5+</text>
+    <text x="80" y="35" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Very Flat</text>
+
+    <!-- Nearly flat distribution -->
+    <rect x="15" y="120" width="20" height="35" fill="#f44336" rx="2"/>
+    <rect x="40" y="122" width="20" height="33" fill="#f44336" rx="2"/>
+    <rect x="65" y="124" width="20" height="31" fill="#f44336" rx="2"/>
+    <rect x="90" y="126" width="20" height="29" fill="#f44336" rx="2"/>
+    <rect x="115" y="128" width="20" height="27" fill="#f44336" rx="2"/>
+    <rect x="140" y="130" width="15" height="25" fill="#f44336" rx="2"/>
+
+    <text x="80" y="175" fill="#f44336" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Random nonsense!</text>
+  </g>
+
+  <!-- Use cases -->
+  <g transform="translate(50, 340)">
+    <rect x="0" y="0" width="800" height="190" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="1"/>
+    <text x="400" y="25" fill="#58a6ff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">When to Use Each Temperature</text>
+
+    <!-- Low temp -->
+    <g transform="translate(30, 45)">
+      <rect x="0" y="0" width="230" height="120" rx="6" fill="#0d2030"/>
+      <text x="115" y="20" fill="#2196f3" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Low (0 - 0.5)</text>
+      <text x="20" y="45" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">✓ Code completion</text>
+      <text x="20" y="62" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">✓ Factual Q&amp;A</text>
+      <text x="20" y="79" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">✓ Data extraction</text>
+      <text x="20" y="96" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">✓ Debugging (deterministic)</text>
+      <text x="115" y="115" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Predictable &amp; Reliable</text>
+    </g>
+
+    <!-- Medium temp -->
+    <g transform="translate(285, 45)">
+      <rect x="0" y="0" width="230" height="120" rx="6" fill="#1a1a10"/>
+      <text x="115" y="20" fill="#ff9800" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Medium (0.7 - 1.0)</text>
+      <text x="20" y="45" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">✓ General conversation</text>
+      <text x="20" y="62" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">✓ Most RAG applications</text>
+      <text x="20" y="79" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">✓ Balanced responses</text>
+      <text x="20" y="96" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">✓ Default starting point</text>
+      <text x="115" y="115" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Good Balance</text>
+    </g>
+
+    <!-- High temp -->
+    <g transform="translate(540, 45)">
+      <rect x="0" y="0" width="230" height="120" rx="6" fill="#2a1a1a"/>
+      <text x="115" y="20" fill="#ff5722" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">High (1.1 - 1.3)</text>
+      <text x="20" y="45" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">✓ Creative writing</text>
+      <text x="20" y="62" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">✓ Brainstorming</text>
+      <text x="20" y="79" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">✓ Exploration / ideas</text>
+      <text x="20" y="96" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">⚠️ Higher hallucination risk</text>
+      <text x="115" y="115" fill="#ff5722" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">More Variety</text>
+    </g>
+  </g>
+</svg>

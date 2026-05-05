@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450">
+  <defs>
+    <linearGradient id="barGradK" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#1565c0"/>
+      <stop offset="100%" style="stop-color:#2196f3"/>
+    </linearGradient>
+    <linearGradient id="barGradP" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#6a1b9a"/>
+      <stop offset="100%" style="stop-color:#9c27b0"/>
+    </linearGradient>
+    <filter id="shadowTopK">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="450" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="450" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Top-K vs Top-P: Limiting Token Choices</text>
+
+  <!-- Top-K Section -->
+  <g transform="translate(30, 60)">
+    <rect x="0" y="0" width="410" height="350" rx="12" fill="#161b22" stroke="#2196f3" stroke-width="2" filter="url(#shadowTopK)"/>
+    <text x="205" y="30" fill="#2196f3" font-family="Inter, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Top-K = Fixed Number</text>
+    <text x="205" y="48" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">"Only consider the K most likely tokens"</text>
+
+    <!-- Distribution bars -->
+    <g transform="translate(30, 70)">
+      <!-- Labels -->
+      <text x="0" y="12" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">jumped</text>
+      <text x="0" y="52" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">fence</text>
+      <text x="0" y="92" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">gate</text>
+      <text x="0" y="132" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">wall</text>
+      <text x="0" y="172" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">river</text>
+      <text x="0" y="212" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">house</text>
+
+      <!-- Bars (in Top-K) -->
+      <rect x="60" y="0" width="200" height="25" rx="3" fill="url(#barGradK)"/>
+      <text x="270" y="17" fill="#fff" font-family="Inter, sans-serif" font-size="9">32%</text>
+
+      <rect x="60" y="40" width="156" height="25" rx="3" fill="url(#barGradK)"/>
+      <text x="226" y="57" fill="#fff" font-family="Inter, sans-serif" font-size="9">25%</text>
+
+      <rect x="60" y="80" width="112" height="25" rx="3" fill="url(#barGradK)"/>
+      <text x="182" y="97" fill="#fff" font-family="Inter, sans-serif" font-size="9">18%</text>
+
+      <rect x="60" y="120" width="75" height="25" rx="3" fill="url(#barGradK)"/>
+      <text x="145" y="137" fill="#fff" font-family="Inter, sans-serif" font-size="9">12%</text>
+
+      <rect x="60" y="160" width="56" height="25" rx="3" fill="url(#barGradK)"/>
+      <text x="126" y="177" fill="#fff" font-family="Inter, sans-serif" font-size="9">9%</text>
+
+      <!-- Cutoff line -->
+      <line x1="55" y1="190" x2="350" y2="190" stroke="#f44336" stroke-width="2" stroke-dasharray="5,3"/>
+      <text x="290" y="188" fill="#f44336" font-family="Inter, sans-serif" font-size="9" font-weight="bold">Top-K = 5</text>
+
+      <!-- Bars (excluded) -->
+      <rect x="60" y="200" width="44" height="25" rx="3" fill="#21262d"/>
+      <text x="114" y="217" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">7% ❌</text>
+    </g>
+
+    <!-- Key insight -->
+    <g transform="translate(30, 310)">
+      <rect x="0" y="0" width="350" height="30" rx="4" fill="#21262d"/>
+      <text x="175" y="20" fill="#ff9800" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Always exactly K tokens, regardless of distribution shape</text>
+    </g>
+  </g>
+
+  <!-- Top-P Section -->
+  <g transform="translate(460, 60)">
+    <rect x="0" y="0" width="410" height="350" rx="12" fill="#161b22" stroke="#9c27b0" stroke-width="2" filter="url(#shadowTopK)"/>
+    <text x="205" y="30" fill="#9c27b0" font-family="Inter, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Top-P = Cumulative Probability</text>
+    <text x="205" y="48" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">"Include tokens until cumulative prob ≥ threshold"</text>
+
+    <!-- Distribution bars with cumulative -->
+    <g transform="translate(30, 70)">
+      <!-- Labels -->
+      <text x="0" y="12" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">jumped</text>
+      <text x="0" y="52" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">fence</text>
+      <text x="0" y="92" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">gate</text>
+      <text x="0" y="132" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">wall</text>
+      <text x="0" y="172" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">river</text>
+      <text x="0" y="212" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">house</text>
+
+      <!-- Bars with cumulative sum -->
+      <rect x="60" y="0" width="200" height="25" rx="3" fill="url(#barGradP)"/>
+      <text x="270" y="17" fill="#fff" font-family="Inter, sans-serif" font-size="9">32% → Σ32%</text>
+
+      <rect x="60" y="40" width="156" height="25" rx="3" fill="url(#barGradP)"/>
+      <text x="226" y="57" fill="#fff" font-family="Inter, sans-serif" font-size="9">25% → Σ57%</text>
+
+      <rect x="60" y="80" width="112" height="25" rx="3" fill="url(#barGradP)"/>
+      <text x="182" y="97" fill="#fff" font-family="Inter, sans-serif" font-size="9">18% → Σ75%</text>
+
+      <rect x="60" y="120" width="75" height="25" rx="3" fill="url(#barGradP)"/>
+      <text x="145" y="137" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" font-weight="bold">12% → Σ87% ✓</text>
+
+      <!-- Cutoff line -->
+      <line x1="55" y1="150" x2="350" y2="150" stroke="#4caf50" stroke-width="2" stroke-dasharray="5,3"/>
+      <text x="290" y="148" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" font-weight="bold">Top-P = 85%</text>
+
+      <!-- Bars (excluded) -->
+      <rect x="60" y="160" width="56" height="25" rx="3" fill="#21262d"/>
+      <text x="126" y="177" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">9% ❌</text>
+
+      <rect x="60" y="200" width="44" height="25" rx="3" fill="#21262d"/>
+      <text x="114" y="217" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">7% ❌</text>
+    </g>
+
+    <!-- Key insight -->
+    <g transform="translate(30, 310)">
+      <rect x="0" y="0" width="350" height="30" rx="4" fill="#0d2818"/>
+      <text x="175" y="20" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Fewer tokens when confident, more when uncertain!</text>
+    </g>
+  </g>
+
+  <!-- Bottom comparison -->
+  <g transform="translate(30, 420)">
+    <rect x="0" y="0" width="840" height="25" rx="4" fill="#21262d"/>
+    <text x="420" y="17" fill="#58a6ff" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">💡 Top-P is more DYNAMIC than Top-K — adapts to model confidence automatically</text>
+  </g>
+</svg>
