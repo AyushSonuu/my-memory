@@ -334,6 +334,15 @@ nav:
       - 14 · Build Your Own Workflow: tech/spec-driven-development/14-build-your-own-workflow.md
       - 15 · Agent Replaceability: tech/spec-driven-development/15-agent-replaceability.md
       - 🃏 Flashcards: tech/spec-driven-development/flashcards.md
+    - 🧠 GenAI with LLMs:
+      - tech/genai-with-llms/README.md
+      - Week 1 · Pre-training:
+        - Overview: tech/genai-with-llms/week-1-pretraining/README.md
+      - Week 2 · Fine-tuning:
+        - Overview: tech/genai-with-llms/week-2-finetuning/README.md
+      - Week 3 · RLHF & Deployment:
+        - Overview: tech/genai-with-llms/week-3-rlhf-deployment/README.md
+      - 🃏 Flashcards: tech/genai-with-llms/flashcards.md
 
   - 🎬 Playlists:
     - 🦜 LangChain: https://ayushsonuu.github.io/langchain-ecosystem-tutorials/langchain/
