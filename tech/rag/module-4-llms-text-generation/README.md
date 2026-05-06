@@ -27,9 +27,9 @@ graph LR
 | 01 | [Module 4 Introduction](01-module-introduction.md) | 🟢 | — |
 | 02 | [Transformer Architecture](02-transformer-architecture.md) | 🟢 | 3 SVGs |
 | 03 | [LLM Sampling Strategies](03-llm-sampling-strategies.md) | 🟢 | 4 SVGs |
-| 04 | [Exploring LLM Capabilities](04-exploring-llm-capabilities.md) | 🔴 | — |
-| 05 | [Choosing Your LLM](05-choosing-your-llm.md) | 🔴 | — |
-| 06 | [Prompt Engineering: Augmented Prompt](06-prompt-engineering-augmented.md) | 🔴 | — |
+| 04 | [Choosing Your LLM](04-choosing-your-llm.md) | 🟢 | 3 SVGs |
+| 05 | [Exploring LLM Capabilities](05-exploring-llm-capabilities.md) | 🔴 | — |
+| 06 | [Prompt Engineering: Augmented Prompt](06-prompt-engineering-augmented.md) | 🟢 | 2 SVGs |
 | 07 | [Prompt Engineering: Advanced Techniques](07-prompt-engineering-advanced.md) | 🔴 | — |
 | 08 | [Prompt Engineering (Lab)](08-prompt-engineering-lab.md) | 🔴 | — |
 | 09 | [Handling Hallucinations](09-handling-hallucinations.md) | 🔴 | — |
@@ -38,7 +38,7 @@ graph LR
 | 12 | [RAG vs Fine-Tuning](12-rag-vs-finetuning.md) | 🔴 | — |
 | 13 | [Lab: Developing a RAG Chatbot](13-lab-rag-chatbot.md) | 🔴 | — |
 
-**Overall confidence:** 🟡 In progress (3/13)
+**Overall confidence:** 🟡 In progress (5/13)
 
 ## 🧩 Memory Fragments
 > - 🧠 LLM is the "real brains" of RAG — retriever finds, LLM understands and generates
@@ -49,6 +49,8 @@ graph LR
 > - 🎲 LLMs are inherently random — even with good context, might ignore it
 > - 🌡️ Temperature reshapes distribution: 0=greedy, 1=original, >1=flatter/random
 > - 🎯 Top-P > Top-K because it adapts to model confidence dynamically
+> - 📊 5 LLM factors: size, cost, context window, speed, training cutoff
+> - 📝 RAG prompt = system + history + docs + query (always query at END)
 
 ---
 

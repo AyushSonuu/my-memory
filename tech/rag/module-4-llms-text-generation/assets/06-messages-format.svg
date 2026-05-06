@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 400">
+  <defs>
+    <linearGradient id="sysGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0"/>
+      <stop offset="100%" style="stop-color:#7b1fa2"/>
+    </linearGradient>
+    <linearGradient id="usrGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196f3"/>
+      <stop offset="100%" style="stop-color:#1565c0"/>
+    </linearGradient>
+    <linearGradient id="asstGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#2e7d32"/>
+    </linearGradient>
+    <filter id="shadowMsg">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="850" height="400" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="425" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">OpenAI Messages Format: The Prompt Structure</text>
+
+  <!-- Left: JSON Structure -->
+  <g transform="translate(30, 55)">
+    <rect x="0" y="0" width="380" height="320" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="1" filter="url(#shadowMsg)"/>
+    <text x="190" y="25" fill="#58a6ff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">JSON Message Structure</text>
+
+    <g transform="translate(15, 45)">
+      <rect x="0" y="0" width="350" height="260" rx="6" fill="#0d1117"/>
+
+      <text x="10" y="20" fill="#c792ea" font-family="JetBrains Mono, monospace" font-size="9">{</text>
+      <text x="20" y="38" fill="#89ddff" font-family="JetBrains Mono, monospace" font-size="9">"messages"</text>
+      <text x="90" y="38" fill="#8b949e" font-family="JetBrains Mono, monospace" font-size="9">: [</text>
+
+      <!-- System message -->
+      <rect x="30" y="48" width="300" height="50" rx="4" fill="#1a1a2a"/>
+      <text x="40" y="65" fill="#9c27b0" font-family="JetBrains Mono, monospace" font-size="8">"role": "system",</text>
+      <text x="40" y="82" fill="#8b949e" font-family="JetBrains Mono, monospace" font-size="8">"content": "You are a helpful..."</text>
+
+      <!-- User message -->
+      <rect x="30" y="108" width="300" height="50" rx="4" fill="#0d2030"/>
+      <text x="40" y="125" fill="#2196f3" font-family="JetBrains Mono, monospace" font-size="8">"role": "user",</text>
+      <text x="40" y="142" fill="#8b949e" font-family="JetBrains Mono, monospace" font-size="8">"content": "What is the capital?"</text>
+
+      <!-- Assistant message -->
+      <rect x="30" y="168" width="300" height="50" rx="4" fill="#0d2818"/>
+      <text x="40" y="185" fill="#4caf50" font-family="JetBrains Mono, monospace" font-size="8">"role": "assistant",</text>
+      <text x="40" y="202" fill="#8b949e" font-family="JetBrains Mono, monospace" font-size="8">"content": "The capital is Ottawa."</text>
+
+      <!-- Closing -->
+      <text x="20" y="235" fill="#8b949e" font-family="JetBrains Mono, monospace" font-size="9">]</text>
+      <text x="10" y="250" fill="#c792ea" font-family="JetBrains Mono, monospace" font-size="9">}</text>
+    </g>
+  </g>
+
+  <!-- Right: Role explanations -->
+  <g transform="translate(440, 55)">
+    <rect x="0" y="0" width="380" height="320" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="1" filter="url(#shadowMsg)"/>
+    <text x="190" y="25" fill="#58a6ff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">3 Message Roles</text>
+
+    <!-- System -->
+    <g transform="translate(20, 45)">
+      <rect x="0" y="0" width="340" height="75" rx="8" fill="url(#sysGrad)"/>
+      <text x="170" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">system</text>
+      <text x="170" y="38" fill="#e1bee7" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">High-level instructions for LLM behavior</text>
+      <text x="170" y="55" fill="#e1bee7" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Tone, procedures, personality, constraints</text>
+      <text x="170" y="68" fill="#fff" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Added to EVERY prompt</text>
+    </g>
+
+    <!-- User -->
+    <g transform="translate(20, 130)">
+      <rect x="0" y="0" width="340" height="75" rx="8" fill="url(#usrGrad)"/>
+      <text x="170" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">user</text>
+      <text x="170" y="38" fill="#bbdefb" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Prompts sent by the human user</text>
+      <text x="170" y="55" fill="#bbdefb" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Questions, requests, instructions</text>
+      <text x="170" y="68" fill="#fff" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Most recent user message at END</text>
+    </g>
+
+    <!-- Assistant -->
+    <g transform="translate(20, 215)">
+      <rect x="0" y="0" width="340" height="75" rx="8" fill="url(#asstGrad)"/>
+      <text x="170" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">assistant</text>
+      <text x="170" y="38" fill="#c8e6c9" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Previous LLM responses</text>
+      <text x="170" y="55" fill="#c8e6c9" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Used for multi-turn conversations</text>
+      <text x="170" y="68" fill="#fff" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">LLM doesn't "remember" — full history sent each time!</text>
+    </g>
+  </g>
+</svg>

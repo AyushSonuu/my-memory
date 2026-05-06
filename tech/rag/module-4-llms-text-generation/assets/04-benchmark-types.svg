@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480">
+  <defs>
+    <linearGradient id="autoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196f3"/>
+      <stop offset="100%" style="stop-color:#1565c0"/>
+    </linearGradient>
+    <linearGradient id="humanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#2e7d32"/>
+    </linearGradient>
+    <linearGradient id="judgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0"/>
+      <stop offset="100%" style="stop-color:#7b1fa2"/>
+    </linearGradient>
+    <filter id="shadowBench">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="480" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="450" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">3 Types of LLM Quality Benchmarks</text>
+  <text x="450" y="50" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">How do we measure "quality" across many dimensions?</text>
+
+  <!-- Automated Benchmarks -->
+  <g transform="translate(30, 70)">
+    <rect x="0" y="0" width="270" height="280" rx="12" fill="#161b22" stroke="#2196f3" stroke-width="2" filter="url(#shadowBench)"/>
+    <rect x="0" y="0" width="270" height="40" rx="12" fill="url(#autoGrad)"/>
+    <rect x="0" y="28" width="270" height="12" fill="url(#autoGrad)"/>
+    <text x="135" y="28" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Automated Benchmarks</text>
+
+    <!-- Icon -->
+    <g transform="translate(105, 55)">
+      <rect x="0" y="0" width="60" height="40" rx="4" fill="#21262d"/>
+      <text x="30" y="18" fill="#58a6ff" font-family="Inter, sans-serif" font-size="16" text-anchor="middle">{ }</text>
+      <text x="30" y="32" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Code-Evaluated</text>
+    </g>
+
+    <g transform="translate(20, 110)">
+      <text x="0" y="0" fill="#58a6ff" font-family="Inter, sans-serif" font-size="9" font-weight="bold">How it works:</text>
+      <text x="0" y="18" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">LLM answers test questions</text>
+      <text x="0" y="32" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">Answers validated by code automatically</text>
+
+      <text x="0" y="55" fill="#ff9800" font-family="Inter, sans-serif" font-size="9" font-weight="bold">Common Formats:</text>
+      <text x="0" y="73" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Multiple choice tests</text>
+      <text x="0" y="87" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Math problems</text>
+      <text x="0" y="101" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Coding challenges</text>
+
+      <text x="0" y="125" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" font-weight="bold">Example: MMLU</text>
+      <text x="0" y="143" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">57 subjects: STEM, humanities, law</text>
+    </g>
+
+    <rect x="20" y="240" width="230" height="25" rx="4" fill="#0d2030"/>
+    <text x="135" y="257" fill="#2196f3" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Objective, reproducible, scalable</text>
+  </g>
+
+  <!-- Human Evaluated -->
+  <g transform="translate(315, 70)">
+    <rect x="0" y="0" width="270" height="280" rx="12" fill="#161b22" stroke="#4caf50" stroke-width="2" filter="url(#shadowBench)"/>
+    <rect x="0" y="0" width="270" height="40" rx="12" fill="url(#humanGrad)"/>
+    <rect x="0" y="28" width="270" height="12" fill="url(#humanGrad)"/>
+    <text x="135" y="28" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Human Evaluated</text>
+
+    <!-- Icon -->
+    <g transform="translate(105, 55)">
+      <rect x="0" y="0" width="60" height="40" rx="4" fill="#21262d"/>
+      <text x="30" y="26" fill="#4caf50" font-family="Inter, sans-serif" font-size="20" text-anchor="middle">👤</text>
+    </g>
+
+    <g transform="translate(20, 110)">
+      <text x="0" y="0" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" font-weight="bold">How it works:</text>
+      <text x="0" y="18" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">2 anonymous LLMs answer same prompt</text>
+      <text x="0" y="32" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">Humans choose preferred response</text>
+
+      <text x="0" y="55" fill="#ff9800" font-family="Inter, sans-serif" font-size="9" font-weight="bold">ELO Rating System:</text>
+      <text x="0" y="73" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Same algorithm as chess rankings</text>
+      <text x="0" y="87" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Creates comparative leaderboard</text>
+      <text x="0" y="101" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Captures nuanced quality</text>
+
+      <text x="0" y="125" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" font-weight="bold">Example: LLM Arena</text>
+      <text x="0" y="143" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">Most widely cited benchmark</text>
+    </g>
+
+    <rect x="20" y="240" width="230" height="25" rx="4" fill="#0d2818"/>
+    <text x="135" y="257" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Captures nuance automated can't</text>
+  </g>
+
+  <!-- LLM as Judge -->
+  <g transform="translate(600, 70)">
+    <rect x="0" y="0" width="270" height="280" rx="12" fill="#161b22" stroke="#9c27b0" stroke-width="2" filter="url(#shadowBench)"/>
+    <rect x="0" y="0" width="270" height="40" rx="12" fill="url(#judgeGrad)"/>
+    <rect x="0" y="28" width="270" height="12" fill="url(#judgeGrad)"/>
+    <text x="135" y="28" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">LLM-as-a-Judge</text>
+
+    <!-- Icon -->
+    <g transform="translate(105, 55)">
+      <rect x="0" y="0" width="60" height="40" rx="4" fill="#21262d"/>
+      <text x="30" y="26" fill="#9c27b0" font-family="Inter, sans-serif" font-size="20" text-anchor="middle">⚖️</text>
+    </g>
+
+    <g transform="translate(20, 110)">
+      <text x="0" y="0" fill="#9c27b0" font-family="Inter, sans-serif" font-size="9" font-weight="bold">How it works:</text>
+      <text x="0" y="18" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">One LLM rates another's responses</text>
+      <text x="0" y="32" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">Compare against reference answers</text>
+
+      <text x="0" y="55" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" font-weight="bold">Upside:</text>
+      <text x="0" y="73" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Cheap and flexible</text>
+      <text x="0" y="87" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Produces "win rate" metric</text>
+
+      <text x="0" y="110" fill="#f44336" font-family="Inter, sans-serif" font-size="9" font-weight="bold">Downside: Bias!</text>
+      <text x="0" y="128" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">GPT prefers GPT responses</text>
+      <text x="0" y="142" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">Gemini prefers Gemini responses</text>
+    </g>
+
+    <rect x="20" y="240" width="230" height="25" rx="4" fill="#1a1a2a"/>
+    <text x="135" y="257" fill="#9c27b0" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Needs calibration to reduce bias</text>
+  </g>
+
+  <!-- Bottom comparison -->
+  <g transform="translate(30, 370)">
+    <rect x="0" y="0" width="840" height="90" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="1"/>
+    <text x="420" y="25" fill="#58a6ff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Good Benchmark Qualities</text>
+
+    <g transform="translate(40, 45)">
+      <rect x="0" y="0" width="150" height="30" rx="4" fill="#21262d"/>
+      <text x="75" y="20" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Relevant to your project</text>
+    </g>
+
+    <g transform="translate(210, 45)">
+      <rect x="0" y="0" width="150" height="30" rx="4" fill="#21262d"/>
+      <text x="75" y="20" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Difficult (differentiates models)</text>
+    </g>
+
+    <g transform="translate(380, 45)">
+      <rect x="0" y="0" width="150" height="30" rx="4" fill="#21262d"/>
+      <text x="75" y="20" fill="#9c27b0" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Reproducible results</text>
+    </g>
+
+    <g transform="translate(550, 45)">
+      <rect x="0" y="0" width="150" height="30" rx="4" fill="#21262d"/>
+      <text x="75" y="20" fill="#2196f3" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Aligns with real-world</text>
+    </g>
+
+    <g transform="translate(720, 45)">
+      <rect x="0" y="0" width="100" height="30" rx="4" fill="#2a1a1a"/>
+      <text x="50" y="20" fill="#f44336" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">No data leak!</text>
+    </g>
+  </g>
+</svg>

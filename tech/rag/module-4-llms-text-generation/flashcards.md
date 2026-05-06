@@ -1,7 +1,7 @@
 # 🃏 LLMs & Text Generation Flashcards
 
 > From: module-4-llms-text-generation/
-> Last updated: 2026-05-04
+> Last updated: 2026-05-05
 
 ---
 
@@ -201,6 +201,102 @@ Repetition = dynamic (changes per generation). Logit bias = static (same every t
 
 For factual Q&A: temp 0.3-0.5
 For creative: temp 0.8-1.0
+</details>
+
+---
+
+## Choosing Your LLM (Lesson 04)
+
+<details>
+<summary>❓ What are the 5 quantifiable characteristics for comparing LLMs?</summary>
+
+| Factor | Range | Trade-off |
+|--------|-------|-----------|
+| **Model Size** | 1B-500B+ params | Larger = more capable but expensive |
+| **Cost** | $0.15-$75/M tokens | Output 4-5x more than input |
+| **Context Window** | 4K-1M+ tokens | Bigger = more docs, still pay per token |
+| **Speed** | TTFT + TPS | Critical for real-time apps |
+| **Training Cutoff** | Date in training data | RAG compensates for old cutoffs |
+
+</details>
+
+<details>
+<summary>❓ What are the 3 types of LLM quality benchmarks?</summary>
+
+1. **Automated** — Code validates answers (MMLU, HumanEval)
+2. **Human-evaluated** — Humans pick preferred response (LLM Arena, ELO ranking)
+3. **LLM-as-Judge** — One LLM rates another (cheap but biased!)
+
+Warning: LLM judges prefer their own family — GPT prefers GPT, Gemini prefers Gemini.
+</details>
+
+<details>
+<summary>❓ What is benchmark saturation and why does it matter?</summary>
+
+**Saturation** = When all models score ~100% on a benchmark, it can no longer differentiate quality.
+
+Pattern:
+1. New benchmark → models score low
+2. Few years → all models match human experts
+3. Benchmark useless → need harder benchmarks
+4. Cycle repeats
+
+**Takeaway:** Newer models almost always outperform older ones. Plan for replacement!
+</details>
+
+<details>
+<summary>❓ What is data contamination in LLM benchmarks?</summary>
+
+If benchmark questions were in the model's training data:
+- Model "memorized" the answers
+- Scores artificially inflated
+- Real-world performance doesn't match
+
+**Check:** Does benchmark score align with actual developer experience?
+</details>
+
+---
+
+## Prompt Engineering: Augmented Prompt (Lesson 06)
+
+<details>
+<summary>❓ What are the 3 message roles in the OpenAI messages format?</summary>
+
+| Role | Purpose |
+|------|---------|
+| **system** | High-level instructions, behavior rules, personality |
+| **user** | Prompts sent by the human |
+| **assistant** | Previous LLM responses |
+
+**Key insight:** LLMs don't "remember" — the ENTIRE conversation is sent every time!
+</details>
+
+<details>
+<summary>❓ What are the 4 components of a RAG prompt template?</summary>
+
+1. **System prompt** — Behavioral guidance (can be 1000+ words!)
+2. **Conversation history** — Previous user/assistant messages
+3. **Retrieved documents** — Top-K chunks from retriever
+4. **User query** — Current question (always at END!)
+
+Order matters: System → History → Docs → Query
+</details>
+
+<details>
+<summary>❓ What should a good RAG system prompt include?</summary>
+
+```
+1. Role definition
+2. Knowledge cutoff + current date
+3. RAG-specific instructions:
+   - Use ONLY retrieved documents
+   - Cite sources as [DOC X]
+   - Admit when info is missing
+4. Tone and style preferences
+5. Safety constraints
+```
+
+System prompts can be multiple pages long!
 </details>
 
 ---

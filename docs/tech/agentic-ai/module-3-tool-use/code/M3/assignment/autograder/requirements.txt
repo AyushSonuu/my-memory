@@ -1,6 +1,0 @@
-dlai-grader
-requests
-python-dotenv
-openai
-tavily-python>=0.7.12
-ipython
