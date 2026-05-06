@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 360" font-family="Inter, -apple-system, sans-serif">
+  <!-- Background -->
+  <rect width="680" height="360" rx="16" fill="#1e1e2e"/>
+  
+  <!-- Title -->
+  <text x="340" y="45" text-anchor="middle" font-size="22" font-weight="700" fill="#cdd6f4">SDD is great for...</text>
+  
+  <!-- Left card: Greenfield -->
+  <rect x="50" y="70" width="270" height="240" rx="16" fill="#293d2e" stroke="#a6e3a1" stroke-width="1" opacity="0.9"/>
+  
+  <!-- Rocket icon -->
+  <g transform="translate(145, 100)" fill="none" stroke="#a6e3a1" stroke-width="2.5">
+    <!-- Rocket body -->
+    <path d="M20 52 C20 52, 6 44, 6 24 C6 8, 20 0, 20 0 C20 0, 34 8, 34 24 C34 44, 20 52, 20 52Z" fill="#293d2e"/>
+    <!-- Window -->
+    <circle cx="20" cy="22" r="5" fill="#a6e3a1" opacity="0.3"/>
+    <!-- Fins -->
+    <path d="M6 36 L-2 48 L6 44" fill="#a6e3a1" opacity="0.4"/>
+    <path d="M34 36 L42 48 L34 44" fill="#a6e3a1" opacity="0.4"/>
+    <!-- Flames -->
+    <path d="M14 52 L20 66 L26 52" stroke="#fab387" fill="#fab387" opacity="0.5" stroke-width="1.5"/>
+  </g>
+  
+  <!-- Document with plus icon (behind rocket) -->
+  <g transform="translate(120, 150)" fill="none" stroke="#a6e3a1" stroke-width="1.5" opacity="0.4">
+    <rect x="0" y="0" width="32" height="40" rx="4"/>
+    <line x1="8" y1="12" x2="24" y2="12"/>
+    <line x1="8" y1="20" x2="24" y2="20"/>
+    <line x1="8" y1="28" x2="20" y2="28"/>
+    <!-- Plus circle -->
+    <circle cx="28" cy="36" r="10" fill="#293d2e" stroke="#a6e3a1" stroke-width="1.5"/>
+    <line x1="23" y1="36" x2="33" y2="36"/>
+    <line x1="28" y1="31" x2="28" y2="41"/>
+  </g>
+  
+  <!-- Greenfield label card -->
+  <rect x="85" y="238" width="200" height="56" rx="10" fill="#1e3a28"/>
+  <text x="185" y="261" text-anchor="middle" font-size="17" font-weight="700" fill="#a6e3a1">Greenfield projects</text>
+  <text x="185" y="282" text-anchor="middle" font-size="14" fill="#a6e3a1" opacity="0.7" font-style="italic">Start from scratch</text>
+  
+  <!-- Right card: Brownfield -->
+  <rect x="360" y="70" width="270" height="240" rx="16" fill="#3d3229" stroke="#fab387" stroke-width="1" opacity="0.9"/>
+  
+  <!-- Folder with refresh icon -->
+  <g transform="translate(455, 100)" fill="none" stroke="#fab387" stroke-width="2.5">
+    <!-- Folder -->
+    <path d="M-4 12 L-4 52 L44 52 L44 12 Z" fill="#3d3229"/>
+    <path d="M-4 12 L-4 6 L12 6 L16 12 L44 12" fill="none"/>
+    <!-- Refresh arrows -->
+    <g transform="translate(14, 28)">
+      <path d="M8 -6 A10 10 0 0 1 14 8" fill="none"/>
+      <polygon points="14,4 14,12 8,8" fill="#fab387"/>
+      <path d="M12 14 A10 10 0 0 1 6 0" fill="none"/>
+      <polygon points="6,4 6,-4 12,0" fill="#fab387"/>
+    </g>
+  </g>
+  
+  <!-- Brownfield label card -->
+  <rect x="395" y="238" width="200" height="56" rx="10" fill="#3a2a1e"/>
+  <text x="495" y="261" text-anchor="middle" font-size="17" font-weight="700" fill="#fab387">Brownfield projects</text>
+  <text x="495" y="282" text-anchor="middle" font-size="14" fill="#fab387" opacity="0.7" font-style="italic">Existing codebases</text>
+  
+  <!-- Divider line -->
+  <line x1="340" y1="90" x2="340" y2="290" stroke="#45475a" stroke-width="1.5" stroke-dasharray="6,4"/>
+  
+  <!-- Bottom subtitle -->
+  <text x="340" y="340" text-anchor="middle" font-size="13" fill="#6c7086">Same workflow, different starting point — Constitution guides both</text>
+</svg>

@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="vdbGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196f3"/>
+      <stop offset="100%" style="stop-color:#1976d2"/>
+    </linearGradient>
+    <linearGradient id="rerankGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0"/>
+      <stop offset="100%" style="stop-color:#7b1fa2"/>
+    </linearGradient>
+    <linearGradient id="llmGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#388e3c"/>
+    </linearGradient>
+    <filter id="shadowRerank">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="400" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Reranking Pipeline: Overfetch → Rerank → Return Top K</text>
+
+  <!-- Prompt -->
+  <g transform="translate(30, 60)">
+    <rect x="0" y="0" width="150" height="50" rx="8" fill="#ff9800" filter="url(#shadowRerank)"/>
+    <text x="75" y="22" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Prompt</text>
+    <text x="75" y="38" fill="#fff" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">"Capital of Canada?"</text>
+  </g>
+
+  <!-- Arrow to VDB -->
+  <line x1="180" y1="85" x2="220" y2="85" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="220,85 210,79 210,91" fill="#8b949e"/>
+
+  <!-- Vector Database -->
+  <g transform="translate(220, 50)">
+    <rect x="0" y="0" width="180" height="120" rx="10" fill="#161b22" stroke="#2196f3" stroke-width="2" filter="url(#shadowRerank)"/>
+    <rect x="0" y="0" width="180" height="30" rx="10" fill="url(#vdbGrad)"/>
+    <text x="90" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Vector Database</text>
+    <text x="90" y="50" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Hybrid Search</text>
+    <text x="90" y="68" fill="#58a6ff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Overfetch: 20-100 docs</text>
+    <text x="90" y="85" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">(more than you need)</text>
+    <text x="90" y="105" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">⚡ Fast but imperfect ranking</text>
+  </g>
+
+  <!-- Retrieved docs -->
+  <g transform="translate(420, 50)">
+    <text x="0" y="15" fill="#8b949e" font-family="Inter, sans-serif" font-size="10">Retrieved (20 docs):</text>
+
+    <rect x="0" y="25" width="160" height="20" rx="3" fill="#21262d"/>
+    <text x="80" y="39" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">#1: Toronto is in Canada</text>
+
+    <rect x="0" y="48" width="160" height="20" rx="3" fill="#21262d"/>
+    <text x="80" y="62" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">#2: Capital of France is Paris</text>
+
+    <rect x="0" y="71" width="160" height="20" rx="3" fill="#4caf50"/>
+    <text x="80" y="85" fill="#fff" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">#3: Ottawa is Canada's capital</text>
+
+    <rect x="0" y="94" width="160" height="20" rx="3" fill="#21262d"/>
+    <text x="80" y="108" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">#4: Maple syrup capital...</text>
+
+    <text x="80" y="130" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">... + 16 more docs</text>
+  </g>
+
+  <!-- Arrow down to reranker -->
+  <line x1="500" y1="185" x2="500" y2="220" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="500,220 494,210 506,210" fill="#8b949e"/>
+
+  <!-- Reranker -->
+  <g transform="translate(350, 220)">
+    <rect x="0" y="0" width="300" height="100" rx="10" fill="#161b22" stroke="#9c27b0" stroke-width="2" filter="url(#shadowRerank)"/>
+    <rect x="0" y="0" width="300" height="30" rx="10" fill="url(#rerankGrad)"/>
+    <text x="150" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">🎯 Reranker (Cross-Encoder)</text>
+
+    <text x="150" y="50" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Re-scores each [prompt + doc] pair</text>
+    <text x="150" y="68" fill="#58a6ff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Deep contextual understanding</text>
+    <text x="150" y="85" fill="#f44336" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">🐢 Slow — but only 20-100 docs, not millions!</text>
+  </g>
+
+  <!-- Arrow down to reranked -->
+  <line x1="500" y1="320" x2="500" y2="350" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="500,350 494,340 506,340" fill="#8b949e"/>
+
+  <!-- Reranked results -->
+  <g transform="translate(350, 350)">
+    <text x="150" y="0" fill="#4caf50" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Reranked Results (return top 5-10)</text>
+
+    <rect x="30" y="15" width="240" height="25" rx="4" fill="#4caf50"/>
+    <text x="150" y="32" fill="#fff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">#1 (was #3): Ottawa is Canada's capital ✓</text>
+
+    <rect x="30" y="45" width="240" height="20" rx="3" fill="#21262d"/>
+    <text x="150" y="59" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">#2: Another relevant doc...</text>
+
+    <rect x="30" y="68" width="240" height="20" rx="3" fill="#21262d"/>
+    <text x="150" y="82" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">#3-5: More relevant docs...</text>
+  </g>
+
+  <!-- Arrow to LLM -->
+  <line x1="500" y1="450" x2="500" y2="470" stroke="#8b949e" stroke-width="2"/>
+
+  <!-- Final output -->
+  <g transform="translate(400, 465)">
+    <rect x="0" y="0" width="200" height="30" rx="6" fill="url(#llmGrad)" filter="url(#shadowRerank)"/>
+    <text x="100" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">→ LLM (much better context!)</text>
+  </g>
+
+  <!-- Left side: Benefits -->
+  <g transform="translate(30, 220)">
+    <rect x="0" y="0" width="280" height="130" rx="8" fill="#21262d"/>
+    <text x="140" y="22" fill="#58a6ff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Why Reranking Works</text>
+
+    <text x="20" y="45" fill="#4caf50" font-family="Inter, sans-serif" font-size="9">✓ Bi-encoder: Fast, narrows to ~100 docs</text>
+    <text x="20" y="65" fill="#4caf50" font-family="Inter, sans-serif" font-size="9">✓ Cross-encoder: Slow but high quality</text>
+    <text x="20" y="85" fill="#4caf50" font-family="Inter, sans-serif" font-size="9">✓ Combined: Speed of bi + quality of cross</text>
+
+    <line x1="20" y1="95" x2="260" y2="95" stroke="#30363d" stroke-width="1"/>
+
+    <text x="20" y="115" fill="#ff9800" font-family="Inter, sans-serif" font-size="9" font-weight="bold">Trade-off: Little added latency → BIG quality boost</text>
+  </g>
+
+  <!-- Numbers -->
+  <g transform="translate(30, 380)">
+    <rect x="0" y="0" width="280" height="80" rx="8" fill="#161b22" stroke="#ff9800" stroke-width="1"/>
+    <text x="140" y="22" fill="#ff9800" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Typical Numbers</text>
+
+    <text x="20" y="45" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">Overfetch: <tspan fill="#58a6ff">15-25 docs</tspan> (or up to 100)</text>
+    <text x="20" y="62" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">Return: <tspan fill="#4caf50">5-10 docs</tspan> to LLM</text>
+  </g>
+</svg>

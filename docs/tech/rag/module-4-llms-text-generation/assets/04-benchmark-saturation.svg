@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 380">
+  <defs>
+    <linearGradient id="satGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f44336"/>
+      <stop offset="50%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#4caf50"/>
+    </linearGradient>
+    <filter id="shadowSat">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="850" height="380" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="425" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Benchmark Saturation: The Endless Cycle</text>
+
+  <!-- Main chart area -->
+  <g transform="translate(80, 60)">
+    <rect x="0" y="0" width="690" height="220" rx="8" fill="#161b22" filter="url(#shadowSat)"/>
+
+    <!-- Y axis -->
+    <line x1="50" y1="30" x2="50" y2="190" stroke="#8b949e" stroke-width="1"/>
+    <text x="25" y="110" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle" transform="rotate(-90, 25, 110)">Score (%)</text>
+    <text x="45" y="38" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="end">100</text>
+    <text x="45" y="80" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="end">75</text>
+    <text x="45" y="120" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="end">50</text>
+    <text x="45" y="160" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="end">25</text>
+    <text x="45" y="195" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="end">0</text>
+
+    <!-- X axis -->
+    <line x1="50" y1="190" x2="660" y2="190" stroke="#8b949e" stroke-width="1"/>
+    <text x="355" y="210" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Time (Years)</text>
+
+    <!-- Human expert line -->
+    <line x1="50" y1="50" x2="660" y2="50" stroke="#4caf50" stroke-width="2" stroke-dasharray="8,4"/>
+    <text x="665" y="54" fill="#4caf50" font-family="Inter, sans-serif" font-size="8">Human Expert</text>
+
+    <!-- Curve 1 - Benchmark A (oldest, saturated) -->
+    <path d="M 80 180 Q 150 170, 200 100 Q 250 60, 350 52 L 660 52" fill="none" stroke="#f44336" stroke-width="3"/>
+    <circle cx="660" cy="52" r="4" fill="#f44336"/>
+    <text x="100" y="175" fill="#f44336" font-family="Inter, sans-serif" font-size="8">Benchmark A</text>
+    <text x="580" y="45" fill="#f44336" font-family="Inter, sans-serif" font-size="7">SATURATED</text>
+
+    <!-- Curve 2 - Benchmark B (medium, approaching saturation) -->
+    <path d="M 200 180 Q 280 160, 350 100 Q 420 65, 500 55 L 660 55" fill="none" stroke="#ff9800" stroke-width="3"/>
+    <circle cx="660" cy="55" r="4" fill="#ff9800"/>
+    <text x="220" y="175" fill="#ff9800" font-family="Inter, sans-serif" font-size="8">Benchmark B</text>
+
+    <!-- Curve 3 - Benchmark C (newest, still useful) -->
+    <path d="M 350 180 Q 450 150, 520 110 Q 580 85, 660 70" fill="none" stroke="#2196f3" stroke-width="3"/>
+    <circle cx="660" cy="70" r="4" fill="#2196f3"/>
+    <text x="370" y="175" fill="#2196f3" font-family="Inter, sans-serif" font-size="8">Benchmark C</text>
+    <text x="580" y="80" fill="#2196f3" font-family="Inter, sans-serif" font-size="7">Still useful!</text>
+
+    <!-- Annotations -->
+    <rect x="450" y="130" width="180" height="50" rx="4" fill="#21262d"/>
+    <text x="540" y="148" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">New benchmarks needed</text>
+    <text x="540" y="165" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">when all models score ~100%</text>
+  </g>
+
+  <!-- Key takeaways -->
+  <g transform="translate(80, 300)">
+    <rect x="0" y="0" width="690" height="65" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="1"/>
+
+    <g transform="translate(30, 20)">
+      <rect x="0" y="0" width="200" height="35" rx="4" fill="#0d2818"/>
+      <text x="100" y="15" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Models improve FAST</text>
+      <text x="100" y="28" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Scores rise to human-level in years</text>
+    </g>
+
+    <g transform="translate(250, 20)">
+      <rect x="0" y="0" width="200" height="35" rx="4" fill="#1a1a2a"/>
+      <text x="100" y="15" fill="#9c27b0" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Plan for replacement</text>
+      <text x="100" y="28" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Today's model → obsolete tomorrow</text>
+    </g>
+
+    <g transform="translate(470, 20)">
+      <rect x="0" y="0" width="200" height="35" rx="4" fill="#2a1a1a"/>
+      <text x="100" y="15" fill="#f44336" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Newer = Usually better</text>
+      <text x="100" y="28" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">2 year old models are ancient</text>
+    </g>
+  </g>
+</svg>

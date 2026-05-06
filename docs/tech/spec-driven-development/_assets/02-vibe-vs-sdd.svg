@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 450">
+  <defs>
+    <linearGradient id="vibeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f44336"/>
+      <stop offset="100%" style="stop-color:#c62828"/>
+    </linearGradient>
+    <linearGradient id="sddGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#2e7d32"/>
+    </linearGradient>
+    <filter id="shadowVs">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="850" height="450" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="425" y="35" fill="#e6edf3" font-family="Inter, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Vibe Coding vs Spec-Driven Development</text>
+
+  <!-- VS Divider -->
+  <line x1="425" y1="60" x2="425" y2="440" stroke="#30363d" stroke-width="2" stroke-dasharray="8,4"/>
+  <circle cx="425" cy="100" r="25" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="425" y="106" fill="#8b949e" font-family="Inter, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">VS</text>
+
+  <!-- VIBE CODING (Left) -->
+  <g transform="translate(30, 70)">
+    <rect x="0" y="0" width="370" height="50" rx="10" fill="url(#vibeGrad)" filter="url(#shadowVs)"/>
+    <text x="185" y="32" fill="#fff" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">🎲 Vibe Coding</text>
+
+    <!-- Flow -->
+    <g transform="translate(20, 70)">
+      <rect x="0" y="0" width="100" height="50" rx="6" fill="#21262d"/>
+      <text x="50" y="30" fill="#f44336" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">Vague Prompt</text>
+
+      <path d="M 105 25 L 125 25" stroke="#f44336" stroke-width="2" marker-end="url(#arrowVibe)"/>
+
+      <rect x="130" y="0" width="90" height="50" rx="6" fill="#21262d"/>
+      <text x="175" y="30" fill="#ff9800" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">Agent Tries</text>
+
+      <path d="M 225 25 L 245 25" stroke="#ff9800" stroke-width="2" marker-end="url(#arrowVibe)"/>
+
+      <rect x="250" y="0" width="80" height="50" rx="6" fill="#21262d"/>
+      <text x="290" y="30" fill="#8b949e" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">Look...</text>
+    </g>
+
+    <!-- Loop arrow -->
+    <path d="M 310 145 C 340 145, 340 100, 310 100" stroke="#f44336" stroke-width="2" fill="none" stroke-dasharray="4,2"/>
+    <text x="345" y="125" fill="#f44336" font-family="Inter, sans-serif" font-size="9">"not quite"</text>
+
+    <!-- Output -->
+    <rect x="20" y="170" width="330" height="80" rx="10" fill="#21262d" stroke="#f44336" stroke-width="1"/>
+    <text x="185" y="195" fill="#f44336" font-family="Inter, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">💀 OUTPUT</text>
+    <text x="185" y="218" fill="#8b949e" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">Disposable code + Tech debt</text>
+    <text x="185" y="238" fill="#8b949e" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">Lost history + Agent decides</text>
+
+    <!-- Characteristics -->
+    <g transform="translate(20, 265)">
+      <rect x="0" y="0" width="330" height="100" rx="8" fill="#1a1a1a"/>
+      <text x="165" y="22" fill="#f44336" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">CHARACTERISTICS</text>
+      <text x="20" y="45" fill="#8b949e" font-family="Inter, sans-serif" font-size="10">❌ History dies with chat session</text>
+      <text x="20" y="62" fill="#8b949e" font-family="Inter, sans-serif" font-size="10">❌ Agent guesses your intent</text>
+      <text x="20" y="79" fill="#8b949e" font-family="Inter, sans-serif" font-size="10">❌ OK for button, breaks for project</text>
+      <text x="20" y="96" fill="#8b949e" font-family="Inter, sans-serif" font-size="10">❌ Scales poorly → contradictory code</text>
+    </g>
+  </g>
+
+  <!-- SDD (Right) -->
+  <g transform="translate(450, 70)">
+    <rect x="0" y="0" width="370" height="50" rx="10" fill="url(#sddGrad)" filter="url(#shadowVs)"/>
+    <text x="185" y="32" fill="#fff" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">📋 Spec-Driven Development</text>
+
+    <!-- Flow -->
+    <g transform="translate(20, 70)">
+      <rect x="0" y="0" width="90" height="50" rx="6" fill="#238636" opacity="0.3"/>
+      <text x="45" y="22" fill="#4caf50" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Clear Spec</text>
+      <text x="45" y="38" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">(what + why)</text>
+
+      <path d="M 95 25 L 125 25" stroke="#4caf50" stroke-width="2" marker-end="url(#arrowSdd)"/>
+
+      <rect x="130" y="0" width="100" height="50" rx="6" fill="#1f6feb" opacity="0.3"/>
+      <text x="180" y="22" fill="#58a6ff" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Agent Builds</text>
+      <text x="180" y="38" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">(the how)</text>
+
+      <path d="M 235 25 L 265 25" stroke="#2196f3" stroke-width="2" marker-end="url(#arrowSdd)"/>
+
+      <rect x="270" y="0" width="80" height="50" rx="6" fill="#ff9800" opacity="0.3"/>
+      <text x="310" y="30" fill="#ff9800" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Validate ✓</text>
+    </g>
+
+    <!-- Output -->
+    <rect x="20" y="170" width="330" height="80" rx="10" fill="#21262d" stroke="#4caf50" stroke-width="1"/>
+    <text x="185" y="195" fill="#4caf50" font-family="Inter, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">✅ OUTPUT</text>
+    <text x="185" y="218" fill="#8b949e" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">Engineered, maintainable code</text>
+    <text x="185" y="238" fill="#8b949e" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">Permanent artifact + YOU decide</text>
+
+    <!-- Characteristics -->
+    <g transform="translate(20, 265)">
+      <rect x="0" y="0" width="330" height="100" rx="8" fill="#1a1a1a"/>
+      <text x="165" y="22" fill="#4caf50" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">CHARACTERISTICS</text>
+      <text x="20" y="45" fill="#8b949e" font-family="Inter, sans-serif" font-size="10">✅ Specs persist across sessions</text>
+      <text x="20" y="62" fill="#8b949e" font-family="Inter, sans-serif" font-size="10">✅ YOU define, agent follows</text>
+      <text x="20" y="79" fill="#8b949e" font-family="Inter, sans-serif" font-size="10">✅ Scales to large ongoing projects</text>
+      <text x="20" y="96" fill="#8b949e" font-family="Inter, sans-serif" font-size="10">✅ Works with ANY agent (portable)</text>
+    </g>
+  </g>
+
+  <!-- Bottom tagline -->
+  <text x="425" y="430" fill="#8b949e" font-family="Inter, sans-serif" font-size="12" text-anchor="middle">The paradigm shift: Specification (what + why) ↔ Implementation (how) — DECOUPLED</text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowVibe" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#f44336"/>
+    </marker>
+    <marker id="arrowSdd" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4caf50"/>
+    </marker>
+  </defs>
+</svg>

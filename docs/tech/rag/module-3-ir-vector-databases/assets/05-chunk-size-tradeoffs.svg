@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 300">
+  <defs>
+    <linearGradient id="tooLargeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f44336"/>
+      <stop offset="100%" style="stop-color:#c62828"/>
+    </linearGradient>
+    <linearGradient id="justRightGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#388e3c"/>
+    </linearGradient>
+    <linearGradient id="tooSmallGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#f57c00"/>
+    </linearGradient>
+    <filter id="shadowSize">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="750" height="300" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="375" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Chunk Size: The Goldilocks Problem</text>
+
+  <!-- Scale bar -->
+  <g transform="translate(75, 55)">
+    <rect x="0" y="0" width="600" height="12" rx="6" fill="#21262d"/>
+    <rect x="0" y="0" width="150" height="12" rx="6" fill="url(#tooLargeGrad)"/>
+    <rect x="225" y="0" width="150" height="12" rx="6" fill="url(#justRightGrad)"/>
+    <rect x="450" y="0" width="150" height="12" rx="6" fill="url(#tooSmallGrad)"/>
+
+    <text x="75" y="35" fill="#f44336" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">TOO LARGE</text>
+    <text x="300" y="35" fill="#4caf50" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">JUST RIGHT ✓</text>
+    <text x="525" y="35" fill="#ff9800" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">TOO SMALL</text>
+  </g>
+
+  <!-- Too Large -->
+  <g transform="translate(30, 100)">
+    <rect x="0" y="0" width="220" height="180" rx="10" fill="#161b22" stroke="#f44336" stroke-width="2" filter="url(#shadowSize)"/>
+    <text x="110" y="25" fill="#f44336" font-family="Inter, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">📖 Chapter Level</text>
+
+    <!-- Visual: big blurry blob -->
+    <ellipse cx="110" cy="85" rx="70" ry="35" fill="#f44336" opacity="0.2"/>
+    <text x="110" y="90" fill="#f44336" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Blurry 😵</text>
+
+    <line x1="15" y1="125" x2="205" y2="125" stroke="#30363d" stroke-width="1"/>
+
+    <text x="15" y="145" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">❌ Too many topics in one vector</text>
+    <text x="15" y="162" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">❌ Fills LLM context window</text>
+    <text x="15" y="179" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">❌ Averaged, blurry meaning</text>
+  </g>
+
+  <!-- Just Right -->
+  <g transform="translate(265, 100)">
+    <rect x="0" y="0" width="220" height="180" rx="10" fill="#161b22" stroke="#4caf50" stroke-width="3" filter="url(#shadowSize)"/>
+    <text x="110" y="25" fill="#4caf50" font-family="Inter, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">¶ Paragraph Level</text>
+
+    <!-- Visual: multiple sharp focused dots -->
+    <circle cx="60" cy="75" r="15" fill="#4caf50" opacity="0.4"/>
+    <circle cx="110" cy="85" r="15" fill="#4caf50" opacity="0.4"/>
+    <circle cx="160" cy="75" r="15" fill="#4caf50" opacity="0.4"/>
+    <text x="110" y="90" fill="#4caf50" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Sharp! 🎯</text>
+
+    <line x1="15" y1="125" x2="205" y2="125" stroke="#30363d" stroke-width="1"/>
+
+    <text x="15" y="145" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">✅ Balanced context &amp; specificity</text>
+    <text x="15" y="162" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">✅ Sharp semantic representation</text>
+    <text x="15" y="179" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">✅ Retrieves focused content</text>
+  </g>
+
+  <!-- Too Small -->
+  <g transform="translate(500, 100)">
+    <rect x="0" y="0" width="220" height="180" rx="10" fill="#161b22" stroke="#ff9800" stroke-width="2" filter="url(#shadowSize)"/>
+    <text x="110" y="25" fill="#ff9800" font-family="Inter, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">📝 Word Level</text>
+
+    <!-- Visual: scattered tiny meaningless dots -->
+    <circle cx="50" cy="70" r="5" fill="#ff9800" opacity="0.3"/>
+    <circle cx="75" cy="85" r="5" fill="#ff9800" opacity="0.3"/>
+    <circle cx="100" cy="72" r="5" fill="#ff9800" opacity="0.3"/>
+    <circle cx="125" cy="88" r="5" fill="#ff9800" opacity="0.3"/>
+    <circle cx="150" cy="75" r="5" fill="#ff9800" opacity="0.3"/>
+    <circle cx="170" cy="82" r="5" fill="#ff9800" opacity="0.3"/>
+    <text x="110" y="105" fill="#ff9800" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Meaningless 🤷</text>
+
+    <line x1="15" y1="125" x2="205" y2="125" stroke="#30363d" stroke-width="1"/>
+
+    <text x="15" y="145" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">❌ Loses surrounding context</text>
+    <text x="15" y="162" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">❌ Reduces search relevance</text>
+    <text x="15" y="179" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">❌ "The" alone = useless</text>
+  </g>
+</svg>

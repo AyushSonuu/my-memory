@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 450">
+  <defs>
+    <linearGradient id="iclGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#2e7d32"/>
+    </linearGradient>
+    <linearGradient id="cotGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0"/>
+      <stop offset="100%" style="stop-color:#7b1fa2"/>
+    </linearGradient>
+    <linearGradient id="reasonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#f57c00"/>
+    </linearGradient>
+    <filter id="shadowAdv">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="850" height="450" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="425" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">3 Advanced Prompt Engineering Techniques</text>
+
+  <!-- In-Context Learning -->
+  <g transform="translate(20, 55)">
+    <rect x="0" y="0" width="260" height="370" rx="10" fill="#161b22" stroke="#4caf50" stroke-width="2" filter="url(#shadowAdv)"/>
+    <rect x="0" y="0" width="260" height="35" rx="10" fill="url(#iclGrad)"/>
+    <rect x="0" y="23" width="260" height="12" fill="url(#iclGrad)"/>
+    <text x="130" y="25" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">In-Context Learning</text>
+
+    <g transform="translate(15, 50)">
+      <text x="0" y="0" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" font-weight="bold">Teach by example!</text>
+      <text x="0" y="18" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">Add example Q&amp;As to prompt</text>
+
+      <!-- Example box -->
+      <rect x="0" y="30" width="230" height="120" rx="6" fill="#0d1117"/>
+      <text x="10" y="50" fill="#58a6ff" font-family="JetBrains Mono, monospace" font-size="7"># Example 1</text>
+      <text x="10" y="65" fill="#2196f3" font-family="JetBrains Mono, monospace" font-size="7">Customer: Reset password?</text>
+      <text x="10" y="80" fill="#4caf50" font-family="JetBrains Mono, monospace" font-size="7">Agent: Click "Forgot Password"</text>
+      <text x="10" y="100" fill="#58a6ff" font-family="JetBrains Mono, monospace" font-size="7"># Example 2</text>
+      <text x="10" y="115" fill="#2196f3" font-family="JetBrains Mono, monospace" font-size="7">Customer: Cancel subscription?</text>
+      <text x="10" y="130" fill="#4caf50" font-family="JetBrains Mono, monospace" font-size="7">Agent: Yes, from settings.</text>
+
+      <!-- Types -->
+      <text x="0" y="165" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" font-weight="bold">Types:</text>
+      <rect x="0" y="175" width="100" height="22" rx="4" fill="#21262d"/>
+      <text x="50" y="190" fill="#fff" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Few-shot (many)</text>
+
+      <rect x="110" y="175" width="100" height="22" rx="4" fill="#21262d"/>
+      <text x="160" y="190" fill="#fff" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">One-shot (one)</text>
+
+      <text x="0" y="220" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">Implementation:</text>
+      <text x="0" y="235" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">• Hardcode examples, OR</text>
+      <text x="0" y="250" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">• RAG retrieve similar chats!</text>
+    </g>
+
+    <rect x="15" y="325" width="230" height="30" rx="4" fill="#0d2818"/>
+    <text x="130" y="345" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">LLM learns structure + tone from examples</text>
+  </g>
+
+  <!-- Chain-of-Thought -->
+  <g transform="translate(295, 55)">
+    <rect x="0" y="0" width="260" height="370" rx="10" fill="#161b22" stroke="#9c27b0" stroke-width="2" filter="url(#shadowAdv)"/>
+    <rect x="0" y="0" width="260" height="35" rx="10" fill="url(#cotGrad)"/>
+    <rect x="0" y="23" width="260" height="12" fill="url(#cotGrad)"/>
+    <text x="130" y="25" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Chain-of-Thought</text>
+
+    <g transform="translate(15, 50)">
+      <text x="0" y="0" fill="#9c27b0" font-family="Inter, sans-serif" font-size="9" font-weight="bold">Think step-by-step!</text>
+      <text x="0" y="18" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">Give LLM a "scratchpad"</text>
+
+      <!-- Scratchpad box -->
+      <rect x="0" y="30" width="230" height="130" rx="6" fill="#0d1117"/>
+      <text x="10" y="48" fill="#9c27b0" font-family="JetBrains Mono, monospace" font-size="7">&lt;scratchpad&gt;</text>
+      <text x="10" y="65" fill="#8b949e" font-family="JetBrains Mono, monospace" font-size="7">Option 1: Could be X because...</text>
+      <text x="10" y="80" fill="#8b949e" font-family="JetBrains Mono, monospace" font-size="7">Option 2: Might be Y if...</text>
+      <text x="10" y="95" fill="#4caf50" font-family="JetBrains Mono, monospace" font-size="7">Actually, Z makes sense!</text>
+      <text x="10" y="112" fill="#9c27b0" font-family="JetBrains Mono, monospace" font-size="7">&lt;/scratchpad&gt;</text>
+      <text x="10" y="140" fill="#fff" font-family="JetBrains Mono, monospace" font-size="7">Final answer: Z</text>
+
+      <!-- Benefits -->
+      <text x="0" y="180" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" font-weight="bold">Benefits:</text>
+      <text x="0" y="198" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">• More accurate answers</text>
+      <text x="0" y="213" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">• Can trace reasoning errors</text>
+      <text x="0" y="228" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">• Shows its work</text>
+
+      <text x="0" y="255" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">Prompt: "Think step-by-step"</text>
+    </g>
+
+    <rect x="15" y="325" width="230" height="30" rx="4" fill="#1a1a2a"/>
+    <text x="130" y="345" fill="#9c27b0" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Planning before answering = accuracy</text>
+  </g>
+
+  <!-- Reasoning Models -->
+  <g transform="translate(570, 55)">
+    <rect x="0" y="0" width="260" height="370" rx="10" fill="#161b22" stroke="#ff9800" stroke-width="2" filter="url(#shadowAdv)"/>
+    <rect x="0" y="0" width="260" height="35" rx="10" fill="url(#reasonGrad)"/>
+    <rect x="0" y="23" width="260" height="12" fill="url(#reasonGrad)"/>
+    <text x="130" y="25" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Reasoning Models</text>
+
+    <g transform="translate(15, 50)">
+      <text x="0" y="0" fill="#ff9800" font-family="Inter, sans-serif" font-size="9" font-weight="bold">Built-in chain-of-thought!</text>
+      <text x="0" y="18" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">o1, DeepSeek-R1, etc.</text>
+
+      <!-- Token flow -->
+      <rect x="0" y="30" width="230" height="110" rx="6" fill="#0d1117"/>
+      <text x="115" y="50" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Q: Why sunglasses in snow?</text>
+
+      <rect x="10" y="60" width="210" height="35" rx="4" fill="#1a1a10"/>
+      <text x="115" y="75" fill="#ff9800" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">REASONING TOKENS</text>
+      <text x="115" y="88" fill="#8b949e" font-family="Inter, sans-serif" font-size="6" text-anchor="middle">Snow reflects → UV intense → Need protection</text>
+
+      <rect x="10" y="100" width="210" height="25" rx="4" fill="#0d2818"/>
+      <text x="115" y="117" fill="#4caf50" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">RESPONSE: To protect from glare</text>
+
+      <!-- Warnings -->
+      <text x="0" y="165" fill="#f44336" font-family="Inter, sans-serif" font-size="8" font-weight="bold">Warnings:</text>
+      <text x="0" y="183" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">• Slower + more expensive</text>
+      <text x="0" y="198" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">• Few-shot doesn't work well!</text>
+      <text x="0" y="213" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">• No "think step-by-step" needed</text>
+
+      <text x="0" y="240" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" font-weight="bold">Best for:</text>
+      <text x="0" y="258" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">Clear goals + strict formats + full context</text>
+    </g>
+
+    <rect x="15" y="325" width="230" height="30" rx="4" fill="#1a1a10"/>
+    <text x="130" y="345" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Worth it for complex RAG reasoning!</text>
+  </g>
+</svg>

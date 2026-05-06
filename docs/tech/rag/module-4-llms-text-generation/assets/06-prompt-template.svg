@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="sysPromptGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0"/>
+      <stop offset="100%" style="stop-color:#7b1fa2"/>
+    </linearGradient>
+    <linearGradient id="histGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#f57c00"/>
+    </linearGradient>
+    <linearGradient id="docGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#2e7d32"/>
+    </linearGradient>
+    <linearGradient id="queryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196f3"/>
+      <stop offset="100%" style="stop-color:#1565c0"/>
+    </linearGradient>
+    <filter id="shadowTpl">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="450" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">RAG Prompt Template: 4 Components</text>
+
+  <!-- Visual flow -->
+  <g transform="translate(50, 60)">
+    <!-- Component 1: System Prompt -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="180" height="100" rx="10" fill="url(#sysPromptGrad)" filter="url(#shadowTpl)"/>
+      <text x="90" y="25" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">1. System Prompt</text>
+      <text x="90" y="45" fill="#e1bee7" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Behavioral guidance</text>
+      <text x="90" y="60" fill="#e1bee7" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Tone, rules, personality</text>
+      <text x="90" y="80" fill="#fff" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Can be 1000+ words!</text>
+    </g>
+
+    <!-- Arrow -->
+    <path d="M 190 50 L 210 50" stroke="#8b949e" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+    <!-- Component 2: Conversation History -->
+    <g transform="translate(220, 0)">
+      <rect x="0" y="0" width="180" height="100" rx="10" fill="url(#histGrad)" filter="url(#shadowTpl)"/>
+      <text x="90" y="25" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">2. History</text>
+      <text x="90" y="45" fill="#ffe0b2" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Previous user/assistant</text>
+      <text x="90" y="60" fill="#ffe0b2" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">messages (if multi-turn)</text>
+      <text x="90" y="80" fill="#fff" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Optional for single-turn</text>
+    </g>
+
+    <!-- Arrow -->
+    <path d="M 410 50 L 430 50" stroke="#8b949e" stroke-width="2"/>
+
+    <!-- Component 3: Retrieved Documents -->
+    <g transform="translate(440, 0)">
+      <rect x="0" y="0" width="180" height="100" rx="10" fill="url(#docGrad)" filter="url(#shadowTpl)"/>
+      <text x="90" y="25" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">3. Retrieved Docs</text>
+      <text x="90" y="45" fill="#c8e6c9" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Top-K chunks from</text>
+      <text x="90" y="60" fill="#c8e6c9" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">retriever (5-10 typical)</text>
+      <text x="90" y="80" fill="#fff" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">THE AUGMENTATION!</text>
+    </g>
+
+    <!-- Arrow -->
+    <path d="M 630 50 L 650 50" stroke="#8b949e" stroke-width="2"/>
+
+    <!-- Component 4: User Query -->
+    <g transform="translate(660, 0)">
+      <rect x="0" y="0" width="180" height="100" rx="10" fill="url(#queryGrad)" filter="url(#shadowTpl)"/>
+      <text x="90" y="25" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">4. User Query</text>
+      <text x="90" y="45" fill="#bbdefb" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">The actual question</text>
+      <text x="90" y="60" fill="#bbdefb" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">to answer</text>
+      <text x="90" y="80" fill="#fff" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Always at the END</text>
+    </g>
+  </g>
+
+  <!-- Example template -->
+  <g transform="translate(50, 180)">
+    <rect x="0" y="0" width="800" height="300" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="1" filter="url(#shadowTpl)"/>
+    <text x="400" y="25" fill="#58a6ff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Assembled Prompt Example</text>
+
+    <g transform="translate(20, 45)">
+      <!-- System section -->
+      <rect x="0" y="0" width="760" height="50" rx="4" fill="#1a1a2a"/>
+      <text x="10" y="15" fill="#9c27b0" font-family="JetBrains Mono, monospace" font-size="8" font-weight="bold"># System Instructions</text>
+      <text x="10" y="30" fill="#8b949e" font-family="JetBrains Mono, monospace" font-size="7">You are a helpful assistant. Only use retrieved documents to answer.</text>
+      <text x="10" y="42" fill="#8b949e" font-family="JetBrains Mono, monospace" font-size="7">Cite sources as [DOC X]. Admit if information is missing.</text>
+
+      <!-- History section -->
+      <rect x="0" y="58" width="760" height="50" rx="4" fill="#1a1a10"/>
+      <text x="10" y="73" fill="#ff9800" font-family="JetBrains Mono, monospace" font-size="8" font-weight="bold"># Conversation History</text>
+      <text x="10" y="88" fill="#2196f3" font-family="JetBrains Mono, monospace" font-size="7">User: What is the largest city in Canada?</text>
+      <text x="10" y="100" fill="#4caf50" font-family="JetBrains Mono, monospace" font-size="7">Assistant: Toronto is Canada's largest city [DOC 1]</text>
+
+      <!-- Documents section -->
+      <rect x="0" y="116" width="760" height="80" rx="4" fill="#0d2818"/>
+      <text x="10" y="131" fill="#4caf50" font-family="JetBrains Mono, monospace" font-size="8" font-weight="bold"># Retrieved Documents</text>
+      <text x="10" y="148" fill="#8b949e" font-family="JetBrains Mono, monospace" font-size="7">[DOC 1] Ottawa is the capital city of Canada, located in Ontario</text>
+      <text x="10" y="163" fill="#8b949e" font-family="JetBrains Mono, monospace" font-size="7">[DOC 2] Ottawa became capital when Queen Victoria chose it in 1857</text>
+      <text x="10" y="178" fill="#8b949e" font-family="JetBrains Mono, monospace" font-size="7">[DOC 3] The Parliament of Canada is on Parliament Hill in Ottawa</text>
+
+      <!-- Query section -->
+      <rect x="0" y="204" width="760" height="40" rx="4" fill="#0d2030"/>
+      <text x="10" y="219" fill="#2196f3" font-family="JetBrains Mono, monospace" font-size="8" font-weight="bold"># Current Query</text>
+      <text x="10" y="236" fill="#fff" font-family="JetBrains Mono, monospace" font-size="8">What is the capital of Canada?</text>
+    </g>
+  </g>
+</svg>

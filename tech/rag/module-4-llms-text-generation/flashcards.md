@@ -1,7 +1,7 @@
 # 🃏 LLMs & Text Generation Flashcards
 
 > From: module-4-llms-text-generation/
-> Last updated: 2026-05-05
+> Last updated: 2026-05-06
 
 ---
 
@@ -297,6 +297,66 @@ Order matters: System → History → Docs → Query
 ```
 
 System prompts can be multiple pages long!
+</details>
+
+---
+
+## Advanced Prompt Engineering (Lesson 07)
+
+<details>
+<summary>❓ What is in-context learning and what are its two variants?</summary>
+
+**In-context learning** = Adding example Q&As to the prompt to teach the LLM desired structure and tone.
+
+| Variant | Definition |
+|---------|------------|
+| **Few-shot** | Many examples in prompt |
+| **One-shot** | Just one example |
+
+Implementation: Hardcode examples OR use RAG to retrieve similar past conversations!
+</details>
+
+<details>
+<summary>❓ What is chain-of-thought prompting and why does it improve accuracy?</summary>
+
+**Chain-of-thought** = Give the LLM a "scratchpad" to think before answering.
+
+```
+<scratchpad>
+Option 1: Could be X because...
+Actually, Z makes more sense...
+</scratchpad>
+Final answer: Z
+```
+
+**Why it works:**
+- Forces LLM to plan before answering
+- Breaks complex problems into steps
+- Makes reasoning errors traceable
+</details>
+
+<details>
+<summary>❓ How do reasoning models differ from regular LLMs in prompting?</summary>
+
+Reasoning models (o1, DeepSeek-R1) have **built-in** chain-of-thought.
+
+| Do | Don't |
+|----|-------|
+| Clear goals | "Think step-by-step" (they already do!) |
+| Strict formats | Few-shot examples (confuses them) |
+| Full context dump | Over-engineering prompts |
+
+Trade-off: Slower + more expensive, but better for complex reasoning.
+</details>
+
+<details>
+<summary>❓ What are 3 context pruning strategies for multi-turn conversations?</summary>
+
+1. **Keep last N messages** — Drop old turns (e.g., keep last 5)
+2. **Summarize old messages** — Use LLM to compress older history
+3. **Drop reasoning tokens** — Keep only response tokens in history (for reasoning models)
+
+Also: Only include RAG docs for current query, not all previous queries!
 </details>
 
 ---

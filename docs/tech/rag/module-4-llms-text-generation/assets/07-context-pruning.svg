@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 350">
+  <defs>
+    <linearGradient id="ctxGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2196f3"/>
+      <stop offset="30%" style="stop-color:#4caf50"/>
+      <stop offset="60%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#f44336"/>
+    </linearGradient>
+    <filter id="shadowCtx">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="850" height="350" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="425" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Context Window Management &amp; Pruning</text>
+
+  <!-- Regular vs Reasoning comparison -->
+  <g transform="translate(30, 55)">
+    <!-- Regular LLM -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="370" height="120" rx="10" fill="#161b22" stroke="#2196f3" stroke-width="2" filter="url(#shadowCtx)"/>
+      <text x="185" y="25" fill="#2196f3" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Regular LLM</text>
+
+      <!-- Context bar -->
+      <rect x="20" y="45" width="330" height="30" rx="4" fill="#21262d"/>
+      <rect x="20" y="45" width="100" height="30" rx="4" fill="#9c27b0"/>
+      <text x="70" y="65" fill="#fff" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">System</text>
+
+      <rect x="120" y="45" width="150" height="30" fill="#4caf50"/>
+      <text x="195" y="65" fill="#fff" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">RAG Docs</text>
+
+      <rect x="270" y="45" width="80" height="30" rx="4" fill="#2196f3"/>
+      <text x="310" y="65" fill="#fff" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Response</text>
+
+      <text x="185" y="100" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Simple, fast, cheap</text>
+    </g>
+
+    <!-- Reasoning LLM -->
+    <g transform="translate(400, 0)">
+      <rect x="0" y="0" width="420" height="120" rx="10" fill="#161b22" stroke="#ff9800" stroke-width="2" filter="url(#shadowCtx)"/>
+      <text x="210" y="25" fill="#ff9800" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Reasoning Model + RAG</text>
+
+      <!-- Context bar -->
+      <rect x="20" y="45" width="380" height="30" rx="4" fill="#21262d"/>
+      <rect x="20" y="45" width="80" height="30" rx="4" fill="#9c27b0"/>
+      <text x="60" y="65" fill="#fff" font-family="Inter, sans-serif" font-size="6" text-anchor="middle">System</text>
+
+      <rect x="100" y="45" width="100" height="30" fill="#4caf50"/>
+      <text x="150" y="65" fill="#fff" font-family="Inter, sans-serif" font-size="6" text-anchor="middle">RAG Docs</text>
+
+      <rect x="200" y="45" width="120" height="30" fill="#ff9800"/>
+      <text x="260" y="65" fill="#fff" font-family="Inter, sans-serif" font-size="6" text-anchor="middle">Reasoning Tokens</text>
+
+      <rect x="320" y="45" width="80" height="30" rx="4" fill="#2196f3"/>
+      <text x="360" y="65" fill="#fff" font-family="Inter, sans-serif" font-size="6" text-anchor="middle">Response</text>
+
+      <text x="210" y="100" fill="#f44336" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Eats more context! Slower, expensive</text>
+    </g>
+  </g>
+
+  <!-- Pruning strategies -->
+  <g transform="translate(30, 195)">
+    <rect x="0" y="0" width="790" height="140" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="1" filter="url(#shadowCtx)"/>
+    <text x="395" y="25" fill="#58a6ff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Context Pruning Strategies</text>
+
+    <!-- Strategy 1 -->
+    <g transform="translate(30, 45)">
+      <rect x="0" y="0" width="230" height="80" rx="6" fill="#21262d"/>
+      <text x="115" y="20" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Keep Last N Messages</text>
+      <text x="115" y="40" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Drop old conversation turns</text>
+      <text x="115" y="55" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">e.g., keep last 5 user/assistant pairs</text>
+      <text x="115" y="72" fill="#4caf50" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Simple, effective</text>
+    </g>
+
+    <!-- Strategy 2 -->
+    <g transform="translate(280, 45)">
+      <rect x="0" y="0" width="230" height="80" rx="6" fill="#21262d"/>
+      <text x="115" y="20" fill="#9c27b0" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Summarize Old Messages</text>
+      <text x="115" y="40" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Use separate LLM to compress</text>
+      <text x="115" y="55" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">old messages into summaries</text>
+      <text x="115" y="72" fill="#9c27b0" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Preserves key points</text>
+    </g>
+
+    <!-- Strategy 3 -->
+    <g transform="translate(530, 45)">
+      <rect x="0" y="0" width="230" height="80" rx="6" fill="#21262d"/>
+      <text x="115" y="20" fill="#ff9800" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Drop Reasoning Tokens</text>
+      <text x="115" y="40" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Keep only response tokens</text>
+      <text x="115" y="55" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">in multi-turn history</text>
+      <text x="115" y="72" fill="#ff9800" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Essential for reasoning models!</text>
+    </g>
+  </g>
+</svg>
