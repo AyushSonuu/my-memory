@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 400">
+  <defs>
+    <linearGradient id="transGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0"/>
+      <stop offset="100%" style="stop-color:#7b1fa2"/>
+    </linearGradient>
+    <linearGradient id="lifecycleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#2e7d32"/>
+    </linearGradient>
+    <filter id="shadowW1">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="850" height="400" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="425" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Week 1: Two Major Topics</text>
+
+  <!-- Transformers -->
+  <g transform="translate(30, 55)">
+    <rect x="0" y="0" width="380" height="320" rx="12" fill="#161b22" stroke="#9c27b0" stroke-width="2" filter="url(#shadowW1)"/>
+    <rect x="0" y="0" width="380" height="40" rx="12" fill="url(#transGrad)"/>
+    <rect x="0" y="28" width="380" height="12" fill="url(#transGrad)"/>
+    <text x="190" y="28" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Transformer Architecture</text>
+
+    <g transform="translate(20, 55)">
+      <text x="0" y="0" fill="#9c27b0" font-family="Inter, sans-serif" font-size="10" font-weight="bold">"Attention Is All You Need" (2017)</text>
+      <text x="0" y="20" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">The paper that changed everything</text>
+
+      <!-- Key concepts -->
+      <rect x="0" y="40" width="340" height="120" rx="6" fill="#0d1117"/>
+      <text x="170" y="60" fill="#58a6ff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Why Transformers Won</text>
+
+      <g transform="translate(20, 75)">
+        <circle cx="8" cy="0" r="4" fill="#9c27b0"/>
+        <text x="20" y="4" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">Self-attention: understand relationships</text>
+
+        <circle cx="8" cy="25" r="4" fill="#9c27b0"/>
+        <text x="20" y="29" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">Multi-headed: multiple perspectives</text>
+
+        <circle cx="8" cy="50" r="4" fill="#4caf50"/>
+        <text x="20" y="54" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">Parallel processing: scales on GPUs!</text>
+      </g>
+
+      <text x="0" y="180" fill="#ff9800" font-family="Inter, sans-serif" font-size="9" font-weight="bold">Why it matters:</text>
+      <text x="0" y="200" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">RNNs processed sequentially → slow, forget</text>
+      <text x="0" y="215" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">Transformers process in parallel → fast, remember</text>
+
+      <text x="0" y="245" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" font-weight="bold">Beyond text:</text>
+      <text x="0" y="262" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">Vision Transformers (ViT), audio, multimodal</text>
+    </g>
+  </g>
+
+  <!-- GenAI Project Lifecycle -->
+  <g transform="translate(440, 55)">
+    <rect x="0" y="0" width="380" height="320" rx="12" fill="#161b22" stroke="#4caf50" stroke-width="2" filter="url(#shadowW1)"/>
+    <rect x="0" y="0" width="380" height="40" rx="12" fill="url(#lifecycleGrad)"/>
+    <rect x="0" y="28" width="380" height="12" fill="url(#lifecycleGrad)"/>
+    <text x="190" y="28" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">GenAI Project Lifecycle</text>
+
+    <g transform="translate(20, 55)">
+      <text x="0" y="0" fill="#4caf50" font-family="Inter, sans-serif" font-size="10" font-weight="bold">Key Decisions Framework</text>
+      <text x="0" y="20" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">Plan your generative AI projects</text>
+
+      <!-- Lifecycle steps -->
+      <g transform="translate(0, 40)">
+        <rect x="0" y="0" width="160" height="35" rx="4" fill="#21262d"/>
+        <text x="80" y="15" fill="#58a6ff" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">1. Use existing model?</text>
+        <text x="80" y="28" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">or pre-train from scratch</text>
+
+        <rect x="180" y="0" width="160" height="35" rx="4" fill="#21262d"/>
+        <text x="260" y="15" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">2. Fine-tune?</text>
+        <text x="260" y="28" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">for your specific data</text>
+      </g>
+
+      <g transform="translate(0, 85)">
+        <rect x="0" y="0" width="160" height="35" rx="4" fill="#21262d"/>
+        <text x="80" y="15" fill="#9c27b0" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">3. Model size?</text>
+        <text x="80" y="28" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">1B vs 100B+ parameters</text>
+
+        <rect x="180" y="0" width="160" height="35" rx="4" fill="#21262d"/>
+        <text x="260" y="15" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">4. Evaluate &amp; Deploy</text>
+        <text x="260" y="28" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">benchmarks, optimization</text>
+      </g>
+
+      <!-- Model size guidance -->
+      <rect x="0" y="140" width="340" height="100" rx="6" fill="#0d1117"/>
+      <text x="170" y="160" fill="#ff9800" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Model Size Guidance</text>
+
+      <text x="20" y="185" fill="#4caf50" font-family="Inter, sans-serif" font-size="8">Single task (summarization, chatbot):</text>
+      <text x="250" y="185" fill="#fff" font-family="Inter, sans-serif" font-size="8">1-30B often enough!</text>
+
+      <text x="20" y="205" fill="#ff9800" font-family="Inter, sans-serif" font-size="8">Multi-task (general knowledge):</text>
+      <text x="250" y="205" fill="#fff" font-family="Inter, sans-serif" font-size="8">100B+ parameters</text>
+
+      <text x="20" y="225" fill="#f44336" font-family="Inter, sans-serif" font-size="8">History, code, science, philosophy:</text>
+      <text x="250" y="225" fill="#fff" font-family="Inter, sans-serif" font-size="8">Giant models needed</text>
+    </g>
+  </g>
+</svg>

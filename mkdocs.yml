@@ -338,6 +338,8 @@ nav:
       - tech/genai-with-llms/README.md
       - Week 1 · Pre-training:
         - Overview: tech/genai-with-llms/week-1-pretraining/README.md
+        - 00 · Course Introduction: tech/genai-with-llms/week-1-pretraining/00-course-introduction.md
+        - 01 · Week 1 Introduction: tech/genai-with-llms/week-1-pretraining/01-introduction.md
       - Week 2 · Fine-tuning:
         - Overview: tech/genai-with-llms/week-2-finetuning/README.md
       - Week 3 · RLHF & Deployment:

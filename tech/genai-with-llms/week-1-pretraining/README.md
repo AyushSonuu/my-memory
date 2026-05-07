@@ -8,7 +8,8 @@
 
 | # | Lesson | Status | SVGs |
 |---|--------|--------|------|
-| 01 | [Course Introduction](01-course-introduction.md) | 🔴 | — |
+| 00 | [Course Introduction](00-course-introduction.md) | 🟢 | 2 |
+| 01 | [Introduction - Week 1](01-introduction.md) | 🟢 | 1 |
 | 02 | [Generative AI & LLMs](02-generative-ai-llms.md) | 🔴 | — |
 | 03 | [LLM Use Cases & Tasks](03-llm-use-cases.md) | 🔴 | — |
 | 04 | [Text Generation Before Transformers](04-before-transformers.md) | 🔴 | — |

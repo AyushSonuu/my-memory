@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450">
+  <defs>
+    <linearGradient id="w1Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196f3"/>
+      <stop offset="100%" style="stop-color:#1565c0"/>
+    </linearGradient>
+    <linearGradient id="w2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#f57c00"/>
+    </linearGradient>
+    <linearGradient id="w3Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#2e7d32"/>
+    </linearGradient>
+    <filter id="shadowCourse">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="450" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="450" y="35" fill="#e6edf3" font-family="Inter, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Generative AI with LLMs — 3 Week Journey</text>
+  <text x="450" y="55" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">DeepLearning.AI + AWS | ~10 hours</text>
+
+  <!-- Week 1 -->
+  <g transform="translate(30, 80)">
+    <rect x="0" y="0" width="270" height="340" rx="12" fill="#161b22" stroke="#2196f3" stroke-width="2" filter="url(#shadowCourse)"/>
+    <rect x="0" y="0" width="270" height="45" rx="12" fill="url(#w1Grad)"/>
+    <rect x="0" y="33" width="270" height="12" fill="url(#w1Grad)"/>
+    <text x="135" y="30" fill="#fff" font-family="Inter, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Week 1: Pre-training</text>
+
+    <g transform="translate(15, 60)">
+      <text x="0" y="0" fill="#2196f3" font-family="Inter, sans-serif" font-size="10" font-weight="bold">Transformer Architecture</text>
+      <text x="0" y="18" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Self-attention mechanism</text>
+      <text x="0" y="32" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Multi-headed attention</text>
+      <text x="0" y="46" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Why transformers scale</text>
+
+      <text x="0" y="70" fill="#2196f3" font-family="Inter, sans-serif" font-size="10" font-weight="bold">Prompt Engineering</text>
+      <text x="0" y="88" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• In-context learning</text>
+      <text x="0" y="102" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Generation parameters</text>
+
+      <text x="0" y="126" fill="#2196f3" font-family="Inter, sans-serif" font-size="10" font-weight="bold">Pre-training LLMs</text>
+      <text x="0" y="144" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Training objectives</text>
+      <text x="0" y="158" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Compute challenges</text>
+      <text x="0" y="172" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Scaling laws (Chinchilla)</text>
+
+      <text x="0" y="196" fill="#2196f3" font-family="Inter, sans-serif" font-size="10" font-weight="bold">GenAI Project Lifecycle</text>
+      <text x="0" y="214" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Scoping → Selection → Training</text>
+      <text x="0" y="228" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Evaluation → Deployment</text>
+    </g>
+
+    <rect x="15" y="295" width="240" height="30" rx="4" fill="#0d2030"/>
+    <text x="135" y="315" fill="#2196f3" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Lab 1: Dialogue Summarization</text>
+  </g>
+
+  <!-- Week 2 -->
+  <g transform="translate(315, 80)">
+    <rect x="0" y="0" width="270" height="340" rx="12" fill="#161b22" stroke="#ff9800" stroke-width="2" filter="url(#shadowCourse)"/>
+    <rect x="0" y="0" width="270" height="45" rx="12" fill="url(#w2Grad)"/>
+    <rect x="0" y="33" width="270" height="12" fill="url(#w2Grad)"/>
+    <text x="135" y="30" fill="#fff" font-family="Inter, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Week 2: Fine-tuning</text>
+
+    <g transform="translate(15, 60)">
+      <text x="0" y="0" fill="#ff9800" font-family="Inter, sans-serif" font-size="10" font-weight="bold">Instruction Fine-tuning</text>
+      <text x="0" y="18" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Single task vs multi-task</text>
+      <text x="0" y="32" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Catastrophic forgetting</text>
+      <text x="0" y="46" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• FLAN models</text>
+
+      <text x="0" y="70" fill="#ff9800" font-family="Inter, sans-serif" font-size="10" font-weight="bold">Model Evaluation</text>
+      <text x="0" y="88" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• ROUGE, BLEU scores</text>
+      <text x="0" y="102" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Benchmarks: GLUE, HELM</text>
+
+      <text x="0" y="126" fill="#ff9800" font-family="Inter, sans-serif" font-size="10" font-weight="bold">PEFT Techniques</text>
+      <text x="0" y="144" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• LoRA (Low-Rank Adaptation)</text>
+      <text x="0" y="158" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Soft prompts / Prompt tuning</text>
+      <text x="0" y="172" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Train 1% of parameters!</text>
+
+      <text x="0" y="196" fill="#ff9800" font-family="Inter, sans-serif" font-size="10" font-weight="bold">Why PEFT?</text>
+      <text x="0" y="214" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Full fine-tuning = expensive</text>
+      <text x="0" y="228" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• PEFT = efficient + effective</text>
+    </g>
+
+    <rect x="15" y="295" width="240" height="30" rx="4" fill="#1a1a10"/>
+    <text x="135" y="315" fill="#ff9800" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Lab 2: Fine-tune with PEFT</text>
+  </g>
+
+  <!-- Week 3 -->
+  <g transform="translate(600, 80)">
+    <rect x="0" y="0" width="270" height="340" rx="12" fill="#161b22" stroke="#4caf50" stroke-width="2" filter="url(#shadowCourse)"/>
+    <rect x="0" y="0" width="270" height="45" rx="12" fill="url(#w3Grad)"/>
+    <rect x="0" y="33" width="270" height="12" fill="url(#w3Grad)"/>
+    <text x="135" y="30" fill="#fff" font-family="Inter, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Week 3: RLHF &amp; Apps</text>
+
+    <g transform="translate(15, 60)">
+      <text x="0" y="0" fill="#4caf50" font-family="Inter, sans-serif" font-size="10" font-weight="bold">RLHF (Alignment)</text>
+      <text x="0" y="18" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Human preference data</text>
+      <text x="0" y="32" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Reward models</text>
+      <text x="0" y="46" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• PPO fine-tuning</text>
+
+      <text x="0" y="70" fill="#4caf50" font-family="Inter, sans-serif" font-size="10" font-weight="bold">Deployment</text>
+      <text x="0" y="88" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Model optimization</text>
+      <text x="0" y="102" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Quantization, distillation</text>
+
+      <text x="0" y="126" fill="#4caf50" font-family="Inter, sans-serif" font-size="10" font-weight="bold">LLM Applications</text>
+      <text x="0" y="144" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Chain-of-Thought (CoT)</text>
+      <text x="0" y="158" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• PAL (Program-aided LM)</text>
+      <text x="0" y="172" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• ReAct (Reasoning + Action)</text>
+
+      <text x="0" y="196" fill="#4caf50" font-family="Inter, sans-serif" font-size="10" font-weight="bold">Responsible AI</text>
+      <text x="0" y="214" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Toxicity, bias, harm</text>
+      <text x="0" y="228" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">• Constitutional AI</text>
+    </g>
+
+    <rect x="15" y="295" width="240" height="30" rx="4" fill="#0d2818"/>
+    <text x="135" y="315" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Lab 3: RLHF for Toxicity</text>
+  </g>
+</svg>

@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 380">
+  <defs>
+    <linearGradient id="gptGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10a37f"/>
+      <stop offset="100%" style="stop-color:#0d8a6a"/>
+    </linearGradient>
+    <linearGradient id="llamaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0"/>
+      <stop offset="100%" style="stop-color:#7b1fa2"/>
+    </linearGradient>
+    <linearGradient id="palmGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4285f4"/>
+      <stop offset="100%" style="stop-color:#2b5fc5"/>
+    </linearGradient>
+    <filter id="shadowLLM">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="850" height="380" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="425" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Foundation Models: Scale Matters</text>
+  <text x="425" y="50" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Parameters = Model's memory. More parameters = More sophisticated tasks</text>
+
+  <!-- Scale visualization -->
+  <g transform="translate(50, 80)">
+    <!-- BERT (small) -->
+    <g transform="translate(0, 0)">
+      <circle cx="40" cy="100" r="25" fill="#ff9800" filter="url(#shadowLLM)"/>
+      <text x="40" y="105" fill="#fff" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">BERT</text>
+      <text x="40" y="145" fill="#ff9800" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">110M</text>
+      <text x="40" y="160" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Understanding</text>
+    </g>
+
+    <!-- GPT-2 -->
+    <g transform="translate(100, 0)">
+      <circle cx="50" cy="95" r="35" fill="url(#gptGrad)" filter="url(#shadowLLM)"/>
+      <text x="50" y="100" fill="#fff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">GPT-2</text>
+      <text x="50" y="150" fill="#10a37f" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">1.5B</text>
+    </g>
+
+    <!-- FLAN-T5 -->
+    <g transform="translate(210, 0)">
+      <circle cx="55" cy="90" r="45" fill="#2196f3" filter="url(#shadowLLM)"/>
+      <text x="55" y="88" fill="#fff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">FLAN</text>
+      <text x="55" y="100" fill="#fff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">T5</text>
+      <text x="55" y="155" fill="#2196f3" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">11B</text>
+      <text x="55" y="170" fill="#4caf50" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Lab Model!</text>
+    </g>
+
+    <!-- LLaMA -->
+    <g transform="translate(340, 0)">
+      <circle cx="65" cy="80" r="60" fill="url(#llamaGrad)" filter="url(#shadowLLM)"/>
+      <text x="65" y="85" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">LLaMA</text>
+      <text x="65" y="160" fill="#9c27b0" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">65B</text>
+    </g>
+
+    <!-- PaLM -->
+    <g transform="translate(490, 0)">
+      <circle cx="80" cy="65" r="80" fill="url(#palmGrad)" filter="url(#shadowLLM)"/>
+      <text x="80" y="70" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">PaLM</text>
+      <text x="80" y="165" fill="#4285f4" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">540B</text>
+    </g>
+
+    <!-- BLOOM -->
+    <g transform="translate(650, 0)">
+      <circle cx="70" cy="75" r="70" fill="#f44336" filter="url(#shadowLLM)"/>
+      <text x="70" y="80" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">BLOOM</text>
+      <text x="70" y="165" fill="#f44336" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">176B</text>
+      <text x="70" y="180" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Open Source</text>
+    </g>
+  </g>
+
+  <!-- Key insight -->
+  <g transform="translate(50, 270)">
+    <rect x="0" y="0" width="750" height="90" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="1"/>
+    <text x="375" y="25" fill="#58a6ff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Key Insight: Model Size vs Task Complexity</text>
+
+    <g transform="translate(30, 45)">
+      <rect x="0" y="0" width="220" height="35" rx="4" fill="#0d2818"/>
+      <text x="110" y="15" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">Single Task (Summarization)</text>
+      <text x="110" y="28" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">1-30B parameters often enough!</text>
+    </g>
+
+    <g transform="translate(270, 45)">
+      <rect x="0" y="0" width="220" height="35" rx="4" fill="#1a1a10"/>
+      <text x="110" y="15" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">Multi-task (General Knowledge)</text>
+      <text x="110" y="28" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">100B+ for broad capabilities</text>
+    </g>
+
+    <g transform="translate(510, 45)">
+      <rect x="0" y="0" width="220" height="35" rx="4" fill="#2a1a1a"/>
+      <text x="110" y="15" fill="#f44336" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">Emergent Abilities</text>
+      <text x="110" y="28" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Reasoning, planning at extreme scale</text>
+    </g>
+  </g>
+</svg>
