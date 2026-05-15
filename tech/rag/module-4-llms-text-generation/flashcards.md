@@ -1,7 +1,7 @@
 # 🃏 LLMs & Text Generation Flashcards
 
 > From: module-4-llms-text-generation/
-> Last updated: 2026-05-06
+> Last updated: 2026-05-15
 
 ---
 
@@ -357,6 +357,93 @@ Trade-off: Slower + more expensive, but better for complex reasoning.
 3. **Drop reasoning tokens** — Keep only response tokens in history (for reasoning models)
 
 Also: Only include RAG docs for current query, not all previous queries!
+</details>
+
+---
+
+## Handling Hallucinations (Lesson 09)
+
+<details>
+<summary>❓ Why do LLMs hallucinate?</summary>
+
+LLMs predict **probable** text, not **true** text. They can't tell the difference!
+
+- Probable ≠ True
+- Hallucinations sound plausible (harder to detect than nonsense)
+- They erode user trust over time
+
+**Types:** Wrong details, invented facts, denial of real facts.
+</details>
+
+<details>
+<summary>❓ What are the 3 strategies to reduce hallucinations in RAG?</summary>
+
+1. **RAG Grounding** — System prompt: "Only make factual claims based on retrieved info"
+2. **Citation Generation** — Force LLM to cite sources [1], [2], etc.
+3. **Benchmarks (ALCE)** — Test fluency, correctness, citation quality
+
+**RAG itself is the single most effective step!**
+</details>
+
+<details>
+<summary>❓ What is ContextCite and why use it?</summary>
+
+**ContextCite** = External system that attributes each sentence to retrieved documents.
+
+| Feature | Purpose |
+|---------|---------|
+| Sentence attribution | Links claims to docs |
+| "No source" tags | Flags unsupported claims |
+| Similarity scores | Measures grounding strength |
+
+**Why?** LLMs can hallucinate citations too — external systems more reliable.
+</details>
+
+---
+
+## Evaluating LLM Performance (Lesson 10)
+
+<details>
+<summary>❓ What is RAGAS Response Relevancy and how is it calculated?</summary>
+
+**Question:** Is the response relevant to the user's prompt?
+
+1. Take RAG response
+2. Evaluator LLM generates sample prompts that could lead to this response
+3. Embed original + sample prompts
+4. Calculate cosine similarity
+5. Average = Relevancy score
+
+**Note:** Doesn't check factual accuracy — just relevance!
+</details>
+
+<details>
+<summary>❓ What is RAGAS Faithfulness and why is it the hallucination detector?</summary>
+
+**Question:** Is response grounded in retrieved documents?
+
+1. LLM extracts all factual claims from response
+2. Check each claim against retrieved docs
+3. Calculate: supported claims / total claims = Faithfulness
+
+| Score | Meaning |
+|-------|---------|
+| 100% | All claims grounded |
+| Low | LLM making stuff up |
+
+**Low faithfulness = hallucination detected!**
+</details>
+
+<details>
+<summary>❓ Why do LLM evaluation metrics rely on LLM-as-judge?</summary>
+
+LLM responsibilities in RAG are **subjective**:
+- Did it respond clearly?
+- Did it incorporate relevant info?
+- Did it cite appropriately?
+- Did it ignore noise?
+
+**Can't measure objectively** → Use other LLMs to assess quality. All RAGAS metrics use LLM calls at some point.
 </details>
 
 ---

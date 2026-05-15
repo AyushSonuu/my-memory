@@ -307,6 +307,8 @@ nav:
         - 04 · Choosing Your LLM: tech/rag/module-4-llms-text-generation/04-choosing-your-llm.md
         - 06 · Prompt Engineering Augmented: tech/rag/module-4-llms-text-generation/06-prompt-engineering-augmented.md
         - 07 · Prompt Engineering Advanced: tech/rag/module-4-llms-text-generation/07-prompt-engineering-advanced.md
+        - 09 · Handling Hallucinations: tech/rag/module-4-llms-text-generation/09-handling-hallucinations.md
+        - 10 · Evaluating LLM Performance: tech/rag/module-4-llms-text-generation/10-evaluating-llm-performance.md
         - 🃏 Flashcards: tech/rag/module-4-llms-text-generation/flashcards.md
         - 💻 Code Labs:
           - Ungraded Lab 1: tech/rag/module-4-llms-text-generation/code/Module4/ungraded_labs/ungraded_lab_1/C1M4_Ungraded_Lab_1.ipynb

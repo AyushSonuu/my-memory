@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450">
+  <defs>
+    <linearGradient id="solGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#2e7d32"/>
+    </linearGradient>
+    <linearGradient id="citeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196f3"/>
+      <stop offset="100%" style="stop-color:#1565c0"/>
+    </linearGradient>
+    <linearGradient id="evalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0"/>
+      <stop offset="100%" style="stop-color:#7b1fa2"/>
+    </linearGradient>
+    <filter id="shadowSol">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="450" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="450" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Reducing Hallucinations: 3 Strategies</text>
+
+  <!-- Strategy 1: RAG Grounding -->
+  <g transform="translate(20, 55)">
+    <rect x="0" y="0" width="280" height="370" rx="10" fill="#161b22" stroke="#4caf50" stroke-width="2" filter="url(#shadowSol)"/>
+    <rect x="0" y="0" width="280" height="35" rx="10" fill="url(#solGrad)"/>
+    <rect x="0" y="23" width="280" height="12" fill="url(#solGrad)"/>
+    <text x="140" y="25" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">1. RAG Grounding</text>
+
+    <g transform="translate(15, 50)">
+      <text x="0" y="0" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" font-weight="bold">System Prompt Instructions:</text>
+
+      <rect x="0" y="15" width="250" height="80" rx="4" fill="#0d1117"/>
+      <text x="10" y="35" fill="#8b949e" font-family="JetBrains Mono, monospace" font-size="7">"Only make factual claims</text>
+      <text x="10" y="50" fill="#8b949e" font-family="JetBrains Mono, monospace" font-size="7">based on retrieved information.</text>
+      <text x="10" y="65" fill="#8b949e" font-family="JetBrains Mono, monospace" font-size="7">If info not in docs, say</text>
+      <text x="10" y="80" fill="#4caf50" font-family="JetBrains Mono, monospace" font-size="7">'I don't have that information.'"</text>
+
+      <!-- Before/After -->
+      <text x="0" y="115" fill="#f44336" font-family="Inter, sans-serif" font-size="8" font-weight="bold">Without Grounding:</text>
+      <rect x="0" y="125" width="250" height="35" rx="4" fill="#2a1a1a"/>
+      <text x="10" y="145" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">"You'll love our student discount!" ❌</text>
+
+      <text x="0" y="180" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" font-weight="bold">With Grounding:</text>
+      <rect x="0" y="190" width="250" height="35" rx="4" fill="#0d2818"/>
+      <text x="10" y="210" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">"We offer 10% off for seniors 65+" ✓</text>
+    </g>
+
+    <rect x="15" y="310" width="250" height="45" rx="4" fill="#21262d"/>
+    <text x="140" y="330" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">Most effective single step!</text>
+    <text x="140" y="345" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">RAG itself reduces hallucinations</text>
+  </g>
+
+  <!-- Strategy 2: Citation Generation -->
+  <g transform="translate(310, 55)">
+    <rect x="0" y="0" width="280" height="370" rx="10" fill="#161b22" stroke="#2196f3" stroke-width="2" filter="url(#shadowSol)"/>
+    <rect x="0" y="0" width="280" height="35" rx="10" fill="url(#citeGrad)"/>
+    <rect x="0" y="23" width="280" height="12" fill="url(#citeGrad)"/>
+    <text x="140" y="25" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">2. Citation Generation</text>
+
+    <g transform="translate(15, 50)">
+      <text x="0" y="0" fill="#2196f3" font-family="Inter, sans-serif" font-size="9" font-weight="bold">Prompt to cite sources:</text>
+
+      <rect x="0" y="15" width="250" height="100" rx="4" fill="#0d1117"/>
+      <text x="10" y="35" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">Messi has won 8 Ballon d'Or</text>
+      <text x="10" y="48" fill="#2196f3" font-family="Inter, sans-serif" font-size="7">[1]</text>
+      <text x="25" y="48" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">. He scored 672 goals</text>
+      <text x="10" y="61" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">for Barcelona</text>
+      <text x="78" y="61" fill="#2196f3" font-family="Inter, sans-serif" font-size="7">[2]</text>
+      <text x="93" y="61" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">.</text>
+      <text x="10" y="82" fill="#58a6ff" font-family="Inter, sans-serif" font-size="6">[1] FIFA.com</text>
+      <text x="10" y="95" fill="#58a6ff" font-family="Inter, sans-serif" font-size="6">[2] FCBarcelona.com</text>
+
+      <text x="0" y="135" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" font-weight="bold">Warning:</text>
+      <text x="0" y="150" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">LLMs can hallucinate citations too!</text>
+
+      <text x="0" y="175" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" font-weight="bold">ContextCite:</text>
+      <text x="0" y="190" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">• Attributes each sentence to a doc</text>
+      <text x="0" y="205" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">• Tags with source or "no source"</text>
+      <text x="0" y="220" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">• Similarity scores available</text>
+    </g>
+
+    <rect x="15" y="310" width="250" height="45" rx="4" fill="#21262d"/>
+    <text x="140" y="330" fill="#2196f3" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">Easier human verification</text>
+    <text x="140" y="345" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">External systems more reliable</text>
+  </g>
+
+  <!-- Strategy 3: Benchmarks -->
+  <g transform="translate(600, 55)">
+    <rect x="0" y="0" width="280" height="370" rx="10" fill="#161b22" stroke="#9c27b0" stroke-width="2" filter="url(#shadowSol)"/>
+    <rect x="0" y="0" width="280" height="35" rx="10" fill="url(#evalGrad)"/>
+    <rect x="0" y="23" width="280" height="12" fill="url(#evalGrad)"/>
+    <text x="140" y="25" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">3. ALCE Benchmark</text>
+
+    <g transform="translate(15, 50)">
+      <text x="0" y="0" fill="#9c27b0" font-family="Inter, sans-serif" font-size="9" font-weight="bold">Test citation quality:</text>
+
+      <rect x="0" y="15" width="250" height="60" rx="4" fill="#0d1117"/>
+      <text x="10" y="35" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">• Pre-assembled knowledge bases</text>
+      <text x="10" y="50" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">• Sample questions for testing</text>
+      <text x="10" y="65" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">• Evaluates RAG system responses</text>
+
+      <text x="0" y="100" fill="#9c27b0" font-family="Inter, sans-serif" font-size="8" font-weight="bold">3 Metrics:</text>
+
+      <rect x="0" y="115" width="250" height="30" rx="4" fill="#1a1a2a"/>
+      <text x="125" y="130" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">Fluency</text>
+      <text x="125" y="140" fill="#8b949e" font-family="Inter, sans-serif" font-size="6" text-anchor="middle">How clear is the text?</text>
+
+      <rect x="0" y="150" width="250" height="30" rx="4" fill="#1a1a10"/>
+      <text x="125" y="165" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">Correctness</text>
+      <text x="125" y="175" fill="#8b949e" font-family="Inter, sans-serif" font-size="6" text-anchor="middle">How factually accurate?</text>
+
+      <rect x="0" y="185" width="250" height="30" rx="4" fill="#0d2030"/>
+      <text x="125" y="200" fill="#2196f3" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">Citation Quality</text>
+      <text x="125" y="210" fill="#8b949e" font-family="Inter, sans-serif" font-size="6" text-anchor="middle">Do citations align with sources?</text>
+    </g>
+
+    <rect x="15" y="310" width="250" height="45" rx="4" fill="#21262d"/>
+    <text x="140" y="330" fill="#9c27b0" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">Measure, don't guess</text>
+    <text x="140" y="345" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Benchmarks for systematic testing</text>
+  </g>
+</svg>

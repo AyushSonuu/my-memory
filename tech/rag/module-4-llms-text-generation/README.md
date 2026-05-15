@@ -32,13 +32,13 @@ graph LR
 | 06 | [Prompt Engineering: Augmented Prompt](06-prompt-engineering-augmented.md) | 🟢 | 2 SVGs |
 | 07 | [Prompt Engineering: Advanced Techniques](07-prompt-engineering-advanced.md) | 🟢 | 2 SVGs |
 | 08 | [Prompt Engineering (Lab)](08-prompt-engineering-lab.md) | 🔴 | — |
-| 09 | [Handling Hallucinations](09-handling-hallucinations.md) | 🔴 | — |
-| 10 | [Evaluating Your LLM's Performance](10-evaluating-llm-performance.md) | 🔴 | — |
+| 09 | [Handling Hallucinations](09-handling-hallucinations.md) | 🟢 | 2 SVGs |
+| 10 | [Evaluating Your LLM's Performance](10-evaluating-llm-performance.md) | 🟢 | 1 SVG |
 | 11 | [Agentic RAG](11-agentic-rag.md) | 🔴 | — |
 | 12 | [RAG vs Fine-Tuning](12-rag-vs-finetuning.md) | 🔴 | — |
 | 13 | [Lab: Developing a RAG Chatbot](13-lab-rag-chatbot.md) | 🔴 | — |
 
-**Overall confidence:** 🟡 In progress (6/13)
+**Overall confidence:** 🟡 In progress (8/13)
 
 ## 🧩 Memory Fragments
 > - 🧠 LLM is the "real brains" of RAG — retriever finds, LLM understands and generates
@@ -52,6 +52,8 @@ graph LR
 > - 📊 5 LLM factors: size, cost, context window, speed, training cutoff
 > - 📝 RAG prompt = system + history + docs + query (always query at END)
 > - 📚 Few-shot = examples in prompt, reasoning models = built-in CoT (different rules!)
+> - 🚫 LLMs predict probable, not true — hallucinations sound plausible!
+> - 📏 RAGAS: Response Relevancy (addresses question?) + Faithfulness (grounded in docs?)
 
 ---
 
