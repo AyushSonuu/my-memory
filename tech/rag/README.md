@@ -31,7 +31,7 @@ graph LR
 | 01 | [RAG Overview](module-1-rag-overview/) | 7/10 | 🟡 | 3 SVGs: RAG pipeline, Normal vs RAG, 5 Advantages |
 | 02 | [IR & Search Foundations](module-2-ir-search-foundations/) | 9/12 | 🟡 | 22 SVGs: TF-IDF, BM25, embeddings, hybrid search, retrieval metrics |
 | 03 | [IR with Vector Databases](module-3-ir-vector-databases/) | 6/11 | 🟡 | 17 SVGs: ANN, chunking, query parsing, cross-encoders, reranking |
-| 04 | [LLMs & Text Generation](module-4-llms-text-generation/) | 0/14 | 🔴 | — |
+| 04 | [LLMs & Text Generation](module-4-llms-text-generation/) | 10/13 | 🟡 | 20 SVGs |
 | 05 | [RAG in Production](module-5-rag-production/) | 0/14 | 🔴 | — |
 
 ## 🧩 Memory Fragments

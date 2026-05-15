@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196f3"/>
+      <stop offset="100%" style="stop-color:#1976d2"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#388e3c"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#f57c00"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0"/>
+      <stop offset="100%" style="stop-color:#7b1fa2"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="450" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">🤖 Agentic RAG Workflow — Multiple LLMs, Each with One Job</text>
+
+  <!-- User Prompt -->
+  <g transform="translate(50, 70)">
+    <rect width="140" height="60" rx="8" fill="#21262d" stroke="#8b949e" stroke-width="2" filter="url(#shadow)"/>
+    <text x="70" y="25" fill="#e6edf3" font-family="Inter, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">📝 User Prompt</text>
+    <text x="70" y="45" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">"Can I overwinter</text>
+    <text x="70" y="57" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">a cactus?"</text>
+  </g>
+
+  <!-- Arrow to Router -->
+  <line x1="190" y1="100" x2="250" y2="100" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="250,100 240,95 240,105" fill="#8b949e"/>
+
+  <!-- Step 1: Router LLM -->
+  <g transform="translate(260, 70)">
+    <rect width="160" height="80" rx="10" fill="#161b22" stroke="#2196f3" stroke-width="2" filter="url(#shadow)"/>
+    <rect width="160" height="25" rx="10" fill="url(#blueGrad)"/>
+    <text x="80" y="17" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">1️⃣ Router LLM</text>
+    <text x="80" y="45" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Decision: Does this</text>
+    <text x="80" y="58" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">need retrieval?</text>
+    <text x="80" y="73" fill="#4caf50" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Output: YES</text>
+  </g>
+
+  <!-- Arrow to Vector DB (yes path) -->
+  <line x1="340" y1="150" x2="340" y2="190" stroke="#4caf50" stroke-width="2"/>
+  <polygon points="340,190 335,180 345,180" fill="#4caf50"/>
+  <text x="360" y="170" fill="#4caf50" font-family="Inter, sans-serif" font-size="10" font-weight="bold">yes</text>
+
+  <!-- Step 2a: Vector Database -->
+  <g transform="translate(260, 200)">
+    <rect width="160" height="70" rx="10" fill="#161b22" stroke="#9c27b0" stroke-width="2" filter="url(#shadow)"/>
+    <rect width="160" height="25" rx="10" fill="url(#purpleGrad)"/>
+    <text x="80" y="17" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">2️⃣ Vector DB</text>
+    <text x="80" y="43" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Retrieve relevant</text>
+    <text x="80" y="58" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">documents</text>
+  </g>
+
+  <!-- Arrow to Evaluator -->
+  <line x1="340" y1="270" x2="340" y2="310" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="340,310 335,300 345,300" fill="#8b949e"/>
+
+  <!-- Step 3: Evaluator LLM -->
+  <g transform="translate(260, 320)">
+    <rect width="160" height="90" rx="10" fill="#161b22" stroke="#ff9800" stroke-width="2" filter="url(#shadow)"/>
+    <rect width="160" height="25" rx="10" fill="url(#orangeGrad)"/>
+    <text x="80" y="17" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">3️⃣ Evaluator LLM</text>
+    <text x="80" y="43" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Are docs sufficient</text>
+    <text x="80" y="56" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">to answer query?</text>
+    <text x="80" y="72" fill="#4caf50" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Output: SUFFICIENT</text>
+    <text x="80" y="85" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">(or "need more")</text>
+  </g>
+
+  <!-- Loop back arrow (if need more) -->
+  <path d="M 260 365 L 220 365 L 220 235 L 260 235" stroke="#f44336" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+  <polygon points="260,235 250,230 250,240" fill="#f44336"/>
+  <text x="200" y="300" fill="#f44336" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">if need</text>
+  <text x="200" y="312" fill="#f44336" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">more</text>
+
+  <!-- Arrow to Generator -->
+  <line x1="340" y1="410" x2="340" y2="450" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="340,450 335,440 345,440" fill="#8b949e"/>
+
+  <!-- Step 4: Generator LLM -->
+  <g transform="translate(260, 460)">
+    <rect width="160" height="70" rx="10" fill="#161b22" stroke="#4caf50" stroke-width="2" filter="url(#shadow)"/>
+    <rect width="160" height="25" rx="10" fill="url(#greenGrad)"/>
+    <text x="80" y="17" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">4️⃣ Generator LLM</text>
+    <text x="80" y="43" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Create augmented</text>
+    <text x="80" y="58" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">response</text>
+  </g>
+
+  <!-- Arrow to Citation LLM -->
+  <line x1="420" y1="495" x2="500" y2="495" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="500,495 490,490 490,500" fill="#8b949e"/>
+
+  <!-- Step 5: Citation LLM -->
+  <g transform="translate(510, 460)">
+    <rect width="160" height="70" rx="10" fill="#161b22" stroke="#9c27b0" stroke-width="2" filter="url(#shadow)"/>
+    <rect width="160" height="25" rx="10" fill="url(#purpleGrad)"/>
+    <text x="80" y="17" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">5️⃣ Citation LLM</text>
+    <text x="80" y="43" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Add source</text>
+    <text x="80" y="58" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">attributions</text>
+  </g>
+
+  <!-- Arrow to Final Response -->
+  <line x1="670" y1="495" x2="730" y2="495" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="730,495 720,490 720,500" fill="#8b949e"/>
+
+  <!-- Final Response -->
+  <g transform="translate(740, 465)">
+    <rect width="120" height="60" rx="8" fill="#21262d" stroke="#4caf50" stroke-width="2" filter="url(#shadow)"/>
+    <text x="60" y="25" fill="#4caf50" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">✅ Final Response</text>
+    <text x="60" y="45" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">with citations</text>
+  </g>
+
+  <!-- Alternative path: NO retrieval -->
+  <line x1="340" y1="70" x2="340" y2="50" stroke="#f44336" stroke-width="2"/>
+  <line x1="340" y1="50" x2="590" y2="50" stroke="#f44336" stroke-width="2"/>
+  <line x1="590" y1="50" x2="590" y2="460" stroke="#f44336" stroke-width="2" stroke-dasharray="4,4"/>
+  <polygon points="590,460 585,450 595,450" fill="#f44336"/>
+  <text x="465" y="43" fill="#f44336" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">if NO → skip to generator</text>
+
+  <!-- Footer -->
+  <g transform="translate(50, 560)">
+    <text x="0" y="0" fill="#8b949e" font-family="Inter, sans-serif" font-size="10">💡 Each LLM specializes: Router (fast decision), Evaluator (quality check), Generator (heavy reasoning), Citation (attribution)</text>
+    <text x="0" y="15" fill="#8b949e" font-family="Inter, sans-serif" font-size="10">🔑 Key benefit: Use lightweight models where possible, powerful models only where needed → optimize cost &amp; speed!</text>
+  </g>
+</svg>

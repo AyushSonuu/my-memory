@@ -34,11 +34,11 @@ graph LR
 | 08 | [Prompt Engineering (Lab)](08-prompt-engineering-lab.md) | 🔴 | — |
 | 09 | [Handling Hallucinations](09-handling-hallucinations.md) | 🟢 | 2 SVGs |
 | 10 | [Evaluating Your LLM's Performance](10-evaluating-llm-performance.md) | 🟢 | 1 SVG |
-| 11 | [Agentic RAG](11-agentic-rag.md) | 🔴 | — |
-| 12 | [RAG vs Fine-Tuning](12-rag-vs-finetuning.md) | 🔴 | — |
+| 11 | [Agentic RAG](11-agentic-rag.md) | 🟢 | 1 SVG |
+| 12 | [RAG vs Fine-Tuning](12-rag-vs-finetuning.md) | 🟢 | 1 SVG |
 | 13 | [Lab: Developing a RAG Chatbot](13-lab-rag-chatbot.md) | 🔴 | — |
 
-**Overall confidence:** 🟡 In progress (8/13)
+**Overall confidence:** 🟡 In progress (10/13)
 
 ## 🧩 Memory Fragments
 > - 🧠 LLM is the "real brains" of RAG — retriever finds, LLM understands and generates
@@ -54,6 +54,11 @@ graph LR
 > - 📚 Few-shot = examples in prompt, reasoning models = built-in CoT (different rules!)
 > - 🚫 LLMs predict probable, not true — hallucinations sound plausible!
 > - 📏 RAGAS: Response Relevancy (addresses question?) + Faithfulness (grounded in docs?)
+> - 🤖 Agentic RAG = multiple LLMs, each specialized for one step (router, evaluator, generator, citation)
+> - 💡 Agentic = flowchart thinking. Design workflow, assign different models per node (lightweight for routing, powerful for generation)
+> - 📚 RAG = knowledge injection (new info). Fine-tuning = domain adaptation (style/tone/format)
+> - 🔄 Fine-tuning changes HOW model responds more than WHAT it knows — not great for teaching new facts
+> - 🔧 RAG + Fine-tuning together = best combo (fine-tune for RAG specialization)
 
 ---
 

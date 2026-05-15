@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480">
+  <defs>
+    <linearGradient id="grayGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#616161"/>
+      <stop offset="100%" style="stop-color:#424242"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#388e3c"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196f3"/>
+      <stop offset="100%" style="stop-color:#1976d2"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0"/>
+      <stop offset="100%" style="stop-color:#7b1fa2"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="480" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="400" y="35" fill="#e6edf3" font-family="Inter, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Tool Use: LLM Requests, Code Executes</text>
+
+  <!-- Flow Diagram -->
+  <!-- User -->
+  <g transform="translate(50, 100)">
+    <circle cx="40" cy="40" r="35" fill="#21262d" stroke="#2196f3" stroke-width="2"/>
+    <text x="40" y="35" fill="#2196f3" font-family="Inter, sans-serif" font-size="18" text-anchor="middle">👤</text>
+    <text x="40" y="55" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">User</text>
+    <text x="40" y="95" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">"What time</text>
+    <text x="40" y="107" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">is it?"</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <line x1="130" y1="140" x2="190" y2="140" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="190,140 180,134 180,146" fill="#8b949e"/>
+
+  <!-- LLM (Central) -->
+  <g transform="translate(200, 80)">
+    <rect x="0" y="0" width="180" height="120" rx="12" fill="#161b22" stroke="#9c27b0" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="180" height="35" rx="12" fill="url(#purpleGrad)"/>
+    <rect x="0" y="20" width="180" height="15" fill="url(#purpleGrad)"/>
+    <text x="90" y="24" fill="#fff" font-family="Inter, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">LLM</text>
+
+    <text x="90" y="55" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Sees available tools:</text>
+    <text x="90" y="75" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">get_current_time()</text>
+    <text x="90" y="92" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">web_search()</text>
+    <text x="90" y="109" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">query_db()</text>
+  </g>
+
+  <!-- Arrow 2: LLM requests tool call -->
+  <line x1="385" y1="120" x2="430" y2="120" stroke="#ff9800" stroke-width="2"/>
+  <polygon points="430,120 420,114 420,126" fill="#ff9800"/>
+  <text x="407" y="108" fill="#ff9800" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Request</text>
+
+  <!-- Your Code (executes tool) -->
+  <g transform="translate(440, 80)">
+    <rect x="0" y="0" width="140" height="80" rx="12" fill="#161b22" stroke="#4caf50" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="140" height="30" rx="12" fill="url(#greenGrad)"/>
+    <rect x="0" y="15" width="140" height="15" fill="url(#greenGrad)"/>
+    <text x="70" y="21" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Your Code</text>
+
+    <text x="70" y="50" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Actually executes</text>
+    <text x="70" y="65" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">the function</text>
+  </g>
+
+  <!-- Arrow 3: Tool -->
+  <line x1="585" y1="120" x2="630" y2="120" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="630,120 620,114 620,126" fill="#8b949e"/>
+
+  <!-- Tool box -->
+  <g transform="translate(640, 80)">
+    <rect x="0" y="0" width="110" height="80" rx="12" fill="url(#blueGrad)" filter="url(#shadow)"/>
+    <text x="55" y="35" fill="#fff" font-family="Inter, sans-serif" font-size="20" text-anchor="middle">🔧</text>
+    <text x="55" y="55" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Tool</text>
+    <text x="55" y="70" fill="#fff" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">"15:20:45"</text>
+  </g>
+
+  <!-- Return arrow (below) -->
+  <path d="M 695 165 L 695 200 L 290 200 L 290 205" stroke="#4caf50" stroke-width="2" fill="none"/>
+  <polygon points="290,205 284,195 296,195" fill="#4caf50"/>
+  <text x="495" y="215" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Result fed back to LLM</text>
+
+  <!-- Final output to user -->
+  <line x1="200" y1="200" x2="100" y2="200" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="100,200 110,194 110,206" fill="#8b949e"/>
+  <text x="150" y="215" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">"It's 3:20 PM"</text>
+
+  <!-- Key Insight Box -->
+  <g transform="translate(50, 260)">
+    <rect x="0" y="0" width="700" height="180" rx="12" fill="#161b22" stroke="#2196f3" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="700" height="35" rx="12" fill="url(#blueGrad)"/>
+    <rect x="0" y="20" width="700" height="15" fill="url(#blueGrad)"/>
+    <text x="350" y="24" fill="#fff" font-family="Inter, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Key Insight: LLM CHOOSES When to Use Tools</text>
+
+    <!-- Two scenarios -->
+    <g transform="translate(30, 50)">
+      <rect x="0" y="0" width="300" height="110" rx="8" fill="#21262d"/>
+      <text x="150" y="25" fill="#4caf50" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">"What time is it?"</text>
+      <text x="150" y="50" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">→ Needs real-time data</text>
+      <text x="150" y="70" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">→ Calls get_current_time()</text>
+      <rect x="90" y="85" width="120" height="18" rx="4" fill="#4caf50"/>
+      <text x="150" y="98" fill="#fff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">USES TOOL</text>
+    </g>
+
+    <g transform="translate(370, 50)">
+      <rect x="0" y="0" width="300" height="110" rx="8" fill="#21262d"/>
+      <text x="150" y="25" fill="#ff9800" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">"How much caffeine in green tea?"</text>
+      <text x="150" y="50" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">→ Already in training data</text>
+      <text x="150" y="70" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">→ Answers directly</text>
+      <rect x="90" y="85" width="120" height="18" rx="4" fill="#ff9800"/>
+      <text x="150" y="98" fill="#fff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">NO TOOL NEEDED</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="400" y="465" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">LLM = decision maker. Tool = servant. LLM decides "I need this tool" → Your code executes it.</text>
+</svg>

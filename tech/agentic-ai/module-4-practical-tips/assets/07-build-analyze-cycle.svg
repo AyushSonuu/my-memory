@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196f3"/>
+      <stop offset="100%" style="stop-color:#1976d2"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#f57c00"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#388e3c"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f44336"/>
+      <stop offset="100%" style="stop-color:#d32f2f"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0"/>
+      <stop offset="100%" style="stop-color:#7b1fa2"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="400" y="35" fill="#e6edf3" font-family="Inter, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Build ↔ Analyze Development Cycle</text>
+
+  <!-- Central cycle -->
+  <circle cx="400" cy="265" r="150" fill="none" stroke="#8b949e" stroke-width="2" stroke-dasharray="8,4"/>
+
+  <!-- BUILD Section (Left) -->
+  <g transform="translate(100, 140)">
+    <rect x="0" y="0" width="200" height="250" rx="16" fill="#161b22" stroke="#2196f3" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="200" height="45" rx="16" fill="url(#blueGrad)"/>
+    <rect x="0" y="30" width="200" height="15" fill="url(#blueGrad)"/>
+    <text x="100" y="30" fill="#fff" font-family="Inter, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">BUILD</text>
+
+    <text x="20" y="75" fill="#2196f3" font-family="Inter, sans-serif" font-size="11" font-weight="bold">Activities:</text>
+
+    <rect x="20" y="90" width="160" height="35" rx="6" fill="#21262d"/>
+    <text x="100" y="110" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Build end-to-end system</text>
+
+    <rect x="20" y="135" width="160" height="35" rx="6" fill="#21262d"/>
+    <text x="100" y="155" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Improve individual</text>
+    <text x="100" y="168" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">component</text>
+
+    <text x="100" y="210" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Quick &amp; dirty first</text>
+    <text x="100" y="225" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Then targeted improvements</text>
+  </g>
+
+  <!-- ANALYZE Section (Right) -->
+  <g transform="translate(500, 140)">
+    <rect x="0" y="0" width="200" height="250" rx="16" fill="#161b22" stroke="#ff9800" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="200" height="45" rx="16" fill="url(#orangeGrad)"/>
+    <rect x="0" y="30" width="200" height="15" fill="url(#orangeGrad)"/>
+    <text x="100" y="30" fill="#fff" font-family="Inter, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">ANALYZE</text>
+
+    <text x="20" y="75" fill="#ff9800" font-family="Inter, sans-serif" font-size="11" font-weight="bold">Activities:</text>
+
+    <rect x="20" y="90" width="160" height="28" rx="6" fill="#21262d"/>
+    <text x="100" y="108" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Examine outputs/traces</text>
+
+    <rect x="20" y="125" width="160" height="28" rx="6" fill="#21262d"/>
+    <text x="100" y="143" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Build evals, compute metrics</text>
+
+    <rect x="20" y="160" width="160" height="28" rx="6" fill="#21262d"/>
+    <text x="100" y="178" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Error analysis (spreadsheet)</text>
+
+    <rect x="20" y="195" width="160" height="28" rx="6" fill="#21262d"/>
+    <text x="100" y="213" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Component-level evals</text>
+
+    <text x="100" y="240" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Data tells you WHERE to fix</text>
+  </g>
+
+  <!-- Bidirectional arrows -->
+  <line x1="305" y1="220" x2="495" y2="220" stroke="#4caf50" stroke-width="3"/>
+  <polygon points="495,220 482,212 482,228" fill="#4caf50"/>
+  <text x="400" y="210" fill="#4caf50" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">back &amp; forth</text>
+
+  <line x1="495" y1="310" x2="305" y2="310" stroke="#4caf50" stroke-width="3"/>
+  <polygon points="305,310 318,302 318,318" fill="#4caf50"/>
+
+  <!-- Key insight box -->
+  <g transform="translate(150, 420)">
+    <rect x="0" y="0" width="500" height="60" rx="10" fill="#161b22" stroke="#9c27b0" stroke-width="2"/>
+    <text x="250" y="25" fill="#9c27b0" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">The #1 Difference Between Good &amp; Great Teams</text>
+    <text x="250" y="45" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Less experienced: mostly building | Great teams: 50/50 build and analyze</text>
+  </g>
+
+  <!-- Bottom indicators -->
+  <rect x="100" y="65" width="80" height="20" rx="4" fill="url(#redGrad)"/>
+  <text x="140" y="79" fill="#fff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Beginners</text>
+  <text x="200" y="79" fill="#8b949e" font-family="Inter, sans-serif" font-size="10">→ 80% build, 20% analyze</text>
+
+  <rect x="450" y="65" width="80" height="20" rx="4" fill="url(#greenGrad)"/>
+  <text x="490" y="79" fill="#fff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Experts</text>
+  <text x="545" y="79" fill="#8b949e" font-family="Inter, sans-serif" font-size="10">→ 50% build, 50% analyze</text>
+</svg>

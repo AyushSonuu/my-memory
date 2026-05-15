@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 400">
+  <defs>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f44336"/>
+      <stop offset="100%" style="stop-color:#d32f2f"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#388e3c"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196f3"/>
+      <stop offset="100%" style="stop-color:#1976d2"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#f57c00"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="750" height="400" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="375" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Eval-Driven Development Cycle</text>
+
+  <!-- Build -->
+  <rect x="50" y="80" width="120" height="70" rx="10" fill="url(#blueGrad)" filter="url(#shadow)"/>
+  <text x="110" y="110" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Build</text>
+  <text x="110" y="130" fill="#e3f2fd" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">agentic workflow</text>
+
+  <!-- Arrow Build -> Run -->
+  <line x1="175" y1="115" x2="215" y2="115" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="215,115 205,109 205,121" fill="#8b949e"/>
+
+  <!-- Run -->
+  <rect x="220" y="80" width="120" height="70" rx="10" fill="url(#greenGrad)" filter="url(#shadow)"/>
+  <text x="280" y="110" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Run</text>
+  <text x="280" y="130" fill="#c8e6c9" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">on real inputs</text>
+
+  <!-- Arrow Run -> Examine -->
+  <line x1="345" y1="115" x2="385" y2="115" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="385,115 375,109 375,121" fill="#8b949e"/>
+
+  <!-- Examine -->
+  <rect x="390" y="80" width="120" height="70" rx="10" fill="url(#orangeGrad)" filter="url(#shadow)"/>
+  <text x="450" y="110" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Examine</text>
+  <text x="450" y="130" fill="#fff3e0" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">outputs manually</text>
+
+  <!-- Arrow Examine -> Spot -->
+  <line x1="515" y1="115" x2="555" y2="115" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="555,115 545,109 545,121" fill="#8b949e"/>
+
+  <!-- Spot Problems -->
+  <rect x="560" y="80" width="130" height="70" rx="10" fill="url(#redGrad)" filter="url(#shadow)"/>
+  <text x="625" y="105" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Spot Problems</text>
+  <text x="625" y="125" fill="#ffcdd2" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">you didn't</text>
+  <text x="625" y="140" fill="#ffcdd2" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">anticipate</text>
+
+  <!-- Arrow down to Create Eval -->
+  <line x1="625" y1="155" x2="625" y2="190" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="625,190 619,180 631,180" fill="#8b949e"/>
+
+  <!-- Create Eval -->
+  <rect x="560" y="195" width="130" height="70" rx="10" fill="url(#orangeGrad)" filter="url(#shadow)"/>
+  <text x="625" y="225" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Create Eval</text>
+  <text x="625" y="245" fill="#fff3e0" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">to track that error</text>
+
+  <!-- Arrow Eval -> Fix -->
+  <line x1="555" y1="230" x2="515" y2="230" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="515,230 525,224 525,236" fill="#8b949e"/>
+
+  <!-- Fix/Improve -->
+  <rect x="390" y="195" width="120" height="70" rx="10" fill="url(#greenGrad)" filter="url(#shadow)"/>
+  <text x="450" y="225" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Fix & Improve</text>
+  <text x="450" y="245" fill="#c8e6c9" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">the workflow</text>
+
+  <!-- Loop arrow back to Run -->
+  <path d="M 390 230 Q 320 230 280 160" stroke="#4caf50" stroke-width="2" fill="none" stroke-dasharray="5,3"/>
+  <polygon points="280,155 285,170 275,165" fill="#4caf50"/>
+  <text x="290" y="215" fill="#4caf50" font-family="Inter, sans-serif" font-size="10" font-weight="bold">repeat</text>
+
+  <!-- Key Insight box -->
+  <rect x="50" y="195" width="300" height="70" rx="8" fill="#161b22" stroke="#ff9800" stroke-width="2"/>
+  <text x="200" y="220" fill="#ff9800" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Key Insight</text>
+  <text x="200" y="242" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Don't try to predict all failure modes upfront.</text>
+  <text x="200" y="258" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Build first → discover issues → then create evals.</text>
+
+  <!-- Two types box -->
+  <rect x="50" y="285" width="640" height="95" rx="8" fill="#161b22" stroke="#2196f3" stroke-width="2"/>
+  <text x="375" y="310" fill="#2196f3" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Two Types of Eval Metrics</text>
+
+  <!-- Objective -->
+  <rect x="70" y="320" width="280" height="45" rx="6" fill="#21262d"/>
+  <text x="210" y="340" fill="#4caf50" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Objective (Code-based)</text>
+  <text x="210" y="358" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Ex: "Did output mention a competitor?" (yes/no)</text>
+
+  <!-- Subjective -->
+  <rect x="390" y="320" width="280" height="45" rx="6" fill="#21262d"/>
+  <text x="530" y="340" fill="#9c27b0" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Subjective (LLM-as-Judge)</text>
+  <text x="530" y="358" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Ex: "Rate this essay's quality 1-5"</text>
+</svg>
