@@ -9,25 +9,7 @@
 
 ## 🖼️ The Big Picture
 
-```mermaid
-graph TD
-    Q{"Does my task have a<br/><b>right answer</b>?"}
-    Q -->|"✅ Yes"| OBJ["📊 Objective Eval<br/><i>Code-based comparison<br/>against ground truth</i>"]
-    Q -->|"❌ No / Fuzzy"| SUB["🤖 Subjective Eval<br/><i>LLM-as-Judge<br/>with binary rubric</i>"]
-
-    OBJ --> RUN["Run: No Reflection vs With Reflection"]
-    SUB --> RUN
-
-    RUN --> DEC{"Meaningful<br/>improvement?"}
-    DEC -->|"✅ Yes"| KEEP["Keep reflection ✅"]
-    DEC -->|"❌ No"| DROP["Drop it / Tweak prompts 🔄"]
-
-    style Q fill:#2196f3,color:#fff
-    style OBJ fill:#4caf50,color:#fff
-    style SUB fill:#9c27b0,color:#fff
-    style KEEP fill:#4caf50,color:#fff
-    style DROP fill:#f44336,color:#fff
-```
+![Evaluation Framework](assets/04-eval-framework.svg)
 
 > 💡 **Reflection = extra step = extra latency. Bina eval ke use karna = andhe mein dawai lena — shayad kaam kare, shayad na kare. Pehle test karo, phir commit karo! 💊**
 
@@ -43,25 +25,16 @@ You run a retail store. Users ask questions → LLM generates SQL queries → fe
 
 ### Step-by-Step Approach
 
-```mermaid
-graph LR
-    subgraph DATA ["📋 Step 1: Ground Truth Dataset"]
-        P["10-15 prompts<br/>+ correct answers"]
-    end
-    subgraph NO_REF ["❌ Without Reflection"]
-        A1["LLM → SQL v1"] --> B1["Execute"] --> C1["Answer"]
-    end
-    subgraph WITH_REF ["✅ With Reflection"]
-        A2["LLM → SQL v1"] --> R["LLM reflects<br/>→ SQL v2"] --> B2["Execute"] --> C2["Answer"]
-    end
-    DATA --> NO_REF
-    DATA --> WITH_REF
-    NO_REF --> COMP["📊 Compare<br/>% correct"]
-    WITH_REF --> COMP
-
-    style P fill:#2196f3,color:#fff
-    style R fill:#9c27b0,color:#fff
-    style COMP fill:#ff9800,color:#fff
+```
+📋 Step 1: Ground Truth Dataset          ❌ Without Reflection      ✅ With Reflection
+(10-15 prompts + correct answers)        ───────────────────        ──────────────────
+                │                        LLM → SQL v1 → Execute     LLM → SQL v1 
+                │                              │                          │
+                ▼                              ▼                     LLM reflects → SQL v2
+         ┌──────────────┐                  Answer                         │
+         │ Compare      │◄────────────────────┴──────────────────── Execute → Answer
+         │ % correct    │
+         └──────────────┘
 ```
 
 ### The Ground Truth Dataset
@@ -115,14 +88,10 @@ For the chart generation workflow (Lesson 03), v1 was a stacked bar chart, v2 wa
 
 Feed both images to a multimodal LLM and ask: *"Which is better?"*
 
-```mermaid
-graph LR
-    A["📊 Image A"] --> LLM["🤖 LLM Judge<br/><i>'Which is better?'</i>"]
-    B["📊 Image B"] --> LLM
-    LLM --> V["'A is better!'"]
-
-    style LLM fill:#f44336,color:#fff
-    style V fill:#f44336,color:#fff
+```
+📊 Image A ──┐
+             ├──► 🤖 LLM Judge ──► "A is better!" ❌ Unreliable
+📊 Image B ──┘    "Which is better?"
 ```
 
 **This doesn't work well.** Known issues:
@@ -141,14 +110,11 @@ graph LR
 
 Instead of comparing two images, **grade each image independently** against a rubric with **binary (0/1) criteria**.
 
-```mermaid
-graph TD
-    IMG["📊 Single Image"] --> LLM["🤖 LLM Judge"]
-    RUB["📋 Binary Rubric<br/><i>5-10 yes/no criteria</i>"] --> LLM
-    LLM --> SCORE["Score: 4/5"]
-
-    style RUB fill:#9c27b0,color:#fff
-    style SCORE fill:#4caf50,color:#fff
+```
+📊 Single Image ──► 🤖 LLM Judge ◄── 📋 Binary Rubric
+                         │              (5-10 yes/no criteria)
+                         ▼
+                    Score: 4/5 ✅
 ```
 
 ### Example Rubric
@@ -199,16 +165,12 @@ Run this **every time you change** the generation prompt or reflection prompt �
 
 ## ⚡ The Eval → Iterate Loop
 
-```mermaid
-graph LR
-    E["📋 Build Eval<br/><i>Dataset + Metric</i>"] --> R["🔄 Run System<br/><i>±Reflection</i>"]
-    R --> M["📊 Measure"]
-    M --> T["✏️ Tweak Prompts"]
-    T --> R
-
-    style E fill:#2196f3,color:#fff
-    style M fill:#ff9800,color:#fff
-    style T fill:#9c27b0,color:#fff
+```
+📋 Build Eval ──► 🔄 Run System ──► 📊 Measure ──► ✏️ Tweak Prompts ──┐
+   (Dataset +        (±Reflection)                                     │
+    Metric)                                                            │
+        ▲                                                              │
+        └──────────────────────────────────────────────────────────────┘
 ```
 
 **This is the real unlock:** once evals exist, prompt engineering becomes **scientific** — try idea, measure, keep or discard. No more vibes-based development.

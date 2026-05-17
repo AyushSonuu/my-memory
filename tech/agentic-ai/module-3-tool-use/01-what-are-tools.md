@@ -9,47 +9,13 @@
 
 ## 🖼️ The Core Idea
 
-```mermaid
-graph LR
-    subgraph NO_TOOLS ["❌ Without Tools"]
-        A["👤 What time is it?"] --> B["🤖 LLM"]
-        B --> C["😅 Sorry, I don't<br/>have access to<br/>the current time."]
-    end
-
-    subgraph WITH_TOOLS ["✅ With Tools"]
-        D["👤 What time is it?"] --> E["🤖 LLM"]
-        F["🔧 get_current_time()"] -.->|"available"| E
-        E -->|"calls"| F
-        F -->|"15:20:45"| E
-        E --> G["🕐 It's 3:20 PM."]
-    end
-
-    style C fill:#f44336,color:#fff
-    style G fill:#4caf50,color:#fff
-    style F fill:#9c27b0,color:#fff
-```
+![Simple Tool Execution](assets/01-simple-tool-execution.svg)
 
 > 💡 **LLM bina tools ke = insaan bina haathon ke. Sochne mein bahut achha, lekin duniya mein kuch kar nahi sakta. Tools = haath de do, ab kaam bhi kar sakta hai! 🖐️**
 
 ---
 
 ## ⚡ How Tool Use Actually Works
-
-```mermaid
-sequenceDiagram
-    participant U as 👤 User
-    participant LLM as 🤖 LLM
-    participant T as 🔧 Tool<br/>(Function)
-
-    U->>LLM: "What time is it?"
-    Note over LLM: Sees available tools:<br/>get_current_time()
-    LLM->>T: Request: get_current_time()
-    T-->>LLM: Returns: "15:20:45"
-    Note over LLM: Uses result in<br/>conversation history
-    LLM->>U: "It's 3:20 PM."
-```
-
-### Step by Step
 
 | Step | What Happens | Who Does It |
 |------|-------------|------------|
@@ -94,28 +60,16 @@ This is the crucial distinction — the LLM isn't forced to use tools. **It deci
 
 Andrew Ng makes an important distinction here — comparing this module's approach to what we saw in earlier modules:
 
-```mermaid
-graph TB
-    subgraph HARD ["❌ Hard-Coded (Earlier Modules)"]
-        A["Developer writes:<br/><i>'Always do web search<br/>at step 2'</i>"] --> B["Web Search"] --> C["Always runs,<br/>even if unnecessary"]
-    end
-
-    subgraph FLEX ["✅ LLM-Chosen (This Module)"]
-        D["Developer provides:<br/><i>tools = [web_search,<br/>calculator, ...]</i>"] --> E["🤖 LLM decides:<br/><i>'Do I need any<br/>of these tools?'</i>"]
-        E -->|"Yes"| F["Calls the right tool"]
-        E -->|"No"| G["Answers directly"]
-    end
-
-    style HARD fill:#fff3e0,color:#000
-    style FLEX fill:#e8f5e9,color:#000
-```
-
 | Approach | Who Decides | Example |
 |----------|------------|---------|
 | **Hard-coded** | Developer pre-programs when to call | Research agent: "always search web at step 2" |
 | **LLM-chosen** | LLM decides at runtime | Calendar agent: LLM picks from check/make/delete based on the request |
 
 The dashed box notation (🔧) in the slides = "tools available for LLM to choose from."
+
+See the calendar assistant example with multiple tools:
+
+![Multiple Tools Example](assets/01-multiple-tools.svg)
 
 ---
 

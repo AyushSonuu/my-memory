@@ -44,27 +44,14 @@
 
 ## 🏗️ Architecture: Clients & Servers
 
-```mermaid
-graph LR
-    subgraph CLIENTS ["🖥️ MCP Clients (Apps)"]
-        C1["Cursor"]
-        C2["Claude Desktop"]
-        C3["Windsurf"]
-        C4["Your App"]
-    end
-
-    subgraph SERVERS ["🔧 MCP Servers (Tool Providers)"]
-        S1["Slack"]
-        S2["GitHub"]
-        S3["Google Drive"]
-        S4["PostgreSQL"]
-        S5["Your Server"]
-    end
-
-    C1 & C2 & C3 & C4 ---|"MCP<br/>Protocol"| S1 & S2 & S3 & S4 & S5
-
-    style C4 fill:#2196f3,color:#fff
-    style S5 fill:#9c27b0,color:#fff
+```
+🖥️ MCP Clients (Apps)           MCP Protocol           🔧 MCP Servers (Tool Providers)
+─────────────────────           ────────────           ──────────────────────────────
+    Cursor          ─────┐                      ┌───── Slack
+    Claude Desktop  ─────┼───── MCP Protocol ──┼───── GitHub
+    Windsurf        ─────┤                      ├───── Google Drive
+    Your App        ─────┘                      ├───── PostgreSQL
+                                                └───── Your Server
 ```
 
 | Component | What It Is | Examples |
@@ -94,21 +81,30 @@ The initial design focused on **data/context** (hence "Context Protocol"), but i
 
 From the course demo (PDF page 22):
 
-```mermaid
-sequenceDiagram
-    participant U as 👤 User
-    participant CD as 🖥️ Claude Desktop<br/>(MCP Client)
-    participant GH as 🐙 GitHub MCP Server
+```
+👤 User: "Summarize the README.md from github.com/andrewyng/aisuite"
+            │
+            ▼
+    🖥️ Claude Desktop (MCP Client) ──► 🐙 GitHub MCP Server
+                                        get_file(repo="aisuite", path="README.md")
+                                              │
+                                              ▼
+                                        [full README content]
+                                              │
+                                              ▼
+    👤 User ◄──"aisuite is a unified interface for multiple LLM providers..."
 
-    U->>CD: "Summarize the README.md from<br/>github.com/andrewyng/aisuite"
-    CD->>GH: get_file(repo="aisuite",<br/>path="README.md")
-    GH-->>CD: [full README content]
-    CD->>U: "aisuite is a unified interface<br/>for multiple LLM providers..."
-
-    U->>CD: "What are the latest PRs?"
-    CD->>GH: list_pull_requests(repo="aisuite",<br/>sort="updated", limit=20)
-    GH-->>CD: [PR list with titles, authors, dates]
-    CD->>U: "Here are the 20 latest PRs:..."
+👤 User: "What are the latest PRs?"
+            │
+            ▼
+    🖥️ Claude Desktop ──► 🐙 GitHub MCP Server
+                          list_pull_requests(repo="aisuite", sort="updated", limit=20)
+                                │
+                                ▼
+                          [PR list with titles, authors, dates]
+                                │
+                                ▼
+    👤 User ◄──"Here are the 20 latest PRs:..."
 ```
 
 **Two different requests → two different tools on the same MCP server.** The LLM decides which tool to call based on the query — same pattern as Lesson 01!
@@ -130,18 +126,10 @@ sequenceDiagram
 
 ## 🗺️ Module 3 Complete — Tool Use Recap
 
-```mermaid
-graph TD
-    L1["01 · What Are Tools?<br/><i>LLM chooses tools<br/>at runtime</i>"] --> L2["02 · Creating a Tool<br/><i>aisuite, docstrings,<br/>auto JSON schema</i>"]
-    L2 --> L3["03 · Tool Syntax<br/><i>JSON schema<br/>deep dive</i>"]
-    L3 --> L4["04 · Code Execution<br/><i>The meta-tool,<br/>sandboxing</i>"]
-    L4 --> L5["05 · MCP<br/><i>M×N → M+N,<br/>shared ecosystem</i>"]
-
-    style L1 fill:#4caf50,color:#fff
-    style L2 fill:#4caf50,color:#fff
-    style L3 fill:#4caf50,color:#fff
-    style L4 fill:#4caf50,color:#fff
-    style L5 fill:#4caf50,color:#fff
+```
+01 · What Are Tools? ──► 02 · Creating a Tool ──► 03 · Tool Syntax ──► 04 · Code Execution ──► 05 · MCP
+(LLM chooses tools      (aisuite, docstrings,    (JSON schema         (The meta-tool,        (M×N → M+N,
+ at runtime)             auto JSON schema)        deep dive)           sandboxing)            shared ecosystem)
 ```
 
 **Andrew Ng's teaser for Module 4:** *"The next module — evaluations and error analysis — is maybe the most important module of this entire course."* 🔥

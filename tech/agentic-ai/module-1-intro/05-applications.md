@@ -9,13 +9,12 @@
 
 ## 🖼️ Difficulty Spectrum
 
-```mermaid
-graph LR
-    E["🟢 <b>Easier</b><br/>Clear steps<br/>Standard procedures<br/>Text-only"] ---|"→"| M["🟡 <b>Medium</b><br/>Some decisions<br/>by LLM<br/>Multiple tools"] ---|"→"| H["🔴 <b>Harder</b><br/>Steps unknown ahead<br/>Plan as you go<br/>Multimodal (vision/audio)"]
-
-    style E fill:#4caf50,color:#fff
-    style M fill:#ff9800,color:#fff
-    style H fill:#f44336,color:#fff
+```
+🟢 Easier ──────────────────► 🟡 Medium ──────────────────► 🔴 Harder
+─────────                     ────────                     ────────
+Clear steps                   Some decisions by LLM       Steps unknown ahead
+Standard procedures           Multiple tools               Plan as you go
+Text-only                                                  Multimodal (vision/audio)
 ```
 
 | Factor | 🟢 Easier | 🔴 Harder |
@@ -28,21 +27,14 @@ graph LR
 
 ## 🟢 Example 1: Invoice Processing (Easy)
 
-```mermaid
-graph LR
-    I["📄 Invoice PDF"] --> P["🟩 PDF-to-Text"]
-    P --> L1["⬜ LLM:<br/>Is this an invoice?"]
-    L1 -->|"Yes"| L2["⬜ LLM:<br/>Extract 4 fields"]
-    L1 -->|"No"| X["❌ Ignore"]
-    L2 --> DB["🟩 Update Database"]
-    DB --> R["✅ Record Created!"]
-
-    style I fill:#f44336,color:#fff
-    style P fill:#4caf50,color:#fff
-    style L1 fill:#999,color:#fff
-    style L2 fill:#999,color:#fff
-    style DB fill:#4caf50,color:#fff
-    style R fill:#2196f3,color:#fff
+```
+📄 Invoice PDF ──► 🟩 PDF-to-Text ──► ⬜ LLM: Is this invoice? ──► 🟩 Update Database ──► ✅ Record Created!
+                                            │
+                                       Yes  │  No
+                                            │   ↓
+                                            │  ❌ Ignore
+                                            ▼
+                                      ⬜ LLM: Extract 4 fields
 ```
 
 **4 required fields extracted:**
@@ -60,20 +52,10 @@ graph LR
 
 ## 🟡 Example 2: Customer Order Inquiry (Medium)
 
-```mermaid
-graph TB
-    E["📧 Customer Email<br/>'Wrong item shipped,<br/>Order #8847'"] --> L1["⬜ LLM:<br/>Extract order details"]
-    L1 --> T1["🟩 Orders DB Query:<br/>Verify order #8847"]
-    T1 --> L2["⬜ LLM:<br/>Draft response"]
-    L2 --> R["🟩 Request Human Review"]
-    R --> S["✅ Send after approval"]
-
-    style E fill:#f44336,color:#fff
-    style L1 fill:#999,color:#fff
-    style T1 fill:#4caf50,color:#fff
-    style L2 fill:#999,color:#fff
-    style R fill:#4caf50,color:#fff
-    style S fill:#2196f3,color:#fff
+```
+📧 Customer Email ──► ⬜ LLM: Extract ──► 🟩 Orders DB ──► ⬜ LLM: Draft ──► 🟩 Human Review ──► ✅ Send
+("Wrong item,          order details       Query: Verify      response
+Order #8847")                              order #8847
 ```
 
 **Steps:** Extract info → DB lookup → Draft response → Human review → Send
@@ -113,21 +95,25 @@ graph TB
 
 ## 🔴 Example 4: Visual Computer Use (Cutting-Edge)
 
-```mermaid
-graph TB
-    U["👤 User:<br/>'Check if seats are<br/>available on these<br/>United flights'"] --> A["🤖 Agent opens<br/>web browser"]
-    A --> N["🌐 Navigate to<br/>United Airlines"]
-    N --> F["📝 Fill in search<br/>fields, click buttons"]
-    F -->|"Trouble on United site"| G["🌐 Switches to<br/>Google Flights"]
-    G --> R["📊 Finds matching<br/>flights"]
-    R --> B["🌐 Back to United<br/>to verify seats"]
-    B --> D["✅ 'Yes, seats<br/>are available!'"]
-
-    style U fill:#f44336,color:#fff
-    style A fill:#999,color:#fff
-    style N fill:#4caf50,color:#fff
-    style G fill:#ff9800,color:#fff
-    style D fill:#2196f3,color:#fff
+```
+👤 User: "Check if seats available on these United flights"
+                        │
+                        ▼
+        🤖 Agent opens web browser ──► 🌐 Navigate to United Airlines
+                                              │
+                                              ▼
+                                    📝 Fill search fields, click buttons
+                                              │
+                        Trouble on United ◄───┴───► 🌐 Google Flights (backup)
+                                                          │
+                                                          ▼
+                                                    📊 Find matching flights
+                                                          │
+                                                          ▼
+                                              🌐 Back to United to verify seats
+                                                          │
+                                                          ▼
+                                              ✅ "Yes, seats are available!"
 ```
 
 | Aspect | Status |

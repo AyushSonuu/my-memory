@@ -9,22 +9,7 @@
 
 ## 🖼️ The Core Shift
 
-```mermaid
-graph LR
-    subgraph TOOLS ["❌ Plan with Tools"]
-        T1["Limited set of<br/>custom tools"] --> T2["LLM picks tools<br/>one step at a time"]
-        T2 --> T3["New query?<br/>Need new tool 😩"]
-    end
-
-    subgraph CODE ["✅ Plan with Code"]
-        C1["Python + pandas<br/>= 1000s of functions"] --> C2["LLM writes code<br/>= entire plan at once"]
-        C2 --> C3["Any query?<br/>Just write code 🎯"]
-    end
-
-    style T3 fill:#f44336,color:#fff
-    style C3 fill:#4caf50,color:#fff
-    style C2 fill:#9c27b0,color:#fff
-```
+![Tools vs Code Execution](assets/03-tools-vs-code.svg)
 
 > 💡 **Tools = limited menu card with 6-7 items. Code = poore kitchen ka access — jo marzi bana lo! 🍳**
 
@@ -69,22 +54,15 @@ Step 24: get_column_mean → December average
 Step 25: Compare all results → pick the max
 ```
 
-**24+ steps** for one question! 😱 And it gets worse:
+**24+ steps** for one question! And it gets worse:
 
-```mermaid
-graph TD
-    Q1["❓ Which month had highest<br/>hot chocolate sales?"] --> P1["📝 24+ step plan<br/>😩 Works, but painful"]
-    Q2["❓ How many unique<br/>transactions last week?"] --> P2["❌ No tool for this!<br/>→ Create get_unique_entries"]
-    Q3["❓ Amounts of last<br/>5 transactions?"] --> P3["❌ No tool for this either!<br/>→ Create get_last_N_values"]
+| Query | Problem |
+|-------|---------|
+| "Which month had highest hot chocolate sales?" | 24+ step plan — works, but painful |
+| "How many unique transactions last week?" | ❌ No tool for this! → Create get_unique_entries |
+| "Amounts of last 5 transactions?" | ❌ No tool for this either! → Create get_last_N_values |
 
-    P2 --> SPIRAL["🌀 Endless tool creation<br/>for every new edge case"]
-    P3 --> SPIRAL
-
-    style P1 fill:#ff9800,color:#fff
-    style P2 fill:#f44336,color:#fff
-    style P3 fill:#f44336,color:#fff
-    style SPIRAL fill:#f44336,color:#fff
-```
+Every new edge case → endless tool creation spiral 🌀
 
 ### The Three Problems (from PDF)
 
@@ -163,20 +141,12 @@ print(last_week.drop_duplicates().shape[0])
 
 ## 🔑 Why Code Works So Well
 
-```mermaid
-graph TB
-    subgraph WHY ["Why Code > Tools for Planning"]
-        A["📚 LLMs trained on<br/>TONS of code"] --> D["Already knows when<br/>to call what function"]
-        B["🐍 Python + pandas =<br/>1000s of functions"] --> D
-        C["🧩 Code can express<br/>multi-step logic<br/>in one block"] --> D
-        D --> E["🎯 Rich, flexible plans<br/>without custom tools"]
-    end
-
-    style A fill:#2196f3,color:#fff
-    style B fill:#4caf50,color:#fff
-    style C fill:#ff9800,color:#fff
-    style E fill:#9c27b0,color:#fff
-```
+| Factor | Why It Helps |
+|--------|-------------|
+| 📚 **LLMs trained on TONS of code** | Already knows when to call what function |
+| 🐍 **Python + pandas = 1000s of functions** | Massive pre-built library at LLM's disposal |
+| 🧩 **Code can express multi-step logic in one block** | No need to break into separate tool calls |
+| 🎯 **Result** | Rich, flexible plans without custom tools |
 
 | Factor | Custom Tools | Code as Plan |
 |--------|-------------|-------------|
@@ -229,16 +199,11 @@ Why the ranking? Code is the most **precise and unambiguous** format — no inte
 
 ## 🧩 Tools vs Code: When to Use What
 
-```mermaid
-graph TD
-    Q["What kind of task?"] -->|"Data analysis,<br/>computation,<br/>file processing"| CODE["💻 Code Execution<br/>Let LLM write Python"]
-    Q -->|"Custom APIs,<br/>proprietary systems,<br/>external services"| TOOLS["🔧 Custom Tools<br/>Define specific functions"]
-    Q -->|"Complex app with<br/>both internal APIs<br/>+ data processing"| BOTH["🔀 Both!<br/>Custom tools + code execution"]
-
-    style CODE fill:#4caf50,color:#fff
-    style TOOLS fill:#2196f3,color:#fff
-    style BOTH fill:#9c27b0,color:#fff
-```
+| Task Type | Use |
+|-----------|-----|
+| Data analysis, computation, file processing | 💻 **Code Execution** — Let LLM write Python |
+| Custom APIs, proprietary systems, external services | 🔧 **Custom Tools** — Define specific functions |
+| Complex app with both internal APIs + data processing | 🔀 **Both!** — Custom tools + code execution |
 
 ---
 

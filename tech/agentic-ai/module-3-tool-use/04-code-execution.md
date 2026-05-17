@@ -37,22 +37,26 @@
 
 ## ⚡ How Code Execution Works
 
-```mermaid
-sequenceDiagram
-    participant U as 👤 User
-    participant LLM as 🤖 LLM
-    participant EX as ⚙️ Code Executor
-
-    U->>LLM: "What's the square root of 2?"
-    
-    Note over LLM: System prompt:<br/>"Write code to solve the query.<br/>Use <execute_python> tags."
-
-    LLM->>EX: <execute_python><br/>import math<br/>print(math.sqrt(2))<br/></execute_python>
-    
-    Note over EX: Pattern match tags →<br/>extract code → exec()
-    
-    EX-->>LLM: "1.4142135623730951"
-    LLM->>U: "The square root of 2 is<br/>approximately 1.4142."
+```
+👤 User: "What's the square root of 2?"
+                │
+                ▼
+        🤖 LLM (System prompt: "Write code in <execute_python> tags")
+                │
+                ▼
+        <execute_python>
+        import math
+        print(math.sqrt(2))
+        </execute_python>
+                │
+                ▼
+        ⚙️ Code Executor (Pattern match tags → extract → exec())
+                │
+                ▼
+        "1.4142135623730951"
+                │
+                ▼
+        🤖 LLM ──► 👤 "The square root of 2 is approximately 1.4142."
 ```
 
 ### Step by Step
@@ -94,19 +98,14 @@ if match:
 
 Remember the reflection pattern from Module 2? Code execution **is** the external feedback:
 
-```mermaid
-graph TD
-    A["🤖 LLM writes code v1"] --> B["⚙️ Execute code"]
-    B --> C{"Result?"}
-    C -->|"✅ Success"| D["Feed output to LLM → final answer"]
-    C -->|"❌ Error!"| E["Feed error message<br/>back to LLM"]
-    E --> F["🤖 LLM reflects,<br/>writes code v2"]
-    F --> B
-
-    style A fill:#2196f3,color:#fff
-    style E fill:#f44336,color:#fff
-    style F fill:#ff9800,color:#fff
-    style D fill:#4caf50,color:#fff
+```
+🤖 LLM writes v1 ──► ⚙️ Execute ──► ✅ Success? ──► Feed output → final answer
+                         │
+                         ❌ Error!
+                         │
+                         ▼
+                    Feed error message ──► 🤖 LLM reflects ──► writes v2 ──► ⚙️ Execute again
+                    back to LLM
 ```
 
 > If code execution fails, pass the error message back to the LLM → let it reflect and try again (1-2 retries). This is the **reflection + external feedback** pattern from M2 applied to code execution!

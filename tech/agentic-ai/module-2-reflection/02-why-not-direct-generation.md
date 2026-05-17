@@ -9,21 +9,7 @@
 
 ## 🖼️ The Big Picture
 
-```mermaid
-graph LR
-    subgraph DIRECT ["🎯 Direct Generation (Zero-Shot)"]
-        A["👤 Prompt"] --> B["🤖 LLM"] --> C["📄 Output<br/><i>(one shot, done)</i>"]
-    end
-
-    subgraph REFLECT ["🪞 Reflection Workflow"]
-        D["👤 Prompt"] --> E["🤖 LLM"] --> F["📄 v1"]
-        F --> G["🤖 LLM<br/><i>Critique + fix</i>"]
-        G --> H["📄 v2 ✅"]
-    end
-
-    style C fill:#ff9800,color:#fff
-    style H fill:#4caf50,color:#fff
-```
+![Direct Generation vs Reflection](assets/02-direct-vs-reflection.svg)
 
 > 💡 **Direct generation = ek hi attempt mein exam likhna, bina re-check kiye. Reflection = likhne ke baad ek baar padh ke mistakes fix karna. Kaun better karega? Obviously second wala! 📝**
 
@@ -107,16 +93,10 @@ Not every task benefits equally. Here's where reflection really shines:
 
 Two golden rules from the course:
 
-```mermaid
-graph TB
-    R["✍️ Writing<br/>Reflection Prompts"]
-    R --> A["1️⃣ <b>Clearly indicate</b><br/>the reflection action<br/><i>'Review...', 'Check...',<br/>'Critique...'</i>"]
-    R --> B["2️⃣ <b>Specify criteria</b><br/>to check against<br/><i>What exactly should<br/>the LLM look for?</i>"]
-
-    style R fill:#ff9800,color:#fff
-    style A fill:#4caf50,color:#fff
-    style B fill:#2196f3,color:#fff
-```
+| Rule | Description |
+|------|-------------|
+| **1. Clearly indicate action** | Use "Review...", "Check...", "Critique..." |
+| **2. Specify criteria** | What exactly should the LLM look for? |
 
 ### Example Prompts (from Andrew Ng's slides)
 

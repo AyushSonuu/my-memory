@@ -9,42 +9,7 @@
 
 ## 🖼️ The Four Patterns at a Glance
 
-```mermaid
-graph TB
-    subgraph LINEAR ["1️⃣ Linear"]
-        L1["🔍 Researcher"] --> L2["🎨 Designer"] --> L3["✍️ Writer"]
-    end
-
-    subgraph HIER ["2️⃣ Hierarchical"]
-        H0["🧑‍💼 Manager"] --> H1["🔍 Researcher"]
-        H0 --> H2["🎨 Designer"]
-        H0 --> H3["✍️ Writer"]
-    end
-
-    subgraph DEEP ["3️⃣ Deeper Hierarchy"]
-        D0["🧑‍💼 Manager"] --> D1["🔍 Researcher"]
-        D0 --> D2["🎨 Designer"]
-        D0 --> D3["✍️ Writer"]
-        D1 --> D1a["🌐 Web<br/>Researcher"]
-        D1 --> D1b["✅ Fact<br/>Checker"]
-        D3 --> D3a["🖊️ Style<br/>Writer"]
-        D3 --> D3b["📎 Citation<br/>Checker"]
-    end
-
-    subgraph ALL ["4️⃣ All-to-All"]
-        A1["🧑‍💼 Manager"] <--> A2["🔍 Researcher"]
-        A1 <--> A3["🎨 Designer"]
-        A1 <--> A4["✍️ Writer"]
-        A2 <--> A3
-        A2 <--> A4
-        A3 <--> A4
-    end
-
-    style LINEAR fill:#e8f5e9,color:#000
-    style HIER fill:#e3f2fd,color:#000
-    style DEEP fill:#fff3e0,color:#000
-    style ALL fill:#fce4ec,color:#000
-```
+![Communication Patterns](assets/05-communication-patterns.svg)
 
 > 💡 **Linear = assembly line 🏭. Hierarchical = office mein boss + team 🧑‍💼. Deep hierarchy = company with departments 🏢. All-to-all = group chat where everyone's talking at once 💬😅**
 
@@ -54,16 +19,8 @@ graph TB
 
 The simplest — agents work in **sequence**, passing output forward like a relay race.
 
-```mermaid
-graph LR
-    R["🔍 Researcher"] -->|"research<br/>report"| D["🎨 Designer"]
-    D -->|"research +<br/>visuals"| W["✍️ Writer"]
-    W --> OUT["📄 Final Report"]
-
-    style R fill:#9c27b0,color:#fff
-    style D fill:#9c27b0,color:#fff
-    style W fill:#9c27b0,color:#fff
-    style OUT fill:#4caf50,color:#fff
+```
+🔍 Researcher ──research report──► 🎨 Designer ──research + visuals──► ✍️ Writer ──► 📄 Final Report
 ```
 
 | Aspect | Details |
@@ -80,21 +37,18 @@ graph LR
 
 A **manager agent** coordinates the team — delegates tasks, collects results, decides next steps.
 
-```mermaid
-sequenceDiagram
-    participant M as 🧑‍💼 Marketing Manager
-    participant R as 🔍 Researcher
-    participant D as 🎨 Designer
-    participant W as ✍️ Writer
-
-    M->>R: "Research sunglasses trends"
-    R-->>M: Research report
-    M->>D: "Create ad images"<br/>(+ research report)
-    D-->>M: Visuals & artwork
-    M->>W: "Write the brochure"<br/>(+ research + visuals)
-    W-->>M: Draft report
-    Note over M: Review & improve<br/>(reflection step)
-    M-->>M: Final polish
+```
+                    🧑‍💼 Marketing Manager
+                   /        |          \
+         "Research"    "Create ads"   "Write brochure"
+               ↓            ↓              ↓
+        🔍 Researcher  🎨 Designer    ✍️ Writer
+               ↑            ↑              ↑
+           report        visuals         draft
+                   \        |          /
+                    └───────┴──────────┘
+                    ↓ Review & improve (reflection)
+                    📄 Final Report
 ```
 
 | Aspect | Details |
@@ -113,26 +67,13 @@ sequenceDiagram
 
 Some agents **have their own sub-agents** — like departments within a company.
 
-```mermaid
-graph TB
-    MGR["🧑‍💼 Marketing Manager"] --> R["🔍 Researcher"]
-    MGR --> D["🎨 Designer"]
-    MGR --> W["✍️ Writer"]
-
-    R --> WR["🌐 Web Researcher"]
-    R --> FC["✅ Fact Checker"]
-
-    W --> SW["🖊️ Style Writer"]
-    W --> CC["📎 Citation Checker"]
-
-    style MGR fill:#ff9800,color:#fff
-    style R fill:#9c27b0,color:#fff
-    style D fill:#9c27b0,color:#fff
-    style W fill:#9c27b0,color:#fff
-    style WR fill:#7b1fa2,color:#fff
-    style FC fill:#7b1fa2,color:#fff
-    style SW fill:#7b1fa2,color:#fff
-    style CC fill:#7b1fa2,color:#fff
+```
+                    🧑‍💼 Marketing Manager
+                   /        |          \
+        🔍 Researcher   🎨 Designer   ✍️ Writer
+           /    \                       /    \
+    🌐 Web    ✅ Fact              🖊️ Style  📎 Citation
+    Researcher Checker             Writer    Checker
 ```
 
 | Agent | Sub-Agents | Why? |
@@ -154,19 +95,14 @@ graph TB
 
 **Everyone can talk to everyone.** Any agent can message any other agent at any time.
 
-```mermaid
-graph LR
-    M["🧑‍💼 Manager"] <-->|"messages"| R["🔍 Researcher"]
-    M <-->|"messages"| D["🎨 Designer"]
-    M <-->|"messages"| W["✍️ Writer"]
-    R <-->|"messages"| D
-    R <-->|"messages"| W
-    D <-->|"messages"| W
-
-    style M fill:#ff9800,color:#fff
-    style R fill:#9c27b0,color:#fff
-    style D fill:#9c27b0,color:#fff
-    style W fill:#9c27b0,color:#fff
+```
+        🧑‍💼 Manager ◄──────────► 🔍 Researcher
+            ▲  ▲                    ▲  ▲
+            │  │                    │  │
+            │  └────────────────────┘  │
+            │                          │
+            ▼                          ▼
+        🎨 Designer ◄──────────► ✍️ Writer
 ```
 
 ### How It's Implemented
@@ -217,18 +153,12 @@ graph LR
 
 ## 🧩 How to Choose
 
-```mermaid
-graph TD
-    Q["What kind of task?"] -->|"Steps are naturally<br/>sequential"| LIN["1️⃣ Linear<br/>A → B → C"]
-    Q -->|"Need coordination,<br/>review, dynamic ordering"| HIER["2️⃣ Hierarchical<br/>Manager + team"]
-    Q -->|"Sub-tasks are also<br/>complex enough to split"| DEEP["3️⃣ Deeper Hierarchy<br/>Multi-level teams"]
-    Q -->|"Creative/exploratory,<br/>okay with chaos"| ALL["4️⃣ All-to-All<br/>Free collaboration"]
-
-    style LIN fill:#4caf50,color:#fff
-    style HIER fill:#2196f3,color:#fff
-    style DEEP fill:#ff9800,color:#fff
-    style ALL fill:#f44336,color:#fff
-```
+| If your task is... | Use this pattern |
+|-------------------|------------------|
+| Steps naturally sequential | 1️⃣ **Linear** (A → B → C) |
+| Needs coordination, review, dynamic ordering | 2️⃣ **Hierarchical** (Manager + team) |
+| Sub-tasks also complex enough to split | 3️⃣ **Deeper Hierarchy** (Multi-level teams) |
+| Creative/exploratory, okay with chaos | 4️⃣ **All-to-All** (Free collaboration) |
 
 **Practical advice from the course:**
 - Start with **Linear** or **Hierarchical** — they cover most use cases

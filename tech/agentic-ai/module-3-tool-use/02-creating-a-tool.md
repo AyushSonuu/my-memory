@@ -9,23 +9,19 @@
 
 ## 🖼️ The Full Flow
 
-```mermaid
-sequenceDiagram
-    participant D as 👨‍💻 Developer
-    participant AS as 📦 aisuite
-    participant LLM as 🤖 LLM
-    participant T as 🔧 get_current_time()
+```
+👨‍💻 Developer ──► 📦 aisuite ──► 🤖 LLM ──► 📦 aisuite ──► 🔧 get_current_time() ──► "15:20:45"
+                 │                │                │
+           Reads function    Prompt + tool     "I want to call      Executes function
+           name + docstring  schema sent       get_current_time()"        │
+           → builds JSON                                                   ▼
+           schema                                                   Result fed back in
+                                                                    conversation
+                                                                          │
+                                                                          ▼
+                                                        🤖 LLM ──► 👨‍💻 "It's 3:20 PM"
 
-    D->>AS: tools=[get_current_time]
-    Note over AS: Reads function name +<br/>docstring → builds JSON schema
-    AS->>LLM: Prompt + tool schema
-    LLM->>AS: "I want to call get_current_time()"
-    AS->>T: Executes function
-    T-->>AS: "15:20:45"
-    AS->>LLM: Result fed back in conversation
-    LLM-->>D: "It's 3:20 PM."
-    
-    Note over D,LLM: All of this happens inside ONE<br/>client.chat.completions.create() call!
+💡 All of this happens inside ONE client.chat.completions.create() call!
 ```
 
 > 💡 **Tum sirf function likhte ho. aisuite baaki sab karta hai — JSON schema banana, LLM ko describe karna, function call karna, result wapas feed karna. Ek line mein sab! 🎯**
@@ -134,16 +130,9 @@ Now the LLM knows:
 
 ## 🔄 What `max_turns` Does
 
-```mermaid
-graph LR
-    A["🤖 LLM calls<br/>Tool A"] --> B["Result fed back"]
-    B --> C["🤖 LLM calls<br/>Tool B"]
-    C --> D["Result fed back"]
-    D --> E["🤖 LLM calls<br/>Tool C"]
-    E --> F["..."]
-    F --> G["⛔ max_turns<br/>reached → STOP"]
-
-    style G fill:#f44336,color:#fff
+```
+🤖 LLM calls ──► Result ──► 🤖 LLM calls ──► Result ──► 🤖 LLM calls ──► ... ──► ⛔ max_turns reached → STOP
+   Tool A      fed back       Tool B      fed back       Tool C
 ```
 
 | Parameter | What It Does | Default Suggestion |

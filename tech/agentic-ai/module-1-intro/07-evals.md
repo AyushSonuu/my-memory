@@ -9,19 +9,12 @@
 
 ## 🖼️ Why Evals Matter
 
-```mermaid
-graph LR
-    BUILD["🔨 Build<br/>agentic workflow"] --> RUN["▶️ Run it on<br/>real inputs"]
-    RUN --> EXAMINE["🔍 Examine<br/>outputs manually"]
-    EXAMINE --> FIND["🐛 Spot problems<br/>you didn't anticipate"]
-    FIND --> EVAL["📏 Create eval<br/>to track that error"]
-    EVAL --> FIX["🔧 Improve<br/>the workflow"]
-    FIX --> RUN
-
-    style BUILD fill:#2196f3,color:#fff
-    style FIND fill:#f44336,color:#fff
-    style EVAL fill:#ff9800,color:#fff
-    style FIX fill:#4caf50,color:#fff
+```
+🔨 Build workflow ──► ▶️ Run on real inputs ──► 🔍 Examine outputs ──► 🐛 Spot problems ──► 📏 Create eval ──► 🔧 Improve
+                                                manually              you didn't           to track that      workflow
+                                                                      anticipate           error                 │
+        ▲                                                                                                       │
+        └───────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 > 💡 **Evals = health checkup for your agent. Pehle bana, phir problems dhundh, phir thermometer bana jo track kare ki bimari theek ho rahi hai ya nahi! 🩺**
@@ -70,15 +63,10 @@ This is a problem most businesses wouldn't anticipate before building the agent.
 
 For a research agent writing essays, quality is harder to measure with code:
 
-```mermaid
-graph LR
-    RA["🤖 Research Agent<br/>writes essay"] --> E["📄 Generated<br/>Essay"]
-    E --> J["🧑‍⚖️ Judge LLM<br/><i>'Rate this essay<br/>1–5 for quality'</i>"]
-    J --> S["📊 Score:<br/>3/5, 4/5..."]
-
-    style RA fill:#2196f3,color:#fff
-    style J fill:#9c27b0,color:#fff
-    style S fill:#4caf50,color:#fff
+```
+🤖 Research Agent ──► 📄 Generated Essay ──► 🧑‍⚖️ Judge LLM ──► 📊 Score: 3/5, 4/5...
+   writes essay                                ("Rate this essay
+                                                1-5 for quality")
 ```
 
 | Essay Topic | Judge Score |
@@ -94,24 +82,15 @@ As you improve the agent → scores should go up over time.
 
 ## 🔬 Two Levels of Evals
 
-```mermaid
-graph TB
-    subgraph END ["🎯 End-to-End Eval"]
-        direction LR
-        I1["Input"] --> AGENT["Full Agent<br/>Workflow"] --> O1["Final Output"]
-        O1 --> M1["📏 Measure<br/>output quality"]
-    end
-
-    subgraph COMP ["🔧 Component-Level Eval"]
-        direction LR
-        I2["Input"] --> S1["Step 1"] --> S2["Step 2"] --> S3["Step 3"]
-        S1 --> M2["📏"]
-        S2 --> M3["📏"]
-        S3 --> M4["📏"]
-    end
-
-    style END fill:#e3f2fd,color:#000
-    style COMP fill:#fff3e0,color:#000
+```
+🎯 End-to-End Eval                    🔧 Component-Level Eval
+─────────────────                     ──────────────────────
+Input ──► [Full Agent Workflow] ──►   Input ──► Step 1 ──► Step 2 ──► Step 3
+              │                                   │          │          │
+         Final Output                            📏         📏         📏
+              │                               (measure each step individually)
+             📏
+     (measure output quality)
 ```
 
 | Level | What It Measures | Use Case |

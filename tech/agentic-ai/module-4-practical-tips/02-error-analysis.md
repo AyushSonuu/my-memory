@@ -9,22 +9,7 @@
 
 ## 🖼️ The Core Idea
 
-```mermaid
-graph LR
-    A["🏗️ Complex Agent<br/>(many components)"] --> B["❌ Poor Output"]
-    B --> C["🤔 Which component<br/>is responsible?"]
-    
-    C --> D["😅 Gut Feel<br/>(risky!)"]
-    C --> E["📋 Error Analysis<br/>(data-driven!)"]
-    
-    D --> F["⚠️ Months of work,<br/>zero improvement"]
-    E --> G["✅ Fix the RIGHT<br/>component, fast!"]
-
-    style D fill:#f44336,color:#fff
-    style E fill:#4caf50,color:#fff
-    style F fill:#f44336,color:#fff
-    style G fill:#4caf50,color:#fff
-```
+![Error Analysis](assets/02-error-analysis.svg)
 
 > 💡 **Gut se kaam mat karo, data se karo. Andrew Ng khud bolte hain: "gut feeling leads to months of work with very little progress." 😬**
 
@@ -45,20 +30,7 @@ graph LR
 
 ## ⚡ The Error Analysis Process
 
-```mermaid
-graph TD
-    A["🔴 Poor Final Output<br/>(e.g., missing key points)"] --> B["📋 Collect failing examples<br/>(skip the good ones)"]
-    B --> C["👁️ Read the traces<br/>(intermediate outputs of each step)"]
-    C --> D["📊 Build a spreadsheet<br/>(count errors per component)"]
-    D --> E["🎯 Identify worst offender<br/>(highest error %)"]
-    E --> F{"Got ideas to<br/>fix it?"}
-    F -->|Yes| G["🔧 Work on that component"]
-    F -->|No| H["🔍 Look for 2nd worst<br/>offender you CAN fix"]
-
-    style A fill:#f44336,color:#fff
-    style G fill:#4caf50,color:#fff
-    style E fill:#ff9800,color:#fff
-```
+![Error Analysis Spreadsheet](assets/03-error-spreadsheet.svg)
 
 ### Step-by-Step
 

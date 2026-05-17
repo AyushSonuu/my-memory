@@ -9,61 +9,13 @@
 
 ## 🖼️ The Big Picture
 
-```mermaid
-graph LR
-    subgraph HARDCODED ["❌ Hard-Coded Sequence"]
-        H1["Developer writes:<br/><i>Step 1 → Step 2 → Step 3</i>"] --> H2["Same flow<br/>every time"]
-        H2 --> H3["😰 Breaks for<br/>new query types"]
-    end
-
-    subgraph PLANNING ["✅ Planning Pattern"]
-        P1["User query"] --> P2["🤖 LLM writes<br/>a plan"]
-        P2 --> P3["Execute step<br/>by step"]
-        P3 --> P4["🎯 Handles<br/>any query"]
-    end
-
-    style H3 fill:#f44336,color:#fff
-    style P4 fill:#4caf50,color:#fff
-    style P2 fill:#9c27b0,color:#fff
-```
+![Planning Workflow](assets/01-planning-workflow.svg)
 
 > 💡 **Hard-coded agent = train 🚂 — ek hi track pe chalti hai. Planning agent = taxi 🚕 — bolo kahaan jaana hai, rasta khud nikal lega!**
 
 ---
 
 ## 🧱 How Planning Works (The Core Mechanism)
-
-```mermaid
-sequenceDiagram
-    participant U as 👤 User
-    participant P as 🤖 Planner LLM
-    participant E as 🤖 Executor LLM
-    participant T as 🔧 Tools
-
-    U->>P: User query + tool descriptions
-    Note over P: "Return a step-by-step<br/>plan to carry out the<br/>user's request"
-    P-->>E: Plan: Step 1, Step 2, Step 3
-
-    rect rgb(255, 235, 238)
-        Note over E: Execute Step 1
-        E->>T: Calls appropriate tool
-        T-->>E: Step 1 result
-    end
-
-    rect rgb(227, 242, 253)
-        Note over E: Step 1 output + Step 2 instructions
-        E->>T: Calls next tool
-        T-->>E: Step 2 result
-    end
-
-    rect rgb(232, 245, 233)
-        Note over E: Step 2 output + Step 3 instructions
-        E->>T: Calls next tool
-        T-->>E: Step 3 result
-    end
-
-    E->>U: Final answer
-```
 
 ### The Recipe
 

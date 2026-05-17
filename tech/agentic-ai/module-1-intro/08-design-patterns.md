@@ -9,19 +9,16 @@
 
 ## 🖼️ The Four Patterns At A Glance
 
-```mermaid
-graph TB
-    CENTER(("🎨 Design<br/>Patterns"))
-    CENTER --> R["🪞 <b>Reflection</b><br/>LLM critiques its<br/>own output & iterates"]
-    CENTER --> T["🔧 <b>Tool Use</b><br/>LLM calls functions<br/>to get work done"]
-    CENTER --> P["📋 <b>Planning</b><br/>LLM decides what<br/>steps to take"]
-    CENTER --> M["👥 <b>Multi-Agent</b><br/>Specialized agents<br/>collaborate on tasks"]
-
-    style CENTER fill:#ff9800,color:#fff
-    style R fill:#4caf50,color:#fff
-    style T fill:#2196f3,color:#fff
-    style P fill:#9c27b0,color:#fff
-    style M fill:#e91e63,color:#fff
+```
+                    🎨 Design Patterns
+                          │
+        ┌─────────────────┼─────────────────┐
+        │                 │                 │
+        ▼                 ▼                 ▼
+   🪞 Reflection    🔧 Tool Use       📋 Planning      👥 Multi-Agent
+   LLM critiques    LLM calls         LLM decides      Specialized agents
+   its own output   functions to      what steps       collaborate on
+   & iterates       get work done     to take          tasks
 ```
 
 | Pattern | Core Idea | Control Level | Difficulty |
@@ -39,18 +36,10 @@ graph TB
 
 LLM generates output → critiques it → improves based on critique → repeat.
 
-```mermaid
-graph LR
-    G["🤖 LLM generates<br/>code (v1)"] --> C["🔍 LLM critiques:<br/><i>'Check for correctness,<br/>style, efficiency'</i>"]
-    C --> F["🐛 Finds bugs<br/>& suggests fixes"]
-    F --> G2["🤖 LLM fixes code<br/>(v2)"]
-    G2 -->|"+ run code, get errors"| G3["🤖 LLM fixes again<br/>(v3, even better)"]
-
-    style G fill:#f44336,color:#fff
-    style C fill:#ff9800,color:#fff
-    style F fill:#9c27b0,color:#fff
-    style G2 fill:#4caf50,color:#fff
-    style G3 fill:#4caf50,color:#fff
+```
+🤖 LLM generates ──► 🔍 LLM critiques: ──► 🐛 Finds bugs ──► 🤖 LLM fixes ──► + run code, ──► 🤖 LLM fixes
+   code (v1)          "Check correctness,     & suggests       code (v2)      get errors      again (v3)
+                       style, efficiency"      fixes
 ```
 
 **How it works in practice:**
@@ -109,17 +98,17 @@ The key: LLM **decides** which tool to call based on the task. Developer defines
 
 Instead of the developer hardcoding the steps, the **LLM itself decides** what sequence of actions to take.
 
-```mermaid
-graph TD
-    USER["👤 'Generate an image of a girl<br/>reading a book in the same<br/>pose as this boy, then<br/>describe it in voice'"] --> LLM["🤖 LLM Plans:"]
-    LLM --> S1["1️⃣ Pose detection<br/><i>(openpose model)</i>"]
-    S1 --> S2["2️⃣ Pose-to-Image<br/><i>(google/vit model)</i>"]
-    S2 --> S3["3️⃣ Image-to-text<br/><i>(vit-gpt2 model)</i>"]
-    S3 --> S4["4️⃣ Text-to-speech<br/><i>(fastspeech model)</i>"]
-
-    style USER fill:#f44336,color:#fff
-    style LLM fill:#ff9800,color:#fff
-    style S4 fill:#4caf50,color:#fff
+```
+👤 "Generate an image of a girl reading a book in same pose as this boy, then describe in voice"
+                                    │
+                                    ▼
+                            🤖 LLM Plans:
+                                    │
+        ┌───────────────────────────┼───────────────────────────┐
+        │                           │                           │
+        ▼                           ▼                           ▼
+  1️⃣ Pose detection         2️⃣ Pose-to-Image          3️⃣ Image-to-text        4️⃣ Text-to-speech
+  (openpose model)           (google/vit model)         (vit-gpt2 model)         (fastspeech model)
 ```
 
 *Example from the [HuggingGPT paper](https://arxiv.org/abs/2303.17580) (Shen et al., 2023) — the LLM orchestrates multiple specialized Hugging Face models.*
@@ -136,24 +125,12 @@ graph TD
 
 Multiple LLM "agents" — each prompted with a different role/persona — work together on a task.
 
-```mermaid
-graph LR
-    subgraph TEAM ["👥 Virtual Team"]
-        R["🔬 Researcher<br/><i>Does online research</i>"]
-        W["✍️ Marketer<br/><i>Writes marketing copy</i>"]
-        E["📝 Editor<br/><i>Edits & polishes</i>"]
-    end
-    
-    TASK["📋 Write a<br/>marketing brochure"] --> R
-    R -->|"research findings"| W
-    W -->|"draft copy"| E
-    E --> OUTPUT["✅ Polished<br/>brochure"]
-
-    style TASK fill:#f44336,color:#fff
-    style R fill:#2196f3,color:#fff
-    style W fill:#ff9800,color:#fff
-    style E fill:#9c27b0,color:#fff
-    style OUTPUT fill:#4caf50,color:#fff
+```
+                    👥 Virtual Team
+                    ──────────────
+📋 Task: Write a ──► 🔬 Researcher ──► ✍️ Marketer ──► 📝 Editor ──► ✅ Polished brochure
+marketing brochure   (Does online     (Writes         (Edits &
+                      research)        marketing copy)  polishes)
 ```
 
 **Real-world example: ChatDev** (by Chen Qian et al.)

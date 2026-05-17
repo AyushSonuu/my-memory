@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 380">
+  <defs>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f44336"/>
+      <stop offset="100%" style="stop-color:#d32f2f"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#388e3c"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#f57c00"/>
+    </linearGradient>
+    <linearGradient id="grayGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6b7280"/>
+      <stop offset="100%" style="stop-color:#4b5563"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="750" height="380" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="375" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Direct Generation vs Reflection</text>
+
+  <!-- Direct Generation Section -->
+  <g transform="translate(30, 60)">
+    <rect x="0" y="0" width="300" height="140" rx="10" fill="#161b22" stroke="#ff9800" stroke-width="2"/>
+    <text x="150" y="25" fill="#ff9800" font-family="Inter, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Direct Generation (Zero-Shot)</text>
+
+    <!-- Flow -->
+    <rect x="30" y="50" width="60" height="40" rx="6" fill="url(#redGrad)"/>
+    <text x="60" y="75" fill="#fff" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Prompt</text>
+
+    <line x1="95" y1="70" x2="125" y2="70" stroke="#8b949e" stroke-width="2"/>
+    <polygon points="125,70 115,64 115,76" fill="#8b949e"/>
+
+    <rect x="130" y="50" width="60" height="40" rx="6" fill="url(#grayGrad)"/>
+    <text x="160" y="75" fill="#fff" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">LLM</text>
+
+    <line x1="195" y1="70" x2="225" y2="70" stroke="#8b949e" stroke-width="2"/>
+    <polygon points="225,70 215,64 215,76" fill="#8b949e"/>
+
+    <rect x="230" y="50" width="50" height="40" rx="6" fill="url(#orangeGrad)"/>
+    <text x="255" y="75" fill="#fff" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Output</text>
+
+    <text x="150" y="115" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">One shot, done</text>
+    <text x="150" y="130" fill="#ff9800" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Surface-level result</text>
+  </g>
+
+  <!-- Reflection Section -->
+  <g transform="translate(380, 60)">
+    <rect x="0" y="0" width="340" height="140" rx="10" fill="#161b22" stroke="#4caf50" stroke-width="2"/>
+    <text x="170" y="25" fill="#4caf50" font-family="Inter, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Reflection Workflow</text>
+
+    <!-- Flow -->
+    <rect x="20" y="50" width="50" height="35" rx="5" fill="url(#redGrad)"/>
+    <text x="45" y="72" fill="#fff" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Prompt</text>
+
+    <line x1="75" y1="67" x2="95" y2="67" stroke="#8b949e" stroke-width="2"/>
+    <polygon points="95,67 88,62 88,72" fill="#8b949e"/>
+
+    <rect x="100" y="50" width="50" height="35" rx="5" fill="url(#grayGrad)"/>
+    <text x="125" y="72" fill="#fff" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">LLM</text>
+
+    <line x1="155" y1="67" x2="175" y2="67" stroke="#8b949e" stroke-width="2"/>
+    <polygon points="175,67 168,62 168,72" fill="#8b949e"/>
+
+    <rect x="180" y="50" width="40" height="35" rx="5" fill="url(#orangeGrad)"/>
+    <text x="200" y="72" fill="#fff" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">v1</text>
+
+    <line x1="225" y1="67" x2="245" y2="67" stroke="#8b949e" stroke-width="2"/>
+    <polygon points="245,67 238,62 238,72" fill="#8b949e"/>
+
+    <rect x="250" y="45" width="70" height="45" rx="5" fill="#9c27b0" filter="url(#shadow)"/>
+    <text x="285" y="65" fill="#fff" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">LLM</text>
+    <text x="285" y="78" fill="#e1bee7" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Critique + Fix</text>
+
+    <!-- v2 output -->
+    <line x1="285" y1="95" x2="285" y2="115" stroke="#4caf50" stroke-width="2"/>
+    <polygon points="285,115 279,105 291,105" fill="#4caf50"/>
+    <rect x="260" y="118" width="50" height="25" rx="4" fill="url(#greenGrad)"/>
+    <text x="285" y="135" fill="#fff" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">v2 ✓</text>
+  </g>
+
+  <!-- Zero/One/Few Shot Explanation -->
+  <g transform="translate(30, 220)">
+    <rect x="0" y="0" width="690" height="140" rx="10" fill="#161b22" stroke="#2196f3" stroke-width="2"/>
+    <text x="345" y="25" fill="#2196f3" font-family="Inter, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Zero, One, and Few-Shot Prompting</text>
+
+    <!-- Zero-shot -->
+    <rect x="30" y="45" width="190" height="75" rx="6" fill="#21262d"/>
+    <text x="125" y="65" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Zero-Shot (0 examples)</text>
+    <text x="125" y="85" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">"Convert to MM/DD/YYYY"</text>
+    <text x="125" y="100" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Input: {date}</text>
+    <text x="125" y="115" fill="#f44336" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Just instruction, no examples</text>
+
+    <!-- One-shot -->
+    <rect x="250" y="45" width="190" height="75" rx="6" fill="#21262d"/>
+    <text x="345" y="65" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">One-Shot (1 example)</text>
+    <text x="345" y="82" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Input: Jan 1st, 2025</text>
+    <text x="345" y="94" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Output: 01/01/2025</text>
+    <text x="345" y="106" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Input: {date}</text>
+    <text x="345" y="118" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Shows expected format</text>
+
+    <!-- Few-shot -->
+    <rect x="470" y="45" width="190" height="75" rx="6" fill="#21262d"/>
+    <text x="565" y="65" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Few-Shot (2+ examples)</text>
+    <text x="565" y="82" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Jan 1st → 01/01/2025</text>
+    <text x="565" y="94" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">21st June → 06/21/2025</text>
+    <text x="565" y="106" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Input: {date}</text>
+    <text x="565" y="118" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Multiple examples, edge cases</text>
+  </g>
+</svg>

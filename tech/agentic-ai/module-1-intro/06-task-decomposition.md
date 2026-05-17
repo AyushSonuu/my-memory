@@ -9,25 +9,24 @@
 
 ## 🖼️ The Core Idea
 
-```mermaid
-graph LR
-    BIG["🧑‍💼 Complex Task<br/><i>(what a human does)</i>"] --> Q{"Can ONE LLM<br/>call handle it?"}
-    Q -->|"Yes ✅"| DONE["Done — use<br/>direct generation"]
-    Q -->|"No / Not well enough"| D["✂️ Decompose into<br/>discrete steps"]
-    D --> C1["Step 1"]
-    D --> C2["Step 2"]
-    D --> C3["Step 3"]
-    C1 --> V{"Each step doable<br/>by LLM or tool?"}
-    C2 --> V
-    C3 --> V
-    V -->|"Yes ✅"| BUILD["Build the<br/>agentic workflow"]
-    V -->|"No ❌"| FURTHER["Decompose that<br/>step further ♻️"]
-    FURTHER --> D
-
-    style BIG fill:#f44336,color:#fff
-    style D fill:#ff9800,color:#fff
-    style BUILD fill:#4caf50,color:#fff
-    style FURTHER fill:#9c27b0,color:#fff
+```
+🧑‍💼 Complex Task ──► Can ONE LLM call handle it?
+(what a human does)        │
+                      Yes ─┴─ No/Not well
+                       │         │
+                       ▼         ▼
+              Done — use   ✂️ Decompose into discrete steps
+              direct          │      │      │
+              generation   Step 1  Step 2  Step 3
+                              │      │      │
+                              ▼      ▼      ▼
+                         Each step doable by LLM or tool?
+                              │
+                         Yes ─┴─ No
+                          │      │
+                          ▼      ▼
+                       Build   Decompose that step further ♻️
+                       workflow    (loop back)
 ```
 
 > 💡 **Task decomposition = recipe banana. Complex dish ko steps mein todna taaki har step ek tool ya LLM kar sake. Agar koi step bada lage? Usse aur tod do! 🍳**
@@ -65,13 +64,10 @@ This is the best example of how decomposition **evolves through iteration** — 
 
 ### Attempt 2 — Three-Step Workflow
 
-```mermaid
-graph LR
-    S1["📝 <b>Step 1</b><br/>Write essay outline<br/><i>(LLM)</i>"] --> S2["🔍 <b>Step 2</b><br/>Search the web<br/><i>(LLM → search tool)</i>"] --> S3["✍️ <b>Step 3</b><br/>Write essay using<br/>search results<br/><i>(LLM)</i>"]
-
-    style S1 fill:#4caf50,color:#fff
-    style S2 fill:#2196f3,color:#fff
-    style S3 fill:#ff9800,color:#fff
+```
+📝 Step 1          🔍 Step 2              ✍️ Step 3
+Write outline  ──► Search the web    ──► Write essay using
+(LLM)              (LLM → search tool)    search results (LLM)
 ```
 
 **Checklist:** Can each step be done?
@@ -85,15 +81,10 @@ graph LR
 
 The fix? Don't write the final essay in one go. Break **"write essay"** into sub-steps:
 
-```mermaid
-graph LR
-    S1["📝 <b>1.</b><br/>Write outline<br/><i>(LLM)</i>"] --> S2["🔍 <b>2.</b><br/>Web search<br/><i>(LLM + tool)</i>"] --> S3["✍️ <b>3.</b><br/>Write first draft<br/><i>(LLM)</i>"] --> S4["🔎 <b>4.</b><br/>Identify parts<br/>needing revision<br/><i>(LLM)</i>"] --> S5["✏️ <b>5.</b><br/>Revise the draft<br/><i>(LLM)</i>"]
-
-    style S1 fill:#4caf50,color:#fff
-    style S2 fill:#2196f3,color:#fff
-    style S3 fill:#ff9800,color:#fff
-    style S4 fill:#9c27b0,color:#fff
-    style S5 fill:#e91e63,color:#fff
+```
+📝 1.Write outline ──► 🔍 2.Web search ──► ✍️ 3.Write first ──► 🔎 4.Identify parts ──► ✏️ 5.Revise
+   (LLM)               (LLM + tool)          draft (LLM)        needing revision        the draft
+                                                                 (LLM)                   (LLM)
 ```
 
 > 💡 **Non-agentic = essay ek baar mein likh diya, no backspace. Agentic = pehle draft, phir proofread, phir revise — jaise hum humans karte hain! ✏️**
@@ -112,14 +103,10 @@ graph LR
 
 ## 🔬 Example 2: Customer Order Inquiry
 
-```mermaid
-graph LR
-    E["📧 Customer email:<br/><i>'Wrong item, order #8847'</i>"] --> S1["<b>Step 1</b><br/>Extract key info<br/>(who, what, order #)<br/><i>LLM</i>"] --> S2["<b>Step 2</b><br/>Query orders DB<br/><i>LLM + function call</i>"] --> S3["<b>Step 3</b><br/>Write & send response<br/><i>LLM + email API</i>"]
-
-    style E fill:#f44336,color:#fff
-    style S1 fill:#4caf50,color:#fff
-    style S2 fill:#2196f3,color:#fff
-    style S3 fill:#ff9800,color:#fff
+```
+📧 Customer email ──► Step 1: Extract key info ──► Step 2: Query orders DB ──► Step 3: Write & send response
+("Wrong item,          (who, what, order #)        (LLM + function call)       (LLM + email API)
+Order #8847")          (LLM)
 ```
 
 | Step | What Happens | Implementable? |
@@ -132,14 +119,10 @@ graph LR
 
 ## 🔬 Example 3: Invoice Processing
 
-```mermaid
-graph LR
-    PDF["📄 PDF Invoice"] --> TXT["Convert PDF → text<br/><i>(AI model / tool)</i>"] --> EXT["Extract fields:<br/>biller, address,<br/>amount, due date<br/><i>(LLM)</i>"] --> DB["Save to database<br/><i>(LLM + function call)</i>"]
-
-    style PDF fill:#f44336,color:#fff
-    style TXT fill:#9c27b0,color:#fff
-    style EXT fill:#4caf50,color:#fff
-    style DB fill:#2196f3,color:#fff
+```
+📄 PDF Invoice ──► Convert PDF → text ──► Extract fields: biller, ──► Save to database
+                   (AI model / tool)       address, amount, due date    (LLM + function call)
+                                           (LLM)
 ```
 
 Simplest decomposition — just two core steps after PDF conversion. Clear, deterministic, easy to validate.
@@ -181,25 +164,32 @@ When decomposing tasks, you're picking from this palette of building blocks:
 
 ## 🧠 The Decomposition Mindset
 
-```mermaid
-graph TD
-    A["🧑‍💼 Look at what a<br/>person/business does"] --> B["Break it into<br/>discrete steps"]
-    B --> C{"For each step:<br/>Can an LLM or<br/>tool do this?"}
-    C -->|"✅ Yes"| D["Wire it into<br/>your workflow"]
-    C -->|"❌ No"| E["Ask: How would<br/>I as a human<br/>do this step?"]
-    E --> F["Decompose that<br/>step further"]
-    F --> C
-    D --> G["Build & test<br/>the workflow"]
-    G --> H{"Results<br/>good enough?"}
-    H -->|"✅ Yes"| DONE["🎉 Ship it!"]
-    H -->|"❌ No"| I["Identify weak step<br/>→ decompose further"]
-    I --> B
-
-    style A fill:#f44336,color:#fff
-    style D fill:#4caf50,color:#fff
-    style DONE fill:#4caf50,color:#fff
-    style F fill:#ff9800,color:#fff
-    style I fill:#ff9800,color:#fff
+```
+🧑‍💼 Look at what a person/business does
+            │
+            ▼
+   Break it into discrete steps
+            │
+            ▼
+   For each step: Can an LLM or tool do this?
+            │
+       Yes ─┴─ No
+        │      │
+        ▼      ▼
+   Wire it   Ask: How would I as a human do this step?
+   into           │
+   workflow       ▼
+        │    Decompose that step further (loop back ↑)
+        ▼
+   Build & test the workflow
+        │
+        ▼
+   Results good enough?
+        │
+   Yes ─┴─ No
+    │      │
+    ▼      ▼
+ 🎉 Ship!  Identify weak step → decompose further (loop back ↑)
 ```
 
 The whole thing is a **loop** — build → evaluate → refine → repeat. You rarely get it right the first time.

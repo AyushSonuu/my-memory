@@ -9,22 +9,7 @@
 
 ## 🖼️ Why Multiple Agents?
 
-```mermaid
-graph LR
-    subgraph ONE ["❌ One Agent Does Everything"]
-        A["🤖 Single Agent<br/>researches + designs +<br/>writes + reviews"] --> B["😵 Overloaded,<br/>mediocre at everything"]
-    end
-
-    subgraph MULTI ["✅ Specialized Team"]
-        R["🔍 Researcher"] --> G["🎨 Designer"]
-        G --> W["✍️ Writer"]
-    end
-
-    style B fill:#f44336,color:#fff
-    style R fill:#9c27b0,color:#fff
-    style G fill:#9c27b0,color:#fff
-    style W fill:#9c27b0,color:#fff
-```
+![Multi-Agent Workflow](assets/04-multi-agent-workflow.svg)
 
 ### But wait — it's the same LLM underneath!
 
@@ -59,30 +44,11 @@ The pattern: **these match how real human teams already work.** If you'd hire 3 
 
 Each agent = **a prompted LLM** with its own role, tasks, and tools:
 
-```mermaid
-graph TB
-    subgraph RESEARCHER ["🔍 Researcher Agent"]
-        R_PROMPT["<b>Prompt:</b> You are a research agent,<br/>expert at analyzing market<br/>trends and competitors..."]
-        R_TOOLS["<b>Tools:</b> 🌐 web_search"]
-        R_TASK["<b>Tasks:</b><br/>• Analyze market trends<br/>• Research competitors"]
-    end
-
-    subgraph DESIGNER ["🎨 Graphic Designer Agent"]
-        D_PROMPT["<b>Prompt:</b> You are a graphic<br/>designer agent..."]
-        D_TOOLS["<b>Tools:</b> 🖼️ image_generation<br/>💻 code_execution (charts)"]
-        D_TASK["<b>Tasks:</b><br/>• Create data visualizations<br/>• Create artwork"]
-    end
-
-    subgraph WRITER ["✍️ Writer Agent"]
-        W_PROMPT["<b>Prompt:</b> You are a writer<br/>agent..."]
-        W_TOOLS["<b>Tools:</b> None needed!<br/>(LLM already generates text)"]
-        W_TASK["<b>Tasks:</b><br/>• Transform research into<br/>  report text & marketing copy"]
-    end
-
-    style RESEARCHER fill:#e8eaf6,color:#000
-    style DESIGNER fill:#fce4ec,color:#000
-    style WRITER fill:#e8f5e9,color:#000
-```
+| Agent | Prompt | Tools | Tasks |
+|-------|--------|-------|-------|
+| **🔍 Researcher** | "You are a research agent, expert at analyzing market trends and competitors..." | 🌐 web_search | Analyze market trends, Research competitors |
+| **🎨 Graphic Designer** | "You are a graphic designer agent..." | 🖼️ image_generation, 💻 code_execution (charts) | Create data visualizations, Create artwork |
+| **✍️ Writer** | "You are a writer agent..." | None needed! (LLM already generates text) | Transform research into report text & marketing copy |
 
 | Agent | How You Build It | Tools Needed |
 |-------|-----------------|-------------|
@@ -98,17 +64,11 @@ graph TB
 
 The simplest multi-agent pattern — agents work one after another, like a relay race:
 
-```mermaid
-graph LR
-    Q["👤 Create a summer<br/>marketing campaign<br/>for sunglasses"] --> R["🔍 Researcher"]
-    R -->|"Here are current<br/>sunglasses trends<br/>and competitor<br/>offerings..."| D["🎨 Graphic<br/>Designer"]
-    D -->|"Here are 5 data<br/>visualizations and<br/>5 artwork options..."| W["✍️ Writer"]
-    W -->|"Final marketing<br/>brochure"| OUT["📄 Final<br/>Report"]
-
-    style R fill:#9c27b0,color:#fff
-    style D fill:#9c27b0,color:#fff
-    style W fill:#9c27b0,color:#fff
-    style OUT fill:#4caf50,color:#fff
+```
+👤 User Query ──► 🔍 Researcher ──► 🎨 Graphic Designer ──► ✍️ Writer ──► 📄 Final Report
+                     │                     │                    │
+                 "trends &            "5 visuals &         "marketing
+                 competitors"          artwork"             brochure"
 ```
 
 | Step | Agent | Input | Output |
@@ -125,25 +85,25 @@ graph LR
 
 A more powerful pattern — combine **planning** (from Lesson 01) with agents instead of tools:
 
-```mermaid
-graph TB
-    Q["👤 Create a summer<br/>marketing campaign"] --> MGR["🤖 Marketing Manager<br/>(Planner Agent)"]
-
-    MGR -->|"Step 1: Research<br/>sunglasses trends"| R["🔍 Researcher"]
-    R -->|"report"| MGR
-    MGR -->|"Step 2: Create<br/>ad images"| D["🎨 Designer"]
-    D -->|"visuals"| MGR
-    MGR -->|"Step 3: Write<br/>the report"| W["✍️ Writer"]
-    W -->|"draft"| MGR
-    MGR -->|"Step 4: Review<br/>& improve"| MGR
-
-    MGR --> OUT["📄 Final Report"]
-
-    style MGR fill:#ff9800,color:#fff
-    style R fill:#9c27b0,color:#fff
-    style D fill:#9c27b0,color:#fff
-    style W fill:#9c27b0,color:#fff
-    style OUT fill:#4caf50,color:#fff
+```
+                      👤 User Query
+                            │
+                            ▼
+                   🤖 Marketing Manager
+                   (Planner Agent)
+                   /      │       \
+         Step 1   /  Step 2│        \ Step 3
+                 /         │         \
+                ▼          ▼          ▼
+        🔍 Researcher 🎨 Designer ✍️ Writer
+                │          │          │
+              report     visuals    draft
+                \          │         /
+                 └─────────┴────────┘
+                           │
+                    Step 4: Review
+                           ▼
+                    📄 Final Report
 ```
 
 ### How It Works

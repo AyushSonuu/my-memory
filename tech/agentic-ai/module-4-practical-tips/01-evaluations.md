@@ -9,21 +9,7 @@
 
 ## 🖼️ The Big Picture
 
-```mermaid
-graph LR
-    A["🏗️ Build Quick<br/>Prototype"] --> B["👀 Look at<br/>Outputs"]
-    B --> C["❌ Spot<br/>Failure Modes"]
-    C --> D["📊 Build Eval<br/>for That Failure"]
-    D --> E["🔧 Tweak<br/>System"]
-    E --> F["📈 Run Eval<br/>Again"]
-    F -->|"Score ↑"| G["✅ Ship It"]
-    F -->|"Score same/↓"| E
-
-    style A fill:#2196f3,color:#fff
-    style C fill:#f44336,color:#fff
-    style D fill:#ff9800,color:#fff
-    style G fill:#4caf50,color:#fff
-```
+![Eval Development Cycle](assets/07-build-analyze-cycle.svg)
 
 > 💡 **Eval = exam for your AI. Student (AI) ne answer diya, tum answer key se match karo. Score badha toh acha, nahi toh wapas padhai karo! 📝**
 
@@ -208,21 +194,9 @@ These are called **end-to-end evals** because they test the **entire pipeline** 
 
 ## ⚡ The Iteration Flywheel
 
-```mermaid
-graph TD
-    A["👀 Human Eye<br/>(read outputs)"] --> B["📊 Build Eval<br/>(automate checks)"]
-    B --> C["🔧 Improve System<br/>(prompts, algorithms)"]
-    C --> D["📈 Run Eval<br/>(check score)"]
-    D -->|"Score ↑"| E["🎉 Progress!"]
-    D -->|"Score flat"| F["🤔 Fix the<br/>eval or system"]
-    F --> B
-    E --> G["🔍 Find next<br/>failure mode"]
-    G --> A
+The 2x2 framework for designing evals:
 
-    style A fill:#2196f3,color:#fff
-    style E fill:#4caf50,color:#fff
-    style F fill:#f44336,color:#fff
-```
+![2x2 Eval Framework](assets/01-2x2-eval-framework.svg)
 
 > 💡 **Eval banana = exam set banana. System improve karna = student ko padhana. Score measure karna = result dekhna. Rinse and repeat until topper! 🏆**
 

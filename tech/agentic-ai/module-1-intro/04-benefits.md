@@ -9,18 +9,13 @@
 
 ## 🖼️ The Three Benefits
 
-```mermaid
-graph TB
-    A(("🤖 Agentic<br/>Workflows"))
-    A --> P["🚀 <b>Better Performance</b><br/>Agentic GPT-3.5 beats<br/>non-agentic GPT-4"]
-    A --> PA["⚡ <b>Parallelization</b><br/>Do in parallel what<br/>humans do sequentially"]
-    A --> M["🧩 <b>Modularity</b><br/>Swap tools, models,<br/>components like LEGO"]
+| Benefit | Description |
+|---------|-------------|
+| **Performance** | Agentic GPT-3.5 beats non-agentic GPT-4! |
+| **Parallelization** | Do in parallel what humans do sequentially |
+| **Modularity** | Swap tools, models, components like LEGO |
 
-    style A fill:#ff9800,color:#fff
-    style P fill:#4caf50,color:#fff
-    style PA fill:#2196f3,color:#fff
-    style M fill:#9c27b0,color:#fff
-```
+![HumanEval Benchmark](assets/04-humaneval-benchmark.svg)
 
 ---
 
@@ -80,59 +75,13 @@ All of these sit **above** the non-agentic baselines — proof that the design p
 
 ## ⚡ Benefit 2: Parallelization
 
-```
-┌────────────────────────────────────────────────────────┐
-│  👤 HUMAN (Sequential)                                  │
-│                                                         │
-│  Search 1 → Read page 1 → Read page 2 → Read page 3   │
-│          → Search 2 → Read page 4 → Read page 5 → ...  │
-│                                                         │
-│  ⏱️ Reads 9 pages ONE AT A TIME                         │
-├────────────────────────────────────────────────────────┤
-│  🤖 AGENTIC (Parallel)                                  │
-│                                                         │
-│  ┌─ LLM 1 → Search terms ──┐                           │
-│  ├─ LLM 2 → Search terms ──┼─→ 3 searches in parallel  │
-│  └─ LLM 3 → Search terms ──┘                           │
-│              ↓                                          │
-│  ┌─ Fetch page 1 ─┐                                    │
-│  ├─ Fetch page 2 ─┤                                    │
-│  ├─ Fetch page 3 ─┤                                    │
-│  ├─ Fetch page 4 ─┼─→ 9 downloads in parallel! ⚡      │
-│  ├─ Fetch page 5 ─┤                                    │
-│  ├─ Fetch page 6 ─┤                                    │
-│  ├─ Fetch page 7 ─┤                                    │
-│  ├─ Fetch page 8 ─┤                                    │
-│  └─ Fetch page 9 ─┘                                    │
-│              ↓                                          │
-│  LLM → Write essay                                     │
-│                                                         │
-│  ⏱️ WAY faster than human sequential processing         │
-└────────────────────────────────────────────────────────┘
-```
+![Parallelization](assets/04-parallelization.svg)
 
 > Agentic workflows take longer than single-prompt generation, but **compared to how a human would do the same research** → much faster because of parallel execution.
 
 ---
 
 ## 🧩 Benefit 3: Modularity
-
-```mermaid
-graph TB
-    subgraph SWAP["🧩 Swap Components Like LEGO"]
-        direction TB
-        WS["🔍 Web Search<br/>Google / Bing / DuckDuckGo<br/>Tavily / u.com"]
-        NS["📰 News Search<br/>(swap in for latest<br/>breakthroughs)"]
-        LLM1["🧠 LLM for Step 1<br/>(try different providers)"]
-        LLM2["🧠 LLM for Step 3<br/>(maybe a different model<br/>works better here)"]
-    end
-
-    style SWAP fill:#1a1a2e,color:#fff
-    style WS fill:#4caf50,color:#fff
-    style NS fill:#ff9800,color:#fff
-    style LLM1 fill:#2196f3,color:#fff
-    style LLM2 fill:#9c27b0,color:#fff
-```
 
 | What You Can Swap | Examples |
 |-------------------|----------|

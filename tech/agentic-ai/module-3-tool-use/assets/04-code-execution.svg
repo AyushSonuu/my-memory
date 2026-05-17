@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420">
+  <defs>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f44336"/>
+      <stop offset="100%" style="stop-color:#d32f2f"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#388e3c"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196f3"/>
+      <stop offset="100%" style="stop-color:#1976d2"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#f57c00"/>
+    </linearGradient>
+    <linearGradient id="grayGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6b7280"/>
+      <stop offset="100%" style="stop-color:#4b5563"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="420" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="400" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Code Execution: LLM Writes and Runs Code</text>
+
+  <!-- Top row: Simple Calculator -->
+  <g transform="translate(30, 55)">
+    <rect x="0" y="0" width="740" height="120" rx="8" fill="#161b22" stroke="#2196f3" stroke-width="2"/>
+    <text x="370" y="22" fill="#2196f3" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">A Simple Calculator - Tools vs Code Execution</text>
+
+    <!-- Tools box -->
+    <rect x="30" y="35" width="180" height="65" rx="6" fill="none" stroke="#9c27b0" stroke-width="2" stroke-dasharray="5,3"/>
+    <text x="120" y="52" fill="#9c27b0" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Tools (4 separate functions)</text>
+    <rect x="45" y="60" width="45" height="18" rx="3" fill="url(#greenGrad)"/>
+    <text x="67" y="72" fill="#fff" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">add</text>
+    <rect x="95" y="60" width="45" height="18" rx="3" fill="url(#greenGrad)"/>
+    <text x="117" y="72" fill="#fff" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">subtract</text>
+    <rect x="45" y="82" width="45" height="18" rx="3" fill="url(#greenGrad)"/>
+    <text x="67" y="94" fill="#fff" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">multiply</text>
+    <rect x="95" y="82" width="45" height="18" rx="3" fill="url(#greenGrad)"/>
+    <text x="117" y="94" fill="#fff" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">divide</text>
+
+    <text x="225" y="75" fill="#8b949e" font-family="Inter, sans-serif" font-size="20" text-anchor="middle">→</text>
+    <text x="290" y="75" fill="#ff9800" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Make a new tool?</text>
+    <text x="290" y="90" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">(What about √2?)</text>
+
+    <!-- Better alternative -->
+    <text x="400" y="75" fill="#8b949e" font-family="Inter, sans-serif" font-size="20" text-anchor="middle">→</text>
+    <rect x="440" y="45" width="270" height="60" rx="6" fill="#21262d" stroke="#4caf50" stroke-width="2"/>
+    <text x="575" y="68" fill="#4caf50" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Better: Let LLM write & execute code</text>
+    <text x="575" y="85" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">import math; print(math.sqrt(2))</text>
+    <text x="575" y="100" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">→ 1.4142135623730951</text>
+  </g>
+
+  <!-- Main flow: Code execution with reflection -->
+  <g transform="translate(30, 190)">
+    <rect x="0" y="0" width="740" height="200" rx="8" fill="#161b22" stroke="#ff9800" stroke-width="2"/>
+    <text x="370" y="22" fill="#ff9800" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Reflection with External Feedback (Code Execution)</text>
+
+    <!-- Flow -->
+    <rect x="20" y="45" width="85" height="50" rx="6" fill="url(#redGrad)" filter="url(#shadow)"/>
+    <text x="62" y="65" fill="#fff" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Write code for</text>
+    <text x="62" y="78" fill="#fff" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">task X</text>
+
+    <line x1="110" y1="70" x2="145" y2="70" stroke="#8b949e" stroke-width="2"/>
+    <polygon points="145,70 135,64 135,76" fill="#8b949e"/>
+
+    <rect x="150" y="45" width="55" height="50" rx="6" fill="url(#grayGrad)" filter="url(#shadow)"/>
+    <text x="177" y="75" fill="#fff" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">LLM</text>
+
+    <line x1="210" y1="70" x2="245" y2="70" stroke="#8b949e" stroke-width="2"/>
+    <polygon points="245,70 235,64 235,76" fill="#8b949e"/>
+
+    <rect x="250" y="50" width="55" height="40" rx="4" fill="#21262d" stroke="#ff9800"/>
+    <text x="277" y="75" fill="#ff9800" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">code V1</text>
+    <text x="277" y="105" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Write first</text>
+    <text x="277" y="118" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">draft</text>
+    <text x="277" y="138" fill="#ff9800" font-family="monospace" font-size="7" text-anchor="middle">def do_task(args):</text>
+    <text x="277" y="150" fill="#ff9800" font-family="monospace" font-size="7" text-anchor="middle">...</text>
+
+    <line x1="310" y1="70" x2="345" y2="70" stroke="#8b949e" stroke-width="2"/>
+    <polygon points="345,70 335,64 335,76" fill="#8b949e"/>
+
+    <rect x="350" y="40" width="75" height="60" rx="6" fill="url(#greenGrad)" filter="url(#shadow)"/>
+    <text x="387" y="65" fill="#fff" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">execute</text>
+    <text x="387" y="80" fill="#fff" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">code</text>
+    <text x="387" y="115" fill="#f44336" font-family="monospace" font-size="7" text-anchor="middle">SyntaxError:</text>
+    <text x="387" y="128" fill="#f44336" font-family="monospace" font-size="7" text-anchor="middle">unterminated</text>
+    <text x="387" y="141" fill="#f44336" font-family="monospace" font-size="7" text-anchor="middle">string literal</text>
+
+    <!-- Loop arrow -->
+    <path d="M 430 70 Q 480 70 480 20 Q 480 -20 387 -20 Q 295 -20 295 30" stroke="#ff9800" stroke-width="2" fill="none"/>
+    <polygon points="295,30 289,20 301,20" fill="#ff9800"/>
+
+    <line x1="430" y1="70" x2="465" y2="70" stroke="#8b949e" stroke-width="2"/>
+    <text x="447" y="60" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">code output,</text>
+    <text x="447" y="50" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">errors</text>
+    <polygon points="465,70 455,64 455,76" fill="#8b949e"/>
+
+    <rect x="470" y="40" width="80" height="60" rx="6" fill="url(#grayGrad)" filter="url(#shadow)"/>
+    <text x="510" y="65" fill="#fff" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">LLM</text>
+    <text x="510" y="115" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Reflect on error,</text>
+    <text x="510" y="128" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">write v2</text>
+
+    <line x1="555" y1="70" x2="590" y2="70" stroke="#8b949e" stroke-width="2"/>
+    <polygon points="590,70 580,64 580,76" fill="#8b949e"/>
+
+    <rect x="595" y="40" width="130" height="60" rx="6" fill="#21262d" stroke="#4caf50" stroke-width="2"/>
+    <text x="660" y="60" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">def do_task_v2(args):</text>
+    <text x="660" y="78" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">...</text>
+    <text x="660" y="95" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Improved code ✓</text>
+
+    <!-- Sandbox warning -->
+    <rect x="20" y="160" width="700" height="30" rx="4" fill="#21262d"/>
+    <text x="370" y="180" fill="#f44336" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">⚠️ Running code outside a sandbox can be risky! Use Docker / E2B for safe execution.</text>
+  </g>
+</svg>

@@ -9,24 +9,7 @@
 
 ## 🖼️ The Full Workflow
 
-```mermaid
-graph TD
-    A["👤 User: 'Create a plot comparing<br/>Q1 coffee sales in 2024 & 2025<br/>using coffee_sales.csv'"] --> B["🤖 LLM 1<br/><i>Write Python code</i>"]
-    B --> C["📄 v1 Code"]
-    C --> D["⚙️ Execute Code"]
-    D --> E["📊 plot.png<br/><i>(v1 chart)</i>"]
-    E --> F["🤖 LLM 2 (Multimodal)<br/><i>See the image + v1 code<br/>Critique & rewrite</i>"]
-    C --> F
-    F --> G["📄 v2 Code"]
-    G --> H["⚙️ Execute Code"]
-    H --> I["📊 plot_v2.png ✅<br/><i>(much better chart)</i>"]
-
-    style A fill:#2196f3,color:#fff
-    style B fill:#f44336,color:#fff
-    style E fill:#ff9800,color:#fff
-    style F fill:#9c27b0,color:#fff
-    style I fill:#4caf50,color:#fff
-```
+![Chart Generation Workflow](assets/03-chart-workflow.svg)
 
 > 💡 **Yeh reflection ka multimodal version hai — LLM sirf code nahi padhta, chart ki IMAGE bhi dekhta hai! Jaise art teacher painting dekh ke feedback deta hai, not just paintbrush strokes ka description padh ke 🎨**
 
@@ -72,18 +55,14 @@ graph TD
 
 A key insight from this lesson: you can (and often should) use **different models** for generation vs reflection.
 
-```mermaid
-graph LR
-    subgraph GEN ["🎨 Step 1: Generation"]
-        L1["🤖 LLM 1<br/><i>(e.g., GPT-4o, GPT-5)</i>"]
-    end
-    subgraph REF ["🪞 Step 2: Reflection"]
-        L2["🤖 LLM 2<br/><i>(e.g., Reasoning model)</i>"]
-    end
-    L1 -->|"v1 code + plot.png"| L2
-
-    style L1 fill:#2196f3,color:#fff
-    style L2 fill:#9c27b0,color:#fff
+```
+🎨 Step 1: Generation              🪞 Step 2: Reflection
+─────────────────────              ─────────────────────
+🤖 LLM 1                    ──►    🤖 LLM 2
+(e.g., GPT-4o, GPT-5)              (e.g., Reasoning model)
+Fast general model                  Better at visual analysis
+                           
+         v1 code + plot.png ────────────►
 ```
 
 | Role | What Model | Why |

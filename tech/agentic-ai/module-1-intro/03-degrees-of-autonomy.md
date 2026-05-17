@@ -9,17 +9,7 @@
 
 ## 🖼️ The Autonomy Spectrum
 
-```mermaid
-graph LR
-    subgraph SPEC["Autonomy Spectrum"]
-        direction LR
-        LA["🟢 Less<br/>Autonomous"] ---|"→"| SA["🟡 Semi-<br/>Autonomous"] ---|"→"| HA["🔴 Highly<br/>Autonomous"]
-    end
-
-    style LA fill:#4caf50,color:#fff
-    style SA fill:#ff9800,color:#fff
-    style HA fill:#f44336,color:#fff
-```
+![Autonomy Spectrum](assets/03-autonomy-spectrum.svg)
 
 | | 🟢 Less Autonomous | 🟡 Semi-Autonomous | 🔴 Highly Autonomous |
 |--|-------------------|-------------------|---------------------|
@@ -93,18 +83,7 @@ Legend:  🔴 = User input   ⬜ = LLM call   🟩 = Tool/Software
 
 ## 🔑 Why "Agentic" Not "Agent"
 
-```mermaid
-graph TB
-    D["🗣️ Debate:<br/>'Is this a TRUE agent?'"] -->|"❌ Unproductive"| W["Wasted time arguing<br/>binary definitions"]
-    A["💡 Andrew's fix:<br/>Use 'AGENTIC'<br/>(adjective, not noun)"] -->|"✅ Spectrum"| B["Systems are agentic<br/>to different DEGREES"]
-    B --> F["Focus on BUILDING,<br/>not debating"]
-
-    style D fill:#f44336,color:#fff
-    style A fill:#4caf50,color:#fff
-    style F fill:#2196f3,color:#fff
-```
-
-> **Key insight:** "Agent" = binary (is it or isn't it?). "Agentic" = spectrum (how much?). This lets us stop debating and start building.
+**Key insight:** "Agent" = binary (is it or isn't it?). "Agentic" = spectrum (how much?). This lets us stop debating and start building.
 
 ---
 

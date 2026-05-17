@@ -9,20 +9,7 @@
 
 ## 🖼️ The Big Picture
 
-```mermaid
-graph TB
-    H["🎯 Hype<br/>(Marketers went crazy)"]
-    R["📈 Real Value<br/>(Growing fast, just<br/>not AS fast as hype)"]
-    S["🔑 #1 Skill Gap<br/>Disciplined Dev Process<br/>(Evals + Error Analysis)"]
-    
-    H -.->|"ignore this"| X["❌"]
-    R -->|"focus on this"| S
-    
-    style H fill:#f44336,color:#fff
-    style R fill:#4caf50,color:#fff
-    style S fill:#ff9800,color:#fff
-    style X fill:#999,color:#fff
-```
+![Hype vs Reality vs Skill Gap](assets/01-hype-vs-reality.svg)
 
 > 💡 **Hype toh aayegi jaayegi — asli skill hai: eval karna aur errors fix karna. Woh builder jeeta jo debug karna jaanta hai, jo demo banana jaanta hai nahi.** 🔧
 

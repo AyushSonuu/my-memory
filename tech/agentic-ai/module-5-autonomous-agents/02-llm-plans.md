@@ -9,21 +9,17 @@
 
 ## 🖼️ From Vague Text → Structured Plan
 
-```mermaid
-graph LR
-    subgraph BEFORE ["❌ Plain Text Plan"]
-        A["1. Find round sunglasses<br/>2. Check if in stock<br/>3. Get prices under $100"]
-    end
+```
+❌ Plain Text Plan                    ✅ JSON Plan
+───────────────────                   ────────────
+1. Find round sunglasses              { "step": 1,
+2. Check if in stock                    "tool": "get_item_descriptions",
+3. Get prices under $100                "args": {"query": "round"} }
 
-    subgraph AFTER ["✅ JSON Plan"]
-        B["{ step: 1,<br/>  tool: get_item_descriptions,<br/>  args: {query: 'round'} }<br/>{ step: 2,<br/>  tool: check_inventory,<br/>  args: {items: 'step 1 results'} }"]
-    end
-
-    BEFORE -->|"Hard to parse<br/>programmatically"| C["🤖 Code can't<br/>reliably extract<br/>tool + args"]
-    AFTER -->|"Easy to parse<br/>programmatically"| D["🤖 Code reads<br/>step, tool, args<br/>→ executes cleanly"]
-
-    style C fill:#f44336,color:#fff
-    style D fill:#4caf50,color:#fff
+     │                                       │
+     ▼                                       ▼
+🤖 Hard to parse                      🤖 Easy to parse
+   programmatically                      programmatically
 ```
 
 > 💡 **Plain text plan = handwritten recipe — padh toh sakte ho, lekin machine se padhwao toh gadbad. JSON plan = printed label with barcode — machine ek dum scan kar legi! 🏷️**
@@ -106,25 +102,21 @@ Now your downstream code can simply **loop through the list**, extract `tool` an
 
 Once you have a JSON plan, executing it is straightforward:
 
-```mermaid
-sequenceDiagram
-    participant C as 🖥️ Your Code
-    participant P as 📋 JSON Plan
-    participant LLM as 🤖 LLM
-    participant T as 🔧 Tools
+```
+🖥️ Your Code ──► 📋 Parse JSON plan
 
-    C->>P: Parse JSON plan
-    
-    loop For each step in plan
-        C->>LLM: Step N instructions +<br/>previous step output +<br/>tools + context
-        LLM->>T: Calls step.tool(step.args)
-        T-->>LLM: Tool result
-        LLM-->>C: Step N output
-        Note over C: Store output →<br/>feed to next step
-    end
+     For each step in plan:
+     ┌───────────────────────────────────────────────┐
+     │  Your Code ──► 🤖 LLM (Step N + context)      │
+     │                    │                          │
+     │               Calls tool                      │
+     │                    ▼                          │
+     │               🔧 Tool ──► result              │
+     │                                               │
+     │  Store output → feed to next step             │
+     └───────────────────────────────────────────────┘
 
-    C->>LLM: All step outputs → generate final answer
-    LLM-->>C: Final response to user
+Final: All outputs ──► 🤖 LLM ──► Response to user
 ```
 
 | Phase | What Your Code Does |

@@ -45,22 +45,18 @@ The core insight: without external feedback, the LLM is **reflecting on the same
 
 External feedback gives the LLM **new facts** it didn't have before:
 
-```mermaid
-graph LR
-    subgraph BASIC ["🪞 Basic Reflection"]
-        A["LLM output v1"] --> B["Same LLM<br/><i>Reflect</i>"]
-        B --> C["v2<br/><i>(marginally better)</i>"]
-    end
-
-    subgraph EXT ["🔦 With External Feedback"]
-        D["LLM output v1"] --> E["🔧 External Tool<br/><i>Runs code / searches web /<br/>counts words / pattern match</i>"]
-        E -->|"NEW information"| F["LLM<br/><i>Reflect with<br/>concrete facts</i>"]
-        F --> G["v2 ✅<br/><i>(significantly better)</i>"]
-    end
-
-    style B fill:#ff9800,color:#fff
-    style E fill:#9c27b0,color:#fff
-    style F fill:#4caf50,color:#fff
+```
+🪞 Basic Reflection                    🔦 With External Feedback
+──────────────────                     ────────────────────────
+LLM output v1 ──► Same LLM             LLM output v1 ──► 🔧 External Tool
+                  (Reflect)                              (Run code / search web /
+                      │                                   count words / pattern match)
+                      ▼                                        │
+                    v2                                    NEW information
+               (marginally better)                             │
+                                                               ▼
+                                       LLM (Reflect with concrete facts) ──► v2 ✅
+                                                                     (significantly better)
 ```
 
 > 💡 **Basic reflection = doctor apne aap ko diagnose kar raha hai. External feedback = blood test ke results aa gaye — ab pata hai kya fix karna hai! 🩺**
@@ -73,15 +69,11 @@ graph LR
 
 **Problem:** LLM writes marketing emails that accidentally mention competitor names.
 
-```mermaid
-graph LR
-    A["🤖 LLM<br/><i>Writes email draft</i>"] --> B["📧 Email v1<br/><i>'Our shoes are better<br/>than RivalCo...'</i>"]
-    B --> C["🔍 Pattern Matcher<br/><i>Regex scan for<br/>competitor names</i>"]
-    C -->|"Found: 'RivalCo'"| D["🤖 LLM<br/><i>Rewrite WITHOUT<br/>mentioning RivalCo</i>"]
-    D --> E["📧 Email v2 ✅"]
-
-    style C fill:#9c27b0,color:#fff
-    style E fill:#4caf50,color:#fff
+```
+🤖 LLM ──► 📧 Email v1 ──► 🔍 Pattern Matcher ──► Found: "RivalCo" ──► 🤖 LLM ──► 📧 Email v2 ✅
+(Writes email  ("Our shoes are      (Regex scan for                     (Rewrite WITHOUT
+ draft)         better than          competitor names)                    mentioning RivalCo)
+                RivalCo...")
 ```
 
 | Component | What It Does |
@@ -98,15 +90,10 @@ Simple code, huge impact. The LLM doesn't need to *know* all competitor names �
 
 **Problem:** Research agent writes "The Taj Mahal was built in 1648" — technically it was *finished* in 1648, but commissioned in 1631.
 
-```mermaid
-graph LR
-    A["🤖 LLM<br/><i>Writes essay</i>"] --> B["📝 Essay v1<br/><i>'Taj Mahal was<br/>built in 1648'</i>"]
-    B --> C["🔍 Web Search<br/><i>Query: 'When was<br/>Taj Mahal built?'</i>"]
-    C -->|"Commissioned 1631,<br/>completed 1648"| D["🤖 LLM<br/><i>Corrects with<br/>accurate timeline</i>"]
-    D --> E["📝 Essay v2 ✅<br/><i>'Commissioned in 1631,<br/>completed in 1648'</i>"]
-
-    style C fill:#9c27b0,color:#fff
-    style E fill:#4caf50,color:#fff
+```
+🤖 LLM ──► 📝 Essay v1 ──► 🔍 Web Search ──► "Commissioned 1631, ──► 🤖 LLM ──► 📝 Essay v2 ✅
+(Writes       ("Taj Mahal was  (Query: "When was    completed 1648"      (Corrects with    ("Commissioned in 1631,
+ essay)        built in 1648")  Taj Mahal built?")                        accurate timeline) completed in 1648")
 ```
 
 | Component | What It Does |
@@ -123,15 +110,11 @@ Without web search, the LLM would have NO way of knowing its date was misleading
 
 **Problem:** LLM writes a blog post / research abstract that's over the word limit. LLMs are notoriously bad at following exact word counts.
 
-```mermaid
-graph LR
-    A["🤖 LLM<br/><i>Writes abstract<br/>(limit: 200 words)</i>"] --> B["📝 Draft v1<br/><i>247 words</i>"]
-    B --> C["🔢 Word Counter<br/><i>count = 247</i>"]
-    C -->|"247 words<br/>(47 over limit!)"| D["🤖 LLM<br/><i>Trim to ≤200<br/>words</i>"]
-    D --> E["📝 Draft v2 ✅<br/><i>198 words</i>"]
-
-    style C fill:#9c27b0,color:#fff
-    style E fill:#4caf50,color:#fff
+```
+🤖 LLM ──► 📝 Draft v1 ──► 🔢 Word Counter ──► "247 words ──► 🤖 LLM ──► 📝 Draft v2 ✅
+(Writes       (247 words)      (count = 247)     (47 over limit!)"   (Trim to ≤200)  (198 words)
+ abstract,
+ limit: 200)
 ```
 
 | Component | What It Does |
@@ -163,24 +146,14 @@ The tool doesn't need to be fancy! Pattern matching, web search, code execution,
 
 ## ⚡ When to Escalate: The Decision Framework
 
-```mermaid
-graph TD
-    START["Prompt engineering<br/>seeing diminishing returns?"] -->|"Yes"| Q1{"Can you add<br/>reflection?"}
-    Q1 -->|"Yes"| REF["Add reflection loop<br/><i>Tune the reflection prompt</i>"]
-    REF --> Q2{"Still plateauing?"}
-    Q2 -->|"Yes"| Q3{"Is there external info<br/>you can inject?"}
-    Q3 -->|"Code errors"| EXT1["Execute code → feed errors back"]
-    Q3 -->|"Facts to verify"| EXT2["Web search → feed results back"]
-    Q3 -->|"Rules to enforce"| EXT3["Pattern matching → flag violations"]
-    Q3 -->|"Format constraints"| EXT4["Counting/parsing → report exact numbers"]
-    Q2 -->|"No, improving!"| KEEP["Keep tuning 👍"]
-
-    style START fill:#2196f3,color:#fff
-    style EXT1 fill:#4caf50,color:#fff
-    style EXT2 fill:#4caf50,color:#fff
-    style EXT3 fill:#4caf50,color:#fff
-    style EXT4 fill:#4caf50,color:#fff
-```
+| If you're... | Action |
+|--------------|--------|
+| Prompt engineering seeing diminishing returns? | Ask: Can you add reflection? |
+| Already using reflection but still plateauing? | Ask: Is there external info you can inject? |
+| External info = **Code errors** | Execute code → feed errors back |
+| External info = **Facts to verify** | Web search → feed results back |
+| External info = **Rules to enforce** | Pattern matching → flag violations |
+| External info = **Format constraints** | Counting/parsing → report exact numbers |
 
 **Key insight from Andrew Ng:** If direct prompting is plateauing, don't keep burning time on it. Ask: *"Can I add reflection? Can I add external feedback?"* — shift the curve, don't grind on the plateau.
 
@@ -188,18 +161,11 @@ graph TD
 
 ## 🗺️ Module 2 Complete — Reflection Recap
 
-```mermaid
-graph TD
-    L1["01 · Reflection Basics<br/><i>Generate → Critique → Improve</i>"] --> L2["02 · Why Not Direct?<br/><i>Self-Refine paper,<br/>prompt tips</i>"]
-    L2 --> L3["03 · Chart Workflow<br/><i>Multimodal reflection<br/>on images</i>"]
-    L3 --> L4["04 · Evaluating<br/><i>Objective vs Subjective<br/>evals, rubrics</i>"]
-    L4 --> L5["05 · External Feedback<br/><i>Code, web search,<br/>tools = 🚀</i>"]
-
-    style L1 fill:#4caf50,color:#fff
-    style L2 fill:#4caf50,color:#fff
-    style L3 fill:#4caf50,color:#fff
-    style L4 fill:#4caf50,color:#fff
-    style L5 fill:#4caf50,color:#fff
+```
+01 · Reflection Basics ──► 02 · Why Not Direct? ──► 03 · Chart Workflow ──► 04 · Evaluating ──► 05 · External Feedback
+(Generate → Critique →     (Self-Refine paper,      (Multimodal reflection   (Objective vs       (Code, web search,
+ Improve)                   prompt tips)             on images)              Subjective evals,    tools = 🚀)
+                                                                             rubrics)
 ```
 
 **The 3 tiers of power:** Direct generation < Reflection < Reflection + External Feedback

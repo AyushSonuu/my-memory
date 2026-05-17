@@ -9,27 +9,7 @@
 
 ## 🖼️ The Big Picture
 
-```mermaid
-graph LR
-    subgraph BASIC ["🪞 Basic Reflection"]
-        A["🤖 LLM<br/><i>Generate v1</i>"] -->|"v1 output"| B["🤖 Same/Different LLM<br/><i>Critique & improve</i>"]
-        B -->|"v2 output"| C["✅ Better Output"]
-    end
-
-    subgraph POWER ["⚡ Reflection + External Feedback"]
-        D["🤖 LLM<br/><i>Generate v1 code</i>"] -->|"v1 code"| E["⚙️ Execute Code"]
-        E -->|"errors / output"| F["🤖 LLM<br/><i>Reflect on feedback,<br/>write v2</i>"]
-        F -->|"v2 code"| G["✅ Much Better Code"]
-    end
-
-    style A fill:#f44336,color:#fff
-    style B fill:#ff9800,color:#fff
-    style C fill:#4caf50,color:#fff
-    style D fill:#f44336,color:#fff
-    style E fill:#9c27b0,color:#fff
-    style F fill:#ff9800,color:#fff
-    style G fill:#4caf50,color:#fff
-```
+![Reflection Workflow](assets/01-reflection-workflow.svg)
 
 > 💡 **Reflection = apna kaam khud check karna, jaise exam mein paper submit karne se pehle ek baar re-read karte ho. Fark sirf itna hai — LLM ko tum bata sakte ho KYA check karna hai! 📝**
 
@@ -66,18 +46,13 @@ Andrew Ng's email example makes this crystal clear:
 
 ### Step 1: Basic Reflection (Self-Critique)
 
-```mermaid
-sequenceDiagram
-    participant Dev as 👤 Developer
-    participant LLM1 as 🤖 LLM (Generator)
-    participant LLM2 as 🤖 LLM (Critic)
+```
+👤 Developer ──"Write code for X"──► 🤖 LLM (Generator) ──v1 code──► 👤 Developer
+                                                                        │
+👤 Developer ◄──v2 code ✅──────────── 🤖 LLM (Critic) ◄─"Check bugs,──┘
+                                                          improve v2"
 
-    Dev->>LLM1: "Write code for task X"
-    LLM1-->>Dev: code v1
-    Dev->>LLM2: "Check for bugs, write improved v2"
-    LLM2-->>Dev: code v2 ✅
-    
-    Note over LLM1,LLM2: Can be SAME model or DIFFERENT model
+💡 Generator & Critic can be SAME model or DIFFERENT model
 ```
 
 | Component | What It Does | Key Detail |
@@ -92,21 +67,14 @@ sequenceDiagram
 
 This is where reflection goes from *"nice to have"* to *"game changer"*:
 
-```mermaid
-graph TD
-    A["🤖 LLM generates code v1"] --> B["⚙️ Actually RUN the code"]
-    B --> C{"Did it work?"}
-    C -->|"✅ Success + output"| D["Feed output to LLM<br/><i>Verify correctness</i>"]
-    C -->|"❌ Error!"| E["Feed error logs to LLM"]
-    E --> F["🤖 LLM reflects on errors<br/>+ writes code v2"]
-    D --> F
-    F --> G["✅ Much better code v2"]
-
-    style A fill:#f44336,color:#fff
-    style B fill:#9c27b0,color:#fff
-    style E fill:#ff9800,color:#fff
-    style F fill:#2196f3,color:#fff
-    style G fill:#4caf50,color:#fff
+```
+🤖 LLM generates v1 ──► ⚙️ RUN the code ──► ✅ Success? ──► Feed output to LLM (verify)
+                                             │                      │
+                                             ❌ Error!               │
+                                             │                      │
+                                             ▼                      ▼
+                                     Feed error logs ──► 🤖 LLM reflects ──► ✅ Better v2
+                                     to LLM                on errors
 ```
 
 **Concrete example from the course:**

@@ -17,7 +17,8 @@
       "Bash(env -i HOME=$HOME PATH=\"$HOME/.pyenv/versions/3.13.11/bin:/usr/bin:/bin\" poetry env use $HOME/.pyenv/versions/3.13.11/bin/python)",
       "Bash(env -i HOME=$HOME PATH=\"$HOME/.pyenv/versions/3.13.11/bin:/usr/bin:/bin\" poetry install --all-extras)",
       "Bash(/Users/I772464/Library/CloudStorage/OneDrive-SAPSE/Desktop/memharness/.venv/bin/python --version)",
-      "Bash(/Users/I772464/Library/CloudStorage/OneDrive-SAPSE/Desktop/memharness/.venv/bin/python -c \"import memharness; print\\(''memharness imported successfully''\\)\")"
+      "Bash(/Users/I772464/Library/CloudStorage/OneDrive-SAPSE/Desktop/memharness/.venv/bin/python -c \"import memharness; print\\(''memharness imported successfully''\\)\")",
+      "Bash(grep -r \"^\\\\`\\\\`\\\\`mermaid\" --include=\"*.md\" \"/Users/I772464/Library/CloudStorage/OneDrive-SAPSE/Desktop/my-memory/tech/agentic-ai/\")"
     ]
   }
 }

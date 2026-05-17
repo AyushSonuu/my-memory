@@ -9,29 +9,7 @@
 
 ## 🖼️ Non-Agentic vs Agentic
 
-```mermaid
-graph LR
-    subgraph NON["❌ Non-Agentic (Zero-Shot)"]
-        direction LR
-        P1["Prompt:<br/>'Write essay on X'"] --> L1["LLM"] --> O1["Output<br/>(one-shot, linear)"]
-    end
-
-    subgraph AG["✅ Agentic Workflow"]
-        direction TB
-        S["Start"] --> A1["LLM: Write outline"]
-        A1 --> A2["LLM: Need web research?"]
-        A2 --> T1["🔧 Web Search"]
-        T1 --> A3["LLM: Write first draft"]
-        A3 --> A4["LLM: What needs revision?"]
-        A4 --> A5["LLM: Revise draft"]
-        A5 -.->|"loop"| A4
-        A4 -.->|"optional"| H["👤 Human Review"]
-        A5 --> F["✅ Final Output"]
-    end
-
-    style NON fill:#f44336,color:#fff
-    style AG fill:#4caf50,color:#fff
-```
+![Non-Agentic vs Agentic Workflow](assets/02-agentic-vs-non-agentic.svg)
 
 > 💡 **Non-agentic = Exam hall mein first word se last word tak bina backspace ke likhna. Agentic = Ghar pe outline banao, research karo, draft likho, revise karo — jaise asli insaan karta hai!** ✍️
 
@@ -87,18 +65,16 @@ graph LR
 
 The course builds a **research agent** end-to-end. Here's what it does:
 
-```mermaid
-graph TB
-    Q["🔍 Research Query<br/>'How to build a rocket<br/>company to compete<br/>with SpaceX?'"] --> P["📋 Plan research<br/>steps"]
-    P --> WS["🌐 Web Search<br/>+ Download pages"]
-    WS --> SR["📊 Synthesize &<br/>Rank findings"]
-    SR --> DO["📝 Draft outline"]
-    DO --> ER["🪞 Editor Agent<br/>reviews coherence"]
-    ER --> MR["📄 Generate<br/>Markdown Report"]
-
-    style Q fill:#2196f3,color:#fff
-    style MR fill:#4caf50,color:#fff
-    style ER fill:#ff9800,color:#fff
+```
+ ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
+ │  Research   │ →  │  Plan       │ →  │ Web Search  │ →  │ Synthesize  │
+ │   Query     │    │  Research   │    │ + Download  │    │ & Rank      │
+ └─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘
+                                                                │
+       ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    │
+       │  Markdown   │ ←  │  Editor     │ ←  │  Draft      │ ←──┘
+       │   Report    │    │  Review     │    │  Outline    │
+       └─────────────┘    └─────────────┘    └─────────────┘
 ```
 
 **Why is this better than one-shot?**
