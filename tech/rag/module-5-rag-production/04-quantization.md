@@ -139,6 +139,8 @@
 
 **Matryoshka models:** Embedding dimensions are **sorted by information density**.
 
+![Matryoshka Dolls](assets/04-matryoshka-dolls.svg)
+
 ### How It Works
 
 ```
