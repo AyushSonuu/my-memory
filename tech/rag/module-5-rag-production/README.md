@@ -31,10 +31,10 @@ graph LR
 | 05 | [Cost vs Quality](05-cost-vs-quality.md) | 🟢 | 2026-05-17 |
 | 06 | [Latency vs Quality](06-latency-vs-quality.md) | 🟢 | 2026-05-17 |
 | 07 | [Security](07-security.md) | 🟢 | 2026-05-17 |
-| 08 | [Multimodal RAG](08-multimodal-rag.md) | 🔴 | — |
+| 08 | [Multimodal RAG](08-multimodal-rag.md) | 🟢 | 2026-05-17 |
 | 09 | [Lab: Improving Chatbot](09-lab-improving-chatbot.md) | 🔴 | — |
 
-**Overall confidence:** 🟢 Completed (7/9 core lessons — multimodal & lab optional)
+**Overall confidence:** 🟢 Completed (8/9 lessons — lab optional)
 
 ## 🧩 Memory Fragments
 > - 🏭 **6 production challenges:** Scale, unpredictable prompts, messy data, security, adversarial attacks, business impact

@@ -39,16 +39,18 @@
 
 ## 🔁 The Feature Loop
 
-```mermaid
-graph LR
-    P["📝 Plan<br/>Feature spec"] --> I["⚙️ Implement<br/>Agent codes it"] --> V["✅ Validate<br/>Review & accept"]
-    V -->|"between features"| RP["🔄 Replan"]
-    RP -->|"next feature"| P
-    
-    style P fill:#2196f3,color:#fff
-    style I fill:#4caf50,color:#fff
-    style V fill:#ff9800,color:#fff
-    style RP fill:#9c27b0,color:#fff
+```
+┌────────────────┐     ┌────────────────┐     ┌────────────────┐
+│  📝 Plan       │     │  ⚙️ Implement  │     │  ✅ Validate   │
+│  Feature spec  │────►│  Agent codes   │────►│  Review &      │
+│                │     │  it            │     │  accept        │
+└────────────────┘     └────────────────┘     └───────┬────────┘
+        ▲                                             │
+        │              ┌────────────────┐             │
+        │              │  🔄 Replan     │             │
+        └──────────────│  (between      │◄────────────┘
+       next feature    │   features)    │
+                       └────────────────┘
 ```
 
 | Phase | What Happens |

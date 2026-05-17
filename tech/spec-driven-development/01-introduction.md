@@ -30,17 +30,12 @@
 
 ## 🔄 The SDD Workflow (30,000 ft)
 
-```mermaid
-graph LR
-    C["📜 Constitution<br>(Project-level immutables)"]
-    C --> F1["🔁 Feature Loop 1<br>Plan → Implement → Verify"]
-    F1 --> F2["🔁 Feature Loop 2<br>Plan → Implement → Verify"]
-    F2 --> F3["🔁 Feature Loop N<br>..."]
-    
-    style C fill:#e91e63,color:#fff
-    style F1 fill:#4caf50,color:#fff
-    style F2 fill:#4caf50,color:#fff
-    style F3 fill:#4caf50,color:#fff
+```
+┌─────────────────────┐     ┌─────────────────────┐     ┌─────────────────────┐     ┌─────────────────────┐
+│  📜 Constitution    │     │  🔁 Feature Loop 1  │     │  🔁 Feature Loop 2  │     │  🔁 Feature Loop N  │
+│  (Project-level     │────►│  Plan → Implement   │────►│  Plan → Implement   │────►│  ...                │
+│   immutables)       │     │  → Verify           │     │  → Verify           │     │                     │
+└─────────────────────┘     └─────────────────────┘     └─────────────────────┘     └─────────────────────┘
 ```
 
 | Step | What Happens |
@@ -122,29 +117,21 @@ With spec    → agent follows YOUR intent → maintainable, coherent code
 
 ## 🗺️ Course Roadmap (What's Coming)
 
-```mermaid
-graph LR
-    subgraph FOUNDATIONS["📚 Foundations"]
-        L1[Introduction] --> L2[Why SDD?] --> L3[Workflow Overview]
-    end
-    
-    subgraph SETUP["⚙️ Setup"]
-        L4[Environment] --> L5[Setup]
-    end
-    
-    subgraph LOOP1["🔁 First Feature"]
-        L6[Constitution] --> L7[Spec] --> L8[Implement] --> L9[Validate]
-    end
-    
-    subgraph LOOP2["🔁 Second Feature"]
-        L10[Replan] --> L11[Second Feature] --> L12[MVP]
-    end
-    
-    subgraph ADVANCED["🚀 Advanced"]
-        L13[Legacy] --> L14[Own Workflow] --> L15[Replaceability]
-    end
-    
-    FOUNDATIONS --> SETUP --> LOOP1 --> LOOP2 --> ADVANCED
+```
+📚 FOUNDATIONS           ⚙️ SETUP              🔁 FIRST FEATURE         🔁 SECOND FEATURE       🚀 ADVANCED
+────────────────         ────────              ─────────────────        ──────────────────      ────────────
+Introduction             Environment           Constitution             Replan                  Legacy
+     │                       │                     │                       │                       │
+     ▼                       ▼                     ▼                       ▼                       ▼
+Why SDD?                 Setup                 Feature Spec             Second Feature          Own Workflow
+     │                                             │                       │                       │
+     ▼                                             ▼                       ▼                       ▼
+Workflow Overview                              Implement                MVP                     Replaceability
+                                                   │
+                                                   ▼
+                                               Validate
+
+     ──────────────────────────────────────────────────────────────────────────────────────────────────►
 ```
 
 ---

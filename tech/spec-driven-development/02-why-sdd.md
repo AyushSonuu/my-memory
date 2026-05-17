@@ -57,17 +57,18 @@ Your main task as a human shifts: **learn to convert your intentions into clear 
 
 ### Context Decay — Why It's Worse Than You Think
 
-```mermaid
-graph LR
-    S1["Session 1<br/>🟢 Fresh context"] --> S2["Session 2<br/>🟡 Context filling"]
-    S2 --> S3["Session 3<br/>🔴 Full window<br/>→ more mistakes"]
-    
-    SPEC["📋 Spec<br/>(persists across ALL)"] -.->|"anchors"| S1
-    SPEC -.->|"anchors"| S2
-    SPEC -.->|"anchors"| S3
-    
-    style S3 fill:#f44336,color:#fff
-    style SPEC fill:#4caf50,color:#fff
+```
+                    ┌───────────────────┐     ┌───────────────────┐     ┌───────────────────┐
+                    │   Session 1       │     │   Session 2       │     │   Session 3       │
+                    │   🟢 Fresh        │────►│   🟡 Context      │────►│   🔴 Full window  │
+                    │   context         │     │   filling         │     │   → more mistakes │
+                    └─────────┬─────────┘     └─────────┬─────────┘     └─────────┬─────────┘
+                              │                         │                         │
+                              │   anchors               │   anchors               │   anchors
+                              │                         │                         │
+                    ┌─────────┴─────────────────────────┴─────────────────────────┴─────────┐
+                    │                    📋 Spec (persists across ALL)                      │
+                    └───────────────────────────────────────────────────────────────────────┘
 ```
 
 > Specs persist between sessions **and even agents** — switch from Claude Code to Codex and the spec still works.
