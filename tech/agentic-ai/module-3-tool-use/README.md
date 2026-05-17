@@ -6,19 +6,22 @@
 
 ## 🧠 Brain — How This Connects
 
-```mermaid
-graph LR
-    M3(("M3 · Tool Use"))
-    M3 -->|"provides"| AS["aisuite<br/>Unified API"]
-    M3 -->|"enables"| CE["Code Execution<br/>Meta-tool"]
-    M3 -->|"standard"| MCP["MCP<br/>M×N → M+N"]
-    M3 -.->|"uses"| M2["M2 · Reflection<br/>(error → retry)"]
-    M3 -.->|"feeds into"| M4["M4 · Practical Tips"]
-    
-    style M3 fill:#ff9800,color:#fff
-    style AS fill:#4caf50,color:#fff
-    style CE fill:#4caf50,color:#fff
-    style MCP fill:#4caf50,color:#fff
+```
+                    M3 · Tool Use
+                          │
+    ┌─────────────────────┼─────────────────────┐
+    │                     │                     │
+    ▼                     ▼                     ▼
+aisuite            Code Execution            MCP
+Unified API         Meta-tool           M×N → M+N
+    │                     │                     │
+    └─────────────────────┼─────────────────────┘
+                          │
+            ┌─────────────┴─────────────┐
+            │                           │
+            ▼                           ▼
+   M2 · Reflection              M4 · Practical Tips
+   (error → retry)                  (next)
 ```
 
 ## 📊 Progress

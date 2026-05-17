@@ -24,17 +24,17 @@ graph LR
 
 | # | Lesson | Confidence | Revised |
 |---|--------|-----------|---------|
-| 01 | [Production Challenges](01-production-challenges.md) | 🔴 | — |
-| 02 | [Observability & Evaluation](02-observability-evaluation.md) | 🔴 | — |
-| 03 | [Custom Evaluation Datasets](03-custom-eval-datasets.md) | 🔴 | — |
-| 04 | [Quantization](04-quantization.md) | 🔴 | — |
-| 05 | [Cost vs Quality](05-cost-vs-quality.md) | 🔴 | — |
-| 06 | [Latency vs Quality](06-latency-vs-quality.md) | 🔴 | — |
-| 07 | [Security](07-security.md) | 🔴 | — |
+| 01 | [Production Challenges](01-production-challenges.md) | 🟢 | 2026-05-17 |
+| 02 | [Observability & Evaluation](02-observability-evaluation.md) | 🟢 | 2026-05-17 |
+| 03 | [Custom Evaluation Datasets](03-custom-eval-datasets.md) | 🟢 | 2026-05-17 |
+| 04 | [Quantization](04-quantization.md) | 🟢 | 2026-05-17 |
+| 05 | [Cost vs Quality](05-cost-vs-quality.md) | 🟢 | 2026-05-17 |
+| 06 | [Latency vs Quality](06-latency-vs-quality.md) | 🟢 | 2026-05-17 |
+| 07 | [Security](07-security.md) | 🟢 | 2026-05-17 |
 | 08 | [Multimodal RAG](08-multimodal-rag.md) | 🔴 | — |
 | 09 | [Lab: Improving Chatbot](09-lab-improving-chatbot.md) | 🔴 | — |
 
-**Overall confidence:** 🔴 Just started (7/9 lessons created)
+**Overall confidence:** 🟢 Completed (7/9 core lessons — multimodal & lab optional)
 
 ## 🧩 Memory Fragments
 > - 🏭 **6 production challenges:** Scale, unpredictable prompts, messy data, security, adversarial attacks, business impact

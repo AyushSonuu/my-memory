@@ -32,7 +32,9 @@ graph LR
 | 02 | [IR & Search Foundations](module-2-ir-search-foundations/) | 9/12 | 🟡 | 22 SVGs: TF-IDF, BM25, embeddings, hybrid search, retrieval metrics |
 | 03 | [IR with Vector Databases](module-3-ir-vector-databases/) | 6/11 | 🟡 | 17 SVGs: ANN, chunking, query parsing, cross-encoders, reranking |
 | 04 | [LLMs & Text Generation](module-4-llms-text-generation/) | 10/13 | 🟡 | 20 SVGs |
-| 05 | [RAG in Production](module-5-rag-production/) | 0/14 | 🔴 | — |
+| 05 | [RAG in Production](module-5-rag-production/) | 7/9 | 🟢 | 7 SVGs: custom datasets flywheel, quantization, storage tiers, latency, security |
+
+**Overall:** 🟢 **Course Complete!** 39/55 core lessons (multimodal & labs optional)
 
 ## 🧩 Memory Fragments
 
@@ -47,6 +49,11 @@ graph LR
 > - 🔀 Bi-encoder = fast, shallow (1 vec/doc). Cross-encoder = slow, deep (prompt+doc together). ColBERT = balanced (N vecs/doc, MaxSim).
 > - 🎯 Reranking = overfetch 20-100 docs → re-score with cross-encoder → return top 5-10. Easy win for quality.
 > - ✂️ Chunking sweet spot ≈ 500 chars, 10-20% overlap. Semantic chunking follows author's train of thought.
+> - 🏭 **Production = 6 challenges:** Scale, unpredictable prompts, messy data, security, adversarial attacks, business impact.
+> - 🔄 **Custom dataset flywheel:** Observe → Evaluate by topic → Experiment on real prompts → Deploy → Repeat.
+> - 🗜️ **Quantization default:** 8-bit (50% LLM size, 4× smaller vectors, <3% quality drop).
+> - ⚡ **Latency = 70-80% LLM** — optimize core LLM first (smaller models, router, caching), retriever already fast.
+> - 🔒 **Security = layered defense:** Auth + Multi-tenancy + On-prem (if needed) + Encryption. Vectors = weak point.
 
 ---
 

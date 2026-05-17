@@ -9,16 +9,7 @@
 
 ## 🖼️ Two Playbooks
 
-```mermaid
-graph TD
-    A["🎯 Error Analysis →<br/>Component X is the problem"] --> B{"What type of<br/>component?"}
-    B -->|Non-LLM| C["🔧 Tune Hyperparameters<br/>or Replace Component"]
-    B -->|LLM-based| D["📝 Improve Prompts →<br/>Try New Model →<br/>Split Step →<br/>Fine-Tune"]
-
-    style A fill:#f44336,color:#fff
-    style C fill:#2196f3,color:#fff
-    style D fill:#9c27b0,color:#fff
-```
+![Addressing Problems](assets/05-addressing-problems.svg)
 
 ---
 
@@ -124,32 +115,40 @@ Knowing which models are good at what lets you make faster, better decisions. He
 
 ## 📊 Full Decision Flowchart
 
-```mermaid
-graph TD
-    A["❌ Component performing poorly"] --> B{"LLM or<br/>non-LLM?"}
-    
-    B -->|Non-LLM| C["Tune hyperparameters"]
-    C --> D{"Better?"}
-    D -->|No| E["Replace component<br/>(different provider)"]
-    
-    B -->|LLM| F["Improve prompts<br/>(explicit instructions,<br/>few-shot examples)"]
-    F --> G{"Better?"}
-    G -->|No| H["Try different model"]
-    H --> I{"Better?"}
-    I -->|No| J["Split into<br/>smaller steps"]
-    J --> K{"Better?"}
-    K -->|No| L["Fine-tune<br/>(last resort)"]
-
-    D -->|Yes| M["✅ Run E2E eval<br/>to confirm"]
-    E --> M
-    G -->|Yes| M
-    I -->|Yes| M
-    K -->|Yes| M
-    L --> M
-
-    style A fill:#f44336,color:#fff
-    style M fill:#4caf50,color:#fff
-    style L fill:#ff9800,color:#fff
+```
+❌ Component performing poorly
+            │
+            ▼
+    LLM or non-LLM?
+        │
+   Non-LLM ─┴─ LLM
+        │        │
+        ▼        ▼
+ Tune hyperparams   Improve prompts (explicit instructions, few-shot)
+        │                    │
+    Better? ────────────► Better?
+        │                    │
+    Yes ─┴─ No          Yes ─┴─ No
+     │      │            │      │
+     ▼      ▼            ▼      ▼
+Run E2E   Replace      Run E2E   Try different model
+eval    component       eval          │
+         │                        Better?
+         │                            │
+         ▼                       Yes ─┴─ No
+    Run E2E eval                  │      │
+                                  ▼      ▼
+                             Run E2E   Split into smaller steps
+                              eval          │
+                                        Better?
+                                            │
+                                       Yes ─┴─ No
+                                        │      │
+                                        ▼      ▼
+                                   Run E2E  Fine-tune (last resort)
+                                    eval         │
+                                                 ▼
+                                            Run E2E eval
 ```
 
 ---

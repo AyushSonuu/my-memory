@@ -9,18 +9,12 @@
 
 ## 🖼️ End-to-End vs Component-Level
 
-```mermaid
-graph LR
-    subgraph E2E ["❌ End-to-End Eval (Expensive)"]
-        A1["Query"] --> B1["Search Web"] --> C1["Pick Sources"] --> D1["Fetch"] --> E1["Write Essay"] --> F1["📊 Score"]
-    end
+```
+❌ End-to-End Eval (Expensive)
+Query ──► Search Web ──► Pick Sources ──► Fetch ──► Write Essay ──► 📊 Score
 
-    subgraph COMP ["✅ Component-Level Eval (Fast)"]
-        A2["Query"] --> B2["Search Web"] --> F2["📊 Score"]
-    end
-
-    style F1 fill:#f44336,color:#fff
-    style F2 fill:#4caf50,color:#fff
+✅ Component-Level Eval (Fast)
+Query ──► Search Web ──► 📊 Score   (skip the rest!)
 ```
 
 > 💡 **End-to-end eval = poora exam do har baar. Component eval = sirf math ka chapter test do jab math fix kar rahe ho. Zyada fast, zyada clear! 🎯**
@@ -90,18 +84,23 @@ Now you can rapidly compare search engines, tweak parameters, and see scores mov
 
 ## 🔄 The Workflow: Component Eval → End-to-End Confirmation
 
-```mermaid
-graph TD
-    A["🔍 Error Analysis<br/>→ Web search is the bottleneck"] --> B["📊 Build Component Eval<br/>→ Gold standard sources + F1"]
-    B --> C["🔧 Tune Hyperparameters<br/>→ Try different engines,<br/>result counts, date ranges"]
-    C --> D["📈 Component Score ↑"]
-    D --> E["✅ Run End-to-End Eval<br/>→ Confirm overall improvement"]
-    E -->|"E2E score ↑"| F["🎉 Ship It"]
-    E -->|"E2E score flat"| G["🤔 Component improved<br/>but other steps<br/>may need work too"]
-
-    style A fill:#f44336,color:#fff
-    style D fill:#ff9800,color:#fff
-    style F fill:#4caf50,color:#fff
+```
+🔍 Error Analysis ──► 📊 Build Component Eval ──► 🔧 Tune Hyperparameters ──► 📈 Component Score ↑
+   (Web search is       (Gold standard sources      (Try engines, counts,
+    the bottleneck)      + F1)                       date ranges)
+                                                           │
+                                                           ▼
+                         ┌─────────────────────────────────┴──────────────────────────────────┐
+                         │                                                                     │
+                         ▼                                                                     │
+             ✅ Run End-to-End Eval (confirm overall improvement)                             │
+                         │                                                                     │
+                    E2E score ↑? ─────────────────────────────────────────────────────────────┤
+                         │                                                                     │
+                    Yes  │  No                                                                │
+                         │   │                                                                │
+                         ▼   └──► 🤔 Component improved but other steps may need work too    │
+                   🎉 Ship It!                                                                 │
 ```
 
 **Key point:** Component evals are for rapid iteration during development. But always **validate with end-to-end evals** before declaring victory — a component improvement doesn't guarantee overall system improvement.

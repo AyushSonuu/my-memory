@@ -11,24 +11,14 @@
 
 This is the core diagram from the course slides — the two activities and how they feed each other:
 
-```mermaid
-graph LR
-    subgraph BUILD ["🏗️ Build"]
-        B1["Build end-to-end system"]
-        B2["Improve individual component"]
-    end
-
-    subgraph ANALYZE ["🔍 Analyze"]
-        A1["Examine outputs; traces"]
-        A2["Build evals; compute metrics"]
-        A3["Error analysis"]
-        A4["Component-level evals"]
-    end
-
-    BUILD <-->|"back and forth"| ANALYZE
-
-    style BUILD fill:#2196f3,color:#fff
-    style ANALYZE fill:#ff9800,color:#fff
+```
+        🏗️ Build                              🔍 Analyze
+        ────────                              ───────────
+• Build end-to-end system    ◄──────────►   • Examine outputs; traces
+• Improve individual component              • Build evals; compute metrics
+                                            • Error analysis
+                                            • Component-level evals
+                             back and forth
 ```
 
 **Key insight:** This is NOT a linear process. You bounce between building and analyzing constantly. Analysis isn't "not progress" — it's what ensures your building time is well spent.
@@ -65,24 +55,36 @@ Early                                                    Mature
 
 Putting all of Module 4 together in one view:
 
-```mermaid
-graph TD
-    A["🏗️ Build quick & dirty<br/>end-to-end system"] --> B["👀 Examine outputs<br/>+ read traces"]
-    B --> C["📊 Build evals<br/>(10-20 examples)"]
-    C --> D["🔍 Error analysis<br/>(spreadsheet: count<br/>errors per component)"]
-    D --> E["🎯 Prioritize<br/>(error rate × fixability)"]
-    E --> F{"Component<br/>type?"}
-    F -->|Non-LLM| G["Tune hyperparams<br/>or replace component"]
-    F -->|LLM| H["Improve prompt →<br/>swap model →<br/>split step →<br/>fine-tune"]
-    G --> I["📊 Component eval<br/>(fast feedback)"]
-    H --> I
-    I --> J["✅ End-to-end eval<br/>(confirm improvement)"]
-    J -->|"Quality good"| K["⚡ Optimize latency<br/>💰 Then cost"]
-    J -->|"Not yet"| B
-
-    style A fill:#2196f3,color:#fff
-    style D fill:#ff9800,color:#fff
-    style K fill:#4caf50,color:#fff
+```
+🏗️ Build quick & dirty ──► 👀 Examine outputs ──► 📊 Build evals ──► 🔍 Error analysis ──► 🎯 Prioritize
+   end-to-end system          + read traces       (10-20 examples)     (spreadsheet: count  (error rate ×
+                                                                         errors/component)    fixability)
+                                                                                │
+                                                        ┌───────────────────────┴───────────────────────┐
+                                                        │                                               │
+                                                  Non-LLM                                             LLM
+                                                        │                                               │
+                                                        ▼                                               ▼
+                                             Tune hyperparams                               Improve prompt →
+                                             or replace component                           swap model →
+                                                        │                                   split step →
+                                                        │                                   fine-tune
+                                                        │                                       │
+                                                        └───────────────┬───────────────────────┘
+                                                                        │
+                                                                        ▼
+                                                         📊 Component eval (fast feedback)
+                                                                        │
+                                                                        ▼
+                                                         ✅ End-to-end eval (confirm improvement)
+                                                                        │
+                                                               Quality good?
+                                                                   │
+                                                              Yes ─┴─ No
+                                                               │      │
+                                                               ▼      └──► Loop back to "Examine outputs"
+                                                  ⚡ Optimize latency
+                                                  💰 Then cost
 ```
 
 ---

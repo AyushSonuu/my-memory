@@ -6,18 +6,19 @@
 
 ## 🧠 Brain — Module Overview
 
-```mermaid
-graph LR
-    M1(("Module 1<br/>Intro"))
-    M1 --> W["What is Agentic AI?"]
-    M1 --> D["Degrees of Autonomy"]
-    M1 --> B["Benefits"]
-    M1 --> A["Applications"]
-    M1 --> TD["Task Decomposition"]
-    M1 --> E["Evals"]
-    M1 --> DP["Design Patterns"]
-    
-    style M1 fill:#ff9800,color:#fff
+```
+                    Module 1: Intro
+                          │
+    ┌─────────┬───────────┼───────────┬─────────────┐
+    │         │           │           │             │
+    ▼         ▼           ▼           ▼             ▼
+What is    Degrees     Benefits   Applications   Task
+Agentic?   of Autonomy                           Decomposition
+                                                     │
+                                             ┌───────┴───────┐
+                                             │               │
+                                             ▼               ▼
+                                           Evals       Design Patterns
 ```
 
 ## 📊 Progress

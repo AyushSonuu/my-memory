@@ -9,13 +9,9 @@
 
 ## 🖼️ Priority Order
 
-```mermaid
-graph LR
-    A["1️⃣ Output Quality<br/>(most important)"] --> B["2️⃣ Latency<br/>(matters, but secondary)"] --> C["3️⃣ Cost<br/>(optimize last)"]
-
-    style A fill:#f44336,color:#fff
-    style B fill:#ff9800,color:#fff
-    style C fill:#4caf50,color:#fff
+```
+1️⃣ Output Quality ──────────► 2️⃣ Latency ──────────► 3️⃣ Cost
+   (most important)              (matters, secondary)     (optimize last)
 ```
 
 Andrew Ng's advice is clear: **quality first, speed second, cost third.** Getting high-quality outputs is the hardest part. Cost and latency optimization should happen only after the system actually works well.
