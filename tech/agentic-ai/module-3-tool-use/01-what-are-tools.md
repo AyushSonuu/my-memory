@@ -91,27 +91,7 @@ From the course slides (PDF page 5):
 
 Real-world agents need **multiple tools** to complete tasks. The calendar assistant example shows how:
 
-```mermaid
-sequenceDiagram
-    participant U as 👤 User
-    participant LLM as 🤖 LLM
-    participant CC as 📅 check_calendar
-    participant MA as 📩 make_appointment
-
-    U->>LLM: "Find a free slot on Thursday<br/>and make an appointment with Alice"
-    
-    Note over LLM: Available tools:<br/>✅ check_calendar<br/>✅ make_appointment<br/>✅ delete_appointment
-
-    LLM->>CC: check_calendar(day="Thursday")
-    CC-->>LLM: "Free: 3 PM, 4 PM, 6 PM"
-    
-    Note over LLM: Picks 3 PM
-
-    LLM->>MA: make_appointment(day="Thursday",<br/>time="3 PM", with="Alice")
-    MA-->>LLM: "Meeting created successfully!"
-    
-    LLM->>U: "Your appointment is set up<br/>with Alice at 3 PM Thursday ✅"
-```
+![Multiple Tools Example](assets/01-multiple-tools.svg)
 
 **The LLM made TWO decisions:**
 1. First, call `check_calendar` to find free slots
@@ -123,15 +103,19 @@ It **didn't** call `delete_appointment` because it wasn't needed. Smart tool sel
 
 ## 🧠 Your Role as a Developer
 
-```mermaid
-graph TD
-    DEV["👨‍💻 Developer's Job"] --> A["Think: what does my app<br/>need to DO?"]
-    A --> B["Create the functions<br/>(tools) needed"]
-    B --> C["Make them available<br/>to the LLM"]
-    C --> LLM["🤖 LLM's Job:<br/>decide when to<br/>call which tool"]
-
-    style DEV fill:#2196f3,color:#fff
-    style LLM fill:#9c27b0,color:#fff
+```
+👨‍💻 Developer's Job                   🤖 LLM's Job
+───────────────────                   ────────────────
+Think: what does my app need to DO?   Decide WHEN to use tools
+         │                                   ▲
+         ▼                                   │
+Create the functions (tools) needed         │
+         │                                   │
+         ▼                                   │
+Make them available to the LLM ────────────►│
+                                    Decide WHICH tool fits the query
+                                    Decide WHAT arguments to pass
+                                    Generate the final response
 ```
 
 | Your Job | LLM's Job |

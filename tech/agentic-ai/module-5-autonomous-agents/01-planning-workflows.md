@@ -67,21 +67,27 @@ The PDF shows a concrete inventory database:
 
 ### The Plan LLM Generates
 
-```mermaid
-graph TD
-    Q["👤 Do you have round sunglasses<br/>in stock, under $100?"] --> PLAN["🤖 LLM generates plan"]
-
-    PLAN --> S1["<b>Step 1:</b> get_item_descriptions<br/>→ find round sunglasses"]
-    S1 -->|"Moon, Classic"| S2["<b>Step 2:</b> check_inventory<br/>→ are they in stock?"]
-    S2 -->|"Moon: 15, Classic: 9"| S3["<b>Step 3:</b> get_item_price<br/>→ which are under $100?"]
-    S3 -->|"Moon: $120 ❌, Classic: $60 ✅"| ANS["💬 Yes! Classic sunglasses,<br/>round gold frame, $60"]
-
-    style Q fill:#e3f2fd,color:#000
-    style PLAN fill:#9c27b0,color:#fff
-    style S1 fill:#f44336,color:#fff
-    style S2 fill:#2196f3,color:#fff
-    style S3 fill:#4caf50,color:#fff
-    style ANS fill:#4caf50,color:#fff
+```
+👤 "Do you have round sunglasses in stock, under $100?"
+                    │
+                    ▼
+            🤖 LLM generates plan
+                    │
+        ┌───────────┼───────────┐
+        │           │           │
+        ▼           ▼           ▼
+  Step 1:       Step 2:       Step 3:
+  get_item_     check_        get_item_price
+  descriptions  inventory     → which under $100?
+  → find round  → in stock?
+  sunglasses    │             │
+        │       │             ▼
+        └──────►│         Moon: $120 ❌
+         Moon,  └──────►  Classic: $60 ✅
+         Classic        Moon: 15        │
+                        Classic: 9       ▼
+                                  💬 "Yes! Classic sunglasses,
+                                      round gold frame, $60"
 ```
 
 **Notice:** Only 3 out of 6 tools were used. `process_item_return`, `process_item_sale`, and `check_past_transactions` were **not needed** for this query — and the LLM knew that.
@@ -101,19 +107,20 @@ graph TD
 
 **New query:** *"I'd like to return the gold frame glasses I purchased, but not the metal frame ones."*
 
-```mermaid
-graph TD
-    Q2["👤 Return gold frame glasses,<br/>not metal frame ones"] --> PLAN2["🤖 LLM generates<br/>DIFFERENT plan"]
-
-    PLAN2 --> R1["<b>Step 1:</b> check_past_transactions<br/>→ what did they buy?"]
-    R1 --> R2["<b>Step 2:</b> get_item_descriptions<br/>→ which is gold frame?"]
-    R2 --> R3["<b>Step 3:</b> process_item_return<br/>→ return the gold frame glasses"]
-
-    style Q2 fill:#fff3e0,color:#000
-    style PLAN2 fill:#9c27b0,color:#fff
-    style R1 fill:#ff9800,color:#fff
-    style R2 fill:#ff9800,color:#fff
-    style R3 fill:#ff9800,color:#fff
+```
+👤 "Return gold frame glasses, not metal frame ones"
+                    │
+                    ▼
+            🤖 LLM generates DIFFERENT plan
+                    │
+        ┌───────────┼───────────┐
+        │           │           │
+        ▼           ▼           ▼
+  Step 1:       Step 2:       Step 3:
+  check_past_   get_item_     process_item_return
+  transactions  descriptions  → return gold frame
+  → what did    → which is
+  they buy?     gold frame?
 ```
 
 | Query | Tools Used | Tools Skipped |
@@ -140,19 +147,20 @@ graph TD
 
 ### The Plan
 
-```mermaid
-graph TD
-    EQ["👤 Reply to Bob's dinner email,<br/>confirm attendance, archive it"] --> EP["🤖 LLM plans"]
-
-    EP --> E1["<b>Step 1:</b> search_email<br/>→ find Bob's email about<br/>dinner + New York"]
-    E1 -->|"Found email"| E2["<b>Step 2:</b> send_email<br/>→ reply confirming<br/>attendance"]
-    E2 -->|"Reply sent"| E3["<b>Step 3:</b> move_email<br/>→ move to archive folder"]
-
-    style EQ fill:#e3f2fd,color:#000
-    style EP fill:#9c27b0,color:#fff
-    style E1 fill:#f44336,color:#fff
-    style E2 fill:#2196f3,color:#fff
-    style E3 fill:#4caf50,color:#fff
+```
+👤 "Reply to Bob's dinner email, confirm attendance, archive it"
+                    │
+                    ▼
+            🤖 LLM plans
+                    │
+        ┌───────────┼───────────┐
+        │           │           │
+        ▼           ▼           ▼
+  Step 1:       Step 2:       Step 3:
+  search_email  send_email    move_email
+  → find Bob's  → reply       → move to
+  email about   confirming    archive folder
+  dinner + NY   attendance
 ```
 
 Again: `delete_email` was available but **not used** — the LLM understood "archive" ≠ "delete."
