@@ -10,27 +10,49 @@
 
 ## 🖼️ The MVP as a Constitution Stress Test
 
-```mermaid
-graph TB
-    subgraph DONE["✅ What You've Built"]
-        C["📜 Constitution"]
-        F1["🔁 Feature 1 (spec'd)"]
-        F2["🔁 Feature 2 (spec'd)"]
-    end
-
-    DONE --> MVP["🚀 MVP Prompt:<br/>'Implement rest of roadmap'"]
-    MVP --> AGENT["🤖 Agent does BIG<br/>implementation step"]
-    
-    AGENT --> TEST{"Result matches<br/>your vision?"}
-    TEST -->|"✅ Yes"| WIN["🎉 Constitution works!<br/>Specs guided well"]
-    TEST -->|"❌ No"| FIX["🔄 Responsible replanning<br/>to fix what led agent astray"]
-    
-    WIN --> SHARE["📊 Share evaluation<br/>with stakeholders"]
-    FIX --> SHARE
-
-    style MVP fill:#ff9800,color:#fff
-    style WIN fill:#4caf50,color:#fff
-    style FIX fill:#e91e63,color:#fff
+```
+┌─────────────────────────────────────────┐
+│          ✅ What You've Built           │
+│  📜 Constitution                        │
+│  🔁 Feature 1 (spec'd)                  │
+│  🔁 Feature 2 (spec'd)                  │
+└──────────────────┬──────────────────────┘
+                   │
+                   ▼
+┌─────────────────────────────────────────┐
+│  🚀 MVP Prompt:                         │
+│  "Implement rest of roadmap"            │
+└──────────────────┬──────────────────────┘
+                   │
+                   ▼
+┌─────────────────────────────────────────┐
+│  🤖 Agent does BIG implementation step  │
+└──────────────────┬──────────────────────┘
+                   │
+                   ▼
+          ┌───────────────────┐
+          │  Result matches   │
+          │  your vision?     │
+          └─────────┬─────────┘
+                    │
+         ┌──────────┴──────────┐
+      ✅ Yes                ❌ No
+         │                     │
+         ▼                     ▼
+┌─────────────────┐   ┌─────────────────────┐
+│ 🎉 Constitution │   │ 🔄 Responsible      │
+│ works! Specs    │   │ replanning to fix   │
+│ guided well     │   │ what led agent      │
+└────────┬────────┘   │ astray              │
+         │            └──────────┬──────────┘
+         │                       │
+         └───────────┬───────────┘
+                     │
+                     ▼
+       ┌─────────────────────────┐
+       │  📊 Share evaluation    │
+       │  with stakeholders      │
+       └─────────────────────────┘
 ```
 
 > 💡 *MVP = teri mehnat ka litmus test. Agar agent sahi banaye toh constitution solid hai, nahi toh replan karo!* 🧪

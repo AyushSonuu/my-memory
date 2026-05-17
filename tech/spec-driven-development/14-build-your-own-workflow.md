@@ -10,26 +10,25 @@
 
 ## 🖼️ The Automation Landscape
 
-```mermaid
-graph TB
-    subgraph MANUAL["🐢 Manual SDD"]
-        RP["Repeat same prompts<br/>every feature"]
-    end
-
-    subgraph AUTO["⚡ Automated SDD"]
-        SK["🎯 Agent Skills<br/>(custom workflows)"]
-        PL["🔌 Plugins<br/>(installable extensions)"]
-        FW["📦 Frameworks<br/>(Spec Kit, OpenSpec)"]
-    end
-
-    MANUAL -->|"automate"| AUTO
-
-    SK --> INVOKE["Invoke by name in prompt<br/>or skill-from-skill"]
-    PL --> SHARE["Share across machines,<br/>teams, world"]
-    FW --> CMDS["Pre-built /commands<br/>+ branch management<br/>+ verification scripts"]
-
-    style MANUAL fill:#f44336,color:#fff
-    style AUTO fill:#4caf50,color:#fff
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           🐢 Manual SDD                                     │
+│             Repeat same prompts every feature                               │
+└────────────────────────────────────┬────────────────────────────────────────┘
+                                     │ automate
+                                     ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           ⚡ Automated SDD                                   │
+│                                                                             │
+│  🎯 Agent Skills          │  🔌 Plugins            │  📦 Frameworks         │
+│  (custom workflows)       │  (installable          │  (Spec Kit, OpenSpec)  │
+│                           │   extensions)          │                        │
+│          │                │          │             │          │             │
+│          ▼                │          ▼             │          ▼             │
+│  Invoke by name in        │  Share across          │  Pre-built /commands   │
+│  prompt or skill-         │  machines, teams,      │  + branch management   │
+│  from-skill               │  world                 │  + verification        │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 > 💡 *Baar baar wahi prompt type kar raha hai? Skill bana de — ek baar likho, hamesha kaam aaye!* 🔁→⚡
@@ -69,12 +68,11 @@ graph TB
 
 ## 🔄 MCP → CLI + Skills (The Trend)
 
-```mermaid
-graph LR
-    MCP["🔧 MCP Servers<br/>(Model Context Protocol)"] -->|"shifting to"| CLI["⚡ CLI + Skills<br/>(less setup, less context)"]
-
-    style MCP fill:#ff9800,color:#fff
-    style CLI fill:#4caf50,color:#fff
+```
+┌─────────────────────────────┐              ┌─────────────────────────────┐
+│  🔧 MCP Servers             │              │  ⚡ CLI + Skills             │
+│  (Model Context Protocol)   │─────────────►│  (less setup, less context) │
+└─────────────────────────────┘  shifting to └─────────────────────────────┘
 ```
 
 | | MCP Servers | CLI + Skills |
@@ -131,15 +129,21 @@ graph LR
 
 When you have an idea mid-feature but aren't committed yet:
 
-```mermaid
-graph LR
-    IDEA["💡 Idea mid-feature<br/>(e.g., database choice)"] --> CHAT["💬 Research with agent<br/>(don't stop branch work!)"]
-    CHAT --> REPORT["📄 Agent writes report<br/>to well-known location"]
-    REPORT --> LATER["📋 Later: schedule on<br/>roadmap with link<br/>to backlog file"]
-    LATER --> SKILL["⚡ As it grows:<br/>automate with a<br/>research skill"]
-
-    style IDEA fill:#ff9800,color:#fff
-    style REPORT fill:#4caf50,color:#fff
+```
+┌──────────────────────┐     ┌──────────────────────┐     ┌──────────────────────┐
+│  💡 Idea mid-feature │     │  💬 Research with    │     │  📄 Agent writes     │
+│  (e.g., database     │────►│  agent (don't stop   │────►│  report to well-     │
+│   choice)            │     │  branch work!)       │     │  known location      │
+└──────────────────────┘     └──────────────────────┘     └───────────┬──────────┘
+                                                                      │
+                    ┌─────────────────────────────────────────────────┘
+                    │
+                    ▼
+┌──────────────────────┐     ┌──────────────────────┐
+│  📋 Later: schedule  │     │  ⚡ As it grows:     │
+│  on roadmap with     │────►│  automate with a     │
+│  link to backlog     │     │  research skill      │
+└──────────────────────┘     └──────────────────────┘
 ```
 
 | Step | Detail |

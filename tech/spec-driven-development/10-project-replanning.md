@@ -28,16 +28,21 @@
 
 ## 🧪 Adding Testing (Feature Replanning)
 
-```mermaid
-graph LR
-    P["📝 State testing policy<br/>in a prompt"] --> U["⚙️ Agent updates<br/>package.json"]
-    U --> R["🔄 Tell agent: update<br/>existing specs + code"]
-    R --> W["✍️ Tell agent:<br/>write the actual tests"]
-    W --> D["🐛 Run under debugger<br/>(human in the loop)"]
-    D --> C["✅ Commit"]
-
-    style P fill:#2196f3,color:#fff
-    style D fill:#ff9800,color:#fff
+```
+┌──────────────────────┐     ┌──────────────────────┐     ┌──────────────────────┐
+│  📝 State testing    │     │  ⚙️ Agent updates    │     │  🔄 Tell agent:      │
+│  policy in a prompt  │────►│  package.json        │────►│  update existing     │
+└──────────────────────┘     └──────────────────────┘     │  specs + code        │
+                                                          └───────────┬──────────┘
+                                                                      │
+                    ┌─────────────────────────────────────────────────┘
+                    │
+                    ▼
+┌──────────────────────┐     ┌──────────────────────┐     ┌──────────────────────┐
+│  ✍️ Tell agent:      │     │  🐛 Run under        │     │  ✅ Commit           │
+│  write the actual    │────►│  debugger (human     │────►│                      │
+│  tests               │     │  in the loop)        │     │                      │
+└──────────────────────┘     └──────────────────────┘     └──────────────────────┘
 ```
 
 | Step | What Happens |
@@ -92,25 +97,28 @@ Result: Agent updates not just code, but ALSO specs
 
 **Skills = packages of instructions + resources that give agents new capabilities.**
 
-```mermaid
-graph TB
-    subgraph WHAT["What Are Skills?"]
-        DEF["Definable, repeatable workflows"]
-        CTX["Context specific to your<br/>project or organization"]
-    end
-    
-    subgraph EXAMPLES["Example Skills"]
-        CL["📋 Changelog updater<br/>(stakeholder comms)"]
-        VAL["✅ Validation skill<br/>(README, lint, format, tests)"]
-    end
-    
-    subgraph SCOPE["Scope Choice"]
-        LOCAL["📁 Project-specific"]
-        GLOBAL["🌐 Global<br/>(usable across all projects)"]
-    end
-    
-    WHAT --> EXAMPLES
-    EXAMPLES --> SCOPE
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                            What Are Skills?                                 │
+│  • Definable, repeatable workflows                                          │
+│  • Context specific to your project or organization                         │
+└────────────────────────────────────┬────────────────────────────────────────┘
+                                     │
+                                     ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           Example Skills                                    │
+│                                                                             │
+│  📋 Changelog updater                    ✅ Validation skill                │
+│  (stakeholder comms)                     (README, lint, format, tests)      │
+└────────────────────────────────────┬────────────────────────────────────────┘
+                                     │
+                                     ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                            Scope Choice                                     │
+│                                                                             │
+│        📁 Project-specific            │           🌐 Global                 │
+│        (this project only)            │    (usable across all projects)    │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 | Aspect | Detail |

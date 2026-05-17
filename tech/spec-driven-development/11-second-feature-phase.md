@@ -10,25 +10,47 @@
 
 ## 🖼️ The Full Feature Cycle (Second Time)
 
-```mermaid
-graph TB
-    subgraph PREP["🧘 Flow State Check"]
-        Q1["Unfinished work?"]
-        Q2["Last branch merged?"]
-        Q3["Next roadmap item correct?"]
-        Q4["Agent context cleared?"]
-    end
-
-    PREP --> SPEC["📝 Feature Spec<br/>(agent drafts, you review)"]
-    SPEC --> IMPL["⚙️ Implement<br/>(all at once or in parts)"]
-    IMPL --> REVIEW["🔍 In-depth Review<br/>(high-level focus)"]
-    REVIEW --> VAL["✅ Validate<br/>(tests + debugger + sub-agents)"]
-    VAL --> COMMIT["📋 Commit + Changelog"]
-    COMMIT --> REPLAN["🔄 Quick Replan<br/>(check roadmap)"]
-
-    style PREP fill:#9c27b0,color:#fff
-    style REVIEW fill:#ff9800,color:#fff
-    style VAL fill:#e91e63,color:#fff
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         🧘 Flow State Check                                 │
+│  ☐ Unfinished work?    ☐ Last branch merged?    ☐ Next roadmap correct?    │
+│  ☐ Agent context cleared?                                                   │
+└────────────────────────────────────┬────────────────────────────────────────┘
+                                     │
+                                     ▼
+                    ┌────────────────────────────────┐
+                    │  📝 Feature Spec               │
+                    │  (agent drafts, you review)    │
+                    └────────────────┬───────────────┘
+                                     │
+                                     ▼
+                    ┌────────────────────────────────┐
+                    │  ⚙️ Implement                  │
+                    │  (all at once or in parts)     │
+                    └────────────────┬───────────────┘
+                                     │
+                                     ▼
+                    ┌────────────────────────────────┐
+                    │  🔍 In-depth Review            │
+                    │  (high-level focus)            │
+                    └────────────────┬───────────────┘
+                                     │
+                                     ▼
+                    ┌────────────────────────────────┐
+                    │  ✅ Validate                   │
+                    │  (tests + debugger + sub-agents)│
+                    └────────────────┬───────────────┘
+                                     │
+                                     ▼
+                    ┌────────────────────────────────┐
+                    │  📋 Commit + Changelog         │
+                    └────────────────┬───────────────┘
+                                     │
+                                     ▼
+                    ┌────────────────────────────────┐
+                    │  🔄 Quick Replan               │
+                    │  (check roadmap)               │
+                    └────────────────────────────────┘
 ```
 
 > 💡 *Har feature ke pehle "saans lo" — clean slate se shuru karo, nahi toh AI fatigue maar degi!* 😤
@@ -108,14 +130,12 @@ You are **evolving the spec** as you discover new details. Capturing those disco
 
 ## ✅ Validation: Three Layers Deep
 
-```mermaid
-graph LR
-    L1["🏃 Run the app<br/>(visual check)"] --> L2["🧪 Run tests<br/>under debugger<br/>(understand the flow)"]
-    L2 --> L3["🤖 Sub-agent<br/>deep review<br/>(catch what you missed)"]
-
-    style L1 fill:#4caf50,color:#fff
-    style L2 fill:#2196f3,color:#fff
-    style L3 fill:#e91e63,color:#fff
+```
+┌────────────────────┐     ┌────────────────────┐     ┌────────────────────┐
+│  🏃 Run the app    │     │  🧪 Run tests      │     │  🤖 Sub-agent      │
+│  (visual check)    │────►│  under debugger    │────►│  deep review       │
+│                    │     │  (understand flow) │     │  (catch missed)    │
+└────────────────────┘     └────────────────────┘     └────────────────────┘
 ```
 
 | Layer | Purpose | How |

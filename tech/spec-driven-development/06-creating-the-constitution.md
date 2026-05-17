@@ -10,33 +10,31 @@
 
 ## 🖼️ The Constitution Creation Flow
 
-```mermaid
-graph TB
-    subgraph INPUT["📥 Your Context"]
-        BIZ["Business knowledge<br/>Audience, constraints, vision"]
-        STAKE["Stakeholder input<br/>(README.md)"]
-    end
-
-    subgraph CONVO["💬 Conversation with Agent"]
-        Q["Agent asks great questions<br/>Architecture? Packages? Tradeoffs?"]
-        A["You make decisions<br/>Tone, tech preferences, granularity"]
-    end
-
-    subgraph OUTPUT["📁 specs/ Directory"]
-        M["mission.md"]
-        TS["tech-stack.md"]
-        RM["roadmap.md"]
-    end
-
-    INPUT --> CONVO
-    CONVO --> OUTPUT
-    OUTPUT --> REV["👤 Human Review"]
-    REV -->|"ask agent to fix"| CONVO
-    REV -->|"looks good"| COMMIT["✅ Git Commit"]
-
-    style CONVO fill:#4caf50,color:#fff
-    style OUTPUT fill:#2196f3,color:#fff
-    style COMMIT fill:#ff9800,color:#fff
+```
+┌─────────────────────────────┐
+│      📥 Your Context        │
+│  Business knowledge,        │
+│  Audience, constraints,     │
+│  Stakeholder input (README) │
+└──────────────┬──────────────┘
+               │
+               ▼
+┌─────────────────────────────┐
+│  💬 Conversation with Agent │
+│  Agent asks questions       │
+│  (Architecture? Tradeoffs?) │
+│  You make decisions         │
+│  (Tone, tech preferences)   │
+└──────────────┬──────────────┘
+               │
+               ▼
+┌─────────────────────────────┐     ┌─────────────────────────────┐
+│   📁 specs/ Directory       │     │      👤 Human Review        │
+│  • mission.md               │────►│                             │
+│  • tech-stack.md            │     │   Looks good?               │
+│  • roadmap.md               │     │   ├── No  → ask agent fix   │
+└─────────────────────────────┘     │   └── Yes → ✅ Git Commit   │
+                                    └─────────────────────────────┘
 ```
 
 > 💡 *Constitution akele mat likho — agent ke saath conversation mein likho. Agent ke questions sunke tum bhi surprise hoge!* 🤯
@@ -59,19 +57,19 @@ graph TB
 
 ## 🛠️ How to Actually Write It (Step by Step)
 
-```mermaid
-graph LR
-    S1["1. Provide project<br/>description to agent"] --> S2["2. Point to stakeholder<br/>input (README.md)"]
-    S2 --> S3["3. Tell agent: work with me<br/>on mission, tech stack,<br/>roadmap"]
-    S3 --> S4["4. Agent asks<br/>clarifying questions"]
-    S4 --> S5["5. You answer<br/>(make key decisions)"]
-    S5 --> S6["6. Agent writes<br/>3 spec files"]
-    S6 --> S7["7. Human review<br/>& iterate"]
-    S7 --> S8["8. Git commit"]
-
-    style S4 fill:#ff9800,color:#fff
-    style S5 fill:#4caf50,color:#fff
-    style S7 fill:#e91e63,color:#fff
+```
+1. Provide project     2. Point to           3. Tell agent:        4. Agent asks
+   description to  ───►   stakeholder    ───►   "work with me   ───►   clarifying
+   agent                  input (README)        on mission,           questions
+                                                tech stack,
+                                                roadmap"
+                                                     │
+                    ┌────────────────────────────────┘
+                    │
+                    ▼
+5. You answer      6. Agent writes      7. Human review      8. Git commit
+   (make key   ───►   3 spec files  ───►   & iterate     ───►   ✅
+   decisions)
 ```
 
 ### The Prompt to the Agent

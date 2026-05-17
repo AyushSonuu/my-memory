@@ -10,28 +10,37 @@
 
 ## 🖼️ The Feature Spec Process
 
-```mermaid
-graph TB
-    CLEAR["/clear context<br/>Fresh start"] --> BRANCH["🌿 Create feature branch"]
-    BRANCH --> CONVO["💬 Interview with agent<br/>about feature spec"]
-    
-    CONVO --> PLAN["📋 Plan<br/>(approach, task sequence)"]
-    CONVO --> REQ["📐 Requirements<br/>(technical needs, constraints)"]
-    CONVO --> VAL["✅ Validation Scorecard<br/>(how to verify success)"]
-    
-    PLAN --> REVIEW["🔍 Human reviews<br/>all three docs"]
-    REQ --> REVIEW
-    VAL --> REVIEW
-    
-    REVIEW -->|"issues found"| FIX["Ask agent to fix<br/>(keeps all docs in sync)"]
-    FIX --> REVIEW
-    REVIEW -->|"looks good"| COMMIT["📋 Commit the spec"]
-    COMMIT --> IMPL["⚙️ Implementation time!"]
-
-    style CLEAR fill:#9c27b0,color:#fff
-    style CONVO fill:#ff9800,color:#fff
-    style REVIEW fill:#2196f3,color:#fff
-    style COMMIT fill:#4caf50,color:#fff
+```
+┌───────────────────┐     ┌───────────────────┐     ┌─────────────────────────────────────┐
+│  /clear context   │     │  🌿 Create        │     │  💬 Interview with agent about     │
+│  Fresh start      │────►│  feature branch   │────►│  feature spec                       │
+└───────────────────┘     └───────────────────┘     └──────────────┬──────────────────────┘
+                                                                   │
+                              ┌─────────────────────────────────────┼─────────────────────────────────────┐
+                              │                                     │                                     │
+                              ▼                                     ▼                                     ▼
+                   ┌───────────────────┐             ┌───────────────────┐             ┌───────────────────┐
+                   │  📋 Plan          │             │  📐 Requirements  │             │  ✅ Validation    │
+                   │  (approach, task  │             │  (technical needs,│             │  Scorecard (how   │
+                   │   sequence)       │             │   constraints)    │             │  to verify)       │
+                   └─────────┬─────────┘             └─────────┬─────────┘             └─────────┬─────────┘
+                             │                                 │                                 │
+                             └─────────────────────────────────┼─────────────────────────────────┘
+                                                               │
+                                                               ▼
+                                                  ┌───────────────────────┐
+                                                  │  🔍 Human reviews     │
+                                                  │  all three docs       │
+                                                  └───────────┬───────────┘
+                                                              │
+                                         ┌────────────────────┴────────────────────┐
+                                         │ issues found                 looks good │
+                                         ▼                                         ▼
+                              ┌───────────────────┐                     ┌───────────────────┐
+                              │  Ask agent to fix │                     │  📋 Commit spec   │
+                              │  (keeps docs in   │                     │  ⚙️ Implementation│
+                              │   sync)           │                     │  time!            │
+                              └───────────────────┘                     └───────────────────┘
 ```
 
 > 💡 *Coding se pehle spec likho — yahan ka 3 minute wahan ke 300 lines of code bacha dega!* ⏱️

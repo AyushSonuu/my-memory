@@ -6,17 +6,24 @@
 
 ## 🧠 Brain — How This Connects
 
-```mermaid
-graph LR
-    SDD(("Spec-Driven\nDevelopment"))
-    SDD -->|"specs guide"| CA[Coding Agents]
-    SDD -->|"preserves"| CTX[Context Management]
-    SDD -->|"workflow for"| GF[Greenfield Projects]
-    SDD -->|"workflow for"| BF[Brownfield Projects]
-    SDD -.->|"replaces"| VC[Vibe Coding]
-    CA -->|"tools"| JB[JetBrains / Claude Code / Codex]
-    
-    style SDD fill:#ff9800,color:#fff
+```
+                        ┌─────────────────────────┐
+                        │    Spec-Driven          │
+                        │    Development          │
+                        └───────────┬─────────────┘
+                                    │
+       ┌────────────┬───────────────┼───────────────┬────────────────┐
+       │            │               │               │                │
+       ▼            ▼               ▼               ▼                ▼
+┌──────────┐  ┌──────────┐  ┌──────────────┐  ┌──────────┐   ┌──────────┐
+│  Coding  │  │ Context  │  │  Greenfield  │  │Brownfield│   │   Vibe   │
+│  Agents  │  │Management│  │  Projects    │  │ Projects │   │  Coding  │
+└────┬─────┘  └──────────┘  └──────────────┘  └──────────┘   │(replaces)│
+     │                                                        └──────────┘
+     ▼
+┌─────────────────────────────────────┐
+│ JetBrains / Claude Code / Codex     │
+└─────────────────────────────────────┘
 ```
 
 ## 📊 Progress

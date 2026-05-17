@@ -10,22 +10,57 @@
 
 ## 🖼️ The Validation Flow
 
-```mermaid
-graph TB
-    IMPL["⚙️ Feature Implemented<br/>(don't merge yet!)"] --> REVIEW["🔍 Review in Commit View"]
-    REVIEW --> CHECK{"Does it match<br/>the spec?"}
-    
-    CHECK -->|"✅ Yes"| MERGE
-    CHECK -->|"❌ No"| FIX["Ask agent to fix<br/>(spec + code together)"]
-    FIX --> VALIDATE["Agent validates<br/>changes didn't break anything"]
-    VALIDATE --> REVIEW2["🔍 Review again"]
-    REVIEW2 --> MERGE["✅ Merge & mark complete"]
-    
-    MERGE --> ROAD["📋 Update roadmap<br/>(check off the step)"]
-
-    style IMPL fill:#ff9800,color:#fff
-    style FIX fill:#e91e63,color:#fff
-    style MERGE fill:#4caf50,color:#fff
+```
+┌───────────────────────────┐
+│  ⚙️ Feature Implemented   │
+│  (don't merge yet!)       │
+└─────────────┬─────────────┘
+              │
+              ▼
+┌───────────────────────────┐
+│  🔍 Review in Commit View │
+└─────────────┬─────────────┘
+              │
+              ▼
+    ┌─────────────────────┐
+    │  Does it match      │
+    │  the spec?          │
+    └──────────┬──────────┘
+               │
+       ┌───────┴───────┐
+       │               │
+    ✅ Yes          ❌ No
+       │               │
+       │               ▼
+       │    ┌─────────────────────────┐
+       │    │  Ask agent to fix       │
+       │    │  (spec + code together) │
+       │    └───────────┬─────────────┘
+       │                │
+       │                ▼
+       │    ┌─────────────────────────┐
+       │    │  Agent validates        │
+       │    │  changes didn't break   │
+       │    └───────────┬─────────────┘
+       │                │
+       │                ▼
+       │    ┌─────────────────────────┐
+       │    │  🔍 Review again        │
+       │    └───────────┬─────────────┘
+       │                │
+       └────────┬───────┘
+                │
+                ▼
+     ┌──────────────────────┐
+     │  ✅ Merge & mark     │
+     │  complete            │
+     └──────────┬───────────┘
+                │
+                ▼
+     ┌──────────────────────┐
+     │  📋 Update roadmap   │
+     │  (check off step)    │
+     └──────────────────────┘
 ```
 
 > 💡 *Code review toh pehle bhi karte the — ab bas agent ke saath milke karo. Tum high-level dekho, woh low-level fix kare!* 🔍
@@ -49,17 +84,36 @@ graph TB
 
 When you find issues, **always ask the agent** to fix them:
 
-```mermaid
-graph LR
-    BUG["🐛 Found issue<br/>in code"] --> ROOT{"Where's the<br/>root cause?"}
-    ROOT -->|"Code only"| FIXC["Agent fixes code"]
-    ROOT -->|"Spec mistake<br/>→ code mistake"| FIXS["Agent fixes BOTH<br/>spec + code"]
-    
-    FIXC --> SYNC["Agent updates<br/>related artifacts"]
-    FIXS --> SYNC
-    SYNC --> VAL["Agent validates<br/>nothing broke"]
-
-    style FIXS fill:#e91e63,color:#fff
+```
+┌────────────────────┐     ┌─────────────────────┐
+│  🐛 Found issue    │     │  Where's the        │
+│  in code           │────►│  root cause?        │
+└────────────────────┘     └──────────┬──────────┘
+                                      │
+                         ┌────────────┴────────────┐
+                         │                         │
+                   Code only               Spec mistake
+                         │                  → code mistake
+                         ▼                         │
+              ┌─────────────────────┐              ▼
+              │  Agent fixes code   │   ┌─────────────────────┐
+              └──────────┬──────────┘   │  Agent fixes BOTH   │
+                         │              │  spec + code        │
+                         │              └──────────┬──────────┘
+                         │                         │
+                         └────────────┬────────────┘
+                                      │
+                                      ▼
+                         ┌─────────────────────────┐
+                         │  Agent updates related  │
+                         │  artifacts              │
+                         └────────────┬────────────┘
+                                      │
+                                      ▼
+                         ┌─────────────────────────┐
+                         │  Agent validates        │
+                         │  nothing broke          │
+                         └─────────────────────────┘
 ```
 
 ### Example from AgentClinic

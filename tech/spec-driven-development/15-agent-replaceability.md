@@ -10,25 +10,23 @@
 
 ## 🖼️ The Standards Stack
 
-```mermaid
-graph TB
-    subgraph STANDARDS["📐 Agent Standards"]
-        MCP["🔧 MCP<br/>External tools"]
-        AGM["📄 AGENTS.md<br/>Rules"]
-        SKILL["⚡ Agent Skills<br/>Repeatable workflows<br/>+ extra context"]
-        ACP["🔌 ACP<br/>Agent ↔ Client<br/>connection"]
-    end
-
-    subgraph FREEDOM["🔄 What You Get"]
-        SW["Switch agents<br/>in same project"]
-        MIX["Mix agents<br/>in same editor"]
-        KEEP["Keep your SDD<br/>workflow + tools"]
-    end
-
-    STANDARDS --> FREEDOM
-
-    style STANDARDS fill:#2196f3,color:#fff
-    style FREEDOM fill:#4caf50,color:#fff
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                          📐 Agent Standards                                 │
+│                                                                             │
+│  🔧 MCP              📄 AGENTS.md         ⚡ Agent Skills    🔌 ACP         │
+│  External tools      Rules                Repeatable         Agent ↔ Client │
+│                                           workflows +        connection     │
+│                                           extra context                     │
+└────────────────────────────────────┬────────────────────────────────────────┘
+                                     │
+                                     ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                          🔄 What You Get                                    │
+│                                                                             │
+│  Switch agents           Mix agents              Keep your SDD              │
+│  in same project         in same editor          workflow + tools           │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 > 💡 *Agent change hoga, model change hoga — lekin tera spec nahi badlega. Yahi hai SDD ki taakat!* 💪
@@ -48,26 +46,24 @@ graph TB
 
 ## 🔌 ACP — Agent Client Protocol (Deep Dive)
 
-```mermaid
-graph LR
-    subgraph AGENTS["🤖 Agents"]
-        CC["Claude Code"]
-        CX["Codex"]
-        OC["OpenCode"]
-        CUSTOM["Your Custom Agent"]
-    end
-
-    ACP["🔌 ACP\nProtocol"]
-
-    subgraph CLIENTS["💻 Editors / Clients"]
-        JB["JetBrains IDEs"]
-        VS["VS Code"]
-        TERM["Terminal"]
-    end
-
-    AGENTS <--> ACP <--> CLIENTS
-
-    style ACP fill:#ff9800,color:#fff
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│   🤖 Agents                     🔌 ACP                    💻 Editors        │
+│                                 Protocol                                    │
+│  ┌────────────┐                                          ┌────────────┐    │
+│  │ Claude Code │                                          │ JetBrains  │    │
+│  └────────────┘                    ▲                      │ IDEs       │    │
+│  ┌────────────┐                    │                      └────────────┘    │
+│  │ Codex      │◄───────────────────┼───────────────────►┌────────────┐    │
+│  └────────────┘                    │                      │ VS Code    │    │
+│  ┌────────────┐                    ▼                      └────────────┘    │
+│  │ OpenCode   │                                          ┌────────────┐    │
+│  └────────────┘                                          │ Terminal   │    │
+│  ┌────────────┐                                          └────────────┘    │
+│  │ Your Custom│                                                            │
+│  │ Agent      │                                                            │
+│  └────────────┘                                                            │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 | ACP Feature | Detail |

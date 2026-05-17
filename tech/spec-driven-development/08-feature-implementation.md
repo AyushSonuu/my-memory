@@ -10,17 +10,12 @@
 
 ## 🖼️ The Implementation Flow
 
-```mermaid
-graph LR
-    CLEAR["/clear<br/>Reset agent context"] --> PROMPT["📝 Prompt: implement<br/>all task groups"]
-    PROMPT --> BUILD["🤖 Agent builds<br/>(watch in console)"]
-    BUILD --> COMMIT["📋 Review changes<br/>in commit window"]
-    COMMIT --> RUN["▶️ Run the app<br/>(pixels on screen!)"]
-
-    style CLEAR fill:#9c27b0,color:#fff
-    style PROMPT fill:#2196f3,color:#fff
-    style BUILD fill:#4caf50,color:#fff
-    style RUN fill:#ff9800,color:#fff
+```
+┌────────────────┐     ┌────────────────────┐     ┌────────────────────┐     ┌────────────────────┐     ┌────────────────────┐
+│  /clear        │     │  📝 Prompt:        │     │  🤖 Agent builds   │     │  📋 Review changes │     │  ▶️ Run the app    │
+│  Reset agent   │────►│  implement all     │────►│  (watch in         │────►│  in commit window  │────►│  (pixels on        │
+│  context       │     │  task groups       │     │  console)          │     │                    │     │  screen!)          │
+└────────────────┘     └────────────────────┘     └────────────────────┘     └────────────────────┘     └────────────────────┘
 ```
 
 > 💡 *Agent code likh raha hai, tum console mein real-time dekh rahe ho — supervisor mode ON!* 🧑‍💼
