@@ -8755,20 +8755,7 @@
 </blockquote>
 <hr />
 <h2 id="the-core-idea">🖼️ The Core Idea<a class="headerlink" href="#the-core-idea" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph LR
-    A["🏗️ Complex Agent&lt;br/&gt;(many components)"] --&gt; B["❌ Poor Output"]
-    B --&gt; C["🤔 Which component&lt;br/&gt;is responsible?"]
-
-    C --&gt; D["😅 Gut Feel&lt;br/&gt;(risky!)"]
-    C --&gt; E["📋 Error Analysis&lt;br/&gt;(data-driven!)"]
-
-    D --&gt; F["⚠️ Months of work,&lt;br/&gt;zero improvement"]
-    E --&gt; G["✅ Fix the RIGHT&lt;br/&gt;component, fast!"]
-
-    style D fill:#f44336,color:#fff
-    style E fill:#4caf50,color:#fff
-    style F fill:#f44336,color:#fff
-    style G fill:#4caf50,color:#fff</code></pre>
+<p><img alt="Error Analysis" src="../assets/02-error-analysis.svg" /></p>
 <blockquote>
 <p>💡 <strong>Gut se kaam mat karo, data se karo. Andrew Ng khud bolte hain: "gut feeling leads to months of work with very little progress." 😬</strong></p>
 </blockquote>
@@ -8810,18 +8797,7 @@
 </blockquote>
 <hr />
 <h2 id="the-error-analysis-process">⚡ The Error Analysis Process<a class="headerlink" href="#the-error-analysis-process" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph TD
-    A["🔴 Poor Final Output&lt;br/&gt;(e.g., missing key points)"] --&gt; B["📋 Collect failing examples&lt;br/&gt;(skip the good ones)"]
-    B --&gt; C["👁️ Read the traces&lt;br/&gt;(intermediate outputs of each step)"]
-    C --&gt; D["📊 Build a spreadsheet&lt;br/&gt;(count errors per component)"]
-    D --&gt; E["🎯 Identify worst offender&lt;br/&gt;(highest error %)"]
-    E --&gt; F{"Got ideas to&lt;br/&gt;fix it?"}
-    F --&gt;|Yes| G["🔧 Work on that component"]
-    F --&gt;|No| H["🔍 Look for 2nd worst&lt;br/&gt;offender you CAN fix"]
-
-    style A fill:#f44336,color:#fff
-    style G fill:#4caf50,color:#fff
-    style E fill:#ff9800,color:#fff</code></pre>
+<p><img alt="Error Analysis Spreadsheet" src="../assets/03-error-spreadsheet.svg" /></p>
 <h3 id="step-by-step">Step-by-Step<a class="headerlink" href="#step-by-step" title="Permanent link">#</a></h3>
 <table>
 <thead>

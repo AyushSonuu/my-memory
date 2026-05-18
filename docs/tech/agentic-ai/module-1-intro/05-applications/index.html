@@ -8643,12 +8643,12 @@
 </blockquote>
 <hr />
 <h2 id="difficulty-spectrum">🖼️ Difficulty Spectrum<a class="headerlink" href="#difficulty-spectrum" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph LR
-    E["🟢 &lt;b&gt;Easier&lt;/b&gt;&lt;br/&gt;Clear steps&lt;br/&gt;Standard procedures&lt;br/&gt;Text-only"] ---|"→"| M["🟡 &lt;b&gt;Medium&lt;/b&gt;&lt;br/&gt;Some decisions&lt;br/&gt;by LLM&lt;br/&gt;Multiple tools"] ---|"→"| H["🔴 &lt;b&gt;Harder&lt;/b&gt;&lt;br/&gt;Steps unknown ahead&lt;br/&gt;Plan as you go&lt;br/&gt;Multimodal (vision/audio)"]
-
-    style E fill:#4caf50,color:#fff
-    style M fill:#ff9800,color:#fff
-    style H fill:#f44336,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>🟢 Easier ──────────────────► 🟡 Medium ──────────────────► 🔴 Harder
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>─────────                     ────────                     ────────
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Clear steps                   Some decisions by LLM       Steps unknown ahead
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Standard procedures           Multiple tools               Plan as you go
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Text-only                                                  Multimodal (vision/audio)
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -8677,20 +8677,14 @@
 </table>
 <hr />
 <h2 id="example-1-invoice-processing-easy">🟢 Example 1: Invoice Processing (Easy)<a class="headerlink" href="#example-1-invoice-processing-easy" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph LR
-    I["📄 Invoice PDF"] --&gt; P["🟩 PDF-to-Text"]
-    P --&gt; L1["⬜ LLM:&lt;br/&gt;Is this an invoice?"]
-    L1 --&gt;|"Yes"| L2["⬜ LLM:&lt;br/&gt;Extract 4 fields"]
-    L1 --&gt;|"No"| X["❌ Ignore"]
-    L2 --&gt; DB["🟩 Update Database"]
-    DB --&gt; R["✅ Record Created!"]
-
-    style I fill:#f44336,color:#fff
-    style P fill:#4caf50,color:#fff
-    style L1 fill:#999,color:#fff
-    style L2 fill:#999,color:#fff
-    style DB fill:#4caf50,color:#fff
-    style R fill:#2196f3,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>📄 Invoice PDF ──► 🟩 PDF-to-Text ──► ⬜ LLM: Is this invoice? ──► 🟩 Update Database ──► ✅ Record Created!
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>                                            │
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>                                       Yes  │  No
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>                                            │   ↓
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>                                            │  ❌ Ignore
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>                                            ▼
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>                                      ⬜ LLM: Extract 4 fields
+</span></code></pre></div>
 <p><strong>4 required fields extracted:</strong></p>
 <table>
 <thead>
@@ -8723,65 +8717,61 @@
 </blockquote>
 <hr />
 <h2 id="example-2-customer-order-inquiry-medium">🟡 Example 2: Customer Order Inquiry (Medium)<a class="headerlink" href="#example-2-customer-order-inquiry-medium" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph TB
-    E["📧 Customer Email&lt;br/&gt;'Wrong item shipped,&lt;br/&gt;Order #8847'"] --&gt; L1["⬜ LLM:&lt;br/&gt;Extract order details"]
-    L1 --&gt; T1["🟩 Orders DB Query:&lt;br/&gt;Verify order #8847"]
-    T1 --&gt; L2["⬜ LLM:&lt;br/&gt;Draft response"]
-    L2 --&gt; R["🟩 Request Human Review"]
-    R --&gt; S["✅ Send after approval"]
-
-    style E fill:#f44336,color:#fff
-    style L1 fill:#999,color:#fff
-    style T1 fill:#4caf50,color:#fff
-    style L2 fill:#999,color:#fff
-    style R fill:#4caf50,color:#fff
-    style S fill:#2196f3,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>📧 Customer Email ──► ⬜ LLM: Extract ──► 🟩 Orders DB ──► ⬜ LLM: Draft ──► 🟩 Human Review ──► ✅ Send
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>(&quot;Wrong item,          order details       Query: Verify      response
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Order #8847&quot;)                              order #8847
+</span></code></pre></div>
 <p><strong>Steps:</strong> Extract info → DB lookup → Draft response → Human review → Send</p>
 <blockquote>
 <p><strong>Why medium?</strong> Clear process, but involves tool calls (DB query) and human-in-the-loop.</p>
 </blockquote>
 <hr />
 <h2 id="example-3-general-customer-service-agent-hard">🔴 Example 3: General Customer Service Agent (Hard)<a class="headerlink" href="#example-3-general-customer-service-agent-hard" title="Permanent link">#</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────────────────────────────────────────────────┐
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│  ❓ &quot;Do you have black jeans or blue jeans?&quot;            │
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│                                                         │
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│  Agent must PLAN:                                       │
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│    1. Check inventory for black jeans → 🟩 DB query     │
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│    2. Check inventory for blue jeans  → 🟩 DB query     │
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│    3. Respond to customer                               │
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>├─────────────────────────────────────────────────────────┤
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│  ❓ &quot;I&#39;d like to return the beach towel I bought&quot;       │
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│                                                         │
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│  Agent must PLAN:                                       │
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│    1. Verify customer actually bought towel → 🟩 DB     │
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│    2. Check return policy (30 days? unused?) → 🟩 DB    │
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│    3. If allowed:                                       │
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>│       a. Issue return packing slip  → 🟩 Tool           │
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>│       b. Set DB record to &quot;return pending&quot; → 🟩 DB      │
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>├─────────────────────────────────────────────────────────┤
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>│  ⚠️  Required steps NOT known ahead of time!            │
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>│  LLM must decide the plan based on each query.          │
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>└─────────────────────────────────────────────────────────┘
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>┌─────────────────────────────────────────────────────────┐
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>│  ❓ &quot;Do you have black jeans or blue jeans?&quot;            │
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>│                                                         │
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>│  Agent must PLAN:                                       │
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>│    1. Check inventory for black jeans → 🟩 DB query     │
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>│    2. Check inventory for blue jeans  → 🟩 DB query     │
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>│    3. Respond to customer                               │
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>├─────────────────────────────────────────────────────────┤
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>│  ❓ &quot;I&#39;d like to return the beach towel I bought&quot;       │
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>│                                                         │
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>│  Agent must PLAN:                                       │
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>│    1. Verify customer actually bought towel → 🟩 DB     │
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>│    2. Check return policy (30 days? unused?) → 🟩 DB    │
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>│    3. If allowed:                                       │
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>│       a. Issue return packing slip  → 🟩 Tool           │
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>│       b. Set DB record to &quot;return pending&quot; → 🟩 DB      │
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>├─────────────────────────────────────────────────────────┤
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>│  ⚠️  Required steps NOT known ahead of time!            │
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>│  LLM must decide the plan based on each query.          │
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>└─────────────────────────────────────────────────────────┘
 </span></code></pre></div>
 <blockquote>
 <p>💡 <strong>Invoice = exam with fixed syllabus (steps pata hain). Customer service = open book exam (pata nahi kya aayega, agent ko khud soochna padega)! 📝</strong></p>
 </blockquote>
 <hr />
 <h2 id="example-4-visual-computer-use-cutting-edge">🔴 Example 4: Visual Computer Use (Cutting-Edge)<a class="headerlink" href="#example-4-visual-computer-use-cutting-edge" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph TB
-    U["👤 User:&lt;br/&gt;'Check if seats are&lt;br/&gt;available on these&lt;br/&gt;United flights'"] --&gt; A["🤖 Agent opens&lt;br/&gt;web browser"]
-    A --&gt; N["🌐 Navigate to&lt;br/&gt;United Airlines"]
-    N --&gt; F["📝 Fill in search&lt;br/&gt;fields, click buttons"]
-    F --&gt;|"Trouble on United site"| G["🌐 Switches to&lt;br/&gt;Google Flights"]
-    G --&gt; R["📊 Finds matching&lt;br/&gt;flights"]
-    R --&gt; B["🌐 Back to United&lt;br/&gt;to verify seats"]
-    B --&gt; D["✅ 'Yes, seats&lt;br/&gt;are available!'"]
-
-    style U fill:#f44336,color:#fff
-    style A fill:#999,color:#fff
-    style N fill:#4caf50,color:#fff
-    style G fill:#ff9800,color:#fff
-    style D fill:#2196f3,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>👤 User: &quot;Check if seats available on these United flights&quot;
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>                        │
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>                        ▼
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        🤖 Agent opens web browser ──► 🌐 Navigate to United Airlines
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>                                              │
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>                                              ▼
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>                                    📝 Fill search fields, click buttons
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>                                              │
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>                        Trouble on United ◄───┴───► 🌐 Google Flights (backup)
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>                                                          │
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>                                                          ▼
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>                                                    📊 Find matching flights
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>                                                          │
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>                                                          ▼
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>                                              🌐 Back to United to verify seats
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>                                                          │
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>                                                          ▼
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>                                              ✅ &quot;Yes, seats are available!&quot;
+</span></code></pre></div>
 <table>
 <thead>
 <tr>

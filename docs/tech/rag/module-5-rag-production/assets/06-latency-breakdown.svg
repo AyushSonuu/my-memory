@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 500">
+  <defs>
+    <linearGradient id="llmGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f44336"/>
+      <stop offset="100%" style="stop-color:#d32f2f"/>
+    </linearGradient>
+    <linearGradient id="rerankerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#f57c00"/>
+    </linearGradient>
+    <linearGradient id="rewriterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0"/>
+      <stop offset="100%" style="stop-color:#7b1fa2"/>
+    </linearGradient>
+    <linearGradient id="retrieverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#388e3c"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="850" height="500" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="425" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Latency Breakdown: Where Does Time Go?</text>
+  <text x="425" y="50" fill="#8b949e" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">Transformers = 95% of latency. Optimize LLM first! ⚡</text>
+
+  <!-- Vertical bar chart (stacked) -->
+  <g transform="translate(50, 100)">
+    <!-- Y-axis -->
+    <line x1="0" y1="0" x2="0" y2="320" stroke="#8b949e" stroke-width="2"/>
+    <text x="-10" y="5" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="end">100%</text>
+    <text x="-10" y="165" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="end">50%</text>
+    <text x="-10" y="325" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="end">0%</text>
+
+    <!-- X-axis -->
+    <line x1="0" y1="320" x2="750" y2="320" stroke="#8b949e" stroke-width="2"/>
+
+    <!-- Bar 1: LLM Generation (70-80%) -->
+    <rect x="50" y="64" width="120" height="256" rx="8" fill="url(#llmGrad)" filter="url(#shadow)"/>
+    <text x="110" y="190" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">LLM</text>
+    <text x="110" y="205" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Generation</text>
+    <text x="110" y="230" fill="#fff" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">70-80%</text>
+    <text x="110" y="245" fill="#ffcdd2" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">~2.8s</text>
+    <text x="110" y="360" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Biggest</text>
+    <text x="110" y="375" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Bottleneck</text>
+
+    <!-- Bar 2: Reranker (10-15%) -->
+    <rect x="220" y="272" width="120" height="48" rx="8" fill="url(#rerankerGrad)" filter="url(#shadow)"/>
+    <text x="280" y="298" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Reranker</text>
+    <text x="280" y="312" fill="#fff" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">10-15% (~0.5s)</text>
+    <text x="280" y="360" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Transformer</text>
+    <text x="280" y="375" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">(Cross-encoder)</text>
+
+    <!-- Bar 3: Query Rewriter (5-10%) -->
+    <rect x="390" y="288" width="120" height="32" rx="8" fill="url(#rewriterGrad)" filter="url(#shadow)"/>
+    <text x="450" y="306" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Query Rewriter</text>
+    <text x="450" y="318" fill="#fff" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">5-10% (~0.3s)</text>
+    <text x="450" y="360" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Small LLM</text>
+
+    <!-- Bar 4: Retriever (2-5%) -->
+    <rect x="560" y="304" width="120" height="16" rx="8" fill="url(#retrieverGrad)" filter="url(#shadow)"/>
+    <text x="620" y="315" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Retriever (2-5%, ~0.1s)</text>
+    <text x="620" y="360" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Vector Search</text>
+    <text x="620" y="375" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">(Fast!)</text>
+  </g>
+
+  <!-- Right side: Optimization Priority -->
+  <g transform="translate(480, 100)">
+    <rect width="320" height="320" rx="12" fill="#161b22" stroke="#2196f3" stroke-width="2" filter="url(#shadow)"/>
+
+    <text x="160" y="30" fill="#2196f3" font-family="Inter, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">⚡ Optimization Priority</text>
+
+    <!-- Step 1 -->
+    <g transform="translate(20, 60)">
+      <circle cx="15" cy="10" r="12" fill="#f44336"/>
+      <text x="15" y="15" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">1</text>
+      <text x="40" y="15" fill="#e6edf3" font-family="Inter, sans-serif" font-size="11" font-weight="bold">Core LLM</text>
+      <text x="40" y="32" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">• Use smaller/quantized model</text>
+      <text x="40" y="46" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">• Router LLM (smart routing)</text>
+      <text x="40" y="60" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">• Caching (repeated prompts)</text>
+    </g>
+
+    <!-- Step 2 -->
+    <g transform="translate(20, 140)">
+      <circle cx="15" cy="10" r="12" fill="#ff9800"/>
+      <text x="15" y="15" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">2</text>
+      <text x="40" y="15" fill="#e6edf3" font-family="Inter, sans-serif" font-size="11" font-weight="bold">Other Transformers</text>
+      <text x="40" y="32" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">• Remove query rewriter?</text>
+      <text x="40" y="46" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">• Simplify reranker?</text>
+      <text x="40" y="60" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">• Measure latency vs benefit</text>
+    </g>
+
+    <!-- Step 3 -->
+    <g transform="translate(20, 220)">
+      <circle cx="15" cy="10" r="12" fill="#4caf50"/>
+      <text x="15" y="15" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">3</text>
+      <text x="40" y="15" fill="#e6edf3" font-family="Inter, sans-serif" font-size="11" font-weight="bold">Retriever (if needed)</text>
+      <text x="40" y="32" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">• Binary quantization (1-bit)</text>
+      <text x="40" y="46" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">• Sharding (parallel search)</text>
+      <text x="40" y="60" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">• (Already fast!)</text>
+    </g>
+
+    <rect x="20" y="280" width="280" height="1" fill="#8b949e" opacity="0.3"/>
+    <text x="160" y="305" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" font-style="italic" text-anchor="middle">💡 Always measure quality drop after</text>
+    <text x="160" y="318" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" font-style="italic" text-anchor="middle">each optimization. Worth it? Deploy!</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="425" y="470" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">🎯 Key: LLM = 70-80% of latency. Start there! Retriever = already fast (2-5%), optimize last.</text>
+  <text x="425" y="490" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">⚠️ Context matters: E-commerce = optimize speed aggressively. Medical = quality &gt; speed.</text>
+</svg>

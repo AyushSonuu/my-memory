@@ -8731,15 +8731,21 @@
 </table>
 <hr />
 <h2 id="adding-testing-feature-replanning">🧪 Adding Testing (Feature Replanning)<a class="headerlink" href="#adding-testing-feature-replanning" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph LR
-    P["📝 State testing policy&lt;br/&gt;in a prompt"] --&gt; U["⚙️ Agent updates&lt;br/&gt;package.json"]
-    U --&gt; R["🔄 Tell agent: update&lt;br/&gt;existing specs + code"]
-    R --&gt; W["✍️ Tell agent:&lt;br/&gt;write the actual tests"]
-    W --&gt; D["🐛 Run under debugger&lt;br/&gt;(human in the loop)"]
-    D --&gt; C["✅ Commit"]
-
-    style P fill:#2196f3,color:#fff
-    style D fill:#ff9800,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌──────────────────────┐     ┌──────────────────────┐     ┌──────────────────────┐
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│  📝 State testing    │     │  ⚙️ Agent updates    │     │  🔄 Tell agent:      │
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│  policy in a prompt  │────►│  package.json        │────►│  update existing     │
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>└──────────────────────┘     └──────────────────────┘     │  specs + code        │
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>                                                          └───────────┬──────────┘
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                                                                      │
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                    ┌─────────────────────────────────────────────────┘
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>                    │
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                    ▼
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>┌──────────────────────┐     ┌──────────────────────┐     ┌──────────────────────┐
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│  ✍️ Tell agent:      │     │  🐛 Run under        │     │  ✅ Commit           │
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│  write the actual    │────►│  debugger (human     │────►│                      │
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│  tests               │     │  in the loop)        │     │                      │
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>└──────────────────────┘     └──────────────────────┘     └──────────────────────┘
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -8792,15 +8798,15 @@
 </tbody>
 </table>
 <h3 id="example-responsive-design">Example: Responsive Design<a class="headerlink" href="#example-responsive-design" title="Permanent link">#</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Product Manager: &quot;40% of users are on mobile → emphasize responsive design&quot;
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Prompt to agent:
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  - We want responsive design
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  - Correct product specs AND feature specs AND code
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Result: Agent updates not just code, but ALSO specs
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        → specs capture decisions, not just code
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        → keeps everything in sync for team communication
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Product Manager: &quot;40% of users are on mobile → emphasize responsive design&quot;
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Prompt to agent:
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  - We want responsive design
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  - Correct product specs AND feature specs AND code
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Result: Agent updates not just code, but ALSO specs
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        → specs capture decisions, not just code
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        → keeps everything in sync for team communication
 </span></code></pre></div>
 <hr />
 <h2 id="roadmap-revision-project-replanning">🗺️ Roadmap Revision (Project Replanning)<a class="headerlink" href="#roadmap-revision-project-replanning" title="Permanent link">#</a></h2>
@@ -8836,24 +8842,28 @@
 <hr />
 <h2 id="agent-skills-workflow-replanning">⚡ Agent Skills (Workflow Replanning)<a class="headerlink" href="#agent-skills-workflow-replanning" title="Permanent link">#</a></h2>
 <p><strong>Skills = packages of instructions + resources that give agents new capabilities.</strong></p>
-<pre class="mermaid"><code>graph TB
-    subgraph WHAT["What Are Skills?"]
-        DEF["Definable, repeatable workflows"]
-        CTX["Context specific to your&lt;br/&gt;project or organization"]
-    end
-
-    subgraph EXAMPLES["Example Skills"]
-        CL["📋 Changelog updater&lt;br/&gt;(stakeholder comms)"]
-        VAL["✅ Validation skill&lt;br/&gt;(README, lint, format, tests)"]
-    end
-
-    subgraph SCOPE["Scope Choice"]
-        LOCAL["📁 Project-specific"]
-        GLOBAL["🌐 Global&lt;br/&gt;(usable across all projects)"]
-    end
-
-    WHAT --&gt; EXAMPLES
-    EXAMPLES --&gt; SCOPE</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>┌─────────────────────────────────────────────────────────────────────────────┐
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>│                            What Are Skills?                                 │
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>│  • Definable, repeatable workflows                                          │
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│  • Context specific to your project or organization                         │
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>└────────────────────────────────────┬────────────────────────────────────────┘
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>                                     │
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>                                     ▼
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>┌─────────────────────────────────────────────────────────────────────────────┐
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>│                           Example Skills                                    │
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>│                                                                             │
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>│  📋 Changelog updater                    ✅ Validation skill                │
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>│  (stakeholder comms)                     (README, lint, format, tests)      │
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>└────────────────────────────────────┬────────────────────────────────────────┘
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>                                     │
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>                                     ▼
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>┌─────────────────────────────────────────────────────────────────────────────┐
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>│                            Scope Choice                                     │
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>│                                                                             │
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>│        📁 Project-specific            │           🌐 Global                 │
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>│        (this project only)            │    (usable across all projects)    │
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>└─────────────────────────────────────────────────────────────────────────────┘
+</span></code></pre></div>
 <table>
 <thead>
 <tr>

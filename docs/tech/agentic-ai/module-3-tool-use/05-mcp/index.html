@@ -8697,26 +8697,14 @@
 </blockquote>
 <hr />
 <h2 id="architecture-clients-servers">🏗️ Architecture: Clients &amp; Servers<a class="headerlink" href="#architecture-clients-servers" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph LR
-    subgraph CLIENTS ["🖥️ MCP Clients (Apps)"]
-        C1["Cursor"]
-        C2["Claude Desktop"]
-        C3["Windsurf"]
-        C4["Your App"]
-    end
-
-    subgraph SERVERS ["🔧 MCP Servers (Tool Providers)"]
-        S1["Slack"]
-        S2["GitHub"]
-        S3["Google Drive"]
-        S4["PostgreSQL"]
-        S5["Your Server"]
-    end
-
-    C1 &amp; C2 &amp; C3 &amp; C4 ---|"MCP&lt;br/&gt;Protocol"| S1 &amp; S2 &amp; S3 &amp; S4 &amp; S5
-
-    style C4 fill:#2196f3,color:#fff
-    style S5 fill:#9c27b0,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>🖥️ MCP Clients (Apps)           MCP Protocol           🔧 MCP Servers (Tool Providers)
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>─────────────────────           ────────────           ──────────────────────────────
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    Cursor          ─────┐                      ┌───── Slack
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    Claude Desktop  ─────┼───── MCP Protocol ──┼───── GitHub
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    Windsurf        ─────┤                      ├───── Google Drive
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    Your App        ─────┘                      ├───── PostgreSQL
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>                                                └───── Your Server
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -8775,20 +8763,30 @@
 <hr />
 <h2 id="live-example-claude-desktop-github-mcp">💡 Live Example: Claude Desktop + GitHub MCP<a class="headerlink" href="#live-example-claude-desktop-github-mcp" title="Permanent link">#</a></h2>
 <p>From the course demo (PDF page 22):</p>
-<pre class="mermaid"><code>sequenceDiagram
-    participant U as 👤 User
-    participant CD as 🖥️ Claude Desktop&lt;br/&gt;(MCP Client)
-    participant GH as 🐙 GitHub MCP Server
-
-    U-&gt;&gt;CD: "Summarize the README.md from&lt;br/&gt;github.com/andrewyng/aisuite"
-    CD-&gt;&gt;GH: get_file(repo="aisuite",&lt;br/&gt;path="README.md")
-    GH--&gt;&gt;CD: [full README content]
-    CD-&gt;&gt;U: "aisuite is a unified interface&lt;br/&gt;for multiple LLM providers..."
-
-    U-&gt;&gt;CD: "What are the latest PRs?"
-    CD-&gt;&gt;GH: list_pull_requests(repo="aisuite",&lt;br/&gt;sort="updated", limit=20)
-    GH--&gt;&gt;CD: [PR list with titles, authors, dates]
-    CD-&gt;&gt;U: "Here are the 20 latest PRs:..."</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>👤 User: &quot;Summarize the README.md from github.com/andrewyng/aisuite&quot;
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>            │
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>            ▼
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    🖥️ Claude Desktop (MCP Client) ──► 🐙 GitHub MCP Server
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>                                        get_file(repo=&quot;aisuite&quot;, path=&quot;README.md&quot;)
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>                                              │
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>                                              ▼
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>                                        [full README content]
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>                                              │
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>                                              ▼
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    👤 User ◄──&quot;aisuite is a unified interface for multiple LLM providers...&quot;
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>👤 User: &quot;What are the latest PRs?&quot;
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>            │
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>            ▼
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    🖥️ Claude Desktop ──► 🐙 GitHub MCP Server
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>                          list_pull_requests(repo=&quot;aisuite&quot;, sort=&quot;updated&quot;, limit=20)
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>                                │
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>                                ▼
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>                          [PR list with titles, authors, dates]
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>                                │
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>                                ▼
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>    👤 User ◄──&quot;Here are the 20 latest PRs:...&quot;
+</span></code></pre></div>
 <p><strong>Two different requests → two different tools on the same MCP server.</strong> The LLM decides which tool to call based on the query — same pattern as Lesson 01!</p>
 <hr />
 <h2 id="the-mn-mn-math">📐 The M×N → M+N Math<a class="headerlink" href="#the-mn-mn-math" title="Permanent link">#</a></h2>
@@ -8828,17 +8826,10 @@
 </blockquote>
 <hr />
 <h2 id="module-3-complete-tool-use-recap">🗺️ Module 3 Complete — Tool Use Recap<a class="headerlink" href="#module-3-complete-tool-use-recap" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph TD
-    L1["01 · What Are Tools?&lt;br/&gt;&lt;i&gt;LLM chooses tools&lt;br/&gt;at runtime&lt;/i&gt;"] --&gt; L2["02 · Creating a Tool&lt;br/&gt;&lt;i&gt;aisuite, docstrings,&lt;br/&gt;auto JSON schema&lt;/i&gt;"]
-    L2 --&gt; L3["03 · Tool Syntax&lt;br/&gt;&lt;i&gt;JSON schema&lt;br/&gt;deep dive&lt;/i&gt;"]
-    L3 --&gt; L4["04 · Code Execution&lt;br/&gt;&lt;i&gt;The meta-tool,&lt;br/&gt;sandboxing&lt;/i&gt;"]
-    L4 --&gt; L5["05 · MCP&lt;br/&gt;&lt;i&gt;M×N → M+N,&lt;br/&gt;shared ecosystem&lt;/i&gt;"]
-
-    style L1 fill:#4caf50,color:#fff
-    style L2 fill:#4caf50,color:#fff
-    style L3 fill:#4caf50,color:#fff
-    style L4 fill:#4caf50,color:#fff
-    style L5 fill:#4caf50,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>01 · What Are Tools? ──► 02 · Creating a Tool ──► 03 · Tool Syntax ──► 04 · Code Execution ──► 05 · MCP
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>(LLM chooses tools      (aisuite, docstrings,    (JSON schema         (The meta-tool,        (M×N → M+N,
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a> at runtime)             auto JSON schema)        deep dive)           sandboxing)            shared ecosystem)
+</span></code></pre></div>
 <p><strong>Andrew Ng's teaser for Module 4:</strong> <em>"The next module — evaluations and error analysis — is maybe the most important module of this entire course."</em> 🔥</p>
 <hr />
 <h2 id="gotchas">⚠️ Gotchas<a class="headerlink" href="#gotchas" title="Permanent link">#</a></h2>

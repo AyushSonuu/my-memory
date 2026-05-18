@@ -8495,18 +8495,22 @@
 </blockquote>
 <hr />
 <h2 id="brain-how-this-connects">🧠 Brain — How This Connects<a class="headerlink" href="#brain-how-this-connects" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph LR
-    M3(("M3 · Tool Use"))
-    M3 --&gt;|"provides"| AS["aisuite&lt;br/&gt;Unified API"]
-    M3 --&gt;|"enables"| CE["Code Execution&lt;br/&gt;Meta-tool"]
-    M3 --&gt;|"standard"| MCP["MCP&lt;br/&gt;M×N → M+N"]
-    M3 -.-&gt;|"uses"| M2["M2 · Reflection&lt;br/&gt;(error → retry)"]
-    M3 -.-&gt;|"feeds into"| M4["M4 · Practical Tips"]
-
-    style M3 fill:#ff9800,color:#fff
-    style AS fill:#4caf50,color:#fff
-    style CE fill:#4caf50,color:#fff
-    style MCP fill:#4caf50,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>                    M3 · Tool Use
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>                          │
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    ┌─────────────────────┼─────────────────────┐
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    │                     │                     │
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    ▼                     ▼                     ▼
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>aisuite            Code Execution            MCP
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Unified API         Meta-tool           M×N → M+N
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    │                     │                     │
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    └─────────────────────┼─────────────────────┘
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                          │
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>            ┌─────────────┴─────────────┐
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>            │                           │
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>            ▼                           ▼
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>   M2 · Reflection              M4 · Practical Tips
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>   (error → retry)                  (next)
+</span></code></pre></div>
 <h2 id="progress">📊 Progress<a class="headerlink" href="#progress" title="Permanent link">#</a></h2>
 <table>
 <thead>

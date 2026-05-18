@@ -8665,18 +8665,16 @@
 </blockquote>
 <hr />
 <h2 id="the-four-patterns-at-a-glance">🖼️ The Four Patterns At A Glance<a class="headerlink" href="#the-four-patterns-at-a-glance" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph TB
-    CENTER(("🎨 Design&lt;br/&gt;Patterns"))
-    CENTER --&gt; R["🪞 &lt;b&gt;Reflection&lt;/b&gt;&lt;br/&gt;LLM critiques its&lt;br/&gt;own output &amp; iterates"]
-    CENTER --&gt; T["🔧 &lt;b&gt;Tool Use&lt;/b&gt;&lt;br/&gt;LLM calls functions&lt;br/&gt;to get work done"]
-    CENTER --&gt; P["📋 &lt;b&gt;Planning&lt;/b&gt;&lt;br/&gt;LLM decides what&lt;br/&gt;steps to take"]
-    CENTER --&gt; M["👥 &lt;b&gt;Multi-Agent&lt;/b&gt;&lt;br/&gt;Specialized agents&lt;br/&gt;collaborate on tasks"]
-
-    style CENTER fill:#ff9800,color:#fff
-    style R fill:#4caf50,color:#fff
-    style T fill:#2196f3,color:#fff
-    style P fill:#9c27b0,color:#fff
-    style M fill:#e91e63,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>                    🎨 Design Patterns
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>                          │
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        ┌─────────────────┼─────────────────┐
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        │                 │                 │
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        ▼                 ▼                 ▼
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>   🪞 Reflection    🔧 Tool Use       📋 Planning      👥 Multi-Agent
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>   LLM critiques    LLM calls         LLM decides      Specialized agents
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>   its own output   functions to      what steps       collaborate on
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>   &amp; iterates       get work done     to take          tasks
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -8719,17 +8717,10 @@
 <hr />
 <h2 id="pattern-1-reflection">🪞 Pattern 1: Reflection<a class="headerlink" href="#pattern-1-reflection" title="Permanent link">#</a></h2>
 <p>LLM generates output → critiques it → improves based on critique → repeat.</p>
-<pre class="mermaid"><code>graph LR
-    G["🤖 LLM generates&lt;br/&gt;code (v1)"] --&gt; C["🔍 LLM critiques:&lt;br/&gt;&lt;i&gt;'Check for correctness,&lt;br/&gt;style, efficiency'&lt;/i&gt;"]
-    C --&gt; F["🐛 Finds bugs&lt;br/&gt;&amp; suggests fixes"]
-    F --&gt; G2["🤖 LLM fixes code&lt;br/&gt;(v2)"]
-    G2 --&gt;|"+ run code, get errors"| G3["🤖 LLM fixes again&lt;br/&gt;(v3, even better)"]
-
-    style G fill:#f44336,color:#fff
-    style C fill:#ff9800,color:#fff
-    style F fill:#9c27b0,color:#fff
-    style G2 fill:#4caf50,color:#fff
-    style G3 fill:#4caf50,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>🤖 LLM generates ──► 🔍 LLM critiques: ──► 🐛 Finds bugs ──► 🤖 LLM fixes ──► + run code, ──► 🤖 LLM fixes
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>   code (v1)          &quot;Check correctness,     &amp; suggests       code (v2)      get errors      again (v3)
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>                       style, efficiency&quot;      fixes
+</span></code></pre></div>
 <p><strong>How it works in practice:</strong></p>
 <table>
 <thead>
@@ -8766,21 +8757,21 @@
 <hr />
 <h2 id="pattern-2-tool-use">🔧 Pattern 2: Tool Use<a class="headerlink" href="#pattern-2-tool-use" title="Permanent link">#</a></h2>
 <p>LLM can call <strong>functions</strong> (tools) to interact with the outside world.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────────────────────────────────────────────────────┐
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│  🤖 LLM                                                     │
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│                                                              │
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│  &quot;What&#39;s the best coffee maker?&quot;                             │
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│       ↓                                                      │
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│  🔧 Calls: web_search(&quot;best coffee maker reviews 2026&quot;)     │
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│       ↓                                                      │
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│  📊 Gets results → synthesizes answer                        │
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│                                                              │
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│  &quot;If I invest $100 at 5% for 10 years?&quot;                     │
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│       ↓                                                      │
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│  💻 Calls: execute_code(&quot;100 * 1.05**10&quot;)                   │
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│       ↓                                                      │
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│  📊 Computes: $162.89                                        │
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>└─────────────────────────────────────────────────────────────┘
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>┌─────────────────────────────────────────────────────────────┐
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>│  🤖 LLM                                                     │
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>│                                                              │
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│  &quot;What&#39;s the best coffee maker?&quot;                             │
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>│       ↓                                                      │
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>│  🔧 Calls: web_search(&quot;best coffee maker reviews 2026&quot;)     │
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│       ↓                                                      │
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>│  📊 Gets results → synthesizes answer                        │
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>│                                                              │
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>│  &quot;If I invest $100 at 5% for 10 years?&quot;                     │
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>│       ↓                                                      │
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>│  💻 Calls: execute_code(&quot;100 * 1.05**10&quot;)                   │
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>│       ↓                                                      │
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>│  📊 Computes: $162.89                                        │
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>└─────────────────────────────────────────────────────────────┘
 </span></code></pre></div>
 <p><strong>What tools are available?</strong></p>
 <table>
@@ -8813,16 +8804,17 @@
 <hr />
 <h2 id="pattern-3-planning">📋 Pattern 3: Planning<a class="headerlink" href="#pattern-3-planning" title="Permanent link">#</a></h2>
 <p>Instead of the developer hardcoding the steps, the <strong>LLM itself decides</strong> what sequence of actions to take.</p>
-<pre class="mermaid"><code>graph TD
-    USER["👤 'Generate an image of a girl&lt;br/&gt;reading a book in the same&lt;br/&gt;pose as this boy, then&lt;br/&gt;describe it in voice'"] --&gt; LLM["🤖 LLM Plans:"]
-    LLM --&gt; S1["1️⃣ Pose detection&lt;br/&gt;&lt;i&gt;(openpose model)&lt;/i&gt;"]
-    S1 --&gt; S2["2️⃣ Pose-to-Image&lt;br/&gt;&lt;i&gt;(google/vit model)&lt;/i&gt;"]
-    S2 --&gt; S3["3️⃣ Image-to-text&lt;br/&gt;&lt;i&gt;(vit-gpt2 model)&lt;/i&gt;"]
-    S3 --&gt; S4["4️⃣ Text-to-speech&lt;br/&gt;&lt;i&gt;(fastspeech model)&lt;/i&gt;"]
-
-    style USER fill:#f44336,color:#fff
-    style LLM fill:#ff9800,color:#fff
-    style S4 fill:#4caf50,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>👤 &quot;Generate an image of a girl reading a book in same pose as this boy, then describe in voice&quot;
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>                                    │
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>                                    ▼
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>                            🤖 LLM Plans:
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>                                    │
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        ┌───────────────────────────┼───────────────────────────┐
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        │                           │                           │
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>        ▼                           ▼                           ▼
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  1️⃣ Pose detection         2️⃣ Pose-to-Image          3️⃣ Image-to-text        4️⃣ Text-to-speech
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  (openpose model)           (google/vit model)         (vit-gpt2 model)         (fastspeech model)
+</span></code></pre></div>
 <p><em>Example from the <a href="https://arxiv.org/abs/2303.17580">HuggingGPT paper</a> (Shen et al., 2023) — the LLM orchestrates multiple specialized Hugging Face models.</em></p>
 <p><strong>Key difference from Task Decomposition:</strong>
 - In Task Decomposition (Lesson 06): <strong>you</strong> (the developer) decide the steps
@@ -8833,23 +8825,12 @@
 <hr />
 <h2 id="pattern-4-multi-agent-collaboration">👥 Pattern 4: Multi-Agent Collaboration<a class="headerlink" href="#pattern-4-multi-agent-collaboration" title="Permanent link">#</a></h2>
 <p>Multiple LLM "agents" — each prompted with a different role/persona — work together on a task.</p>
-<pre class="mermaid"><code>graph LR
-    subgraph TEAM ["👥 Virtual Team"]
-        R["🔬 Researcher&lt;br/&gt;&lt;i&gt;Does online research&lt;/i&gt;"]
-        W["✍️ Marketer&lt;br/&gt;&lt;i&gt;Writes marketing copy&lt;/i&gt;"]
-        E["📝 Editor&lt;br/&gt;&lt;i&gt;Edits &amp; polishes&lt;/i&gt;"]
-    end
-
-    TASK["📋 Write a&lt;br/&gt;marketing brochure"] --&gt; R
-    R --&gt;|"research findings"| W
-    W --&gt;|"draft copy"| E
-    E --&gt; OUTPUT["✅ Polished&lt;br/&gt;brochure"]
-
-    style TASK fill:#f44336,color:#fff
-    style R fill:#2196f3,color:#fff
-    style W fill:#ff9800,color:#fff
-    style E fill:#9c27b0,color:#fff
-    style OUTPUT fill:#4caf50,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>                    👥 Virtual Team
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>                    ──────────────
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>📋 Task: Write a ──► 🔬 Researcher ──► ✍️ Marketer ──► 📝 Editor ──► ✅ Polished brochure
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>marketing brochure   (Does online     (Writes         (Edits &amp;
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>                      research)        marketing copy)  polishes)
+</span></code></pre></div>
 <p><strong>Real-world example: ChatDev</strong> (by Chen Qian et al.)
 - A virtual software company with agents playing different roles:</p>
 <table>

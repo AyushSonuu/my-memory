@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f44336"/>
+      <stop offset="100%" style="stop-color:#d32f2f"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#388e3c"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196f3"/>
+      <stop offset="100%" style="stop-color:#1976d2"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0"/>
+      <stop offset="100%" style="stop-color:#7b1fa2"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#f57c00"/>
+    </linearGradient>
+    <linearGradient id="grayGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6b7280"/>
+      <stop offset="100%" style="stop-color:#4b5563"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="400" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">How to Address Problems: Two Playbooks</text>
+
+  <!-- Starting point -->
+  <rect x="320" y="50" width="160" height="45" rx="6" fill="url(#redGrad)" filter="url(#shadow)"/>
+  <text x="400" y="70" fill="#fff" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Error Analysis Found:</text>
+  <text x="400" y="85" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Component X is the problem</text>
+
+  <!-- Split arrow -->
+  <line x1="400" y1="95" x2="400" y2="115" stroke="#8b949e" stroke-width="2"/>
+  <text x="400" y="130" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">What type?</text>
+
+  <!-- Left branch: Non-LLM -->
+  <line x1="400" y1="140" x2="200" y2="170" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="200,170 212,165 210,178" fill="#8b949e"/>
+
+  <!-- Right branch: LLM -->
+  <line x1="400" y1="140" x2="600" y2="170" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="600,170 588,165 590,178" fill="#8b949e"/>
+
+  <!-- Non-LLM Section -->
+  <rect x="30" y="175" width="340" height="290" rx="8" fill="#161b22" stroke="#2196f3" stroke-width="2"/>
+  <text x="200" y="200" fill="#2196f3" font-family="Inter, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Non-LLM Components</text>
+  <text x="200" y="218" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">(Web search, RAG, ML models, code execution)</text>
+
+  <!-- Non-LLM Strategy 1 -->
+  <rect x="50" y="235" width="140" height="65" rx="6" fill="url(#blueGrad)" filter="url(#shadow)"/>
+  <text x="120" y="258" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">1. Tune</text>
+  <text x="120" y="273" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Hyperparameters</text>
+  <text x="120" y="290" fill="#bbdefb" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">(First try)</text>
+
+  <!-- Examples for tuning -->
+  <rect x="200" y="235" width="155" height="65" fill="#21262d" rx="4"/>
+  <text x="277" y="252" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Web search: num results, date</text>
+  <text x="277" y="267" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">RAG: chunk size, threshold</text>
+  <text x="277" y="282" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">ML: detection threshold</text>
+
+  <!-- Arrow down -->
+  <line x1="120" y1="305" x2="120" y2="320" stroke="#8b949e" stroke-width="2"/>
+  <text x="145" y="318" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">No?</text>
+  <polygon points="120,320 114,310 126,310" fill="#8b949e"/>
+
+  <!-- Non-LLM Strategy 2 -->
+  <rect x="50" y="325" width="140" height="65" rx="6" fill="url(#blueGrad)" filter="url(#shadow)"/>
+  <text x="120" y="348" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">2. Replace</text>
+  <text x="120" y="363" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Component</text>
+  <text x="120" y="380" fill="#bbdefb" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">(Different provider)</text>
+
+  <!-- Examples for replace -->
+  <rect x="200" y="325" width="155" height="65" fill="#21262d" rx="4"/>
+  <text x="277" y="342" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Google → Bing → DuckDuckGo</text>
+  <text x="277" y="357" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Different RAG provider</text>
+  <text x="277" y="372" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Different ML model</text>
+
+  <!-- Success -->
+  <rect x="50" y="410" width="305" height="35" rx="4" fill="#21262d" stroke="#4caf50"/>
+  <text x="202" y="432" fill="#4caf50" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Run E2E eval to confirm improvement</text>
+
+  <!-- LLM Section -->
+  <rect x="430" y="175" width="340" height="290" rx="8" fill="#161b22" stroke="#9c27b0" stroke-width="2"/>
+  <text x="600" y="200" fill="#9c27b0" font-family="Inter, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">LLM Components</text>
+  <text x="600" y="218" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">(Prompting, reasoning, generation)</text>
+
+  <!-- LLM Strategy 1 -->
+  <rect x="450" y="235" width="130" height="45" rx="6" fill="url(#purpleGrad)" filter="url(#shadow)"/>
+  <text x="515" y="255" fill="#fff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">1. Improve Prompts</text>
+  <text x="515" y="270" fill="#ce93d8" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Few-shot, explicit instructions</text>
+
+  <rect x="590" y="235" width="165" height="45" fill="#21262d" rx="4"/>
+  <text x="672" y="255" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Cheapest & fastest</text>
+  <text x="672" y="270" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Always try first!</text>
+
+  <!-- Arrow -->
+  <line x1="515" y1="285" x2="515" y2="295" stroke="#8b949e" stroke-width="1"/>
+  <text x="535" y="295" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">No?</text>
+
+  <!-- LLM Strategy 2 -->
+  <rect x="450" y="300" width="130" height="45" rx="6" fill="url(#purpleGrad)" filter="url(#shadow)"/>
+  <text x="515" y="320" fill="#fff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">2. Try New Model</text>
+  <text x="515" y="335" fill="#ce93d8" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Use aisuite, compare with evals</text>
+
+  <!-- Arrow -->
+  <line x1="515" y1="350" x2="515" y2="360" stroke="#8b949e" stroke-width="1"/>
+  <text x="535" y="360" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">No?</text>
+
+  <!-- LLM Strategy 3 -->
+  <rect x="450" y="365" width="130" height="45" rx="6" fill="url(#purpleGrad)" filter="url(#shadow)"/>
+  <text x="515" y="385" fill="#fff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">3. Split Up Step</text>
+  <text x="515" y="400" fill="#ce93d8" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Decompose into smaller calls</text>
+
+  <!-- Arrow -->
+  <line x1="515" y1="415" x2="515" y2="425" stroke="#8b949e" stroke-width="1"/>
+  <text x="535" y="425" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">No?</text>
+
+  <!-- LLM Strategy 4 -->
+  <rect x="450" y="430" width="130" height="45" rx="6" fill="url(#orangeGrad)" filter="url(#shadow)"/>
+  <text x="515" y="450" fill="#fff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">4. Fine-Tune</text>
+  <text x="515" y="465" fill="#ffe0b2" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Train on your data</text>
+
+  <rect x="590" y="430" width="165" height="45" fill="#21262d" rx="4"/>
+  <text x="672" y="450" fill="#f44336" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">LAST RESORT</text>
+  <text x="672" y="465" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Expensive, complex</text>
+</svg>

@@ -8765,24 +8765,47 @@
 </blockquote>
 <hr />
 <h2 id="the-full-feature-cycle-second-time">🖼️ The Full Feature Cycle (Second Time)<a class="headerlink" href="#the-full-feature-cycle-second-time" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph TB
-    subgraph PREP["🧘 Flow State Check"]
-        Q1["Unfinished work?"]
-        Q2["Last branch merged?"]
-        Q3["Next roadmap item correct?"]
-        Q4["Agent context cleared?"]
-    end
-
-    PREP --&gt; SPEC["📝 Feature Spec&lt;br/&gt;(agent drafts, you review)"]
-    SPEC --&gt; IMPL["⚙️ Implement&lt;br/&gt;(all at once or in parts)"]
-    IMPL --&gt; REVIEW["🔍 In-depth Review&lt;br/&gt;(high-level focus)"]
-    REVIEW --&gt; VAL["✅ Validate&lt;br/&gt;(tests + debugger + sub-agents)"]
-    VAL --&gt; COMMIT["📋 Commit + Changelog"]
-    COMMIT --&gt; REPLAN["🔄 Quick Replan&lt;br/&gt;(check roadmap)"]
-
-    style PREP fill:#9c27b0,color:#fff
-    style REVIEW fill:#ff9800,color:#fff
-    style VAL fill:#e91e63,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────────────────────────────────────────────────────────────────────┐
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│                         🧘 Flow State Check                                 │
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│  ☐ Unfinished work?    ☐ Last branch merged?    ☐ Next roadmap correct?    │
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│  ☐ Agent context cleared?                                                   │
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>└────────────────────────────────────┬────────────────────────────────────────┘
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                                     │
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                                     ▼
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>                    ┌────────────────────────────────┐
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                    │  📝 Feature Spec               │
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                    │  (agent drafts, you review)    │
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>                    └────────────────┬───────────────┘
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>                                     │
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>                                     ▼
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>                    ┌────────────────────────────────┐
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>                    │  ⚙️ Implement                  │
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>                    │  (all at once or in parts)     │
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>                    └────────────────┬───────────────┘
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>                                     │
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>                                     ▼
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>                    ┌────────────────────────────────┐
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>                    │  🔍 In-depth Review            │
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>                    │  (high-level focus)            │
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>                    └────────────────┬───────────────┘
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>                                     │
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>                                     ▼
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>                    ┌────────────────────────────────┐
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>                    │  ✅ Validate                   │
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>                    │  (tests + debugger + sub-agents)│
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>                    └────────────────┬───────────────┘
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>                                     │
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>                                     ▼
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>                    ┌────────────────────────────────┐
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>                    │  📋 Commit + Changelog         │
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>                    └────────────────┬───────────────┘
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>                                     │
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>                                     ▼
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>                    ┌────────────────────────────────┐
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>                    │  🔄 Quick Replan               │
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>                    │  (check roadmap)               │
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>                    └────────────────────────────────┘
+</span></code></pre></div>
 <blockquote>
 <p>💡 <em>Har feature ke pehle "saans lo" — clean slate se shuru karo, nahi toh AI fatigue maar degi!</em> 😤</p>
 </blockquote>
@@ -8812,20 +8835,20 @@
 </tbody>
 </table>
 <h3 id="the-cure-clean-breaks-between-features">The Cure: Clean Breaks Between Features<a class="headerlink" href="#the-cure-clean-breaks-between-features" title="Permanent link">#</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────────────────────────────────┐
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│  🧘 FLOW STATE CHECKLIST (before start) │
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│                                         │
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│  ☐ Unfinished work cleared?             │
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│  ☐ Last feature branch merged to main?  │
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│  ☐ Next roadmap item still correct?     │
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│  ☐ Agent context /clear&#39;d?              │
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│    → Specs capture intent,              │
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│      NOT memory snapshots               │
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│    → Focus limited context budget       │
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│      on NEXT work only                  │
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│                                         │
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│  Take a moment to start well.           │
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>└─────────────────────────────────────────┘
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌─────────────────────────────────────────┐
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│  🧘 FLOW STATE CHECKLIST (before start) │
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│                                         │
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│  ☐ Unfinished work cleared?             │
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│  ☐ Last feature branch merged to main?  │
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│  ☐ Next roadmap item still correct?     │
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│  ☐ Agent context /clear&#39;d?              │
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│    → Specs capture intent,              │
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│      NOT memory snapshots               │
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│    → Focus limited context budget       │
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│      on NEXT work only                  │
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>│                                         │
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>│  Take a moment to start well.           │
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>└─────────────────────────────────────────┘
 </span></code></pre></div>
 <hr />
 <h2 id="feature-spec-phase">📝 Feature Spec Phase<a class="headerlink" href="#feature-spec-phase" title="Permanent link">#</a></h2>
@@ -8917,13 +8940,12 @@
 <p>You are <strong>evolving the spec</strong> as you discover new details. Capturing those discoveries leads to better future results. The spec is a living document.</p>
 <hr />
 <h2 id="validation-three-layers-deep">✅ Validation: Three Layers Deep<a class="headerlink" href="#validation-three-layers-deep" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph LR
-    L1["🏃 Run the app&lt;br/&gt;(visual check)"] --&gt; L2["🧪 Run tests&lt;br/&gt;under debugger&lt;br/&gt;(understand the flow)"]
-    L2 --&gt; L3["🤖 Sub-agent&lt;br/&gt;deep review&lt;br/&gt;(catch what you missed)"]
-
-    style L1 fill:#4caf50,color:#fff
-    style L2 fill:#2196f3,color:#fff
-    style L3 fill:#e91e63,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>┌────────────────────┐     ┌────────────────────┐     ┌────────────────────┐
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>│  🏃 Run the app    │     │  🧪 Run tests      │     │  🤖 Sub-agent      │
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>│  (visual check)    │────►│  under debugger    │────►│  deep review       │
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│                    │     │  (understand flow) │     │  (catch missed)    │
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>└────────────────────┘     └────────────────────┘     └────────────────────┘
+</span></code></pre></div>
 <table>
 <thead>
 <tr>

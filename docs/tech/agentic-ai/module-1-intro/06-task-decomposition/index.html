@@ -8809,24 +8809,24 @@
 </blockquote>
 <hr />
 <h2 id="the-core-idea">🖼️ The Core Idea<a class="headerlink" href="#the-core-idea" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph LR
-    BIG["🧑‍💼 Complex Task&lt;br/&gt;&lt;i&gt;(what a human does)&lt;/i&gt;"] --&gt; Q{"Can ONE LLM&lt;br/&gt;call handle it?"}
-    Q --&gt;|"Yes ✅"| DONE["Done — use&lt;br/&gt;direct generation"]
-    Q --&gt;|"No / Not well enough"| D["✂️ Decompose into&lt;br/&gt;discrete steps"]
-    D --&gt; C1["Step 1"]
-    D --&gt; C2["Step 2"]
-    D --&gt; C3["Step 3"]
-    C1 --&gt; V{"Each step doable&lt;br/&gt;by LLM or tool?"}
-    C2 --&gt; V
-    C3 --&gt; V
-    V --&gt;|"Yes ✅"| BUILD["Build the&lt;br/&gt;agentic workflow"]
-    V --&gt;|"No ❌"| FURTHER["Decompose that&lt;br/&gt;step further ♻️"]
-    FURTHER --&gt; D
-
-    style BIG fill:#f44336,color:#fff
-    style D fill:#ff9800,color:#fff
-    style BUILD fill:#4caf50,color:#fff
-    style FURTHER fill:#9c27b0,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>🧑‍💼 Complex Task ──► Can ONE LLM call handle it?
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>(what a human does)        │
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>                      Yes ─┴─ No/Not well
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>                       │         │
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>                       ▼         ▼
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>              Done — use   ✂️ Decompose into discrete steps
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>              direct          │      │      │
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>              generation   Step 1  Step 2  Step 3
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                              │      │      │
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                              ▼      ▼      ▼
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>                         Each step doable by LLM or tool?
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>                              │
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>                         Yes ─┴─ No
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>                          │      │
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>                          ▼      ▼
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>                       Build   Decompose that step further ♻️
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>                       workflow    (loop back)
+</span></code></pre></div>
 <blockquote>
 <p>💡 <strong>Task decomposition = recipe banana. Complex dish ko steps mein todna taaki har step ek tool ya LLM kar sake. Agar koi step bada lage? Usse aur tod do! 🍳</strong></p>
 </blockquote>
@@ -8859,18 +8859,16 @@
 <h2 id="example-1-research-agent-the-iterative-journey">🔬 Example 1: Research Agent (The Iterative Journey)<a class="headerlink" href="#example-1-research-agent-the-iterative-journey" title="Permanent link">#</a></h2>
 <p>This is the best example of how decomposition <strong>evolves through iteration</strong> — you don't nail it on the first try.</p>
 <h3 id="attempt-1-direct-generation-one-shot">Attempt 1 — Direct Generation (One Shot)<a class="headerlink" href="#attempt-1-direct-generation-one-shot" title="Permanent link">#</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌───────────────────────────────────┐
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│  &quot;Write an essay on topic X&quot;  →  LLM  →  📄 Output
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>└───────────────────────────────────┘
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌───────────────────────────────────┐
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│  &quot;Write an essay on topic X&quot;  →  LLM  →  📄 Output
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>└───────────────────────────────────┘
 </span></code></pre></div>
 <p><strong>Problem:</strong> Output is surface-level — covers obvious facts, lacks depth. Like asking someone to write an essay without doing any research first.</p>
 <h3 id="attempt-2-three-step-workflow">Attempt 2 — Three-Step Workflow<a class="headerlink" href="#attempt-2-three-step-workflow" title="Permanent link">#</a></h3>
-<pre class="mermaid"><code>graph LR
-    S1["📝 &lt;b&gt;Step 1&lt;/b&gt;&lt;br/&gt;Write essay outline&lt;br/&gt;&lt;i&gt;(LLM)&lt;/i&gt;"] --&gt; S2["🔍 &lt;b&gt;Step 2&lt;/b&gt;&lt;br/&gt;Search the web&lt;br/&gt;&lt;i&gt;(LLM → search tool)&lt;/i&gt;"] --&gt; S3["✍️ &lt;b&gt;Step 3&lt;/b&gt;&lt;br/&gt;Write essay using&lt;br/&gt;search results&lt;br/&gt;&lt;i&gt;(LLM)&lt;/i&gt;"]
-
-    style S1 fill:#4caf50,color:#fff
-    style S2 fill:#2196f3,color:#fff
-    style S3 fill:#ff9800,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>📝 Step 1          🔍 Step 2              ✍️ Step 3
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Write outline  ──► Search the web    ──► Write essay using
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>(LLM)              (LLM → search tool)    search results (LLM)
+</span></code></pre></div>
 <p><strong>Checklist:</strong> Can each step be done?
 - Step 1: LLM can write a decent outline ✅
 - Step 2: LLM can generate search terms → web search tool ✅<br />
@@ -8878,14 +8876,10 @@
 <p><strong>Problem:</strong> Better, but the essay felt <strong>disjointed</strong> — the beginning didn't feel consistent with the middle and end. (Andrew Ng literally built this and ran into this exact problem.)</p>
 <h3 id="attempt-3-further-decomposition-of-step-3">Attempt 3 — Further Decomposition of Step 3<a class="headerlink" href="#attempt-3-further-decomposition-of-step-3" title="Permanent link">#</a></h3>
 <p>The fix? Don't write the final essay in one go. Break <strong>"write essay"</strong> into sub-steps:</p>
-<pre class="mermaid"><code>graph LR
-    S1["📝 &lt;b&gt;1.&lt;/b&gt;&lt;br/&gt;Write outline&lt;br/&gt;&lt;i&gt;(LLM)&lt;/i&gt;"] --&gt; S2["🔍 &lt;b&gt;2.&lt;/b&gt;&lt;br/&gt;Web search&lt;br/&gt;&lt;i&gt;(LLM + tool)&lt;/i&gt;"] --&gt; S3["✍️ &lt;b&gt;3.&lt;/b&gt;&lt;br/&gt;Write first draft&lt;br/&gt;&lt;i&gt;(LLM)&lt;/i&gt;"] --&gt; S4["🔎 &lt;b&gt;4.&lt;/b&gt;&lt;br/&gt;Identify parts&lt;br/&gt;needing revision&lt;br/&gt;&lt;i&gt;(LLM)&lt;/i&gt;"] --&gt; S5["✏️ &lt;b&gt;5.&lt;/b&gt;&lt;br/&gt;Revise the draft&lt;br/&gt;&lt;i&gt;(LLM)&lt;/i&gt;"]
-
-    style S1 fill:#4caf50,color:#fff
-    style S2 fill:#2196f3,color:#fff
-    style S3 fill:#ff9800,color:#fff
-    style S4 fill:#9c27b0,color:#fff
-    style S5 fill:#e91e63,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>📝 1.Write outline ──► 🔍 2.Web search ──► ✍️ 3.Write first ──► 🔎 4.Identify parts ──► ✏️ 5.Revise
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>   (LLM)               (LLM + tool)          draft (LLM)        needing revision        the draft
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>                                                                 (LLM)                   (LLM)
+</span></code></pre></div>
 <blockquote>
 <p>💡 <strong>Non-agentic = essay ek baar mein likh diya, no backspace. Agentic = pehle draft, phir proofread, phir revise — jaise hum humans karte hain! ✏️</strong></p>
 </blockquote>
@@ -8923,13 +8917,10 @@
 <p><strong>Key insight:</strong> You can keep refining — if V3 still isn't good enough, you can decompose further or modify the workflow. It's an iterative process.</p>
 <hr />
 <h2 id="example-2-customer-order-inquiry">🔬 Example 2: Customer Order Inquiry<a class="headerlink" href="#example-2-customer-order-inquiry" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph LR
-    E["📧 Customer email:&lt;br/&gt;&lt;i&gt;'Wrong item, order #8847'&lt;/i&gt;"] --&gt; S1["&lt;b&gt;Step 1&lt;/b&gt;&lt;br/&gt;Extract key info&lt;br/&gt;(who, what, order #)&lt;br/&gt;&lt;i&gt;LLM&lt;/i&gt;"] --&gt; S2["&lt;b&gt;Step 2&lt;/b&gt;&lt;br/&gt;Query orders DB&lt;br/&gt;&lt;i&gt;LLM + function call&lt;/i&gt;"] --&gt; S3["&lt;b&gt;Step 3&lt;/b&gt;&lt;br/&gt;Write &amp; send response&lt;br/&gt;&lt;i&gt;LLM + email API&lt;/i&gt;"]
-
-    style E fill:#f44336,color:#fff
-    style S1 fill:#4caf50,color:#fff
-    style S2 fill:#2196f3,color:#fff
-    style S3 fill:#ff9800,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>📧 Customer email ──► Step 1: Extract key info ──► Step 2: Query orders DB ──► Step 3: Write &amp; send response
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>(&quot;Wrong item,          (who, what, order #)        (LLM + function call)       (LLM + email API)
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Order #8847&quot;)          (LLM)
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -8958,13 +8949,10 @@
 </table>
 <hr />
 <h2 id="example-3-invoice-processing">🔬 Example 3: Invoice Processing<a class="headerlink" href="#example-3-invoice-processing" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph LR
-    PDF["📄 PDF Invoice"] --&gt; TXT["Convert PDF → text&lt;br/&gt;&lt;i&gt;(AI model / tool)&lt;/i&gt;"] --&gt; EXT["Extract fields:&lt;br/&gt;biller, address,&lt;br/&gt;amount, due date&lt;br/&gt;&lt;i&gt;(LLM)&lt;/i&gt;"] --&gt; DB["Save to database&lt;br/&gt;&lt;i&gt;(LLM + function call)&lt;/i&gt;"]
-
-    style PDF fill:#f44336,color:#fff
-    style TXT fill:#9c27b0,color:#fff
-    style EXT fill:#4caf50,color:#fff
-    style DB fill:#2196f3,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>📄 PDF Invoice ──► Convert PDF → text ──► Extract fields: biller, ──► Save to database
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>                   (AI model / tool)       address, amount, due date    (LLM + function call)
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>                                           (LLM)
+</span></code></pre></div>
 <p>Simplest decomposition — just two core steps after PDF conversion. Clear, deterministic, easy to validate.</p>
 <hr />
 <h2 id="building-blocks-your-toolkit">🧱 Building Blocks (Your Toolkit)<a class="headerlink" href="#building-blocks-your-toolkit" title="Permanent link">#</a></h2>
@@ -9013,40 +9001,48 @@
 <blockquote>
 <p>Think of it as a <strong>LEGO set</strong> — task decomposition is figuring out which pieces to snap together and in what order.</p>
 </blockquote>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌─────────────────────────── YOUR TOOLKIT ───────────────────────────┐
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│                                                                     │
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│   🧠 LLMs          🤖 Specialized Models     🔧 APIs/Tools        │
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│   ├─ Text gen       ├─ PDF → Text             ├─ Web Search         │
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│   ├─ Extraction     ├─ Text → Speech          ├─ Email              │
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│   ├─ Decisions      └─ Image Analysis         ├─ Calendar           │
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│   └─ Planning                                 └─ Weather            │
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│                                                                     │
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│   🗄️ Retrieval      💻 Code Execution                              │
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│   ├─ Database        └─ LLM writes &amp; runs                          │
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│   └─ RAG                code on your machine                       │
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>│                                                                     │
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>└─────────────────────────────────────────────────────────────────────┘
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>┌─────────────────────────── YOUR TOOLKIT ───────────────────────────┐
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>│                                                                     │
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>│   🧠 LLMs          🤖 Specialized Models     🔧 APIs/Tools        │
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>│   ├─ Text gen       ├─ PDF → Text             ├─ Web Search         │
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>│   ├─ Extraction     ├─ Text → Speech          ├─ Email              │
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>│   ├─ Decisions      └─ Image Analysis         ├─ Calendar           │
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>│   └─ Planning                                 └─ Weather            │
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>│                                                                     │
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>│   🗄️ Retrieval      💻 Code Execution                              │
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>│   ├─ Database        └─ LLM writes &amp; runs                          │
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>│   └─ RAG                code on your machine                       │
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>│                                                                     │
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>└─────────────────────────────────────────────────────────────────────┘
 </span></code></pre></div>
 <hr />
 <h2 id="the-decomposition-mindset">🧠 The Decomposition Mindset<a class="headerlink" href="#the-decomposition-mindset" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph TD
-    A["🧑‍💼 Look at what a&lt;br/&gt;person/business does"] --&gt; B["Break it into&lt;br/&gt;discrete steps"]
-    B --&gt; C{"For each step:&lt;br/&gt;Can an LLM or&lt;br/&gt;tool do this?"}
-    C --&gt;|"✅ Yes"| D["Wire it into&lt;br/&gt;your workflow"]
-    C --&gt;|"❌ No"| E["Ask: How would&lt;br/&gt;I as a human&lt;br/&gt;do this step?"]
-    E --&gt; F["Decompose that&lt;br/&gt;step further"]
-    F --&gt; C
-    D --&gt; G["Build &amp; test&lt;br/&gt;the workflow"]
-    G --&gt; H{"Results&lt;br/&gt;good enough?"}
-    H --&gt;|"✅ Yes"| DONE["🎉 Ship it!"]
-    H --&gt;|"❌ No"| I["Identify weak step&lt;br/&gt;→ decompose further"]
-    I --&gt; B
-
-    style A fill:#f44336,color:#fff
-    style D fill:#4caf50,color:#fff
-    style DONE fill:#4caf50,color:#fff
-    style F fill:#ff9800,color:#fff
-    style I fill:#ff9800,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>🧑‍💼 Look at what a person/business does
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>            │
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>            ▼
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>   Break it into discrete steps
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>            │
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>            ▼
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>   For each step: Can an LLM or tool do this?
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>            │
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>       Yes ─┴─ No
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>        │      │
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>        ▼      ▼
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>   Wire it   Ask: How would I as a human do this step?
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>   into           │
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>   workflow       ▼
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>        │    Decompose that step further (loop back ↑)
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>        ▼
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>   Build &amp; test the workflow
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>        │
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>        ▼
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>   Results good enough?
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>        │
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>   Yes ─┴─ No
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>    │      │
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>    ▼      ▼
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a> 🎉 Ship!  Identify weak step → decompose further (loop back ↑)
+</span></code></pre></div>
 <p>The whole thing is a <strong>loop</strong> — build → evaluate → refine → repeat. You rarely get it right the first time.</p>
 <blockquote>
 <p>💡 <strong>Pehli baar mein perfect workflow banane ka sochna band karo. Pehle basic bana, test karo, phir improve karo — jaise code likhte ho waise hi! 🔄</strong></p>

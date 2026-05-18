@@ -8666,23 +8666,14 @@
 <hr />
 <h2 id="the-build-analyze-cycle">🖼️ The Build ↔ Analyze Cycle<a class="headerlink" href="#the-build-analyze-cycle" title="Permanent link">#</a></h2>
 <p>This is the core diagram from the course slides — the two activities and how they feed each other:</p>
-<pre class="mermaid"><code>graph LR
-    subgraph BUILD ["🏗️ Build"]
-        B1["Build end-to-end system"]
-        B2["Improve individual component"]
-    end
-
-    subgraph ANALYZE ["🔍 Analyze"]
-        A1["Examine outputs; traces"]
-        A2["Build evals; compute metrics"]
-        A3["Error analysis"]
-        A4["Component-level evals"]
-    end
-
-    BUILD &lt;--&gt;|"back and forth"| ANALYZE
-
-    style BUILD fill:#2196f3,color:#fff
-    style ANALYZE fill:#ff9800,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>        🏗️ Build                              🔍 Analyze
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>        ────────                              ───────────
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>• Build end-to-end system    ◄──────────►   • Examine outputs; traces
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>• Improve individual component              • Build evals; compute metrics
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>                                            • Error analysis
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                                            • Component-level evals
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                             back and forth
+</span></code></pre></div>
 <p><strong>Key insight:</strong> This is NOT a linear process. You bounce between building and analyzing constantly. Analysis isn't "not progress" — it's what ensures your building time is well spent.</p>
 <hr />
 <h2 id="the-maturity-progression">📈 The Maturity Progression<a class="headerlink" href="#the-maturity-progression" title="Permanent link">#</a></h2>
@@ -8718,37 +8709,50 @@
 </tr>
 </tbody>
 </table>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Maturity Timeline:
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Early                                                    Mature
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>├──────────┼──────────────┼────────────────┼─────────────────┤
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│ Build    │ Manual       │ End-to-end     │ Component       │
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│ quick &amp;  │ output       │ evals +        │ evals +         │
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│ dirty    │ review +     │ error          │ targeted        │
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│ system   │ read traces  │ analysis       │ improvements    │
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Maturity Timeline:
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Early                                                    Mature
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>├──────────┼──────────────┼────────────────┼─────────────────┤
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│ Build    │ Manual       │ End-to-end     │ Component       │
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│ quick &amp;  │ output       │ evals +        │ evals +         │
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│ dirty    │ review +     │ error          │ targeted        │
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│ system   │ read traces  │ analysis       │ improvements    │
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 </span></code></pre></div>
 <hr />
 <h2 id="the-full-development-flow">⚡ The Full Development Flow<a class="headerlink" href="#the-full-development-flow" title="Permanent link">#</a></h2>
 <p>Putting all of Module 4 together in one view:</p>
-<pre class="mermaid"><code>graph TD
-    A["🏗️ Build quick &amp; dirty&lt;br/&gt;end-to-end system"] --&gt; B["👀 Examine outputs&lt;br/&gt;+ read traces"]
-    B --&gt; C["📊 Build evals&lt;br/&gt;(10-20 examples)"]
-    C --&gt; D["🔍 Error analysis&lt;br/&gt;(spreadsheet: count&lt;br/&gt;errors per component)"]
-    D --&gt; E["🎯 Prioritize&lt;br/&gt;(error rate × fixability)"]
-    E --&gt; F{"Component&lt;br/&gt;type?"}
-    F --&gt;|Non-LLM| G["Tune hyperparams&lt;br/&gt;or replace component"]
-    F --&gt;|LLM| H["Improve prompt →&lt;br/&gt;swap model →&lt;br/&gt;split step →&lt;br/&gt;fine-tune"]
-    G --&gt; I["📊 Component eval&lt;br/&gt;(fast feedback)"]
-    H --&gt; I
-    I --&gt; J["✅ End-to-end eval&lt;br/&gt;(confirm improvement)"]
-    J --&gt;|"Quality good"| K["⚡ Optimize latency&lt;br/&gt;💰 Then cost"]
-    J --&gt;|"Not yet"| B
-
-    style A fill:#2196f3,color:#fff
-    style D fill:#ff9800,color:#fff
-    style K fill:#4caf50,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>🏗️ Build quick &amp; dirty ──► 👀 Examine outputs ──► 📊 Build evals ──► 🔍 Error analysis ──► 🎯 Prioritize
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>   end-to-end system          + read traces       (10-20 examples)     (spreadsheet: count  (error rate ×
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>                                                                         errors/component)    fixability)
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>                                                                                │
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>                                                        ┌───────────────────────┴───────────────────────┐
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>                                                        │                                               │
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>                                                  Non-LLM                                             LLM
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>                                                        │                                               │
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>                                                        ▼                                               ▼
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>                                             Tune hyperparams                               Improve prompt →
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>                                             or replace component                           swap model →
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>                                                        │                                   split step →
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>                                                        │                                   fine-tune
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>                                                        │                                       │
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>                                                        └───────────────┬───────────────────────┘
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>                                                                        │
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>                                                                        ▼
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>                                                         📊 Component eval (fast feedback)
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>                                                                        │
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>                                                                        ▼
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>                                                         ✅ End-to-end eval (confirm improvement)
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>                                                                        │
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>                                                               Quality good?
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>                                                                   │
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>                                                              Yes ─┴─ No
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>                                                               │      │
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>                                                               ▼      └──► Loop back to &quot;Examine outputs&quot;
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>                                                  ⚡ Optimize latency
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>                                                  💰 Then cost
+</span></code></pre></div>
 <hr />
 <h2 id="module-4-recap-all-concepts-in-one-table">🧩 Module 4 Recap — All Concepts in One Table<a class="headerlink" href="#module-4-recap-all-concepts-in-one-table" title="Permanent link">#</a></h2>
 <table>

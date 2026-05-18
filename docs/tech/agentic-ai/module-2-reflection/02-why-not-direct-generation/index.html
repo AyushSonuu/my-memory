@@ -8699,19 +8699,7 @@
 </blockquote>
 <hr />
 <h2 id="the-big-picture">🖼️ The Big Picture<a class="headerlink" href="#the-big-picture" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph LR
-    subgraph DIRECT ["🎯 Direct Generation (Zero-Shot)"]
-        A["👤 Prompt"] --&gt; B["🤖 LLM"] --&gt; C["📄 Output&lt;br/&gt;&lt;i&gt;(one shot, done)&lt;/i&gt;"]
-    end
-
-    subgraph REFLECT ["🪞 Reflection Workflow"]
-        D["👤 Prompt"] --&gt; E["🤖 LLM"] --&gt; F["📄 v1"]
-        F --&gt; G["🤖 LLM&lt;br/&gt;&lt;i&gt;Critique + fix&lt;/i&gt;"]
-        G --&gt; H["📄 v2 ✅"]
-    end
-
-    style C fill:#ff9800,color:#fff
-    style H fill:#4caf50,color:#fff</code></pre>
+<p><img alt="Direct Generation vs Reflection" src="../assets/02-direct-vs-reflection.svg" /></p>
 <blockquote>
 <p>💡 <strong>Direct generation = ek hi attempt mein exam likhna, bina re-check kiye. Reflection = likhne ke baad ek baar padh ke mistakes fix karna. Kaun better karega? Obviously second wala! 📝</strong></p>
 </blockquote>
@@ -8822,14 +8810,24 @@
 <hr />
 <h2 id="how-to-write-good-reflection-prompts">✍️ How to Write Good Reflection Prompts<a class="headerlink" href="#how-to-write-good-reflection-prompts" title="Permanent link">#</a></h2>
 <p>Two golden rules from the course:</p>
-<pre class="mermaid"><code>graph TB
-    R["✍️ Writing&lt;br/&gt;Reflection Prompts"]
-    R --&gt; A["1️⃣ &lt;b&gt;Clearly indicate&lt;/b&gt;&lt;br/&gt;the reflection action&lt;br/&gt;&lt;i&gt;'Review...', 'Check...',&lt;br/&gt;'Critique...'&lt;/i&gt;"]
-    R --&gt; B["2️⃣ &lt;b&gt;Specify criteria&lt;/b&gt;&lt;br/&gt;to check against&lt;br/&gt;&lt;i&gt;What exactly should&lt;br/&gt;the LLM look for?&lt;/i&gt;"]
-
-    style R fill:#ff9800,color:#fff
-    style A fill:#4caf50,color:#fff
-    style B fill:#2196f3,color:#fff</code></pre>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Clearly indicate action</strong></td>
+<td>Use "Review...", "Check...", "Critique..."</td>
+</tr>
+<tr>
+<td><strong>2. Specify criteria</strong></td>
+<td>What exactly should the LLM look for?</td>
+</tr>
+</tbody>
+</table>
 <h3 id="example-prompts-from-andrew-ngs-slides">Example Prompts (from Andrew Ng's slides)<a class="headerlink" href="#example-prompts-from-andrew-ngs-slides" title="Permanent link">#</a></h3>
 <table>
 <thead>

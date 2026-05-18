@@ -8597,16 +8597,12 @@
 </blockquote>
 <hr />
 <h2 id="the-implementation-flow">🖼️ The Implementation Flow<a class="headerlink" href="#the-implementation-flow" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph LR
-    CLEAR["/clear&lt;br/&gt;Reset agent context"] --&gt; PROMPT["📝 Prompt: implement&lt;br/&gt;all task groups"]
-    PROMPT --&gt; BUILD["🤖 Agent builds&lt;br/&gt;(watch in console)"]
-    BUILD --&gt; COMMIT["📋 Review changes&lt;br/&gt;in commit window"]
-    COMMIT --&gt; RUN["▶️ Run the app&lt;br/&gt;(pixels on screen!)"]
-
-    style CLEAR fill:#9c27b0,color:#fff
-    style PROMPT fill:#2196f3,color:#fff
-    style BUILD fill:#4caf50,color:#fff
-    style RUN fill:#ff9800,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌────────────────┐     ┌────────────────────┐     ┌────────────────────┐     ┌────────────────────┐     ┌────────────────────┐
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│  /clear        │     │  📝 Prompt:        │     │  🤖 Agent builds   │     │  📋 Review changes │     │  ▶️ Run the app    │
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│  Reset agent   │────►│  implement all     │────►│  (watch in         │────►│  in commit window  │────►│  (pixels on        │
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│  context       │     │  task groups       │     │  console)          │     │                    │     │  screen!)          │
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>└────────────────┘     └────────────────────┘     └────────────────────┘     └────────────────────┘     └────────────────────┘
+</span></code></pre></div>
 <blockquote>
 <p>💡 <em>Agent code likh raha hai, tum console mein real-time dekh rahe ho — supervisor mode ON!</em> 🧑‍💼</p>
 </blockquote>
@@ -8678,19 +8674,19 @@
 </blockquote>
 <hr />
 <h2 id="your-role-during-implementation">👷 Your Role During Implementation<a class="headerlink" href="#your-role-during-implementation" title="Permanent link">#</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────────────────────────────┐
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│  YOU = Architect / Supervisor       │
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│                                     │
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│  • Provide the clear contract (spec)│
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│  • Watch progress in real time      │
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│  • Review changes in commit window  │
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│  • Run and verify the result        │
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│                                     │
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│  Agent = Builder                    │
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│  • Implements the task groups       │
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│  • Provides summary of work done    │
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│  • Validates its own changes        │
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>└─────────────────────────────────────┘
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌─────────────────────────────────────┐
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│  YOU = Architect / Supervisor       │
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│                                     │
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│  • Provide the clear contract (spec)│
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│  • Watch progress in real time      │
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│  • Review changes in commit window  │
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│  • Run and verify the result        │
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│                                     │
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│  Agent = Builder                    │
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│  • Implements the task groups       │
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│  • Provides summary of work done    │
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>│  • Validates its own changes        │
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>└─────────────────────────────────────┘
 </span></code></pre></div>
 <hr />
 <h2 id="key-takeaways">⚠️ Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">#</a></h2>

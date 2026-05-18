@@ -8655,16 +8655,29 @@
 </blockquote>
 <hr />
 <h2 id="the-three-benefits">🖼️ The Three Benefits<a class="headerlink" href="#the-three-benefits" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph TB
-    A(("🤖 Agentic&lt;br/&gt;Workflows"))
-    A --&gt; P["🚀 &lt;b&gt;Better Performance&lt;/b&gt;&lt;br/&gt;Agentic GPT-3.5 beats&lt;br/&gt;non-agentic GPT-4"]
-    A --&gt; PA["⚡ &lt;b&gt;Parallelization&lt;/b&gt;&lt;br/&gt;Do in parallel what&lt;br/&gt;humans do sequentially"]
-    A --&gt; M["🧩 &lt;b&gt;Modularity&lt;/b&gt;&lt;br/&gt;Swap tools, models,&lt;br/&gt;components like LEGO"]
-
-    style A fill:#ff9800,color:#fff
-    style P fill:#4caf50,color:#fff
-    style PA fill:#2196f3,color:#fff
-    style M fill:#9c27b0,color:#fff</code></pre>
+<table>
+<thead>
+<tr>
+<th>Benefit</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Agentic GPT-3.5 beats non-agentic GPT-4!</td>
+</tr>
+<tr>
+<td><strong>Parallelization</strong></td>
+<td>Do in parallel what humans do sequentially</td>
+</tr>
+<tr>
+<td><strong>Modularity</strong></td>
+<td>Swap tools, models, components like LEGO</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="HumanEval Benchmark" src="../assets/04-humaneval-benchmark.svg" /></p>
 <hr />
 <h2 id="benefit-1-much-better-performance">📊 Benefit 1: Much Better Performance<a class="headerlink" href="#benefit-1-much-better-performance" title="Permanent link">#</a></h2>
 <h3 id="humaneval-coding-benchmark">HumanEval Coding Benchmark 🔥<a class="headerlink" href="#humaneval-coding-benchmark" title="Permanent link">#</a></h3>
@@ -8764,54 +8777,12 @@
 <p><strong>Why?</strong> Agentic techniques like reflection (write code → check it → fix bugs → retry) let even older models iterate to better solutions.</p>
 <hr />
 <h2 id="benefit-2-parallelization">⚡ Benefit 2: Parallelization<a class="headerlink" href="#benefit-2-parallelization" title="Permanent link">#</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌────────────────────────────────────────────────────────┐
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│  👤 HUMAN (Sequential)                                  │
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│                                                         │
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│  Search 1 → Read page 1 → Read page 2 → Read page 3   │
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│          → Search 2 → Read page 4 → Read page 5 → ...  │
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│                                                         │
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│  ⏱️ Reads 9 pages ONE AT A TIME                         │
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>├────────────────────────────────────────────────────────┤
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│  🤖 AGENTIC (Parallel)                                  │
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│                                                         │
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│  ┌─ LLM 1 → Search terms ──┐                           │
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>│  ├─ LLM 2 → Search terms ──┼─→ 3 searches in parallel  │
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>│  └─ LLM 3 → Search terms ──┘                           │
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>│              ↓                                          │
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>│  ┌─ Fetch page 1 ─┐                                    │
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>│  ├─ Fetch page 2 ─┤                                    │
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>│  ├─ Fetch page 3 ─┤                                    │
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>│  ├─ Fetch page 4 ─┼─→ 9 downloads in parallel! ⚡      │
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>│  ├─ Fetch page 5 ─┤                                    │
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>│  ├─ Fetch page 6 ─┤                                    │
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>│  ├─ Fetch page 7 ─┤                                    │
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>│  ├─ Fetch page 8 ─┤                                    │
-</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>│  └─ Fetch page 9 ─┘                                    │
-</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>│              ↓                                          │
-</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>│  LLM → Write essay                                     │
-</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>│                                                         │
-</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>│  ⏱️ WAY faster than human sequential processing         │
-</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>└────────────────────────────────────────────────────────┘
-</span></code></pre></div>
+<p><img alt="Parallelization" src="../assets/04-parallelization.svg" /></p>
 <blockquote>
 <p>Agentic workflows take longer than single-prompt generation, but <strong>compared to how a human would do the same research</strong> → much faster because of parallel execution.</p>
 </blockquote>
 <hr />
 <h2 id="benefit-3-modularity">🧩 Benefit 3: Modularity<a class="headerlink" href="#benefit-3-modularity" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph TB
-    subgraph SWAP["🧩 Swap Components Like LEGO"]
-        direction TB
-        WS["🔍 Web Search&lt;br/&gt;Google / Bing / DuckDuckGo&lt;br/&gt;Tavily / u.com"]
-        NS["📰 News Search&lt;br/&gt;(swap in for latest&lt;br/&gt;breakthroughs)"]
-        LLM1["🧠 LLM for Step 1&lt;br/&gt;(try different providers)"]
-        LLM2["🧠 LLM for Step 3&lt;br/&gt;(maybe a different model&lt;br/&gt;works better here)"]
-    end
-
-    style SWAP fill:#1a1a2e,color:#fff
-    style WS fill:#4caf50,color:#fff
-    style NS fill:#ff9800,color:#fff
-    style LLM1 fill:#2196f3,color:#fff
-    style LLM2 fill:#9c27b0,color:#fff</code></pre>
 <table>
 <thead>
 <tr>

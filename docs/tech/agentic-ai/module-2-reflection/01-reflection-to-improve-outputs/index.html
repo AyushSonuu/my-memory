@@ -8699,25 +8699,7 @@
 </blockquote>
 <hr />
 <h2 id="the-big-picture">🖼️ The Big Picture<a class="headerlink" href="#the-big-picture" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph LR
-    subgraph BASIC ["🪞 Basic Reflection"]
-        A["🤖 LLM&lt;br/&gt;&lt;i&gt;Generate v1&lt;/i&gt;"] --&gt;|"v1 output"| B["🤖 Same/Different LLM&lt;br/&gt;&lt;i&gt;Critique &amp; improve&lt;/i&gt;"]
-        B --&gt;|"v2 output"| C["✅ Better Output"]
-    end
-
-    subgraph POWER ["⚡ Reflection + External Feedback"]
-        D["🤖 LLM&lt;br/&gt;&lt;i&gt;Generate v1 code&lt;/i&gt;"] --&gt;|"v1 code"| E["⚙️ Execute Code"]
-        E --&gt;|"errors / output"| F["🤖 LLM&lt;br/&gt;&lt;i&gt;Reflect on feedback,&lt;br/&gt;write v2&lt;/i&gt;"]
-        F --&gt;|"v2 code"| G["✅ Much Better Code"]
-    end
-
-    style A fill:#f44336,color:#fff
-    style B fill:#ff9800,color:#fff
-    style C fill:#4caf50,color:#fff
-    style D fill:#f44336,color:#fff
-    style E fill:#9c27b0,color:#fff
-    style F fill:#ff9800,color:#fff
-    style G fill:#4caf50,color:#fff</code></pre>
+<p><img alt="Reflection Workflow" src="assets/01-reflection-workflow.svg" /></p>
 <blockquote>
 <p>💡 <strong>Reflection = apna kaam khud check karna, jaise exam mein paper submit karne se pehle ek baar re-read karte ho. Fark sirf itna hai — LLM ko tum bata sakte ho KYA check karna hai! 📝</strong></p>
 </blockquote>
@@ -8761,17 +8743,13 @@
 <hr />
 <h2 id="how-it-works-for-llms">⚡ How It Works for LLMs<a class="headerlink" href="#how-it-works-for-llms" title="Permanent link">#</a></h2>
 <h3 id="step-1-basic-reflection-self-critique">Step 1: Basic Reflection (Self-Critique)<a class="headerlink" href="#step-1-basic-reflection-self-critique" title="Permanent link">#</a></h3>
-<pre class="mermaid"><code>sequenceDiagram
-    participant Dev as 👤 Developer
-    participant LLM1 as 🤖 LLM (Generator)
-    participant LLM2 as 🤖 LLM (Critic)
-
-    Dev-&gt;&gt;LLM1: "Write code for task X"
-    LLM1--&gt;&gt;Dev: code v1
-    Dev-&gt;&gt;LLM2: "Check for bugs, write improved v2"
-    LLM2--&gt;&gt;Dev: code v2 ✅
-
-    Note over LLM1,LLM2: Can be SAME model or DIFFERENT model</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>👤 Developer ──&quot;Write code for X&quot;──► 🤖 LLM (Generator) ──v1 code──► 👤 Developer
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>                                                                        │
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>👤 Developer ◄──v2 code ✅──────────── 🤖 LLM (Critic) ◄─&quot;Check bugs,──┘
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>                                                          improve v2&quot;
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>💡 Generator &amp; Critic can be SAME model or DIFFERENT model
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -8803,32 +8781,26 @@
 </blockquote>
 <h3 id="step-2-add-external-feedback-the-power-move">Step 2: Add External Feedback (The Power Move)<a class="headerlink" href="#step-2-add-external-feedback-the-power-move" title="Permanent link">#</a></h3>
 <p>This is where reflection goes from <em>"nice to have"</em> to <em>"game changer"</em>:</p>
-<pre class="mermaid"><code>graph TD
-    A["🤖 LLM generates code v1"] --&gt; B["⚙️ Actually RUN the code"]
-    B --&gt; C{"Did it work?"}
-    C --&gt;|"✅ Success + output"| D["Feed output to LLM&lt;br/&gt;&lt;i&gt;Verify correctness&lt;/i&gt;"]
-    C --&gt;|"❌ Error!"| E["Feed error logs to LLM"]
-    E --&gt; F["🤖 LLM reflects on errors&lt;br/&gt;+ writes code v2"]
-    D --&gt; F
-    F --&gt; G["✅ Much better code v2"]
-
-    style A fill:#f44336,color:#fff
-    style B fill:#9c27b0,color:#fff
-    style E fill:#ff9800,color:#fff
-    style F fill:#2196f3,color:#fff
-    style G fill:#4caf50,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>🤖 LLM generates v1 ──► ⚙️ RUN the code ──► ✅ Success? ──► Feed output to LLM (verify)
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>                                             │                      │
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>                                             ❌ Error!               │
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>                                             │                      │
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>                                             ▼                      ▼
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>                                     Feed error logs ──► 🤖 LLM reflects ──► ✅ Better v2
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>                                     to LLM                on errors
+</span></code></pre></div>
 <p><strong>Concrete example from the course:</strong></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌─────────────────────────────────────────────────────────────────┐
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│  🤖 LLM writes code v1                                         │
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│  ↓                                                              │
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│  ⚙️ Execute code → 💥 SyntaxError: unterminated string literal  │
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│     (detected at line 1)                                        │
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│  ↓                                                              │
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│  🤖 LLM receives: v1 code + error message                      │
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│     &quot;Reflect on the error and write improved v2&quot;                │
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│  ↓                                                              │
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│  ✅ Code v2 — syntax fixed, runs correctly                      │
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>└─────────────────────────────────────────────────────────────────┘
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>┌─────────────────────────────────────────────────────────────────┐
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>│  🤖 LLM writes code v1                                         │
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>│  ↓                                                              │
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>│  ⚙️ Execute code → 💥 SyntaxError: unterminated string literal  │
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>│     (detected at line 1)                                        │
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>│  ↓                                                              │
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>│  🤖 LLM receives: v1 code + error message                      │
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>│     &quot;Reflect on the error and write improved v2&quot;                │
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>│  ↓                                                              │
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>│  ✅ Code v2 — syntax fixed, runs correctly                      │
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>└─────────────────────────────────────────────────────────────────┘
 </span></code></pre></div>
 <hr />
 <h2 id="the-key-insight">🔑 The Key Insight<a class="headerlink" href="#the-key-insight" title="Permanent link">#</a></h2>

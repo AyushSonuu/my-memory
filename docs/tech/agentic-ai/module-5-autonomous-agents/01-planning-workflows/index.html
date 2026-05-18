@@ -8833,55 +8833,12 @@
 </blockquote>
 <hr />
 <h2 id="the-big-picture">🖼️ The Big Picture<a class="headerlink" href="#the-big-picture" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph LR
-    subgraph HARDCODED ["❌ Hard-Coded Sequence"]
-        H1["Developer writes:&lt;br/&gt;&lt;i&gt;Step 1 → Step 2 → Step 3&lt;/i&gt;"] --&gt; H2["Same flow&lt;br/&gt;every time"]
-        H2 --&gt; H3["😰 Breaks for&lt;br/&gt;new query types"]
-    end
-
-    subgraph PLANNING ["✅ Planning Pattern"]
-        P1["User query"] --&gt; P2["🤖 LLM writes&lt;br/&gt;a plan"]
-        P2 --&gt; P3["Execute step&lt;br/&gt;by step"]
-        P3 --&gt; P4["🎯 Handles&lt;br/&gt;any query"]
-    end
-
-    style H3 fill:#f44336,color:#fff
-    style P4 fill:#4caf50,color:#fff
-    style P2 fill:#9c27b0,color:#fff</code></pre>
+<p><img alt="Planning Workflow" src="../assets/01-planning-workflow.svg" /></p>
 <blockquote>
 <p>💡 <strong>Hard-coded agent = train 🚂 — ek hi track pe chalti hai. Planning agent = taxi 🚕 — bolo kahaan jaana hai, rasta khud nikal lega!</strong></p>
 </blockquote>
 <hr />
 <h2 id="how-planning-works-the-core-mechanism">🧱 How Planning Works (The Core Mechanism)<a class="headerlink" href="#how-planning-works-the-core-mechanism" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>sequenceDiagram
-    participant U as 👤 User
-    participant P as 🤖 Planner LLM
-    participant E as 🤖 Executor LLM
-    participant T as 🔧 Tools
-
-    U-&gt;&gt;P: User query + tool descriptions
-    Note over P: "Return a step-by-step&lt;br/&gt;plan to carry out the&lt;br/&gt;user's request"
-    P--&gt;&gt;E: Plan: Step 1, Step 2, Step 3
-
-    rect rgb(255, 235, 238)
-        Note over E: Execute Step 1
-        E-&gt;&gt;T: Calls appropriate tool
-        T--&gt;&gt;E: Step 1 result
-    end
-
-    rect rgb(227, 242, 253)
-        Note over E: Step 1 output + Step 2 instructions
-        E-&gt;&gt;T: Calls next tool
-        T--&gt;&gt;E: Step 2 result
-    end
-
-    rect rgb(232, 245, 233)
-        Note over E: Step 2 output + Step 3 instructions
-        E-&gt;&gt;T: Calls next tool
-        T--&gt;&gt;E: Step 3 result
-    end
-
-    E-&gt;&gt;U: Final answer</code></pre>
 <h3 id="the-recipe">The Recipe<a class="headerlink" href="#the-recipe" title="Permanent link">#</a></h3>
 <table>
 <thead>
@@ -8983,20 +8940,27 @@
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>└─────────────────────────────────────────────────────┘
 </span></code></pre></div>
 <h3 id="the-plan-llm-generates">The Plan LLM Generates<a class="headerlink" href="#the-plan-llm-generates" title="Permanent link">#</a></h3>
-<pre class="mermaid"><code>graph TD
-    Q["👤 Do you have round sunglasses&lt;br/&gt;in stock, under $100?"] --&gt; PLAN["🤖 LLM generates plan"]
-
-    PLAN --&gt; S1["&lt;b&gt;Step 1:&lt;/b&gt; get_item_descriptions&lt;br/&gt;→ find round sunglasses"]
-    S1 --&gt;|"Moon, Classic"| S2["&lt;b&gt;Step 2:&lt;/b&gt; check_inventory&lt;br/&gt;→ are they in stock?"]
-    S2 --&gt;|"Moon: 15, Classic: 9"| S3["&lt;b&gt;Step 3:&lt;/b&gt; get_item_price&lt;br/&gt;→ which are under $100?"]
-    S3 --&gt;|"Moon: $120 ❌, Classic: $60 ✅"| ANS["💬 Yes! Classic sunglasses,&lt;br/&gt;round gold frame, $60"]
-
-    style Q fill:#e3f2fd,color:#000
-    style PLAN fill:#9c27b0,color:#fff
-    style S1 fill:#f44336,color:#fff
-    style S2 fill:#2196f3,color:#fff
-    style S3 fill:#4caf50,color:#fff
-    style ANS fill:#4caf50,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>👤 &quot;Do you have round sunglasses in stock, under $100?&quot;
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>                    │
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>                    ▼
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>            🤖 LLM generates plan
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>                    │
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        ┌───────────┼───────────┐
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        │           │           │
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>        ▼           ▼           ▼
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  Step 1:       Step 2:       Step 3:
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>  get_item_     check_        get_item_price
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>  descriptions  inventory     → which under $100?
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>  → find round  → in stock?
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>  sunglasses    │             │
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>        │       │             ▼
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>        └──────►│         Moon: $120 ❌
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>         Moon,  └──────►  Classic: $60 ✅
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>         Classic        Moon: 15        │
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>                        Classic: 9       ▼
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>                                  💬 &quot;Yes! Classic sunglasses,
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>                                      round gold frame, $60&quot;
+</span></code></pre></div>
 <p><strong>Notice:</strong> Only 3 out of 6 tools were used. <code>process_item_return</code>, <code>process_item_sale</code>, and <code>check_past_transactions</code> were <strong>not needed</strong> for this query — and the LLM knew that.</p>
 <h3 id="step-by-step-execution-flow">Step-by-Step Execution Flow<a class="headerlink" href="#step-by-step-execution-flow" title="Permanent link">#</a></h3>
 <table>
@@ -9038,18 +9002,20 @@
 <hr />
 <h2 id="same-agent-different-query-different-plan">🔄 Same Agent, Different Query → Different Plan<a class="headerlink" href="#same-agent-different-query-different-plan" title="Permanent link">#</a></h2>
 <p><strong>New query:</strong> <em>"I'd like to return the gold frame glasses I purchased, but not the metal frame ones."</em></p>
-<pre class="mermaid"><code>graph TD
-    Q2["👤 Return gold frame glasses,&lt;br/&gt;not metal frame ones"] --&gt; PLAN2["🤖 LLM generates&lt;br/&gt;DIFFERENT plan"]
-
-    PLAN2 --&gt; R1["&lt;b&gt;Step 1:&lt;/b&gt; check_past_transactions&lt;br/&gt;→ what did they buy?"]
-    R1 --&gt; R2["&lt;b&gt;Step 2:&lt;/b&gt; get_item_descriptions&lt;br/&gt;→ which is gold frame?"]
-    R2 --&gt; R3["&lt;b&gt;Step 3:&lt;/b&gt; process_item_return&lt;br/&gt;→ return the gold frame glasses"]
-
-    style Q2 fill:#fff3e0,color:#000
-    style PLAN2 fill:#9c27b0,color:#fff
-    style R1 fill:#ff9800,color:#fff
-    style R2 fill:#ff9800,color:#fff
-    style R3 fill:#ff9800,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>👤 &quot;Return gold frame glasses, not metal frame ones&quot;
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>                    │
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>                    ▼
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>            🤖 LLM generates DIFFERENT plan
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>                    │
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        ┌───────────┼───────────┐
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        │           │           │
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>        ▼           ▼           ▼
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  Step 1:       Step 2:       Step 3:
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  check_past_   get_item_     process_item_return
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>  transactions  descriptions  → return gold frame
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>  → what did    → which is
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>  they buy?     gold frame?
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -9103,33 +9069,35 @@
 </tbody>
 </table>
 <h3 id="the-plan">The Plan<a class="headerlink" href="#the-plan" title="Permanent link">#</a></h3>
-<pre class="mermaid"><code>graph TD
-    EQ["👤 Reply to Bob's dinner email,&lt;br/&gt;confirm attendance, archive it"] --&gt; EP["🤖 LLM plans"]
-
-    EP --&gt; E1["&lt;b&gt;Step 1:&lt;/b&gt; search_email&lt;br/&gt;→ find Bob's email about&lt;br/&gt;dinner + New York"]
-    E1 --&gt;|"Found email"| E2["&lt;b&gt;Step 2:&lt;/b&gt; send_email&lt;br/&gt;→ reply confirming&lt;br/&gt;attendance"]
-    E2 --&gt;|"Reply sent"| E3["&lt;b&gt;Step 3:&lt;/b&gt; move_email&lt;br/&gt;→ move to archive folder"]
-
-    style EQ fill:#e3f2fd,color:#000
-    style EP fill:#9c27b0,color:#fff
-    style E1 fill:#f44336,color:#fff
-    style E2 fill:#2196f3,color:#fff
-    style E3 fill:#4caf50,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>👤 &quot;Reply to Bob&#39;s dinner email, confirm attendance, archive it&quot;
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>                    │
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>                    ▼
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>            🤖 LLM plans
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>                    │
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        ┌───────────┼───────────┐
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>        │           │           │
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>        ▼           ▼           ▼
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>  Step 1:       Step 2:       Step 3:
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>  search_email  send_email    move_email
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>  → find Bob&#39;s  → reply       → move to
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>  email about   confirming    archive folder
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>  dinner + NY   attendance
+</span></code></pre></div>
 <p>Again: <code>delete_email</code> was available but <strong>not used</strong> — the LLM understood "archive" ≠ "delete."</p>
 <hr />
 <h2 id="where-planning-works-today">🏗️ Where Planning Works Today<a class="headerlink" href="#where-planning-works-today" title="Permanent link">#</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>┌────────────────────────────────────────────────────────────────┐
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>│                    Planning Adoption Spectrum                   │
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>│                                                                │
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│  🟢 Works Great              🟡 Growing              🔴 Early │
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>│  ─────────────              ────────                 ──────── │
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>│  Agentic Coding             Customer Service         General   │
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│  Systems                    Email Assistants          Purpose  │
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>│  (write complex             (multi-step              Agents   │
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>│   software with              queries)                         │
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>│   planning +                                                   │
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>│   checklists)                                                  │
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>└────────────────────────────────────────────────────────────────┘
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>┌────────────────────────────────────────────────────────────────┐
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>│                    Planning Adoption Spectrum                   │
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>│                                                                │
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>│  🟢 Works Great              🟡 Growing              🔴 Early │
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>│  ─────────────              ────────                 ──────── │
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>│  Agentic Coding             Customer Service         General   │
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>│  Systems                    Email Assistants          Purpose  │
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>│  (write complex             (multi-step              Agents   │
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>│   software with              queries)                         │
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>│   planning +                                                   │
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>│   checklists)                                                  │
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>└────────────────────────────────────────────────────────────────┘
 </span></code></pre></div>
 <table>
 <thead>

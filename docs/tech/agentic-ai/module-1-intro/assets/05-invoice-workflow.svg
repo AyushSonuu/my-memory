@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f44336"/>
+      <stop offset="100%" style="stop-color:#d32f2f"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#388e3c"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196f3"/>
+      <stop offset="100%" style="stop-color:#1976d2"/>
+    </linearGradient>
+    <linearGradient id="grayGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6b7280"/>
+      <stop offset="100%" style="stop-color:#4b5563"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="400" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Invoice Processing Workflow</text>
+
+  <!-- Invoice PDF -->
+  <g transform="translate(30, 80)">
+    <rect x="0" y="0" width="90" height="110" rx="6" fill="#fff" stroke="#d32f2f" stroke-width="2"/>
+    <text x="45" y="25" fill="#333" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">TechFlow LLC</text>
+    <line x1="10" y1="35" x2="80" y2="35" stroke="#ccc"/>
+    <text x="15" y="50" fill="#666" font-family="Inter, sans-serif" font-size="7">Due: Aug 20, 2025</text>
+    <text x="15" y="65" fill="#666" font-family="Inter, sans-serif" font-size="7">Amount: $3,000</text>
+    <line x1="10" y1="75" x2="80" y2="75" stroke="#ccc"/>
+    <text x="15" y="90" fill="#666" font-family="Inter, sans-serif" font-size="6">Consulting - 20hrs</text>
+    <text x="15" y="100" fill="#333" font-family="Inter, sans-serif" font-size="8" font-weight="bold">Total: $3,000</text>
+  </g>
+  <text x="75" y="210" fill="url(#redGrad)" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Invoice PDF</text>
+
+  <!-- Arrow 1 -->
+  <line x1="130" y1="135" x2="175" y2="135" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="175,135 165,129 165,141" fill="#8b949e"/>
+
+  <!-- PDF to Text -->
+  <rect x="180" y="105" width="80" height="60" rx="8" fill="url(#greenGrad)" filter="url(#shadow)"/>
+  <text x="220" y="130" fill="#fff" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">PDF-to-Text</text>
+  <text x="220" y="145" fill="#c8e6c9" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Tool</text>
+
+  <!-- Arrow 2 -->
+  <line x1="265" y1="135" x2="310" y2="135" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="310,135 300,129 300,141" fill="#8b949e"/>
+
+  <!-- LLM: Is this an invoice? -->
+  <rect x="315" y="95" width="100" height="80" rx="8" fill="url(#grayGrad)" filter="url(#shadow)"/>
+  <text x="365" y="120" fill="#fff" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">LLM</text>
+  <text x="365" y="140" fill="#fff" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Is this an</text>
+  <text x="365" y="155" fill="#fff" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">invoice?</text>
+
+  <!-- Yes branch -->
+  <line x1="420" y1="120" x2="480" y2="120" stroke="#4caf50" stroke-width="2"/>
+  <polygon points="480,120 470,114 470,126" fill="#4caf50"/>
+  <text x="450" y="112" fill="#4caf50" font-family="Inter, sans-serif" font-size="9">Yes</text>
+
+  <!-- No branch -->
+  <line x1="365" y1="180" x2="365" y2="220" stroke="#f44336" stroke-width="2"/>
+  <polygon points="365,220 359,210 371,210" fill="#f44336"/>
+  <text x="380" y="200" fill="#f44336" font-family="Inter, sans-serif" font-size="9">No</text>
+  <rect x="335" y="230" width="60" height="30" rx="4" fill="#21262d" stroke="#f44336"/>
+  <text x="365" y="250" fill="#f44336" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Ignore</text>
+
+  <!-- LLM: Extract 4 fields -->
+  <rect x="485" y="95" width="100" height="80" rx="8" fill="url(#grayGrad)" filter="url(#shadow)"/>
+  <text x="535" y="118" fill="#fff" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">LLM</text>
+  <text x="535" y="138" fill="#fff" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Extract 4 fields:</text>
+  <text x="535" y="152" fill="#c8e6c9" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Biller, Address,</text>
+  <text x="535" y="164" fill="#c8e6c9" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Amount, Due Date</text>
+
+  <!-- Arrow 3 -->
+  <line x1="590" y1="135" x2="635" y2="135" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="635,135 625,129 625,141" fill="#8b949e"/>
+
+  <!-- Update Database -->
+  <rect x="640" y="105" width="80" height="60" rx="8" fill="url(#greenGrad)" filter="url(#shadow)"/>
+  <text x="680" y="128" fill="#fff" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Update</text>
+  <text x="680" y="143" fill="#fff" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Database</text>
+  <text x="680" y="158" fill="#c8e6c9" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Tool</text>
+
+  <!-- Arrow 4 -->
+  <line x1="680" y1="170" x2="680" y2="210" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="680,210 674,200 686,200" fill="#8b949e"/>
+
+  <!-- Record Created -->
+  <rect x="640" y="220" width="80" height="40" rx="8" fill="url(#blueGrad)" filter="url(#shadow)"/>
+  <text x="680" y="245" fill="#fff" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Record Created!</text>
+
+  <!-- 4 Required Fields box -->
+  <rect x="450" y="280" width="180" height="100" rx="8" fill="#161b22" stroke="#4caf50" stroke-width="2"/>
+  <text x="540" y="305" fill="#4caf50" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">4 Required Fields</text>
+  <text x="480" y="325" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10">Biller</text>
+  <text x="480" y="342" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10">Biller Address</text>
+  <text x="480" y="359" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10">Amount Due</text>
+  <text x="480" y="376" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10">Due Date</text>
+
+  <!-- Why Easy box -->
+  <rect x="50" y="280" width="180" height="100" rx="8" fill="#161b22" stroke="#ff9800" stroke-width="2"/>
+  <text x="140" y="305" fill="#ff9800" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Why Easy?</text>
+  <text x="60" y="330" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9">Clear 2-step process:</text>
+  <text x="60" y="350" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">1. Identify fields</text>
+  <text x="60" y="367" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">2. Save to database</text>
+  <text x="60" y="385" fill="#4caf50" font-family="Inter, sans-serif" font-size="9">No ambiguity!</text>
+
+  <!-- Steps label -->
+  <rect x="260" y="280" width="160" height="100" rx="8" fill="#161b22" stroke="#2196f3" stroke-width="2"/>
+  <text x="340" y="305" fill="#2196f3" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Steps</text>
+  <text x="275" y="330" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">1. PDF → Text</text>
+  <text x="275" y="350" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">2. Is this an invoice?</text>
+  <text x="275" y="370" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">3. Extract fields</text>
+  <text x="275" y="390" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">4. Save to DB</text>
+</svg>

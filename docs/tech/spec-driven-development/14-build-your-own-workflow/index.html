@@ -8787,25 +8787,25 @@
 </blockquote>
 <hr />
 <h2 id="the-automation-landscape">🖼️ The Automation Landscape<a class="headerlink" href="#the-automation-landscape" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph TB
-    subgraph MANUAL["🐢 Manual SDD"]
-        RP["Repeat same prompts&lt;br/&gt;every feature"]
-    end
-
-    subgraph AUTO["⚡ Automated SDD"]
-        SK["🎯 Agent Skills&lt;br/&gt;(custom workflows)"]
-        PL["🔌 Plugins&lt;br/&gt;(installable extensions)"]
-        FW["📦 Frameworks&lt;br/&gt;(Spec Kit, OpenSpec)"]
-    end
-
-    MANUAL --&gt;|"automate"| AUTO
-
-    SK --&gt; INVOKE["Invoke by name in prompt&lt;br/&gt;or skill-from-skill"]
-    PL --&gt; SHARE["Share across machines,&lt;br/&gt;teams, world"]
-    FW --&gt; CMDS["Pre-built /commands&lt;br/&gt;+ branch management&lt;br/&gt;+ verification scripts"]
-
-    style MANUAL fill:#f44336,color:#fff
-    style AUTO fill:#4caf50,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────────────────────────────────────────────────────────────────────┐
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│                           🐢 Manual SDD                                     │
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│             Repeat same prompts every feature                               │
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>└────────────────────────────────────┬────────────────────────────────────────┘
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>                                     │ automate
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                                     ▼
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>┌─────────────────────────────────────────────────────────────────────────────┐
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│                           ⚡ Automated SDD                                   │
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│                                                                             │
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│  🎯 Agent Skills          │  🔌 Plugins            │  📦 Frameworks         │
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│  (custom workflows)       │  (installable          │  (Spec Kit, OpenSpec)  │
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│                           │   extensions)          │                        │
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│          │                │          │             │          │             │
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│          ▼                │          ▼             │          ▼             │
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>│  Invoke by name in        │  Share across          │  Pre-built /commands   │
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>│  prompt or skill-         │  machines, teams,      │  + branch management   │
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>│  from-skill               │  world                 │  + verification        │
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>└─────────────────────────────────────────────────────────────────────────────┘
+</span></code></pre></div>
 <blockquote>
 <p>💡 <em>Baar baar wahi prompt type kar raha hai? Skill bana de — ek baar likho, hamesha kaam aaye!</em> 🔁→⚡</p>
 </blockquote>
@@ -8889,11 +8889,11 @@
 </table>
 <hr />
 <h2 id="mcp-cli-skills-the-trend">🔄 MCP → CLI + Skills (The Trend)<a class="headerlink" href="#mcp-cli-skills-the-trend" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph LR
-    MCP["🔧 MCP Servers&lt;br/&gt;(Model Context Protocol)"] --&gt;|"shifting to"| CLI["⚡ CLI + Skills&lt;br/&gt;(less setup, less context)"]
-
-    style MCP fill:#ff9800,color:#fff
-    style CLI fill:#4caf50,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌─────────────────────────────┐              ┌─────────────────────────────┐
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│  🔧 MCP Servers             │              │  ⚡ CLI + Skills             │
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│  (Model Context Protocol)   │─────────────►│  (less setup, less context) │
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>└─────────────────────────────┘  shifting to └─────────────────────────────┘
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -9047,14 +9047,21 @@
 <hr />
 <h2 id="research-backlog-pattern">📝 Research Backlog Pattern<a class="headerlink" href="#research-backlog-pattern" title="Permanent link">#</a></h2>
 <p>When you have an idea mid-feature but aren't committed yet:</p>
-<pre class="mermaid"><code>graph LR
-    IDEA["💡 Idea mid-feature&lt;br/&gt;(e.g., database choice)"] --&gt; CHAT["💬 Research with agent&lt;br/&gt;(don't stop branch work!)"]
-    CHAT --&gt; REPORT["📄 Agent writes report&lt;br/&gt;to well-known location"]
-    REPORT --&gt; LATER["📋 Later: schedule on&lt;br/&gt;roadmap with link&lt;br/&gt;to backlog file"]
-    LATER --&gt; SKILL["⚡ As it grows:&lt;br/&gt;automate with a&lt;br/&gt;research skill"]
-
-    style IDEA fill:#ff9800,color:#fff
-    style REPORT fill:#4caf50,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>┌──────────────────────┐     ┌──────────────────────┐     ┌──────────────────────┐
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>│  💡 Idea mid-feature │     │  💬 Research with    │     │  📄 Agent writes     │
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>│  (e.g., database     │────►│  agent (don&#39;t stop   │────►│  report to well-     │
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│   choice)            │     │  branch work!)       │     │  known location      │
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>└──────────────────────┘     └──────────────────────┘     └───────────┬──────────┘
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>                                                                      │
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>                    ┌─────────────────────────────────────────────────┘
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>                    │
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>                    ▼
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>┌──────────────────────┐     ┌──────────────────────┐
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>│  📋 Later: schedule  │     │  ⚡ As it grows:     │
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>│  on roadmap with     │────►│  automate with a     │
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>│  link to backlog     │     │  research skill      │
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>└──────────────────────┘     └──────────────────────┘
+</span></code></pre></div>
 <table>
 <thead>
 <tr>

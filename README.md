@@ -332,7 +332,7 @@ Every source you add makes the vault richer. The agent handles all cross-referen
 | **Lessons** | 75 |
 | **Flashcards** | 250+ |
 | **SVGs created** | 42+ |
-| **Last updated** | 2026-05-03 |
+| **Last updated** | 2026-05-17 |
 
 ### Topics
 

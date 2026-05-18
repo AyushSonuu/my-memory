@@ -4007,23 +4007,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="⚡ How Tool Use Actually Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step-by-step" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step by Step
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -8600,23 +8583,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="⚡ How Tool Use Actually Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step-by-step" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step by Step
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -8721,40 +8687,12 @@
 </blockquote>
 <hr />
 <h2 id="the-core-idea">🖼️ The Core Idea<a class="headerlink" href="#the-core-idea" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph LR
-    subgraph NO_TOOLS ["❌ Without Tools"]
-        A["👤 What time is it?"] --&gt; B["🤖 LLM"]
-        B --&gt; C["😅 Sorry, I don't&lt;br/&gt;have access to&lt;br/&gt;the current time."]
-    end
-
-    subgraph WITH_TOOLS ["✅ With Tools"]
-        D["👤 What time is it?"] --&gt; E["🤖 LLM"]
-        F["🔧 get_current_time()"] -.-&gt;|"available"| E
-        E --&gt;|"calls"| F
-        F --&gt;|"15:20:45"| E
-        E --&gt; G["🕐 It's 3:20 PM."]
-    end
-
-    style C fill:#f44336,color:#fff
-    style G fill:#4caf50,color:#fff
-    style F fill:#9c27b0,color:#fff</code></pre>
+<p><img alt="Simple Tool Execution" src="../assets/01-simple-tool-execution.svg" /></p>
 <blockquote>
 <p>💡 <strong>LLM bina tools ke = insaan bina haathon ke. Sochne mein bahut achha, lekin duniya mein kuch kar nahi sakta. Tools = haath de do, ab kaam bhi kar sakta hai! 🖐️</strong></p>
 </blockquote>
 <hr />
 <h2 id="how-tool-use-actually-works">⚡ How Tool Use Actually Works<a class="headerlink" href="#how-tool-use-actually-works" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>sequenceDiagram
-    participant U as 👤 User
-    participant LLM as 🤖 LLM
-    participant T as 🔧 Tool&lt;br/&gt;(Function)
-
-    U-&gt;&gt;LLM: "What time is it?"
-    Note over LLM: Sees available tools:&lt;br/&gt;get_current_time()
-    LLM-&gt;&gt;T: Request: get_current_time()
-    T--&gt;&gt;LLM: Returns: "15:20:45"
-    Note over LLM: Uses result in&lt;br/&gt;conversation history
-    LLM-&gt;&gt;U: "It's 3:20 PM."</code></pre>
-<h3 id="step-by-step">Step by Step<a class="headerlink" href="#step-by-step" title="Permanent link">#</a></h3>
 <table>
 <thead>
 <tr>
@@ -8847,19 +8785,6 @@
 <hr />
 <h2 id="hard-coded-tools-vs-llm-chosen-tools">🧰 Hard-Coded Tools vs LLM-Chosen Tools<a class="headerlink" href="#hard-coded-tools-vs-llm-chosen-tools" title="Permanent link">#</a></h2>
 <p>Andrew Ng makes an important distinction here — comparing this module's approach to what we saw in earlier modules:</p>
-<pre class="mermaid"><code>graph TB
-    subgraph HARD ["❌ Hard-Coded (Earlier Modules)"]
-        A["Developer writes:&lt;br/&gt;&lt;i&gt;'Always do web search&lt;br/&gt;at step 2'&lt;/i&gt;"] --&gt; B["Web Search"] --&gt; C["Always runs,&lt;br/&gt;even if unnecessary"]
-    end
-
-    subgraph FLEX ["✅ LLM-Chosen (This Module)"]
-        D["Developer provides:&lt;br/&gt;&lt;i&gt;tools = [web_search,&lt;br/&gt;calculator, ...]&lt;/i&gt;"] --&gt; E["🤖 LLM decides:&lt;br/&gt;&lt;i&gt;'Do I need any&lt;br/&gt;of these tools?'&lt;/i&gt;"]
-        E --&gt;|"Yes"| F["Calls the right tool"]
-        E --&gt;|"No"| G["Answers directly"]
-    end
-
-    style HARD fill:#fff3e0,color:#000
-    style FLEX fill:#e8f5e9,color:#000</code></pre>
 <table>
 <thead>
 <tr>
@@ -8882,6 +8807,8 @@
 </tbody>
 </table>
 <p>The dashed box notation (🔧) in the slides = "tools available for LLM to choose from."</p>
+<p>See the calendar assistant example with multiple tools:</p>
+<p><img alt="Multiple Tools Example" src="../assets/01-multiple-tools.svg" /></p>
 <hr />
 <h2 id="three-real-world-examples">🧱 Three Real-World Examples<a class="headerlink" href="#three-real-world-examples" title="Permanent link">#</a></h2>
 <p>From the course slides (PDF page 5):</p>
@@ -8921,39 +8848,26 @@
 <hr />
 <h2 id="multiple-tools-calendar-assistant-example">🔧 Multiple Tools: Calendar Assistant Example<a class="headerlink" href="#multiple-tools-calendar-assistant-example" title="Permanent link">#</a></h2>
 <p>Real-world agents need <strong>multiple tools</strong> to complete tasks. The calendar assistant example shows how:</p>
-<pre class="mermaid"><code>sequenceDiagram
-    participant U as 👤 User
-    participant LLM as 🤖 LLM
-    participant CC as 📅 check_calendar
-    participant MA as 📩 make_appointment
-
-    U-&gt;&gt;LLM: "Find a free slot on Thursday&lt;br/&gt;and make an appointment with Alice"
-
-    Note over LLM: Available tools:&lt;br/&gt;✅ check_calendar&lt;br/&gt;✅ make_appointment&lt;br/&gt;✅ delete_appointment
-
-    LLM-&gt;&gt;CC: check_calendar(day="Thursday")
-    CC--&gt;&gt;LLM: "Free: 3 PM, 4 PM, 6 PM"
-
-    Note over LLM: Picks 3 PM
-
-    LLM-&gt;&gt;MA: make_appointment(day="Thursday",&lt;br/&gt;time="3 PM", with="Alice")
-    MA--&gt;&gt;LLM: "Meeting created successfully!"
-
-    LLM-&gt;&gt;U: "Your appointment is set up&lt;br/&gt;with Alice at 3 PM Thursday ✅"</code></pre>
+<p><img alt="Multiple Tools Example" src="../assets/01-multiple-tools.svg" /></p>
 <p><strong>The LLM made TWO decisions:</strong>
 1. First, call <code>check_calendar</code> to find free slots
 2. Then, call <code>make_appointment</code> to book one — it <strong>chose</strong> which tools to call and in what order</p>
 <p>It <strong>didn't</strong> call <code>delete_appointment</code> because it wasn't needed. Smart tool selection!</p>
 <hr />
 <h2 id="your-role-as-a-developer">🧠 Your Role as a Developer<a class="headerlink" href="#your-role-as-a-developer" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph TD
-    DEV["👨‍💻 Developer's Job"] --&gt; A["Think: what does my app&lt;br/&gt;need to DO?"]
-    A --&gt; B["Create the functions&lt;br/&gt;(tools) needed"]
-    B --&gt; C["Make them available&lt;br/&gt;to the LLM"]
-    C --&gt; LLM["🤖 LLM's Job:&lt;br/&gt;decide when to&lt;br/&gt;call which tool"]
-
-    style DEV fill:#2196f3,color:#fff
-    style LLM fill:#9c27b0,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>👨‍💻 Developer&#39;s Job                   🤖 LLM&#39;s Job
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>───────────────────                   ────────────────
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Think: what does my app need to DO?   Decide WHEN to use tools
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>         │                                   ▲
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>         ▼                                   │
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Create the functions (tools) needed         │
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>         │                                   │
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>         ▼                                   │
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>Make them available to the LLM ────────────►│
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>                                    Decide WHICH tool fits the query
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>                                    Decide WHAT arguments to pass
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>                                    Generate the final response
+</span></code></pre></div>
 <table>
 <thead>
 <tr>

@@ -8731,32 +8731,31 @@
 </blockquote>
 <hr />
 <h2 id="the-constitution-creation-flow">🖼️ The Constitution Creation Flow<a class="headerlink" href="#the-constitution-creation-flow" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph TB
-    subgraph INPUT["📥 Your Context"]
-        BIZ["Business knowledge&lt;br/&gt;Audience, constraints, vision"]
-        STAKE["Stakeholder input&lt;br/&gt;(README.md)"]
-    end
-
-    subgraph CONVO["💬 Conversation with Agent"]
-        Q["Agent asks great questions&lt;br/&gt;Architecture? Packages? Tradeoffs?"]
-        A["You make decisions&lt;br/&gt;Tone, tech preferences, granularity"]
-    end
-
-    subgraph OUTPUT["📁 specs/ Directory"]
-        M["mission.md"]
-        TS["tech-stack.md"]
-        RM["roadmap.md"]
-    end
-
-    INPUT --&gt; CONVO
-    CONVO --&gt; OUTPUT
-    OUTPUT --&gt; REV["👤 Human Review"]
-    REV --&gt;|"ask agent to fix"| CONVO
-    REV --&gt;|"looks good"| COMMIT["✅ Git Commit"]
-
-    style CONVO fill:#4caf50,color:#fff
-    style OUTPUT fill:#2196f3,color:#fff
-    style COMMIT fill:#ff9800,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────────────────────┐
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│      📥 Your Context        │
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│  Business knowledge,        │
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│  Audience, constraints,     │
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│  Stakeholder input (README) │
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>└──────────────┬──────────────┘
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>               │
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>               ▼
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>┌─────────────────────────────┐
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│  💬 Conversation with Agent │
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│  Agent asks questions       │
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│  (Architecture? Tradeoffs?) │
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│  You make decisions         │
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│  (Tone, tech preferences)   │
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>└──────────────┬──────────────┘
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>               │
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>               ▼
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>┌─────────────────────────────┐     ┌─────────────────────────────┐
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>│   📁 specs/ Directory       │     │      👤 Human Review        │
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>│  • mission.md               │────►│                             │
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>│  • tech-stack.md            │     │   Looks good?               │
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>│  • roadmap.md               │     │   ├── No  → ask agent fix   │
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>└─────────────────────────────┘     │   └── Yes → ✅ Git Commit   │
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>                                    └─────────────────────────────┘
+</span></code></pre></div>
 <blockquote>
 <p>💡 <em>Constitution akele mat likho — agent ke saath conversation mein likho. Agent ke questions sunke tum bhi surprise hoge!</em> 🤯</p>
 </blockquote>
@@ -8794,18 +8793,19 @@
 </table>
 <hr />
 <h2 id="how-to-actually-write-it-step-by-step">🛠️ How to Actually Write It (Step by Step)<a class="headerlink" href="#how-to-actually-write-it-step-by-step" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph LR
-    S1["1. Provide project&lt;br/&gt;description to agent"] --&gt; S2["2. Point to stakeholder&lt;br/&gt;input (README.md)"]
-    S2 --&gt; S3["3. Tell agent: work with me&lt;br/&gt;on mission, tech stack,&lt;br/&gt;roadmap"]
-    S3 --&gt; S4["4. Agent asks&lt;br/&gt;clarifying questions"]
-    S4 --&gt; S5["5. You answer&lt;br/&gt;(make key decisions)"]
-    S5 --&gt; S6["6. Agent writes&lt;br/&gt;3 spec files"]
-    S6 --&gt; S7["7. Human review&lt;br/&gt;&amp; iterate"]
-    S7 --&gt; S8["8. Git commit"]
-
-    style S4 fill:#ff9800,color:#fff
-    style S5 fill:#4caf50,color:#fff
-    style S7 fill:#e91e63,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>1. Provide project     2. Point to           3. Tell agent:        4. Agent asks
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>   description to  ───►   stakeholder    ───►   &quot;work with me   ───►   clarifying
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>   agent                  input (README)        on mission,           questions
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>                                                tech stack,
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>                                                roadmap&quot;
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>                                                     │
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>                    ┌────────────────────────────────┘
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>                    │
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>                    ▼
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>5. You answer      6. Agent writes      7. Human review      8. Git commit
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>   (make key   ───►   3 spec files  ───►   &amp; iterate     ───►   ✅
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>   decisions)
+</span></code></pre></div>
 <h3 id="the-prompt-to-the-agent">The Prompt to the Agent<a class="headerlink" href="#the-prompt-to-the-agent" title="Permanent link">#</a></h3>
 <table>
 <thead>

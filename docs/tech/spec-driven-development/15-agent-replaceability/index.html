@@ -8653,24 +8653,23 @@
 </blockquote>
 <hr />
 <h2 id="the-standards-stack">🖼️ The Standards Stack<a class="headerlink" href="#the-standards-stack" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph TB
-    subgraph STANDARDS["📐 Agent Standards"]
-        MCP["🔧 MCP&lt;br/&gt;External tools"]
-        AGM["📄 AGENTS.md&lt;br/&gt;Rules"]
-        SKILL["⚡ Agent Skills&lt;br/&gt;Repeatable workflows&lt;br/&gt;+ extra context"]
-        ACP["🔌 ACP&lt;br/&gt;Agent ↔ Client&lt;br/&gt;connection"]
-    end
-
-    subgraph FREEDOM["🔄 What You Get"]
-        SW["Switch agents&lt;br/&gt;in same project"]
-        MIX["Mix agents&lt;br/&gt;in same editor"]
-        KEEP["Keep your SDD&lt;br/&gt;workflow + tools"]
-    end
-
-    STANDARDS --&gt; FREEDOM
-
-    style STANDARDS fill:#2196f3,color:#fff
-    style FREEDOM fill:#4caf50,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────────────────────────────────────────────────────────────────────┐
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│                          📐 Agent Standards                                 │
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│                                                                             │
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│  🔧 MCP              📄 AGENTS.md         ⚡ Agent Skills    🔌 ACP         │
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│  External tools      Rules                Repeatable         Agent ↔ Client │
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│                                           workflows +        connection     │
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│                                           extra context                     │
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>└────────────────────────────────────┬────────────────────────────────────────┘
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                                     │
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                                     ▼
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>┌─────────────────────────────────────────────────────────────────────────────┐
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│                          🔄 What You Get                                    │
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│                                                                             │
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│  Switch agents           Mix agents              Keep your SDD              │
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>│  in same project         in same editor          workflow + tools           │
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>└─────────────────────────────────────────────────────────────────────────────┘
+</span></code></pre></div>
 <blockquote>
 <p>💡 <em>Agent change hoga, model change hoga — lekin tera spec nahi badlega. Yahi hai SDD ki taakat!</em> 💪</p>
 </blockquote>
@@ -8709,25 +8708,24 @@
 </table>
 <hr />
 <h2 id="acp-agent-client-protocol-deep-dive">🔌 ACP — Agent Client Protocol (Deep Dive)<a class="headerlink" href="#acp-agent-client-protocol-deep-dive" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph LR
-    subgraph AGENTS["🤖 Agents"]
-        CC["Claude Code"]
-        CX["Codex"]
-        OC["OpenCode"]
-        CUSTOM["Your Custom Agent"]
-    end
-
-    ACP["🔌 ACP\nProtocol"]
-
-    subgraph CLIENTS["💻 Editors / Clients"]
-        JB["JetBrains IDEs"]
-        VS["VS Code"]
-        TERM["Terminal"]
-    end
-
-    AGENTS &lt;--&gt; ACP &lt;--&gt; CLIENTS
-
-    style ACP fill:#ff9800,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌─────────────────────────────────────────────────────────────────────────────┐
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│   🤖 Agents                     🔌 ACP                    💻 Editors        │
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│                                 Protocol                                    │
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│  ┌────────────┐                                          ┌────────────┐    │
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│  │ Claude Code │                                          │ JetBrains  │    │
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│  └────────────┘                    ▲                      │ IDEs       │    │
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│  ┌────────────┐                    │                      └────────────┘    │
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│  │ Codex      │◄───────────────────┼───────────────────►┌────────────┐    │
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│  └────────────┘                    │                      │ VS Code    │    │
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│  ┌────────────┐                    ▼                      └────────────┘    │
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│  │ OpenCode   │                                          ┌────────────┐    │
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>│  └────────────┘                                          │ Terminal   │    │
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>│  ┌────────────┐                                          └────────────┘    │
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>│  │ Your Custom│                                                            │
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>│  │ Agent      │                                                            │
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>│  └────────────┘                                                            │
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>└─────────────────────────────────────────────────────────────────────────────┘
+</span></code></pre></div>
 <table>
 <thead>
 <tr>

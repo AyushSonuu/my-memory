@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f44336"/>
+      <stop offset="100%" style="stop-color:#d32f2f"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#388e3c"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196f3"/>
+      <stop offset="100%" style="stop-color:#1976d2"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#f57c00"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0"/>
+      <stop offset="100%" style="stop-color:#7b1fa2"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="400" y="35" fill="#e6edf3" font-family="Inter, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Non-Agentic vs Agentic Workflows</text>
+
+  <!-- NON-AGENTIC SECTION -->
+  <g transform="translate(40, 70)">
+    <!-- Header -->
+    <rect x="0" y="0" width="320" height="35" rx="8" fill="url(#redGrad)" filter="url(#shadow)"/>
+    <text x="160" y="24" fill="#fff" font-family="Inter, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Non-Agentic (Zero-Shot)</text>
+
+    <!-- Container -->
+    <rect x="0" y="40" width="320" height="140" rx="8" fill="#161b22" stroke="#f44336" stroke-width="2"/>
+
+    <!-- Flow -->
+    <rect x="20" y="60" width="80" height="50" rx="6" fill="#21262d"/>
+    <text x="60" y="82" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Prompt</text>
+    <text x="60" y="98" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">"Write essay"</text>
+
+    <!-- Arrow -->
+    <line x1="105" y1="85" x2="135" y2="85" stroke="#8b949e" stroke-width="2"/>
+    <polygon points="135,85 125,79 125,91" fill="#8b949e"/>
+
+    <rect x="140" y="60" width="60" height="50" rx="6" fill="#21262d"/>
+    <text x="170" y="90" fill="#e6edf3" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">LLM</text>
+
+    <!-- Arrow -->
+    <line x1="205" y1="85" x2="235" y2="85" stroke="#8b949e" stroke-width="2"/>
+    <polygon points="235,85 225,79 225,91" fill="#8b949e"/>
+
+    <rect x="240" y="60" width="60" height="50" rx="6" fill="#21262d"/>
+    <text x="270" y="90" fill="#e6edf3" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Output</text>
+
+    <!-- Summary -->
+    <text x="160" y="145" fill="#f44336" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">One shot, no iteration</text>
+    <text x="160" y="165" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Like writing an exam without backspace</text>
+  </g>
+
+  <!-- AGENTIC SECTION -->
+  <g transform="translate(440, 70)">
+    <!-- Header -->
+    <rect x="0" y="0" width="320" height="35" rx="8" fill="url(#greenGrad)" filter="url(#shadow)"/>
+    <text x="160" y="24" fill="#fff" font-family="Inter, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Agentic (Multi-Step)</text>
+
+    <!-- Container -->
+    <rect x="0" y="40" width="320" height="310" rx="8" fill="#161b22" stroke="#4caf50" stroke-width="2"/>
+
+    <!-- Steps -->
+    <rect x="20" y="55" width="130" height="35" rx="6" fill="url(#blueGrad)"/>
+    <text x="85" y="77" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">1. Write Outline</text>
+
+    <line x1="85" y1="95" x2="85" y2="105" stroke="#8b949e" stroke-width="2"/>
+    <polygon points="85,110 79,100 91,100" fill="#8b949e"/>
+
+    <rect x="20" y="115" width="130" height="35" rx="6" fill="url(#orangeGrad)"/>
+    <text x="85" y="137" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">2. Web Search</text>
+
+    <line x1="85" y1="155" x2="85" y2="165" stroke="#8b949e" stroke-width="2"/>
+    <polygon points="85,170 79,160 91,160" fill="#8b949e"/>
+
+    <rect x="20" y="175" width="130" height="35" rx="6" fill="url(#blueGrad)"/>
+    <text x="85" y="197" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">3. Write Draft</text>
+
+    <line x1="85" y1="215" x2="85" y2="225" stroke="#8b949e" stroke-width="2"/>
+    <polygon points="85,230 79,220 91,220" fill="#8b949e"/>
+
+    <rect x="20" y="235" width="130" height="35" rx="6" fill="url(#purpleGrad)"/>
+    <text x="85" y="257" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">4. Reflect</text>
+
+    <line x1="85" y1="275" x2="85" y2="285" stroke="#8b949e" stroke-width="2"/>
+    <polygon points="85,290 79,280 91,280" fill="#8b949e"/>
+
+    <rect x="20" y="295" width="130" height="35" rx="6" fill="url(#greenGrad)"/>
+    <text x="85" y="317" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">5. Revise</text>
+
+    <!-- Loop arrow -->
+    <path d="M 155 305 Q 200 305 200 257 Q 200 235 155 235" stroke="#ff9800" stroke-width="2" fill="none" stroke-dasharray="4,2"/>
+    <polygon points="155,235 165,229 165,241" fill="#ff9800"/>
+    <text x="215" y="270" fill="#ff9800" font-family="Inter, sans-serif" font-size="9" text-anchor="start">loop</text>
+
+    <!-- Icons/badges -->
+    <circle cx="270" cy="72" r="15" fill="#21262d"/>
+    <text x="270" y="77" fill="#e6edf3" font-family="Inter, sans-serif" font-size="12" text-anchor="middle">LLM</text>
+
+    <circle cx="270" cy="132" r="15" fill="#21262d"/>
+    <text x="270" y="137" fill="#e6edf3" font-family="Inter, sans-serif" font-size="12" text-anchor="middle">Tool</text>
+
+    <circle cx="270" cy="192" r="15" fill="#21262d"/>
+    <text x="270" y="197" fill="#e6edf3" font-family="Inter, sans-serif" font-size="12" text-anchor="middle">LLM</text>
+
+    <circle cx="270" cy="252" r="15" fill="#21262d"/>
+    <text x="270" y="257" fill="#e6edf3" font-family="Inter, sans-serif" font-size="12" text-anchor="middle">LLM</text>
+
+    <circle cx="270" cy="312" r="15" fill="#21262d"/>
+    <text x="270" y="317" fill="#e6edf3" font-family="Inter, sans-serif" font-size="12" text-anchor="middle">LLM</text>
+  </g>
+
+  <!-- Bottom comparison -->
+  <g transform="translate(40, 400)">
+    <rect x="0" y="0" width="320" height="35" rx="6" fill="#21262d"/>
+    <text x="160" y="22" fill="#f44336" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Surface-level output</text>
+  </g>
+
+  <g transform="translate(440, 400)">
+    <rect x="0" y="0" width="320" height="35" rx="6" fill="#21262d"/>
+    <text x="160" y="22" fill="#4caf50" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Deep, thoughtful output</text>
+  </g>
+</svg>

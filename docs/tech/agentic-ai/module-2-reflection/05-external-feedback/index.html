@@ -8789,21 +8789,18 @@
 <h2 id="why-external-feedback-is-so-powerful">🧠 Why External Feedback is So Powerful<a class="headerlink" href="#why-external-feedback-is-so-powerful" title="Permanent link">#</a></h2>
 <p>The core insight: without external feedback, the LLM is <strong>reflecting on the same information it already had</strong>. It's like re-reading your own essay — you'll catch <em>some</em> mistakes, but you'll miss the ones you didn't know were mistakes.</p>
 <p>External feedback gives the LLM <strong>new facts</strong> it didn't have before:</p>
-<pre class="mermaid"><code>graph LR
-    subgraph BASIC ["🪞 Basic Reflection"]
-        A["LLM output v1"] --&gt; B["Same LLM&lt;br/&gt;&lt;i&gt;Reflect&lt;/i&gt;"]
-        B --&gt; C["v2&lt;br/&gt;&lt;i&gt;(marginally better)&lt;/i&gt;"]
-    end
-
-    subgraph EXT ["🔦 With External Feedback"]
-        D["LLM output v1"] --&gt; E["🔧 External Tool&lt;br/&gt;&lt;i&gt;Runs code / searches web /&lt;br/&gt;counts words / pattern match&lt;/i&gt;"]
-        E --&gt;|"NEW information"| F["LLM&lt;br/&gt;&lt;i&gt;Reflect with&lt;br/&gt;concrete facts&lt;/i&gt;"]
-        F --&gt; G["v2 ✅&lt;br/&gt;&lt;i&gt;(significantly better)&lt;/i&gt;"]
-    end
-
-    style B fill:#ff9800,color:#fff
-    style E fill:#9c27b0,color:#fff
-    style F fill:#4caf50,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>🪞 Basic Reflection                    🔦 With External Feedback
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>──────────────────                     ────────────────────────
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>LLM output v1 ──► Same LLM             LLM output v1 ──► 🔧 External Tool
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>                  (Reflect)                              (Run code / search web /
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>                      │                                   count words / pattern match)
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>                      ▼                                        │
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>                    v2                                    NEW information
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>               (marginally better)                             │
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>                                                               ▼
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>                                       LLM (Reflect with concrete facts) ──► v2 ✅
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>                                                                     (significantly better)
+</span></code></pre></div>
 <blockquote>
 <p>💡 <strong>Basic reflection = doctor apne aap ko diagnose kar raha hai. External feedback = blood test ke results aa gaye — ab pata hai kya fix karna hai! 🩺</strong></p>
 </blockquote>
@@ -8811,14 +8808,11 @@
 <h2 id="three-concrete-examples">🔧 Three Concrete Examples<a class="headerlink" href="#three-concrete-examples" title="Permanent link">#</a></h2>
 <h3 id="1-competitor-name-detection">1. Competitor Name Detection 🏷️<a class="headerlink" href="#1-competitor-name-detection" title="Permanent link">#</a></h3>
 <p><strong>Problem:</strong> LLM writes marketing emails that accidentally mention competitor names.</p>
-<pre class="mermaid"><code>graph LR
-    A["🤖 LLM&lt;br/&gt;&lt;i&gt;Writes email draft&lt;/i&gt;"] --&gt; B["📧 Email v1&lt;br/&gt;&lt;i&gt;'Our shoes are better&lt;br/&gt;than RivalCo...'&lt;/i&gt;"]
-    B --&gt; C["🔍 Pattern Matcher&lt;br/&gt;&lt;i&gt;Regex scan for&lt;br/&gt;competitor names&lt;/i&gt;"]
-    C --&gt;|"Found: 'RivalCo'"| D["🤖 LLM&lt;br/&gt;&lt;i&gt;Rewrite WITHOUT&lt;br/&gt;mentioning RivalCo&lt;/i&gt;"]
-    D --&gt; E["📧 Email v2 ✅"]
-
-    style C fill:#9c27b0,color:#fff
-    style E fill:#4caf50,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>🤖 LLM ──► 📧 Email v1 ──► 🔍 Pattern Matcher ──► Found: &quot;RivalCo&quot; ──► 🤖 LLM ──► 📧 Email v2 ✅
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>(Writes email  (&quot;Our shoes are      (Regex scan for                     (Rewrite WITHOUT
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a> draft)         better than          competitor names)                    mentioning RivalCo)
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>                RivalCo...&quot;)
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -8845,14 +8839,10 @@
 <hr />
 <h3 id="2-fact-checking-via-web-search">2. Fact-Checking via Web Search 🌐<a class="headerlink" href="#2-fact-checking-via-web-search" title="Permanent link">#</a></h3>
 <p><strong>Problem:</strong> Research agent writes "The Taj Mahal was built in 1648" — technically it was <em>finished</em> in 1648, but commissioned in 1631.</p>
-<pre class="mermaid"><code>graph LR
-    A["🤖 LLM&lt;br/&gt;&lt;i&gt;Writes essay&lt;/i&gt;"] --&gt; B["📝 Essay v1&lt;br/&gt;&lt;i&gt;'Taj Mahal was&lt;br/&gt;built in 1648'&lt;/i&gt;"]
-    B --&gt; C["🔍 Web Search&lt;br/&gt;&lt;i&gt;Query: 'When was&lt;br/&gt;Taj Mahal built?'&lt;/i&gt;"]
-    C --&gt;|"Commissioned 1631,&lt;br/&gt;completed 1648"| D["🤖 LLM&lt;br/&gt;&lt;i&gt;Corrects with&lt;br/&gt;accurate timeline&lt;/i&gt;"]
-    D --&gt; E["📝 Essay v2 ✅&lt;br/&gt;&lt;i&gt;'Commissioned in 1631,&lt;br/&gt;completed in 1648'&lt;/i&gt;"]
-
-    style C fill:#9c27b0,color:#fff
-    style E fill:#4caf50,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>🤖 LLM ──► 📝 Essay v1 ──► 🔍 Web Search ──► &quot;Commissioned 1631, ──► 🤖 LLM ──► 📝 Essay v2 ✅
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>(Writes       (&quot;Taj Mahal was  (Query: &quot;When was    completed 1648&quot;      (Corrects with    (&quot;Commissioned in 1631,
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a> essay)        built in 1648&quot;)  Taj Mahal built?&quot;)                        accurate timeline) completed in 1648&quot;)
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -8879,14 +8869,11 @@
 <hr />
 <h3 id="3-word-count-enforcement">3. Word Count Enforcement 📏<a class="headerlink" href="#3-word-count-enforcement" title="Permanent link">#</a></h3>
 <p><strong>Problem:</strong> LLM writes a blog post / research abstract that's over the word limit. LLMs are notoriously bad at following exact word counts.</p>
-<pre class="mermaid"><code>graph LR
-    A["🤖 LLM&lt;br/&gt;&lt;i&gt;Writes abstract&lt;br/&gt;(limit: 200 words)&lt;/i&gt;"] --&gt; B["📝 Draft v1&lt;br/&gt;&lt;i&gt;247 words&lt;/i&gt;"]
-    B --&gt; C["🔢 Word Counter&lt;br/&gt;&lt;i&gt;count = 247&lt;/i&gt;"]
-    C --&gt;|"247 words&lt;br/&gt;(47 over limit!)"| D["🤖 LLM&lt;br/&gt;&lt;i&gt;Trim to ≤200&lt;br/&gt;words&lt;/i&gt;"]
-    D --&gt; E["📝 Draft v2 ✅&lt;br/&gt;&lt;i&gt;198 words&lt;/i&gt;"]
-
-    style C fill:#9c27b0,color:#fff
-    style E fill:#4caf50,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>🤖 LLM ──► 📝 Draft v1 ──► 🔢 Word Counter ──► &quot;247 words ──► 🤖 LLM ──► 📝 Draft v2 ✅
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>(Writes       (247 words)      (count = 247)     (47 over limit!)&quot;   (Trim to ≤200)  (198 words)
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a> abstract,
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a> limit: 200)
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -8952,36 +8939,48 @@
 </blockquote>
 <hr />
 <h2 id="when-to-escalate-the-decision-framework">⚡ When to Escalate: The Decision Framework<a class="headerlink" href="#when-to-escalate-the-decision-framework" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph TD
-    START["Prompt engineering&lt;br/&gt;seeing diminishing returns?"] --&gt;|"Yes"| Q1{"Can you add&lt;br/&gt;reflection?"}
-    Q1 --&gt;|"Yes"| REF["Add reflection loop&lt;br/&gt;&lt;i&gt;Tune the reflection prompt&lt;/i&gt;"]
-    REF --&gt; Q2{"Still plateauing?"}
-    Q2 --&gt;|"Yes"| Q3{"Is there external info&lt;br/&gt;you can inject?"}
-    Q3 --&gt;|"Code errors"| EXT1["Execute code → feed errors back"]
-    Q3 --&gt;|"Facts to verify"| EXT2["Web search → feed results back"]
-    Q3 --&gt;|"Rules to enforce"| EXT3["Pattern matching → flag violations"]
-    Q3 --&gt;|"Format constraints"| EXT4["Counting/parsing → report exact numbers"]
-    Q2 --&gt;|"No, improving!"| KEEP["Keep tuning 👍"]
-
-    style START fill:#2196f3,color:#fff
-    style EXT1 fill:#4caf50,color:#fff
-    style EXT2 fill:#4caf50,color:#fff
-    style EXT3 fill:#4caf50,color:#fff
-    style EXT4 fill:#4caf50,color:#fff</code></pre>
+<table>
+<thead>
+<tr>
+<th>If you're...</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prompt engineering seeing diminishing returns?</td>
+<td>Ask: Can you add reflection?</td>
+</tr>
+<tr>
+<td>Already using reflection but still plateauing?</td>
+<td>Ask: Is there external info you can inject?</td>
+</tr>
+<tr>
+<td>External info = <strong>Code errors</strong></td>
+<td>Execute code → feed errors back</td>
+</tr>
+<tr>
+<td>External info = <strong>Facts to verify</strong></td>
+<td>Web search → feed results back</td>
+</tr>
+<tr>
+<td>External info = <strong>Rules to enforce</strong></td>
+<td>Pattern matching → flag violations</td>
+</tr>
+<tr>
+<td>External info = <strong>Format constraints</strong></td>
+<td>Counting/parsing → report exact numbers</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Key insight from Andrew Ng:</strong> If direct prompting is plateauing, don't keep burning time on it. Ask: <em>"Can I add reflection? Can I add external feedback?"</em> — shift the curve, don't grind on the plateau.</p>
 <hr />
 <h2 id="module-2-complete-reflection-recap">🗺️ Module 2 Complete — Reflection Recap<a class="headerlink" href="#module-2-complete-reflection-recap" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph TD
-    L1["01 · Reflection Basics&lt;br/&gt;&lt;i&gt;Generate → Critique → Improve&lt;/i&gt;"] --&gt; L2["02 · Why Not Direct?&lt;br/&gt;&lt;i&gt;Self-Refine paper,&lt;br/&gt;prompt tips&lt;/i&gt;"]
-    L2 --&gt; L3["03 · Chart Workflow&lt;br/&gt;&lt;i&gt;Multimodal reflection&lt;br/&gt;on images&lt;/i&gt;"]
-    L3 --&gt; L4["04 · Evaluating&lt;br/&gt;&lt;i&gt;Objective vs Subjective&lt;br/&gt;evals, rubrics&lt;/i&gt;"]
-    L4 --&gt; L5["05 · External Feedback&lt;br/&gt;&lt;i&gt;Code, web search,&lt;br/&gt;tools = 🚀&lt;/i&gt;"]
-
-    style L1 fill:#4caf50,color:#fff
-    style L2 fill:#4caf50,color:#fff
-    style L3 fill:#4caf50,color:#fff
-    style L4 fill:#4caf50,color:#fff
-    style L5 fill:#4caf50,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>01 · Reflection Basics ──► 02 · Why Not Direct? ──► 03 · Chart Workflow ──► 04 · Evaluating ──► 05 · External Feedback
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>(Generate → Critique →     (Self-Refine paper,      (Multimodal reflection   (Objective vs       (Code, web search,
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a> Improve)                   prompt tips)             on images)              Subjective evals,    tools = 🚀)
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>                                                                             rubrics)
+</span></code></pre></div>
 <p><strong>The 3 tiers of power:</strong> Direct generation &lt; Reflection &lt; Reflection + External Feedback</p>
 <hr />
 <h2 id="gotchas">⚠️ Gotchas<a class="headerlink" href="#gotchas" title="Permanent link">#</a></h2>

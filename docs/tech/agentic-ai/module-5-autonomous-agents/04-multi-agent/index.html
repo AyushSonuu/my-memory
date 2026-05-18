@@ -8777,20 +8777,7 @@
 </blockquote>
 <hr />
 <h2 id="why-multiple-agents">🖼️ Why Multiple Agents?<a class="headerlink" href="#why-multiple-agents" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph LR
-    subgraph ONE ["❌ One Agent Does Everything"]
-        A["🤖 Single Agent&lt;br/&gt;researches + designs +&lt;br/&gt;writes + reviews"] --&gt; B["😵 Overloaded,&lt;br/&gt;mediocre at everything"]
-    end
-
-    subgraph MULTI ["✅ Specialized Team"]
-        R["🔍 Researcher"] --&gt; G["🎨 Designer"]
-        G --&gt; W["✍️ Writer"]
-    end
-
-    style B fill:#f44336,color:#fff
-    style R fill:#9c27b0,color:#fff
-    style G fill:#9c27b0,color:#fff
-    style W fill:#9c27b0,color:#fff</code></pre>
+<p><img alt="Multi-Agent Workflow" src="../assets/04-multi-agent-workflow.svg" /></p>
 <h3 id="but-wait-its-the-same-llm-underneath">But wait — it's the same LLM underneath!<a class="headerlink" href="#but-wait-its-the-same-llm-underneath" title="Permanent link">#</a></h3>
 <p>People often ask: <em>"Why do I need multiple agents? It's just the same LLM prompted over and over."</em></p>
 <p>Two analogies that make it click:</p>
@@ -8848,28 +8835,36 @@
 <hr />
 <h2 id="building-individual-agents">🔧 Building Individual Agents<a class="headerlink" href="#building-individual-agents" title="Permanent link">#</a></h2>
 <p>Each agent = <strong>a prompted LLM</strong> with its own role, tasks, and tools:</p>
-<pre class="mermaid"><code>graph TB
-    subgraph RESEARCHER ["🔍 Researcher Agent"]
-        R_PROMPT["&lt;b&gt;Prompt:&lt;/b&gt; You are a research agent,&lt;br/&gt;expert at analyzing market&lt;br/&gt;trends and competitors..."]
-        R_TOOLS["&lt;b&gt;Tools:&lt;/b&gt; 🌐 web_search"]
-        R_TASK["&lt;b&gt;Tasks:&lt;/b&gt;&lt;br/&gt;• Analyze market trends&lt;br/&gt;• Research competitors"]
-    end
-
-    subgraph DESIGNER ["🎨 Graphic Designer Agent"]
-        D_PROMPT["&lt;b&gt;Prompt:&lt;/b&gt; You are a graphic&lt;br/&gt;designer agent..."]
-        D_TOOLS["&lt;b&gt;Tools:&lt;/b&gt; 🖼️ image_generation&lt;br/&gt;💻 code_execution (charts)"]
-        D_TASK["&lt;b&gt;Tasks:&lt;/b&gt;&lt;br/&gt;• Create data visualizations&lt;br/&gt;• Create artwork"]
-    end
-
-    subgraph WRITER ["✍️ Writer Agent"]
-        W_PROMPT["&lt;b&gt;Prompt:&lt;/b&gt; You are a writer&lt;br/&gt;agent..."]
-        W_TOOLS["&lt;b&gt;Tools:&lt;/b&gt; None needed!&lt;br/&gt;(LLM already generates text)"]
-        W_TASK["&lt;b&gt;Tasks:&lt;/b&gt;&lt;br/&gt;• Transform research into&lt;br/&gt;  report text &amp; marketing copy"]
-    end
-
-    style RESEARCHER fill:#e8eaf6,color:#000
-    style DESIGNER fill:#fce4ec,color:#000
-    style WRITER fill:#e8f5e9,color:#000</code></pre>
+<table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>Prompt</th>
+<th>Tools</th>
+<th>Tasks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>🔍 Researcher</strong></td>
+<td>"You are a research agent, expert at analyzing market trends and competitors..."</td>
+<td>🌐 web_search</td>
+<td>Analyze market trends, Research competitors</td>
+</tr>
+<tr>
+<td><strong>🎨 Graphic Designer</strong></td>
+<td>"You are a graphic designer agent..."</td>
+<td>🖼️ image_generation, 💻 code_execution (charts)</td>
+<td>Create data visualizations, Create artwork</td>
+</tr>
+<tr>
+<td><strong>✍️ Writer</strong></td>
+<td>"You are a writer agent..."</td>
+<td>None needed! (LLM already generates text)</td>
+<td>Transform research into report text &amp; marketing copy</td>
+</tr>
+</tbody>
+</table>
 <table>
 <thead>
 <tr>
@@ -8900,16 +8895,11 @@
 <hr />
 <h2 id="pattern-1-linear-workflow">📐 Pattern 1: Linear Workflow<a class="headerlink" href="#pattern-1-linear-workflow" title="Permanent link">#</a></h2>
 <p>The simplest multi-agent pattern — agents work one after another, like a relay race:</p>
-<pre class="mermaid"><code>graph LR
-    Q["👤 Create a summer&lt;br/&gt;marketing campaign&lt;br/&gt;for sunglasses"] --&gt; R["🔍 Researcher"]
-    R --&gt;|"Here are current&lt;br/&gt;sunglasses trends&lt;br/&gt;and competitor&lt;br/&gt;offerings..."| D["🎨 Graphic&lt;br/&gt;Designer"]
-    D --&gt;|"Here are 5 data&lt;br/&gt;visualizations and&lt;br/&gt;5 artwork options..."| W["✍️ Writer"]
-    W --&gt;|"Final marketing&lt;br/&gt;brochure"| OUT["📄 Final&lt;br/&gt;Report"]
-
-    style R fill:#9c27b0,color:#fff
-    style D fill:#9c27b0,color:#fff
-    style W fill:#9c27b0,color:#fff
-    style OUT fill:#4caf50,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>👤 User Query ──► 🔍 Researcher ──► 🎨 Graphic Designer ──► ✍️ Writer ──► 📄 Final Report
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>                     │                     │                    │
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>                 &quot;trends &amp;            &quot;5 visuals &amp;         &quot;marketing
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>                 competitors&quot;          artwork&quot;             brochure&quot;
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -8944,31 +8934,32 @@
 <hr />
 <h2 id="pattern-2-manager-coordinated-planning-multi-agent">📐 Pattern 2: Manager-Coordinated (Planning + Multi-Agent)<a class="headerlink" href="#pattern-2-manager-coordinated-planning-multi-agent" title="Permanent link">#</a></h2>
 <p>A more powerful pattern — combine <strong>planning</strong> (from Lesson 01) with agents instead of tools:</p>
-<pre class="mermaid"><code>graph TB
-    Q["👤 Create a summer&lt;br/&gt;marketing campaign"] --&gt; MGR["🤖 Marketing Manager&lt;br/&gt;(Planner Agent)"]
-
-    MGR --&gt;|"Step 1: Research&lt;br/&gt;sunglasses trends"| R["🔍 Researcher"]
-    R --&gt;|"report"| MGR
-    MGR --&gt;|"Step 2: Create&lt;br/&gt;ad images"| D["🎨 Designer"]
-    D --&gt;|"visuals"| MGR
-    MGR --&gt;|"Step 3: Write&lt;br/&gt;the report"| W["✍️ Writer"]
-    W --&gt;|"draft"| MGR
-    MGR --&gt;|"Step 4: Review&lt;br/&gt;&amp; improve"| MGR
-
-    MGR --&gt; OUT["📄 Final Report"]
-
-    style MGR fill:#ff9800,color:#fff
-    style R fill:#9c27b0,color:#fff
-    style D fill:#9c27b0,color:#fff
-    style W fill:#9c27b0,color:#fff
-    style OUT fill:#4caf50,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>                      👤 User Query
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>                            │
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>                            ▼
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>                   🤖 Marketing Manager
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>                   (Planner Agent)
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>                   /      │       \
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>         Step 1   /  Step 2│        \ Step 3
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>                 /         │         \
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>                ▼          ▼          ▼
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        🔍 Researcher 🎨 Designer ✍️ Writer
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>                │          │          │
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>              report     visuals    draft
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>                \          │         /
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>                 └─────────┴────────┘
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>                           │
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>                    Step 4: Review
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>                           ▼
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>                    📄 Final Report
+</span></code></pre></div>
 <h3 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">#</a></h3>
 <p>The <strong>marketing manager</strong> is itself an LLM-based agent with this prompt:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>You are a marketing manager and have the following
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>team of agents to work with:
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>{description of agents}
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Return a step-by-step plan to carry out the user&#39;s request.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>You are a marketing manager and have the following
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>team of agents to work with:
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>{description of agents}
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Return a step-by-step plan to carry out the user&#39;s request.
 </span></code></pre></div>
 <p><strong>This is exactly like planning with tools — but tools are replaced by agents!</strong></p>
 <table>
@@ -8998,17 +8989,17 @@
 </tbody>
 </table>
 <h3 id="the-manager-the-4th-agent">The Manager = The 4th Agent<a class="headerlink" href="#the-manager-the-4th-agent" title="Permanent link">#</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>┌────────────────────────────────────────────────────┐
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│  The system is actually 4 agents:                   │
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│                                                      │
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│  🟠 Marketing Manager  → plans + delegates + reviews│
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│  🟣 Researcher         → does the research          │
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│  🟣 Graphic Designer   → creates visuals            │
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│  🟣 Writer             → writes the copy            │
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│                                                      │
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│  Manager doesn&#39;t just orchestrate — it can also     │
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│  REFLECT and improve the final output!              │
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>└────────────────────────────────────────────────────┘
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>┌────────────────────────────────────────────────────┐
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>│  The system is actually 4 agents:                   │
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>│                                                      │
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>│  🟠 Marketing Manager  → plans + delegates + reviews│
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>│  🟣 Researcher         → does the research          │
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>│  🟣 Graphic Designer   → creates visuals            │
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>│  🟣 Writer             → writes the copy            │
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>│                                                      │
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>│  Manager doesn&#39;t just orchestrate — it can also     │
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>│  REFLECT and improve the final output!              │
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>└────────────────────────────────────────────────────┘
 </span></code></pre></div>
 <blockquote>
 <p>💡 <strong>Linear plan = assembly line 🏭 — sab apna kaam karo, aage bhejo. Manager plan = team lead jo kaam baanta hai, check karta hai, aur final approval deta hai! 🧑‍💼</strong></p>

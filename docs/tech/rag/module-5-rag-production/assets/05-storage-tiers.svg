@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="ramGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f44336"/>
+      <stop offset="100%" style="stop-color:#d32f2f"/>
+    </linearGradient>
+    <linearGradient id="diskGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#f57c00"/>
+    </linearGradient>
+    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#388e3c"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="450" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Vector Database Storage Tiers: Speed vs Cost</text>
+  <text x="450" y="50" fill="#8b949e" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">Choose the right storage for each component</text>
+
+  <!-- Column 1: RAM -->
+  <g transform="translate(50, 90)">
+    <rect width="240" height="340" rx="12" fill="#3d1e1e" stroke="#f44336" stroke-width="3" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="240" height="40" rx="12" fill="url(#ramGrad)"/>
+    <text x="120" y="26" fill="#fff" font-family="Inter, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">🔥 RAM (Memory)</text>
+
+    <text x="120" y="70" fill="#e6edf3" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Speed: Fastest ⚡⚡⚡</text>
+    <text x="120" y="90" fill="#f44336" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Cost: $$$ Most Expensive</text>
+
+    <text x="120" y="120" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" font-style="italic" text-anchor="middle">Several times more expensive</text>
+    <text x="120" y="133" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" font-style="italic" text-anchor="middle">than disk storage</text>
+
+    <rect x="15" y="150" width="210" height="1" fill="#8b949e" opacity="0.3"/>
+
+    <text x="120" y="175" fill="#4caf50" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">✓ MUST Store Here:</text>
+    <text x="120" y="195" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">• HNSW Index</text>
+    <text x="120" y="210" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">(Critical for fast vector search)</text>
+
+    <rect x="15" y="230" width="210" height="1" fill="#8b949e" opacity="0.3"/>
+
+    <text x="120" y="255" fill="#ff9800" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">⚠ Optional:</text>
+    <text x="120" y="275" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">• Active tenant data</text>
+    <text x="120" y="288" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">(Multi-tenancy: load on-demand)</text>
+    <text x="120" y="305" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">• Frequently accessed docs</text>
+    <text x="120" y="318" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">(Hot data)</text>
+  </g>
+
+  <!-- Column 2: Disk (SSD) -->
+  <g transform="translate(330, 90)">
+    <rect width="240" height="340" rx="12" fill="#3d2e1f" stroke="#ff9800" stroke-width="3" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="240" height="40" rx="12" fill="url(#diskGrad)"/>
+    <text x="120" y="26" fill="#fff" font-family="Inter, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">💾 Disk (SSD)</text>
+
+    <text x="120" y="70" fill="#e6edf3" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Speed: Medium ⚡⚡</text>
+    <text x="120" y="90" fill="#ff9800" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Cost: $$ Medium</text>
+
+    <text x="120" y="120" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" font-style="italic" text-anchor="middle">Cheaper than RAM,</text>
+    <text x="120" y="133" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" font-style="italic" text-anchor="middle">more expensive than cloud</text>
+
+    <rect x="15" y="150" width="210" height="1" fill="#8b949e" opacity="0.3"/>
+
+    <text x="120" y="175" fill="#4caf50" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">✓ Best For:</text>
+    <text x="120" y="195" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">• Document contents</text>
+    <text x="120" y="208" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">(Not vectors, just text)</text>
+    <text x="120" y="225" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">• Moderately used tenant data</text>
+    <text x="120" y="238" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">(Logged in recently)</text>
+    <text x="120" y="255" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">• Recent documents</text>
+    <text x="120" y="268" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">(Last 30 days)</text>
+
+    <rect x="15" y="285" width="210" height="1" fill="#8b949e" opacity="0.3"/>
+
+    <text x="120" y="305" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" font-style="italic" text-anchor="middle">Good balance:</text>
+    <text x="120" y="318" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Fast enough for most use cases,</text>
+    <text x="120" y="330" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">doesn't break the budget</text>
+  </g>
+
+  <!-- Column 3: Cloud Object Storage -->
+  <g transform="translate(610, 90)">
+    <rect width="240" height="340" rx="12" fill="#1e3a1e" stroke="#4caf50" stroke-width="3" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="240" height="40" rx="12" fill="url(#cloudGrad)"/>
+    <text x="120" y="26" fill="#fff" font-family="Inter, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">☁️ Cloud Storage</text>
+
+    <text x="120" y="70" fill="#e6edf3" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Speed: Slowest ⚡</text>
+    <text x="120" y="90" fill="#4caf50" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Cost: $ Cheapest</text>
+
+    <text x="120" y="120" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" font-style="italic" text-anchor="middle">Several times cheaper than disk,</text>
+    <text x="120" y="133" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" font-style="italic" text-anchor="middle">many times cheaper than RAM</text>
+
+    <rect x="15" y="150" width="210" height="1" fill="#8b949e" opacity="0.3"/>
+
+    <text x="120" y="175" fill="#4caf50" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">✓ Best For:</text>
+    <text x="120" y="195" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">• Inactive tenant data</text>
+    <text x="120" y="208" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">(Hasn't logged in for weeks)</text>
+    <text x="120" y="225" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">• Old/archived documents</text>
+    <text x="120" y="238" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">(Rarely queried)</text>
+    <text x="120" y="255" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">• Cold data</text>
+    <text x="120" y="268" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">(Access &lt; 1% of the time)</text>
+
+    <rect x="15" y="285" width="210" height="1" fill="#8b949e" opacity="0.3"/>
+
+    <text x="120" y="305" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" font-style="italic" text-anchor="middle">Strategy:</text>
+    <text x="120" y="318" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Load to RAM/disk only when needed</text>
+    <text x="120" y="330" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">(e.g., user logs in)</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="450" y="460" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">💡 Golden rule: HNSW index = RAM (non-negotiable). Everything else = move between tiers based on usage patterns.</text>
+  <text x="450" y="480" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">🎯 Multi-tenancy: Organize by user → load tenant data on-demand → huge cost savings at scale!</text>
+</svg>

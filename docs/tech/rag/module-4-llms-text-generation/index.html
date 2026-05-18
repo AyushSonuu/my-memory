@@ -8568,15 +8568,15 @@
 </tr>
 <tr>
 <td>11</td>
-<td><a href="11-agentic-rag.md">Agentic RAG</a></td>
-<td>🔴</td>
-<td>—</td>
+<td><a href="11-agentic-rag/">Agentic RAG</a></td>
+<td>🟢</td>
+<td>1 SVG</td>
 </tr>
 <tr>
 <td>12</td>
-<td><a href="12-rag-vs-finetuning.md">RAG vs Fine-Tuning</a></td>
-<td>🔴</td>
-<td>—</td>
+<td><a href="12-rag-vs-finetuning/">RAG vs Fine-Tuning</a></td>
+<td>🟢</td>
+<td>1 SVG</td>
 </tr>
 <tr>
 <td>13</td>
@@ -8586,7 +8586,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Overall confidence:</strong> 🟡 In progress (8/13)</p>
+<p><strong>Overall confidence:</strong> 🟡 In progress (10/13)</p>
 <h2 id="memory-fragments">🧩 Memory Fragments<a class="headerlink" href="#memory-fragments" title="Permanent link">#</a></h2>
 <blockquote>
 <ul>
@@ -8603,6 +8603,11 @@
 <li>📚 Few-shot = examples in prompt, reasoning models = built-in CoT (different rules!)</li>
 <li>🚫 LLMs predict probable, not true — hallucinations sound plausible!</li>
 <li>📏 RAGAS: Response Relevancy (addresses question?) + Faithfulness (grounded in docs?)</li>
+<li>🤖 Agentic RAG = multiple LLMs, each specialized for one step (router, evaluator, generator, citation)</li>
+<li>💡 Agentic = flowchart thinking. Design workflow, assign different models per node (lightweight for routing, powerful for generation)</li>
+<li>📚 RAG = knowledge injection (new info). Fine-tuning = domain adaptation (style/tone/format)</li>
+<li>🔄 Fine-tuning changes HOW model responds more than WHAT it knows — not great for teaching new facts</li>
+<li>🔧 RAG + Fine-tuning together = best combo (fine-tune for RAG specialization)</li>
 </ul>
 </blockquote>
 <hr />

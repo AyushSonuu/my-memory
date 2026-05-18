@@ -8777,19 +8777,7 @@
 </blockquote>
 <hr />
 <h2 id="the-big-picture">🖼️ The Big Picture<a class="headerlink" href="#the-big-picture" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph LR
-    A["🏗️ Build Quick&lt;br/&gt;Prototype"] --&gt; B["👀 Look at&lt;br/&gt;Outputs"]
-    B --&gt; C["❌ Spot&lt;br/&gt;Failure Modes"]
-    C --&gt; D["📊 Build Eval&lt;br/&gt;for That Failure"]
-    D --&gt; E["🔧 Tweak&lt;br/&gt;System"]
-    E --&gt; F["📈 Run Eval&lt;br/&gt;Again"]
-    F --&gt;|"Score ↑"| G["✅ Ship It"]
-    F --&gt;|"Score same/↓"| E
-
-    style A fill:#2196f3,color:#fff
-    style C fill:#f44336,color:#fff
-    style D fill:#ff9800,color:#fff
-    style G fill:#4caf50,color:#fff</code></pre>
+<p><img alt="Eval Development Cycle" src="../assets/07-build-analyze-cycle.svg" /></p>
 <blockquote>
 <p>💡 <strong>Eval = exam for your AI. Student (AI) ne answer diya, tum answer key se match karo. Score badha toh acha, nahi toh wapas padhai karo! 📝</strong></p>
 </blockquote>
@@ -9098,19 +9086,8 @@
 <p>These are called <strong>end-to-end evals</strong> because they test the <strong>entire pipeline</strong> — from user input (one end) to final output (the other end).</p>
 <hr />
 <h2 id="the-iteration-flywheel">⚡ The Iteration Flywheel<a class="headerlink" href="#the-iteration-flywheel" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph TD
-    A["👀 Human Eye&lt;br/&gt;(read outputs)"] --&gt; B["📊 Build Eval&lt;br/&gt;(automate checks)"]
-    B --&gt; C["🔧 Improve System&lt;br/&gt;(prompts, algorithms)"]
-    C --&gt; D["📈 Run Eval&lt;br/&gt;(check score)"]
-    D --&gt;|"Score ↑"| E["🎉 Progress!"]
-    D --&gt;|"Score flat"| F["🤔 Fix the&lt;br/&gt;eval or system"]
-    F --&gt; B
-    E --&gt; G["🔍 Find next&lt;br/&gt;failure mode"]
-    G --&gt; A
-
-    style A fill:#2196f3,color:#fff
-    style E fill:#4caf50,color:#fff
-    style F fill:#f44336,color:#fff</code></pre>
+<p>The 2x2 framework for designing evals:</p>
+<p><img alt="2x2 Eval Framework" src="../assets/01-2x2-eval-framework.svg" /></p>
 <blockquote>
 <p>💡 <strong>Eval banana = exam set banana. System improve karna = student ko padhana. Score measure karna = result dekhna. Rinse and repeat until topper! 🏆</strong></p>
 </blockquote>

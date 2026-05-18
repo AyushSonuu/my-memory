@@ -8721,55 +8721,15 @@
 </blockquote>
 <hr />
 <h2 id="the-four-patterns-at-a-glance">🖼️ The Four Patterns at a Glance<a class="headerlink" href="#the-four-patterns-at-a-glance" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph TB
-    subgraph LINEAR ["1️⃣ Linear"]
-        L1["🔍 Researcher"] --&gt; L2["🎨 Designer"] --&gt; L3["✍️ Writer"]
-    end
-
-    subgraph HIER ["2️⃣ Hierarchical"]
-        H0["🧑‍💼 Manager"] --&gt; H1["🔍 Researcher"]
-        H0 --&gt; H2["🎨 Designer"]
-        H0 --&gt; H3["✍️ Writer"]
-    end
-
-    subgraph DEEP ["3️⃣ Deeper Hierarchy"]
-        D0["🧑‍💼 Manager"] --&gt; D1["🔍 Researcher"]
-        D0 --&gt; D2["🎨 Designer"]
-        D0 --&gt; D3["✍️ Writer"]
-        D1 --&gt; D1a["🌐 Web&lt;br/&gt;Researcher"]
-        D1 --&gt; D1b["✅ Fact&lt;br/&gt;Checker"]
-        D3 --&gt; D3a["🖊️ Style&lt;br/&gt;Writer"]
-        D3 --&gt; D3b["📎 Citation&lt;br/&gt;Checker"]
-    end
-
-    subgraph ALL ["4️⃣ All-to-All"]
-        A1["🧑‍💼 Manager"] &lt;--&gt; A2["🔍 Researcher"]
-        A1 &lt;--&gt; A3["🎨 Designer"]
-        A1 &lt;--&gt; A4["✍️ Writer"]
-        A2 &lt;--&gt; A3
-        A2 &lt;--&gt; A4
-        A3 &lt;--&gt; A4
-    end
-
-    style LINEAR fill:#e8f5e9,color:#000
-    style HIER fill:#e3f2fd,color:#000
-    style DEEP fill:#fff3e0,color:#000
-    style ALL fill:#fce4ec,color:#000</code></pre>
+<p><img alt="Communication Patterns" src="../assets/05-communication-patterns.svg" /></p>
 <blockquote>
 <p>💡 <strong>Linear = assembly line 🏭. Hierarchical = office mein boss + team 🧑‍💼. Deep hierarchy = company with departments 🏢. All-to-all = group chat where everyone's talking at once 💬😅</strong></p>
 </blockquote>
 <hr />
 <h2 id="1-linear-pattern">1️⃣ Linear Pattern<a class="headerlink" href="#1-linear-pattern" title="Permanent link">#</a></h2>
 <p>The simplest — agents work in <strong>sequence</strong>, passing output forward like a relay race.</p>
-<pre class="mermaid"><code>graph LR
-    R["🔍 Researcher"] --&gt;|"research&lt;br/&gt;report"| D["🎨 Designer"]
-    D --&gt;|"research +&lt;br/&gt;visuals"| W["✍️ Writer"]
-    W --&gt; OUT["📄 Final Report"]
-
-    style R fill:#9c27b0,color:#fff
-    style D fill:#9c27b0,color:#fff
-    style W fill:#9c27b0,color:#fff
-    style OUT fill:#4caf50,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>🔍 Researcher ──research report──► 🎨 Designer ──research + visuals──► ✍️ Writer ──► 📄 Final Report
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -8803,20 +8763,18 @@
 <hr />
 <h2 id="2-hierarchical-pattern-hub-and-spoke">2️⃣ Hierarchical Pattern (Hub-and-Spoke)<a class="headerlink" href="#2-hierarchical-pattern-hub-and-spoke" title="Permanent link">#</a></h2>
 <p>A <strong>manager agent</strong> coordinates the team — delegates tasks, collects results, decides next steps.</p>
-<pre class="mermaid"><code>sequenceDiagram
-    participant M as 🧑‍💼 Marketing Manager
-    participant R as 🔍 Researcher
-    participant D as 🎨 Designer
-    participant W as ✍️ Writer
-
-    M-&gt;&gt;R: "Research sunglasses trends"
-    R--&gt;&gt;M: Research report
-    M-&gt;&gt;D: "Create ad images"&lt;br/&gt;(+ research report)
-    D--&gt;&gt;M: Visuals &amp; artwork
-    M-&gt;&gt;W: "Write the brochure"&lt;br/&gt;(+ research + visuals)
-    W--&gt;&gt;M: Draft report
-    Note over M: Review &amp; improve&lt;br/&gt;(reflection step)
-    M--&gt;&gt;M: Final polish</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>                    🧑‍💼 Marketing Manager
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>                   /        |          \
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>         &quot;Research&quot;    &quot;Create ads&quot;   &quot;Write brochure&quot;
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>               ↓            ↓              ↓
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        🔍 Researcher  🎨 Designer    ✍️ Writer
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>               ↑            ↑              ↑
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>           report        visuals         draft
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>                   \        |          /
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>                    └───────┴──────────┘
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>                    ↓ Review &amp; improve (reflection)
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>                    📄 Final Report
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -8851,25 +8809,13 @@
 <hr />
 <h2 id="3-deeper-hierarchy">3️⃣ Deeper Hierarchy<a class="headerlink" href="#3-deeper-hierarchy" title="Permanent link">#</a></h2>
 <p>Some agents <strong>have their own sub-agents</strong> — like departments within a company.</p>
-<pre class="mermaid"><code>graph TB
-    MGR["🧑‍💼 Marketing Manager"] --&gt; R["🔍 Researcher"]
-    MGR --&gt; D["🎨 Designer"]
-    MGR --&gt; W["✍️ Writer"]
-
-    R --&gt; WR["🌐 Web Researcher"]
-    R --&gt; FC["✅ Fact Checker"]
-
-    W --&gt; SW["🖊️ Style Writer"]
-    W --&gt; CC["📎 Citation Checker"]
-
-    style MGR fill:#ff9800,color:#fff
-    style R fill:#9c27b0,color:#fff
-    style D fill:#9c27b0,color:#fff
-    style W fill:#9c27b0,color:#fff
-    style WR fill:#7b1fa2,color:#fff
-    style FC fill:#7b1fa2,color:#fff
-    style SW fill:#7b1fa2,color:#fff
-    style CC fill:#7b1fa2,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>                    🧑‍💼 Marketing Manager
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>                   /        |          \
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        🔍 Researcher   🎨 Designer   ✍️ Writer
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>           /    \                       /    \
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    🌐 Web    ✅ Fact              🖊️ Style  📎 Citation
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    Researcher Checker             Writer    Checker
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -8925,18 +8871,14 @@
 <hr />
 <h2 id="4-all-to-all-pattern">4️⃣ All-to-All Pattern<a class="headerlink" href="#4-all-to-all-pattern" title="Permanent link">#</a></h2>
 <p><strong>Everyone can talk to everyone.</strong> Any agent can message any other agent at any time.</p>
-<pre class="mermaid"><code>graph LR
-    M["🧑‍💼 Manager"] &lt;--&gt;|"messages"| R["🔍 Researcher"]
-    M &lt;--&gt;|"messages"| D["🎨 Designer"]
-    M &lt;--&gt;|"messages"| W["✍️ Writer"]
-    R &lt;--&gt;|"messages"| D
-    R &lt;--&gt;|"messages"| W
-    D &lt;--&gt;|"messages"| W
-
-    style M fill:#ff9800,color:#fff
-    style R fill:#9c27b0,color:#fff
-    style D fill:#9c27b0,color:#fff
-    style W fill:#9c27b0,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>        🧑‍💼 Manager ◄──────────► 🔍 Researcher
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>            ▲  ▲                    ▲  ▲
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>            │  │                    │  │
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>            │  └────────────────────┘  │
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>            │                          │
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>            ▼                          ▼
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        🎨 Designer ◄──────────► ✍️ Writer
+</span></code></pre></div>
 <h3 id="how-its-implemented">How It's Implemented<a class="headerlink" href="#how-its-implemented" title="Permanent link">#</a></h3>
 <table>
 <thead>
@@ -9036,31 +8978,47 @@
 </tr>
 </tbody>
 </table>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>                        Control
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>                    High ◄──────► Low
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>                     │              │
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    Linear ──────────┤              │
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    Hierarchical ────┤              │
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                     │              │
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    Deeper Hierarchy─┤──────────────┤
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>                     │              │
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                     │          ────┤── All-to-All
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                     │              │
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>                  Simple ◄──────► Complex
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>                       Complexity
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>                        Control
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>                    High ◄──────► Low
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>                     │              │
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    Linear ──────────┤              │
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    Hierarchical ────┤              │
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>                     │              │
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    Deeper Hierarchy─┤──────────────┤
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>                     │              │
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>                     │          ────┤── All-to-All
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>                     │              │
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>                  Simple ◄──────► Complex
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>                       Complexity
 </span></code></pre></div>
 <hr />
 <h2 id="how-to-choose">🧩 How to Choose<a class="headerlink" href="#how-to-choose" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph TD
-    Q["What kind of task?"] --&gt;|"Steps are naturally&lt;br/&gt;sequential"| LIN["1️⃣ Linear&lt;br/&gt;A → B → C"]
-    Q --&gt;|"Need coordination,&lt;br/&gt;review, dynamic ordering"| HIER["2️⃣ Hierarchical&lt;br/&gt;Manager + team"]
-    Q --&gt;|"Sub-tasks are also&lt;br/&gt;complex enough to split"| DEEP["3️⃣ Deeper Hierarchy&lt;br/&gt;Multi-level teams"]
-    Q --&gt;|"Creative/exploratory,&lt;br/&gt;okay with chaos"| ALL["4️⃣ All-to-All&lt;br/&gt;Free collaboration"]
-
-    style LIN fill:#4caf50,color:#fff
-    style HIER fill:#2196f3,color:#fff
-    style DEEP fill:#ff9800,color:#fff
-    style ALL fill:#f44336,color:#fff</code></pre>
+<table>
+<thead>
+<tr>
+<th>If your task is...</th>
+<th>Use this pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Steps naturally sequential</td>
+<td>1️⃣ <strong>Linear</strong> (A → B → C)</td>
+</tr>
+<tr>
+<td>Needs coordination, review, dynamic ordering</td>
+<td>2️⃣ <strong>Hierarchical</strong> (Manager + team)</td>
+</tr>
+<tr>
+<td>Sub-tasks also complex enough to split</td>
+<td>3️⃣ <strong>Deeper Hierarchy</strong> (Multi-level teams)</td>
+</tr>
+<tr>
+<td>Creative/exploratory, okay with chaos</td>
+<td>4️⃣ <strong>All-to-All</strong> (Free collaboration)</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Practical advice from the course:</strong>
 - Start with <strong>Linear</strong> or <strong>Hierarchical</strong> — they cover most use cases
 - Use <strong>Deeper Hierarchy</strong> only when sub-tasks genuinely need further decomposition

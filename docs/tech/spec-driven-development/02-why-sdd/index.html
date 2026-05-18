@@ -8787,23 +8787,25 @@
 </tbody>
 </table>
 <h3 id="context-decay-why-its-worse-than-you-think">Context Decay — Why It's Worse Than You Think<a class="headerlink" href="#context-decay-why-its-worse-than-you-think" title="Permanent link">#</a></h3>
-<pre class="mermaid"><code>graph LR
-    S1["Session 1&lt;br/&gt;🟢 Fresh context"] --&gt; S2["Session 2&lt;br/&gt;🟡 Context filling"]
-    S2 --&gt; S3["Session 3&lt;br/&gt;🔴 Full window&lt;br/&gt;→ more mistakes"]
-
-    SPEC["📋 Spec&lt;br/&gt;(persists across ALL)"] -.-&gt;|"anchors"| S1
-    SPEC -.-&gt;|"anchors"| S2
-    SPEC -.-&gt;|"anchors"| S3
-
-    style S3 fill:#f44336,color:#fff
-    style SPEC fill:#4caf50,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>                    ┌───────────────────┐     ┌───────────────────┐     ┌───────────────────┐
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>                    │   Session 1       │     │   Session 2       │     │   Session 3       │
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>                    │   🟢 Fresh        │────►│   🟡 Context      │────►│   🔴 Full window  │
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>                    │   context         │     │   filling         │     │   → more mistakes │
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>                    └─────────┬─────────┘     └─────────┬─────────┘     └─────────┬─────────┘
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>                              │                         │                         │
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>                              │   anchors               │   anchors               │   anchors
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>                              │                         │                         │
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>                    ┌─────────┴─────────────────────────┴─────────────────────────┴─────────┐
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>                    │                    📋 Spec (persists across ALL)                      │
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>                    └───────────────────────────────────────────────────────────────────────┘
+</span></code></pre></div>
 <blockquote>
 <p>Specs persist between sessions <strong>and even agents</strong> — switch from Claude Code to Codex and the spec still works.</p>
 </blockquote>
 <hr />
 <h2 id="the-compiler-analogy">🔑 The Compiler Analogy<a class="headerlink" href="#the-compiler-analogy" title="Permanent link">#</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Traditional:   Source Code  ──[Compiler]──►  Machine Code
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>SDD:           Specs        ──[Agent]────►   Source Code
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Traditional:   Source Code  ──[Compiler]──►  Machine Code
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>SDD:           Specs        ──[Agent]────►   Source Code
 </span></code></pre></div>
 <table>
 <thead>

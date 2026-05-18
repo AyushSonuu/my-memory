@@ -8508,83 +8508,75 @@
 <tbody>
 <tr>
 <td>01</td>
-<td><a href="01-module-introduction.md">Module 5 Introduction</a></td>
-<td>🔴</td>
-<td>—</td>
+<td><a href="01-production-challenges/">Production Challenges</a></td>
+<td>🟢</td>
+<td>2026-05-17</td>
 </tr>
 <tr>
 <td>02</td>
-<td><a href="02-production-challenges.md">What Makes Production Challenging</a></td>
-<td>🔴</td>
-<td>—</td>
+<td><a href="02-observability-evaluation/">Observability &amp; Evaluation</a></td>
+<td>🟢</td>
+<td>2026-05-17</td>
 </tr>
 <tr>
 <td>03</td>
-<td><a href="03-rag-evaluation-strategies.md">RAG Evaluation Strategies</a></td>
-<td>🔴</td>
-<td>—</td>
+<td><a href="03-custom-eval-datasets/">Custom Evaluation Datasets</a></td>
+<td>🟢</td>
+<td>2026-05-17</td>
 </tr>
 <tr>
 <td>04</td>
-<td><a href="04-logging-monitoring-observability.md">Logging, Monitoring &amp; Observability</a></td>
-<td>🔴</td>
-<td>—</td>
+<td><a href="04-quantization/">Quantization</a></td>
+<td>🟢</td>
+<td>2026-05-17</td>
 </tr>
 <tr>
 <td>05</td>
-<td><a href="05-tracing-rag-system.md">Tracing a RAG System</a></td>
-<td>🔴</td>
-<td>—</td>
+<td><a href="05-cost-vs-quality/">Cost vs Quality</a></td>
+<td>🟢</td>
+<td>2026-05-17</td>
 </tr>
 <tr>
 <td>06</td>
-<td><a href="06-customized-evaluation.md">Customized Evaluation</a></td>
-<td>🔴</td>
-<td>—</td>
+<td><a href="06-latency-vs-quality/">Latency vs Quality</a></td>
+<td>🟢</td>
+<td>2026-05-17</td>
 </tr>
 <tr>
 <td>07</td>
-<td><a href="07-quantization.md">Quantization</a></td>
-<td>🔴</td>
-<td>—</td>
+<td><a href="07-security/">Security</a></td>
+<td>🟢</td>
+<td>2026-05-17</td>
 </tr>
 <tr>
 <td>08</td>
-<td><a href="08-cost-vs-quality.md">Cost vs Response Quality</a></td>
-<td>🔴</td>
-<td>—</td>
+<td><a href="08-multimodal-rag/">Multimodal RAG</a></td>
+<td>🟢</td>
+<td>2026-05-17</td>
 </tr>
 <tr>
 <td>09</td>
-<td><a href="09-latency-vs-quality.md">Latency vs Response Quality</a></td>
-<td>🔴</td>
-<td>—</td>
-</tr>
-<tr>
-<td>10</td>
-<td><a href="10-security.md">Security</a></td>
-<td>🔴</td>
-<td>—</td>
-</tr>
-<tr>
-<td>11</td>
-<td><a href="11-multimodal-rag.md">Multimodal RAG</a></td>
-<td>🔴</td>
-<td>—</td>
-</tr>
-<tr>
-<td>12</td>
-<td><a href="12-lab-improving-chatbot.md">Lab: Improving the Chatbot</a></td>
+<td><a href="09-lab-improving-chatbot.md">Lab: Improving Chatbot</a></td>
 <td>🔴</td>
 <td>—</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Overall confidence:</strong> 🔴 Not started</p>
+<p><strong>Overall confidence:</strong> 🟢 Completed (8/9 lessons — lab optional)</p>
 <h2 id="memory-fragments">🧩 Memory Fragments<a class="headerlink" href="#memory-fragments" title="Permanent link">#</a></h2>
 <blockquote>
 <ul>
-<li><em>Add fragments as you learn...</em></li>
+<li>🏭 <strong>6 production challenges:</strong> Scale, unpredictable prompts, messy data, security, adversarial attacks, business impact</li>
+<li>📊 <strong>Observability 2D grid:</strong> (Scope: Component vs System) × (Evaluator: Code-based, LLM-as-a-judge, Human feedback)</li>
+<li>🔄 <strong>Custom dataset flywheel:</strong> Observe production → Evaluate by topic → Experiment on real prompts → Deploy → Repeat</li>
+<li>📂 <strong>Topic clustering:</strong> Embed prompts → k-means/HDBSCAN → segment metrics by topic to find weak spots</li>
+<li>🛠️ <strong>Phoenix (Arize):</strong> Open-source observability platform for RAG systems (tracing, clustering, evals)</li>
+<li>🗜️ <strong>Quantization:</strong> 8-bit = 50% LLM size, 4× smaller vectors, &lt;3% quality drop — default choice</li>
+<li>🪆 <strong>Matryoshka embeddings:</strong> Dims sorted by info density — use first 100 for speed, full 1000 for quality, hybrid = best</li>
+<li>💰 <strong>Cost optimization:</strong> Smaller LLMs, reduce tokens (top-k + prompt length), dedicated hardware at scale, multi-tenancy</li>
+<li>⚡ <strong>Latency = 70-80% LLM generation</strong> — optimize core LLM first (smaller models, router, caching), retriever already fast</li>
+<li>🔒 <strong>Security threats:</strong> Prompt injection, cloud leaks, DB breaches. Defenses: Auth + Multi-tenancy + On-prem + Encryption</li>
+<li>🛡️ <strong>Vector encryption challenge:</strong> Vectors must stay unencrypted for ANN — focus on perimeter security, encrypt chunks</li>
 </ul>
 </blockquote>
 <hr />
@@ -8600,63 +8592,48 @@
 <tbody>
 <tr>
 <td>01</td>
-<td>Module 5 Introduction</td>
-<td>Module roadmap</td>
+<td>Production Challenges</td>
+<td>6 major challenges: scale, unpredictable prompts, messy data, security, adversarial attacks, business impact</td>
 </tr>
 <tr>
 <td>02</td>
-<td>Production Challenges</td>
-<td>Why production RAG is hard</td>
+<td>Observability &amp; Evaluation</td>
+<td>2D framework (Scope × Evaluator Type), aggregate stats vs detailed logs</td>
 </tr>
 <tr>
 <td>03</td>
-<td>Evaluation Strategies</td>
-<td>Measuring RAG system quality</td>
+<td>Custom Evaluation Datasets</td>
+<td>Real-world prompts, clustering by topic, flywheel (Observe → Evaluate → Experiment → Deploy)</td>
 </tr>
 <tr>
 <td>04</td>
-<td>Logging &amp; Monitoring</td>
-<td>Observability in production</td>
+<td>Quantization</td>
+<td>LLM (16-bit → 8-bit/4-bit), vectors (32-bit → 8-bit/1-bit), Matryoshka (variable dims)</td>
 </tr>
 <tr>
 <td>05</td>
-<td>Tracing</td>
-<td>End-to-end request tracing</td>
+<td>Cost vs Quality</td>
+<td>LLM strategies (smaller models, reduce tokens, dedicated hardware), vector DB (RAM/disk/cloud tiers, multi-tenancy)</td>
 </tr>
 <tr>
 <td>06</td>
-<td>Customized Evaluation</td>
-<td>Building custom eval pipelines</td>
+<td>Latency vs Quality</td>
+<td>Latency breakdown (70-80% LLM), optimization priority (core LLM → transformers → retriever), router LLM, caching</td>
 </tr>
 <tr>
 <td>07</td>
-<td>Quantization</td>
-<td>Model compression for efficiency</td>
+<td>Security</td>
+<td>3 attack vectors (prompt injection, cloud leaks, DB breach), defenses (auth, multi-tenancy, on-prem, encryption)</td>
 </tr>
 <tr>
 <td>08</td>
-<td>Cost vs Quality</td>
-<td>Balancing spend with output quality</td>
+<td>Multimodal RAG</td>
+<td>Images, audio, video in RAG (coming soon)</td>
 </tr>
 <tr>
 <td>09</td>
-<td>Latency vs Quality</td>
-<td>Speed vs accuracy tradeoffs</td>
-</tr>
-<tr>
-<td>10</td>
-<td>Security</td>
-<td>Prompt injection, data leaks, safety</td>
-</tr>
-<tr>
-<td>11</td>
-<td>Multimodal RAG</td>
-<td>Images, audio, video in RAG</td>
-</tr>
-<tr>
-<td>12</td>
 <td>Lab: Improving Chatbot</td>
-<td>Optimizing the RAG chatbot</td>
+<td>Optimizing RAG chatbot (coming soon)</td>
 </tr>
 </tbody>
 </table>

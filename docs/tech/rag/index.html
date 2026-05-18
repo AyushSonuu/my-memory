@@ -8627,19 +8627,20 @@
 <tr>
 <td>04</td>
 <td><a href="module-4-llms-text-generation/">LLMs &amp; Text Generation</a></td>
-<td>0/14</td>
-<td>🔴</td>
-<td>—</td>
+<td>10/13</td>
+<td>🟡</td>
+<td>20 SVGs</td>
 </tr>
 <tr>
 <td>05</td>
 <td><a href="module-5-rag-production/">RAG in Production</a></td>
-<td>0/14</td>
-<td>🔴</td>
-<td>—</td>
+<td>7/9</td>
+<td>🟢</td>
+<td>7 SVGs: custom datasets flywheel, quantization, storage tiers, latency, security</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Overall:</strong> 🟢 <strong>Course Complete!</strong> 39/55 core lessons (multimodal &amp; labs optional)</p>
 <h2 id="memory-fragments">🧩 Memory Fragments<a class="headerlink" href="#memory-fragments" title="Permanent link">#</a></h2>
 <blockquote>
 <p>Things picked up over time. Random "aha!" moments, project learnings.</p>
@@ -8653,6 +8654,11 @@
 <li>🔀 Bi-encoder = fast, shallow (1 vec/doc). Cross-encoder = slow, deep (prompt+doc together). ColBERT = balanced (N vecs/doc, MaxSim).</li>
 <li>🎯 Reranking = overfetch 20-100 docs → re-score with cross-encoder → return top 5-10. Easy win for quality.</li>
 <li>✂️ Chunking sweet spot ≈ 500 chars, 10-20% overlap. Semantic chunking follows author's train of thought.</li>
+<li>🏭 <strong>Production = 6 challenges:</strong> Scale, unpredictable prompts, messy data, security, adversarial attacks, business impact.</li>
+<li>🔄 <strong>Custom dataset flywheel:</strong> Observe → Evaluate by topic → Experiment on real prompts → Deploy → Repeat.</li>
+<li>🗜️ <strong>Quantization default:</strong> 8-bit (50% LLM size, 4× smaller vectors, &lt;3% quality drop).</li>
+<li>⚡ <strong>Latency = 70-80% LLM</strong> — optimize core LLM first (smaller models, router, caching), retriever already fast.</li>
+<li>🔒 <strong>Security = layered defense:</strong> Auth + Multi-tenancy + On-prem (if needed) + Encryption. Vectors = weak point.</li>
 </ul>
 </blockquote>
 <hr />

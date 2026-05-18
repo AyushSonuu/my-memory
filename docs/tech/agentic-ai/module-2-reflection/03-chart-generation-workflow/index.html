@@ -8777,22 +8777,7 @@
 </blockquote>
 <hr />
 <h2 id="the-full-workflow">🖼️ The Full Workflow<a class="headerlink" href="#the-full-workflow" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph TD
-    A["👤 User: 'Create a plot comparing&lt;br/&gt;Q1 coffee sales in 2024 &amp; 2025&lt;br/&gt;using coffee_sales.csv'"] --&gt; B["🤖 LLM 1&lt;br/&gt;&lt;i&gt;Write Python code&lt;/i&gt;"]
-    B --&gt; C["📄 v1 Code"]
-    C --&gt; D["⚙️ Execute Code"]
-    D --&gt; E["📊 plot.png&lt;br/&gt;&lt;i&gt;(v1 chart)&lt;/i&gt;"]
-    E --&gt; F["🤖 LLM 2 (Multimodal)&lt;br/&gt;&lt;i&gt;See the image + v1 code&lt;br/&gt;Critique &amp; rewrite&lt;/i&gt;"]
-    C --&gt; F
-    F --&gt; G["📄 v2 Code"]
-    G --&gt; H["⚙️ Execute Code"]
-    H --&gt; I["📊 plot_v2.png ✅&lt;br/&gt;&lt;i&gt;(much better chart)&lt;/i&gt;"]
-
-    style A fill:#2196f3,color:#fff
-    style B fill:#f44336,color:#fff
-    style E fill:#ff9800,color:#fff
-    style F fill:#9c27b0,color:#fff
-    style I fill:#4caf50,color:#fff</code></pre>
+<p><img alt="Chart Generation Workflow" src="../assets/03-chart-workflow.svg" /></p>
 <blockquote>
 <p>💡 <strong>Yeh reflection ka multimodal version hai — LLM sirf code nahi padhta, chart ki IMAGE bhi dekhta hai! Jaise art teacher painting dekh ke feedback deta hai, not just paintbrush strokes ka description padh ke 🎨</strong></p>
 </blockquote>
@@ -8859,17 +8844,14 @@
 <hr />
 <h2 id="the-two-llm-strategy">⚡ The Two-LLM Strategy<a class="headerlink" href="#the-two-llm-strategy" title="Permanent link">#</a></h2>
 <p>A key insight from this lesson: you can (and often should) use <strong>different models</strong> for generation vs reflection.</p>
-<pre class="mermaid"><code>graph LR
-    subgraph GEN ["🎨 Step 1: Generation"]
-        L1["🤖 LLM 1&lt;br/&gt;&lt;i&gt;(e.g., GPT-4o, GPT-5)&lt;/i&gt;"]
-    end
-    subgraph REF ["🪞 Step 2: Reflection"]
-        L2["🤖 LLM 2&lt;br/&gt;&lt;i&gt;(e.g., Reasoning model)&lt;/i&gt;"]
-    end
-    L1 --&gt;|"v1 code + plot.png"| L2
-
-    style L1 fill:#2196f3,color:#fff
-    style L2 fill:#9c27b0,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>🎨 Step 1: Generation              🪞 Step 2: Reflection
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>─────────────────────              ─────────────────────
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>🤖 LLM 1                    ──►    🤖 LLM 2
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>(e.g., GPT-4o, GPT-5)              (e.g., Reasoning model)
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Fast general model                  Better at visual analysis
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>         v1 code + plot.png ────────────►
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -8897,19 +8879,19 @@
 <hr />
 <h2 id="the-prompts-from-course-slides">✍️ The Prompts (from course slides)<a class="headerlink" href="#the-prompts-from-course-slides" title="Permanent link">#</a></h2>
 <h3 id="generation-prompt-llm-1">Generation Prompt (LLM 1)<a class="headerlink" href="#generation-prompt-llm-1" title="Permanent link">#</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Write Python code to generate a visualization 
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>that answers the user&#39;s question:
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>{user prompt}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Write Python code to generate a visualization 
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>that answers the user&#39;s question:
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>{user prompt}
 </span></code></pre></div>
 <h3 id="reflection-prompt-llm-2">Reflection Prompt (LLM 2)<a class="headerlink" href="#reflection-prompt-llm-2" title="Permanent link">#</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>You are an expert data analyst who provides 
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>constructive feedback on visualizations.
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>{v1 code} {plot.png} {conversation history}
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>Step 1: Critique the attached chart for readability, 
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        clarity, and completeness.
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>Step 2: Write new code to implement your improvements.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>You are an expert data analyst who provides 
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>constructive feedback on visualizations.
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>{v1 code} {plot.png} {conversation history}
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Step 1: Critique the attached chart for readability, 
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        clarity, and completeness.
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>Step 2: Write new code to implement your improvements.
 </span></code></pre></div>
 <p><strong>Notice the pattern</strong> (same as Lesson 02):
 1. ✅ <strong>Role assignment</strong> — "expert data analyst"
@@ -8946,37 +8928,37 @@
 <hr />
 <h2 id="code-lab-visualization-agent">💻 Code Lab — Visualization Agent<a class="headerlink" href="#code-lab-visualization-agent" title="Permanent link">#</a></h2>
 <p>The course provides a <strong>full working notebook</strong> (<code>code/M2/examples/visualization_agent/visualization.ipynb</code>) implementing this exact flow:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Step 1: Generate chart code (v1)</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">generate_chart_code</span><span class="p">(</span><span class="n">instruction</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">out_path_v1</span><span class="p">):</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;You are a data visualization expert.</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="s2">    Return code in &lt;execute_python&gt;...&lt;/execute_python&gt; tags.</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="s2">    Create a visualization from DataFrame &#39;df&#39; with columns:</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="s2">    date, time, cash_type, card, price, coffee_name, quarter, month, year</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="s2">    User instruction: </span><span class="si">{</span><span class="n">instruction</span><span class="si">}</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="s2">    Requirements: Use matplotlib only, assume df exists, </span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="s2">    add titles/labels/legends, save to </span><span class="si">{</span><span class="n">out_path_v1</span><span class="si">}</span><span class="s2">&quot;&quot;&quot;</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="k">return</span> <span class="n">get_response</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">prompt</span><span class="p">)</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="c1"># Step 2: Execute v1 code</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&lt;execute_python&gt;([\s\S]*?)&lt;/execute_python&gt;&quot;</span><span class="p">,</span> <span class="n">code_v1</span><span class="p">)</span>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="n">exec</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="p">{</span><span class="s2">&quot;df&quot;</span><span class="p">:</span> <span class="n">df</span><span class="p">,</span> <span class="s2">&quot;plt&quot;</span><span class="p">:</span> <span class="n">plt</span><span class="p">,</span> <span class="s2">&quot;pd&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="p">})</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="c1"># Step 3: Multimodal reflection — LLM SEES the chart image</span>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="k">def</span><span class="w"> </span><span class="nf">reflect_on_image_and_regenerate</span><span class="p">(</span><span class="n">chart_path</span><span class="p">,</span> <span class="n">instruction</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">out_path_v2</span><span class="p">):</span>
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>    <span class="n">media_type</span><span class="p">,</span> <span class="n">b64</span> <span class="o">=</span> <span class="n">encode_image_b64</span><span class="p">(</span><span class="n">chart_path</span><span class="p">)</span>  <span class="c1"># image → base64</span>
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>    <span class="n">prompt</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Critique how well the chart communicates the instruction. &quot;</span>
-</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>              <span class="s2">&quot;Then return improved matplotlib code.&quot;</span><span class="p">)</span>
-</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>    <span class="c1"># Sends image + text to multimodal LLM</span>
-</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>    <span class="k">return</span> <span class="n">feedback</span><span class="p">,</span> <span class="n">refined_code</span>
-</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>
-</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="c1"># Step 4: End-to-end pipeline — mix models!</span>
-</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="n">result</span> <span class="o">=</span> <span class="n">run_workflow</span><span class="p">(</span>
-</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>    <span class="n">dataset_path</span><span class="o">=</span><span class="s2">&quot;coffee_sales.csv&quot;</span><span class="p">,</span>
-</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>    <span class="n">user_instructions</span><span class="o">=</span><span class="s2">&quot;Create a chart showing year-over-year Q1 sales by drink type.&quot;</span><span class="p">,</span>
-</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>    <span class="n">generation_model</span><span class="o">=</span><span class="s2">&quot;gpt-4.1-mini&quot;</span><span class="p">,</span>    <span class="c1"># fast model for draft</span>
-</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>    <span class="n">evaluation_model</span><span class="o">=</span><span class="s2">&quot;o4-mini&quot;</span><span class="p">,</span>         <span class="c1"># reasoning model for critique</span>
-</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>    <span class="n">image_basename</span><span class="o">=</span><span class="s2">&quot;drink_sales&quot;</span>
-</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Step 1: Generate chart code (v1)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">generate_chart_code</span><span class="p">(</span><span class="n">instruction</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">out_path_v1</span><span class="p">):</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;You are a data visualization expert.</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="s2">    Return code in &lt;execute_python&gt;...&lt;/execute_python&gt; tags.</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="s2">    Create a visualization from DataFrame &#39;df&#39; with columns:</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="s2">    date, time, cash_type, card, price, coffee_name, quarter, month, year</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="s2">    User instruction: </span><span class="si">{</span><span class="n">instruction</span><span class="si">}</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="s2">    Requirements: Use matplotlib only, assume df exists, </span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="s2">    add titles/labels/legends, save to </span><span class="si">{</span><span class="n">out_path_v1</span><span class="si">}</span><span class="s2">&quot;&quot;&quot;</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="k">return</span> <span class="n">get_response</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">prompt</span><span class="p">)</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="c1"># Step 2: Execute v1 code</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&lt;execute_python&gt;([\s\S]*?)&lt;/execute_python&gt;&quot;</span><span class="p">,</span> <span class="n">code_v1</span><span class="p">)</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="n">exec</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="p">{</span><span class="s2">&quot;df&quot;</span><span class="p">:</span> <span class="n">df</span><span class="p">,</span> <span class="s2">&quot;plt&quot;</span><span class="p">:</span> <span class="n">plt</span><span class="p">,</span> <span class="s2">&quot;pd&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="p">})</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="c1"># Step 3: Multimodal reflection — LLM SEES the chart image</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="k">def</span><span class="w"> </span><span class="nf">reflect_on_image_and_regenerate</span><span class="p">(</span><span class="n">chart_path</span><span class="p">,</span> <span class="n">instruction</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">out_path_v2</span><span class="p">):</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    <span class="n">media_type</span><span class="p">,</span> <span class="n">b64</span> <span class="o">=</span> <span class="n">encode_image_b64</span><span class="p">(</span><span class="n">chart_path</span><span class="p">)</span>  <span class="c1"># image → base64</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    <span class="n">prompt</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Critique how well the chart communicates the instruction. &quot;</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>              <span class="s2">&quot;Then return improved matplotlib code.&quot;</span><span class="p">)</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>    <span class="c1"># Sends image + text to multimodal LLM</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>    <span class="k">return</span> <span class="n">feedback</span><span class="p">,</span> <span class="n">refined_code</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="c1"># Step 4: End-to-end pipeline — mix models!</span>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="n">result</span> <span class="o">=</span> <span class="n">run_workflow</span><span class="p">(</span>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>    <span class="n">dataset_path</span><span class="o">=</span><span class="s2">&quot;coffee_sales.csv&quot;</span><span class="p">,</span>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>    <span class="n">user_instructions</span><span class="o">=</span><span class="s2">&quot;Create a chart showing year-over-year Q1 sales by drink type.&quot;</span><span class="p">,</span>
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>    <span class="n">generation_model</span><span class="o">=</span><span class="s2">&quot;gpt-4.1-mini&quot;</span><span class="p">,</span>    <span class="c1"># fast model for draft</span>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>    <span class="n">evaluation_model</span><span class="o">=</span><span class="s2">&quot;o4-mini&quot;</span><span class="p">,</span>         <span class="c1"># reasoning model for critique</span>
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>    <span class="n">image_basename</span><span class="o">=</span><span class="s2">&quot;drink_sales&quot;</span>
+</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a><span class="p">)</span>
 </span></code></pre></div>
 <p><strong>Key patterns from the code:</strong>
 - Uses <code>&lt;execute_python&gt;</code> tags to extract code from LLM response

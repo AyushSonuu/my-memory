@@ -39,7 +39,7 @@ graph TB
 | 🟡 Learning | 7 | Agentic AI, Agent Memory, RAG, AsyncIO, Threading, Multiprocessing, SDD |
 | 🔴 Starting | 0 | — |
 
-**Total:** 7 topics · 75 lessons · 250+ flashcards · Last updated: 2026-05-03
+**Total:** 7 topics · 75 lessons · 250+ flashcards · Last updated: 2026-05-17
 
 ## Key Connections
 

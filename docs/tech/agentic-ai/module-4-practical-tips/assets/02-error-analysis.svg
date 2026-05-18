@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480">
+  <defs>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#388e3c"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#f57c00"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196f3"/>
+      <stop offset="100%" style="stop-color:#1976d2"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0"/>
+      <stop offset="100%" style="stop-color:#7b1fa2"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f44336"/>
+      <stop offset="100%" style="stop-color:#d32f2f"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="480" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="400" y="35" fill="#e6edf3" font-family="Inter, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Error Analysis: Find the Bottleneck</text>
+
+  <!-- Research Agent Pipeline -->
+  <g transform="translate(40, 80)">
+    <rect x="0" y="0" width="720" height="150" rx="12" fill="#161b22" stroke="#2196f3" stroke-width="2" filter="url(#shadow)"/>
+    <text x="360" y="25" fill="#2196f3" font-family="Inter, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Research Agent Pipeline</text>
+
+    <!-- Pipeline boxes -->
+    <rect x="20" y="45" width="100" height="50" rx="8" fill="url(#blueGrad)"/>
+    <text x="70" y="72" fill="#fff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Search Terms</text>
+    <text x="70" y="88" fill="#fff" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">5% errors</text>
+
+    <line x1="125" y1="70" x2="155" y2="70" stroke="#8b949e" stroke-width="2"/>
+    <polygon points="155,70 145,64 145,76" fill="#8b949e"/>
+
+    <rect x="160" y="45" width="100" height="50" rx="8" fill="url(#redGrad)"/>
+    <text x="210" y="72" fill="#fff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Web Search</text>
+    <text x="210" y="88" fill="#fff" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">45% errors</text>
+
+    <line x1="265" y1="70" x2="295" y2="70" stroke="#8b949e" stroke-width="2"/>
+    <polygon points="295,70 285,64 285,76" fill="#8b949e"/>
+
+    <rect x="300" y="45" width="100" height="50" rx="8" fill="url(#orangeGrad)"/>
+    <text x="350" y="72" fill="#fff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Pick 5 Sources</text>
+    <text x="350" y="88" fill="#fff" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">10% errors</text>
+
+    <line x1="405" y1="70" x2="435" y2="70" stroke="#8b949e" stroke-width="2"/>
+    <polygon points="435,70 425,64 425,76" fill="#8b949e"/>
+
+    <rect x="440" y="45" width="100" height="50" rx="8" fill="url(#greenGrad)"/>
+    <text x="490" y="72" fill="#fff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Web Fetch</text>
+    <text x="490" y="88" fill="#fff" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">OK</text>
+
+    <line x1="545" y1="70" x2="575" y2="70" stroke="#8b949e" stroke-width="2"/>
+    <polygon points="575,70 565,64 565,76" fill="#8b949e"/>
+
+    <rect x="580" y="45" width="100" height="50" rx="8" fill="url(#blueGrad)"/>
+    <text x="630" y="72" fill="#fff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Write Essay</text>
+    <text x="630" y="88" fill="#fff" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">OK</text>
+
+    <!-- Spotlight on Web Search -->
+    <rect x="150" y="100" width="120" height="35" rx="6" fill="#f44336" filter="url(#shadow)"/>
+    <text x="210" y="122" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">BOTTLENECK</text>
+    <line x1="210" y1="100" x2="210" y2="95" stroke="#f44336" stroke-width="2"/>
+  </g>
+
+  <!-- Spreadsheet visualization -->
+  <g transform="translate(40, 250)">
+    <rect x="0" y="0" width="720" height="180" rx="12" fill="#161b22" stroke="#ff9800" stroke-width="2" filter="url(#shadow)"/>
+    <text x="360" y="25" fill="#ff9800" font-family="Inter, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Error Analysis Spreadsheet</text>
+
+    <!-- Table header -->
+    <rect x="20" y="40" width="140" height="25" rx="4" fill="#21262d"/>
+    <text x="90" y="57" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Prompt</text>
+
+    <rect x="165" y="40" width="100" height="25" rx="4" fill="#21262d"/>
+    <text x="215" y="57" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Search Terms</text>
+
+    <rect x="270" y="40" width="120" height="25" rx="4" fill="url(#redGrad)"/>
+    <text x="330" y="57" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Search Results</text>
+
+    <rect x="395" y="40" width="120" height="25" rx="4" fill="#21262d"/>
+    <text x="455" y="57" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Pick Sources</text>
+
+    <!-- Row 1 -->
+    <text x="90" y="85" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Black holes</text>
+    <text x="215" y="85" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">✓</text>
+    <text x="330" y="85" fill="#f44336" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">❌ Too many blogs</text>
+    <text x="455" y="85" fill="#f44336" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">❌ Bad input</text>
+
+    <!-- Row 2 -->
+    <text x="90" y="105" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Seattle rent</text>
+    <text x="215" y="105" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">✓</text>
+    <text x="330" y="105" fill="#f44336" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">❌ Missed blog</text>
+    <text x="455" y="105" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">✓</text>
+
+    <!-- Row 3 -->
+    <text x="90" y="125" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Robotics</text>
+    <text x="215" y="125" fill="#f44336" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">❌ Generic</text>
+    <text x="330" y="125" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">✓</text>
+    <text x="455" y="125" fill="#f44336" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">❌ US only</text>
+
+    <!-- Row 4 -->
+    <text x="90" y="145" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Batteries</text>
+    <text x="215" y="145" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">✓</text>
+    <text x="330" y="145" fill="#f44336" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">❌ Missed mag</text>
+    <text x="455" y="145" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">✓</text>
+
+    <!-- Error rates -->
+    <rect x="165" y="155" width="100" height="20" rx="4" fill="#4caf50"/>
+    <text x="215" y="169" fill="#fff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">5%</text>
+
+    <rect x="270" y="155" width="120" height="20" rx="4" fill="#f44336"/>
+    <text x="330" y="169" fill="#fff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">45% ← FIX THIS</text>
+
+    <rect x="395" y="155" width="120" height="20" rx="4" fill="#ff9800"/>
+    <text x="455" y="169" fill="#fff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">10%</text>
+  </g>
+
+  <!-- Key insight -->
+  <text x="400" y="460" fill="#8b949e" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">Priority = Error Rate × Fixability. High errors + have fix idea = work on it now</text>
+</svg>

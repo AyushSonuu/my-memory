@@ -8777,20 +8777,7 @@
 </blockquote>
 <hr />
 <h2 id="the-core-shift">🖼️ The Core Shift<a class="headerlink" href="#the-core-shift" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph LR
-    subgraph TOOLS ["❌ Plan with Tools"]
-        T1["Limited set of&lt;br/&gt;custom tools"] --&gt; T2["LLM picks tools&lt;br/&gt;one step at a time"]
-        T2 --&gt; T3["New query?&lt;br/&gt;Need new tool 😩"]
-    end
-
-    subgraph CODE ["✅ Plan with Code"]
-        C1["Python + pandas&lt;br/&gt;= 1000s of functions"] --&gt; C2["LLM writes code&lt;br/&gt;= entire plan at once"]
-        C2 --&gt; C3["Any query?&lt;br/&gt;Just write code 🎯"]
-    end
-
-    style T3 fill:#f44336,color:#fff
-    style C3 fill:#4caf50,color:#fff
-    style C2 fill:#9c27b0,color:#fff</code></pre>
+<p><img alt="Tools vs Code Execution" src="../assets/03-tools-vs-code.svg" /></p>
 <blockquote>
 <p>💡 <strong>Tools = limited menu card with 6-7 items. Code = poore kitchen ka access — jo marzi bana lo! 🍳</strong></p>
 </blockquote>
@@ -8854,19 +8841,30 @@
 </span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>Step 24: get_column_mean → December average
 </span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>Step 25: Compare all results → pick the max
 </span></code></pre></div>
-<p><strong>24+ steps</strong> for one question! 😱 And it gets worse:</p>
-<pre class="mermaid"><code>graph TD
-    Q1["❓ Which month had highest&lt;br/&gt;hot chocolate sales?"] --&gt; P1["📝 24+ step plan&lt;br/&gt;😩 Works, but painful"]
-    Q2["❓ How many unique&lt;br/&gt;transactions last week?"] --&gt; P2["❌ No tool for this!&lt;br/&gt;→ Create get_unique_entries"]
-    Q3["❓ Amounts of last&lt;br/&gt;5 transactions?"] --&gt; P3["❌ No tool for this either!&lt;br/&gt;→ Create get_last_N_values"]
-
-    P2 --&gt; SPIRAL["🌀 Endless tool creation&lt;br/&gt;for every new edge case"]
-    P3 --&gt; SPIRAL
-
-    style P1 fill:#ff9800,color:#fff
-    style P2 fill:#f44336,color:#fff
-    style P3 fill:#f44336,color:#fff
-    style SPIRAL fill:#f44336,color:#fff</code></pre>
+<p><strong>24+ steps</strong> for one question! And it gets worse:</p>
+<table>
+<thead>
+<tr>
+<th>Query</th>
+<th>Problem</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Which month had highest hot chocolate sales?"</td>
+<td>24+ step plan — works, but painful</td>
+</tr>
+<tr>
+<td>"How many unique transactions last week?"</td>
+<td>❌ No tool for this! → Create get_unique_entries</td>
+</tr>
+<tr>
+<td>"Amounts of last 5 transactions?"</td>
+<td>❌ No tool for this either! → Create get_last_N_values</td>
+</tr>
+</tbody>
+</table>
+<p>Every new edge case → endless tool creation spiral 🌀</p>
 <h3 id="the-three-problems-from-pdf">The Three Problems (from PDF)<a class="headerlink" href="#the-three-problems-from-pdf" title="Permanent link">#</a></h3>
 <table>
 <thead>
@@ -8944,18 +8942,32 @@
 <p><strong>No new tools needed!</strong> The same approach handles both queries — and any future query.</p>
 <hr />
 <h2 id="why-code-works-so-well">🔑 Why Code Works So Well<a class="headerlink" href="#why-code-works-so-well" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph TB
-    subgraph WHY ["Why Code &gt; Tools for Planning"]
-        A["📚 LLMs trained on&lt;br/&gt;TONS of code"] --&gt; D["Already knows when&lt;br/&gt;to call what function"]
-        B["🐍 Python + pandas =&lt;br/&gt;1000s of functions"] --&gt; D
-        C["🧩 Code can express&lt;br/&gt;multi-step logic&lt;br/&gt;in one block"] --&gt; D
-        D --&gt; E["🎯 Rich, flexible plans&lt;br/&gt;without custom tools"]
-    end
-
-    style A fill:#2196f3,color:#fff
-    style B fill:#4caf50,color:#fff
-    style C fill:#ff9800,color:#fff
-    style E fill:#9c27b0,color:#fff</code></pre>
+<table>
+<thead>
+<tr>
+<th>Factor</th>
+<th>Why It Helps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>📚 <strong>LLMs trained on TONS of code</strong></td>
+<td>Already knows when to call what function</td>
+</tr>
+<tr>
+<td>🐍 <strong>Python + pandas = 1000s of functions</strong></td>
+<td>Massive pre-built library at LLM's disposal</td>
+</tr>
+<tr>
+<td>🧩 <strong>Code can express multi-step logic in one block</strong></td>
+<td>No need to break into separate tool calls</td>
+</tr>
+<tr>
+<td>🎯 <strong>Result</strong></td>
+<td>Rich, flexible plans without custom tools</td>
+</tr>
+</tbody>
+</table>
 <table>
 <thead>
 <tr>
@@ -9064,14 +9076,28 @@
 </table>
 <hr />
 <h2 id="tools-vs-code-when-to-use-what">🧩 Tools vs Code: When to Use What<a class="headerlink" href="#tools-vs-code-when-to-use-what" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph TD
-    Q["What kind of task?"] --&gt;|"Data analysis,&lt;br/&gt;computation,&lt;br/&gt;file processing"| CODE["💻 Code Execution&lt;br/&gt;Let LLM write Python"]
-    Q --&gt;|"Custom APIs,&lt;br/&gt;proprietary systems,&lt;br/&gt;external services"| TOOLS["🔧 Custom Tools&lt;br/&gt;Define specific functions"]
-    Q --&gt;|"Complex app with&lt;br/&gt;both internal APIs&lt;br/&gt;+ data processing"| BOTH["🔀 Both!&lt;br/&gt;Custom tools + code execution"]
-
-    style CODE fill:#4caf50,color:#fff
-    style TOOLS fill:#2196f3,color:#fff
-    style BOTH fill:#9c27b0,color:#fff</code></pre>
+<table>
+<thead>
+<tr>
+<th>Task Type</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data analysis, computation, file processing</td>
+<td>💻 <strong>Code Execution</strong> — Let LLM write Python</td>
+</tr>
+<tr>
+<td>Custom APIs, proprietary systems, external services</td>
+<td>🔧 <strong>Custom Tools</strong> — Define specific functions</td>
+</tr>
+<tr>
+<td>Complex app with both internal APIs + data processing</td>
+<td>🔀 <strong>Both!</strong> — Custom tools + code execution</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="quick-check">🧪 Quick Check<a class="headerlink" href="#quick-check" title="Permanent link">#</a></h2>
 <details>

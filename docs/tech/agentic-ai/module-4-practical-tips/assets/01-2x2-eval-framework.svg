@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196f3"/>
+      <stop offset="100%" style="stop-color:#1976d2"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0"/>
+      <stop offset="100%" style="stop-color:#7b1fa2"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="400" y="35" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Two "Axes" of Evaluation</text>
+
+  <!-- Grid structure -->
+  <!-- Column headers -->
+  <rect x="250" y="60" width="250" height="40" fill="url(#blueGrad)" rx="4"/>
+  <text x="375" y="85" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Code-Based (Objective)</text>
+
+  <rect x="510" y="60" width="250" height="40" fill="url(#purpleGrad)" rx="4"/>
+  <text x="635" y="85" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">LLM-as-Judge (Subjective)</text>
+
+  <!-- Row headers -->
+  <rect x="40" y="110" width="200" height="140" fill="#21262d" rx="4"/>
+  <text x="140" y="165" fill="#4caf50" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Per-Example</text>
+  <text x="140" y="185" fill="#4caf50" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Ground Truth</text>
+  <text x="140" y="210" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">(Each input has unique</text>
+  <text x="140" y="223" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">correct answer)</text>
+
+  <rect x="40" y="260" width="200" height="140" fill="#21262d" rx="4"/>
+  <text x="140" y="315" fill="#ff9800" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">No Per-Example</text>
+  <text x="140" y="335" fill="#ff9800" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Ground Truth</text>
+  <text x="140" y="360" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">(Universal rule for</text>
+  <text x="140" y="373" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">all examples)</text>
+
+  <!-- Quadrant 1: Code + Per-example -->
+  <rect x="250" y="110" width="250" height="140" fill="#161b22" stroke="#2196f3" stroke-width="2" rx="4"/>
+  <text x="375" y="140" fill="#2196f3" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Invoice Date Extraction</text>
+  <rect x="270" y="155" width="210" height="75" fill="#0d1117" rx="4"/>
+  <text x="375" y="178" fill="#ff9800" font-family="monospace" font-size="9" text-anchor="middle">if extracted_date == actual_date:</text>
+  <text x="375" y="198" fill="#ff9800" font-family="monospace" font-size="9" text-anchor="middle">    num_correct += 1</text>
+  <text x="375" y="220" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Compare LLM output to known date</text>
+
+  <!-- Quadrant 2: LLM + Per-example -->
+  <rect x="510" y="110" width="250" height="140" fill="#161b22" stroke="#9c27b0" stroke-width="2" rx="4"/>
+  <text x="635" y="140" fill="#9c27b0" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Gold-Standard Talking Points</text>
+  <rect x="530" y="155" width="210" height="75" fill="#0d1117" rx="4"/>
+  <text x="635" y="178" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">"Count the number of gold</text>
+  <text x="635" y="195" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">standard points in this essay..."</text>
+  <text x="635" y="220" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">LLM judges if points are mentioned</text>
+
+  <!-- Quadrant 3: Code + No per-example -->
+  <rect x="250" y="260" width="250" height="140" fill="#161b22" stroke="#2196f3" stroke-width="2" rx="4"/>
+  <text x="375" y="290" fill="#2196f3" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Marketing Copy Length</text>
+  <rect x="270" y="305" width="210" height="75" fill="#0d1117" rx="4"/>
+  <text x="375" y="328" fill="#ff9800" font-family="monospace" font-size="9" text-anchor="middle">word_count = len(text.split())</text>
+  <text x="375" y="348" fill="#ff9800" font-family="monospace" font-size="9" text-anchor="middle">if word_count <= 10: pass</text>
+  <text x="375" y="370" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Same limit for every example</text>
+
+  <!-- Quadrant 4: LLM + No per-example -->
+  <rect x="510" y="260" width="250" height="140" fill="#161b22" stroke="#9c27b0" stroke-width="2" rx="4"/>
+  <text x="635" y="290" fill="#9c27b0" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Chart Grading with Rubric</text>
+  <rect x="530" y="305" width="210" height="75" fill="#0d1117" rx="4"/>
+  <text x="635" y="328" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">"Grade this chart according</text>
+  <text x="635" y="345" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">to whether it has clear axes..."</text>
+  <text x="635" y="370" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Same rubric for all charts</text>
+
+  <!-- Bottom tip -->
+  <rect x="150" y="410" width="500" height="30" rx="4" fill="#21262d"/>
+  <text x="400" y="430" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Code eval = exact answers (math paper) | LLM judge = subjective (essay grading)</text>
+</svg>

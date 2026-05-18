@@ -8909,23 +8909,7 @@
 </blockquote>
 <hr />
 <h2 id="the-big-picture">🖼️ The Big Picture<a class="headerlink" href="#the-big-picture" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph TD
-    Q{"Does my task have a&lt;br/&gt;&lt;b&gt;right answer&lt;/b&gt;?"}
-    Q --&gt;|"✅ Yes"| OBJ["📊 Objective Eval&lt;br/&gt;&lt;i&gt;Code-based comparison&lt;br/&gt;against ground truth&lt;/i&gt;"]
-    Q --&gt;|"❌ No / Fuzzy"| SUB["🤖 Subjective Eval&lt;br/&gt;&lt;i&gt;LLM-as-Judge&lt;br/&gt;with binary rubric&lt;/i&gt;"]
-
-    OBJ --&gt; RUN["Run: No Reflection vs With Reflection"]
-    SUB --&gt; RUN
-
-    RUN --&gt; DEC{"Meaningful&lt;br/&gt;improvement?"}
-    DEC --&gt;|"✅ Yes"| KEEP["Keep reflection ✅"]
-    DEC --&gt;|"❌ No"| DROP["Drop it / Tweak prompts 🔄"]
-
-    style Q fill:#2196f3,color:#fff
-    style OBJ fill:#4caf50,color:#fff
-    style SUB fill:#9c27b0,color:#fff
-    style KEEP fill:#4caf50,color:#fff
-    style DROP fill:#f44336,color:#fff</code></pre>
+<p><img alt="Evaluation Framework" src="assets/04-eval-framework.svg" /></p>
 <blockquote>
 <p>💡 <strong>Reflection = extra step = extra latency. Bina eval ke use karna = andhe mein dawai lena — shayad kaam kare, shayad na kare. Pehle test karo, phir commit karo! 💊</strong></p>
 </blockquote>
@@ -8935,24 +8919,16 @@
 <p>You run a retail store. Users ask questions → LLM generates SQL queries → fetches answers from a database.</p>
 <p><strong>Question:</strong> Does adding a reflection step (LLM reviews &amp; improves the SQL) actually get better answers?</p>
 <h3 id="step-by-step-approach">Step-by-Step Approach<a class="headerlink" href="#step-by-step-approach" title="Permanent link">#</a></h3>
-<pre class="mermaid"><code>graph LR
-    subgraph DATA ["📋 Step 1: Ground Truth Dataset"]
-        P["10-15 prompts&lt;br/&gt;+ correct answers"]
-    end
-    subgraph NO_REF ["❌ Without Reflection"]
-        A1["LLM → SQL v1"] --&gt; B1["Execute"] --&gt; C1["Answer"]
-    end
-    subgraph WITH_REF ["✅ With Reflection"]
-        A2["LLM → SQL v1"] --&gt; R["LLM reflects&lt;br/&gt;→ SQL v2"] --&gt; B2["Execute"] --&gt; C2["Answer"]
-    end
-    DATA --&gt; NO_REF
-    DATA --&gt; WITH_REF
-    NO_REF --&gt; COMP["📊 Compare&lt;br/&gt;% correct"]
-    WITH_REF --&gt; COMP
-
-    style P fill:#2196f3,color:#fff
-    style R fill:#9c27b0,color:#fff
-    style COMP fill:#ff9800,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>📋 Step 1: Ground Truth Dataset          ❌ Without Reflection      ✅ With Reflection
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>(10-15 prompts + correct answers)        ───────────────────        ──────────────────
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>                │                        LLM → SQL v1 → Execute     LLM → SQL v1 
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>                │                              │                          │
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>                ▼                              ▼                     LLM reflects → SQL v2
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>         ┌──────────────┐                  Answer                         │
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>         │ Compare      │◄────────────────────┴──────────────────── Execute → Answer
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>         │ % correct    │
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>         └──────────────┘
+</span></code></pre></div>
 <h3 id="the-ground-truth-dataset">The Ground Truth Dataset<a class="headerlink" href="#the-ground-truth-dataset" title="Permanent link">#</a></h3>
 <table>
 <thead>
@@ -9013,23 +8989,20 @@
 <h2 id="subjective-evals-when-theres-no-right-answer">🎨 Subjective Evals — When There's No "Right" Answer<a class="headerlink" href="#subjective-evals-when-theres-no-right-answer" title="Permanent link">#</a></h2>
 <h3 id="the-problem">The Problem<a class="headerlink" href="#the-problem" title="Permanent link">#</a></h3>
 <p>For the chart generation workflow (Lesson 03), v1 was a stacked bar chart, v2 was a grouped bar chart. But how do you <strong>systematically prove</strong> one is better — especially across many different chart requests?</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>  📊 v1 (Before)         📊 v2 (After)
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  ┌──────────┐           ┌──────────┐
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  │ Stacked  │           │ Grouped  │
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  │ Bar      │           │ Bar      │
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  └──────────┘           └──────────┘
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  Which is &quot;better&quot;? 🤔  → No single right answer!
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>  📊 v1 (Before)         📊 v2 (After)
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  ┌──────────┐           ┌──────────┐
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  │ Stacked  │           │ Grouped  │
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  │ Bar      │           │ Bar      │
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  └──────────┘           └──────────┘
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  Which is &quot;better&quot;? 🤔  → No single right answer!
 </span></code></pre></div>
 <hr />
 <h3 id="naive-approach-llm-pair-comparison">❌ Naive Approach: LLM Pair Comparison<a class="headerlink" href="#naive-approach-llm-pair-comparison" title="Permanent link">#</a></h3>
 <p>Feed both images to a multimodal LLM and ask: <em>"Which is better?"</em></p>
-<pre class="mermaid"><code>graph LR
-    A["📊 Image A"] --&gt; LLM["🤖 LLM Judge&lt;br/&gt;&lt;i&gt;'Which is better?'&lt;/i&gt;"]
-    B["📊 Image B"] --&gt; LLM
-    LLM --&gt; V["'A is better!'"]
-
-    style LLM fill:#f44336,color:#fff
-    style V fill:#f44336,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>📊 Image A ──┐
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>             ├──► 🤖 LLM Judge ──► &quot;A is better!&quot; ❌ Unreliable
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>📊 Image B ──┘    &quot;Which is better?&quot;
+</span></code></pre></div>
 <p><strong>This doesn't work well.</strong> Known issues:</p>
 <table>
 <thead>
@@ -9059,13 +9032,11 @@
 <hr />
 <h3 id="better-approach-rubric-based-grading">✅ Better Approach: Rubric-Based Grading<a class="headerlink" href="#better-approach-rubric-based-grading" title="Permanent link">#</a></h3>
 <p>Instead of comparing two images, <strong>grade each image independently</strong> against a rubric with <strong>binary (0/1) criteria</strong>.</p>
-<pre class="mermaid"><code>graph TD
-    IMG["📊 Single Image"] --&gt; LLM["🤖 LLM Judge"]
-    RUB["📋 Binary Rubric&lt;br/&gt;&lt;i&gt;5-10 yes/no criteria&lt;/i&gt;"] --&gt; LLM
-    LLM --&gt; SCORE["Score: 4/5"]
-
-    style RUB fill:#9c27b0,color:#fff
-    style SCORE fill:#4caf50,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>📊 Single Image ──► 🤖 LLM Judge ◄── 📋 Binary Rubric
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>                         │              (5-10 yes/no criteria)
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>                         ▼
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>                    Score: 4/5 ✅
+</span></code></pre></div>
 <h3 id="example-rubric">Example Rubric<a class="headerlink" href="#example-rubric" title="Permanent link">#</a></h3>
 <table>
 <thead>
@@ -9207,54 +9178,51 @@
 </table>
 <hr />
 <h2 id="the-eval-iterate-loop">⚡ The Eval → Iterate Loop<a class="headerlink" href="#the-eval-iterate-loop" title="Permanent link">#</a></h2>
-<pre class="mermaid"><code>graph LR
-    E["📋 Build Eval&lt;br/&gt;&lt;i&gt;Dataset + Metric&lt;/i&gt;"] --&gt; R["🔄 Run System&lt;br/&gt;&lt;i&gt;±Reflection&lt;/i&gt;"]
-    R --&gt; M["📊 Measure"]
-    M --&gt; T["✏️ Tweak Prompts"]
-    T --&gt; R
-
-    style E fill:#2196f3,color:#fff
-    style M fill:#ff9800,color:#fff
-    style T fill:#9c27b0,color:#fff</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>📋 Build Eval ──► 🔄 Run System ──► 📊 Measure ──► ✏️ Tweak Prompts ──┐
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>   (Dataset +        (±Reflection)                                     │
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    Metric)                                                            │
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        ▲                                                              │
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        └──────────────────────────────────────────────────────────────┘
+</span></code></pre></div>
 <p><strong>This is the real unlock:</strong> once evals exist, prompt engineering becomes <strong>scientific</strong> — try idea, measure, keep or discard. No more vibes-based development.</p>
 <hr />
 <h2 id="code-lab-sql-agent-eval">💻 Code Lab — SQL Agent Eval<a class="headerlink" href="#code-lab-sql-agent-eval" title="Permanent link">#</a></h2>
 <p>The course provides a <strong>full working notebook</strong> (<code>code/M2/examples/sql_agent/sql.ipynb</code>) that implements exactly this eval flow:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># 1. Generate SQL (no reflection)</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">generate_sql</span><span class="p">(</span><span class="n">question</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;openai:gpt-3.5-turbo&quot;</span><span class="p">):</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;You are a SQL assistant. Given the schema and </span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="s2">    the user&#39;s question, write a SQL query for SQLite.</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="s2">    Schema: </span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">  User question: </span><span class="si">{</span><span class="n">question</span><span class="si">}</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="s2">    Respond with the SQL only.&quot;&quot;&quot;</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># 2. Reflect + Refine (LLM reviews SQL + its output)</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="k">def</span><span class="w"> </span><span class="nf">evaluate_and_refine_sql</span><span class="p">(</span><span class="n">question</span><span class="p">,</span> <span class="n">sql_query</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;openai:gpt-4o&quot;</span><span class="p">):</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;You are a SQL reviewer and refiner.</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="s2">    User asked: </span><span class="si">{</span><span class="n">question</span><span class="si">}</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="s2">    Original SQL: </span><span class="si">{</span><span class="n">sql_query</span><span class="si">}</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="s2">    SQL Output: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">to_markdown</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="si">}</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="s2">    Step 1: Evaluate if SQL output answers the question.</span>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="s2">    Step 2: If improvable, provide refined SQL query.</span>
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="s2">    Return JSON: </span><span class="se">{{</span><span class="s2">&quot;feedback&quot;: &quot;...&quot;, &quot;refined_sql&quot;: &quot;...&quot;</span><span class="se">}}</span><span class="s2">&quot;&quot;&quot;</span>
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    <span class="o">...</span>
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="c1"># 3. End-to-end pipeline</span>
-</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="k">def</span><span class="w"> </span><span class="nf">run_sql_workflow</span><span class="p">(</span><span class="n">db_path</span><span class="p">,</span> <span class="n">question</span><span class="p">,</span> <span class="n">model_generation</span><span class="p">,</span> <span class="n">model_evaluation</span><span class="p">):</span>
-</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>    <span class="n">schema</span> <span class="o">=</span> <span class="n">get_schema</span><span class="p">(</span><span class="n">db_path</span><span class="p">)</span>
-</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>    <span class="n">sql</span> <span class="o">=</span> <span class="n">generate_sql</span><span class="p">(</span><span class="n">question</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">model_generation</span><span class="p">)</span>    <span class="c1"># v1</span>
-</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>    <span class="n">df</span> <span class="o">=</span> <span class="n">execute_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">db_path</span><span class="p">)</span>                            <span class="c1"># run v1</span>
-</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>    <span class="n">feedback</span><span class="p">,</span> <span class="n">refined</span> <span class="o">=</span> <span class="n">evaluate_and_refine_sql</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>          <span class="c1"># reflect</span>
-</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>    <span class="n">df_refined</span> <span class="o">=</span> <span class="n">execute_sql</span><span class="p">(</span><span class="n">refined</span><span class="p">,</span> <span class="n">db_path</span><span class="p">)</span>                <span class="c1"># run v2</span>
-</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;original&quot;</span><span class="p">:</span> <span class="n">sql</span><span class="p">,</span> <span class="s2">&quot;refined&quot;</span><span class="p">:</span> <span class="n">refined</span><span class="p">,</span> <span class="o">...</span><span class="p">}</span>
-</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>
-</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="c1"># 4. Run it!</span>
-</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="n">results</span> <span class="o">=</span> <span class="n">run_sql_workflow</span><span class="p">(</span><span class="s2">&quot;products.db&quot;</span><span class="p">,</span>
-</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>    <span class="s2">&quot;Which color of product has the highest total sales?&quot;</span><span class="p">,</span>
-</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>    <span class="n">model_generation</span><span class="o">=</span><span class="s2">&quot;openai:gpt-4.1&quot;</span><span class="p">,</span>
-</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>    <span class="n">model_evaluation</span><span class="o">=</span><span class="s2">&quot;openai:gpt-4.1&quot;</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># 1. Generate SQL (no reflection)</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">generate_sql</span><span class="p">(</span><span class="n">question</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;openai:gpt-3.5-turbo&quot;</span><span class="p">):</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;You are a SQL assistant. Given the schema and </span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="s2">    the user&#39;s question, write a SQL query for SQLite.</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="s2">    Schema: </span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">  User question: </span><span class="si">{</span><span class="n">question</span><span class="si">}</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="s2">    Respond with the SQL only.&quot;&quot;&quot;</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c1"># 2. Reflect + Refine (LLM reviews SQL + its output)</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="k">def</span><span class="w"> </span><span class="nf">evaluate_and_refine_sql</span><span class="p">(</span><span class="n">question</span><span class="p">,</span> <span class="n">sql_query</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;openai:gpt-4o&quot;</span><span class="p">):</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;You are a SQL reviewer and refiner.</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="s2">    User asked: </span><span class="si">{</span><span class="n">question</span><span class="si">}</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="s2">    Original SQL: </span><span class="si">{</span><span class="n">sql_query</span><span class="si">}</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="s2">    SQL Output: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">to_markdown</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="si">}</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="s2">    Step 1: Evaluate if SQL output answers the question.</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="s2">    Step 2: If improvable, provide refined SQL query.</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="s2">    Return JSON: </span><span class="se">{{</span><span class="s2">&quot;feedback&quot;: &quot;...&quot;, &quot;refined_sql&quot;: &quot;...&quot;</span><span class="se">}}</span><span class="s2">&quot;&quot;&quot;</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>    <span class="o">...</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="c1"># 3. End-to-end pipeline</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="k">def</span><span class="w"> </span><span class="nf">run_sql_workflow</span><span class="p">(</span><span class="n">db_path</span><span class="p">,</span> <span class="n">question</span><span class="p">,</span> <span class="n">model_generation</span><span class="p">,</span> <span class="n">model_evaluation</span><span class="p">):</span>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>    <span class="n">schema</span> <span class="o">=</span> <span class="n">get_schema</span><span class="p">(</span><span class="n">db_path</span><span class="p">)</span>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>    <span class="n">sql</span> <span class="o">=</span> <span class="n">generate_sql</span><span class="p">(</span><span class="n">question</span><span class="p">,</span> <span class="n">schema</span><span class="p">,</span> <span class="n">model_generation</span><span class="p">)</span>    <span class="c1"># v1</span>
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>    <span class="n">df</span> <span class="o">=</span> <span class="n">execute_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">db_path</span><span class="p">)</span>                            <span class="c1"># run v1</span>
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>    <span class="n">feedback</span><span class="p">,</span> <span class="n">refined</span> <span class="o">=</span> <span class="n">evaluate_and_refine_sql</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>          <span class="c1"># reflect</span>
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>    <span class="n">df_refined</span> <span class="o">=</span> <span class="n">execute_sql</span><span class="p">(</span><span class="n">refined</span><span class="p">,</span> <span class="n">db_path</span><span class="p">)</span>                <span class="c1"># run v2</span>
+</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;original&quot;</span><span class="p">:</span> <span class="n">sql</span><span class="p">,</span> <span class="s2">&quot;refined&quot;</span><span class="p">:</span> <span class="n">refined</span><span class="p">,</span> <span class="o">...</span><span class="p">}</span>
+</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>
+</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a><span class="c1"># 4. Run it!</span>
+</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="n">results</span> <span class="o">=</span> <span class="n">run_sql_workflow</span><span class="p">(</span><span class="s2">&quot;products.db&quot;</span><span class="p">,</span>
+</span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a>    <span class="s2">&quot;Which color of product has the highest total sales?&quot;</span><span class="p">,</span>
+</span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a>    <span class="n">model_generation</span><span class="o">=</span><span class="s2">&quot;openai:gpt-4.1&quot;</span><span class="p">,</span>
+</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a>    <span class="n">model_evaluation</span><span class="o">=</span><span class="s2">&quot;openai:gpt-4.1&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <p><strong>Key patterns from the code:</strong>
 - Uses <code>aisuite</code> — unified client for multiple LLM providers
