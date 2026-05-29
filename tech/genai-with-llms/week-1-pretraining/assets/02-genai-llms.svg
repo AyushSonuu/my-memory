@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460">
+  <defs>
+    <linearGradient id="promptGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#f57c00"/>
+    </linearGradient>
+    <linearGradient id="llmGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0"/>
+      <stop offset="100%" style="stop-color:#6a0080"/>
+    </linearGradient>
+    <linearGradient id="completionGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#2e7d32"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#9c27b0"/>
+      <stop offset="100%" style="stop-color:#4caf50"/>
+    </linearGradient>
+    <filter id="shadow02">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="860" height="460" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="430" y="32" fill="#e6edf3" font-family="Inter, sans-serif" font-size="17" font-weight="bold" text-anchor="middle">Generative AI &amp; Large Language Models</text>
+
+  <!-- ══════════════ TOP ROW: Prompt → LLM → Completion ══════════════ -->
+
+  <!-- PROMPT box -->
+  <g transform="translate(30, 55)" filter="url(#shadow02)">
+    <rect x="0" y="0" width="210" height="140" rx="10" fill="#161b22" stroke="#ff9800" stroke-width="2"/>
+    <rect x="0" y="0" width="210" height="32" rx="10" fill="url(#promptGrad)"/>
+    <rect x="0" y="20" width="210" height="12" fill="url(#promptGrad)"/>
+    <text x="105" y="22" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">📝 Prompt</text>
+    <text x="105" y="52" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Your text input to the model</text>
+    <text x="20" y="75" fill="#e6edf3" font-family="Inter, sans-serif" font-size="8">"Where is Ganymede located</text>
+    <text x="20" y="90" fill="#e6edf3" font-family="Inter, sans-serif" font-size="8"> in the solar system?"</text>
+    <rect x="12" y="105" width="186" height="22" rx="4" fill="#21262d"/>
+    <text x="105" y="120" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">Context Window ≈ few 1000 words</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <line x1="243" y1="125" x2="278" y2="125" stroke="#8b949e" stroke-width="2.5"/>
+  <polygon points="278,125 271,120 271,130" fill="#8b949e"/>
+  <text x="260" y="118" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">input</text>
+
+  <!-- LLM circle -->
+  <g transform="translate(282, 70)" filter="url(#shadow02)">
+    <circle cx="60" cy="60" r="56" fill="url(#llmGrad)"/>
+    <text x="60" y="55" fill="#fff" font-family="Inter, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">LLM</text>
+    <text x="60" y="72" fill="#e0b0ff" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">billions of</text>
+    <text x="60" y="84" fill="#e0b0ff" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">parameters</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <line x1="400" y1="125" x2="435" y2="125" stroke="#8b949e" stroke-width="2.5"/>
+  <polygon points="435,125 428,120 428,130" fill="#8b949e"/>
+  <text x="418" y="118" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">output</text>
+
+  <!-- COMPLETION box -->
+  <g transform="translate(438, 55)" filter="url(#shadow02)">
+    <rect x="0" y="0" width="210" height="140" rx="10" fill="#161b22" stroke="#4caf50" stroke-width="2"/>
+    <rect x="0" y="0" width="210" height="32" rx="10" fill="url(#completionGrad)"/>
+    <rect x="0" y="20" width="210" height="12" fill="url(#completionGrad)"/>
+    <text x="105" y="22" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">✅ Completion</text>
+    <text x="105" y="52" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Prompt text + generated answer</text>
+    <text x="20" y="73" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">"Where is Ganymede located</text>
+    <text x="20" y="86" fill="#8b949e" font-family="Inter, sans-serif" font-size="8"> in the solar system?"</text>
+    <text x="20" y="103" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" font-weight="bold">"Ganymede is a moon of Jupiter</text>
+    <text x="20" y="116" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" font-weight="bold"> within Jupiter's orbit."</text>
+    <rect x="12" y="128" width="186" height="1" fill="#30363d"/>
+  </g>
+
+  <!-- Inference label -->
+  <text x="430" y="218" fill="#58a6ff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">⚡ Inference = the act of generating text from the model</text>
+
+  <!-- ══════════════ BOTTOM ROW: 3 concept cards ══════════════ -->
+
+  <!-- Card: Parameters -->
+  <g transform="translate(30, 235)" filter="url(#shadow02)">
+    <rect x="0" y="0" width="250" height="195" rx="10" fill="#161b22" stroke="#9c27b0" stroke-width="1.5"/>
+    <rect x="0" y="0" width="250" height="30" rx="10" fill="#9c27b0"/>
+    <rect x="0" y="18" width="250" height="12" fill="#9c27b0"/>
+    <text x="125" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">🧠 Parameters = Memory</text>
+    <!-- bubble sizes -->
+    <circle cx="40" cy="95" r="18" fill="#3d1a6e" stroke="#9c27b0" stroke-width="1"/>
+    <text x="40" y="91" fill="#e0b0ff" font-family="Inter, sans-serif" font-size="7" font-weight="bold" text-anchor="middle">BERT</text>
+    <text x="40" y="102" fill="#8b949e" font-family="Inter, sans-serif" font-size="6" text-anchor="middle">110M</text>
+    <circle cx="105" cy="90" r="25" fill="#3d1a6e" stroke="#9c27b0" stroke-width="1"/>
+    <text x="105" y="86" fill="#e0b0ff" font-family="Inter, sans-serif" font-size="7" font-weight="bold" text-anchor="middle">FLAN-T5</text>
+    <text x="105" y="98" fill="#8b949e" font-family="Inter, sans-serif" font-size="6" text-anchor="middle">~11B</text>
+    <circle cx="180" cy="82" r="38" fill="#3d1a6e" stroke="#9c27b0" stroke-width="1"/>
+    <text x="180" y="78" fill="#e0b0ff" font-family="Inter, sans-serif" font-size="7" font-weight="bold" text-anchor="middle">BLOOM</text>
+    <text x="180" y="90" fill="#8b949e" font-family="Inter, sans-serif" font-size="6" text-anchor="middle">176B</text>
+    <text x="125" y="148" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">More params → more memory</text>
+    <text x="125" y="162" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">→ more sophisticated tasks</text>
+    <rect x="15" y="170" width="220" height="16" rx="4" fill="#21262d"/>
+    <text x="125" y="182" fill="#9c27b0" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">Lab model: FLAN-T5 (open-source)</text>
+  </g>
+
+  <!-- Card: Gen AI Definition -->
+  <g transform="translate(302, 235)" filter="url(#shadow02)">
+    <rect x="0" y="0" width="250" height="195" rx="10" fill="#161b22" stroke="#ff9800" stroke-width="1.5"/>
+    <rect x="0" y="0" width="250" height="30" rx="10" fill="url(#promptGrad)"/>
+    <rect x="0" y="18" width="250" height="12" fill="url(#promptGrad)"/>
+    <text x="125" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">🤖 What is Gen AI?</text>
+    <!-- hierarchy -->
+    <rect x="20" y="42" width="210" height="22" rx="5" fill="#1f2937"/>
+    <text x="125" y="57" fill="#58a6ff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">AI (Artificial Intelligence)</text>
+    <text x="125" y="75" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">▼</text>
+    <rect x="30" y="82" width="190" height="22" rx="5" fill="#1f2937"/>
+    <text x="125" y="97" fill="#ff9800" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Machine Learning (ML)</text>
+    <text x="125" y="115" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">▼</text>
+    <rect x="40" y="122" width="170" height="22" rx="5" fill="#2a1a00"/>
+    <text x="125" y="137" fill="#f57c00" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">⭐ Generative AI ⊂ ML</text>
+    <text x="125" y="162" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Learns statistical patterns from</text>
+    <text x="125" y="174" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">massive human-generated data</text>
+    <text x="125" y="186" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">→ generates new content</text>
+  </g>
+
+  <!-- Card: Two Paths -->
+  <g transform="translate(574, 235)" filter="url(#shadow02)">
+    <rect x="0" y="0" width="250" height="195" rx="10" fill="#161b22" stroke="#4caf50" stroke-width="1.5"/>
+    <rect x="0" y="0" width="250" height="30" rx="10" fill="url(#completionGrad)"/>
+    <rect x="0" y="18" width="250" height="12" fill="url(#completionGrad)"/>
+    <text x="125" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">🛤️ Two Usage Paths</text>
+    <!-- path 1 -->
+    <rect x="15" y="42" width="220" height="65" rx="6" fill="#0d2818"/>
+    <text x="125" y="60" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Path 1: Use As-Is</text>
+    <text x="125" y="75" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Foundation model out of the box</text>
+    <text x="125" y="89" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Prompt directly → get completions</text>
+    <!-- path 2 -->
+    <rect x="15" y="118" width="220" height="55" rx="6" fill="#0d2818"/>
+    <text x="125" y="136" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Path 2: Fine-Tune</text>
+    <text x="125" y="151" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Adapt to your specific use case</text>
+    <text x="125" y="165" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">+ your data</text>
+    <text x="125" y="185" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">Both: no need to train from scratch!</text>
+  </g>
+
+  <!-- Footer note -->
+  <text x="430" y="447" fill="#484f58" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">LLMs trained on trillions of words · emergent properties: reasoning, task decomposition, problem-solving</text>
+</svg>

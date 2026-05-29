@@ -10,7 +10,7 @@
 |---|--------|--------|------|
 | 00 | [Course Introduction](00-course-introduction.md) | 🟢 | 2 |
 | 01 | [Introduction - Week 1](01-introduction.md) | 🟢 | 1 |
-| 02 | [Generative AI & LLMs](02-generative-ai-llms.md) | 🔴 | — |
+| 02 | [Generative AI & LLMs](02-generative-ai-llms.md) | 🟢 | 1 |
 | 03 | [LLM Use Cases & Tasks](03-llm-use-cases.md) | 🔴 | — |
 | 04 | [Text Generation Before Transformers](04-before-transformers.md) | 🔴 | — |
 | 05 | [Transformers Architecture](05-transformers-architecture.md) | 🔴 | — |
