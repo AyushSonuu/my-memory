@@ -1,0 +1,241 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 580">
+  <defs>
+    <linearGradient id="encG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#42a5f5"/>
+      <stop offset="100%" style="stop-color:#1565c0"/>
+    </linearGradient>
+    <linearGradient id="decG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#e65100"/>
+    </linearGradient>
+    <linearGradient id="tokG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#26a69a"/>
+      <stop offset="100%" style="stop-color:#00695c"/>
+    </linearGradient>
+    <linearGradient id="embG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ec407a"/>
+      <stop offset="100%" style="stop-color:#ad1457"/>
+    </linearGradient>
+    <linearGradient id="attnG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ab47bc"/>
+      <stop offset="100%" style="stop-color:#6a1b9a"/>
+    </linearGradient>
+    <linearGradient id="ffnG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#66bb6a"/>
+      <stop offset="100%" style="stop-color:#2e7d32"/>
+    </linearGradient>
+    <linearGradient id="softG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd54f"/>
+      <stop offset="100%" style="stop-color:#f57f17"/>
+    </linearGradient>
+    <filter id="shadow05">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="580" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="450" y="28" fill="#e6edf3" font-family="Inter, sans-serif" font-size="17" font-weight="bold" text-anchor="middle">Transformer Architecture · End-to-End Flow</text>
+  <text x="450" y="46" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Inputs at the bottom, outputs at the top (faithful to "Attention is All You Need")</text>
+
+  <!-- ═══════════ LEFT: Pipeline ═══════════ -->
+
+  <!-- Input text -->
+  <g transform="translate(40, 70)">
+    <rect x="0" y="0" width="200" height="34" rx="6" fill="#21262d" stroke="#484f58" stroke-width="1"/>
+    <text x="100" y="22" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Input: "the teacher taught"</text>
+  </g>
+  <line x1="140" y1="104" x2="140" y2="120" stroke="#8b949e" stroke-width="1.5"/>
+  <polygon points="140,120 136,114 144,114" fill="#8b949e"/>
+
+  <!-- Tokenizer -->
+  <g transform="translate(40, 122)" filter="url(#shadow05)">
+    <rect x="0" y="0" width="200" height="50" rx="8" fill="#161b22" stroke="#26a69a" stroke-width="1.5"/>
+    <rect x="0" y="0" width="200" height="20" rx="8" fill="url(#tokG)"/>
+    <rect x="0" y="12" width="200" height="8" fill="url(#tokG)"/>
+    <text x="100" y="14" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">1️⃣ Tokenizer</text>
+    <text x="100" y="36" fill="#26a69a" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">[342, 879, 432]</text>
+    <text x="100" y="46" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">words → token IDs (numbers)</text>
+  </g>
+  <line x1="140" y1="172" x2="140" y2="188" stroke="#8b949e" stroke-width="1.5"/>
+  <polygon points="140,188 136,182 144,182" fill="#8b949e"/>
+
+  <!-- Embedding -->
+  <g transform="translate(40, 190)" filter="url(#shadow05)">
+    <rect x="0" y="0" width="200" height="62" rx="8" fill="#161b22" stroke="#ec407a" stroke-width="1.5"/>
+    <rect x="0" y="0" width="200" height="20" rx="8" fill="url(#embG)"/>
+    <rect x="0" y="12" width="200" height="8" fill="url(#embG)"/>
+    <text x="100" y="14" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">2️⃣ Embedding</text>
+    <text x="100" y="34" fill="#ec407a" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">512-d vectors per token</text>
+    <text x="100" y="46" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">trainable vector space —</text>
+    <text x="100" y="56" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">close vectors = similar meaning</text>
+  </g>
+  <line x1="140" y1="252" x2="140" y2="268" stroke="#8b949e" stroke-width="1.5"/>
+  <polygon points="140,268 136,262 144,262" fill="#8b949e"/>
+
+  <!-- Positional Encoding -->
+  <g transform="translate(40, 270)" filter="url(#shadow05)">
+    <rect x="0" y="0" width="200" height="50" rx="8" fill="#161b22" stroke="#7c4dff" stroke-width="1.5"/>
+    <rect x="0" y="0" width="200" height="20" rx="8" fill="#5e35b1"/>
+    <rect x="0" y="12" width="200" height="8" fill="#5e35b1"/>
+    <text x="100" y="14" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">3️⃣ + Positional Encoding</text>
+    <text x="100" y="36" fill="#b39ddb" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">preserves word order during</text>
+    <text x="100" y="46" fill="#b39ddb" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">parallel processing</text>
+  </g>
+  <line x1="140" y1="320" x2="140" y2="336" stroke="#8b949e" stroke-width="1.5"/>
+  <polygon points="140,336 136,330 144,330" fill="#8b949e"/>
+
+  <!-- Multi-head attention -->
+  <g transform="translate(40, 338)" filter="url(#shadow05)">
+    <rect x="0" y="0" width="200" height="78" rx="8" fill="#161b22" stroke="#ab47bc" stroke-width="2"/>
+    <rect x="0" y="0" width="200" height="20" rx="8" fill="url(#attnG)"/>
+    <rect x="0" y="12" width="200" height="8" fill="url(#attnG)"/>
+    <text x="100" y="14" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">4️⃣ Multi-Head Self-Attention</text>
+    <text x="100" y="34" fill="#ce93d8" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">12-100 heads in parallel</text>
+    <text x="100" y="48" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">each head auto-specializes</text>
+    <text x="100" y="58" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">(entities, verbs, rhymes, ...)</text>
+    <text x="100" y="71" fill="#ab47bc" font-family="Inter, sans-serif" font-size="7" font-style="italic" text-anchor="middle">every word ↔ every other word</text>
+  </g>
+  <line x1="140" y1="416" x2="140" y2="432" stroke="#8b949e" stroke-width="1.5"/>
+  <polygon points="140,432 136,426 144,426" fill="#8b949e"/>
+
+  <!-- FFN -->
+  <g transform="translate(40, 434)" filter="url(#shadow05)">
+    <rect x="0" y="0" width="200" height="50" rx="8" fill="#161b22" stroke="#66bb6a" stroke-width="1.5"/>
+    <rect x="0" y="0" width="200" height="20" rx="8" fill="url(#ffnG)"/>
+    <rect x="0" y="12" width="200" height="8" fill="url(#ffnG)"/>
+    <text x="100" y="14" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">5️⃣ Feed-Forward Network</text>
+    <text x="100" y="36" fill="#a5d6a7" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">fully connected NN</text>
+    <text x="100" y="46" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">→ logits (one per vocab token)</text>
+  </g>
+  <line x1="140" y1="484" x2="140" y2="500" stroke="#8b949e" stroke-width="1.5"/>
+  <polygon points="140,500 136,494 144,494" fill="#8b949e"/>
+
+  <!-- Softmax -->
+  <g transform="translate(40, 502)" filter="url(#shadow05)">
+    <rect x="0" y="0" width="200" height="50" rx="8" fill="#161b22" stroke="#ffd54f" stroke-width="1.5"/>
+    <rect x="0" y="0" width="200" height="20" rx="8" fill="url(#softG)"/>
+    <rect x="0" y="12" width="200" height="8" fill="url(#softG)"/>
+    <text x="100" y="14" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">6️⃣ Softmax → Token</text>
+    <text x="100" y="36" fill="#ffe082" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">prob over entire vocab</text>
+    <text x="100" y="46" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">highest = most likely next token</text>
+  </g>
+
+  <!-- ═══════════ RIGHT: Encoder/Decoder ═══════════ -->
+
+  <!-- Output label -->
+  <g transform="translate(670, 70)">
+    <text x="60" y="20" fill="#e6edf3" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Output (top)</text>
+    <polygon points="60,30 50,40 70,40" fill="#e6edf3"/>
+  </g>
+
+  <!-- Softmax bubble at top -->
+  <g transform="translate(640, 100)">
+    <rect x="0" y="0" width="120" height="30" rx="6" fill="url(#softG)"/>
+    <text x="60" y="20" fill="#0d1117" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Softmax</text>
+  </g>
+
+  <!-- Decoder block -->
+  <g transform="translate(630, 140)" filter="url(#shadow05)">
+    <rect x="0" y="0" width="140" height="160" rx="10" fill="#3d2410" stroke="#ff9800" stroke-width="2"/>
+    <rect x="0" y="0" width="140" height="26" rx="10" fill="url(#decG)"/>
+    <rect x="0" y="16" width="140" height="10" fill="url(#decG)"/>
+    <text x="70" y="18" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">🟠 DECODER</text>
+    <!-- inside layers -->
+    <rect x="15" y="38" width="110" height="22" rx="4" fill="#1f1408" stroke="#ff9800" stroke-width="0.8"/>
+    <text x="70" y="53" fill="#ffb74d" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Masked Multi-Head Attn</text>
+    <rect x="15" y="65" width="110" height="22" rx="4" fill="#1f1408" stroke="#ff9800" stroke-width="0.8"/>
+    <text x="70" y="80" fill="#ffb74d" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Multi-Head Attn</text>
+    <rect x="15" y="92" width="110" height="22" rx="4" fill="#1f1408" stroke="#ff9800" stroke-width="0.8"/>
+    <text x="70" y="107" fill="#ffb74d" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Feed-Forward</text>
+    <text x="70" y="135" fill="#ffe0b2" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Generates new tokens</text>
+    <text x="70" y="148" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">(autoregressive)</text>
+  </g>
+
+  <!-- Encoder block -->
+  <g transform="translate(440, 140)" filter="url(#shadow05)">
+    <rect x="0" y="0" width="140" height="160" rx="10" fill="#0d1d2e" stroke="#42a5f5" stroke-width="2"/>
+    <rect x="0" y="0" width="140" height="26" rx="10" fill="url(#encG)"/>
+    <rect x="0" y="16" width="140" height="10" fill="url(#encG)"/>
+    <text x="70" y="18" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">🔵 ENCODER</text>
+    <!-- inside layers -->
+    <rect x="15" y="38" width="110" height="22" rx="4" fill="#0a1828" stroke="#42a5f5" stroke-width="0.8"/>
+    <text x="70" y="53" fill="#90caf9" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Multi-Head Attn</text>
+    <rect x="15" y="65" width="110" height="22" rx="4" fill="#0a1828" stroke="#42a5f5" stroke-width="0.8"/>
+    <text x="70" y="80" fill="#90caf9" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Feed-Forward</text>
+    <text x="70" y="115" fill="#bbdefb" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Encodes prompt with</text>
+    <text x="70" y="127" fill="#bbdefb" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">contextual understanding</text>
+    <text x="70" y="143" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">→ 1 vector per input token</text>
+  </g>
+
+  <!-- Connect encoder to decoder -->
+  <line x1="580" y1="200" x2="630" y2="200" stroke="#8b949e" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <polygon points="630,200 624,196 624,204" fill="#8b949e"/>
+
+  <!-- Embeddings at bottom -->
+  <g transform="translate(450, 320)">
+    <rect x="0" y="0" width="120" height="22" rx="4" fill="#ec407a" opacity="0.7"/>
+    <text x="60" y="15" fill="#fff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Embedding</text>
+  </g>
+  <g transform="translate(640, 320)">
+    <rect x="0" y="0" width="120" height="22" rx="4" fill="#ec407a" opacity="0.7"/>
+    <text x="60" y="15" fill="#fff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Embedding</text>
+  </g>
+
+  <!-- Connect embeddings up -->
+  <line x1="510" y1="320" x2="510" y2="300" stroke="#8b949e" stroke-width="1.5"/>
+  <line x1="700" y1="320" x2="700" y2="300" stroke="#8b949e" stroke-width="1.5"/>
+  <!-- decoder to softmax -->
+  <line x1="700" y1="140" x2="700" y2="130" stroke="#8b949e" stroke-width="1.5"/>
+
+  <!-- Inputs label at bottom -->
+  <g transform="translate(540, 360)">
+    <text x="0" y="14" fill="#e6edf3" font-family="Inter, sans-serif" font-size="11" font-weight="bold">Inputs (bottom)</text>
+    <polygon points="35,0 25,-10 45,-10" fill="#e6edf3"/>
+  </g>
+
+  <!-- Self-attention concept demo -->
+  <g transform="translate(440, 410)" filter="url(#shadow05)">
+    <rect x="0" y="0" width="330" height="155" rx="10" fill="#161b22" stroke="#ab47bc" stroke-width="1.5"/>
+    <rect x="0" y="0" width="330" height="26" rx="10" fill="url(#attnG)"/>
+    <rect x="0" y="16" width="330" height="10" fill="url(#attnG)"/>
+    <text x="165" y="18" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">🎯 Self-Attention Map (illustrative)</text>
+
+    <!-- Words left -->
+    <g transform="translate(30, 40)">
+      <text x="0" y="14" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9">The</text>
+      <text x="0" y="28" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9">teacher</text>
+      <text x="0" y="42" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9">taught</text>
+      <text x="0" y="56" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9">the</text>
+      <text x="0" y="70" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9">student</text>
+      <text x="0" y="84" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9">with</text>
+      <text x="0" y="98" fill="#ffd54f" font-family="Inter, sans-serif" font-size="10" font-weight="bold">book</text>
+    </g>
+
+    <!-- Words right -->
+    <g transform="translate(220, 40)">
+      <text x="0" y="14" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9">The</text>
+      <text x="0" y="28" fill="#bb86fc" font-family="Inter, sans-serif" font-size="9" font-weight="bold">teacher</text>
+      <text x="0" y="42" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9">taught</text>
+      <text x="0" y="56" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9">the</text>
+      <text x="0" y="70" fill="#bb86fc" font-family="Inter, sans-serif" font-size="9" font-weight="bold">student</text>
+      <text x="0" y="84" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9">with</text>
+      <text x="0" y="98" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9">book</text>
+    </g>
+
+    <!-- Attention lines from "book" to "teacher" and "student" -->
+    <line x1="60" y1="135" x2="220" y2="65" stroke="#bb86fc" stroke-width="2" opacity="0.85"/>
+    <line x1="60" y1="135" x2="220" y2="107" stroke="#bb86fc" stroke-width="2" opacity="0.85"/>
+    <!-- thin lines for less attention -->
+    <line x1="60" y1="135" x2="220" y2="51" stroke="#484f58" stroke-width="0.5" opacity="0.6"/>
+    <line x1="60" y1="135" x2="220" y2="79" stroke="#484f58" stroke-width="0.5" opacity="0.6"/>
+    <line x1="60" y1="135" x2="220" y2="93" stroke="#484f58" stroke-width="0.5" opacity="0.6"/>
+
+    <text x="165" y="148" fill="#bb86fc" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">"book" attends to BOTH "teacher" + "student"</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="450" y="572" fill="#484f58" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Tokenize → Embed → +Position → Multi-Head Attention → FFN → Logits → Softmax → Predicted Token</text>
+</svg>
