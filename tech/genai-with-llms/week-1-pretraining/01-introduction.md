@@ -86,28 +86,17 @@ When building with LLMs, you face key decisions:
 
 ---
 
-## Key Insights from Instructors
+## Why Transformers Took Off
 
-> *"After the transformer paper, I thought 'I get the math equation, but what's it actually doing?' It took a long time to finally go 'okay, this is why it works.'"* — Andrew Ng
+Attention mechanisms existed before 2017, but the transformer architecture made attention work in a **massively parallel** way — enabling training on modern GPUs at massive scale. That's the real breakthrough: not just attention, but attention + parallelism.
 
-> *"Attention had been around, but transformers made it work in a massively parallel way — that's what made it scale on modern GPUs."* — Mike Chambers
-
----
-
-## Lab Preview
-
-**Lab 1: Dialogue Summarization**
-
-- Use FLAN-T5 to summarize conversations
-- Compare different prompts
-- Explore inference parameters
-- Gain intuition on improving responses
+> 💡 *Transformer = attention + GPU parallelism. Ek ke bina doosra kuch kaam ka nahi tha.*
 
 ---
 
 ## Key Takeaways
 
 1. **Transformers** = self-attention + parallelization = scale
-2. **GenAI Lifecycle** = key decisions framework
-3. **Model size** = match to task complexity (small can work!)
-4. **This week** = foundations for everything else
+2. **GenAI Lifecycle** = key decisions framework for building LLM apps
+3. **Model size** = match to task (small models beat giants for single tasks)
+4. **Transformers beyond text** = ViT, audio, multimodal — same architecture
