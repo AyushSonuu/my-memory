@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480">
+  <defs>
+    <radialGradient id="llmCore" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#bb86fc"/>
+      <stop offset="100%" style="stop-color:#6a0080"/>
+    </radialGradient>
+    <linearGradient id="chatG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#42a5f5"/><stop offset="100%" style="stop-color:#1565c0"/>
+    </linearGradient>
+    <linearGradient id="essayG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef5350"/><stop offset="100%" style="stop-color:#c62828"/>
+    </linearGradient>
+    <linearGradient id="sumG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/><stop offset="100%" style="stop-color:#e65100"/>
+    </linearGradient>
+    <linearGradient id="transG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#26a69a"/><stop offset="100%" style="stop-color:#00695c"/>
+    </linearGradient>
+    <linearGradient id="nerG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffca28"/><stop offset="100%" style="stop-color:#f57f17"/>
+    </linearGradient>
+    <linearGradient id="apiG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#66bb6a"/><stop offset="100%" style="stop-color:#2e7d32"/>
+    </linearGradient>
+    <filter id="shadow03">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="880" height="480" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="440" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="17" font-weight="bold" text-anchor="middle">LLM Use Cases &amp; Tasks</text>
+  <text x="440" y="48" fill="#9c27b0" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">All powered by ONE mechanism: Next-Word Prediction</text>
+
+  <!-- LLM Core in center -->
+  <g transform="translate(440, 240)" filter="url(#shadow03)">
+    <circle cx="0" cy="0" r="58" fill="url(#llmCore)" stroke="#9c27b0" stroke-width="2"/>
+    <text x="0" y="-8" fill="#fff" font-family="Inter, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">LLM</text>
+    <text x="0" y="8" fill="#e0b0ff" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">next-word</text>
+    <text x="0" y="20" fill="#e0b0ff" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">prediction</text>
+  </g>
+
+  <!-- Connecting lines from center to each use case (drawn first, behind) -->
+  <line x1="440" y1="190" x2="220" y2="120" stroke="#30363d" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <line x1="440" y1="190" x2="660" y2="120" stroke="#30363d" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <line x1="395" y1="220" x2="170" y2="240" stroke="#30363d" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <line x1="485" y1="220" x2="710" y2="240" stroke="#30363d" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <line x1="440" y1="290" x2="220" y2="380" stroke="#30363d" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <line x1="440" y1="290" x2="660" y2="380" stroke="#30363d" stroke-width="1.5" stroke-dasharray="3,3"/>
+
+  <!-- ═══ Top-Left: Chatbot ═══ -->
+  <g transform="translate(80, 75)" filter="url(#shadow03)">
+    <rect x="0" y="0" width="200" height="90" rx="8" fill="#161b22" stroke="#42a5f5" stroke-width="1.5"/>
+    <rect x="0" y="0" width="200" height="26" rx="8" fill="url(#chatG)"/>
+    <rect x="0" y="16" width="200" height="10" fill="url(#chatG)"/>
+    <text x="100" y="18" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">💬 Chatbot</text>
+    <text x="100" y="44" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Conversational Q&amp;A</text>
+    <rect x="12" y="52" width="176" height="30" rx="4" fill="#0d1117"/>
+    <text x="100" y="65" fill="#42a5f5" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">"Who designed</text>
+    <text x="100" y="76" fill="#42a5f5" font-family="Inter, sans-serif" font-size="8" text-anchor="middle"> Washington DC?"</text>
+  </g>
+
+  <!-- ═══ Top-Right: Essay Writing ═══ -->
+  <g transform="translate(600, 75)" filter="url(#shadow03)">
+    <rect x="0" y="0" width="200" height="90" rx="8" fill="#161b22" stroke="#ef5350" stroke-width="1.5"/>
+    <rect x="0" y="0" width="200" height="26" rx="8" fill="url(#essayG)"/>
+    <rect x="0" y="16" width="200" height="10" fill="url(#essayG)"/>
+    <text x="100" y="18" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">📝 Essay Writing</text>
+    <text x="100" y="44" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Long-form generation</text>
+    <rect x="12" y="52" width="176" height="30" rx="4" fill="#0d1117"/>
+    <text x="100" y="65" fill="#ef5350" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">prompt → paragraphs</text>
+    <text x="100" y="76" fill="#ef5350" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">of structured text</text>
+  </g>
+
+  <!-- ═══ Mid-Left: Summarization ═══ -->
+  <g transform="translate(30, 200)" filter="url(#shadow03)">
+    <rect x="0" y="0" width="200" height="90" rx="8" fill="#161b22" stroke="#ff9800" stroke-width="1.5"/>
+    <rect x="0" y="0" width="200" height="26" rx="8" fill="url(#sumG)"/>
+    <rect x="0" y="16" width="200" height="10" fill="url(#sumG)"/>
+    <text x="100" y="18" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">📄 Summarization</text>
+    <text x="100" y="44" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Long input → key points</text>
+    <rect x="12" y="52" width="176" height="30" rx="4" fill="#0d1117"/>
+    <text x="100" y="65" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">conversation / article</text>
+    <text x="100" y="76" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">→ bullet points</text>
+  </g>
+
+  <!-- ═══ Mid-Right: Translation ═══ -->
+  <g transform="translate(650, 200)" filter="url(#shadow03)">
+    <rect x="0" y="0" width="200" height="90" rx="8" fill="#161b22" stroke="#26a69a" stroke-width="1.5"/>
+    <rect x="0" y="0" width="200" height="26" rx="8" fill="url(#transG)"/>
+    <rect x="0" y="16" width="200" height="10" fill="url(#transG)"/>
+    <text x="100" y="18" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">🌐 Translation</text>
+    <text x="100" y="44" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Language ⇄ Language</text>
+    <rect x="12" y="52" width="176" height="30" rx="4" fill="#0d1117"/>
+    <text x="100" y="65" fill="#26a69a" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">EN ⇄ ES · FR ⇄ DE</text>
+    <text x="100" y="76" fill="#26a69a" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">+ NL → Python code!</text>
+  </g>
+
+  <!-- ═══ Bottom-Left: NER ═══ -->
+  <g transform="translate(80, 360)" filter="url(#shadow03)">
+    <rect x="0" y="0" width="200" height="90" rx="8" fill="#161b22" stroke="#ffca28" stroke-width="1.5"/>
+    <rect x="0" y="0" width="200" height="26" rx="8" fill="url(#nerG)"/>
+    <rect x="0" y="16" width="200" height="10" fill="url(#nerG)"/>
+    <text x="100" y="18" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">🔍 Info Retrieval (NER)</text>
+    <text x="100" y="44" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Word classification</text>
+    <rect x="12" y="52" width="176" height="30" rx="4" fill="#0d1117"/>
+    <text x="100" y="65" fill="#ffca28" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">extract people, places,</text>
+    <text x="100" y="76" fill="#ffca28" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">orgs from articles</text>
+  </g>
+
+  <!-- ═══ Bottom-Right: Augmented LLM ═══ -->
+  <g transform="translate(600, 360)" filter="url(#shadow03)">
+    <rect x="0" y="0" width="200" height="90" rx="8" fill="#161b22" stroke="#66bb6a" stroke-width="1.5"/>
+    <rect x="0" y="0" width="200" height="26" rx="8" fill="url(#apiG)"/>
+    <rect x="0" y="16" width="200" height="10" fill="url(#apiG)"/>
+    <text x="100" y="18" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">🔌 Augmented LLM</text>
+    <text x="100" y="44" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">External data + APIs</text>
+    <rect x="12" y="52" width="176" height="30" rx="4" fill="#0d1117"/>
+    <text x="100" y="65" fill="#66bb6a" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">break the pre-training</text>
+    <text x="100" y="76" fill="#66bb6a" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">boundary · Week 3 🚀</text>
+  </g>
+
+  <!-- Bottom annotation: scale insight -->
+  <g transform="translate(40, 460)">
+    <text x="0" y="0" fill="#484f58" font-family="Inter, sans-serif" font-size="9">Scale → understanding (params encode language knowledge)  ·  But: small fine-tuned models can beat giants on focused tasks (Week 2)</text>
+  </g>
+</svg>
