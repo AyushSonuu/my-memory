@@ -12,7 +12,7 @@
 | 01 | [Introduction - Week 1](01-introduction.md) | 🟢 | 1 |
 | 02 | [Generative AI & LLMs](02-generative-ai-llms.md) | 🟢 | 1 |
 | 03 | [LLM Use Cases & Tasks](03-llm-use-cases.md) | 🟢 | 1 |
-| 04 | [Text Generation Before Transformers](04-before-transformers.md) | 🔴 | — |
+| 04 | [Text Generation Before Transformers](04-before-transformers.md) | 🟢 | 1 |
 | 05 | [Transformers Architecture](05-transformers-architecture.md) | 🔴 | — |
 | 06 | [Generating Text with Transformers](06-generating-text.md) | 🔴 | — |
 | 07 | [Prompting & Prompt Engineering](07-prompting.md) | 🔴 | — |
