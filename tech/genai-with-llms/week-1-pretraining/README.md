@@ -16,7 +16,7 @@
 | 05 | [Transformers Architecture](05-transformers-architecture.md) | 🟢 | 1 |
 | 06 | [Generating Text with Transformers](06-generating-text.md) | 🟢 | 1 |
 | 07 | [Prompting & Prompt Engineering](07-prompting.md) | 🟢 | 1 |
-| 08 | [Generative Configuration](08-generative-config.md) | 🔴 | — |
+| 08 | [Generative Configuration](08-generative-config.md) | 🟢 | 1 |
 | 09 | [GenAI Project Lifecycle](09-project-lifecycle.md) | 🔴 | — |
 | 10 | [Pre-training LLMs](10-pretraining-llms.md) | 🔴 | — |
 | 11 | [Computational Challenges](11-computational-challenges.md) | 🔴 | — |
