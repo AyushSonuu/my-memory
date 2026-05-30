@@ -14,7 +14,7 @@
 | 03 | [LLM Use Cases & Tasks](03-llm-use-cases.md) | 🟢 | 1 |
 | 04 | [Text Generation Before Transformers](04-before-transformers.md) | 🟢 | 1 |
 | 05 | [Transformers Architecture](05-transformers-architecture.md) | 🟢 | 1 |
-| 06 | [Generating Text with Transformers](06-generating-text.md) | 🔴 | — |
+| 06 | [Generating Text with Transformers](06-generating-text.md) | 🟢 | 1 |
 | 07 | [Prompting & Prompt Engineering](07-prompting.md) | 🔴 | — |
 | 08 | [Generative Configuration](08-generative-config.md) | 🔴 | — |
 | 09 | [GenAI Project Lifecycle](09-project-lifecycle.md) | 🔴 | — |
