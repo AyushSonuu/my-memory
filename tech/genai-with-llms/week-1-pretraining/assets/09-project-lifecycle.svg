@@ -1,0 +1,209 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560">
+  <defs>
+    <linearGradient id="scopeG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#42a5f5"/>
+      <stop offset="100%" style="stop-color:#1565c0"/>
+    </linearGradient>
+    <linearGradient id="selectG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ec407a"/>
+      <stop offset="100%" style="stop-color:#ad1457"/>
+    </linearGradient>
+    <linearGradient id="adaptG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#e65100"/>
+    </linearGradient>
+    <linearGradient id="evalG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd54f"/>
+      <stop offset="100%" style="stop-color:#f57f17"/>
+    </linearGradient>
+    <linearGradient id="integG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#66bb6a"/>
+      <stop offset="100%" style="stop-color:#2e7d32"/>
+    </linearGradient>
+    <filter id="shadow09">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="560" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="480" y="28" fill="#e6edf3" font-family="Inter, sans-serif" font-size="17" font-weight="bold" text-anchor="middle">GenAI Project Lifecycle</text>
+  <text x="480" y="46" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Conception → Launch: four stages, iterative adapt &amp; align at the core</text>
+
+  <!-- ═══ STAGE ARROWS (top banner) ═══ -->
+
+  <!-- Stage 1 arrow: Scope -->
+  <polygon points="20,68 185,68 205,88 185,108 20,108" fill="#1565c0" opacity="0.9"/>
+  <text x="108" y="93" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">1. Scope</text>
+
+  <!-- Stage 2 arrow: Select -->
+  <polygon points="205,68 360,68 380,88 360,108 205,108" fill="#ad1457" opacity="0.9"/>
+  <text x="292" y="93" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">2. Select</text>
+
+  <!-- Stage 3 arrow: Adapt & Align (wide) -->
+  <polygon points="380,68 680,68 700,88 680,108 380,108" fill="#e65100" opacity="0.9"/>
+  <text x="540" y="93" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">3. Adapt &amp; Align Model</text>
+
+  <!-- Stage 4 arrow: Application Integration -->
+  <polygon points="700,68 920,68 940,88 920,108 700,108" fill="#2e7d32" opacity="0.9"/>
+  <text x="815" y="93" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">4. App Integration</text>
+
+  <!-- ═══ STAGE 1: SCOPE ═══ -->
+  <g transform="translate(20, 120)" filter="url(#shadow09)">
+    <rect x="0" y="0" width="185" height="390" rx="10" fill="#0d1d2e" stroke="#42a5f5" stroke-width="2"/>
+    <text x="92" y="30" fill="#42a5f5" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Define the Use Case</text>
+    <text x="92" y="48" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Most important step</text>
+
+    <!-- Narrow scope visual -->
+    <rect x="20" y="58" width="145" height="100" rx="6" fill="#0a1828"/>
+    <text x="92" y="76" fill="#90caf9" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Multi-task?</text>
+    <text x="92" y="92" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Essay + code + NER + ...</text>
+    <text x="92" y="106" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">→ large model needed</text>
+    <line x1="20" y1="118" x2="165" y2="118" stroke="#30363d" stroke-width="1"/>
+    <text x="92" y="135" fill="#66bb6a" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Single task?</text>
+    <text x="92" y="149" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Only NER or summarize</text>
+    <text x="92" y="163" fill="#66bb6a" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">→ smaller model OK!</text>
+
+    <rect x="20" y="172" width="145" height="55" rx="5" fill="#1a3a1a"/>
+    <text x="92" y="190" fill="#a5d6a7" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">💡 Narrow scope =</text>
+    <text x="92" y="203" fill="#a5d6a7" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">saves time + cost</text>
+    <text x="92" y="216" fill="#a5d6a7" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">+ enables small models</text>
+
+    <text x="92" y="250" fill="#42a5f5" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Week 1</text>
+    <text x="92" y="264" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Use cases, LLM types,</text>
+    <text x="92" y="276" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">prompting, config</text>
+  </g>
+
+  <!-- ═══ STAGE 2: SELECT ═══ -->
+  <g transform="translate(215, 120)" filter="url(#shadow09)">
+    <rect x="0" y="0" width="165" height="390" rx="10" fill="#2a0a1a" stroke="#ec407a" stroke-width="2"/>
+    <text x="82" y="30" fill="#ec407a" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Choose a Model</text>
+
+    <!-- Foundation model option -->
+    <rect x="12" y="46" width="141" height="80" rx="6" fill="#0d1117" stroke="#ec407a" stroke-width="1.5"/>
+    <text x="82" y="63" fill="#f48fb1" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">✅ Foundation Model</text>
+    <text x="82" y="78" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">(Pretrained LLM)</text>
+    <text x="82" y="94" fill="#66bb6a" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">START HERE</text>
+    <text x="82" y="108" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">90%+ of projects</text>
+
+    <!-- Train from scratch option -->
+    <rect x="12" y="136" width="141" height="80" rx="6" fill="#0d1117" stroke="#484f58" stroke-width="1"/>
+    <text x="82" y="153" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">⚠️ Train from Scratch</text>
+    <text x="82" y="168" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">(Custom LLM)</text>
+    <text x="82" y="183" fill="#ef5350" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Rare — only when no</text>
+    <text x="82" y="196" fill="#ef5350" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">foundation model fits</text>
+
+    <!-- Model hubs note -->
+    <rect x="12" y="228" width="141" height="50" rx="5" fill="#1a1010"/>
+    <text x="82" y="246" fill="#f48fb1" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">Model Hubs</text>
+    <text x="82" y="260" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">HuggingFace, AWS etc.</text>
+    <text x="82" y="272" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Read model cards!</text>
+
+    <text x="82" y="310" fill="#ec407a" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Week 1</text>
+    <text x="82" y="324" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Pre-training &amp;</text>
+    <text x="82" y="336" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">scaling laws</text>
+  </g>
+
+  <!-- ═══ STAGE 3: ADAPT & ALIGN ═══ -->
+  <g transform="translate(390, 120)">
+    <!-- Outer border -->
+    <rect x="0" y="0" width="310" height="390" rx="10" fill="#1a0a00" stroke="#ff9800" stroke-width="2" filter="url(#shadow09)"/>
+    <text x="155" y="22" fill="#ff9800" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Highly Iterative — cycle until satisfied</text>
+
+    <!-- Prompt Engineering -->
+    <g transform="translate(10, 32)">
+      <rect x="0" y="0" width="175" height="70" rx="6" fill="#0d1828" stroke="#42a5f5" stroke-width="1"/>
+      <text x="87" y="18" fill="#90caf9" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Prompt Engineering</text>
+      <text x="87" y="33" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">zero-shot → one-shot → few-shot</text>
+      <text x="87" y="46" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Try first — may be enough</text>
+      <text x="87" y="58" fill="#42a5f5" font-family="Inter, sans-serif" font-size="7" font-weight="bold" text-anchor="middle">Week 1</text>
+    </g>
+
+    <!-- Fine-tuning -->
+    <g transform="translate(10, 112)">
+      <rect x="0" y="0" width="175" height="70" rx="6" fill="#0d2818" stroke="#66bb6a" stroke-width="1"/>
+      <text x="87" y="18" fill="#a5d6a7" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Fine-Tuning</text>
+      <text x="87" y="33" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Supervised training on</text>
+      <text x="87" y="46" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">task-specific labelled data</text>
+      <text x="87" y="58" fill="#66bb6a" font-family="Inter, sans-serif" font-size="7" font-weight="bold" text-anchor="middle">Week 2 🔬 (lab)</text>
+    </g>
+
+    <!-- RLHF -->
+    <g transform="translate(10, 192)">
+      <rect x="0" y="0" width="175" height="70" rx="6" fill="#2a1010" stroke="#ef5350" stroke-width="1"/>
+      <text x="87" y="18" fill="#ef9a9a" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Align (RLHF)</text>
+      <text x="87" y="33" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Reinforcement Learning</text>
+      <text x="87" y="46" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">with Human Feedback</text>
+      <text x="87" y="58" fill="#ef5350" font-family="Inter, sans-serif" font-size="7" font-weight="bold" text-anchor="middle">Week 3</text>
+    </g>
+
+    <!-- Evaluate box -->
+    <g transform="translate(195, 32)">
+      <rect x="0" y="0" width="105" height="230" rx="6" fill="#1a1200" stroke="#ffd54f" stroke-width="1.5"/>
+      <text x="52" y="22" fill="#ffd54f" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Evaluate</text>
+      <text x="52" y="40" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">After every step</text>
+      <!-- evaluation items -->
+      <text x="10" y="65" fill="#ffe082" font-family="Inter, sans-serif" font-size="8">• Metrics</text>
+      <text x="10" y="80" fill="#ffe082" font-family="Inter, sans-serif" font-size="8">• Benchmarks</text>
+      <text x="10" y="95" fill="#ffe082" font-family="Inter, sans-serif" font-size="8">• Human eval</text>
+      <text x="10" y="115" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">→ good? proceed</text>
+      <text x="10" y="130" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">→ not good?</text>
+      <text x="10" y="143" fill="#8b949e" font-family="Inter, sans-serif" font-size="7">  iterate again</text>
+      <text x="52" y="185" fill="#ffd54f" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">Week 2</text>
+      <text x="52" y="200" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">metrics +</text>
+      <text x="52" y="213" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">benchmarks</text>
+    </g>
+
+    <!-- Iterative loop arrow -->
+    <path d="M 185 150 Q 230 150 230 185 Q 230 230 185 230" fill="none" stroke="#ff9800" stroke-width="2" stroke-dasharray="4,3"/>
+    <polygon points="185,230 192,222 178,222" fill="#ff9800"/>
+    <text x="240" y="195" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" font-style="italic">loop</text>
+
+    <!-- "This stage is iterative" banner -->
+    <rect x="10" y="275" width="290" height="100" rx="6" fill="#0d1117"/>
+    <text x="155" y="295" fill="#ff9800" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Typical iteration pattern:</text>
+    <text x="155" y="313" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Prompt eng → evaluate → fine-tune</text>
+    <text x="155" y="327" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">→ evaluate → prompt eng again</text>
+    <text x="155" y="341" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">→ evaluate → RLHF if needed</text>
+    <text x="155" y="360" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" font-style="italic" text-anchor="middle">Normal to go around multiple times</text>
+  </g>
+
+  <!-- ═══ STAGE 4: APPLICATION INTEGRATION ═══ -->
+  <g transform="translate(710, 120)" filter="url(#shadow09)">
+    <rect x="0" y="0" width="225" height="390" rx="10" fill="#0a1f0d" stroke="#66bb6a" stroke-width="2"/>
+    <text x="112" y="22" fill="#66bb6a" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">App Integration</text>
+
+    <!-- Optimize & Deploy -->
+    <rect x="12" y="36" width="201" height="100" rx="6" fill="#0d1117" stroke="#66bb6a" stroke-width="1"/>
+    <text x="112" y="55" fill="#a5d6a7" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Optimize &amp; Deploy</text>
+    <text x="112" y="72" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">• Best use of compute</text>
+    <text x="112" y="86" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">• Best user experience</text>
+    <text x="112" y="100" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">• Optimization techniques</text>
+    <text x="112" y="116" fill="#66bb6a" font-family="Inter, sans-serif" font-size="7" font-weight="bold" text-anchor="middle">Week 3</text>
+
+    <!-- Augment LLM -->
+    <rect x="12" y="148" width="201" height="120" rx="6" fill="#0d1117" stroke="#66bb6a" stroke-width="1"/>
+    <text x="112" y="167" fill="#a5d6a7" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Augment LLM Apps</text>
+    <text x="112" y="184" fill="#ef5350" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">LLM fundamental limits:</text>
+    <text x="112" y="198" fill="#ef9a9a" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">• Hallucination (invents facts)</text>
+    <text x="112" y="211" fill="#ef9a9a" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">• Weak complex reasoning</text>
+    <text x="112" y="224" fill="#ef9a9a" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">• Weak math</text>
+    <line x1="20" y1="235" x2="205" y2="235" stroke="#30363d" stroke-width="1"/>
+    <text x="112" y="253" fill="#66bb6a" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">Solutions (Week 3):</text>
+    <text x="112" y="268" fill="#a5d6a7" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">External data (RAG) + APIs</text>
+
+    <!-- Week 3 call-out -->
+    <rect x="12" y="285" width="201" height="90" rx="6" fill="#1a3a1a"/>
+    <text x="112" y="305" fill="#66bb6a" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Week 3 Covers:</text>
+    <text x="112" y="322" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">RLHF alignment</text>
+    <text x="112" y="336" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Model optimization</text>
+    <text x="112" y="350" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">RAG + augmented apps</text>
+    <text x="112" y="366" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">Overcoming LLM limits</text>
+  </g>
+
+  <!-- Footer: course map -->
+  <text x="480" y="530" fill="#ffd54f" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Course Map:</text>
+  <text x="480" y="548" fill="#484f58" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Week 1: Scope + Select + Prompt Eng  ·  Week 2: Fine-tuning + Evaluation  ·  Week 3: RLHF + Deploy + Augment</text>
+</svg>
