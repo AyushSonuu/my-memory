@@ -1,6 +1,6 @@
 # 🔧 Tech Hub
 
-> Your learning command center — 7 courses and counting.
+> Your learning command center — 8 courses and counting.
 
 ---
 
@@ -83,6 +83,34 @@
     <span class="course-stat">📚 13/16 lessons</span>
     <span class="course-stat">🃏 30+ cards</span>
     <span class="course-stat">🎓 DLAI × JetBrains</span>
+  </div>
+</a>
+
+</div>
+</div>
+
+<div class="hub-section">
+
+## 🌐 Web Frameworks
+
+<div class="course-grid" markdown>
+
+<a href="fastapi/" class="course-card">
+  <div class="course-header">
+    <span class="course-icon">⚡</span>
+    <span class="course-title">FastAPI</span>
+  </div>
+  <span class="course-badge badge-learning">Learning</span>
+  <div class="course-content">
+    <p class="course-desc">Modern Python web framework — type hints, Pydantic validation, async support, auto OpenAPI docs.</p>
+  </div>
+  <div class="course-progress">
+    <div class="course-progress-bar" style="width: 2%"></div>
+  </div>
+  <div class="course-meta">
+    <span class="course-stat">📚 1/? lessons</span>
+    <span class="course-stat">🃏 12 cards</span>
+    <span class="course-stat">🌐 FastAPI Docs</span>
   </div>
 </a>
 
@@ -174,7 +202,10 @@ graph TB
     AM -.->|"retrieval"| RAG
     RAG -.->|"extends"| AG
     T --> SDD["📋 <b>Spec-Driven Dev</b><br/>13/16 🟡"]
+    T --> FA["⚡ <b>FastAPI</b><br/>1/? 🔴"]
     SDD -.->|"guides"| AG
+    FA -.->|"uses"| PD["🧱 Pydantic"]
+    FA -.->|"async"| AIO
     THR -.->|"vs"| AIO
     THR -.->|"vs"| MP
 ```
@@ -183,4 +214,4 @@ graph TB
 
 ---
 
-> 🌱 7 courses and growing! Click any card to dive in.
+> 🌱 8 courses and growing! Click any card to dive in.
