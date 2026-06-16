@@ -1,6 +1,6 @@
 # 🃏 FastAPI Flashcards
 
-> Pull from: L01 Python Types Intro
+> Pull from: L01 Python Types Intro · L02 Concurrency &amp; Async/Await
 
 ---
 
@@ -157,4 +157,85 @@ from typing import Any, Annotated
 - **Pydantic BaseModel**: validates + coerces data at runtime, raises clear errors on bad input, integrates with FastAPI's request parsing
 
 FastAPI uses `BaseModel`, not dataclasses, for request/response bodies.
+</details>
+
+---
+
+## L02 — Concurrency &amp; Async / Await
+
+**Q: What is the difference between concurrency and parallelism?**
+<details><summary>Answer</summary>
+
+- **Concurrency** = multiple tasks making progress by interleaving on ONE thread — one pauses while waiting, another runs. Smart switching. (One waiter serving multiple tables.)
+- **Parallelism** = multiple tasks truly running simultaneously on multiple CPU cores. (Multiple waiters, one table each.)
+
+Web APIs need concurrency (lots of I/O waiting). Heavy CPU computation needs parallelism.
+</details>
+
+---
+
+**Q: What is I/O-bound vs CPU-bound work?**
+<details><summary>Answer</summary>
+
+- **I/O-bound**: the bottleneck is waiting for input/output — network calls, DB queries, file reads. CPU is idle while waiting. → Use concurrency (async/await).
+- **CPU-bound**: the bottleneck is actual computation — the CPU is maxed out doing math. → Use parallelism (multiprocessing).
+</details>
+
+---
+
+**Q: What are the two rules of async/await in Python?**
+<details><summary>Answer</summary>
+
+1. `await` can ONLY be used inside an `async def` function
+2. To call an `async def` function and get its result, you MUST `await` it
+
+Calling `async_fn()` without `await` gives you a coroutine object, NOT the result.
+</details>
+
+---
+
+**Q: What is a coroutine?**
+<details><summary>Answer</summary>
+
+A **coroutine** is what an `async def` function returns when called (without await). It's a pauseable function — a state machine that can be started, paused at `await` expressions, and resumed. FastAPI (via Starlette) knows how to run coroutines on the event loop.
+</details>
+
+---
+
+**Q: You write `def my_route()` (not async) in FastAPI. What does FastAPI do with it?**
+<details><summary>Answer</summary>
+
+FastAPI automatically runs it in an **external threadpool** — this prevents it from blocking the async event loop. There's ~100ns of overhead, which is imperceptible. It's safe and correct. This is the recommended approach when your code uses sync libraries with no `await` support.
+</details>
+
+---
+
+**Q: When should you use `async def` vs `def` in a FastAPI route?**
+<details><summary>Answer</summary>
+
+- **`async def`**: when your route calls something with `await` (async DB library, async HTTP client, etc.)
+- **`def`**: when using sync libraries (no `await`), or when you're not sure — safe default
+- **Never**: use blocking sync I/O (like `requests.get()`) inside `async def` — it freezes the event loop
+</details>
+
+---
+
+**Q: Name the three layers under FastAPI and what each does.**
+<details><summary>Answer</summary>
+
+| Layer | Role |
+|-------|------|
+| **FastAPI** | Routes, validation, serialization (your app logic) |
+| **Starlette** | Async ASGI framework foundation |
+| **AnyIO** | Concurrency layer — supports asyncio AND Trio |
+
+uvicorn (or another ASGI server) runs the whole stack.
+</details>
+
+---
+
+**Q: What goes wrong if you call a blocking sync function (e.g. `time.sleep(5)`) inside `async def`?**
+<details><summary>Answer</summary>
+
+It **freezes the entire event loop** for 5 seconds. While that one coroutine is sleeping synchronously, NO other requests can be processed. The server appears hung. Always use async equivalents (`await asyncio.sleep(5)`) inside `async def`.
 </details>

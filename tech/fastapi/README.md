@@ -22,6 +22,7 @@ graph LR
 | # | Lesson | Confidence | Revised |
 |---|--------|-----------|---------|
 | 01 | [Python Types Intro](01-python-types-intro.md) | 🔴 | — |
+| 02 | [Concurrency &amp; Async/Await](02-concurrency-async-await.md) | 🔴 | — |
 
 ## 🧩 Memory Fragments
 > - FastAPI is ALL based on Python type hints — types aren't optional, they ARE the framework
@@ -37,6 +38,7 @@ graph LR
 | # | Lesson | One-liner | Time |
 |---|--------|-----------|------|
 | 01 | [Python Types Intro](01-python-types-intro.md) | Type hints — the foundation everything else builds on | 8 min |
+| 02 | [Concurrency &amp; Async/Await](02-concurrency-async-await.md) | async def vs def — burger shop analogy, when to use what | 8 min |
 
 ---
 
