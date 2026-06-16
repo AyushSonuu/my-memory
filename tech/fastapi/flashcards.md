@@ -1,6 +1,6 @@
 # 🃏 FastAPI Flashcards
 
-> Pull from: L01 Python Types Intro · L02 Concurrency &amp; Async/Await
+> Pull from: L01 Python Types Intro · L02 Concurrency &amp; Async/Await · L03 Environment Variables
 
 ---
 
@@ -238,4 +238,137 @@ uvicorn (or another ASGI server) runs the whole stack.
 <details><summary>Answer</summary>
 
 It **freezes the entire event loop** for 5 seconds. While that one coroutine is sleeping synchronously, NO other requests can be processed. The server appears hung. Always use async equivalents (`await asyncio.sleep(5)`) inside `async def`.
+</details>
+
+---
+
+## L03 — Environment Variables
+
+**Q: What is an environment variable?**
+<details><summary>Answer</summary>
+
+A **key=value pair** that lives in the operating system — outside your code. Any program, including Python, can read it at runtime. Used for config, secrets, and settings without hardcoding them.
+
+Key facts: lives in OS, not in git, always a string (`str`).
+</details>
+
+---
+
+**Q: What is the difference between `os.environ["KEY"]` and `os.getenv("KEY")`?**
+<details><summary>Answer</summary>
+
+- `os.getenv("KEY")` — safe, returns `None` if not set (or a custom default as 2nd arg): `os.getenv("KEY", "default")`
+- `os.environ["KEY"]` — raises `KeyError` if the var is not set; use only when the var is truly mandatory
+
+General rule: prefer `os.getenv` unless you want a loud crash on a missing var.
+</details>
+
+---
+
+**Q: Env vars are always what type in Python? What's the implication?**
+<details><summary>Answer</summary>
+
+Always `str`. The OS stores everything as plain text.
+
+Implication: you must cast manually in Python:
+```python
+port = int(os.getenv("PORT", "8000"))        # str → int
+debug = os.getenv("DEBUG", "false") == "true" # str → bool (safe!)
+```
+
+`bool("False")` is `True` — never pass an env var directly to `bool()`.
+</details>
+
+---
+
+**Q: What is a `.env` file and how does python-dotenv use it?**
+<details><summary>Answer</summary>
+
+A `.env` file is a plain-text file containing env var definitions (one `KEY=value` per line). It is NOT committed to git (add to `.gitignore`).
+
+`python-dotenv` loads it into `os.environ` at runtime:
+```python
+from dotenv import load_dotenv
+load_dotenv()  # reads .env and populates os.environ
+name = os.getenv("MY_NAME")
+```
+
+Use case: local development — keeps secrets out of code while making them easy to set.
+</details>
+
+---
+
+**Q: What is `pydantic-settings` `BaseSettings` and when should you use it?**
+<details><summary>Answer</summary>
+
+`BaseSettings` is a Pydantic class that reads env vars (and optionally `.env` files) with full type validation and coercion:
+
+```python
+from pydantic_settings import BaseSettings
+
+class Settings(BaseSettings):
+    app_name: str = "My App"
+    port: int = 8000       # auto-cast from str env var
+    debug: bool = False    # handles "true"/"false" safely
+
+settings = Settings()
+```
+
+Use it when: you have multiple config values, want type safety, or need to validate config in production FastAPI apps.
+</details>
+
+---
+
+**Q: What is a per-invocation environment variable? Give the syntax.**
+<details><summary>Answer</summary>
+
+A var set on the same command line as the program — exists ONLY for that one process run and is gone after it exits.
+
+```bash
+# Linux/macOS only
+MY_NAME="Wade Wilson" python main.py
+# → "Wade Wilson" is visible inside main.py
+# → After the process exits, MY_NAME is NOT set in the shell
+```
+
+Use case: quick one-off overrides without polluting your shell session or committing anything.
+</details>
+
+---
+
+**Q: What is the PATH environment variable and how does the OS use it?**
+<details><summary>Answer</summary>
+
+`PATH` is a special OS env var that holds an ordered list of directories. When you type a command (like `python`), the OS searches these dirs **left to right** and runs the **first match** found.
+
+- Linux/macOS separator: `:` (colon)
+- Windows separator: `;` (semicolon)
+
+The Python installer's "Add Python to PATH?" checkbox appends Python's `bin/` directory to PATH — so `python` can be called from any terminal without typing the full path.
+</details>
+
+---
+
+**Q: What are the security best practices for environment variables?**
+<details><summary>Answer</summary>
+
+1. **Never commit secrets** — API keys, DB passwords, tokens go in env vars or `.env`, never in code files
+2. **Add `.env` to `.gitignore`** — prevents accidental commits
+3. **Use `.env.example`** — commit a template with dummy values so teammates know what vars are needed
+4. **Prod: use secret managers** — AWS Secrets Manager, GCP Secret Manager, Vault — not `.env` files on servers
+5. **Follow 12-Factor App** — [12factor.net/config](https://12factor.net/config): strict separation of config from code
+
+One-liner: "If it changes between environments (dev/staging/prod), it's config — put it in env vars."
+</details>
+
+---
+
+**Q: List 3 critical gotchas with environment variables in Python.**
+<details><summary>Answer</summary>
+
+1. **`bool("False")` is `True`** — "False" is a non-empty string, always truthy. Use `os.getenv("DEBUG", "false").lower() == "true"` instead.
+
+2. **`export` is required in Bash** — `MY_NAME="Wade"` (no `export`) creates a shell variable, NOT an env var. Child processes like Python won't see it.
+
+3. **Per-invocation syntax is Linux/macOS only** — `KEY=val python script.py` doesn't work on Windows. PowerShell needs `$Env:KEY = "val"` before the command.
 </details>

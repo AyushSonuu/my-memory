@@ -23,6 +23,7 @@ graph LR
 |---|--------|-----------|---------|
 | 01 | [Python Types Intro](01-python-types-intro.md) | 🔴 | — |
 | 02 | [Concurrency &amp; Async/Await](02-concurrency-async-await.md) | 🔴 | — |
+| 03 | [Environment Variables](03-environment-variables.md) | 🔴 | — |
 
 ## 🧩 Memory Fragments
 > - FastAPI is ALL based on Python type hints — types aren't optional, they ARE the framework
@@ -39,6 +40,7 @@ graph LR
 |---|--------|-----------|------|
 | 01 | [Python Types Intro](01-python-types-intro.md) | Type hints — the foundation everything else builds on | 8 min |
 | 02 | [Concurrency &amp; Async/Await](02-concurrency-async-await.md) | async def vs def — burger shop analogy, when to use what | 8 min |
+| 03 | [Environment Variables](03-environment-variables.md) | OS env vars, .env files, python-dotenv, Pydantic Settings | 8 min |
 
 ---
 
