@@ -1,6 +1,6 @@
 # 🃏 FastAPI Flashcards
 
-> Pull from: L01 Python Types Intro · L02 Concurrency &amp; Async/Await · L03 Environment Variables
+> Pull from: L01 Python Types Intro · L02 Concurrency &amp; Async/Await · L03 Environment Variables · L04 First Steps
 
 ---
 
