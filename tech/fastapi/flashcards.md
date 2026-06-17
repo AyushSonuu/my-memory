@@ -372,3 +372,127 @@ One-liner: "If it changes between environments (dev/staging/prod), it's config �
 
 3. **Per-invocation syntax is Linux/macOS only** — `KEY=val python script.py` doesn't work on Windows. PowerShell needs `$Env:KEY = "val"` before the command.
 </details>
+
+---
+
+## L04 — First Steps
+
+**Q: What is a "path operation" in FastAPI?**
+<details><summary>Answer</summary>
+
+A **path operation** = **path** + **operation** combined.
+
+- **Path** = the URL segment after the domain — e.g. `/`, `/items`, `/users/42`
+- **Operation** = the HTTP method — GET, POST, PUT, DELETE, etc.
+
+Together they form one handler: `@app.get("/")` means "handle GET requests to /". FastAPI calls the decorated function a **path operation function**.
+</details>
+
+---
+
+**Q: What does the `@app.get("/")` decorator do — break it down?**
+<details><summary>Answer</summary>
+
+It is a **path operation decorator** that does three things in one line:
+
+1. **Registers** the function as a handler with FastAPI's router
+2. **Specifies the path**: `"/"` — the root URL
+3. **Specifies the HTTP method**: `get` — only GET requests trigger this function
+
+`app` is the `FastAPI()` instance. `.get` is one of the operation methods. FastAPI reads this decorator and builds its internal routing table automatically.
+</details>
+
+---
+
+**Q: What are the 3 parts of a path operation function — name them and explain each.**
+<details><summary>Answer</summary>
+
+```python
+@app.get("/")           # 1. Path operation decorator
+async def root():       # 2. Path operation function (the handler)
+    return {...}        # 3. Return value → auto-serialized to JSON
+```
+
+1. **Decorator** — tells FastAPI which path + method to bind to
+2. **Function** — your actual Python code that runs when the route is hit (`async def` OR `def`)
+3. **Return value** — a dict, Pydantic model, list, etc. FastAPI auto-converts it to a JSON response
+</details>
+
+---
+
+**Q: What is the `fastapi dev` command and what does it do?**
+<details><summary>Answer</summary>
+
+`fastapi dev main.py` starts a **development server** with:
+- **Live reload** — code changes auto-restart the server (no manual restart needed)
+- **Debug mode** — better error messages
+- Runs on `http://127.0.0.1:8000` by default
+
+Alternative: `fastapi dev --entrypoint main:app` (or configure in `pyproject.toml` under `[tool.fastapi]`).
+
+For production: `fastapi deploy` (or run via `uvicorn main:app`).
+</details>
+
+---
+
+**Q: What is `/docs` and what UI does it use?**
+<details><summary>Answer</summary>
+
+`/docs` is the **interactive API documentation** that FastAPI auto-generates. It uses **Swagger UI** — a browser-based interface where you can:
+- Browse all your API endpoints
+- See expected inputs/outputs for each route
+- **Execute requests live** directly from the browser (no Postman needed)
+
+It is powered by the OpenAPI schema that FastAPI generates automatically from your code.
+</details>
+
+---
+
+**Q: What is OpenAPI and why does FastAPI use it?**
+<details><summary>Answer</summary>
+
+**OpenAPI** (formerly Swagger) is an **API schema standard** — a specification for describing REST APIs in a machine-readable format (JSON/YAML). It defines paths, HTTP methods, parameters, request bodies, and responses.
+
+FastAPI generates an OpenAPI schema automatically from your code (available at `/openapi.json`). This schema then **powers**:
+- `/docs` — Swagger UI interactive docs
+- `/redoc` — ReDoc UI docs
+- Client SDK generation, testing tools, API gateways
+
+FastAPI uses OpenAPI because: write code once → get docs, validation, and tooling for free.
+</details>
+
+---
+
+**Q: Why does FastAPI generate docs automatically — what is it reading?**
+<details><summary>Answer</summary>
+
+FastAPI reads your **Python type hints and decorators** to build the OpenAPI schema. Specifically:
+- `@app.get("/")` → path + operation
+- Function parameter types → parameter definitions
+- Return type annotations / Pydantic models → response schema
+
+It uses two schema standards under the hood:
+- **OpenAPI** — describes the API (paths, methods, params, responses)
+- **JSON Schema** — describes the data shapes (types, required fields, formats)
+
+No separate config file or annotation needed. The type hints ARE the spec.
+</details>
+
+---
+
+**Q: What HTTP operations does FastAPI support — list all 8 with their decorators.**
+<details><summary>Answer</summary>
+
+| Operation | Decorator | Conventional Use |
+|-----------|-----------|-----------------|
+| GET | `@app.get()` | Read data |
+| POST | `@app.post()` | Create data |
+| PUT | `@app.put()` | Update (full replace) |
+| DELETE | `@app.delete()` | Delete data |
+| PATCH | `@app.patch()` | Update (partial) |
+| OPTIONS | `@app.options()` | CORS preflight / metadata |
+| HEAD | `@app.head()` | Like GET but no body |
+| TRACE | `@app.trace()` | Diagnostic loop-back |
+
+Important: FastAPI does NOT enforce REST semantics — these are conventions only. GraphQL APIs, for example, use POST for everything and that is perfectly valid.
+</details>
