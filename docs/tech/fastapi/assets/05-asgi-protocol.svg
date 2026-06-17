@@ -80,10 +80,17 @@
     <text x="92" y="114" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">await send(http.response.*)</text>
   </g>
 
-  <!-- Arrow: FastAPI → Browser (response loop) -->
-  <path d="M 630 115 Q 720 60 750 115 Q 780 170 750 200 Q 700 230 430 230 Q 160 230 96 200 Q 60 185 65 155" stroke="#ff9800" stroke-width="1.5" fill="none" stroke-dasharray="5,4"/>
-  <polygon points="65,155 58,165 72,163" fill="#ff9800"/>
-  <text x="430" y="248" fill="#ff9800" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">HTTP Response travels back to Browser</text>
+  <!-- Response path 1: FastAPI calls Uvicorn's send() callable -->
+  <!-- Arrow goes left from bottom of FastAPI box to bottom of Uvicorn box -->
+  <path d="M 537 207 L 537 228 L 302 228 L 302 207" stroke="#ff9800" stroke-width="2" fill="none"/>
+  <polygon points="302,207 296,217 308,217" fill="#ff9800"/>
+  <text x="420" y="242" fill="#ff9800" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">① await send(response)  →  Uvicorn's send() callable handles it</text>
+
+  <!-- Response path 2: Uvicorn writes bytes to TCP socket → Browser -->
+  <path d="M 215 185 L 163 155" stroke="#4caf50" stroke-width="2" fill="none"/>
+  <polygon points="163,155 170,165 159,163" fill="#4caf50"/>
+  <text x="175" y="176" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">② TCP bytes</text>
+  <text x="168" y="187" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">→ Browser</text>
 
   <!-- ======= ROW 2: Three Parameters ======= -->
 
