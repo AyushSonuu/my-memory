@@ -328,11 +328,11 @@ Every source you add makes the vault richer. The agent handles all cross-referen
 
 | Metric | Count |
 |--------|-------|
-| **Topics** | 7 |
-| **Lessons** | 75 |
+| **Topics** | 8 |
+| **Lessons** | 89 |
 | **Flashcards** | 250+ |
 | **SVGs created** | 42+ |
-| **Last updated** | 2026-05-17 |
+| **Last updated** | 2026-06-17 |
 
 ### Topics
 
@@ -342,6 +342,8 @@ Every source you add makes the vault richer. The agent handles all cross-referen
 | [🧠 Agent Memory](tech/agent-memory/) | 7/7 ✅ | 🟡 | DeepLearning.AI × Oracle |
 | [🔍 RAG](tech/rag/) | 22/62 | 🟡 | DeepLearning.AI |
 | [📋 Spec-Driven Dev](tech/spec-driven-development/) | 13/16 | 🟡 | DeepLearning.AI × JetBrains |
+| [🤖 GenAI Fundamentals](tech/gen-ai/) | 10/? | 🔴 | DeepLearning.AI |
+| [⚡ FastAPI](tech/fastapi/) | 4/? | 🔴 | — |
 | [⚡ AsyncIO](tech/python/asyncio/) | 1/1 ✅ | 🟡 | Corey Schafer |
 | [🧵 Threading](tech/python/threading/) | 1/1 ✅ | 🟡 | Corey Schafer |
 | [⚙️ Multiprocessing](tech/python/multiprocessing/) | 1/1 ✅ | 🟡 | Corey Schafer |
@@ -359,6 +361,8 @@ graph TB
     TECH --> AG["🤖 Agentic AI"]
     TECH --> AM["🧠 Agent Memory"]
     TECH --> RAG["🔍 RAG"]
+    TECH --> GENAI["🤖 GenAI Fundamentals"]
+    TECH --> FASTAPI["⚡ FastAPI"]
     TECH --> PY["🐍 Python"]
     PY --> AIO["⚡ AsyncIO"]
     PY --> THR["🧵 Threading"]
@@ -368,6 +372,8 @@ graph TB
     AM ---|"async ops"| AIO
     AM ---|"retrieval"| RAG
     AG ---|"extends to"| RAG
+    GENAI ---|"foundation for"| AG
+    FASTAPI ---|"async"| AIO
 ```
 
 ---

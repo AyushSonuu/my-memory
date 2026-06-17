@@ -2,7 +2,7 @@
   "tech/agent-memory": {
     "firstLearned": "2026-03-21",
     "lastRevised": "2026-03-24",
-    "nextRevision": "2026-03-28",
+    "nextRevision": "2026-06-20",
     "confidence": "yellow",
     "revisionCount": 1,
     "lessonsCompleted": 7
@@ -10,7 +10,7 @@
   "tech/python/asyncio": {
     "firstLearned": "2026-03-21",
     "lastRevised": "2026-03-31",
-    "nextRevision": "2026-04-14",
+    "nextRevision": "2026-06-20",
     "confidence": "yellow",
     "revisionCount": 2,
     "lessonsCompleted": 1
@@ -18,7 +18,7 @@
   "tech/agentic-ai": {
     "firstLearned": "2026-03-24",
     "lastRevised": "2026-03-28",
-    "nextRevision": "2026-04-06",
+    "nextRevision": "2026-06-20",
     "confidence": "yellow",
     "revisionCount": 0,
     "lessonsCompleted": 30
@@ -26,7 +26,7 @@
   "tech/python/threading": {
     "firstLearned": "2026-03-24",
     "lastRevised": "2026-03-31",
-    "nextRevision": "2026-04-07",
+    "nextRevision": "2026-06-20",
     "confidence": "yellow",
     "revisionCount": 1,
     "lessonsCompleted": 1
@@ -34,7 +34,7 @@
   "tech/python/multiprocessing": {
     "firstLearned": "2026-04-04",
     "lastRevised": "2026-04-04",
-    "nextRevision": "2026-04-07",
+    "nextRevision": "2026-06-20",
     "confidence": "yellow",
     "revisionCount": 0,
     "lessonsCompleted": 1
@@ -42,17 +42,33 @@
   "tech/rag": {
     "firstLearned": "2026-04-04",
     "lastRevised": "2026-05-17",
-    "nextRevision": "2026-05-20",
-    "confidence": "green",
+    "nextRevision": "2026-06-20",
+    "confidence": "yellow",
     "revisionCount": 2,
-    "lessonsCompleted": 37
+    "lessonsCompleted": 22
   },
   "tech/spec-driven-development": {
     "firstLearned": "2026-04-20",
     "lastRevised": "2026-05-17",
-    "nextRevision": "2026-05-24",
+    "nextRevision": "2026-06-20",
     "confidence": "yellow",
     "revisionCount": 1,
     "lessonsCompleted": 13
+  },
+  "tech/genai-with-llms": {
+    "firstLearned": "2026-06-10",
+    "lastRevised": "2026-06-15",
+    "nextRevision": "2026-06-24",
+    "confidence": "yellow",
+    "revisionCount": 0,
+    "lessonsCompleted": 10
+  },
+  "tech/fastapi": {
+    "firstLearned": "2026-06-15",
+    "lastRevised": "2026-06-17",
+    "nextRevision": "2026-06-20",
+    "confidence": "red",
+    "revisionCount": 0,
+    "lessonsCompleted": 4
   }
 }

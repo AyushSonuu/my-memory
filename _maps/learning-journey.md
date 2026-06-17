@@ -46,6 +46,12 @@ gantt
     L01-L03 (intro)             :done, sdd1, 2026-04-20, 1d
     L06-L15 (core lessons)      :done, sdd2, 2026-04-20, 1d
     L16 (conclusion)            :sdd3, after sdd2, 1d
+
+    section FastAPI
+    L01 Python Types Intro       :done, fapi1, 2026-06-15, 1d
+    L02 Async/Await              :done, fapi2, 2026-06-16, 1d
+    L03 Environment Variables    :done, fapi3, 2026-06-16, 1d
+    L04 First Steps              :done, fapi4, 2026-06-17, 1d
 ```
 
 ## 📈 Monthly Stats
@@ -55,6 +61,7 @@ gantt
 | Mar 2026 | 4 (Agent Memory, AsyncIO, Threading, Agentic AI) | 25 | 120+ |
 | Apr 2026 | 2 (RAG, SDD) | 21+ | 60+ |
 | May 2026 | 0 | 7+ | 40+ |
+| Jun 2026 | 2 (GenAI w/ LLMs W1, FastAPI) | 14+ | 50+ |
 
 ## 🏆 Milestones
 
@@ -87,6 +94,9 @@ gantt
 | 2026-05-03 | 🔍 RAG M3 progress! 8/11 lessons (chunking, cross-encoders, ColBERT, reranking — 22 SVGs total) |
 | 2026-05-03 | 🏗️ Tech Hub refactoring — course cards replace cluttered nav tabs |
 | 2026-05-03 | 📊 75 lessons total — vault growing steadily |
+| 2026-06-15 | ⚡ FastAPI started! L01 Python Types Intro |
+| 2026-06-16 | ⚡ FastAPI L02 (Async/Await) + L03 (Environment Variables) |
+| 2026-06-17 | ⚡ FastAPI L04 (First Steps) |
 
 ---
 

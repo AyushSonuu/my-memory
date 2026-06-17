@@ -6,11 +6,13 @@
 graph TB
     ROOT(("🧠 Everything"))
     
-    subgraph TECH ["🔧 Tech — 7 topics"]
+    subgraph TECH ["🔧 Tech — 9 topics"]
         AG["🤖 Agentic AI — 30/30 ✅"]
         AM["🧠 Agent Memory — 7/7 ✅"]
         RAG["🔍 RAG — 22/62 ✨"]
         SDD["📋 Spec-Driven Dev — 13/16 🟡"]
+        GN["🧠 GenAI w/ LLMs — W1 10/10 ✅"]
+        FA["⚡ FastAPI — 4/? 🔴"]
         PY["🐍 Python"]
         PY --> AIO["⚡ AsyncIO — 1/1 ✅"]
         PY --> THR["🧵 Threading — 1/1 ✅"]
@@ -21,6 +23,8 @@ graph TB
         SDD -.->|"guides"| AG
         THR -.->|"vs"| AIO
         THR -.->|"vs"| MP
+        FA -.->|"async via"| AIO
+        FA -.->|"validation"| PY
     end
 
     subgraph NT ["🌍 Non-Tech — 0 topics"]
@@ -36,10 +40,10 @@ graph TB
 | Status | Count | Topics |
 |--------|-------|--------|
 | 🟢 Solid | 0 | — |
-| 🟡 Learning | 7 | Agentic AI, Agent Memory, RAG, AsyncIO, Threading, Multiprocessing, SDD |
-| 🔴 Starting | 0 | — |
+| 🟡 Learning | 8 | Agentic AI, Agent Memory, RAG, AsyncIO, Threading, Multiprocessing, SDD, GenAI w/ LLMs |
+| 🔴 Starting | 1 | FastAPI |
 
-**Total:** 7 topics · 75 lessons · 250+ flashcards · Last updated: 2026-05-17
+**Total:** 9 topics · 87 lessons · 280+ flashcards · Last updated: 2026-06-17
 
 ## Key Connections
 
@@ -57,6 +61,11 @@ graph TB
 | Tool Use → MCP | M×N integrations → M+N via standard protocol |
 | Planning → Tool Use → Code Execution | Planning builds on tools; code as plan format > JSON > Text |
 | Multi-Agent → Planning + Reflection | Manager plans, coordinates workers, reflects on output |
+| FastAPI → Python Type Hints | FastAPI is entirely built on type hints — declare once, get validation + docs + editor support |
+| FastAPI → Pydantic BaseModel | All FastAPI request/response bodies validated through Pydantic |
+| FastAPI → AsyncIO | async def route handlers run on the async event loop |
+| FastAPI → OpenAPI | Auto-generates OpenAPI schema from type annotations |
+| FastAPI Env Vars → Pydantic Settings | BaseSettings reads env vars with type validation |
 | Threading ↔ AsyncIO ↔ Multiprocessing | Three approaches to concurrency: threads (I/O), event loop (I/O), processes (CPU) |
 | SDD → Agentic AI | SDD is the workflow for directing coding agents; Agentic AI covers the agents themselves |
 | Agent Memory ↔ AsyncIO | Async for concurrent memory operations, tool execution, API calls |
