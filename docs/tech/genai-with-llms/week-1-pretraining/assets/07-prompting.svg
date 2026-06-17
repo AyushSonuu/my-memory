@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540">
+  <defs>
+    <linearGradient id="zeroG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#42a5f5"/>
+      <stop offset="100%" style="stop-color:#1565c0"/>
+    </linearGradient>
+    <linearGradient id="oneG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ab47bc"/>
+      <stop offset="100%" style="stop-color:#6a1b9a"/>
+    </linearGradient>
+    <linearGradient id="fewG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#66bb6a"/>
+      <stop offset="100%" style="stop-color:#2e7d32"/>
+    </linearGradient>
+    <linearGradient id="scaleG" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f44336"/>
+      <stop offset="50%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#4caf50"/>
+    </linearGradient>
+    <filter id="shadow07">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="540" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="450" y="28" fill="#e6edf3" font-family="Inter, sans-serif" font-size="17" font-weight="bold" text-anchor="middle">Prompt Engineering &amp; In-Context Learning</text>
+  <text x="450" y="46" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Iterate the prompt · include examples · zero-shot → one-shot → few-shot → fine-tune</text>
+
+  <!-- ═══════════ Three Cards: 0/1/Few-shot ═══════════ -->
+
+  <!-- Zero-shot card -->
+  <g transform="translate(30, 70)" filter="url(#shadow07)">
+    <rect x="0" y="0" width="275" height="280" rx="12" fill="#161b22" stroke="#42a5f5" stroke-width="2"/>
+    <rect x="0" y="0" width="275" height="36" rx="12" fill="url(#zeroG)"/>
+    <rect x="0" y="24" width="275" height="12" fill="url(#zeroG)"/>
+    <text x="137" y="24" fill="#fff" font-family="Inter, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">0️⃣ Zero-Shot</text>
+    <text x="137" y="55" fill="#90caf9" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">No examples · just instruction + input</text>
+
+    <!-- Prompt mock -->
+    <rect x="15" y="68" width="245" height="100" rx="6" fill="#0a1828" stroke="#1565c0" stroke-width="1"/>
+    <text x="25" y="84" fill="#90caf9" font-family="ui-monospace, monospace" font-size="8">Classify this review:</text>
+    <text x="25" y="98" fill="#90caf9" font-family="ui-monospace, monospace" font-size="8">"I loved this movie!"</text>
+    <text x="25" y="112" fill="#90caf9" font-family="ui-monospace, monospace" font-size="8">Sentiment: ▌</text>
+    <text x="25" y="140" fill="#42a5f5" font-family="Inter, sans-serif" font-size="8" font-style="italic">↓ pass to LLM</text>
+    <text x="25" y="158" fill="#66bb6a" font-family="ui-monospace, monospace" font-size="9" font-weight="bold">positive ✅</text>
+
+    <!-- Verdict -->
+    <rect x="15" y="180" width="245" height="86" rx="6" fill="#0d1d2e"/>
+    <text x="137" y="198" fill="#42a5f5" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">When it works</text>
+    <text x="137" y="214" fill="#90caf9" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">✅ Largest LLMs (GPT-3+, Claude)</text>
+    <text x="137" y="226" fill="#90caf9" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">grasp tasks without examples</text>
+    <text x="137" y="246" fill="#ef5350" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">❌ Smaller models (e.g. GPT-2)</text>
+    <text x="137" y="258" fill="#ef9a9a" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">often wander, miss the task</text>
+  </g>
+
+  <!-- One-shot card -->
+  <g transform="translate(312, 70)" filter="url(#shadow07)">
+    <rect x="0" y="0" width="275" height="280" rx="12" fill="#161b22" stroke="#ab47bc" stroke-width="2"/>
+    <rect x="0" y="0" width="275" height="36" rx="12" fill="url(#oneG)"/>
+    <rect x="0" y="24" width="275" height="12" fill="url(#oneG)"/>
+    <text x="137" y="24" fill="#fff" font-family="Inter, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">1️⃣ One-Shot</text>
+    <text x="137" y="55" fill="#ce93d8" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">One example · shows task + format</text>
+
+    <!-- Prompt mock -->
+    <rect x="15" y="68" width="245" height="115" rx="6" fill="#1f0e2a" stroke="#6a1b9a" stroke-width="1"/>
+    <text x="25" y="82" fill="#ce93d8" font-family="ui-monospace, monospace" font-size="7">Classify this review:</text>
+    <text x="25" y="93" fill="#ce93d8" font-family="ui-monospace, monospace" font-size="7">"I loved this movie!"</text>
+    <text x="25" y="104" fill="#bb86fc" font-family="ui-monospace, monospace" font-size="7" font-weight="bold">Sentiment: positive  ←example</text>
+    <text x="25" y="120" fill="#ce93d8" font-family="ui-monospace, monospace" font-size="7">Classify this review:</text>
+    <text x="25" y="131" fill="#ce93d8" font-family="ui-monospace, monospace" font-size="7">"This was terrible."</text>
+    <text x="25" y="142" fill="#ce93d8" font-family="ui-monospace, monospace" font-size="7">Sentiment: ▌</text>
+    <text x="25" y="158" fill="#bb86fc" font-family="Inter, sans-serif" font-size="8" font-style="italic">↓ pass to LLM</text>
+    <text x="25" y="174" fill="#66bb6a" font-family="ui-monospace, monospace" font-size="9" font-weight="bold">negative ✅</text>
+
+    <!-- Verdict -->
+    <rect x="15" y="195" width="245" height="71" rx="6" fill="#1f0e2a"/>
+    <text x="137" y="213" fill="#bb86fc" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">When it works</text>
+    <text x="137" y="229" fill="#ce93d8" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Mid-size models</text>
+    <text x="137" y="241" fill="#ce93d8" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">When format/structure matters</text>
+    <text x="137" y="259" fill="#bb86fc" font-family="Inter, sans-serif" font-size="8" font-style="italic" text-anchor="middle">"Show, don't just tell"</text>
+  </g>
+
+  <!-- Few-shot card -->
+  <g transform="translate(594, 70)" filter="url(#shadow07)">
+    <rect x="0" y="0" width="275" height="280" rx="12" fill="#161b22" stroke="#66bb6a" stroke-width="2"/>
+    <rect x="0" y="0" width="275" height="36" rx="12" fill="url(#fewG)"/>
+    <rect x="0" y="24" width="275" height="12" fill="url(#fewG)"/>
+    <text x="137" y="24" fill="#fff" font-family="Inter, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">🔢 Few-Shot</text>
+    <text x="137" y="55" fill="#a5d6a7" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Multiple examples · mix output classes</text>
+
+    <!-- Prompt mock -->
+    <rect x="15" y="68" width="245" height="135" rx="6" fill="#0a1f0d" stroke="#2e7d32" stroke-width="1"/>
+    <text x="25" y="82" fill="#a5d6a7" font-family="ui-monospace, monospace" font-size="7">"I loved this movie!"</text>
+    <text x="25" y="93" fill="#66bb6a" font-family="ui-monospace, monospace" font-size="7" font-weight="bold">Sentiment: positive  ←ex 1</text>
+    <text x="25" y="106" fill="#a5d6a7" font-family="ui-monospace, monospace" font-size="7">"Worst film I've seen."</text>
+    <text x="25" y="117" fill="#66bb6a" font-family="ui-monospace, monospace" font-size="7" font-weight="bold">Sentiment: negative  ←ex 2</text>
+    <text x="25" y="130" fill="#a5d6a7" font-family="ui-monospace, monospace" font-size="7">"This was terrible."</text>
+    <text x="25" y="141" fill="#a5d6a7" font-family="ui-monospace, monospace" font-size="7">Sentiment: ▌</text>
+    <text x="25" y="160" fill="#66bb6a" font-family="Inter, sans-serif" font-size="8" font-style="italic">↓ pass to LLM</text>
+    <text x="25" y="178" fill="#66bb6a" font-family="ui-monospace, monospace" font-size="9" font-weight="bold">negative ✅</text>
+
+    <!-- Verdict -->
+    <rect x="15" y="215" width="245" height="51" rx="6" fill="#0a1f0d"/>
+    <text x="137" y="232" fill="#66bb6a" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">When it works</text>
+    <text x="137" y="246" fill="#a5d6a7" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Smaller models · tricky tasks</text>
+    <text x="137" y="258" fill="#a5d6a7" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Mix +/− classes for diversity</text>
+  </g>
+
+  <!-- ═══════════ BOTTOM-LEFT: Limits ═══════════ -->
+
+  <g transform="translate(30, 370)" filter="url(#shadow07)">
+    <rect x="0" y="0" width="420" height="150" rx="12" fill="#161b22" stroke="#ff9800" stroke-width="1.5"/>
+    <rect x="0" y="0" width="420" height="30" rx="12" fill="#ff9800"/>
+    <rect x="0" y="18" width="420" height="12" fill="#ff9800"/>
+    <text x="210" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">⚠️ Two Limits to Remember</text>
+
+    <!-- Context window -->
+    <text x="20" y="52" fill="#ff9800" font-family="Inter, sans-serif" font-size="10" font-weight="bold">1. Context Window Cap</text>
+    <rect x="20" y="58" width="380" height="22" rx="4" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+    <rect x="22" y="60" width="60" height="18" rx="2" fill="#1565c0" opacity="0.7"/>
+    <text x="52" y="73" fill="#fff" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">ex 1</text>
+    <rect x="86" y="60" width="60" height="18" rx="2" fill="#6a1b9a" opacity="0.7"/>
+    <text x="116" y="73" fill="#fff" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">ex 2</text>
+    <rect x="150" y="60" width="60" height="18" rx="2" fill="#2e7d32" opacity="0.7"/>
+    <text x="180" y="73" fill="#fff" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">ex 3</text>
+    <rect x="214" y="60" width="184" height="18" rx="2" fill="#37474f"/>
+    <text x="306" y="73" fill="#cfd8dc" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">your input + completion</text>
+    <text x="20" y="94" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">Examples eat the same fixed budget — can't add forever</text>
+
+    <!-- 5-6 rule -->
+    <text x="20" y="115" fill="#ef5350" font-family="Inter, sans-serif" font-size="10" font-weight="bold">2. The 5–6 Example Rule</text>
+    <text x="20" y="131" fill="#8b949e" font-family="Inter, sans-serif" font-size="8">Still failing with 5-6 examples? Stop adding more →</text>
+    <text x="20" y="143" fill="#ef5350" font-family="Inter, sans-serif" font-size="8" font-weight="bold">fine-tune the model instead (Week 2)</text>
+  </g>
+
+  <!-- ═══════════ BOTTOM-RIGHT: Scale matters ═══════════ -->
+
+  <g transform="translate(462, 370)" filter="url(#shadow07)">
+    <rect x="0" y="0" width="408" height="150" rx="12" fill="#161b22" stroke="#bb86fc" stroke-width="1.5"/>
+    <rect x="0" y="0" width="408" height="30" rx="12" fill="#bb86fc"/>
+    <rect x="0" y="18" width="408" height="12" fill="#bb86fc"/>
+    <text x="204" y="20" fill="#0d1117" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">📈 Scale Strongly Matters</text>
+
+    <!-- Scale arrow -->
+    <rect x="20" y="46" width="368" height="14" rx="7" fill="url(#scaleG)"/>
+    <text x="20" y="76" fill="#f44336" font-family="Inter, sans-serif" font-size="9" font-weight="bold">Smaller models</text>
+    <text x="388" y="76" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="end">Largest models</text>
+
+    <!-- bullets -->
+    <text x="20" y="98" fill="#ef9a9a" font-family="Inter, sans-serif" font-size="8">• few tasks · need few-shot</text>
+    <text x="388" y="98" fill="#a5d6a7" font-family="Inter, sans-serif" font-size="8" text-anchor="end">• zero-shot multi-task wizards</text>
+    <text x="20" y="113" fill="#ef9a9a" font-family="Inter, sans-serif" font-size="8">• often need fine-tuning</text>
+    <text x="388" y="113" fill="#a5d6a7" font-family="Inter, sans-serif" font-size="8" text-anchor="end">• generalize beyond training</text>
+
+    <text x="204" y="135" fill="#bb86fc" font-family="Inter, sans-serif" font-size="8" font-style="italic" text-anchor="middle">More parameters → more language understanding → less prompt engineering</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="450" y="535" fill="#484f58" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Workflow: try 0-shot → 1-shot → few-shot → switch model → fine-tune</text>
+</svg>

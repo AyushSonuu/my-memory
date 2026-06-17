@@ -1,0 +1,220 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196f3"/>
+      <stop offset="100%" style="stop-color:#1976d2"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#388e3c"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#f57c00"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0"/>
+      <stop offset="100%" style="stop-color:#7b1fa2"/>
+    </linearGradient>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00bcd4"/>
+      <stop offset="100%" style="stop-color:#0097a7"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f44336"/>
+      <stop offset="100%" style="stop-color:#d32f2f"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="560" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="450" y="32" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">MiniAPI — Build Your Own ASGI Framework</text>
+  <text x="450" y="52" fill="#8b949e" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">uvicorn → __call__ → Middleware → Router → Handler → Response</text>
+
+  <!-- ===== TOP ROW: Request Flow ===== -->
+
+  <!-- Uvicorn -->
+  <g transform="translate(30, 75)" filter="url(#shadow)">
+    <rect x="0" y="0" width="110" height="70" rx="10" fill="#161b22" stroke="#2196f3" stroke-width="2"/>
+    <rect x="0" y="0" width="110" height="26" rx="10" fill="url(#blueGrad)"/>
+    <rect x="0" y="16" width="110" height="10" fill="url(#blueGrad)"/>
+    <text x="55" y="18" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">🚀 Uvicorn</text>
+    <text x="55" y="38" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">ASGI Server</text>
+    <text x="55" y="52" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">(scope, receive,</text>
+    <text x="55" y="64" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">send)</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <line x1="142" y1="110" x2="178" y2="110" stroke="#2196f3" stroke-width="2"/>
+  <polygon points="178,110 170,105 170,115" fill="#2196f3"/>
+
+  <!-- MiniAPI __call__ -->
+  <g transform="translate(180, 75)" filter="url(#shadow)">
+    <rect x="0" y="0" width="130" height="70" rx="10" fill="#161b22" stroke="#ff9800" stroke-width="2"/>
+    <rect x="0" y="0" width="130" height="26" rx="10" fill="url(#orangeGrad)"/>
+    <rect x="0" y="16" width="130" height="10" fill="url(#orangeGrad)"/>
+    <text x="65" y="18" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">⚙️ MiniAPI</text>
+    <text x="65" y="38" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">__call__(scope,</text>
+    <text x="65" y="52" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">receive, send)</text>
+    <text x="65" y="64" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">application.py</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <line x1="312" y1="110" x2="348" y2="110" stroke="#ff9800" stroke-width="2"/>
+  <polygon points="348,110 340,105 340,115" fill="#ff9800"/>
+
+  <!-- Middleware -->
+  <g transform="translate(350, 75)" filter="url(#shadow)">
+    <rect x="0" y="0" width="120" height="70" rx="10" fill="#161b22" stroke="#9c27b0" stroke-width="2"/>
+    <rect x="0" y="0" width="120" height="26" rx="10" fill="url(#purpleGrad)"/>
+    <rect x="0" y="16" width="120" height="10" fill="url(#purpleGrad)"/>
+    <text x="60" y="18" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">🔧 Middleware</text>
+    <text x="60" y="38" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">middleware.before(</text>
+    <text x="60" y="52" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">request)</text>
+    <text x="60" y="64" fill="#9c27b0" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">middleware.py</text>
+  </g>
+
+  <!-- Arrow 3 -->
+  <line x1="472" y1="110" x2="508" y2="110" stroke="#9c27b0" stroke-width="2"/>
+  <polygon points="508,110 500,105 500,115" fill="#9c27b0"/>
+
+  <!-- Router -->
+  <g transform="translate(510, 75)" filter="url(#shadow)">
+    <rect x="0" y="0" width="120" height="70" rx="10" fill="#161b22" stroke="#00bcd4" stroke-width="2"/>
+    <rect x="0" y="0" width="120" height="26" rx="10" fill="url(#tealGrad)"/>
+    <rect x="0" y="16" width="120" height="10" fill="url(#tealGrad)"/>
+    <text x="60" y="18" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">🗺️ Router</text>
+    <text x="60" y="38" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">resolve(path,</text>
+    <text x="60" y="52" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">method) → Route</text>
+    <text x="60" y="64" fill="#00bcd4" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">router.py</text>
+  </g>
+
+  <!-- Arrow 4 -->
+  <line x1="632" y1="110" x2="668" y2="110" stroke="#00bcd4" stroke-width="2"/>
+  <polygon points="668,110 660,105 660,115" fill="#00bcd4"/>
+
+  <!-- Handler -->
+  <g transform="translate(670, 75)" filter="url(#shadow)">
+    <rect x="0" y="0" width="110" height="70" rx="10" fill="#161b22" stroke="#4caf50" stroke-width="2"/>
+    <rect x="0" y="0" width="110" height="26" rx="10" fill="url(#greenGrad)"/>
+    <rect x="0" y="16" width="110" height="10" fill="url(#greenGrad)"/>
+    <text x="55" y="18" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">🎯 Handler</text>
+    <text x="55" y="38" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">async def func(</text>
+    <text x="55" y="52" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">request) → dict</text>
+    <text x="55" y="64" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">your code</text>
+  </g>
+
+  <!-- Arrow 5 — Handler to Response (down then left) -->
+  <line x1="725" y1="145" x2="725" y2="175" stroke="#4caf50" stroke-width="2"/>
+  <polygon points="725,175 720,167 730,167" fill="#4caf50"/>
+
+  <!-- Response box -->
+  <g transform="translate(610, 177)" filter="url(#shadow)">
+    <rect x="0" y="0" width="230" height="70" rx="10" fill="#161b22" stroke="#4caf50" stroke-width="2"/>
+    <rect x="0" y="0" width="230" height="26" rx="10" fill="url(#greenGrad)"/>
+    <rect x="0" y="16" width="230" height="10" fill="url(#greenGrad)"/>
+    <text x="115" y="18" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">📤 Response</text>
+    <text x="115" y="38" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Response | JSONResponse | str</text>
+    <text x="115" y="52" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">response.send(send) → http.response.*</text>
+    <text x="115" y="64" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">response.py</text>
+  </g>
+
+  <!-- Arrow back through middleware.after -->
+  <line x1="608" y1="212" x2="490" y2="212" stroke="#9c27b0" stroke-width="2" stroke-dasharray="5,3"/>
+  <polygon points="490,212 498,207 498,217" fill="#9c27b0"/>
+  <text x="549" y="208" fill="#9c27b0" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">middleware.after</text>
+
+  <!-- ===== BOTTOM ROW: Module Cards ===== -->
+  <text x="450" y="275" fill="#8b949e" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">── Module Breakdown ──</text>
+
+  <!-- request.py -->
+  <g transform="translate(30, 290)" filter="url(#shadow)">
+    <rect x="0" y="0" width="130" height="100" rx="10" fill="#161b22" stroke="#2196f3" stroke-width="1.5"/>
+    <rect x="0" y="0" width="130" height="24" rx="10" fill="url(#blueGrad)"/>
+    <rect x="0" y="14" width="130" height="10" fill="url(#blueGrad)"/>
+    <text x="65" y="17" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">request.py</text>
+    <text x="65" y="38" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">class Request</text>
+    <text x="65" y="52" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">.path</text>
+    <text x="65" y="64" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">.method</text>
+    <text x="65" y="76" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">.headers</text>
+    <text x="65" y="90" fill="#2196f3" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">wraps ASGI scope</text>
+  </g>
+
+  <!-- response.py -->
+  <g transform="translate(175, 290)" filter="url(#shadow)">
+    <rect x="0" y="0" width="130" height="100" rx="10" fill="#161b22" stroke="#4caf50" stroke-width="1.5"/>
+    <rect x="0" y="0" width="130" height="24" rx="10" fill="url(#greenGrad)"/>
+    <rect x="0" y="14" width="130" height="10" fill="url(#greenGrad)"/>
+    <text x="65" y="17" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">response.py</text>
+    <text x="65" y="38" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Response</text>
+    <text x="65" y="52" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">JSONResponse(data)</text>
+    <text x="65" y="64" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">async send(send)</text>
+    <text x="65" y="76" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">status_code</text>
+    <text x="65" y="90" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">sends ASGI events</text>
+  </g>
+
+  <!-- route.py -->
+  <g transform="translate(320, 290)" filter="url(#shadow)">
+    <rect x="0" y="0" width="130" height="100" rx="10" fill="#161b22" stroke="#ff9800" stroke-width="1.5"/>
+    <rect x="0" y="0" width="130" height="24" rx="10" fill="url(#orangeGrad)"/>
+    <rect x="0" y="14" width="130" height="10" fill="url(#orangeGrad)"/>
+    <text x="65" y="17" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">route.py</text>
+    <text x="65" y="38" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">@dataclass Route</text>
+    <text x="65" y="52" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">.path: str</text>
+    <text x="65" y="64" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">.method: str</text>
+    <text x="65" y="76" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">.handler: callable</text>
+    <text x="65" y="90" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">data container</text>
+  </g>
+
+  <!-- router.py -->
+  <g transform="translate(465, 290)" filter="url(#shadow)">
+    <rect x="0" y="0" width="130" height="100" rx="10" fill="#161b22" stroke="#00bcd4" stroke-width="1.5"/>
+    <rect x="0" y="0" width="130" height="24" rx="10" fill="url(#tealGrad)"/>
+    <rect x="0" y="14" width="130" height="10" fill="url(#tealGrad)"/>
+    <text x="65" y="17" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">router.py</text>
+    <text x="65" y="38" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">class Router</text>
+    <text x="65" y="52" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">add_route(path,</text>
+    <text x="65" y="64" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">method, handler)</text>
+    <text x="65" y="76" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">resolve(path, method)</text>
+    <text x="65" y="90" fill="#00bcd4" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">path + method lookup</text>
+  </g>
+
+  <!-- middleware.py -->
+  <g transform="translate(610, 290)" filter="url(#shadow)">
+    <rect x="0" y="0" width="130" height="100" rx="10" fill="#161b22" stroke="#9c27b0" stroke-width="1.5"/>
+    <rect x="0" y="0" width="130" height="24" rx="10" fill="url(#purpleGrad)"/>
+    <rect x="0" y="14" width="130" height="10" fill="url(#purpleGrad)"/>
+    <text x="65" y="17" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">middleware.py</text>
+    <text x="65" y="38" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">class Middleware</text>
+    <text x="65" y="52" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">before(request)</text>
+    <text x="65" y="64" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">after(req, resp)</text>
+    <text x="65" y="76" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">LoggingMiddleware</text>
+    <text x="65" y="90" fill="#9c27b0" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">hook before &amp; after</text>
+  </g>
+
+  <!-- application.py (full width at bottom) -->
+  <g transform="translate(30, 410)" filter="url(#shadow)">
+    <rect x="0" y="0" width="840" height="70" rx="10" fill="#161b22" stroke="#ff9800" stroke-width="2"/>
+    <rect x="0" y="0" width="840" height="26" rx="10" fill="url(#orangeGrad)"/>
+    <rect x="0" y="16" width="840" height="10" fill="url(#orangeGrad)"/>
+    <text x="420" y="18" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">application.py — MiniAPI (the glue)</text>
+    <text x="100" y="42" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">__init__: Router + middlewares</text>
+    <text x="280" y="42" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">@get/@post: decorators register routes</text>
+    <text x="490" y="42" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">__call__: ASGI entrypoint</text>
+    <text x="700" y="42" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">add_middleware(mw)</text>
+    <text x="100" y="58" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">router.py</text>
+    <text x="280" y="58" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">route.py</text>
+    <text x="490" y="58" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">request.py + response.py</text>
+    <text x="700" y="58" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">middleware.py</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="450" y="500" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">Run with: uvicorn main:app</text>
+  <text x="450" y="515" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">404 path → Response("Not Found", 404) · Handler returns dict → JSONResponse · str → Response(str)</text>
+  <text x="450" y="530" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">FastAPI = MiniAPI + path params + validation + DI + lifespan + exception handlers + OpenAPI + WebSockets</text>
+</svg>

@@ -1,0 +1,204 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 580">
+  <defs>
+    <linearGradient id="frG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5c6bc0"/>
+      <stop offset="100%" style="stop-color:#283593"/>
+    </linearGradient>
+    <linearGradient id="enG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#42a5f5"/>
+      <stop offset="100%" style="stop-color:#1565c0"/>
+    </linearGradient>
+    <linearGradient id="deG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#e65100"/>
+    </linearGradient>
+    <linearGradient id="loopG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#bb86fc"/>
+      <stop offset="100%" style="stop-color:#6a1b9a"/>
+    </linearGradient>
+    <linearGradient id="outG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#66bb6a"/>
+      <stop offset="100%" style="stop-color:#2e7d32"/>
+    </linearGradient>
+    <linearGradient id="bertG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#42a5f5"/><stop offset="100%" style="stop-color:#1565c0"/>
+    </linearGradient>
+    <linearGradient id="t5G" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ab47bc"/><stop offset="100%" style="stop-color:#6a1b9a"/>
+    </linearGradient>
+    <linearGradient id="gptG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff7043"/><stop offset="100%" style="stop-color:#bf360c"/>
+    </linearGradient>
+    <filter id="shadow06">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="580" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="450" y="28" fill="#e6edf3" font-family="Inter, sans-serif" font-size="17" font-weight="bold" text-anchor="middle">Generating Text with Transformers</text>
+  <text x="450" y="46" fill="#8b949e" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">End-to-end translation: French → English (sequence-to-sequence)</text>
+
+  <!-- ═══════════ TOP: End-to-end pipeline ═══════════ -->
+
+  <!-- Input French -->
+  <g transform="translate(30, 75)" filter="url(#shadow06)">
+    <rect x="0" y="0" width="170" height="50" rx="8" fill="#161b22" stroke="#5c6bc0" stroke-width="1.5"/>
+    <rect x="0" y="0" width="170" height="20" rx="8" fill="url(#frG)"/>
+    <rect x="0" y="12" width="170" height="8" fill="url(#frG)"/>
+    <text x="85" y="14" fill="#fff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">🇫🇷 French Input</text>
+    <text x="85" y="34" fill="#9fa8da" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">"J'aime l'apprentissage</text>
+    <text x="85" y="44" fill="#9fa8da" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">automatique"</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <line x1="200" y1="100" x2="225" y2="100" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="225,100 219,96 219,104" fill="#8b949e"/>
+  <text x="212" y="92" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">tokenize</text>
+
+  <!-- Tokens -->
+  <g transform="translate(228, 80)">
+    <rect x="0" y="0" width="120" height="40" rx="6" fill="#0a1f1c" stroke="#26a69a" stroke-width="1"/>
+    <text x="60" y="14" fill="#26a69a" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">tokens</text>
+    <text x="60" y="30" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">[2345, 3425, 3853]</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <line x1="350" y1="100" x2="375" y2="100" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="375,100 369,96 369,104" fill="#8b949e"/>
+
+  <!-- Encoder -->
+  <g transform="translate(378, 65)" filter="url(#shadow06)">
+    <rect x="0" y="0" width="120" height="80" rx="10" fill="#0d1d2e" stroke="#42a5f5" stroke-width="2"/>
+    <rect x="0" y="0" width="120" height="22" rx="10" fill="url(#enG)"/>
+    <rect x="0" y="14" width="120" height="8" fill="url(#enG)"/>
+    <text x="60" y="16" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">🔵 ENCODER</text>
+    <text x="60" y="38" fill="#90caf9" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">embed → multi-head</text>
+    <text x="60" y="48" fill="#90caf9" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">attn → FFN</text>
+    <text x="60" y="64" fill="#bbdefb" font-family="Inter, sans-serif" font-size="7" font-style="italic" text-anchor="middle">deep representation</text>
+    <text x="60" y="74" fill="#bbdefb" font-family="Inter, sans-serif" font-size="7" font-style="italic" text-anchor="middle">of structure + meaning</text>
+  </g>
+
+  <!-- Arrow 3 (curve down to decoder) -->
+  <path d="M 498 105 Q 540 105 540 145" fill="none" stroke="#42a5f5" stroke-width="2" stroke-dasharray="4,3"/>
+  <polygon points="540,145 536,138 544,138" fill="#42a5f5"/>
+  <text x="555" y="125" fill="#42a5f5" font-family="Inter, sans-serif" font-size="7">context</text>
+
+  <!-- Decoder -->
+  <g transform="translate(480, 150)" filter="url(#shadow06)">
+    <rect x="0" y="0" width="120" height="100" rx="10" fill="#3d2410" stroke="#ff9800" stroke-width="2"/>
+    <rect x="0" y="0" width="120" height="22" rx="10" fill="url(#deG)"/>
+    <rect x="0" y="14" width="120" height="8" fill="url(#deG)"/>
+    <text x="60" y="16" fill="#fff" font-family="Inter, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">🟠 DECODER</text>
+    <text x="60" y="38" fill="#ffb74d" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">self-attn (uses</text>
+    <text x="60" y="48" fill="#ffb74d" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">encoder context)</text>
+    <text x="60" y="60" fill="#ffb74d" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">→ FFN → softmax</text>
+    <text x="60" y="78" fill="#ffe0b2" font-family="Inter, sans-serif" font-size="7" font-style="italic" text-anchor="middle">trigger:</text>
+    <text x="60" y="88" fill="#ffe0b2" font-family="Inter, sans-serif" font-size="7" font-style="italic" text-anchor="middle">&lt;START&gt; token</text>
+  </g>
+
+  <!-- Loop arrow (autoregressive) -->
+  <g transform="translate(620, 195)">
+    <path d="M 0 0 Q 70 -45 80 0 Q 70 45 0 0" fill="none" stroke="#bb86fc" stroke-width="2"/>
+    <polygon points="0,0 -8,-4 -8,4" fill="#bb86fc"/>
+    <text x="40" y="-50" fill="#bb86fc" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">LOOP</text>
+    <text x="40" y="60" fill="#bb86fc" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">feed token back as input</text>
+    <text x="40" y="71" fill="#bb86fc" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">until &lt;END&gt;</text>
+  </g>
+
+  <!-- Output tokens -->
+  <g transform="translate(740, 165)">
+    <rect x="0" y="0" width="135" height="40" rx="6" fill="#0a1f0d" stroke="#66bb6a" stroke-width="1"/>
+    <text x="67" y="14" fill="#66bb6a" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">output tokens</text>
+    <text x="67" y="30" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">[297, 450, 901, 389]</text>
+  </g>
+
+  <!-- de-tokenize arrow -->
+  <line x1="807" y1="210" x2="807" y2="232" stroke="#8b949e" stroke-width="2"/>
+  <polygon points="807,232 803,226 811,226" fill="#8b949e"/>
+  <text x="850" y="225" fill="#8b949e" font-family="Inter, sans-serif" font-size="7" text-anchor="middle">de-tokenize</text>
+
+  <!-- Final English output -->
+  <g transform="translate(720, 235)" filter="url(#shadow06)">
+    <rect x="0" y="0" width="170" height="44" rx="8" fill="#161b22" stroke="#66bb6a" stroke-width="2"/>
+    <rect x="0" y="0" width="170" height="20" rx="8" fill="url(#outG)"/>
+    <rect x="0" y="12" width="170" height="8" fill="url(#outG)"/>
+    <text x="85" y="14" fill="#fff" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">🇬🇧 English Output 🎉</text>
+    <text x="85" y="36" fill="#a5d6a7" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">"I love machine learning"</text>
+  </g>
+
+  <!-- Step labels under pipeline -->
+  <g transform="translate(0, 290)">
+    <text x="115" y="0" fill="#5c6bc0" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">1. Input</text>
+    <text x="288" y="0" fill="#26a69a" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">2. Tokenize</text>
+    <text x="438" y="0" fill="#42a5f5" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">3. Encode</text>
+    <text x="540" y="0" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">4. Decode (loop)</text>
+    <text x="807" y="0" fill="#66bb6a" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">5. De-tokenize → Output</text>
+  </g>
+
+  <!-- ═══════════ BOTTOM: Three Variants ═══════════ -->
+
+  <text x="450" y="330" fill="#e6edf3" font-family="Inter, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Three Architecture Variants</text>
+
+  <!-- Encoder-only -->
+  <g transform="translate(40, 350)" filter="url(#shadow06)">
+    <rect x="0" y="0" width="265" height="200" rx="12" fill="#161b22" stroke="#42a5f5" stroke-width="1.5"/>
+    <rect x="0" y="0" width="265" height="32" rx="12" fill="url(#bertG)"/>
+    <rect x="0" y="20" width="265" height="12" fill="url(#bertG)"/>
+    <text x="132" y="22" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">🔵 Encoder-Only</text>
+    <!-- visual: just encoder block -->
+    <g transform="translate(95, 50)">
+      <rect x="0" y="0" width="70" height="55" rx="6" fill="#0d1d2e" stroke="#42a5f5" stroke-width="1.5"/>
+      <text x="35" y="32" fill="#42a5f5" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Encoder</text>
+    </g>
+    <text x="132" y="125" fill="#90caf9" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Input length = Output length</text>
+    <text x="132" y="140" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">+ classification head →</text>
+    <text x="132" y="152" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">sentiment, NER, etc.</text>
+    <rect x="20" y="166" width="225" height="20" rx="4" fill="#0d1d2e"/>
+    <text x="132" y="180" fill="#42a5f5" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Example: BERT</text>
+  </g>
+
+  <!-- Encoder-Decoder -->
+  <g transform="translate(317, 350)" filter="url(#shadow06)">
+    <rect x="0" y="0" width="265" height="200" rx="12" fill="#161b22" stroke="#ab47bc" stroke-width="1.5"/>
+    <rect x="0" y="0" width="265" height="32" rx="12" fill="url(#t5G)"/>
+    <rect x="0" y="20" width="265" height="12" fill="url(#t5G)"/>
+    <text x="132" y="22" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">🔵🟠 Encoder-Decoder</text>
+    <!-- visual: both blocks -->
+    <g transform="translate(80, 50)">
+      <rect x="0" y="0" width="48" height="55" rx="6" fill="#0d1d2e" stroke="#42a5f5" stroke-width="1.5"/>
+      <text x="24" y="32" fill="#42a5f5" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">Enc</text>
+      <line x1="48" y1="27" x2="58" y2="27" stroke="#8b949e" stroke-width="1"/>
+      <rect x="58" y="0" width="48" height="55" rx="6" fill="#3d2410" stroke="#ff9800" stroke-width="1.5"/>
+      <text x="82" y="32" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" font-weight="bold" text-anchor="middle">Dec</text>
+    </g>
+    <text x="132" y="125" fill="#ce93d8" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Input ≠ Output length</text>
+    <text x="132" y="140" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Sequence-to-sequence:</text>
+    <text x="132" y="152" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">translation, summarization</text>
+    <rect x="20" y="166" width="225" height="20" rx="4" fill="#1f0e2a"/>
+    <text x="132" y="180" fill="#bb86fc" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Examples: BART, T5 ⭐ (labs)</text>
+  </g>
+
+  <!-- Decoder-only -->
+  <g transform="translate(594, 350)" filter="url(#shadow06)">
+    <rect x="0" y="0" width="265" height="200" rx="12" fill="#161b22" stroke="#ff7043" stroke-width="1.5"/>
+    <rect x="0" y="0" width="265" height="32" rx="12" fill="url(#gptG)"/>
+    <rect x="0" y="20" width="265" height="12" fill="url(#gptG)"/>
+    <text x="132" y="22" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">🟠 Decoder-Only ⭐</text>
+    <!-- visual: just decoder -->
+    <g transform="translate(95, 50)">
+      <rect x="0" y="0" width="70" height="55" rx="6" fill="#3d2410" stroke="#ff7043" stroke-width="1.5"/>
+      <text x="35" y="32" fill="#ff7043" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Decoder</text>
+    </g>
+    <text x="132" y="125" fill="#ffab91" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">Most common today</text>
+    <text x="132" y="140" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">At scale, generalizes to</text>
+    <text x="132" y="152" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">most tasks</text>
+    <rect x="20" y="166" width="225" height="20" rx="4" fill="#2a1408"/>
+    <text x="132" y="180" fill="#ff7043" font-family="Inter, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">GPT, BLOOM, Jurassic, LLaMA</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="450" y="572" fill="#484f58" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Generation = autoregressive loop · Encoder builds meaning · Decoder generates token-by-token until &lt;END&gt;</text>
+</svg>
