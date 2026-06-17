@@ -9,9 +9,11 @@
 ```mermaid
 graph LR
     FA(("⚡ FastAPI"))
-    FA -->|"built on"| PY["🐍 Python Types<br/>& type hints"]
+    FA -->|"built on"| PY["🐍 Python Types<br/>&amp; type hints"]
     FA -->|"validation via"| PD["🧱 Pydantic<br/>BaseModel"]
     FA -->|"async support"| AIO["⚡ AsyncIO<br/>coroutines"]
+    FA -->|"ASGI app on"| ST["🌿 Starlette<br/>framework"]
+    ST -->|"served by"| UV["⚙️ Uvicorn<br/>ASGI server"]
     FA -.->|"serves"| API["🌐 REST APIs<br/>OpenAPI"]
     FA -.->|"used in"| AG["🤖 Agentic AI<br/>tool endpoints"]
 
@@ -25,11 +27,15 @@ graph LR
 | 02 | [Concurrency &amp; Async/Await](02-concurrency-async-await.md) | 🔴 | — |
 | 03 | [Environment Variables](03-environment-variables.md) | 🔴 | — |
 | 04 | [First Steps](04-first-steps.md) | 🔴 | — |
+| 05 | [ASGI Protocol](05-asgi-protocol.md) | 🔴 | — |
+| 06 | [MiniAPI — Build Your Own](06-miniapi-build-your-own.md) | 🔴 | — |
 
 ## 🧩 Memory Fragments
 > - FastAPI is ALL based on Python type hints — types aren't optional, they ARE the framework
 > - Pydantic handles validation; Starlette handles the HTTP layer; FastAPI is the glue
 > - `Annotated[str, Query(...)]` is how FastAPI gets rich metadata from type hints
+> - ASGI contract = `async def __call__(scope, receive, send)` — Uvicorn calls it, your app implements it
+> - `@app.get("/path")` is just a decorator that inserts a handler into a routes dict
 
 ---
 
@@ -43,6 +49,8 @@ graph LR
 | 02 | [Concurrency &amp; Async/Await](02-concurrency-async-await.md) | async def vs def — burger shop analogy, when to use what | 8 min |
 | 03 | [Environment Variables](03-environment-variables.md) | OS env vars, .env files, python-dotenv, Pydantic Settings | 8 min |
 | 04 | [First Steps](04-first-steps.md) | Minimal app anatomy, path operations, uvicorn, /docs | 10 min |
+| 05 | [ASGI Protocol](05-asgi-protocol.md) | scope/receive/send contract, Uvicorn internals, WSGI vs ASGI | 12 min |
+| 06 | [MiniAPI — Build Your Own](06-miniapi-build-your-own.md) | Build a baby FastAPI from scratch — routing, Request, Response, Middleware | 15 min |
 
 ---
 

@@ -1,6 +1,6 @@
 # 🃏 FastAPI Flashcards
 
-> Pull from: L01 Python Types Intro · L02 Concurrency &amp; Async/Await · L03 Environment Variables · L04 First Steps
+> Pull from: L01 Python Types Intro · L02 Concurrency &amp; Async/Await · L03 Environment Variables · L04 First Steps · L05 ASGI Protocol · L06 MiniAPI
 
 ---
 
@@ -496,3 +496,222 @@ No separate config file or annotation needed. The type hints ARE the spec.
 
 Important: FastAPI does NOT enforce REST semantics — these are conventions only. GraphQL APIs, for example, use POST for everything and that is perfectly valid.
 </details>
+
+---
+
+## L05 — ASGI Protocol
+
+**Q: What does ASGI stand for and what is it?**
+<details><summary>Answer</summary>
+
+**Async Server Gateway Interface** — a **protocol/contract** (not a library) between an ASGI server and an ASGI application.
+
+It defines one rule: your application must expose `async def app(scope, receive, send)`. That's it. The server calls it; you implement it.
+</details>
+
+---
+
+**Q: What are the 3 parameters of the ASGI interface and what does each do?**
+<details><summary>Answer</summary>
+
+1. **`scope`** — a dict of request metadata: `type`, `method`, `path`, `headers`, `query_string`. Read-only. Think of it as the envelope.
+2. **`receive`** — async callable the app pulls to READ incoming events (request body, WebSocket messages). Pull-based — app calls when ready.
+3. **`send`** — async callable the app pushes outgoing events (response headers, response body, WebSocket sends). Must send `http.response.start` BEFORE `http.response.body`.
+</details>
+
+---
+
+**Q: What is the correct order of `send()` calls for an HTTP response?**
+<details><summary>Answer</summary>
+
+1. First: `await send({"type": "http.response.start", "status": 200, "headers": [...]})`
+2. Second: `await send({"type": "http.response.body", "body": b"..."})`
+
+`http.response.start` MUST come before `http.response.body` — same as real HTTP (headers before content). Wrong order = broken response.
+</details>
+
+---
+
+**Q: What is Uvicorn and what is the ONE thing it needs from your app?**
+<details><summary>Answer</summary>
+
+**Uvicorn** is an ASGI **server** — it handles raw TCP connections, parses HTTP bytes, builds `scope`, creates `receive`/`send` callables, then calls:
+
+```python
+await app(scope, receive, send)
+```
+
+That's the only thing it needs. It doesn't care if `app` is FastAPI, Django, Starlette, or a hand-rolled function — just needs that callable with those 3 args.
+</details>
+
+---
+
+**Q: Why can FastAPI handle WebSockets but WSGI Flask cannot?**
+<details><summary>Answer</summary>
+
+**WSGI** (Flask's protocol) is synchronous and one-shot: `def app(environ, start_response)`. Once the response is started, the connection closes. No mechanism to keep reading or writing.
+
+**ASGI** has `receive()` (keep reading events in a loop) and `send()` (keep writing events). WebSockets need both — ASGI's design makes this natural. Flask's WSGI foundation physically cannot support it without bolt-on hacks.
+</details>
+
+---
+
+**Q: What are the 3 connection types ASGI supports?**
+<details><summary>Answer</summary>
+
+Determined by `scope["type"]`:
+
+1. **`"http"`** — regular HTTP request/response
+2. **`"websocket"`** — bidirectional, persistent connection
+3. **`"lifespan"`** — app startup/shutdown events
+
+FastAPI handles all three. Always check `scope["type"]` before processing.
+</details>
+
+---
+
+**Q: What is Gunicorn's role alongside Uvicorn in production?**
+<details><summary>Answer</summary>
+
+**Uvicorn** = the ASGI server (actual request serving, async event loop).
+**Gunicorn** = process manager (starts/stops/restarts/health-checks worker processes).
+
+Production command:
+```bash
+gunicorn main:app -w 4 -k uvicorn.workers.UvicornWorker
+```
+Gunicorn manages 4 Uvicorn worker processes. Gunicorn = HR manager, Uvicorn = engineer who does the actual work.
+</details>
+
+---
+
+**Q: Write a minimal ASGI app that returns "Hello ASGI" to any HTTP request.**
+<details><summary>Answer</summary>
+
+```python
+async def app(scope, receive, send):
+    if scope["type"] != "http":
+        return
+    await send({
+        "type": "http.response.start",
+        "status": 200,
+        "headers": [(b"content-type", b"text/plain")]
+    })
+    await send({
+        "type": "http.response.body",
+        "body": b"Hello ASGI"
+    })
+```
+
+Run with: `uvicorn main:app`
+</details>
+
+---
+
+## L06 — MiniAPI — Build Your Own Framework
+
+**Q: What makes a Python class an ASGI application?**
+<details><summary>Answer</summary>
+
+Adding this method:
+```python
+async def __call__(self, scope, receive, send):
+    ...
+```
+
+When Uvicorn does `await app(scope, receive, send)`, Python calls `app.__call__(scope, receive, send)`. Any class with this signature is a valid ASGI app — that's how `FastAPI()`, `Starlette()`, and `MiniAPI()` all work.
+</details>
+
+---
+
+**Q: What does `@app.get("/users")` actually do at the Python level?**
+<details><summary>Answer</summary>
+
+Two-step decorator call:
+1. `app.get("/users")` → called, returns a `decorator` function
+2. `decorator(users_handler)` → called, inserts `("GET", "/users") → users_handler` into the routes dict, returns the original function unchanged
+
+Equivalent without `@`:
+```python
+async def users(): ...
+users = app.get("/users")(users)  # register + return
+```
+
+`@` is syntactic sugar for "call this function with the decorated function as argument."
+</details>
+
+---
+
+**Q: In MiniAPI, what is `Router.resolve()` and how does it work?**
+<details><summary>Answer</summary>
+
+`resolve(path, method)` loops through the registered `Route` objects and returns the first one where `route.path == path and route.method == method`. Returns `None` if no match.
+
+```python
+def resolve(self, path, method):
+    for route in self.routes:
+        if route.path == path and route.method == method:
+            return route
+    return None
+```
+
+FastAPI's router does the same — but with regex matching for path params like `/users/{id}`.
+</details>
+
+---
+
+**Q: Why does MiniAPI never call `receive()` and when would you need it?**
+<details><summary>Answer</summary>
+
+Our MiniAPI only handles GET requests with no body — so we never need to read incoming data. `receive()` is needed for:
+- POST/PUT routes that accept a JSON body
+- WebSocket connections (loop-read incoming messages)
+
+A real app would do:
+```python
+message = await receive()  # {"type": "http.request", "body": b"..."}
+data = json.loads(message["body"])
+```
+
+FastAPI calls `receive()` internally when a route expects a Pydantic body parameter.
+</details>
+
+---
+
+**Q: Name 5 things FastAPI adds that MiniAPI doesn't have.**
+<details><summary>Answer</summary>
+
+1. **Path parameters** — regex matching for `/users/{id}`
+2. **Query parameters** — auto-parse `?page=1&limit=10` from `scope["query_string"]`
+3. **Request body + Pydantic validation** — calls `receive()`, deserializes JSON, validates with BaseModel
+4. **Dependency Injection** — `Depends()` resolves a dependency graph before calling handler
+5. **OpenAPI docs** — auto-generates `/docs` Swagger UI + `/redoc` from type hints
+</details>
+
+---
+
+**Q: What is the full layer stack from browser request to FastAPI handler?**
+<details><summary>Answer</summary>
+
+```
+Browser → HTTP bytes
+  ↓
+Uvicorn (ASGI server)
+  → parses bytes → builds scope → creates receive/send
+  → await app(scope, receive, send)
+  ↓
+Starlette (ASGI framework)
+  → middleware chain → routing
+  ↓
+FastAPI (on top of Starlette)
+  → type hint validation (Pydantic) → dependency injection
+  ↓
+Your handler function
+  → returns dict/model
+  ↓
+FastAPI serializes → JSONResponse.send() → await send(...)
+  ↓
+Uvicorn writes bytes to socket → Browser receives response
+```
+</details>
+

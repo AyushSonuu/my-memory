@@ -362,6 +362,8 @@ nav:
         - 02 · Concurrency & Async/Await: tech/fastapi/02-concurrency-async-await.md
         - 03 · Environment Variables: tech/fastapi/03-environment-variables.md
         - 04 · First Steps: tech/fastapi/04-first-steps.md
+        - 05 · ASGI Protocol: tech/fastapi/05-asgi-protocol.md
+        - 06 · MiniAPI — Build Your Own: tech/fastapi/06-miniapi-build-your-own.md
         - 🃏 Flashcards: tech/fastapi/flashcards.md
 
   - 🎬 Playlists:
