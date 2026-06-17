@@ -715,3 +715,73 @@ Uvicorn writes bytes to socket → Browser receives response
 ```
 </details>
 
+
+---
+
+## L07 — Query Parameters
+
+**Q: How does FastAPI know if a function param is a path param or a query param?**
+<details><summary>Answer</summary>
+
+It checks the parameter name against the path string. If it appears inside `{braces}` → path param. If it's NOT in the path → automatically a query param. Order in the function signature doesn't matter.
+</details>
+
+---
+
+**Q: What is the difference between `q: str | None = None` and `q: str`?**
+<details><summary>Answer</summary>
+
+- `q: str` → **required** — absent from URL = 422 error
+- `q: str | None = None` → **optional** — absent from URL = `q` is `None` inside the function
+
+Both are string type when present. The `| None = None` is the FastAPI signal for "this is optional."
+</details>
+
+---
+
+**Q: How do you make a query param required with no default?**
+<details><summary>Answer</summary>
+
+Declare it with a type and NO default value:
+```python
+async def fn(needy: str):  # required
+```
+If absent from URL → FastAPI auto-returns `422 Unprocessable Entity` with a clear message.
+</details>
+
+---
+
+**Q: What string values does FastAPI accept as `True` for a `bool` query param?**
+<details><summary>Answer</summary>
+
+Case-insensitive: `1`, `true`, `on`, `yes` — any capitalisation (True, TRUE, On, YES...).
+
+Everything else → `False`. This is smarter than `bool("false")` which Python would evaluate as `True` (non-empty string).
+</details>
+
+---
+
+**Q: `q: str | None` without `= None` — is q required or optional?**
+<details><summary>Answer</summary>
+
+**Required** — but accepts `None` as a valid value. Without `= None` there's no default, so FastAPI demands it be present in the URL. You need BOTH `| None` (type) AND `= None` (default) to make a param truly optional.
+</details>
+
+---
+
+**Q: Write a route with one path param, one required query param, one optional query param with default, and one nullable optional query param.**
+<details><summary>Answer</summary>
+
+```python
+@app.get("/items/{item_id}")
+async def read_item(
+    item_id: str,             # path param
+    needy: str,               # required query param
+    skip: int = 0,            # optional query param, default 0
+    limit: int | None = None  # optional, default None
+):
+    ...
+```
+
+Valid URL: `/items/widget?needy=hello&skip=5`
+</details>

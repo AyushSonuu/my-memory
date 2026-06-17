@@ -29,6 +29,7 @@ graph LR
 | 04 | [First Steps](04-first-steps.md) | 🔴 | — |
 | 05 | [ASGI Protocol](05-asgi-protocol.md) | 🔴 | — |
 | 06 | [MiniAPI — Build Your Own](06-miniapi-build-your-own.md) | 🔴 | — |
+| 07 | [Query Parameters](07-query-params.md) | 🔴 | — |
 
 ## 🧩 Memory Fragments
 > - FastAPI is ALL based on Python type hints — types aren't optional, they ARE the framework
@@ -51,6 +52,7 @@ graph LR
 | 04 | [First Steps](04-first-steps.md) | Minimal app anatomy, path operations, uvicorn, /docs | 10 min |
 | 05 | [ASGI Protocol](05-asgi-protocol.md) | scope/receive/send contract, Uvicorn internals, WSGI vs ASGI | 12 min |
 | 06 | [MiniAPI — Build Your Own](06-miniapi-build-your-own.md) | Build a baby FastAPI from scratch — routing, Request, Response, Middleware | 15 min |
+| 07 | [Query Parameters](07-query-params.md) | optional/required/default/bool — everything after ? in the URL | 8 min |
 
 ---
 
