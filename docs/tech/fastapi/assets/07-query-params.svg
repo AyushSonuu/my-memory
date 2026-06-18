@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 500">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196f3"/>
+      <stop offset="100%" style="stop-color:#1565c0"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#2e7d32"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#e65100"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0"/>
+      <stop offset="100%" style="stop-color:#6a1b9a"/>
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00bcd4"/>
+      <stop offset="100%" style="stop-color:#006064"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="860" height="500" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="430" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Query Parameters — Complete Taxonomy</text>
+  <text x="430" y="50" fill="#8b949e" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">Everything after ? in the URL — FastAPI reads them from function parameters not in the path</text>
+
+  <!-- ── URL ANATOMY STRIP ── -->
+  <g transform="translate(30, 65)" filter="url(#shadow)">
+    <rect x="0" y="0" width="800" height="52" rx="10" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+    <!-- URL segments -->
+    <text x="10" y="22" fill="#8b949e" font-family="Inter, sans-serif" font-size="11">http://127.0.0.1:8000</text>
+    <text x="190" y="22" fill="#4caf50" font-family="Inter, sans-serif" font-size="11" font-weight="bold">/users/</text>
+    <text x="240" y="22" fill="#ff9800" font-family="Inter, sans-serif" font-size="11" font-weight="bold">42</text>
+    <text x="260" y="22" fill="#e6edf3" font-family="Inter, sans-serif" font-size="11" font-weight="bold">/items/</text>
+    <text x="310" y="22" fill="#ff9800" font-family="Inter, sans-serif" font-size="11" font-weight="bold">widget</text>
+    <text x="360" y="22" fill="#00bcd4" font-family="Inter, sans-serif" font-size="14" font-weight="bold">?</text>
+    <text x="374" y="22" fill="#9c27b0" font-family="Inter, sans-serif" font-size="11" font-weight="bold">skip=0</text>
+    <text x="420" y="22" fill="#e6edf3" font-family="Inter, sans-serif" font-size="11">&amp;</text>
+    <text x="432" y="22" fill="#9c27b0" font-family="Inter, sans-serif" font-size="11" font-weight="bold">limit=10</text>
+    <text x="490" y="22" fill="#e6edf3" font-family="Inter, sans-serif" font-size="11">&amp;</text>
+    <text x="502" y="22" fill="#9c27b0" font-family="Inter, sans-serif" font-size="11" font-weight="bold">short=true</text>
+    <!-- Labels -->
+    <text x="215" y="44" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">path</text>
+    <text x="248" y="44" fill="#ff9800" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">path param</text>
+    <text x="330" y="44" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">path</text>
+    <text x="375" y="44" fill="#ff9800" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">path param</text>
+    <text x="362" y="44" fill="#00bcd4" font-family="Inter, sans-serif" font-size="9">?</text>
+    <text x="520" y="44" fill="#9c27b0" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">query params (key=value pairs)</text>
+  </g>
+
+  <!-- ── ROW 1: 4 TYPE CARDS ── -->
+
+  <!-- Card 1: With default (optional) -->
+  <g transform="translate(30, 140)" filter="url(#shadow)">
+    <rect x="0" y="0" width="190" height="148" rx="10" fill="#161b22" stroke="#4caf50" stroke-width="1.5"/>
+    <rect x="0" y="0" width="190" height="28" rx="10" fill="url(#greenGrad)"/>
+    <rect x="0" y="16" width="190" height="12" fill="url(#greenGrad)"/>
+    <text x="95" y="19" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">✅ Optional + Default</text>
+    <text x="10" y="46" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">skip: int = 0</text>
+    <text x="10" y="60" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">limit: int = 10</text>
+    <line x1="10" y1="70" x2="180" y2="70" stroke="#21262d" stroke-width="1"/>
+    <text x="10" y="84" fill="#4caf50" font-family="Inter, sans-serif" font-size="9">/items/</text>
+    <text x="10" y="97" fill="#4caf50" font-family="Inter, sans-serif" font-size="9">→ skip=0, limit=10</text>
+    <text x="10" y="113" fill="#4caf50" font-family="Inter, sans-serif" font-size="9">/items/?skip=5</text>
+    <text x="10" y="126" fill="#4caf50" font-family="Inter, sans-serif" font-size="9">→ skip=5, limit=10</text>
+    <text x="95" y="143" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">param = default_value</text>
+  </g>
+
+  <!-- Card 2: Optional None -->
+  <g transform="translate(235, 140)" filter="url(#shadow)">
+    <rect x="0" y="0" width="190" height="148" rx="10" fill="#161b22" stroke="#00bcd4" stroke-width="1.5"/>
+    <rect x="0" y="0" width="190" height="28" rx="10" fill="url(#cyanGrad)"/>
+    <rect x="0" y="16" width="190" height="12" fill="url(#cyanGrad)"/>
+    <text x="95" y="19" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">🔷 Truly Optional</text>
+    <text x="10" y="46" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">q: str | None = None</text>
+    <line x1="10" y1="56" x2="180" y2="56" stroke="#21262d" stroke-width="1"/>
+    <text x="10" y="72" fill="#00bcd4" font-family="Inter, sans-serif" font-size="9">/items/foo</text>
+    <text x="10" y="85" fill="#00bcd4" font-family="Inter, sans-serif" font-size="9">→ q is None</text>
+    <text x="10" y="101" fill="#00bcd4" font-family="Inter, sans-serif" font-size="9">/items/foo?q=hello</text>
+    <text x="10" y="114" fill="#00bcd4" font-family="Inter, sans-serif" font-size="9">→ q = "hello"</text>
+    <text x="95" y="133" fill="#00bcd4" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">param: type | None = None</text>
+    <text x="95" y="143" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">FastAPI knows it's optional</text>
+  </g>
+
+  <!-- Card 3: Required (no default) -->
+  <g transform="translate(440, 140)" filter="url(#shadow)">
+    <rect x="0" y="0" width="190" height="148" rx="10" fill="#161b22" stroke="#f44336" stroke-width="1.5"/>
+    <rect x="0" y="0" width="190" height="28" rx="10" fill="#f44336"/>
+    <rect x="0" y="16" width="190" height="12" fill="#f44336"/>
+    <text x="95" y="19" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">🔴 Required</text>
+    <text x="10" y="46" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">needy: str</text>
+    <text x="10" y="60" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">(no default value!)</text>
+    <line x1="10" y1="70" x2="180" y2="70" stroke="#21262d" stroke-width="1"/>
+    <text x="10" y="86" fill="#f44336" font-family="Inter, sans-serif" font-size="9">/items/foo</text>
+    <text x="10" y="99" fill="#f44336" font-family="Inter, sans-serif" font-size="9">→ 422 Validation Error</text>
+    <text x="10" y="115" fill="#f44336" font-family="Inter, sans-serif" font-size="9">/items/foo?needy=hi</text>
+    <text x="10" y="128" fill="#f44336" font-family="Inter, sans-serif" font-size="9">→ needy = "hi" ✓</text>
+    <text x="95" y="143" fill="#f44336" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">param: type  (no = anything)</text>
+  </g>
+
+  <!-- Card 4: Bool conversion -->
+  <g transform="translate(645, 140)" filter="url(#shadow)">
+    <rect x="0" y="0" width="185" height="148" rx="10" fill="#161b22" stroke="#ff9800" stroke-width="1.5"/>
+    <rect x="0" y="0" width="185" height="28" rx="10" fill="url(#orangeGrad)"/>
+    <rect x="0" y="16" width="185" height="12" fill="url(#orangeGrad)"/>
+    <text x="92" y="19" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">🔀 Bool Conversion</text>
+    <text x="10" y="46" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">short: bool = False</text>
+    <line x1="10" y1="56" x2="175" y2="56" stroke="#21262d" stroke-width="1"/>
+    <text x="10" y="71" fill="#ff9800" font-family="Inter, sans-serif" font-size="9">→ True:  1, true, True,</text>
+    <text x="22" y="84" fill="#ff9800" font-family="Inter, sans-serif" font-size="9">on, yes (any case)</text>
+    <text x="10" y="100" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">→ False: anything else</text>
+    <text x="10" y="116" fill="#ff9800" font-family="Inter, sans-serif" font-size="9">?short=1  → True</text>
+    <text x="10" y="129" fill="#ff9800" font-family="Inter, sans-serif" font-size="9">?short=yes → True</text>
+    <text x="92" y="143" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Smart — not just "true"/"false"</text>
+  </g>
+
+  <!-- ── ROW 2: Path vs Query detection + Mixed example ── -->
+
+  <!-- Detection box -->
+  <g transform="translate(30, 312)" filter="url(#shadow)">
+    <rect x="0" y="0" width="380" height="158" rx="10" fill="#161b22" stroke="#9c27b0" stroke-width="1.5"/>
+    <rect x="0" y="0" width="380" height="28" rx="10" fill="url(#purpleGrad)"/>
+    <rect x="0" y="16" width="380" height="12" fill="url(#purpleGrad)"/>
+    <text x="190" y="19" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">🔍 How FastAPI Detects Path vs Query</text>
+    <text x="14" y="46" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" font-weight="bold">@app.get("/users/{user_id}/items/{item_id}")</text>
+    <text x="14" y="62" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">async def fn(user_id: int, item_id: str, q: str | None = None, short: bool = False):</text>
+    <line x1="14" y1="74" x2="366" y2="74" stroke="#21262d" stroke-width="1"/>
+    <text x="14" y="91" fill="#4caf50" font-family="Inter, sans-serif" font-size="9">user_id → in path {user_id}  →  PATH param</text>
+    <text x="14" y="105" fill="#4caf50" font-family="Inter, sans-serif" font-size="9">item_id → in path {item_id}  →  PATH param</text>
+    <text x="14" y="119" fill="#9c27b0" font-family="Inter, sans-serif" font-size="9">q       → NOT in path        →  QUERY param (optional)</text>
+    <text x="14" y="133" fill="#9c27b0" font-family="Inter, sans-serif" font-size="9">short   → NOT in path        →  QUERY param (optional)</text>
+    <text x="190" y="151" fill="#9c27b0" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Order of params in function signature doesn't matter ✓</text>
+  </g>
+
+  <!-- Mixed params box -->
+  <g transform="translate(430, 312)" filter="url(#shadow)">
+    <rect x="0" y="0" width="400" height="158" rx="10" fill="#161b22" stroke="#2196f3" stroke-width="1.5"/>
+    <rect x="0" y="0" width="400" height="28" rx="10" fill="url(#blueGrad)"/>
+    <rect x="0" y="16" width="400" height="12" fill="url(#blueGrad)"/>
+    <text x="200" y="19" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">🎛️ Mix: Required + Default + Optional</text>
+    <text x="14" y="46" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">async def fn(item_id: str, needy: str, skip: int = 0, limit: int | None = None):</text>
+    <line x1="14" y1="58" x2="386" y2="58" stroke="#21262d" stroke-width="1"/>
+    <text x="14" y="75" fill="#f44336" font-family="Inter, sans-serif" font-size="9">needy: str           → REQUIRED  — must pass or 422</text>
+    <text x="14" y="91" fill="#4caf50" font-family="Inter, sans-serif" font-size="9">skip: int = 0        → OPTIONAL  — defaults to 0</text>
+    <text x="14" y="107" fill="#00bcd4" font-family="Inter, sans-serif" font-size="9">limit: int | None    → OPTIONAL  — defaults to None (absent)</text>
+    <line x1="14" y1="118" x2="386" y2="118" stroke="#21262d" stroke-width="1"/>
+    <text x="14" y="134" fill="#2196f3" font-family="Inter, sans-serif" font-size="9">URL: /items/widget?needy=hello&amp;skip=5</text>
+    <text x="14" y="148" fill="#2196f3" font-family="Inter, sans-serif" font-size="9">→ needy="hello", skip=5, limit=None ✓</text>
+  </g>
+</svg>
