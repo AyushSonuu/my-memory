@@ -365,6 +365,7 @@ nav:
         - 05 · ASGI Protocol: tech/fastapi/05-asgi-protocol.md
         - 06 · MiniAPI — Build Your Own: tech/fastapi/06-miniapi-build-your-own.md
         - 07 · Query Parameters: tech/fastapi/07-query-params.md
+        - 08 · Request Body: tech/fastapi/08-request-body.md
         - 🃏 Flashcards: tech/fastapi/flashcards.md
 
   - 🎬 Playlists:

@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 520">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196f3"/>
+      <stop offset="100%" style="stop-color:#1565c0"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/>
+      <stop offset="100%" style="stop-color:#2e7d32"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/>
+      <stop offset="100%" style="stop-color:#e65100"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0"/>
+      <stop offset="100%" style="stop-color:#6a1b9a"/>
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00bcd4"/>
+      <stop offset="100%" style="stop-color:#006064"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <rect width="860" height="520" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="430" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Request Body — Client Sends Data to API</text>
+  <text x="430" y="50" fill="#8b949e" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">Pydantic BaseModel → FastAPI reads, validates, converts, documents — all automatically</text>
+
+  <!-- ── TOP: REQUEST FLOW ── -->
+  <!-- Client -->
+  <g transform="translate(30, 68)" filter="url(#shadow)">
+    <rect x="0" y="0" width="120" height="80" rx="10" fill="#161b22" stroke="#8b949e" stroke-width="1.5"/>
+    <rect x="0" y="0" width="120" height="26" rx="10" fill="#21262d"/>
+    <rect x="0" y="14" width="120" height="12" fill="#21262d"/>
+    <text x="60" y="18" fill="#e6edf3" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">📱 Client</text>
+    <text x="60" y="40" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">POST /items/</text>
+    <text x="60" y="54" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Content-Type:</text>
+    <text x="60" y="66" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">application/json</text>
+  </g>
+
+  <!-- JSON payload box -->
+  <g transform="translate(175, 68)" filter="url(#shadow)">
+    <rect x="0" y="0" width="168" height="80" rx="10" fill="#161b22" stroke="#ff9800" stroke-width="1.5"/>
+    <rect x="0" y="0" width="168" height="26" rx="10" fill="url(#orangeGrad)"/>
+    <rect x="0" y="14" width="168" height="12" fill="url(#orangeGrad)"/>
+    <text x="84" y="18" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">📦 JSON Body</text>
+    <text x="12" y="40" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">{</text>
+    <text x="20" y="53" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">"name": "Foo",  "price": 45.2</text>
+    <text x="12" y="66" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">}</text>
+  </g>
+
+  <!-- Arrow: client → json -->
+  <line x1="152" y1="108" x2="173" y2="108" stroke="#ff9800" stroke-width="2"/>
+  <polygon points="173,108 163,102 163,114" fill="#ff9800"/>
+
+  <!-- Arrow: json → FastAPI -->
+  <line x1="345" y1="108" x2="375" y2="108" stroke="#4caf50" stroke-width="2"/>
+  <polygon points="375,108 365,102 365,114" fill="#4caf50"/>
+  <text x="360" y="100" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">reads</text>
+
+  <!-- FastAPI magic box -->
+  <g transform="translate(378, 68)" filter="url(#shadow)">
+    <rect x="0" y="0" width="200" height="80" rx="10" fill="#161b22" stroke="#4caf50" stroke-width="2"/>
+    <rect x="0" y="0" width="200" height="26" rx="10" fill="url(#greenGrad)"/>
+    <rect x="0" y="14" width="200" height="12" fill="url(#greenGrad)"/>
+    <text x="100" y="18" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">⚡ FastAPI + Pydantic</text>
+    <text x="12" y="40" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">✅ Reads JSON body</text>
+    <text x="12" y="53" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">✅ Validates &amp; converts types</text>
+    <text x="12" y="66" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">✅ Passes as Item object to handler</text>
+  </g>
+
+  <!-- Arrow: FastAPI → handler -->
+  <line x1="580" y1="108" x2="610" y2="108" stroke="#9c27b0" stroke-width="2"/>
+  <polygon points="610,108 600,102 600,114" fill="#9c27b0"/>
+  <text x="595" y="100" fill="#9c27b0" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">item: Item</text>
+
+  <!-- Handler box -->
+  <g transform="translate(613, 68)" filter="url(#shadow)">
+    <rect x="0" y="0" width="215" height="80" rx="10" fill="#161b22" stroke="#9c27b0" stroke-width="1.5"/>
+    <rect x="0" y="0" width="215" height="26" rx="10" fill="url(#purpleGrad)"/>
+    <rect x="0" y="14" width="215" height="12" fill="url(#purpleGrad)"/>
+    <text x="107" y="18" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">🔧 Your Handler</text>
+    <text x="12" y="40" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">async def create_item(item: Item):</text>
+    <text x="12" y="53" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">  item.name  → "Foo"  (str)</text>
+    <text x="12" y="66" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">  item.price → 45.2  (float)</text>
+  </g>
+
+  <!-- ── MIDDLE: Pydantic model anatomy ── -->
+  <g transform="translate(30, 173)" filter="url(#shadow)">
+    <rect x="0" y="0" width="390" height="180" rx="10" fill="#161b22" stroke="#2196f3" stroke-width="2"/>
+    <rect x="0" y="0" width="390" height="28" rx="10" fill="url(#blueGrad)"/>
+    <rect x="0" y="16" width="390" height="12" fill="url(#blueGrad)"/>
+    <text x="195" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">🧱 Pydantic Model Anatomy</text>
+    <!-- code -->
+    <text x="16" y="50" fill="#8b949e" font-family="Inter, sans-serif" font-size="10">from pydantic import BaseModel</text>
+    <text x="16" y="66" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" font-weight="bold">class Item(BaseModel):</text>
+    <text x="28" y="82" fill="#4caf50" font-family="Inter, sans-serif" font-size="10">name: str</text>
+    <text x="200" y="82" fill="#4caf50" font-family="Inter, sans-serif" font-size="9">← REQUIRED (no default)</text>
+    <text x="28" y="98" fill="#00bcd4" font-family="Inter, sans-serif" font-size="10">description: str | None = None</text>
+    <text x="28" y="112" fill="#4caf50" font-family="Inter, sans-serif" font-size="10">price: float</text>
+    <text x="200" y="112" fill="#4caf50" font-family="Inter, sans-serif" font-size="9">← REQUIRED</text>
+    <text x="28" y="128" fill="#00bcd4" font-family="Inter, sans-serif" font-size="10">tax: float | None = None</text>
+    <text x="200" y="98" fill="#00bcd4" font-family="Inter, sans-serif" font-size="9">← OPTIONAL (default None)</text>
+    <text x="200" y="128" fill="#00bcd4" font-family="Inter, sans-serif" font-size="9">← OPTIONAL (default None)</text>
+    <!-- rule strip -->
+    <rect x="12" y="140" width="366" height="28" rx="6" fill="#21262d"/>
+    <text x="195" y="155" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">No default → REQUIRED field    |    = None (or any value) → OPTIONAL field</text>
+    <text x="195" y="168" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Same rule as Python function params — no surprise</text>
+  </g>
+
+  <!-- ── MIDDLE RIGHT: Parameter detection ── -->
+  <g transform="translate(440, 173)" filter="url(#shadow)">
+    <rect x="0" y="0" width="390" height="180" rx="10" fill="#161b22" stroke="#ff9800" stroke-width="2"/>
+    <rect x="0" y="0" width="390" height="28" rx="10" fill="url(#orangeGrad)"/>
+    <rect x="0" y="16" width="390" height="12" fill="url(#orangeGrad)"/>
+    <text x="195" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">🔍 How FastAPI Detects Each Param Type</text>
+    <!-- table rows -->
+    <text x="16" y="50" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" font-weight="bold">Rule</text>
+    <text x="200" y="50" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" font-weight="bold">Treated As</text>
+    <line x1="12" y1="56" x2="378" y2="56" stroke="#21262d" stroke-width="1"/>
+    <text x="16" y="72" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">Name in {path}</text>
+    <text x="200" y="72" fill="#4caf50" font-family="Inter, sans-serif" font-size="9">PATH param</text>
+    <text x="16" y="90" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">Singular type (str, int, float, bool)</text>
+    <text x="200" y="90" fill="#9c27b0" font-family="Inter, sans-serif" font-size="9">QUERY param</text>
+    <text x="16" y="108" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">Pydantic BaseModel subclass</text>
+    <text x="200" y="108" fill="#ff9800" font-family="Inter, sans-serif" font-size="9">REQUEST BODY</text>
+    <line x1="12" y1="116" x2="378" y2="116" stroke="#21262d" stroke-width="1"/>
+    <!-- example -->
+    <text x="16" y="132" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">async def update(item_id: int, item: Item, q: str | None = None)</text>
+    <text x="16" y="148" fill="#4caf50" font-family="Inter, sans-serif" font-size="9">item_id → path</text>
+    <text x="130" y="148" fill="#ff9800" font-family="Inter, sans-serif" font-size="9">item → body</text>
+    <text x="230" y="148" fill="#9c27b0" font-family="Inter, sans-serif" font-size="9">q → query</text>
+    <text x="195" y="168" fill="#ff9800" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">FastAPI figures all three out automatically — zero config ✓</text>
+  </g>
+
+  <!-- ── BOTTOM: What FastAPI gives you ── -->
+  <g transform="translate(30, 375)" filter="url(#shadow)">
+    <rect x="0" y="0" width="800" height="120" rx="10" fill="#161b22" stroke="#4caf50" stroke-width="2"/>
+    <rect x="0" y="0" width="800" height="28" rx="10" fill="url(#greenGrad)"/>
+    <rect x="0" y="16" width="800" height="12" fill="url(#greenGrad)"/>
+    <text x="400" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">🎁 What You Get For Free — Just from `item: Item`</text>
+
+    <!-- 7 benefit items in two rows -->
+    <text x="20" y="50" fill="#4caf50" font-family="Inter, sans-serif" font-size="10">✅ JSON body read</text>
+    <text x="160" y="50" fill="#4caf50" font-family="Inter, sans-serif" font-size="10">✅ Type conversion</text>
+    <text x="300" y="50" fill="#4caf50" font-family="Inter, sans-serif" font-size="10">✅ Validation + 422 errors</text>
+    <text x="490" y="50" fill="#4caf50" font-family="Inter, sans-serif" font-size="10">✅ Editor autocomplete (item.name)</text>
+    <text x="20" y="75" fill="#4caf50" font-family="Inter, sans-serif" font-size="10">✅ JSON Schema generated</text>
+    <text x="210" y="75" fill="#4caf50" font-family="Inter, sans-serif" font-size="10">✅ OpenAPI /docs updated</text>
+    <text x="400" y="75" fill="#4caf50" font-family="Inter, sans-serif" font-size="10">✅ model_dump() → plain dict</text>
+
+    <text x="400" y="108" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">All from declaring one Pydantic class + one type annotation in your function. That's it.</text>
+  </g>
+</svg>

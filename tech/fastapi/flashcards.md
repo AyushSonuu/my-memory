@@ -785,3 +785,84 @@ async def read_item(
 
 Valid URL: `/items/widget?needy=hello&skip=5`
 </details>
+
+---
+
+## L08 — Request Body
+
+**Q: How does FastAPI know a function param should come from the request body?**
+<details><summary>Answer</summary>
+
+If the param's type is a **Pydantic `BaseModel` subclass**, FastAPI reads it from the JSON request body. The rule:
+- Name in `{path}` → path param
+- Pydantic model type → body param
+- Singular type (`str`, `int`, etc.) not in path → query param
+</details>
+
+---
+
+**Q: How do you declare a required vs optional field in a Pydantic model?**
+<details><summary>Answer</summary>
+
+- **Required**: no default value — `name: str`
+- **Optional**: has a default — `tax: float | None = None` or `skip: int = 0`
+
+Same rule as Python function params. No default = required. Has default = optional.
+</details>
+
+---
+
+**Q: What does FastAPI return if a required body field is missing?**
+<details><summary>Answer</summary>
+
+`422 Unprocessable Entity` with a detailed JSON error body — automatically, no code needed:
+```json
+{"detail": [{"type": "missing", "loc": ["body", "name"], "msg": "Field required"}]}
+```
+Lists every missing/invalid field with location and message.
+</details>
+
+---
+
+**Q: What is `model_dump()` and when do you use it?**
+<details><summary>Answer</summary>
+
+`model_dump()` converts a Pydantic model instance → plain Python `dict`.
+
+```python
+item.model_dump()
+# → {"name": "Foo", "price": 45.2, "description": None, "tax": None}
+```
+
+Use it for: DB inserts, merging with `**item.model_dump()`, returning modified versions.
+</details>
+
+---
+
+**Q: Write the signature for a route that takes a path param, body param, and query param together.**
+<details><summary>Answer</summary>
+
+```python
+@app.put("/items/{item_id}")
+async def update_item(
+    item_id: int,           # path — name in {item_id}
+    item: Item,             # body — Pydantic BaseModel
+    q: str | None = None    # query — singular type, not in path
+):
+    ...
+```
+
+FastAPI detects all three sources from types alone — zero extra config.
+</details>
+
+---
+
+**Q: `description: str | None` without `= None` in a Pydantic model — is it required?**
+<details><summary>Answer</summary>
+
+**Yes, required** — it accepts `None` as a valid value but the client MUST send the field. To make it truly optional (can be omitted entirely), you need BOTH the union AND the default:
+
+```python
+description: str | None = None   # truly optional — can be absent
+```
+</details>
