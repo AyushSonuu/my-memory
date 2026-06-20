@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 500">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196f3"/><stop offset="100%" style="stop-color:#1565c0"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/><stop offset="100%" style="stop-color:#2e7d32"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/><stop offset="100%" style="stop-color:#e65100"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0"/><stop offset="100%" style="stop-color:#6a1b9a"/>
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00bcd4"/><stop offset="100%" style="stop-color:#006064"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <rect width="860" height="500" fill="#0d1117"/>
+  <text x="430" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Body — Multiple Parameters &amp; Body()</text>
+  <text x="430" y="50" fill="#8b949e" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">Two models → nested JSON keys | Singular value → Body() | Single model → Body(embed=True)</text>
+
+  <!-- Single model (no nesting) -->
+  <g transform="translate(30, 65)" filter="url(#shadow)">
+    <rect x="0" y="0" width="250" height="165" rx="10" fill="#161b22" stroke="#4caf50" stroke-width="2"/>
+    <rect x="0" y="0" width="250" height="28" rx="10" fill="url(#greenGrad)"/>
+    <rect x="0" y="16" width="250" height="12" fill="url(#greenGrad)"/>
+    <text x="125" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">1️⃣ Single Model — Direct</text>
+    <text x="14" y="48" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">async def fn(item: Item):</text>
+    <line x1="14" y1="58" x2="236" y2="58" stroke="#21262d" stroke-width="1"/>
+    <text x="14" y="74" fill="#4caf50" font-family="Inter, sans-serif" font-size="9">Expected JSON:</text>
+    <text x="14" y="89" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">{</text>
+    <text x="22" y="103" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">  "name": "Foo",</text>
+    <text x="22" y="117" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">  "price": 42.0</text>
+    <text x="14" y="131" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">}</text>
+    <text x="125" y="155" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Fields at top level — no wrapping key</text>
+  </g>
+
+  <!-- Two models (nested) -->
+  <g transform="translate(300, 65)" filter="url(#shadow)">
+    <rect x="0" y="0" width="260" height="165" rx="10" fill="#161b22" stroke="#2196f3" stroke-width="2"/>
+    <rect x="0" y="0" width="260" height="28" rx="10" fill="url(#blueGrad)"/>
+    <rect x="0" y="16" width="260" height="12" fill="url(#blueGrad)"/>
+    <text x="130" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">2️⃣ Two Models → Nested Keys</text>
+    <text x="14" y="48" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">async def fn(item: Item, user: User):</text>
+    <line x1="14" y1="58" x2="246" y2="58" stroke="#21262d" stroke-width="1"/>
+    <text x="14" y="74" fill="#2196f3" font-family="Inter, sans-serif" font-size="9">Expected JSON:</text>
+    <text x="14" y="89" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">{</text>
+    <text x="22" y="103" fill="#4caf50" font-family="Inter, sans-serif" font-size="9">  "item": {"name":"Foo","price":42},</text>
+    <text x="22" y="117" fill="#2196f3" font-family="Inter, sans-serif" font-size="9">  "user": {"username":"dave"}</text>
+    <text x="14" y="131" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">}</text>
+    <text x="130" y="155" fill="#2196f3" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Keys match param names automatically ✓</text>
+  </g>
+
+  <!-- Body() singular -->
+  <g transform="translate(580, 65)" filter="url(#shadow)">
+    <rect x="0" y="0" width="250" height="165" rx="10" fill="#161b22" stroke="#ff9800" stroke-width="2"/>
+    <rect x="0" y="0" width="250" height="28" rx="10" fill="url(#orangeGrad)"/>
+    <rect x="0" y="16" width="250" height="12" fill="url(#orangeGrad)"/>
+    <text x="125" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">3️⃣ Body() — Singular Value</text>
+    <text x="14" y="48" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">importance: Annotated[int, Body()]</text>
+    <line x1="14" y1="58" x2="236" y2="58" stroke="#21262d" stroke-width="1"/>
+    <text x="14" y="74" fill="#ff9800" font-family="Inter, sans-serif" font-size="9">Expected JSON:</text>
+    <text x="14" y="89" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">{</text>
+    <text x="22" y="103" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">  "item": {...},</text>
+    <text x="22" y="117" fill="#ff9800" font-family="Inter, sans-serif" font-size="9">  "importance": 5</text>
+    <text x="14" y="131" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">}</text>
+    <text x="125" y="155" fill="#ff9800" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">Without Body() → treated as query param!</text>
+  </g>
+
+  <!-- embed=True -->
+  <g transform="translate(30, 258)" filter="url(#shadow)">
+    <rect x="0" y="0" width="390" height="215" rx="10" fill="#161b22" stroke="#9c27b0" stroke-width="2"/>
+    <rect x="0" y="0" width="390" height="28" rx="10" fill="url(#purpleGrad)"/>
+    <rect x="0" y="16" width="390" height="12" fill="url(#purpleGrad)"/>
+    <text x="195" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">4️⃣ Body(embed=True) — Force Nesting</text>
+    <!-- Without embed -->
+    <text x="14" y="48" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" font-weight="bold">Without embed (default):</text>
+    <text x="14" y="63" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">item: Annotated[Item, Body()]</text>
+    <text x="14" y="78" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">→ {"name": "Foo", "price": 42}</text>
+    <line x1="14" y1="90" x2="376" y2="90" stroke="#21262d" stroke-width="1"/>
+    <!-- With embed -->
+    <text x="14" y="108" fill="#9c27b0" font-family="Inter, sans-serif" font-size="9" font-weight="bold">With embed=True:</text>
+    <text x="14" y="123" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">item: Annotated[Item, Body(embed=True)]</text>
+    <text x="14" y="138" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">→ {"item": {"name": "Foo", "price": 42}}</text>
+    <line x1="14" y1="150" x2="376" y2="150" stroke="#21262d" stroke-width="1"/>
+    <text x="14" y="167" fill="#9c27b0" font-family="Inter, sans-serif" font-size="9">When to use: single model but client/API contract</text>
+    <text x="14" y="181" fill="#9c27b0" font-family="Inter, sans-serif" font-size="9">expects the data wrapped under a key name.</text>
+    <text x="14" y="197" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">Two models? FastAPI auto-nests — no embed needed.</text>
+  </g>
+
+  <!-- Detection table -->
+  <g transform="translate(440, 258)" filter="url(#shadow)">
+    <rect x="0" y="0" width="390" height="215" rx="10" fill="#161b22" stroke="#00bcd4" stroke-width="2"/>
+    <rect x="0" y="0" width="390" height="28" rx="10" fill="url(#cyanGrad)"/>
+    <rect x="0" y="16" width="390" height="12" fill="url(#cyanGrad)"/>
+    <text x="195" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">🔍 FastAPI Detection — Updated Rules</text>
+    <text x="14" y="50" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" font-weight="bold">Declaration</text>
+    <text x="230" y="50" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" font-weight="bold">Source</text>
+    <line x1="14" y1="56" x2="376" y2="56" stroke="#21262d" stroke-width="1"/>
+    <text x="14" y="72" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">Name in {path}</text>
+    <text x="230" y="72" fill="#4caf50" font-family="Inter, sans-serif" font-size="9">PATH</text>
+    <text x="14" y="90" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">Pydantic BaseModel</text>
+    <text x="230" y="90" fill="#ff9800" font-family="Inter, sans-serif" font-size="9">BODY (auto-nested if multiple)</text>
+    <text x="14" y="108" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">Singular type (str/int/float/bool)</text>
+    <text x="230" y="108" fill="#9c27b0" font-family="Inter, sans-serif" font-size="9">QUERY param</text>
+    <text x="14" y="126" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">Annotated[int, Body()]</text>
+    <text x="230" y="126" fill="#ff9800" font-family="Inter, sans-serif" font-size="9">BODY (singular value)</text>
+    <text x="14" y="144" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">Annotated[Item, Body(embed=True)]</text>
+    <text x="230" y="144" fill="#9c27b0" font-family="Inter, sans-serif" font-size="9">BODY (nested under key)</text>
+    <line x1="14" y1="154" x2="376" y2="154" stroke="#21262d" stroke-width="1"/>
+    <text x="14" y="172" fill="#00bcd4" font-family="Inter, sans-serif" font-size="9">Body() supports: gt, ge, lt, le, title, description</text>
+    <text x="14" y="188" fill="#00bcd4" font-family="Inter, sans-serif" font-size="9">Same API as Query() and Path() ✓</text>
+    <text x="14" y="204" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">q: str | None = None  →  always query, not body</text>
+  </g>
+</svg>

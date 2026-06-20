@@ -923,3 +923,86 @@ size: Annotated[float, Query(gt=0, lt=10.5)]
 ```
 Both `Path()` and `Query()` share the same validation parameter API.
 </details>
+
+---
+
+## L10 — Query Parameter Models
+
+**Q: How do you group query params into a Pydantic model?**
+<details><summary>Answer</summary>
+
+```python
+class FilterParams(BaseModel):
+    limit: int = Field(100, gt=0, le=100)
+    offset: int = Field(0, ge=0)
+    tags: list[str] = []
+
+@app.get("/items/")
+async def read_items(filter_query: Annotated[FilterParams, Query()]):
+    ...
+```
+
+`Annotated[FilterParams, Query()]` tells FastAPI: read each field from the query string, not the body.
+</details>
+
+---
+
+**Q: What does `model_config = {"extra": "forbid"}` do in a query param model?**
+<details><summary>Answer</summary>
+
+Rejects any unknown query params with a 422 error. Without it, unrecognised params like `?typo=oops` are silently ignored. With it → `"Extra inputs are not permitted"`.
+</details>
+
+---
+
+**Q: How do you pass multiple values for a `list[str]` query param?**
+<details><summary>Answer</summary>
+
+Repeat the key: `?tags=python&tags=fastapi` → `tags = ["python", "fastapi"]`. Same as `Query([])` standalone.
+</details>
+
+---
+
+## L11 — Body: Multiple Parameters
+
+**Q: What JSON does FastAPI expect when you declare two Pydantic body params?**
+<details><summary>Answer</summary>
+
+Nested under their parameter names:
+```json
+{
+    "item": {"name": "Foo", "price": 42},
+    "user": {"username": "dave"}
+}
+```
+FastAPI auto-nests using the Python parameter name as the JSON key.
+</details>
+
+---
+
+**Q: You have `importance: int` alongside two Pydantic body models. Where does FastAPI look for it?**
+<details><summary>Answer</summary>
+
+In the **query string** (`?importance=5`). Singular types default to query params. To put it in the JSON body, use `importance: Annotated[int, Body()]` → FastAPI reads it as a body key.
+</details>
+
+---
+
+**Q: When do you need `Body(embed=True)`?**
+<details><summary>Answer</summary>
+
+When you have exactly **one** Pydantic model as a body param but want the client to send it nested under the key name:
+
+- Without embed: `{"name": "Foo", "price": 42}`
+- With `Body(embed=True)`: `{"item": {"name": "Foo", "price": 42}}`
+
+With two models, auto-nesting already happens — `embed=True` is not needed.
+</details>
+
+---
+
+**Q: Does `Body()` support the same validators as `Query()` and `Path()`?**
+<details><summary>Answer</summary>
+
+Yes — `Body()` accepts `gt`, `ge`, `lt`, `le`, `title`, `description` — the same parameter API as `Query()` and `Path()`. Example: `importance: Annotated[int, Body(gt=0)]`.
+</details>

@@ -32,6 +32,8 @@ graph LR
 | 07 | [Query Parameters](07-query-params.md) | 🔴 | — |
 | 08 | [Request Body](08-request-body.md) | 🔴 | — |
 | 09 | [Path Params — Numeric Validations](09-path-params-numeric-validations.md) | 🔴 | — |
+| 10 | [Query Parameter Models](10-query-param-models.md) | 🔴 | — |
+| 11 | [Body — Multiple Parameters](11-body-multiple-params.md) | 🔴 | — |
 
 ## 🧩 Memory Fragments
 > - FastAPI is ALL based on Python type hints — types aren't optional, they ARE the framework
@@ -57,6 +59,8 @@ graph LR
 | 07 | [Query Parameters](07-query-params.md) | optional/required/default/bool — everything after ? in the URL | 8 min |
 | 08 | [Request Body](08-request-body.md) | Pydantic BaseModel, required/optional fields, body+path+query combo | 10 min |
 | 09 | [Path Params — Numeric Validations](09-path-params-numeric-validations.md) | Path(), gt/ge/lt/le, Annotated, title/description metadata | 8 min |
+| 10 | [Query Parameter Models](10-query-param-models.md) | Group query params into a BaseModel, Field(), Literal, extra=forbid | 8 min |
+| 11 | [Body — Multiple Parameters](11-body-multiple-params.md) | Two models auto-nest, Body() for singular, embed=True | 10 min |
 
 ---
 
