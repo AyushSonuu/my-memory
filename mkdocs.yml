@@ -366,6 +366,7 @@ nav:
         - 06 · MiniAPI — Build Your Own: tech/fastapi/06-miniapi-build-your-own.md
         - 07 · Query Parameters: tech/fastapi/07-query-params.md
         - 08 · Request Body: tech/fastapi/08-request-body.md
+        - 09 · Path Params Numeric Validations: tech/fastapi/09-path-params-numeric-validations.md
         - 🃏 Flashcards: tech/fastapi/flashcards.md
 
   - 🎬 Playlists:

@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 500">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196f3"/><stop offset="100%" style="stop-color:#1565c0"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50"/><stop offset="100%" style="stop-color:#2e7d32"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9800"/><stop offset="100%" style="stop-color:#e65100"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0"/><stop offset="100%" style="stop-color:#6a1b9a"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f44336"/><stop offset="100%" style="stop-color:#b71c1c"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <rect width="860" height="500" fill="#0d1117"/>
+
+  <text x="430" y="30" fill="#e6edf3" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Path Params — Numeric Validations &amp; Metadata</text>
+  <text x="430" y="50" fill="#8b949e" font-family="Inter, sans-serif" font-size="11" text-anchor="middle">Path() + Annotated — same power as Query() but for path segments</text>
+
+  <!-- ── TOP LEFT: Annotated + Path() anatomy ── -->
+  <g transform="translate(30, 65)" filter="url(#shadow)">
+    <rect x="0" y="0" width="390" height="185" rx="10" fill="#161b22" stroke="#2196f3" stroke-width="2"/>
+    <rect x="0" y="0" width="390" height="28" rx="10" fill="url(#blueGrad)"/>
+    <rect x="0" y="16" width="390" height="12" fill="url(#blueGrad)"/>
+    <text x="195" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">🏷️ Annotated[type, Path(...)] — Anatomy</text>
+
+    <text x="16" y="50" fill="#8b949e" font-family="Inter, sans-serif" font-size="10">item_id: Annotated[int, Path(title="The ID", gt=0, le=1000)]</text>
+    <!-- bracket labels -->
+    <text x="16" y="70" fill="#2196f3" font-family="Inter, sans-serif" font-size="9">         ↑ actual type</text>
+    <text x="130" y="70" fill="#ff9800" font-family="Inter, sans-serif" font-size="9">          ↑ metadata for FastAPI</text>
+
+    <line x1="14" y1="80" x2="376" y2="80" stroke="#21262d" stroke-width="1"/>
+
+    <!-- Path() fields table -->
+    <text x="16" y="96" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" font-weight="bold">Path() fields</text>
+    <text x="200" y="96" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10" font-weight="bold">Meaning</text>
+
+    <text x="16" y="114" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">title="..."</text>
+    <text x="200" y="114" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">Label in OpenAPI /docs</text>
+
+    <text x="16" y="129" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">description="..."</text>
+    <text x="200" y="129" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">Description in OpenAPI /docs</text>
+
+    <text x="16" y="144" fill="#4caf50" font-family="Inter, sans-serif" font-size="9">gt=0</text>
+    <text x="200" y="144" fill="#4caf50" font-family="Inter, sans-serif" font-size="9">greater than 0 (exclusive)</text>
+
+    <text x="16" y="159" fill="#4caf50" font-family="Inter, sans-serif" font-size="9">ge=1</text>
+    <text x="200" y="159" fill="#4caf50" font-family="Inter, sans-serif" font-size="9">greater than or equal to 1 (inclusive)</text>
+
+    <text x="16" y="174" fill="#4caf50" font-family="Inter, sans-serif" font-size="9">lt=10  /  le=1000</text>
+    <text x="200" y="174" fill="#4caf50" font-family="Inter, sans-serif" font-size="9">less than / less than or equal</text>
+  </g>
+
+  <!-- ── TOP RIGHT: Numeric validation number line ── -->
+  <g transform="translate(440, 65)" filter="url(#shadow)">
+    <rect x="0" y="0" width="390" height="185" rx="10" fill="#161b22" stroke="#4caf50" stroke-width="2"/>
+    <rect x="0" y="0" width="390" height="28" rx="10" fill="url(#greenGrad)"/>
+    <rect x="0" y="16" width="390" height="12" fill="url(#greenGrad)"/>
+    <text x="195" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">📏 gt / ge / lt / le — Number Line</text>
+
+    <!-- number line -->
+    <line x1="30" y1="80" x2="360" y2="80" stroke="#8b949e" stroke-width="2"/>
+    <!-- ticks -->
+    <line x1="30" y1="74" x2="30" y2="86" stroke="#8b949e" stroke-width="2"/>
+    <line x1="195" y1="74" x2="195" y2="86" stroke="#8b949e" stroke-width="2"/>
+    <line x1="360" y1="74" x2="360" y2="86" stroke="#8b949e" stroke-width="2"/>
+    <text x="30" y="98" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">0</text>
+    <text x="195" y="98" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">500</text>
+    <text x="360" y="98" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">1000+</text>
+
+    <!-- gt=0 marker -->
+    <line x1="45" y1="60" x2="45" y2="80" stroke="#f44336" stroke-width="1.5" stroke-dasharray="3,2"/>
+    <text x="45" y="55" fill="#f44336" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">gt=0</text>
+    <text x="45" y="46" fill="#f44336" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">excluded</text>
+
+    <!-- ge=1 marker -->
+    <line x1="65" y1="60" x2="65" y2="80" stroke="#4caf50" stroke-width="1.5"/>
+    <text x="65" y="55" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">ge=1</text>
+    <text x="65" y="46" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">included</text>
+
+    <!-- le=1000 marker -->
+    <line x1="330" y1="60" x2="330" y2="80" stroke="#4caf50" stroke-width="1.5"/>
+    <text x="330" y="55" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">le=1000</text>
+    <text x="330" y="46" fill="#4caf50" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">included</text>
+
+    <!-- lt marker -->
+    <line x1="310" y1="60" x2="310" y2="80" stroke="#f44336" stroke-width="1.5" stroke-dasharray="3,2"/>
+    <text x="310" y="55" fill="#f44336" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">lt=1000</text>
+    <text x="310" y="46" fill="#f44336" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">excluded</text>
+
+    <!-- valid range fill -->
+    <rect x="65" y="75" width="265" height="10" fill="#4caf50" opacity="0.3"/>
+    <text x="195" y="120" fill="#4caf50" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">ge=1, le=1000 → valid: 1 to 1000 inclusive</text>
+    <text x="195" y="135" fill="#8b949e" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">gt=0, lt=1000 → valid: 1 to 999 (both exclusive)</text>
+
+    <!-- mnemonic -->
+    <rect x="14" y="148" width="362" height="26" rx="6" fill="#21262d"/>
+    <text x="195" y="161" fill="#e6edf3" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">gt/lt = strict (open boundary)  |  ge/le = relaxed (closed boundary)</text>
+    <text x="195" y="172" fill="#8b949e" font-family="Inter, sans-serif" font-size="8" text-anchor="middle">"e" = "or equal" = inclusive — like math: &gt; vs ≥</text>
+  </g>
+
+  <!-- ── MIDDLE: Annotated vs non-Annotated + * trick ── -->
+  <g transform="translate(30, 273)" filter="url(#shadow)">
+    <rect x="0" y="0" width="390" height="205" rx="10" fill="#161b22" stroke="#ff9800" stroke-width="2"/>
+    <rect x="0" y="0" width="390" height="28" rx="10" fill="url(#orangeGrad)"/>
+    <rect x="0" y="16" width="390" height="12" fill="url(#orangeGrad)"/>
+    <text x="195" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">🆚 Annotated vs Non-Annotated</text>
+
+    <!-- Annotated (recommended) -->
+    <text x="14" y="46" fill="#4caf50" font-family="Inter, sans-serif" font-size="10" font-weight="bold">✅ Recommended (Annotated)</text>
+    <text x="14" y="62" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">async def fn(</text>
+    <text x="22" y="76" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">item_id: Annotated[int, Path(ge=1)],</text>
+    <text x="22" y="90" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">q: str,   ← order doesn't matter</text>
+    <text x="14" y="104" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">):</text>
+
+    <line x1="14" y1="112" x2="376" y2="112" stroke="#21262d" stroke-width="1"/>
+
+    <!-- Non-annotated -->
+    <text x="14" y="128" fill="#f44336" font-family="Inter, sans-serif" font-size="10" font-weight="bold">⚠️ Non-Annotated (needs * trick)</text>
+    <text x="14" y="144" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">async def fn(</text>
+    <text x="22" y="158" fill="#ff9800" font-family="Inter, sans-serif" font-size="9">*,   ← makes all params keyword-only</text>
+    <text x="22" y="172" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">item_id: int = Path(ge=1),</text>
+    <text x="22" y="186" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">q: str,   ← required but after Path()</text>
+    <text x="14" y="200" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">):</text>
+  </g>
+
+  <!-- ── MIDDLE RIGHT: path params are ALWAYS required ── -->
+  <g transform="translate(440, 273)" filter="url(#shadow)">
+    <rect x="0" y="0" width="390" height="205" rx="10" fill="#161b22" stroke="#9c27b0" stroke-width="2"/>
+    <rect x="0" y="0" width="390" height="28" rx="10" fill="url(#purpleGrad)"/>
+    <rect x="0" y="16" width="390" height="12" fill="url(#purpleGrad)"/>
+    <text x="195" y="20" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">⚠️ Path Params Are ALWAYS Required</text>
+
+    <text x="16" y="50" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10">Path params cannot be optional —</text>
+    <text x="16" y="64" fill="#e6edf3" font-family="Inter, sans-serif" font-size="10">they ARE the URL. Without them = different route.</text>
+
+    <rect x="14" y="74" width="362" height="52" rx="8" fill="#21262d"/>
+    <text x="22" y="92" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">GET /items/42   →  item_id = 42  ✓</text>
+    <text x="22" y="107" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">GET /items/     →  404 Not Found (different route)</text>
+    <text x="22" y="121" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">GET /items/abc  →  422 (int validation fails)</text>
+
+    <line x1="14" y1="136" x2="376" y2="136" stroke="#21262d" stroke-width="1"/>
+
+    <text x="16" y="152" fill="#9c27b0" font-family="Inter, sans-serif" font-size="10" font-weight="bold">Query() works the same way:</text>
+    <text x="16" y="168" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">q: Annotated[str | None, Query(alias="item-query")] = None</text>
+    <text x="16" y="183" fill="#8b949e" font-family="Inter, sans-serif" font-size="9">→ URL uses ?item-query=val  (alias in URL, q in code)</text>
+    <text x="195" y="198" fill="#9c27b0" font-family="Inter, sans-serif" font-size="9" text-anchor="middle">Path() and Query() share the same parameter API ✓</text>
+  </g>
+</svg>

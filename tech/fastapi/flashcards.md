@@ -866,3 +866,60 @@ FastAPI detects all three sources from types alone — zero extra config.
 description: str | None = None   # truly optional — can be absent
 ```
 </details>
+
+---
+
+## L09 — Path Params: Numeric Validations
+
+**Q: What is the difference between `gt=0` and `ge=0`?**
+<details><summary>Answer</summary>
+
+- `gt=0` → "greater than 0" — **excludes** 0. Valid: 1, 2, 3...
+- `ge=0` → "greater than or equal to 0" — **includes** 0. Valid: 0, 1, 2...
+
+Memory: `e` in `ge`/`le` = "or Equal" = inclusive boundary. `gt`/`lt` = strict = exclusive.
+</details>
+
+---
+
+**Q: How do you add a title and numeric constraint to a path parameter?**
+<details><summary>Answer</summary>
+
+Use `Path()` inside `Annotated`:
+```python
+from typing import Annotated
+from fastapi import Path
+
+item_id: Annotated[int, Path(title="The ID of the item", ge=1, le=1000)]
+```
+</details>
+
+---
+
+**Q: Why do you need `*` in the function signature when NOT using Annotated with Path()?**
+<details><summary>Answer</summary>
+
+Without `Annotated`, `item_id = Path(...)` counts as having a default, but Python requires required params (no default) to come before defaulted params. If `q: str` comes after `item_id = Path(...)`, it's a `SyntaxError`.
+
+The bare `*` makes all subsequent params keyword-only, removing the ordering restriction. With `Annotated` this is unnecessary.
+</details>
+
+---
+
+**Q: Can a path parameter be optional?**
+<details><summary>Answer</summary>
+
+No. A path parameter IS part of the URL — without it, the URL matches a different route or returns 404. Path params are always required by definition. Use query params for truly optional values.
+</details>
+
+---
+
+**Q: Do `gt`/`ge`/`lt`/`le` work on float query params too?**
+<details><summary>Answer</summary>
+
+Yes — they work on any numeric type with both `Path()` and `Query()`:
+```python
+size: Annotated[float, Query(gt=0, lt=10.5)]
+```
+Both `Path()` and `Query()` share the same validation parameter API.
+</details>

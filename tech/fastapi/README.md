@@ -31,6 +31,7 @@ graph LR
 | 06 | [MiniAPI — Build Your Own](06-miniapi-build-your-own.md) | 🔴 | — |
 | 07 | [Query Parameters](07-query-params.md) | 🔴 | — |
 | 08 | [Request Body](08-request-body.md) | 🔴 | — |
+| 09 | [Path Params — Numeric Validations](09-path-params-numeric-validations.md) | 🔴 | — |
 
 ## 🧩 Memory Fragments
 > - FastAPI is ALL based on Python type hints — types aren't optional, they ARE the framework
@@ -55,6 +56,7 @@ graph LR
 | 06 | [MiniAPI — Build Your Own](06-miniapi-build-your-own.md) | Build a baby FastAPI from scratch — routing, Request, Response, Middleware | 15 min |
 | 07 | [Query Parameters](07-query-params.md) | optional/required/default/bool — everything after ? in the URL | 8 min |
 | 08 | [Request Body](08-request-body.md) | Pydantic BaseModel, required/optional fields, body+path+query combo | 10 min |
+| 09 | [Path Params — Numeric Validations](09-path-params-numeric-validations.md) | Path(), gt/ge/lt/le, Annotated, title/description metadata | 8 min |
 
 ---
 
