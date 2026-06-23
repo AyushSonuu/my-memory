@@ -9,4 +9,4 @@ dependencies = [
 ]
 
 [tool.fastapi]
-entrypoint = "main:app"
+entrypoint = "08_query_oparam_with_pydantic:app"
